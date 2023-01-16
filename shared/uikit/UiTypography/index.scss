@@ -1,0 +1,203 @@
+.ui-typography {
+    color: $cGrayDark;
+    font-size: 18px;
+    line-height: 140%;
+
+    @include isMobile {
+        font-size: 14px;
+        line-height: 140%;
+    }
+
+    * {
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    h2 {
+        margin: 40px 0 30px;
+        color: $cBlack2;
+        font-size: 32px;
+        line-height: 140%;
+
+        @include isMobile {
+            margin: 26px 0 20px;
+            font-size: 22px;
+        }
+
+        @include isTablet {
+            margin-top: 30px;
+            font-size: 24px;
+        }
+    }
+
+    h3 {
+        margin: 30px 0 28px;
+        color: $cBlack2;
+        font-size: 24px;
+        line-height: 29px;
+
+        @include isMobile {
+            margin: 24px 0 22px;
+            font-size: 20px;
+        }
+    }
+
+    h4 {
+        margin: 28px 0 24px;
+        color: $cBlack2;
+        font-size: 20px;
+        line-height: 120%;
+
+        @include isMobile {
+            margin: 20px 0;
+            font-size: 18px;
+        }
+    }
+
+    p {
+        margin: 25px 0;
+        font-size: 18px;
+        line-height: 140%;
+
+        @include isMobile {
+            margin: 22px 0;
+            font-size: 16px;
+        }
+    }
+
+    a {
+        color: $cPrimary;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    b,
+    strong {
+        color: $cBlack2;
+        font-weight: 500;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        margin: 30px 0;
+        border-radius: 20px;
+
+        @include isMobile {
+            margin: 24px 0;
+            border-radius: 12px;
+        }
+    }
+
+    blockquote {
+        position: relative;
+        max-width: 664px;
+        min-height: 106px;
+        padding: 24px 63px 24px 122px;
+        margin: 30px 0;
+        background: $cRedLight;
+        border-radius: 20px;
+        color: $cSecondary;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 120%;
+
+        @include isMobile {
+            padding: 17px 16px 17px 77px;
+            margin: 24px 0;
+            font-size: 17px;
+        }
+
+        &::before {
+            position: absolute;
+            top: 25px;
+            left: 36px;
+            width: 56px;
+            height: 56px;
+            background: url('/assets/images/typography/quote.svg') center no-repeat;
+            background-size: contain;
+            content: '';
+
+            @include isMobile {
+                top: 24px;
+                left: 17px;
+                width: 44px;
+                height: 44px;
+            }
+        }
+    }
+
+    ul {
+        padding: 0;
+        margin: 24px 0;
+        list-style: none;
+
+        li {
+            position: relative;
+            padding-left: 32px;
+
+            &:not(:last-child) {
+                margin-bottom: 18px;
+            }
+
+            &::before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 20px;
+                height: 20px;
+                background: url('/assets/images/typography/list.svg') center no-repeat;
+                background-size: contain;
+                content: '';
+            }
+        }
+    }
+
+    ol {
+        padding: 0;
+        margin: 30px 0;
+        list-style: none;
+        counter-reset: section;
+
+        li {
+            position: relative;
+            padding-left: 47px;
+
+            &:not(:last-child) {
+                margin-bottom: 30px;
+            }
+
+            &::before {
+                position: absolute;
+                top: -7px;
+                left: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 33px;
+                height: 33px;
+                background: $cSecondaryGradient;
+                border-radius: 27.027px;
+                color: $cWhite;
+                font-size: 16px;
+                line-height: 19px;
+                content: counter(section);
+                counter-increment: section;
+            }
+        }
+    }
+
+    time {
+        display: block;
+        margin: 20px 0;
+        color: #969696;
+        font-size: 20px;
+        line-height: 120%;
+    }
+}

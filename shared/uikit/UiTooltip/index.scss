@@ -1,0 +1,66 @@
+.ui-tooltip {
+    position: relative;
+
+    &__inner {
+        cursor: pointer;
+    }
+
+    &__inner:hover ~ &__outer {
+        display: block;
+    }
+
+    &__outer {
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        min-width: 280px;
+        margin-left: 12px;
+        padding: 16px 14px 12px;
+        background: $cWhite;
+        border-radius: 12px;
+        filter: drop-shadow(0px 2px 7px rgba(0, 0, 0, 0.12));
+        transform: translateY(-50%);
+        display: none;
+
+        @include media(0, $w1366) {
+            position: relative;
+            top: 0;
+            left: 0;
+            max-width: 192px;
+            margin: 10px 0 0;
+            padding: 0;
+            filter: none;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+        }
+
+        i {
+            position: absolute;
+            top: 50%;
+            left: -8px;
+            width: 10px;
+            height: 15px;
+            margin-top: -7px;
+            background-size: contain;
+            content: '';
+            display: block;
+
+            @include media(0, $w1366) {
+                display: none;
+            }
+        }
+    }
+
+    &__label {
+        font-size: 14px;
+        line-height: 140%;
+        color: $cBlack1;
+        white-space: pre;
+
+        @include media(0, $w1366) {
+            font-size: 12px;
+            line-height: 140%;
+        }
+    }
+}

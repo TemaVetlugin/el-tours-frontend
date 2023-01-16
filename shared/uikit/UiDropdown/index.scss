@@ -1,0 +1,74 @@
+.ui-dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    &__label {
+        font-size: 14px;
+        line-height: 120%;
+        white-space: nowrap;
+    }
+
+    &-control {
+        position: relative;
+        width: 100%;
+        cursor: pointer;
+
+        &__value {
+            color: $cSecondary;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 120%;
+        }
+
+        &__view {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        &__icon {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__items {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        display: none;
+        z-index: 100;
+        min-width: 100%;
+        margin-top: 5px;
+        box-shadow: 0px 2px 30px rgba(67, 67, 67, 0.1);
+        background: #FFFFFF;
+        border: 1px solid #DADADA;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    &--opened &__items {
+        display: block;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        cursor: pointer;
+        color: $cBlack2;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 100%;
+        white-space: nowrap;
+        transition: 0.2s;
+        gap: 8px;
+
+        &:hover {
+            background: $cGrayBackground;
+        }
+    }
+}

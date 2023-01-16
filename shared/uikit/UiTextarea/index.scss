@@ -1,0 +1,32 @@
+.ui-textarea {
+    position: relative;
+    font-size: 16px;
+    line-height: 120%;
+
+    &__control {
+        width: 100%;
+        padding-top: 14px;
+        padding-left: 20px;
+        border: 1px solid $cGray7;
+        border-radius: 12px;
+        color: $cBlack2;
+        resize: none;
+    }
+
+    .ui-form-control--error &__control {
+        border-color: $cSecondary;
+    }
+
+    &__control:placeholder-shown ~ &__placeholder {
+        opacity: 1;
+    }
+
+    &__placeholder {
+        position: absolute;
+        top: 14px;
+        left: 20px;
+        opacity: 0;
+        color: $cGrayTextLight;
+        pointer-events: none;
+    }
+}

@@ -1,0 +1,211 @@
+.p-product {
+    margin-bottom: 50px;
+
+    &__price {
+        display: inline-block;
+        padding: 14px 20px;
+        margin-right: 20px;
+        box-shadow: 0 1px 4px rgba(56, 56, 56, 0.15);
+        background: $cWhite2;
+        border-radius: 16px;
+        color: $cSecondary;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 120%;
+    }
+
+    &__main {
+        margin-bottom: 56px;
+
+        @include isMobileOrTablet() {
+            margin-bottom: 40px;
+        }
+    }
+
+    &-content {
+        &__header {
+            margin-bottom: 60px;
+
+            @include is768 {
+                margin-bottom: 40px;
+            }
+
+            @include is360 {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    &__tabs {
+        margin-bottom: 60px;
+    }
+
+    &__badges {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        z-index: 2;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__badge {
+        display: flex;
+        z-index: 2;
+        align-items: center;
+        height: 32px;
+        padding: 7px 18px;
+        background: $cPrimary;
+        border-radius: 40px;
+        color: $cWhite;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 120%;
+    }
+
+    &__name {
+        margin: 0 0 30px;
+        color: $cBlack2;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 100%;
+    }
+
+    &-info {
+        &__footer {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+
+            @include isMobileOrTablet {
+                flex-direction: column;
+                gap: 14px;
+            }
+        }
+
+        &__properties {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            margin-bottom: 24px;
+            color: $cGrayText;
+            font-size: 20px;
+            line-height: 120%;
+            gap: 14px;
+
+            @include isMobileOrTablet() {
+                display: block;
+                margin-bottom: 8px;
+                font-size: 16px;
+            }
+        }
+
+        &-property {
+            &__label {
+                margin: 0 6px 0 0;
+                white-space: nowrap;
+
+                @include isMobileOrTablet() {
+                    width: 100%;
+                }
+            }
+
+            &__value {
+                margin: 0;
+                color: $cBlack2;
+                font-weight: 500;
+
+                @include isMobileOrTablet() {
+                    width: 100%;
+                    margin-bottom: 12px;
+                }
+            }
+        }
+    }
+
+    &-price {
+        width: fit-content;
+        padding: 14px 20px;
+        box-shadow: 0 1px 4px rgba(56, 56, 56, 0.15);
+        background: $cWhite2;
+        border-radius: 16px;
+        white-space: nowrap;
+
+        &__current {
+            color: $cSecondary;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 120%;
+        }
+
+        &__old {
+            position: relative;
+            display: table;
+            margin-top: 4px;
+            color: $cGray1;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 120%;
+
+            &::after {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: $cSecondary;
+                transform: translateY(-50%);
+                content: '';
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 18px 10px;
+    }
+
+    &__note {
+        width: 100%;
+        margin: 0;
+        color: $cSecondary;
+        font-size: 14px;
+        line-height: 120%;
+    }
+
+    &__favorite {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: $hControl;
+        height: $hControl;
+        background: $cPrimary2;
+        border: 1px solid $cPrimary;
+        border-radius: 10px;
+        cursor: pointer;
+
+        @include isMobileOrTablet() {
+            width: $hControlMobile;
+            height: $hControlMobile;
+        }
+
+        &:hover {
+            path {
+                fill: $cPrimary;
+            }
+        }
+
+        &--active {
+            path {
+                stroke: $cSecondary !important;
+                fill: $cSecondary !important;
+            }
+        }
+    }
+
+    &__share {
+        margin-top: 16px;
+    }
+}

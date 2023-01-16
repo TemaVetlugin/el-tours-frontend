@@ -1,0 +1,7 @@
+.layout-body {
+    padding: 40px 0;
+
+    @include isMobileOrTablet() {
+        padding: 20px 0;
+    }
+}

@@ -1,0 +1,10 @@
+.ui-card-panel {
+    background: #FBFBFB;
+    border: 1px solid #EDEDED;
+    border-radius: 12px;
+    padding: 30px;
+
+    @include is360($w1366) {
+        padding: 10px;
+    }
+}

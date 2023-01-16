@@ -1,0 +1,19 @@
+.ui-card {
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    background: $cWhite;
+    border-radius: 20px;
+
+    @include is768() {
+        padding: 20px;
+    }
+
+    @include is360() {
+        padding: 15px;
+    }
+
+    &--light {
+        padding: 24px;
+    }
+}

@@ -1,0 +1,84 @@
+.ui-empty {
+    padding: 110px 24px;
+    background: $cPrimary2;
+    border-radius: 16px;
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 410px;
+        margin: 0 auto;
+    }
+
+    &__image {
+        width: 152.25px;
+        height: 141px;
+        margin-bottom: 50px;
+        background: center no-repeat;
+        background-size: contain;
+        mix-blend-mode: luminosity;
+    }
+
+    &__title {
+        margin: 0 0 16px;
+        color: $cBlack2;
+        text-align: center;
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 120%;
+    }
+
+    &__description {
+        margin: 0 0 16px;
+        color: $cBlack2;
+        text-align: center;
+        font-size: 16px;
+        line-height: 120%;
+        white-space: break-spaces;
+    }
+
+    &__field {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    &-search {
+        position: relative;
+        width: 100%;
+        cursor: pointer;
+
+        &__icon {
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            margin-top: -10px;
+            pointer-events: none;
+        }
+
+        &__control {
+            width: 100%;
+            height: $hControl;
+            padding: 12px 14px 12px 48px;
+            background: $cWhite;
+            border: 1px solid $cGrayMedium;
+            border-radius: 40px;
+            outline: none;
+            color: $cBlack2;
+            font-size: 14px;
+            line-height: 120%;
+
+            @include isMobileOrTablet() {
+                height: $hControlMobile;
+            }
+
+            @include placeholder {
+                color: $cGray6;
+            }
+        }
+    }
+
+    &__link {
+        margin-top: 60px;
+    }
+}

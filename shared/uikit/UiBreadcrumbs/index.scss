@@ -1,0 +1,32 @@
+.ui-breadcrumbs {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 100%;
+    gap: 8px;
+
+    @include isMobileOrTablet() {
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        color: $cPrimary;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__current {
+        color: $cGrayText;
+    }
+
+    &__dot {
+        color: $cPrimary;
+        font-size: 15px;
+        line-height: 0;
+    }
+}

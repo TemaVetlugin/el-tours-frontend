@@ -1,0 +1,77 @@
+.layout-section {
+    &:not(&:last-child) {
+        margin-bottom: 60px;
+
+        @include is360() {
+            margin-bottom: 48px;
+        }
+    }
+
+    &-header {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 24px;
+
+        @include is360() {
+            margin-bottom: 16px;
+        }
+
+        &__inner {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            gap: 16px;
+        }
+
+        &__title {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            color: $cBlack2;
+            font-size: 26px;
+            font-weight: 500;
+            line-height: 120%;
+            gap: 8px;
+
+            @include is360() {
+                font-size: 16px;
+            }
+        }
+
+        &__badge {
+            display: flex;
+            align-items: center;
+            height: 36px;
+            padding: 0 14px;
+            margin-left: 16px;
+            border: 1px solid $cPrimary;
+            border-radius: 4px 20px;
+            color: $cPrimary;
+            text-align: center;
+            font-size: 16px;
+            line-height: 100%;
+        }
+
+        &__aside {
+            margin-left: auto;
+
+            .ui-link {
+                color: $cPrimary;
+                text-decoration: none;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 140%;
+                transition: $transition;
+
+                @include is360() {
+                    font-size: 14px;
+                }
+
+                &:hover {
+                    color: $cSecondary;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+.ui-checkbox {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    gap: 14px;
+
+    &__control {
+        position: absolute;
+        bottom: 0;
+        left: 5px;
+        opacity: 0;
+    }
+
+    &__icon {
+        width: 22px;
+        min-width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px $cGray4 solid;
+        transition: 0.3s;
+    }
+
+    &__control:checked ~ &__icon {
+        border: 1px $cPrimary solid;
+        background: $cPrimary;
+    }
+
+    &__label {
+        color: $cBlack2;
+        font-size: 14px;
+        line-height: 100%;
+        padding-top: 4px;
+        word-break: break-word;
+
+        a {
+            font-weight: 500;
+            color: $cPrimary;
+            text-decoration: none;
+            transition: 0.2s;
+
+            &:hover {
+                color: $cSecondary;
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.layout {
+    background: $cLayoutBackground;
+
+    @include isMobileOrTablet() {
+        padding: 64px 0;
+    }
+
+    &__overlay {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba($cBlack1, 0.5);
+    }
+}

@@ -1,0 +1,25 @@
+import { makeObservable, observable } from "mobx";
+
+import { Model } from "./Model";
+
+export interface I{{pascalCase name}}Model {
+{{{modelTypes properties}}}
+}
+
+export class {{pascalCase name}}Model extends Model<I{{pascalCase name}}Model> implements I{{pascalCase name}}Model {
+    fillable: Array<keyof I{{pascalCase name}}Model> = [
+{{{modelFillable properties}}}
+    ];
+
+{{{modelProperties properties}}}
+
+    constructor(payload?: I{{pascalCase name}}Model) {
+        super();
+
+        makeObservable(this, {
+{{{modelObservables properties}}}
+        });
+
+        this.update(payload);
+    }
+}

@@ -1,0 +1,80 @@
+.p-home-why-trust {
+    &-item {
+        align-self: stretch;
+        padding: 60px 40px 40px;
+        box-shadow: 0 4px 40px rgba(108, 108, 108, 0.1);
+        background: $cWhite;
+        border-radius: 40px;
+        text-align: center;
+
+        @include is1024() {
+            padding: 32px 16px;
+        }
+
+        @include is768() {
+            padding: 32px 16px;
+        }
+
+        @include is360() {
+            display: flex;
+            align-items: flex-start;
+            padding: 16px;
+            border-radius: 24px;
+            text-align: left;
+            gap: 16px;
+        }
+
+        &__icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 24px;
+            background: $cSecondaryGradient;
+            border-radius: 100%;
+
+            @include is360() {
+                width: 48px;
+                height: 48px;
+                min-width: 48px;
+                margin: 0;
+            }
+        }
+
+        &__image {
+            width: 35px;
+            height: 35px;
+            background-position: center;
+            background-size: contain;
+
+            @include is360() {
+                width: 22px;
+                height: 22px;
+            }
+        }
+
+        &__title {
+            margin-bottom: 8px;
+            color: $cBlack1;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 120%;
+            word-break: break-word;
+
+            @include is360() {
+                font-size: 20px;
+            }
+        }
+
+        &__description {
+            color: $cGrayMedium;
+            font-size: 16px;
+            line-height: 140%;
+
+            @include is360() {
+                font-size: 14px;
+            }
+        }
+    }
+}

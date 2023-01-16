@@ -1,0 +1,14 @@
+import { request } from "shared/utilities";
+
+type ParamsType = {
+}
+
+type ResponseType = {
+}
+
+export const {{camelCase name}}Request = async (params?: ParamsType) => {
+    return await request.get<ResponseType>({
+        endpoint: '/{{url name}}',
+        params,
+    });
+}

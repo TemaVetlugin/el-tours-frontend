@@ -1,0 +1,103 @@
+@mixin media($nWidthMin: $w360, $nWidthMax: $wMax) {
+    @media (min-width: #{$nWidthMin}) and (max-width: $nWidthMax - 1) {
+        @content;
+    }
+}
+
+/// mobile + tablet
+@mixin isMobileOrTablet() {
+    @media (min-width: $w360) and (max-width: $w1024 - 1) {
+        @content;
+    }
+}
+
+/// 0 - 768
+@mixin is360($nWidthMax: $w768) {
+    @media (min-width: $w360) and (max-width: $nWidthMax - 1) {
+        @content;
+    }
+}
+@mixin isMobile() {
+    @media (min-width: $w360) and (max-width: $w768 - 1) {
+        @content;
+    }
+}
+
+/// 768 - 1024
+@mixin is768($nWidthMax: $w1024) {
+    @media (min-width: $w768) and (max-width: $nWidthMax - 1) {
+        @content;
+    }
+}
+@mixin isTablet() {
+    @media (min-width: $w768) and (max-width: $w1024 - 1) {
+        @content;
+    }
+}
+
+/// 1024 - 1366
+@mixin is1024($nWidthMax: $w1366) {
+    @media (min-width: $w1024) and (max-width: $nWidthMax - 1) {
+        @content;
+    }
+}
+
+/// 1366+
+@mixin is1366($nWidthMax: $wMax) {
+    @media (min-width: $w1366) and (max-width: $nWidthMax - 1) {
+        @content;
+    }
+}
+
+@mixin iconColor($color) {
+    @include iconStroke($color);
+    @include iconFill($color);
+}
+
+@mixin iconStroke($color) {
+    .ui-icon {
+        path[stroke] {
+            stroke: $color;
+        }
+    }
+}
+
+@mixin iconFill($color) {
+    .ui-icon {
+        path[fill] {
+            fill: $color;
+        }
+    }
+}
+
+@mixin link($color) {
+    color: $color;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+@mixin modifiers($firstModifier, $otherModifiers...) {
+    $result: '';
+    @for $i from 0 to length($otherModifiers) {
+        $modifier: nth($otherModifiers, $i + 1);
+        $result: "#{$result}#{&}--#{$modifier}";
+    }
+    &--#{$firstModifier}#{$result} {
+        @content;
+    }
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content
+    }
+    &:-moz-placeholder {
+        @content
+    }
+    &::-moz-placeholder {
+        @content
+    }
+    &:-ms-input-placeholder {
+        @content
+    }
+}

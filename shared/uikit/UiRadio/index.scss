@@ -1,0 +1,60 @@
+.ui-radio {
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    &--flat &__inner {
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+    }
+
+    &-item {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &__control {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            opacity: 0;
+        }
+
+        &__control:checked ~ &__icon {
+            border: 1px solid $cPrimary;
+
+            span {
+                display: block;
+            }
+        }
+
+        &__icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 22px;
+            height: 22px;
+            margin-right: 14px;
+            border: 1px solid $cGray4;
+            border-radius: 100%;
+
+            span {
+                display: none;
+                width: 14px;
+                height: 14px;
+                background: $cPrimary;
+                border-radius: 100%;
+            }
+        }
+
+        &__label {
+            color: $cBlack2;
+            font-size: 16px;
+            line-height: 100%;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+.ui-social-share {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &__text {
+        margin-right: 10px;
+        font-size: 18px;
+        line-height: 140%;
+        color: $cBlack2;
+        transition: color $transition;
+
+        @include isMobile {
+            font-size: 16px;
+        }
+    }
+
+    &:hover &__text {
+        color: $cPrimary;
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: $cWhite;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 100px;
+    }
+
+    &:hover &__icon {
+        @include iconColor($cPrimary);
+    }
+}

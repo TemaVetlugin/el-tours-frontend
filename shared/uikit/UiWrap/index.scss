@@ -1,0 +1,13 @@
+.ui-wrap {
+    max-width: 1370px;
+    margin: 0 auto;
+    padding: 0 38px;
+
+    @include isMobile {
+        padding: 0 10px;
+    }
+
+    @include media($w768, $w1366) {
+        padding: 0 24px;
+    }
+}

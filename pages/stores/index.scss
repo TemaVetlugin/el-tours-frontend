@@ -1,0 +1,77 @@
+.p-stores {
+    &-map {
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+    &-panel {
+        padding: 30px 24px;
+        margin-bottom: 24px;
+        background: $cGray9;
+        border: 1px solid $cGray3;
+        border-radius: 12px;
+
+        &__header {
+            margin-bottom: 24px;
+        }
+
+        &__items {
+            display: flex;
+            flex-direction: column;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 5px;
+            gap: 16px;
+        }
+    }
+
+    &-item {
+        display: flex;
+        align-items: flex-start;
+        padding: 24px;
+        box-shadow: 0 1px 6px rgba(92, 92, 92, 0.15);
+        background: $cWhite;
+        border-radius: 12px;
+        cursor: pointer;
+        text-decoration: none;
+        gap: 32px;
+
+        @include isMobile {
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        &__name {
+            width: 30%;
+            color: $cBlack2;
+            font-size: 20px;
+            line-height: 140%;
+            transition: $transition;
+
+            @include isMobile {
+                width: 100%;
+            }
+        }
+
+        &:hover &__name {;
+            color: $cPrimary
+        }
+
+        &__worktime {
+            color: $cGrayText;
+            text-transform: uppercase;
+            font-size: 17px;
+            line-height: 140%;
+            white-space: break-spaces;
+        }
+
+        &__phone {
+            flex: 1;
+            color: $cPrimary;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 140%;
+        }
+    }
+}

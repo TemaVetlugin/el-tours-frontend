@@ -1,0 +1,16 @@
+.ui-checklist {
+    width: 100%;
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 1px;
+        gap: 18px;
+    }
+
+    &--flat {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+}

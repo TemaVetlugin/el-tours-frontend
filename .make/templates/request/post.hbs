@@ -1,0 +1,14 @@
+import { request } from "shared/utilities";
+
+type PayloadType = {
+}
+
+type ResponseType = {
+}
+
+export const {{camelCase name}}Request = async (payload: PayloadType) => {
+    return await request.post<ResponseType>({
+        endpoint: '/{{url name}}',
+        payload,
+    });
+}

@@ -1,0 +1,161 @@
+.ui-card-tile {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-bottom: 100%;
+    box-shadow: 0 4px 40px rgba(162, 162, 162, 0.1);
+    background: $cWhite;
+    border-radius: 40px;
+    text-decoration: none;
+
+    @include is1024() {
+        height: 272px;
+        padding-bottom: 0;
+    }
+
+    @include is360() {
+        height: auto;
+        padding-bottom: 0;
+    }
+
+    &__inner {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 40px;
+
+        @include is360() {
+            position: relative;
+            flex-direction: row;
+            padding: 12px 24px;
+            gap: 16px;
+        }
+    }
+
+    &__preview {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        @include isMobile() {
+            position: relative;
+            width: 32px;
+            flex: 0;
+        }
+    }
+
+    &__image {
+        width: 120px;
+        height: 120px;
+        background: center no-repeat;
+        background-size: contain;
+
+        @include is360() {
+            flex: none;
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    &__name {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: $cBlack2;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 22px;
+
+        @include is360() {
+            text-align: left;
+            margin-top: 0;
+        }
+    }
+
+    &-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        background: linear-gradient(45.88deg, #76ab6a 15.35%, #b3d8a9 95.19%);
+        border-radius: inherit;
+        opacity: 0;
+        transition: opacity $transition;
+        overflow: hidden;
+
+        @include isMobileOrTablet() {
+            display: none;
+        }
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 1;
+            width: 153px;
+            height: 153px;
+            margin: -76px 0 0 -76px;
+            background: $cPrimary;
+            border-radius: 100%;
+            content: '';
+            filter: blur(60px);
+        }
+
+        &__preview {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__image {
+            width: 100px;
+            height: 100px;
+            background: center no-repeat;
+            background-size: contain;
+
+            @include is360() {
+                display: none;
+            }
+        }
+
+        &__name {
+            position: relative;
+            z-index: 1;
+            color: $cWhite;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 140%;
+        }
+    }
+
+    &:hover &-overlay {
+        opacity: 1;
+    }
+}

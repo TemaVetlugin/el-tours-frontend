@@ -1,0 +1,44 @@
+.layout-to-top {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    background: $cPrimaryGradient;
+    border-radius: 100%;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.25s;
+    pointer-events: none;
+    z-index: 20;
+
+    @include isMobileOrTablet() {
+        bottom: 120px;
+        right: 8px;
+    }
+
+    &::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $cPrimary;
+        border-radius: 100%;
+        opacity: 0;
+        transition: 0.25s;
+        content: '';
+    }
+
+    &:hover::before {
+        opacity: 1;
+    }
+
+    &--active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}

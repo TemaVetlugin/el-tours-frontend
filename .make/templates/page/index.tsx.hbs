@@ -1,0 +1,40 @@
+import { observer } from "mobx-react";
+import { GetServerSideProps, NextPage } from 'next'
+import Head from 'next/head'
+
+import { Layout } from "shared/layout";
+import { ReturnType } from "shared/types";
+import { getApplicationData } from "shared/server";
+import { UiBoundary, UiWrap } from "shared/uikit";
+import { BootstrapModule } from "shared/modules";
+
+import './index.scss';
+
+type PropsType = {
+    application: ReturnType<typeof getApplicationData>
+}
+
+const {{pascalCase name}}Page: NextPage<PropsType> = observer(({ application }) => {
+    BootstrapModule.application(application);
+
+    return (
+        <Layout>
+            <Head>
+                <title>{{name}}</title>
+            </Head>
+            <UiWrap>
+                <UiBoundary isError onAction={() => {}}/>
+            </UiWrap>
+        </Layout>
+    )
+});
+
+export const getServerSideProps: GetServerSideProps<PropsType> = async (context) => {
+    return {
+        props: {
+            application: await getApplicationData(),
+        },
+    }
+}
+
+export default {{pascalCase name}}Page;

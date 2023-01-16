@@ -1,0 +1,54 @@
+.ui-form-control {
+    position: relative;
+
+    &__label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 14px;
+        line-height: 120%;
+        gap: 2px;
+
+        @include is360() {
+            margin-bottom: 4px;
+        }
+
+        span {
+            color: $cSecondary;
+        }
+    }
+
+    &__inner {
+
+    }
+
+    &__error {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 0px;
+        color: $cSecondary;
+        font-size: 10px;
+        white-space: nowrap;
+
+        @include is360() {
+            position: relative;
+            white-space: pre-line;
+        }
+    }
+
+    &__hint {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 3px;
+        color: $cGray7;
+        font-size: 12px;
+        white-space: nowrap;
+
+        @include is360() {
+            position: relative;
+            white-space: pre-line;
+        }
+    }
+}
