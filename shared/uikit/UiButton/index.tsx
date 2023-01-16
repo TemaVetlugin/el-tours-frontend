@@ -27,7 +27,8 @@ type PropsType = {
         label?: [string, string] | string,
         border?: [string, string] | string,
     },
-    isDisabled?: boolean
+    isDisabled?: boolean,
+    iconOnly?: boolean,
 }
 
 export const UiButton = observer((
@@ -43,13 +44,15 @@ export const UiButton = observer((
         className,
         colors: _colors,
         isLoading = false,
-        isDisabled = false
+        isDisabled = false,
+        iconOnly = false,
     }: PropsType
 ) => {
     const { ref, isHovered } = useHover<any>();
     const classNames = classnames('ui-button', `ui-button--${size}`, className, {
         'ui-button--rounded': isRounded,
         'ui-button--disabled': isDisabled,
+        'ui-button--icon': iconOnly,
     });
 
     const colors = {
