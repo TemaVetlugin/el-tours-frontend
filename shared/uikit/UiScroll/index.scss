@@ -13,8 +13,8 @@
         right: 1px;
         bottom: 0;
         width: 8px !important;
-        background: $cLightGray;
-        border-radius: 4px;
+        background: $cGrayLight;
+        border-radius: 40px;
         transform: scaleX(0.5);
         transition: $transition;
 
@@ -24,8 +24,8 @@
     }
 
     &__thumb {
-        background: $cGrayMedium;
-        border-radius: 4px;
+        background: $cGrayDark;
+        border-radius: 40px;
         cursor: grabbing;
     }
 }

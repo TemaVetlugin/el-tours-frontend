@@ -56,10 +56,10 @@ export const UiSelect = observer((
                 {!item && <div className="ui-select-view__placeholder">{placeholder}</div>}
                 <div className="ui-select-view__icon">
                     <UiIcon
-                        key={store.isOpened ? 'arrowTop' : 'arrowBottom'} //disable animation
-                        name={store.isOpened ? 'arrowTop' : 'arrowBottom'}
-                        size={10}
-                        color={COLORS.PRIMARY}
+                        key={store.isOpened ? 'chevronUp' : 'chevronDown'} //disable animation
+                        name={store.isOpened ? 'chevronUp' : 'chevronDown'}
+                        size={24}
+                        color={COLORS.GRAY_DARK}
                     />
                 </div>
             </div>

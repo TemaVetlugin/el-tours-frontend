@@ -3,47 +3,29 @@ import { IconType } from "./index";
 
 export const trash: IconType = (size, colors) => (
     <svg width={size[0]} height={size[1]} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g clipPath="url(#clip0_1534_120722)">
-            <path
-                d="M20.25 5.25H3.75"
-                stroke={colors[0]}
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-            <path
-                d="M9.75 9.75V15.75"
-                stroke={colors[0]}
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-            <path
-                d="M14.25 9.75V15.75"
-                stroke={colors[0]}
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-            <path
-                d="M18.75 5.25V19.5C18.75 19.6989 18.671 19.8897 18.5303 20.0303C18.3897 20.171 18.1989 20.25 18 20.25H6C5.80109 20.25 5.61032 20.171 5.46967 20.0303C5.32902 19.8897 5.25 19.6989 5.25 19.5V5.25"
-                stroke={colors[0]}
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-            <path
-                d="M15.75 5.25V3.75C15.75 3.35218 15.592 2.97064 15.3107 2.68934C15.0294 2.40804 14.6478 2.25 14.25 2.25H9.75C9.35218 2.25 8.97064 2.40804 8.68934 2.68934C8.40804 2.97064 8.25 3.35218 8.25 3.75V5.25"
-                stroke={colors[0]}
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-        </g>
-        <defs>
-            <clipPath id="clip0_1534_120722">
-                <rect width="24" height="24" fill="white"/>
-            </clipPath>
-        </defs>
+        <path
+            d="M3 6H5H21"
+            stroke={colors[0]}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z"
+            stroke={colors[0]}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M10 11V17"
+            stroke={colors[0]}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M14 11V17"
+            stroke={colors[0]}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
     </svg>
 );

@@ -2,8 +2,9 @@
     position: relative;
     display: flex;
     align-items: flex-start;
+    width: fit-content;
     cursor: pointer;
-    gap: 14px;
+    gap: 8px;
 
     &__control {
         position: absolute;
@@ -13,26 +14,26 @@
     }
 
     &__icon {
-        width: 22px;
-        min-width: 22px;
-        height: 22px;
-        border-radius: 6px;
+        width: 24px;
+        min-width: 24px;
+        height: 24px;
+        border-radius: 4px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px $cGray4 solid;
+        border: 2px $cGrayDark solid;
         transition: 0.3s;
     }
 
     &__control:checked ~ &__icon {
-        border: 1px $cPrimary solid;
-        background: $cPrimary;
+        border: 2px $cGrayDark solid;
+        background: $cGrayDark;
     }
 
     &__label {
-        color: $cBlack2;
+        color: $cBlackText;
         font-size: 14px;
-        line-height: 100%;
+        line-height: 18px;
         padding-top: 4px;
         word-break: break-word;
 

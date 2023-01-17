@@ -37,7 +37,7 @@ export const UiModal = observer((
             <div className="ui-modal__body" style={{ width }}>
                 {onClose && (
                     <div className='ui-modal__close' onClick={onClose}>
-                        <UiIcon size={30} name={'closeCircle'} color={COLORS.BLACK_MEDIUM}/>
+                        <UiIcon size={16} name={'close'} color={COLORS.PRIMARY}/>
                     </div>
                 )}
                 {title && (<div className="ui-modal__title">{title}</div>)}

@@ -32,7 +32,7 @@ export const UiCheckbox = observer(({ label, name = 'ui-checkbox', className, on
                 value='1'
             />
             <div className="ui-checkbox__icon">
-                <UiIcon name='check' size={14} color={COLORS.WHITE}/>
+                <UiIcon name='check14' size={14} color={COLORS.WHITE}/>
             </div>
             {label && <span className="ui-checkbox__label">{label}</span>}
         </label>

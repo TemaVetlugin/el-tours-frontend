@@ -1,8 +1,10 @@
 .ui-radio {
+    width: fit-content;
+
     &__inner {
         display: flex;
         flex-direction: column;
-        gap: 18px;
+        gap: 12px;
     }
 
     &--flat &__inner {
@@ -25,21 +27,25 @@
         }
 
         &__control:checked ~ &__icon {
-            border: 1px solid $cPrimary;
+            border: 2px solid $cPrimary;
 
             span {
                 display: block;
             }
         }
 
+        //&__control:read-only ~ &__icon {
+        //    opacity: 0.5;
+        //}
+
         &__icon {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 22px;
-            height: 22px;
-            margin-right: 14px;
-            border: 1px solid $cGray4;
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            border: 2px solid $cGrayDark;
             border-radius: 100%;
 
             span {
@@ -52,9 +58,13 @@
         }
 
         &__label {
-            color: $cBlack2;
-            font-size: 16px;
-            line-height: 100%;
+            color: $cBlackText;
+            font-size: 14px;
+            line-height: 18px;
         }
+
+        //&__control:read-only ~ &__label {
+        //    opacity: 0.5;
+        //}
     }
 }

@@ -2,15 +2,31 @@ import { observer } from "mobx-react";
 import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 
-import { Layout } from "shared/layout";
+import { Layout, LayoutTitle } from "shared/layout";
 import { ReturnType } from "shared/types";
 import { getApplicationData } from "shared/server";
-import { UiBoundary, UiButton, UiCard, UiCheckbox, UiIcon, UiRange, UiWrap } from "shared/uikit";
+import {
+    UiBoundary,
+    UiButton,
+    UiCard,
+    UiCheckbox,
+    UiIcon,
+    UiRange,
+    UiWrap,
+    UiFormControl,
+    UiGrid,
+    UiInput,
+    UiTextarea,
+    UiRadio,
+    UiSelect, UiTabs, UiSeo, UiBreadcrumbs, UiPagination, UiQuantity
+} from "shared/uikit";
 import { useObservable } from "shared/hooks";
 import { BootstrapModule } from "shared/modules";
 import { CCatalogProductsGrid } from "shared/components";
-import { COLORS, ROUTES } from "shared/contants";
+import { COLORS, MENU, ROUTES } from "shared/contants";
 import React from "react";
+import { getTabsItems } from "../product/utilities/getTabsItems";
+import { CatalogProductModel } from "shared/models";
 
 type PropsType = {
     application: ReturnType<typeof getApplicationData>
@@ -25,81 +41,363 @@ const TestPage: NextPage<PropsType> = observer(({ application }) => {
 
     return (
         <Layout>
-            <Head>
-                <title>Test</title>
-            </Head>
+            <UiSeo title={'Тестовая страница'}/>
             <UiWrap>
-                <UiButton
-                    label="Название кнопки"
-                    colors={{
-                        button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
-                        label: [COLORS.WHITE, COLORS.WHITE]
-                    }}
-                />
-                <UiButton
-                    colors={{
-                        button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
-                        label: [COLORS.WHITE, COLORS.WHITE]
-                    }}
-                >
-                    <UiIcon size={24} name={'cart'} color={COLORS.WHITE}/>
-                    <span>Название кнопки</span>
-                </UiButton>
-                <UiButton
-                    colors={{
-                        button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
-                        label: [COLORS.WHITE, COLORS.WHITE]
-                    }}
-                >
-                    <span>Название кнопки</span>
-                    <UiIcon size={24} name={'cart'} color={COLORS.WHITE}/>
-                </UiButton>
-                <UiButton
-                    label="Название кнопки"
-                    colors={{
-                        button: [COLORS.WHITE, COLORS.BLUE_LIGHT],
-                        border: [COLORS.PRIMARY, COLORS.PRIMARY],
-                        label: [COLORS.PRIMARY, COLORS.PRIMARY]
-                    }}
-                />
-                <UiButton
-                    label="Название кнопки"
-                    href={""}
-                    colors={{
-                        button: [COLORS.WHITE, COLORS.BLUE_LIGHT],
-                        label: [COLORS.PRIMARY, COLORS.PRIMARY]
-                    }}
-                />
-                <UiButton
-                    size="large"
-                    iconOnly={true}
-                    colors={{
-                        button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
-                        label: [COLORS.WHITE, COLORS.WHITE]
-                    }}
-                >
-                    <UiIcon size={24} name={'cart'} color={COLORS.WHITE}/>
-                </UiButton>
-                <UiButton
-                    iconOnly={true}
-                    colors={{
-                        button: [COLORS.WHITE, COLORS.BLUE_LIGHT],
-                        border: [COLORS.PRIMARY, COLORS.PRIMARY],
-                        label: [COLORS.PRIMARY, COLORS.PRIMARY]
-                    }}
-                >
-                    <UiIcon size={24} name={'cart'} color={COLORS.PRIMARY}/>
-                </UiButton>
-                <UiButton
-                    iconOnly={true}
-                    colors={{
-                        button: [COLORS.WHITE, COLORS.BLUE_LIGHT],
-                        label: [COLORS.PRIMARY, COLORS.PRIMARY]
-                    }}
-                >
-                    <UiIcon size={24} name={'cart'} color={COLORS.PRIMARY}/>
-                </UiButton>
-
+                <UiBreadcrumbs items={[MENU.CART(), MENU.CHECKOUT()]}/>
+                <LayoutTitle value={'Заголовок страницы'}/>
+                <UiGrid gap={20}>
+                    <h2>Icons</h2>
+                    <UiGrid columns={20} gap={20}>
+                        <UiIcon size={24} name="check14"/>
+                        <UiIcon size={24} name="overPerformed"/>
+                        <UiIcon size={24} name="plus"/>
+                        <UiIcon size={24} name="minus"/>
+                        <UiIcon size={24} name="minusSquare"/>
+                        <UiIcon size={24} name="plusSquare"/>
+                        <UiIcon size={24} name="checkSquare"/>
+                        <UiIcon size={24} name="plusCircle"/>
+                        <UiIcon size={24} name="minusCircle"/>
+                        <UiIcon size={24} name="chevronDown"/>
+                        <UiIcon size={24} name="chevronLeft"/>
+                        <UiIcon size={24} name="chevronRight"/>
+                        <UiIcon size={24} name="chevronUp"/>
+                        <UiIcon size={24} name="phone"/>
+                        <UiIcon size={24} name="menu"/>
+                        <UiIcon size={24} name="menuOpen"/>
+                        <UiIcon size={24} name="search"/>
+                        <UiIcon size={24} name="box"/>
+                        <UiIcon size={24} name="cart"/>
+                        <UiIcon size={24} name="heart"/>
+                        <UiIcon size={24} name="user"/>
+                        <UiIcon size={24} name="stocks"/>
+                        <UiIcon size={24} name="more"/>
+                        <UiIcon size={24} name="rub"/>
+                        <UiIcon size={24} name="bookmark"/>
+                        <UiIcon size={24} name="arrowUpRight"/>
+                        <UiIcon size={24} name="sortDown"/>
+                        <UiIcon size={24} name="sortUp"/>
+                        <UiIcon size={24} name="close"/>
+                        <UiIcon size={24} name="share"/>
+                        <UiIcon size={24} name="exit"/>
+                        <UiIcon size={24} name="calendar"/>
+                        <UiIcon size={24} name="edit"/>
+                        <UiIcon size={24} name="trash"/>
+                        <UiIcon size={24} name="filter"/>
+                        <UiIcon size={24} name="arrowRotate"/>
+                        <UiIcon size={24} name="warning"/>
+                        <UiIcon size={24} name="download"/>
+                    </UiGrid>
+                    <h2>Buttons</h2>
+                    <UiGrid columns={5} gap={20}>
+                        <UiFormControl>
+                            <UiButton
+                                size="large"
+                                iconOnly={true}
+                                colors={{
+                                    button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                    label: [COLORS.WHITE, COLORS.WHITE]
+                                }}
+                            >
+                                <UiIcon size={24} name={'cart'} color={COLORS.WHITE}/>
+                            </UiButton>
+                        </UiFormControl>
+                        <UiFormControl>
+                            <UiButton
+                                label="Название кнопки"
+                                colors={{
+                                    button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                    label: [COLORS.WHITE, COLORS.WHITE]
+                                }}
+                            />
+                        </UiFormControl>
+                        <UiFormControl>
+                            <UiButton
+                                colors={{
+                                    button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                    label: [COLORS.WHITE, COLORS.WHITE]
+                                }}
+                            >
+                                <UiIcon size={24} name={'cart'} color={COLORS.WHITE}/>
+                                <span>Название кнопки</span>
+                            </UiButton>
+                        </UiFormControl>
+                        <UiFormControl>
+                            <UiButton
+                                colors={{
+                                    button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                    label: [COLORS.WHITE, COLORS.WHITE]
+                                }}
+                            >
+                                <span>Название кнопки</span>
+                                <UiIcon size={24} name={'cart'} color={COLORS.WHITE}/>
+                            </UiButton>
+                        </UiFormControl>
+                        <UiFormControl>
+                            <UiButton
+                                label="Название кнопки"
+                                colors={{
+                                    button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                    label: [COLORS.WHITE, COLORS.WHITE]
+                                }}
+                                isDisabled={true}
+                            />
+                        </UiFormControl>
+                        <UiFormControl>
+                            <UiButton
+                                iconOnly={true}
+                                colors={{
+                                    button: [COLORS.WHITE, COLORS.BLUE_LIGHT],
+                                    border: [COLORS.PRIMARY, COLORS.PRIMARY],
+                                    label: [COLORS.PRIMARY, COLORS.PRIMARY]
+                                }}
+                            >
+                                <UiIcon size={24} name={'cart'} color={COLORS.PRIMARY}/>
+                            </UiButton>
+                        </UiFormControl>
+                        <UiFormControl>
+                            <UiButton
+                                label="Название кнопки"
+                                colors={{
+                                    button: [COLORS.WHITE, COLORS.BLUE_LIGHT],
+                                    border: [COLORS.PRIMARY, COLORS.PRIMARY],
+                                    label: [COLORS.PRIMARY, COLORS.PRIMARY]
+                                }}
+                            />
+                        </UiFormControl>
+                        <UiFormControl>
+                            <UiButton
+                                colors={{
+                                    button: [COLORS.WHITE, COLORS.BLUE_LIGHT],
+                                    border: [COLORS.PRIMARY, COLORS.PRIMARY],
+                                    label: [COLORS.PRIMARY, COLORS.PRIMARY]
+                                }}
+                            >
+                                <UiIcon size={24} name={'cart'} color={COLORS.PRIMARY}/>
+                                <span>Название кнопки</span>
+                            </UiButton>
+                        </UiFormControl>
+                        <UiFormControl>
+                            <UiButton
+                                colors={{
+                                    button: [COLORS.WHITE, COLORS.BLUE_LIGHT],
+                                    border: [COLORS.PRIMARY, COLORS.PRIMARY],
+                                    label: [COLORS.PRIMARY, COLORS.PRIMARY]
+                                }}
+                            >
+                                <span>Название кнопки</span>
+                                <UiIcon size={24} name={'cart'} color={COLORS.PRIMARY}/>
+                            </UiButton>
+                        </UiFormControl>
+                        <UiFormControl>
+                            <UiButton
+                                label="Название кнопки"
+                                colors={{
+                                    button: [COLORS.WHITE, COLORS.BLUE_LIGHT],
+                                    border: [COLORS.PRIMARY, COLORS.PRIMARY],
+                                    label: [COLORS.PRIMARY, COLORS.PRIMARY]
+                                }}
+                                isDisabled={true}
+                            />
+                        </UiFormControl>
+                        <UiFormControl>
+                            <UiButton
+                                iconOnly={true}
+                                colors={{
+                                    button: [COLORS.WHITE, COLORS.BLUE_LIGHT],
+                                    label: [COLORS.PRIMARY, COLORS.PRIMARY]
+                                }}
+                            >
+                                <UiIcon size={24} name={'cart'} color={COLORS.PRIMARY}/>
+                            </UiButton>
+                        </UiFormControl>
+                        <UiFormControl>
+                            <UiButton
+                                label="Название кнопки"
+                                colors={{
+                                    button: [COLORS.WHITE, COLORS.BLUE_LIGHT],
+                                    label: [COLORS.PRIMARY, COLORS.PRIMARY]
+                                }}
+                            />
+                        </UiFormControl>
+                        <UiFormControl>
+                            <UiButton
+                                colors={{
+                                    button: [COLORS.WHITE, COLORS.BLUE_LIGHT],
+                                    label: [COLORS.PRIMARY, COLORS.PRIMARY]
+                                }}
+                            >
+                                <UiIcon size={24} name={'cart'} color={COLORS.PRIMARY}/>
+                                <span>Название кнопки</span>
+                            </UiButton>
+                        </UiFormControl>
+                        <UiFormControl>
+                            <UiButton
+                                colors={{
+                                    button: [COLORS.WHITE, COLORS.BLUE_LIGHT],
+                                    label: [COLORS.PRIMARY, COLORS.PRIMARY]
+                                }}
+                            >
+                                <span>Название кнопки</span>
+                                <UiIcon size={24} name={'cart'} color={COLORS.PRIMARY}/>
+                            </UiButton>
+                        </UiFormControl>
+                        <UiFormControl>
+                            <UiButton
+                                label="Название кнопки"
+                                href={""}
+                                colors={{
+                                    button: [COLORS.WHITE, COLORS.BLUE_LIGHT],
+                                    label: [COLORS.PRIMARY, COLORS.PRIMARY]
+                                }}
+                                isDisabled={true}
+                            />
+                        </UiFormControl>
+                    </UiGrid>
+                    <h2>Inputs</h2>
+                    <UiGrid columns={5} gap={20}>
+                        <UiFormControl>
+                            <UiInput placeholder="Label"/>
+                        </UiFormControl>
+                        <UiFormControl label="Label">
+                            <UiInput placeholder="Placeholder"/>
+                        </UiFormControl>
+                        <UiFormControl hint="Helper text area">
+                            <UiInput placeholder="Label"/>
+                        </UiFormControl>
+                        <UiFormControl errorMessage="Helper text area">
+                            <UiInput placeholder="Label"/>
+                        </UiFormControl>
+                        <UiFormControl>
+                            <UiQuantity value={1}/>
+                        </UiFormControl>
+                    </UiGrid>
+                    <h2>Textarea</h2>
+                    <UiGrid columns={5} gap={20}>
+                        <UiFormControl>
+                            <UiTextarea
+                                placeholder="Label"
+                                rows={6}
+                            />
+                        </UiFormControl>
+                        <UiFormControl label="Helper text area">
+                            <UiTextarea
+                                placeholder="Label"
+                                rows={6}
+                            />
+                        </UiFormControl>
+                        <UiFormControl hint="Helper text area">
+                            <UiTextarea
+                                placeholder="Placeholder"
+                                rows={6}
+                            />
+                        </UiFormControl>
+                        <UiFormControl errorMessage="Helper text area">
+                            <UiTextarea
+                                placeholder="Placeholder"
+                                rows={6}
+                            />
+                        </UiFormControl>
+                    </UiGrid>
+                    <h2>checkbox & radiobutton & tab</h2>
+                    <UiGrid columns={3} gap={20}>
+                        <UiGrid gap={20}>
+                            <UiFormControl>
+                                <UiCheckbox
+                                    name={'Default'}
+                                    label='Default'
+                                />
+                            </UiFormControl>
+                            <UiFormControl>
+                                <UiCheckbox
+                                    value={1}
+                                    name={'Default'}
+                                    label='Checked'
+                                />
+                            </UiFormControl>
+                        </UiGrid>
+                        <UiGrid gap={20}>
+                            <UiFormControl>
+                                <UiRadio
+                                    value="Selected"
+                                    name={'radio'}
+                                    items={[
+                                        { id: 'Default', name: 'Default' },
+                                        { id: 'Selected', name: 'Selected' },
+                                    ]}
+                                />
+                            </UiFormControl>
+                        </UiGrid>
+                        <UiGrid>
+                            <UiTabs
+                                items={[
+                                    {
+                                        id: 1,
+                                        name: 'Tab1',
+                                    },
+                                    {
+                                        id: 2,
+                                        name: 'Tab2',
+                                    },
+                                    {
+                                        id: 3,
+                                        name: 'Tab3',
+                                    },
+                                ]}
+                                value={1}
+                                name={'tab'}
+                            />
+                        </UiGrid>
+                    </UiGrid>
+                    <h2>Select</h2>
+                    <UiGrid columns={3} gap={20}>
+                        <UiGrid gap={40}>
+                            <UiFormControl>
+                                <UiSelect
+                                    name='select'
+                                    value="option1"
+                                    items={[
+                                        { id: 0, name: 'Valuе' },
+                                        { id: 1, name: 'Valuе' },
+                                        { id: 2, name: 'Valuе' },
+                                    ]}
+                                />
+                            </UiFormControl>
+                            <UiFormControl label="Helper text area">
+                                <UiSelect
+                                    name='select'
+                                    value="option1"
+                                    items={[
+                                        { id: 0, name: 'Valuе' },
+                                        { id: 1, name: 'Valuе' },
+                                        { id: 2, name: 'Valuе' },
+                                    ]}
+                                />
+                            </UiFormControl>
+                            <UiFormControl hint="Helper text area">
+                                <UiSelect
+                                    name='select'
+                                    value="option1"
+                                    items={[
+                                        { id: 0, name: 'Valuе' },
+                                        { id: 1, name: 'Valuе' },
+                                        { id: 2, name: 'Valuе' },
+                                    ]}
+                                />
+                            </UiFormControl>
+                            <UiFormControl errorMessage="Helper text area">
+                                <UiSelect
+                                    name='select'
+                                    value="option1"
+                                    items={[
+                                        { id: 0, name: 'Valuе' },
+                                        { id: 1, name: 'Valuе' },
+                                        { id: 2, name: 'Valuе' },
+                                    ]}
+                                />
+                            </UiFormControl>
+                        </UiGrid>
+                    </UiGrid>
+                </UiGrid>
                 {/*<CCatalogProductsGrid catalogProducts={[]} isLoading/>*/}
                 {/*<UiCard>*/}
                 {/*    <UiCheckbox value={0} label='asdasd'/>*/}

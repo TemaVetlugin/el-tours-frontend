@@ -17,13 +17,19 @@
 
     &__value {
         margin: 0;
-        color: $cBlack2;
-        font-size: 36px;
-        font-weight: 500;
+        font-family: $fontSecondary;
+        color: $cBlackText;
+        font-weight: 700;
+        font-size: 40px;
         line-height: 120%;
 
         @include is360() {
             font-size: 24px;
+            line-height: 110%;
+        }
+
+        @include is768() {
+            font-size: 30px;
         }
     }
 

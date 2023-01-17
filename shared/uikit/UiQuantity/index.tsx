@@ -49,7 +49,7 @@ export const UiQuantity = observer((
             <div className="ui-quantity__button" onClick={() => {
                 handleChange(+store.value - 1)
             }}>
-                <UiIcon size={12} name={'minus'} color={COLORS.GRAY_MEDIUM}/>
+                <UiIcon size={18} name={'minus'} color={COLORS.GRAY_DARK}/>
             </div>
             <input
                 type="number"
@@ -66,7 +66,7 @@ export const UiQuantity = observer((
             <div className="ui-quantity__button" onClick={() => {
                 handleChange(+store.value + 1)
             }}>
-                <UiIcon size={12} name={'plus2'} color={COLORS.GRAY_MEDIUM}/>
+                <UiIcon size={18} name={'plus'} color={COLORS.GRAY_DARK}/>
             </div>
         </div>
     )
