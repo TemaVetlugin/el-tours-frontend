@@ -72,7 +72,7 @@ export const UiSocialShare = observer(({ url }: PropsType) => {
                 <div className="ui-social-share">
                     <div className="ui-social-share__text">Поделиться</div>
                     <div className="ui-social-share__icon">
-                        <UiIcon size={22} name={'share'} color={COLORS.BLACK}/>
+                        <UiIcon size={16} name={'share'} color={COLORS.PRIMARY}/>
                     </div>
                 </div>
             )}

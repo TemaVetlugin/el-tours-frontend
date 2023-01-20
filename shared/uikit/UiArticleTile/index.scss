@@ -1,112 +1,48 @@
 .ui-article-tile {
-    position: relative;
-    display: block;
     text-decoration: none;
 
     &__badge {
         position: absolute;
-        top: 16px;
-        left: 16px;
-        padding: 12px 18px;
-        background: $cPrimary2;
-        border-radius: 12px 0;
-        font-weight: 700;
-        font-size: 13px;
-        line-height: 120%;
-        text-transform: uppercase;
-        color: $cPrimary;
-
-        @include isMobile {
-            top: 10px;
-            left: 10px;
-            padding: 9px 14px;
-        }
-
-        @include media($w768, $w1366) {
-            top: 24px;
-            left: 24px;
-        }
     }
 
     &__image {
         width: 100%;
-        height: 372px;
-        margin-bottom: 18px;
+        height: 380px;
+        margin-bottom: 16px;
+        border-radius: 20px;
         background: center no-repeat;
         background-size: cover;
-        border-radius: 20px;
-
-        @include isMobile() {
-            height: 262px;
-            margin-bottom: 16px;
-        }
     }
 
     &--large &__image {
-        height: 687px;
-        margin-bottom: 24px;
 
-        @include isMobile() {
-            height: 330px;
-            margin-bottom: 16px;
-        }
-
-        @include isTablet() {
-            height: 705px;
-        }
-
-        @include is1024() {
-            height: 695px;
-        }
     }
 
     &--small &__image {
-        height: 192px;
 
-        @include media(0, $w1366) {
-            height: 216px;
-            margin-bottom: 18px;
-        }
     }
 
     &--medium &__image {
-        height: 307px;
+
     }
 
     &__name {
+        @include h4;
         margin: 0;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 120%;
-        color: $cBlack2;
+        padding-right: 20px;
+        color: $cBlackText;
         transition: color $transition;
-
-        @include isMobile {
-            font-size: 19px;
-            line-height: 130%;
-        }
     }
 
     &:hover &__name {
-        color: $cPrimary;
+        color: $cPrimaryDark;
     }
 
     &--large &__name {
-        font-size: 26px;
 
-        @include isMobile() {
-            font-size: 24px;
-            line-height: 130%;
-        }
-
-        @include isTablet() {
-            padding-right: 50px;
-            font-size: 32px;
-            line-height: 130%;
-        }
     }
 
     &--small &__name {
-        font-size: 18px;
+
     }
 }

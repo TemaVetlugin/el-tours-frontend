@@ -3,42 +3,52 @@
     justify-content: center;
     align-items: center;
     margin-top: 48px;
-    gap: 20px;
+    gap: 4px;
 
     &__page {
+        @include text;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: $hControl;
-        height: $hControl;
-        border: $cBlack1 1px solid;
-        border-radius: 4px;
+        width: 40px;
+        height: 40px;
+        border: $cGrayLight 1px solid;
+        border-radius: 600px;
         cursor: pointer;
-        color: $cGrayMedium;
-        font-size: 18px;
-        font-weight: 700;
-        line-height: 22px;
+        color: $cBlackText;
         transition: 0.2s;
 
-        @include isMobileOrTablet() {
-            height: $hControlMobile;
-            width: $hControlMobile;
-        }
+        //@include isMobileOrTablet() {
+        //    height: $hControlMobile;
+        //    width: $hControlMobile;
+        //}
 
         &--aside {
-            border: 1px solid #BCBCBC;
+            width: auto;
+            padding: 0 16px;
+            border: 0;
+            gap: 8px;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 18px;
+            color: $cPrimary;
+
+            &:hover {
+                color: $cPrimaryDark;
+
+                .ui-icon {
+                    @include iconColor($cPrimaryDark);
+                }
+            }
         }
 
         &--active {
-            background: $cPrimary;
-            border: $cPrimary 1px solid;
-            border-radius: 6px 2px;
-            color: $cWhite;
+            background: $cGrayLight;
+            border: $cGrayLight 1px solid;
         }
 
-        &:hover {
-            border: $cPrimary 1px solid;
-            background: $cPrimary2;
+        &:hover:not(&--aside):not(&--active) {
+            background: $cBlueLight;
         }
     }
 
@@ -46,17 +56,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 76px;
-        height: 76px;
-        margin: 0 auto;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-        background: $cWhite;
-        border-radius: 100%;
+        width: auto;
+        height: auto;
         cursor: pointer;
-        color: $cGrayDark;
-        text-transform: uppercase;
-        font-size: 15px;
-        font-weight: 700;
-        line-height: 18px;
     }
 }

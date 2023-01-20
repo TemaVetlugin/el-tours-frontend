@@ -8,6 +8,7 @@ export const heart: IconType = (size, colors) => (
             stroke={colors[0]}
             strokeLinecap="round"
             strokeLinejoin="round"
+            fill={colors[1]}
         />
     </svg>
 );

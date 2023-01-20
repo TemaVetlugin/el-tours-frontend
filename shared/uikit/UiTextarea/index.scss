@@ -1,7 +1,6 @@
 .ui-textarea {
+    @include text;
     position: relative;
-    font-size: 14px;
-    line-height: 18px;
 
     &__control {
         width: 100%;

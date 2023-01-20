@@ -23,6 +23,10 @@
         justify-content: center;
         border: 2px $cGrayDark solid;
         transition: 0.3s;
+
+        .ui-form-control--error & {
+            border-color: $cRed;
+        }
     }
 
     &__control:checked ~ &__icon {

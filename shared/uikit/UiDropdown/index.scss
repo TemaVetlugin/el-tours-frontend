@@ -5,28 +5,30 @@
     gap: 8px;
 
     &__label {
-        font-size: 14px;
-        line-height: 120%;
+        @include text-label;
         white-space: nowrap;
+        color: $cGrayDark;
     }
 
     &-control {
         position: relative;
-        width: 100%;
         cursor: pointer;
 
         &__value {
-            color: $cSecondary;
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 120%;
+            @include text;
+            color: $cBlackText;
         }
 
         &__view {
             position: relative;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 6px;
+            height: 40px;
+            padding: 8px 16px;
+            background: $cBlueLight;
+            border-radius: 24px;
         }
 
         &__icon {
@@ -42,11 +44,9 @@
         display: none;
         z-index: 100;
         min-width: 100%;
-        margin-top: 5px;
-        box-shadow: 0px 2px 30px rgba(67, 67, 67, 0.1);
-        background: #FFFFFF;
-        border: 1px solid #DADADA;
-        border-radius: 6px;
+        margin-top: 4px;
+        background: $cBlueLight;
+        border-radius: 24px;
         overflow: hidden;
     }
 
@@ -55,20 +55,26 @@
     }
 
     &__item {
+        @include text;
         display: flex;
         align-items: center;
-        padding: 10px;
+        padding: 6px 20px 6px;
         cursor: pointer;
-        color: $cBlack2;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 100%;
+        color: $cBlackText;
         white-space: nowrap;
         transition: 0.2s;
         gap: 8px;
 
+        &:first-child {
+            padding-top: 12px;
+        }
+
+        &:last-child {
+            padding-bottom: 12px;
+        }
+
         &:hover {
-            background: $cGrayBackground;
+            background: $cGrayLight;
         }
     }
 }

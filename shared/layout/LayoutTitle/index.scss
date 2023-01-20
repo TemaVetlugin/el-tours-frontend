@@ -16,12 +16,9 @@
     }
 
     &__value {
+        @include h1;
         margin: 0;
-        font-family: $fontSecondary;
         color: $cBlackText;
-        font-weight: 700;
-        font-size: 40px;
-        line-height: 120%;
 
         @include is360() {
             font-size: 24px;
@@ -34,16 +31,16 @@
     }
 
     &__badge {
-        display: flex;
-        align-items: center;
-        height: 36px;
-        padding: 0 14px;
-        margin-left: 16px;
-        border: 1px solid $cPrimary;
-        border-radius: 4px 20px;
-        color: $cPrimary;
-        text-align: center;
-        font-size: 16px;
-        line-height: 100%;
+        //display: flex;
+        //align-items: center;
+        //height: 36px;
+        //padding: 0 14px;
+        //margin-left: 16px;
+        //border: 1px solid $cPrimary;
+        //border-radius: 4px 20px;
+        //color: $cPrimary;
+        //text-align: center;
+        //font-size: 16px;
+        //line-height: 100%;
     }
 }

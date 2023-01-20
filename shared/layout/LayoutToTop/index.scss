@@ -7,7 +7,7 @@
     align-items: center;
     width: 36px;
     height: 36px;
-    background: $cPrimaryGradient;
+    background: $cPrimary;
     border-radius: 100%;
     cursor: pointer;
     opacity: 0;
@@ -20,21 +20,8 @@
         right: 8px;
     }
 
-    &::before {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: $cPrimary;
-        border-radius: 100%;
-        opacity: 0;
-        transition: 0.25s;
-        content: '';
-    }
-
-    &:hover::before {
-        opacity: 1;
+    &:hover {
+        background: $cPrimaryDark;
     }
 
     &--active {

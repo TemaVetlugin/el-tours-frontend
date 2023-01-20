@@ -18,7 +18,17 @@ import {
     UiInput,
     UiTextarea,
     UiRadio,
-    UiSelect, UiTabs, UiSeo, UiBreadcrumbs, UiPagination, UiQuantity
+    UiSelect,
+    UiTabs,
+    UiSeo,
+    UiBreadcrumbs,
+    UiPagination,
+    UiQuantity,
+    UiArticleTile,
+    UiCardTile,
+    UiDropdown,
+    UiEmpty,
+    UiLink, UiLoading, UiTooltip, UiTypography, UiHtml, UiSocialShare
 } from "shared/uikit";
 import { useObservable } from "shared/hooks";
 import { BootstrapModule } from "shared/modules";
@@ -27,6 +37,7 @@ import { COLORS, MENU, ROUTES } from "shared/contants";
 import React from "react";
 import { getTabsItems } from "../product/utilities/getTabsItems";
 import { CatalogProductModel } from "shared/models";
+import classnames from "classnames";
 
 type PropsType = {
     application: ReturnType<typeof getApplicationData>
@@ -314,6 +325,13 @@ const TestPage: NextPage<PropsType> = observer(({ application }) => {
                                     label='Checked'
                                 />
                             </UiFormControl>
+                            <UiFormControl errorMessage="Helper text area">
+                                <UiCheckbox
+                                    value={0}
+                                    name={'Default'}
+                                    label='Error'
+                                />
+                            </UiFormControl>
                         </UiGrid>
                         <UiGrid gap={20}>
                             <UiFormControl>
@@ -395,7 +413,109 @@ const TestPage: NextPage<PropsType> = observer(({ application }) => {
                                     ]}
                                 />
                             </UiFormControl>
+                            <UiFormControl>
+                                <UiDropdown
+                                    label='Сортировать:'
+                                    value="1"
+                                    name='sort'
+                                    items={[{
+                                        id: 1,
+                                        name: 'По популярности'
+                                    }, {
+                                        id: 2,
+                                        name: 'Сначала дешевле'
+                                    }, {
+                                        id: 3,
+                                        name: 'Сначала дороже'
+                                    }, {
+                                        id: 4,
+                                        name: 'По названию А-Я'
+                                    }, {
+                                        id: 5,
+                                        name: 'По названию Я-А'
+                                    }]}
+                                />
+                            </UiFormControl>
                         </UiGrid>
+                    </UiGrid>
+                    <br/>
+                    <UiGrid columns={4} gap={20}>
+                        <UiCardTile
+                            name="Спортсменам"
+                            href="#"
+                            image="https://via.placeholder.com/310x190"
+                        />
+                        <UiCardTile
+                            name="Для будущих мам"
+                            href="#"
+                            image="https://via.placeholder.com/310x190"
+                        />
+                    </UiGrid>
+                    <UiGrid columns={4} gap={[20, 50]}>
+                        <UiArticleTile
+                            name="Бережем нервы. Как избавиться от стресса"
+                            href="#"
+                            image="https://via.placeholder.com/310x380"
+                        />
+                        <UiArticleTile
+                            name="План поддержки здоровья летом"
+                            href="#"
+                            image="https://via.placeholder.com/310x380"
+                        />
+                    </UiGrid>
+                    <UiEmpty
+                        title="По запросу «123» не найдено ни одного товара"
+                        description="Воспользуйтесь Каталогом или оформите предзаказ на товар, которого еще нет в Вашем населенном пункте"
+                    />
+                    <UiGrid columns={5}>
+                        <UiTooltip label={'Убрать из избранного'}>
+                            <UiIcon size={24} name={'heart'} color={[COLORS.GRAY_DARK, COLORS.GRAY_DARK]}/>
+                        </UiTooltip>
+                        <UiSocialShare/>
+                    </UiGrid>
+                    <br/>
+                    <UiGrid columns={'812px'}>
+                        <UiTypography>
+                            <h1>Название типовой страницы</h1>
+                            <p>
+                                Проверь себя и своих близких! Экспресс-тест Covid-19  для выявления антител IgM и IgG к COVID-19
+                                уже в продаже. С его помощью можно определить заболевание на начальной стадии или увидеть результат
+                                уже после перенесенной болезни, подтверждающий наличие  иммунитета.
+                            </p>
+                            <img src="https://via.placeholder.com/812x453" alt=""/>
+                            <p>
+                                Проверь себя и своих близких! Экспресс-тест Covid-19  для выявления антител IgM и IgG к COVID-19
+                                уже в продаже. С его помощью можно определить заболевание на начальной стадии или увидеть результат
+                                уже после перенесенной болезни, подтверждающий наличие  иммунитета.
+                            </p>
+                            <p>
+                                Проверь себя и своих близких! Экспресс-тест Covid-19  для выявления антител IgM и IgG к COVID-19
+                                уже в продаже. С его помощью можно определить заболевание на начальной стадии или увидеть результат
+                                уже после перенесенной болезни, подтверждающий наличие  иммунитета.
+                            </p>
+                            <blockquote>
+                                Конкурс «Лучший продукт» проводится ежегодно в целях увеличения объемов экспорта и повышения
+                                конкурентоспособности российской агропродовольственной продукции, роста отечественного производства
+                                и импортозамещения, пропаганды инновационных достижений в области качества и безопасности
+                                агропродовольственной продукции и продвижения новых продуктов на российском и международном рынках.
+                            </blockquote>
+                            <h2>Заголовок Н2 на типовой странице</h2>
+                            <h4>Поэтому, одноразовое заменяем многоразовым:</h4>
+                            <ul>
+                                <li>Вместо одноразовых стаканов используем многоразовые кружки.</li>
+                                <li>Под воду купите многоразовую бутылку, которую можно наполнять.</li>
+                            </ul>
+                            <p>
+                                Проверь себя и своих близких! Экспресс-тест Covid-19  для выявления антител IgM и IgG к COVID-19
+                                уже в продаже. С его помощью можно определить заболевание на начальной стадии или увидеть результат
+                                уже после перенесенной болезни, подтверждающий наличие  иммунитета.
+                            </p>
+                            <h3>Заголовок Н3 на типовой странице</h3>
+                            <ol>
+                                <li>Вместо одноразовых стаканов используем многоразовые кружки.</li>
+                                <li>Под воду купите многоразовую бутылку, которую можно наполнять.</li>
+                            </ol>
+                        </UiTypography>
                     </UiGrid>
                 </UiGrid>
                 {/*<CCatalogProductsGrid catalogProducts={[]} isLoading/>*/}

@@ -1,7 +1,6 @@
 .ui-input {
+    @include text;
     position: relative;
-    font-size: 14px;
-    line-height: 18px;
 
     input {
         width: 100%;

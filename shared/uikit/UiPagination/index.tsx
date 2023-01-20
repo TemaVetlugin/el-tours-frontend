@@ -8,6 +8,8 @@ import { UiLoading } from "shared/uikit";
 
 import { UiIcon } from "../UiIcon";
 
+import { COLORS } from "shared/contants";
+
 import './index.scss';
 
 type PropsType = {
@@ -71,7 +73,8 @@ export const UiPagination = observer(({ pagination, className, isMore, isLoading
                     handleChange(page - 1);
                 }
             }}>
-                <UiIcon size={10} name='chevronLeft'/>
+                <UiIcon size={24} name='chevronLeft' color={COLORS.PRIMARY}/>
+                <span>Назад</span>
             </div>
             {pagination.items.map(item => {
                 const className = classnames('ui-pagination__page', {
@@ -88,7 +91,8 @@ export const UiPagination = observer(({ pagination, className, isMore, isLoading
                     handleChange(page + 1);
                 }
             }}>
-                <UiIcon size={10} name='chevronRight'/>
+                <span>Далее</span>
+                <UiIcon size={24} name='chevronRight' color={COLORS.PRIMARY}/>
             </div>
         </div>
     )

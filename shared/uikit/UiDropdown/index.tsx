@@ -63,8 +63,8 @@ export const UiDropdown = observer((
                             </div>
                             <div className="ui-dropdown-control__icon">
                                 <UiIcon
-                                    size={8}
-                                    color={COLORS.BLACK_MEDIUM}
+                                    size={16}
+                                    color={COLORS.GRAY_DARK}
                                     name={store.isOpened ? 'chevronUp' : 'chevronDown'}
                                 />
                             </div>
