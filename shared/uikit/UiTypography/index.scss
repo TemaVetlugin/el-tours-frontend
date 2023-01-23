@@ -43,10 +43,14 @@
         margin: 24px 0;
     }
 
-    a {
+    a:not([class]) {
         color: $cPrimary;
         text-decoration: none;
-        font-weight: 500;
+        transition: color $transition;
+
+        &:hover {
+            color: $cPrimaryDark;
+        }
     }
 
     b,

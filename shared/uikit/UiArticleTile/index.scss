@@ -20,6 +20,10 @@
         }
 
         @include isTablet() {
+            height: 124px;
+        }
+
+        @include is1024() {
             height: 127px;
         }
 

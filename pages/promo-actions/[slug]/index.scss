@@ -7,7 +7,8 @@
         width: 100%;
         display: flex;
         align-items: flex-start;
-        gap: 34px;
+        gap: 24px;
+        padding: 0 8px;
 
         @include is768($w1366) {
             gap: 24px;
@@ -28,84 +29,42 @@
         }
     }
 
-    &__image {
-        width: 578px;
-        min-width: 578px;
-
-        @include isMobile {
-            width: 100%;
-            min-width: 100%;
-        }
-
-        @include isTablet {
-            width: 100%;
-        }
-
-        @include is1024() {
-            width: 450px;
-            min-width: 450px;
-        }
-
-        img {
-            width: 100%;
-            border-radius: 20px;
-
-            @include isMobile {
-                border-radius: 10px;
-            }
-        }
-    }
-
-    &__date {
-        display: table;
-        padding: 12px 20px;
-        margin-bottom: 30px;
-        background: $cSecondaryGradient;
-        border-radius: 40px;
-        color: $cWhite;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 17px;
-
-        @include isMobile {
-            padding: 12px 14px;
-            margin-bottom: 14px;
-            font-size: 13px;
-        }
-
-        @include isTablet {
-            margin-bottom: 22px;
-        }
-
-        @include is1024() {
-            margin-bottom: 24px;
-        }
-    }
-
-    &__title {
-        margin: 30px 0 24px;
-        color: $cBlack2;
-        font-size: 32px;
-        font-weight: 700;
-        line-height: 120%;
-
-        @include isMobile {
-            margin: 14px 0;
-            font-size: 24px;
-            line-height: 140%;
-        }
-
-        @include media($w768, $w1366) {
-            margin: 24px 0 16px;
-            font-size: 30px;
-        }
-    }
-
-    &-footer {
+    &__row {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        margin-top: 30px;
+        margin-bottom: 24px;
+        padding: 7px 8px;
+    }
+
+    &__image {
+        flex-shrink: 0;
+        width: 600px;
+
+        img {
+            width: 100%;
+            border-radius: 24px;
+        }
+    }
+
+    &__title {
+        @include h2;
+        margin: 0 0 12px;
+        color: $cBlackText;
+    }
+
+    &__date {
+        @include text;
+        margin-bottom: 28px;
+        color: $cGrayDark;
+    }
+
+    .ui-typography {
+        * {
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 18px;
+        }
     }
 }

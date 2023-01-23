@@ -1,4 +1,5 @@
 .layout-subtitle {
     @include text;
+    max-width: 640px;
     color: $cGrayDark;
 }

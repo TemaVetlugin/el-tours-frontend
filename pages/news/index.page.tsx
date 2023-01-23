@@ -129,14 +129,10 @@ const NewsPage: NextPage<PropsType> = observer(({application}) => {
                         [MEDIA_POINTS.IS_1024]: { columns: '1fr 310px', gap: 20 },
                         [MEDIA_POINTS.IS_1366]: { columns: '1fr 310px', gap: 20 }
                     }}>
-                        <UiGrid media={{
-                            [MEDIA_POINTS.IS_1366]: { columns: '66%' }
-                        }}>
-                            <LayoutSubtitle>
-                                Скидки не суммируются, покупателю предоставляется максимальная из&nbsp;действующих скидок.
-                                В&nbsp;акциях не участвуют товары со специальной ценой.
-                            </LayoutSubtitle>
-                        </UiGrid>
+                        <LayoutSubtitle>
+                            Скидки не суммируются, покупателю предоставляется максимальная из&nbsp;действующих скидок.
+                            В&nbsp;акциях не участвуют товары со специальной ценой.
+                        </LayoutSubtitle>
                         <UiFormControl>
                             <UiSelect
                                 name='select'

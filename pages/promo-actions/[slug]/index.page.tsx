@@ -23,11 +23,20 @@ type PropsType = {
 }
 
 const PromoActionPage: NextPage<PropsType> = observer(({ application, promoAction }: PropsType) => {
-    BootstrapModule.application(application);
+    // BootstrapModule.application(application);
+    //
+    // const store = useObservable({
+    //     promoAction: new PromoActionModel(promoAction)
+    // });
 
-    const store = useObservable({
-        promoAction: new PromoActionModel(promoAction)
-    });
+    const store = {
+        promoAction: {
+            name: 'Исследования уровня ферритина в подарок за покупку средств Ducray',
+            detailImageThumbnail: 'https://via.placeholder.com/600x373',
+            dateTo: '',
+            detailText: '<p>Акция проходит с 10.10.2022 по 10.12.2022 года. Купи 2 любых продукта Ducray из гаммы против выпадения волос, загрузи чек и получи бесплатный сертификат на анализ ферритина. Организаторы Акции ООО «Пьер Фабр» и ООО «Гемотест». Полные условия и порядок участия опубликованы на сайте <a href="">https://vypadeniyu.net/</a></p>'
+        }
+    }
 
     return (
         <Layout>
@@ -43,54 +52,55 @@ const PromoActionPage: NextPage<PropsType> = observer(({ application, promoActio
                             </div>
                         )}
                         <div className="p-promo-action__body">
-                            <div className="p-promo-action__date">
-                                {formatDate(store.promoAction.dateFrom)} - {formatDate(store.promoAction.dateTo)}
+                            <div className="p-promo-action__row">
+                                <CLinkButton href={ROUTES.PROMO_ACTIONS()} label={'Все акции'}/>
+                                <UiSocialShare/>
                             </div>
-                            <h2 className="p-promo-action__title">{store.promoAction.name}</h2>
+                            <h1 className="p-promo-action__title">{store.promoAction.name}</h1>
+                            <div className="p-promo-action__date">
+                                {/*Акция действует до {formatDate(store.promoAction.dateTo)}*/}
+                                Акция действует до 04.12.2022
+                            </div>
                             <UiTypography>
                                 <UiHtml value={store.promoAction.detailText}/>
                             </UiTypography>
                         </div>
                     </div>
-                    <div className="p-promo-action-footer">
-                        <CLinkButton href={ROUTES.PROMO_ACTIONS()} label={'Ко всем акциям'}/>
-                        <UiSocialShare/>
-                    </div>
                 </UiCard>
-                <LayoutSection title={'Товары в акции'}>
-                    <CCatalogProductsSlider catalogProducts={store.promoAction.catalogProducts}/>
+                <LayoutSection title={'Акционные товары'}>
+                    {/*<CCatalogProductsSlider catalogProducts={store.promoAction.catalogProducts}/>*/}
                 </LayoutSection>
             </UiWrap>
         </Layout>
     )
 });
 
-export const getServerSideProps: GetServerSideProps<PropsType> = async (context) => {
-    const application = await getApplicationData();
-    const slug = context.query.slug as string;
-
-    const { isSuccess, data } = await Redis.cache(
-        `promoActionsGetRequest:${slug}`,
-        async () => await promoActionsGetRequest({ slug }),
-        3600
-    );
-
-    if (!isSuccess || !data?.item) {
-        return {
-            redirect: {
-                permanent: false,
-                destination: ROUTES.ERROR_404()
-            }
-        }
-    }
-
-    return {
-        props: {
-            application,
-            promoAction: data.item,
-        }
-    }
-}
+// export const getServerSideProps: GetServerSideProps<PropsType> = async (context) => {
+//     const application = await getApplicationData();
+//     const slug = context.query.slug as string;
+//
+//     const { isSuccess, data } = await Redis.cache(
+//         `promoActionsGetRequest:${slug}`,
+//         async () => await promoActionsGetRequest({ slug }),
+//         3600
+//     );
+//
+//     if (!isSuccess || !data?.item) {
+//         return {
+//             redirect: {
+//                 permanent: false,
+//                 destination: ROUTES.ERROR_404()
+//             }
+//         }
+//     }
+//
+//     return {
+//         props: {
+//             application,
+//             promoAction: data.item,
+//         }
+//     }
+// }
 
 
 export default PromoActionPage;
