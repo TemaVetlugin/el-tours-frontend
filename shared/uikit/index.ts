@@ -38,3 +38,4 @@ export { UiTextValue } from './UiTextValue';
 export { UiTooltip } from './UiTooltip';
 export { UiTypography } from './UiTypography';
 export { UiWrap } from './UiWrap';
+export { UiNewsTile } from './UiNewsTile';

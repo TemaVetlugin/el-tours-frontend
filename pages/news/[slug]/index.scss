@@ -1,0 +1,39 @@
+.p-news-detail {
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 30px;
+        padding: 7px 8px;
+
+        @include is360() {
+            order: 1;
+            margin: 0 0 8px;
+        }
+    }
+
+    &__image {
+        display: inline-block;
+        float: left;
+        width: 310px;
+        margin: 0 24px 24px 0;
+        border-radius: 24px;
+
+        @include isMobile {
+            display: block;
+            width: 100%;
+            margin: 0 0 8px;
+        }
+
+        @include isTablet {
+            width: 244px;
+            height: 300px;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+}

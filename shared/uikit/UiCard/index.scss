@@ -1,16 +1,28 @@
 .ui-card {
     position: relative;
     width: 100%;
-    padding: 30px;
+    padding: 24px 16px;
     background: $cWhite;
     border-radius: 20px;
-
-    @include is768() {
-        padding: 20px;
-    }
+    box-shadow: 0 0 20px rgba(74, 74, 74, 0.1);
 
     @include is360() {
-        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px;
+
+        > * {
+            order: 2;
+        }
+    }
+
+    @include is768() {
+        padding: 16px;
+    }
+
+    @include is1024() {
+        padding: 24px;
     }
 
     &--light {

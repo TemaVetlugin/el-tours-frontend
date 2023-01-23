@@ -39,6 +39,14 @@ export const MENU = {
         name,
         href: ROUTES.ARTICLE(id ?? 0)
     }),
+    NEWS: (): MenuItemType => ({
+        name: 'Новости',
+        href: ROUTES.NEWS()
+    }),
+    NEWS_DETAIL: (name = 'Новость', id = ''): MenuItemType => ({
+        name,
+        href: ROUTES.NEWS_DETAIL(id ?? 0)
+    }),
     FAQ: (): MenuItemType => ({
         name: 'Вопрос-ответ',
         href: ROUTES.FAQ()

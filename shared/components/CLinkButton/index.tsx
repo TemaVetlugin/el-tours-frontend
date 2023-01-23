@@ -1,9 +1,10 @@
 import React from "react";
 import { observer } from "mobx-react";
 
-import { UiLink } from "shared/uikit";
+import { UiIcon, UiLink } from "shared/uikit";
 
 import './index.scss';
+import { COLORS } from "shared/contants";
 
 type PropsType = {
     href: string,
@@ -14,7 +15,13 @@ type PropsType = {
 export const CLinkButton = observer(({ href, label, isForward }: PropsType) => {
     return (
         <UiLink href={href} className="c-back-button">
-            {!isForward && '⟵'}<span>{label}</span>{isForward && '⟶'}
+            {!isForward && (
+                <UiIcon
+                    size={16}
+                    name="chevronLeft"
+                    color={COLORS.PRIMARY}
+                />
+            )}<span>{label}</span>{isForward && '⟶'}
         </UiLink>
     )
 });

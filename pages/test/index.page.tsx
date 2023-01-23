@@ -24,7 +24,7 @@ import {
     UiBreadcrumbs,
     UiPagination,
     UiQuantity,
-    UiArticleTile,
+    UiNewsTile,
     UiCardTile,
     UiDropdown,
     UiEmpty,
@@ -452,12 +452,12 @@ const TestPage: NextPage<PropsType> = observer(({ application }) => {
                         />
                     </UiGrid>
                     <UiGrid columns={4} gap={[20, 50]}>
-                        <UiArticleTile
+                        <UiNewsTile
                             name="Бережем нервы. Как избавиться от стресса"
                             href="#"
                             image="https://via.placeholder.com/310x380"
                         />
-                        <UiArticleTile
+                        <UiNewsTile
                             name="План поддержки здоровья летом"
                             href="#"
                             image="https://via.placeholder.com/310x380"

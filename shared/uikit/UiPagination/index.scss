@@ -2,8 +2,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 48px;
+    margin-top: 54px;
     gap: 4px;
+
+    @include isMobile {
+        margin-top: 30px;
+    }
+
+    @include isTablet {
+        margin-top: 24px;
+    }
 
     &__page {
         @include text;

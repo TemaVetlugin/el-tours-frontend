@@ -55,7 +55,7 @@
         font-weight: 500;
     }
 
-    img {
+    img:not([class]) {
         display: block;
         width: 100%;
         max-width: 100%;
