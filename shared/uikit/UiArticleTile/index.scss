@@ -1,4 +1,5 @@
 .ui-article-tile {
+    $self: &;
     text-decoration: none;
 
     &__badge {
@@ -6,43 +7,78 @@
     }
 
     &__image {
+        position: relative;
         width: 100%;
-        height: 380px;
-        margin-bottom: 16px;
+        height: 174px;
+        margin-bottom: 20px;
         border-radius: 20px;
         background: center no-repeat;
         background-size: cover;
+
+        @include isMobile {
+            height: 170px;
+        }
+
+        @include isTablet() {
+            height: 127px;
+        }
+
+        #{ $self }--large & {
+            height: 357px;
+            margin-bottom: 16px;
+
+            @include isMobile {
+                height: 170px;
+            }
+
+            @include isTablet() {
+                height: 255px;
+            }
+
+            @include is1024() {
+                height: 260px;
+            }
+        }
+
+        #{ $self }--promo & {
+            margin-bottom: 16px;
+            border-radius: 24px;
+        }
+
+        #{ $self }--promo#{ $self }--large & {
+            margin-bottom: 24px;
+            border-radius: 20px;
+        }
     }
 
-    &--large &__image {
-
-    }
-
-    &--small &__image {
-
-    }
-
-    &--medium &__image {
-
+    &__badge {
+        @include text-label;
+        position: absolute;
+        bottom: -8px;
+        left: 8px;
+        padding: 3px 6px 3px 8px;
+        background: center no-repeat;
+        background-size: 100% 100%;
+        color: $cWhite;
     }
 
     &__name {
         @include h4;
         margin: 0;
-        padding-right: 20px;
         color: $cBlackText;
         transition: color $transition;
+
+        @include media(0, $w1366) {
+            font-size: 16px;
+            line-height: 120%;
+        }
+
+        #{ $self }--large & {
+            @include h2;
+        }
     }
 
     &:hover &__name {
         color: $cPrimaryDark;
-    }
-
-    &--large &__name {
-
-    }
-
-    &--small &__name {
-
     }
 }

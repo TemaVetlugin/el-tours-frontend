@@ -6,6 +6,7 @@ import { Layout, LayoutTitle } from "shared/layout";
 import { ReturnType } from "shared/types";
 import { getApplicationData } from "shared/server";
 import {
+    UiArticleTile,
     UiBoundary,
     UiButton,
     UiCard,
@@ -463,6 +464,37 @@ const TestPage: NextPage<PropsType> = observer(({ application }) => {
                             image="https://via.placeholder.com/310x380"
                         />
                     </UiGrid>
+                    <br/>
+                    <UiGrid columns={4} gap={[20, 50]}>
+                        <UiArticleTile
+                            name="Особый уход за кожей при сахарном диабете"
+                            href="#"
+                            image="https://via.placeholder.com/310x174"
+                        />
+                        <UiArticleTile
+                            name="Уход за пожилыми и ограниченно подвижными людьми"
+                            href="#"
+                            image="https://via.placeholder.com/310x174"
+                            badge="Осталось 8 дней"
+                        />
+                    </UiGrid>
+                    <br/>
+                    <UiGrid columns={2} gap={[20, 50]}>
+                        <UiArticleTile
+                            name="Что принимать будущей маме?"
+                            href="#"
+                            image="https://via.placeholder.com/640x357"
+                            isLarge={true}
+                        />
+                        <UiArticleTile
+                            name="Уход за пожилыми и ограниченно подвижными людьми"
+                            href="#"
+                            image="https://via.placeholder.com/310x174"
+                            isLarge={true}
+                            badge="Осталось 8 дней"
+                        />
+                    </UiGrid>
+                    <br/>
                     <UiEmpty
                         title="По запросу «123» не найдено ни одного товара"
                         description="Воспользуйтесь Каталогом или оформите предзаказ на товар, которого еще нет в Вашем населенном пункте"
