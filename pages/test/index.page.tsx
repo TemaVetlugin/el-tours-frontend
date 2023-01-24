@@ -496,9 +496,10 @@ const TestPage: NextPage<PropsType> = observer(({ application }) => {
                         />
                     </UiGrid>
                     <br/>
-                    <UiEmpty
-                        title="По запросу «123» не найдено ни одного товара"
-                        description="Воспользуйтесь Каталогом или оформите предзаказ на товар, которого еще нет в Вашем населенном пункте"
+                    <UiEmpty2
+                        title="По запросу «123» ничего не найдено"
+                        description="Используйте Каталог или оформите заявку на товар, которого нет в Вашем городе"
+                        isSearch
                     />
                     <UiEmpty2/>
                     <UiGrid columns={5}>
