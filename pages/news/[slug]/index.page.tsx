@@ -4,10 +4,11 @@ import { GetServerSideProps, NextPage } from 'next'
 
 import { Layout, LayoutSection, LayoutTitle } from "shared/layout";
 import {
+    UiArticleTile,
     UiBreadcrumbs,
     UiCard,
     UiGrid,
-    UiHtml,
+    UiHtml, UiNewsTile,
     UiSeo,
     UiSocialShare,
     UiTypography,
@@ -154,10 +155,36 @@ const NewsDetailPage: NextPage<PropsType> = observer(({ application, newsItem, n
     // }, [newsItem, store, news])
 
     const store = {
-        news: {},
+        news: [
+            {
+                id: 0,
+                name: 'План поддержки здоровья летом',
+                previewImageThumbnail: 'https://via.placeholder.com/310x380',
+                slug: 'detail',
+                isLarge: true
+            },
+            {
+                id: 1,
+                name: 'План поддержки здоровья летом',
+                previewImageThumbnail: 'https://via.placeholder.com/310x380',
+                slug: 'detail',
+            },
+            {
+                id: 2,
+                name: 'Как лечить COVID-19 дома',
+                previewImageThumbnail: 'https://via.placeholder.com/310x380',
+                slug: 'detail',
+            },
+            {
+                id: 3,
+                name: 'Врачи дали советы по лечению COVID-19 в домашних условиях',
+                previewImageThumbnail: 'https://via.placeholder.com/310x380',
+                slug: 'detail',
+            },
+        ],
         newsItem: {
             name: 'Аллергический ринит: что делать при первых симптомах?',
-            detailImageThumbnail: 'https://via.placeholder.com/400x490'
+            detailImageThumbnail: 'https://via.placeholder.com/310x380'
         }
     }
 
@@ -169,15 +196,14 @@ const NewsDetailPage: NextPage<PropsType> = observer(({ application, newsItem, n
             />
             <UiWrap>
                 <UiBreadcrumbs items={[MENU.NEWS(), MENU.NEWS_DETAIL(store.newsItem.name)]}/>
-                <LayoutSection
-                    title={store.newsItem.name}
+                <UiGrid
+                    className="p-news-detail"
+                    media={{
+                        [MEDIA_POINTS.IS_360]: { columns: 1, gap: 20 },
+                        [MEDIA_POINTS.IS_1366]: { columns: '1fr 310px', gap: 20 }
+                    }}
                 >
-                    <UiGrid
-                        className="p-news-detail"
-                        media={{
-                            [MEDIA_POINTS.IS_1366]: { columns: '1fr 310px', gap: 20 }
-                        }}
-                    >
+                    <LayoutSection title={store.newsItem.name}>
                         <UiCard>
                             <UiTypography>
                                 {store.newsItem.detailImageThumbnail && (
@@ -226,13 +252,52 @@ const NewsDetailPage: NextPage<PropsType> = observer(({ application, newsItem, n
                                 <UiSocialShare/>
                             </div>
                         </UiCard>
-                    </UiGrid>
-                </LayoutSection>
-                <LayoutSection title={'Другие новости:'}>
-
-                </LayoutSection>
+                    </LayoutSection>
+                    <div className="p-news-detail-aside">
+                        <h3 className="p-news-detail-aside__title">Все новости:</h3>
+                        <UiGrid
+                            media={{
+                                [MEDIA_POINTS.IS_360]: { columns: 1, gap: 24 },
+                                [MEDIA_POINTS.IS_768]: { columns: 2, gap: 28 },
+                                [MEDIA_POINTS.IS_1024]: { columns: 3, gap: 29 },
+                                [MEDIA_POINTS.IS_1366]: { columns: 1, gap: 24 }
+                            }}
+                        >
+                            {store.news.map(newsItem => (
+                                <UiNewsTile
+                                    key={newsItem.id}
+                                    name={newsItem.name}
+                                    href={ROUTES.ARTICLE(newsItem.slug)}
+                                    image={newsItem.previewImageThumbnail}
+                                />
+                            ))}
+                        </UiGrid>
+                    </div>
+                </UiGrid>
                 <LayoutSection title={'Товары в статье'}>
                     {/*<CCatalogProductsSlider catalogProducts={store.newsItem.catalogProducts}/>*/}
+                </LayoutSection>
+
+                <LayoutSection
+                    className="p-news-detail-all"
+                    title={'Все новости:'}
+                >
+                    <UiGrid
+                        media={{
+                            [MEDIA_POINTS.IS_360]: { columns: 1, gap: 16 },
+                            [MEDIA_POINTS.IS_768]: { columns: 3, gap: 16 },
+                            [MEDIA_POINTS.IS_1024]: { columns: 4, gap: 16 },
+                        }}
+                    >
+                        {store.news.map(newsItem => (
+                            <UiNewsTile
+                                key={newsItem.id}
+                                name={newsItem.name}
+                                href={ROUTES.ARTICLE(newsItem.slug)}
+                                image={newsItem.previewImageThumbnail}
+                            />
+                        ))}
+                    </UiGrid>
                 </LayoutSection>
             </UiWrap>
         </Layout>

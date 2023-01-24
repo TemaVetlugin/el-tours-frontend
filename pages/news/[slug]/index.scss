@@ -36,4 +36,38 @@
             width: 100%;
         }
     }
+
+    &-aside {
+        @include is360($w1366) {
+            display: none;
+        }
+
+        &__title {
+            @include h3;
+            margin: 0 0 24px;
+            color: $cBlackText;
+        }
+
+        .ui-news-tile {
+            &:nth-child(n + 3) {
+                display: none;
+            }
+        }
+    }
+}
+
+.p-news-detail-all {
+    display: none;
+
+    @include media(0, $w1366) {
+        display: block;
+    }
+
+    .ui-news-tile {
+        &:nth-child(n + 4) {
+            @include isTablet {
+                display: none;
+            }
+        }
+    }
 }

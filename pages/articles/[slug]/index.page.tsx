@@ -144,15 +144,11 @@ const ArticleDetailPage: NextPage<PropsType> = observer(({ application, article,
                             <h3 className="p-article-aside__title">Всё интересное:</h3>
                             <UiGrid
                                 media={{
-                                    [MEDIA_POINTS.IS_360]: { columns: 1, gap: 24 },
-                                    [MEDIA_POINTS.IS_768]: { columns: 2, gap: 28 },
-                                    [MEDIA_POINTS.IS_1024]: { columns: 3, gap: 29 },
                                     [MEDIA_POINTS.IS_1366]: { columns: 1, gap: 40 }
                                 }}
                             >
                                 {store.articles.map(article => (
                                     <UiArticleTile
-                                        isSmall
                                         key={article.id}
                                         name={article.name}
                                         href={ROUTES.ARTICLE(article.slug)}
