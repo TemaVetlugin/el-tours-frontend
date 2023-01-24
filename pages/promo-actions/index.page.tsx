@@ -56,7 +56,8 @@ const PromoActionsPage: NextPage<PropsType> = observer(({ application }) => {
             name: 'Что принимать будущей маме?',
             previewImageThumbnail: 'https://via.placeholder.com/310x380',
             slug: 'promo-detail',
-            badge: 'Осталось 8 дней'
+            badge: 'Осталось 8 дней',
+            isLarge: true
         },
         {
             id: 1,
@@ -74,7 +75,29 @@ const PromoActionsPage: NextPage<PropsType> = observer(({ application }) => {
         },
         {
             id: 3,
+            name: 'Особый уход за кожей при сахарном диабете',
+            previewImageThumbnail: 'https://via.placeholder.com/310x380',
+            slug: 'promo-detail',
+            badge: 'Осталось 8 дней'
+        },
+        {
+            id: 4,
+            name: 'Уход за пожилыми и ограниченно подвижными людьми',
+            previewImageThumbnail: 'https://via.placeholder.com/310x380',
+            slug: 'promo-detail',
+            badge: 'Осталось 8 дней'
+        },
+        {
+            id: 5,
             name: 'Выгодное предложение',
+            previewImageThumbnail: 'https://via.placeholder.com/310x380',
+            slug: 'promo-detail',
+            badge: 'Осталось 8 дней'
+        },
+
+        {
+            id: 6,
+            name: 'Особый уход за кожей при сахарном диабете',
             previewImageThumbnail: 'https://via.placeholder.com/310x380',
             slug: 'promo-detail',
             badge: 'Осталось 8 дней'
@@ -108,74 +131,34 @@ const PromoActionsPage: NextPage<PropsType> = observer(({ application }) => {
                         </LayoutSubtitle>
                     </UiGrid>
                     <UiBoundary isLoading={store.isLoading}>
-                        <UiGrid>
-                            <div>
-                                <UiGrid
-                                    media={{
-                                        [MEDIA_POINTS.IS_360]: { columns: 1, gap: 16 },
-                                        [MEDIA_POINTS.IS_768]: { columns: 3, gap: 16 },
-                                        [MEDIA_POINTS.IS_1024]: { columns: 4, gap: [16, 24] },
-                                        [MEDIA_POINTS.IS_1366]: { columns: 4, gap: [20, 50] }
-                                    }}
-                                >
-                                    {/*{store.promoActions.map(news => (*/}
-                                    {promoActions.map(promoAction => (
-                                        <UiArticleTile
-                                            key={promoAction.id}
-                                            name={promoAction.name}
-                                            href={ROUTES.PROMO_ACTION(promoAction.slug)}
-                                            image={promoAction.previewImageThumbnail}
-                                            badge={promoAction.badge}
-                                        />
-                                    ))}
-                                </UiGrid>
-                                {/*<UiPagination*/}
-                                {/*    isMore*/}
-                                {/*    isLoading={store.isLoadingNewPage}*/}
-                                {/*    pagination={store.pagination}*/}
-                                {/*/>*/}
-                            </div>
-                        </UiGrid>
-                    </UiBoundary>
-                </UiGrid>
-
-                <UiGrid
-                    media={{
-                        [MEDIA_POINTS.IS_360]: { columns: 1, gap: 30 },
-                        [MEDIA_POINTS.IS_768]: { columns: 2, gap: 30 },
-                        [MEDIA_POINTS.IS_1024]: { columns: 3, gap: [15, 24] },
-                        [MEDIA_POINTS.IS_1366]: { columns: 3, gap: [23, 30] }
-                    }}
-                >
-                    {store.promoActions.map(promoAction => (
-                        <UiLink
-                            key={promoAction.id}
-                            href={ROUTES.PROMO_ACTION(promoAction.slug)}
-                            className="p-promo-actions-item"
-                        >
-                            <div
-                                className="p-promo-actions-item__preview"
-                                style={{ backgroundImage: `url(${promoAction.previewImageThumbnail})` }}
+                        <div>
+                            <UiGrid
+                                media={{
+                                    [MEDIA_POINTS.IS_360]: { columns: 1, gap: 16 },
+                                    [MEDIA_POINTS.IS_768]: { columns: 3, gap: 16 },
+                                    [MEDIA_POINTS.IS_1024]: { columns: 4, gap: [16, 24] },
+                                    [MEDIA_POINTS.IS_1366]: { columns: 4, gap: [20, 50] }
+                                }}
                             >
-                                <div className="p-promo-actions-item__inner">
-                                    <div className="p-promo-actions-item__text">
-                                        <UiScroll height={'100%'}>
-                                            {promoAction.previewText}
-                                        </UiScroll>
-                                    </div>
-                                    <div className="p-promo-actions-item__icon">
-                                        <UiIcon size={14} name={'arrowTopRight'} color={COLORS.BLACK_MEDIUM}/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="p-promo-actions-item__date">
-                                {formatDate(promoAction.dateFrom)} – {formatDate(promoAction.dateTo)}
-                            </div>
-                            <div className="p-promo-actions-item__title">
-                                {promoAction.name}
-                            </div>
-                        </UiLink>
-                    ))}
+                                {/*{store.promoActions.map(news => (*/}
+                                {promoActions.map(promoAction => (
+                                    <UiArticleTile
+                                        key={promoAction.id}
+                                        name={promoAction.name}
+                                        href={ROUTES.PROMO_ACTION(promoAction.slug)}
+                                        image={promoAction.previewImageThumbnail}
+                                        badge={promoAction.badge}
+                                        isLarge={promoAction.isLarge}
+                                    />
+                                ))}
+                            </UiGrid>
+                            {/*<UiPagination*/}
+                            {/*    isMore*/}
+                            {/*    isLoading={store.isLoadingNewPage}*/}
+                            {/*    pagination={store.pagination}*/}
+                            {/*/>*/}
+                        </div>
+                    </UiBoundary>
                 </UiGrid>
             </UiWrap>
         </Layout>

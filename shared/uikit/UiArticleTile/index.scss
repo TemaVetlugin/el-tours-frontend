@@ -2,6 +2,14 @@
     $self: &;
     text-decoration: none;
 
+    &--large {
+        grid-column: span 2;
+
+        @include isMobile {
+            grid-column: auto;
+        }
+    }
+
     &__badge {
         position: absolute;
     }
@@ -16,7 +24,7 @@
         background-size: cover;
 
         @include isMobile {
-            height: 170px;
+            height: 53vw;
         }
 
         @include isTablet() {
@@ -32,7 +40,7 @@
             margin-bottom: 16px;
 
             @include isMobile {
-                height: 170px;
+                height: 53vw;
             }
 
             @include isTablet() {
@@ -52,6 +60,15 @@
         #{ $self }--promo#{ $self }--large & {
             margin-bottom: 24px;
             border-radius: 20px;
+
+            @include isMobile {
+                margin-bottom: 16px;
+                border-radius: 24px;
+            }
+
+            @include isTablet {
+                margin-bottom: 20px;
+            }
         }
     }
 
@@ -79,6 +96,11 @@
 
         #{ $self }--large & {
             @include h2;
+
+            @include isMobile {
+                font-size: 16px;
+                line-height: 18px;
+            }
         }
     }
 
