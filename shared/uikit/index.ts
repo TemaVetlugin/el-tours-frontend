@@ -10,6 +10,7 @@ export { UiChecklist } from './UiChecklist';
 export { UiContentResource } from './UiContentResource';
 export { UiDropdown } from './UiDropdown';
 export { UiEmpty } from './UiEmpty';
+export { UiEmpty2 } from './UiEmpty2';
 export { UiForm, UiFormFooter } from './UiForm';
 export { UiFormControl } from './UiFormControl';
 export { UiGrid } from './UiGrid';

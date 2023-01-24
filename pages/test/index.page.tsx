@@ -29,6 +29,7 @@ import {
     UiCardTile,
     UiDropdown,
     UiEmpty,
+    UiEmpty2,
     UiLink, UiLoading, UiTooltip, UiTypography, UiHtml, UiSocialShare
 } from "shared/uikit";
 import { useObservable } from "shared/hooks";
@@ -499,6 +500,7 @@ const TestPage: NextPage<PropsType> = observer(({ application }) => {
                         title="По запросу «123» не найдено ни одного товара"
                         description="Воспользуйтесь Каталогом или оформите предзаказ на товар, которого еще нет в Вашем населенном пункте"
                     />
+                    <UiEmpty2/>
                     <UiGrid columns={5}>
                         <UiTooltip label={'Убрать из избранного'}>
                             <UiIcon size={24} name={'heart'} color={[COLORS.GRAY_DARK, COLORS.GRAY_DARK]}/>

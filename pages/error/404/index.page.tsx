@@ -3,7 +3,7 @@ import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 
 import { Layout } from "shared/layout";
-import { UiEmpty, UiLink, UiSeo, UiWrap } from "shared/uikit";
+import { UiEmpty2, UiLink, UiSeo, UiWrap } from "shared/uikit";
 import { ApplicationDataType } from "shared/types";
 import { getApplicationData } from "shared/server";
 import { ROUTES } from "shared/contants";
@@ -22,7 +22,7 @@ const Error404Page: NextPage<PropsType> = observer(({ application }) => {
         <Layout>
             <UiSeo title='Ничего не найдено'/>
             <UiWrap>
-                <UiEmpty/>
+                <UiEmpty2/>
             </UiWrap>
         </Layout>
     )
