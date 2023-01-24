@@ -30,4 +30,5 @@ export const ROUTES = {
     ERROR_404: () => '/error/404',
     P_PERSONAL_DATA: () => '/p/personal-data',
     P_PRIVACY: () => '/p/privacy',
+    CONTACTS: () => '/contacts',
 };

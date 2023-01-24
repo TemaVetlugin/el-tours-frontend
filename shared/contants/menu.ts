@@ -99,4 +99,8 @@ export const MENU = {
         name: 'Адреса доставки',
         href: ROUTES.PROFILE_ADDRESS()
     }),
+    CONTACTS: (): MenuItemType => ({
+        name: 'Контакты',
+        href: ROUTES.CONTACTS()
+    }),
 };

@@ -43,6 +43,8 @@ export { stocks } from "./stocks";
 export { trash } from "./trash";
 export { user } from "./user";
 export { warning } from "./warning";
+export { location } from "./location";
+export { mail } from "./mail";
 
 //
 export { account } from "./account";
