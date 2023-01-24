@@ -29,11 +29,18 @@
             display: flex;
             align-items: center;
             width: 100%;
+            max-width: 640px;
             color: $cBlackText;
             gap: 8px;
 
             @include is360() {
-                font-size: 16px;
+                font-size: 20px;
+                line-height: 100%;
+            }
+
+            @include isTablet {
+                font-size: 24px;
+                line-height: 110%;
             }
         }
 

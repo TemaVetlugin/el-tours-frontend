@@ -169,12 +169,9 @@ const NewsDetailPage: NextPage<PropsType> = observer(({ application, newsItem, n
             />
             <UiWrap>
                 <UiBreadcrumbs items={[MENU.NEWS(), MENU.NEWS_DETAIL(store.newsItem.name)]}/>
-                <UiGrid media={{
-                    [MEDIA_POINTS.IS_768]: { columns: '640px' }
-                }}>
-                    <LayoutTitle value={store.newsItem.name}/>
-                </UiGrid>
-                <LayoutSection>
+                <LayoutSection
+                    title={store.newsItem.name}
+                >
                     <UiGrid
                         className="p-news-detail"
                         media={{

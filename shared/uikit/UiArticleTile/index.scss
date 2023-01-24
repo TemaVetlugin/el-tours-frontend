@@ -52,6 +52,21 @@
             }
         }
 
+        #{ $self }--medium & {
+            height: 196px;
+            margin-bottom: 16px;
+
+            @include is360() {
+                height: 58vw;
+                margin-bottom: 8px;
+            }
+
+            @include is768($w1366) {
+                height: 140px;
+                margin-bottom: 8px;
+            }
+        }
+
         #{ $self }--promo & {
             margin-bottom: 16px;
             border-radius: 24px;
@@ -101,6 +116,11 @@
                 font-size: 16px;
                 line-height: 18px;
             }
+        }
+
+        #{ $self }--medium & {
+            font-size: 16px;
+            line-height: 120%;
         }
     }
 

@@ -2,8 +2,18 @@ import React, { useCallback, useEffect, useMemo } from "react";
 import { observer } from "mobx-react";
 import { GetServerSideProps, NextPage } from 'next'
 
-import { Layout, LayoutTitle } from "shared/layout";
-import { UiArticleTile, UiBoundary, UiBreadcrumbs, UiCard, UiGrid, UiPagination, UiSeo, UiWrap } from "shared/uikit";
+import { Layout, LayoutSubtitle, LayoutTitle } from "shared/layout";
+import {
+    UiArticleTile,
+    UiBoundary,
+    UiBreadcrumbs,
+    UiCard, UiFormControl,
+    UiGrid,
+    UiPagination,
+    UiSelect,
+    UiSeo,
+    UiWrap
+} from "shared/uikit";
 import { MEDIA_POINTS, MENU, ROUTES } from "shared/contants";
 import { useObservable } from "shared/hooks";
 import { ArticleModel, PaginationModel } from "shared/models";
@@ -63,49 +73,106 @@ const ArticlesPage: NextPage<PropsType> = observer(({application}) => {
         load();
     }, [load]);
 
+    const articles = [
+        {
+            id: 0,
+            name: 'Что принимать будущей маме?',
+            previewImageThumbnail: 'https://via.placeholder.com/310x380',
+            slug: 'detail',
+            isLarge: true
+        },
+        {
+            id: 1,
+            name: 'Особый уход за кожей при сахарном диабете',
+            previewImageThumbnail: 'https://via.placeholder.com/310x380',
+            slug: 'detail',
+        },
+        {
+            id: 2,
+            name: 'Уход за пожилыми и ограниченно подвижными людьми',
+            previewImageThumbnail: 'https://via.placeholder.com/310x380',
+            slug: 'detail',
+        },
+        {
+            id: 3,
+            name: 'Особый уход за кожей при сахарном диабете',
+            previewImageThumbnail: 'https://via.placeholder.com/310x380',
+            slug: 'detail',
+        },
+        {
+            id: 4,
+            name: 'Уход за пожилыми и ограниченно подвижными людьми',
+            previewImageThumbnail: 'https://via.placeholder.com/310x380',
+            slug: 'detail',
+        },
+        {
+            id: 5,
+            name: 'Выгодное предложение',
+            previewImageThumbnail: 'https://via.placeholder.com/310x380',
+            slug: 'detail',
+        },
+
+        {
+            id: 6,
+            name: 'Особый уход за кожей при сахарном диабете',
+            previewImageThumbnail: 'https://via.placeholder.com/310x380',
+            slug: 'detail',
+        },
+    ];
+
     return (
         <Layout>
-            <UiSeo title={'Полезные статьи'}/>
+            <UiSeo title={'Интересно'}/>
             <UiWrap>
                 <UiBreadcrumbs items={[MENU.ARTICLES()]}/>
-                <LayoutTitle value='Полезные статьи'/>
-                <UiBoundary isLoading={store.isLoading}>
+                <LayoutTitle value='Интересно'/>
+                <UiGrid media={{
+                    [MEDIA_POINTS.IS_360]: { columns: 1, gap: 20 },
+                    [MEDIA_POINTS.IS_768]: { columns: 1, gap: 30 },
+                    [MEDIA_POINTS.IS_1024]: { columns: 1, gap: 50 },
+                    [MEDIA_POINTS.IS_1366]: { columns: 1, gap: 40 }
+                }}>
                     <UiGrid media={{
-                        [MEDIA_POINTS.IS_360]: { columns: 1, gap: 40 },
-                        [MEDIA_POINTS.IS_768]: { columns: 1, gap: 40 },
-                        [MEDIA_POINTS.IS_1024]: { columns: 1, gap: 72 },
-                        [MEDIA_POINTS.IS_1366]: { columns: '1fr 637px', gap: 30 }
+                        [MEDIA_POINTS.IS_360]: { columns: 1, gap: 16 },
+                        [MEDIA_POINTS.IS_768]: { columns: '1fr 222px', gap: 16 },
+                        [MEDIA_POINTS.IS_1024]: { columns: '1fr 310px', gap: 20 },
+                        [MEDIA_POINTS.IS_1366]: { columns: '1fr 310px', gap: 20 }
                     }}>
-                        <div>
-                            <UiGrid columns={1} gap={20}>
-                                {store.largeArticles.map(article => (
-                                    <UiCard key={article.id}>
-                                        <UiArticleTile
-                                            isLarge
-                                            name={article.name}
-                                            href={ROUTES.ARTICLE(article.slug)}
-                                            image={article.previewImageThumbnail}
-                                        />
-                                    </UiCard>
-                                ))}
-                            </UiGrid>
-                        </div>
+                        <LayoutSubtitle>
+                            Скидки не суммируются, покупателю предоставляется максимальная из действующих скидок.
+                            В акциях не участвуют товары со специальной ценой.
+                        </LayoutSubtitle>
+                        <UiFormControl>
+                            <UiSelect
+                                name='select'
+                                value="option1"
+                                placeholder="Выберите рубрику"
+                                items={[
+                                    { id: 0, name: 'Рубрика 1' },
+                                    { id: 1, name: 'Рубрика 2' },
+                                    { id: 2, name: 'Рубрика 3' },
+                                ]}
+                            />
+                        </UiFormControl>
+                    </UiGrid>
+                    <UiBoundary isLoading={store.isLoading}>
                         <div>
                             <UiGrid
-                                className='p-articles__items'
                                 media={{
-                                    [MEDIA_POINTS.IS_360]: { columns: 1, gap: 32 },
-                                    [MEDIA_POINTS.IS_768]: { columns: 2, gap: [20, 30] },
-                                    [MEDIA_POINTS.IS_1024]: { columns: 3, gap: [29, 40] },
-                                    [MEDIA_POINTS.IS_1366]: { columns: 2, gap: [22, 34] }
+                                    [MEDIA_POINTS.IS_360]: { columns: 1, gap: 16 },
+                                    [MEDIA_POINTS.IS_768]: { columns: 3, gap: 16 },
+                                    [MEDIA_POINTS.IS_1024]: { columns: 4, gap: [16, 24] },
+                                    [MEDIA_POINTS.IS_1366]: { columns: 4, gap: [20, 50] }
                                 }}
                             >
-                                {store.articles.map(article => (
+                                {/*{store.promoActions.map(news => (*/}
+                                {articles.map(article => (
                                     <UiArticleTile
                                         key={article.id}
                                         name={article.name}
                                         href={ROUTES.ARTICLE(article.slug)}
                                         image={article.previewImageThumbnail}
+                                        isLarge={article.isLarge}
                                     />
                                 ))}
                             </UiGrid>
@@ -115,8 +182,8 @@ const ArticlesPage: NextPage<PropsType> = observer(({application}) => {
                                 pagination={store.pagination}
                             />
                         </div>
-                    </UiGrid>
-                </UiBoundary>
+                    </UiBoundary>
+                </UiGrid>
             </UiWrap>
         </Layout>
     )

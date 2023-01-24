@@ -32,7 +32,7 @@ export const MENU = {
         href: ROUTES.CATALOG_BY_NAME()
     }),
     ARTICLES: (): MenuItemType => ({
-        name: 'Полезные статьи',
+        name: 'Интересно',
         href: ROUTES.ARTICLES()
     }),
     ARTICLE: (name = 'Статья', id = ''): MenuItemType => ({

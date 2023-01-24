@@ -36,11 +36,26 @@
     h4 {
         @include h4;
         margin: 24px 0 16px;
+
+        @include isMobile {
+            margin-top: 16px;
+        }
     }
 
     p {
         @include text-big;
         margin: 24px 0;
+
+        @include isMobile {
+            margin: 20px 0;
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        @include isTablet {
+            font-size: 16px;
+            line-height: 120%;
+        }
     }
 
     a:not([class]) {
@@ -97,6 +112,10 @@
 
             &:not(:last-child) {
                 margin-bottom: 16px;
+
+                @include isMobile {
+                    margin-bottom: 12px;
+                }
             }
 
             &::before {
@@ -108,6 +127,10 @@
                 background: $cRed;
                 border-radius: 100%;
                 content: '';
+
+                @include isMobile {
+                    top: 7px;
+                }
             }
         }
     }
@@ -124,6 +147,10 @@
 
             &:not(:last-child) {
                 margin-bottom: 16px;
+
+                @include isMobile {
+                    margin-bottom: 12px;
+                }
             }
 
             &::before {
@@ -135,13 +162,5 @@
                 counter-increment: section;
             }
         }
-    }
-
-    time {
-        display: block;
-        margin: 20px 0;
-        color: #969696;
-        font-size: 20px;
-        line-height: 120%;
     }
 }

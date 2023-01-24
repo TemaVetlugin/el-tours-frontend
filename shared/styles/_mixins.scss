@@ -107,6 +107,15 @@
     font-weight: 700;
     font-size: 40px;
     line-height: 120%;
+
+    @include isMobile {
+        font-size: 16px;
+    }
+
+    @include isTablet {
+        font-size: 24px;
+        line-height: 110%;
+    }
 }
 
 @mixin h2 {
@@ -147,6 +156,11 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
+
+    @include isMobile {
+        font-size: 14px;
+        line-height: 18px;
+    }
 }
 
 @mixin text-big {

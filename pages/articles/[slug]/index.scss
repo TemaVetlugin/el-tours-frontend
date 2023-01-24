@@ -1,58 +1,21 @@
 .p-article {
-    margin-bottom: 64px;
-
-    @include isMobileOrTablet {
-        margin-bottom: 36px;
-    }
-
-    &__main {
-        flex-shrink: 0;
-        width: 944px;
-        padding: 40px;
-        margin-right: 40px;
-        background: $cWhite;
-        border-radius: 20px;
-
-        @include media($w768, $w1366) {
-            width: 100%;
-        }
-
-        @include isMobile {
-            width: calc(100% + 20px);
-            padding: 20px;
-            margin: 0 -10px 30px;
-        }
-
-        @include isTablet {
-            padding: 30px;
-            margin-bottom: 48px;
-        }
-
-        @include is1024() {
-            margin-bottom: 72px;
-        }
-    }
-
     &__footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 30px;
+        width: 100%;
+        margin-top: 24px;
+        padding: 7px 8px;
     }
 
     &__image {
         display: block;
         width: 100%;
-        margin-bottom: 36px;
+        margin-bottom: 24px;
         border-radius: 20px;
 
         @include isMobile {
-            margin-bottom: 16px;
-            border-radius: 10px;
-        }
-
-        @include isTablet {
-            margin-bottom: 30px;
+            margin-bottom: 8px;
         }
 
         img {
@@ -76,59 +39,42 @@
         }
     }
 
-    &__date {
-        display: block;
-        margin-bottom: 20px;
-        color: #969696;
-        font-size: 20px;
-        line-height: 120%;
-
-        @include isMobile {
-            margin-bottom: 18px;
-            font-size: 16px;
-        }
-    }
 
     &-aside {
+        @include is360($w1366) {
+            display: none;
+        }
+
         &__title {
+            @include h3;
             margin: 0 0 24px;
             color: $cBlack2;
-            font-size: 24px;
-            font-weight: 700;
-            line-height: 120%;
-
-            @include media($w768, $w1366) {
-                margin-bottom: 32px;
-                font-size: 26px;
-            }
         }
 
-        &__items {
-            width: 100%;
-
-            @include media($w768, $w1366) {
-                display: flex;
-                width: calc(100% + 29px);
-                margin: 0 -14px 0 -15px;
-            }
-
-            @include isTablet {
-                flex-wrap: wrap;
+        .ui-article-tile {
+            &:nth-child(n + 4) {
+                display: none;
             }
         }
+    }
+}
 
-        &__item {
-            width: 100%;
-            margin-bottom: 24px;
+.p-articles-all {
+    display: none;
 
-            @include isTablet {
-                width: calc((100% - 87px) / 2);
-                margin: 0 14px 30px 15px;
-            }
+    @include media(0, $w1366) {
+        display: block;
+    }
 
-            @include is1024() {
-                width: calc((100% - 87px) / 3);
-                margin: 0 14px 0 15px;
+    &__title {
+        @include h2;
+        margin: 0 0 24px;
+    }
+
+    .ui-article-tile {
+        @include isTablet {
+            &:nth-child(n + 4) {
+                display: none;
             }
         }
     }

@@ -1,7 +1,7 @@
 .layout-body {
     padding: 30px 0 70px;
 
-    @include isMobileOrTablet() {
-        padding: 20px 0;
+    @include isMobile {
+        padding: 16px 0;
     }
 }

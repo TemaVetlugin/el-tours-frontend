@@ -12,20 +12,14 @@
         display: flex;
         align-items: flex-start;
         gap: 24px;
-        padding: 0 8px;
 
         @include is768($w1366) {
             gap: 24px;
-            padding: 0;
         }
 
         @include isMobile {
             display: block;
-            padding: 38px 0 0;
-        }
-
-        @include is1024() {
-
+            padding-top: 38px;
         }
     }
 

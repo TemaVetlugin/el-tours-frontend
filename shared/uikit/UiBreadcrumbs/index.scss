@@ -1,17 +1,15 @@
 .ui-breadcrumbs {
-    display: flex;
-    align-items: center;
+    @include text-label;
     margin-bottom: 24px;
-    font-size: 12px;
     font-weight: 500;
-    line-height: 16px;
-    gap: 8px;
 
-    @include isMobileOrTablet() {
-        flex-wrap: wrap;
+    @include isMobile {
+        margin-bottom: 16px;
+        line-height: 18px;
     }
 
     &__item {
+        display: inline;
         color: $cPrimary;
         text-decoration: none;
 
@@ -21,10 +19,13 @@
     }
 
     &__current {
+        display: inline;
         color: $cGrayDark;
     }
 
     &__dot {
+        display: inline-block;
+        margin: 0 8px;
         color: $cGrayDark;
         font-size: 14px;
         line-height: 0;
