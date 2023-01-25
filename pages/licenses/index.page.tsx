@@ -3,7 +3,7 @@ import { observer } from "mobx-react";
 import { GetServerSideProps, NextPage } from 'next'
 
 import { Layout, LayoutTitle } from "shared/layout";
-import { UiBoundary, UiBreadcrumbs, UiCard, UiGrid, UiIcon, UiLink, UiLinkWave, UiSeo, UiWrap } from "shared/uikit";
+import { UiBoundary, UiBreadcrumbs, UiCard, UiGrid, UiIcon, UiLink, UiSeo, UiWrap } from "shared/uikit";
 import { COLORS, MEDIA_POINTS, MENU } from "shared/contants";
 import { ApplicationDataType } from "shared/types";
 import { BootstrapModule } from "shared/modules";
@@ -109,11 +109,9 @@ const LicensesPage: NextPage<PropsType> = observer(({ application }) => {
                                                             <div className="p-licenses-document__link">
                                                                 <UiLink
                                                                     href={document.href}
-                                                                    target={'_blank'}
+                                                                    className={'underline-wave underline-wave--primary underline-wave--line-small'}
                                                                 >
-                                                                    <UiLinkWave isLineSmall>
-                                                                        <span>Скачать</span>
-                                                                    </UiLinkWave>
+                                                                    <span>Скачать</span>
                                                                 </UiLink>
                                                             </div>
                                                         </div>

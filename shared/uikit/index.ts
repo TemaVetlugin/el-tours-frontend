@@ -18,7 +18,6 @@ export { UiHtml } from './UiHtml';
 export { UiIcon } from './UiIcon';
 export { UiInput } from './UiInput';
 export { UiLink } from './UiLink';
-export { UiLinkWave } from './UiLinkWave';
 export { UiLoading } from './UiLoading';
 export { UiMap } from './UiMap';
 export { UiModal, UiModalTitle, UiModalDescription, UiModalActions } from './UiModal';

@@ -2,3 +2,7 @@
     width: fit-content;
     text-decoration: none;
 }
+
+.underline-wave {
+    @include underlineWave;
+}

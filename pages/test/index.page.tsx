@@ -30,7 +30,7 @@ import {
     UiDropdown,
     UiEmpty,
     UiEmpty2,
-    UiLink, UiLoading, UiTooltip, UiTypography, UiHtml, UiSocialShare, UiLinkWave
+    UiLink, UiLoading, UiTooltip, UiTypography, UiHtml, UiSocialShare,
 } from "shared/uikit";
 import { useObservable } from "shared/hooks";
 import { BootstrapModule } from "shared/modules";
@@ -265,33 +265,26 @@ const TestPage: NextPage<PropsType> = observer(({ application }) => {
                                 isDisabled={true}
                             />
                         </UiFormControl>
-                        <UiLink href={'#'}>
-                            <UiLinkWave
-                                size={'large'}
-                                color={'dark'}
-                            >
-                                <span>Cмотреть все</span>
-                                <UiIcon size={15} name={'chevronRightBold'} color={COLORS.RED}/>
-                            </UiLinkWave>
+                        <UiLink
+                            href={'#'}
+                            className={'underline-wave underline-wave--large'}
+                        >
+                            <span>Смотреть все</span>
+                            <UiIcon size={15} name={'chevronRightBold'} color={COLORS.RED}/>
                         </UiLink>
-                        <UiLink>
-                            <UiLinkWave
-                                size={'small'}
-                                color={'dark'}
-                            >
-                                <UiIcon size={24} name={'clock'} color={COLORS.RED}/>
-                                <span>Напомнить заказать</span>
-                            </UiLinkWave>
+
+                        <UiLink className={'underline-wave underline-wave--small'}>
+                            <UiIcon size={24} name={'clock'} color={COLORS.RED}/>
+                            <span>Напомнить заказать</span>
                         </UiLink>
-                        <UiLink href={'#'}>
-                            <UiLinkWave>
-                                <span>Cмотреть все</span>
-                            </UiLinkWave>
+                        <UiLink className={'underline-wave underline-wave--primary'}>
+                            <span>Смотреть все</span>
                         </UiLink>
-                        <UiLink href={'#'}>
-                            <UiLinkWave isLineSmall>
-                                <span>Скачать</span>
-                            </UiLinkWave>
+                        <UiLink
+                            href={'#'}
+                            className={'underline-wave underline-wave--primary underline-wave--line-small'}
+                        >
+                            <span>Скачать</span>
                         </UiLink>
                     </UiGrid>
                     <h2>Inputs</h2>
