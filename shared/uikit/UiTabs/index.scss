@@ -3,6 +3,10 @@
     flex-wrap: wrap;
     gap: 8px;
 
+    @include isMobile {
+        flex-wrap: nowrap;
+    }
+
     @include is768() {
         gap: 16px;
     }
@@ -19,6 +23,7 @@
         line-height: 18px;
         transition: 0.25s;
         gap: 5px;
+        white-space: nowrap;
         cursor: pointer;
 
         &:hover:not(&--active) {

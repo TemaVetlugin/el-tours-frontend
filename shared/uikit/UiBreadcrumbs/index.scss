@@ -3,8 +3,11 @@
     margin-bottom: 24px;
     font-weight: 500;
 
-    @include isMobile {
+    @include isMobileOrTablet {
         margin-bottom: 16px;
+    }
+
+    @include isMobile {
         line-height: 18px;
     }
 

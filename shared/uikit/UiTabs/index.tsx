@@ -28,25 +28,25 @@ export const UiTabs = observer((
 ) => {
     const { is360 } = useMedia();
 
-    if (is360) {
-        return (
-            <UiDropdown
-                className={"ui-tabs-mobile"}
-                items={items}
-                onChange={onChange}
-                name={name}
-                value={value}
-                control={(item, isOpened) => {
-                    return (
-                        <div className="ui-tabs-mobile__control">
-                            <span>{item?.name || 'Не выбрано'}</span>
-                            <UiIcon size={14} name={isOpened ? 'chevronUp' : 'chevronDown'} color={COLORS.GRAY_ICON}/>
-                        </div>
-                    )
-                }}
-            />
-        )
-    }
+    // if (is360) {
+    //     return (
+    //         <UiDropdown
+    //             className={"ui-tabs-mobile"}
+    //             items={items}
+    //             onChange={onChange}
+    //             name={name}
+    //             value={value}
+    //             control={(item, isOpened) => {
+    //                 return (
+    //                     <div className="ui-tabs-mobile__control">
+    //                         <span>{item?.name || 'Не выбрано'}</span>
+    //                         <UiIcon size={14} name={isOpened ? 'chevronUp' : 'chevronDown'} color={COLORS.GRAY_ICON}/>
+    //                     </div>
+    //                 )
+    //             }}
+    //         />
+    //     )
+    // }
     return (
         <div className="ui-tabs">
             {items.map(item => {
