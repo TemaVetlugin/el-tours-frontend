@@ -1,0 +1,63 @@
+.ui-badge {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    max-width: 32px;
+    height: 32px;
+    border-radius: 50px;
+    transition: max-width 0.3s;
+    cursor: pointer;
+
+    @include isMobile {
+        height: 16px;
+    }
+
+    @include isTablet {
+        height: 24px;
+    }
+
+    &:hover {
+        max-width: 100%;
+        box-shadow: 0 0 20px rgba(74, 74, 74, 0.1);
+    }
+
+    &__label {
+        @include text-label;
+        color: $cWhite;
+        white-space: nowrap;
+        max-width: 0;
+        overflow: hidden;
+        transition: max-width 0.5s;
+
+        span {
+            padding: 8px;
+        }
+
+        @include isMobileOrTablet {
+            display: none;
+        }
+    }
+
+    &:hover &__label {
+        max-width: 100%;
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        background: center no-repeat;
+        background-size: contain;
+
+        @include isMobile {
+            width: 16px;
+            height: 16px;
+        }
+
+        @include isTablet {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}

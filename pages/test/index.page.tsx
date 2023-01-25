@@ -40,6 +40,7 @@ import React from "react";
 import { getTabsItems } from "../product/utilities/getTabsItems";
 import { CatalogProductModel } from "shared/models";
 import classnames from "classnames";
+import { UiBadge } from "shared/uikit/UiBadge";
 
 type PropsType = {
     application: ReturnType<typeof getApplicationData>
@@ -529,6 +530,31 @@ const TestPage: NextPage<PropsType> = observer(({ application }) => {
                         </UiTooltip>
                         <UiSocialShare/>
                     </UiGrid>
+                    <div>
+                        <UiBadge
+                            label={'Доставим на дом'}
+                            color={'#00A3B3'}
+                            icon={'./assets/images/badges/delivery.svg'}
+                        />
+                        <br/>
+                        <UiBadge
+                            label={'Выгодно'}
+                            color={'#EF7F1A'}
+                            icon={'./assets/images/badges/wallet.svg'}
+                        />
+                        <br/>
+                        <UiBadge
+                            label={'Акция'}
+                            color={'#B0CB1F'}
+                            icon={'./assets/images/badges/percent.svg'}
+                        />
+                        <br/>
+                        <UiBadge
+                            label={'Требуется рецепт'}
+                            color={'#E31E24'}
+                            icon={'./assets/images/badges/warning.svg'}
+                        />
+                    </div>
                     <br/>
                     <UiGrid columns={'812px'}>
                         <UiTypography>
