@@ -528,6 +528,12 @@ const TestPage: NextPage<PropsType> = observer(({ application }) => {
                         <UiTooltip label={'Убрать из избранного'}>
                             <UiIcon size={24} name={'heart'} color={[COLORS.GRAY_DARK, COLORS.GRAY_DARK]}/>
                         </UiTooltip>
+                        <UiTooltip label={'Доставим на дом'}>
+                            <UiBadge
+                                icon={'./assets/images/badges/delivery.svg'}
+                                isSmall
+                            />
+                        </UiTooltip>
                         <UiSocialShare/>
                     </UiGrid>
                     <div>

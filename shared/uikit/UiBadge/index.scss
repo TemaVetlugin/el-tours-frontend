@@ -1,4 +1,5 @@
 .ui-badge {
+    $self: &;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,6 +15,10 @@
     }
 
     @include isTablet {
+        height: 24px;
+    }
+
+    &--small {
         height: 24px;
     }
 
@@ -56,6 +61,11 @@
         }
 
         @include isTablet {
+            width: 24px;
+            height: 24px;
+        }
+
+        #{ $self }--small & {
             width: 24px;
             height: 24px;
         }
