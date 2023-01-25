@@ -1,0 +1,102 @@
+.p-licenses {
+    &-item {
+        @include isMobile {
+            padding: 12px;
+        }
+
+        @include isTablet {
+            padding: 24px;
+        }
+
+        &__title {
+            @include h3;
+            margin: 0 0 24px;
+            color: $cBlackText;
+
+            @include isMobile {
+                margin-bottom: 12px;
+                font-size: 16px;
+                line-height: 120%;
+            }
+
+            @include isTablet {
+                margin-bottom: 16px;
+                font-size: 20px;
+                line-height: 100%;
+            }
+        }
+
+        &__text {
+            @include text;
+            margin-bottom: 24px;
+            color: $cBlackText;
+
+            @include isMobile {
+                margin-bottom: 12px;
+                font-size: 12px;
+                line-height: 16px;
+            }
+
+            @include isTablet {
+                margin-bottom: 16px;
+            }
+
+            p {
+                margin: 0 0 16px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    &-document {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include isMobile {
+            align-items: flex-start;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+
+        &__name {
+            @include text-medium;
+            margin: 0;
+            color: $cBlackText;
+
+            @include isMobile {
+                flex-shrink: 1;
+                margin-right: 15px;
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
+
+        &__info {
+            @include text;
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            color: $cGrayDark;
+        }
+
+        &__type {
+            width: 40px;
+            margin-right: 16px;
+        }
+
+        &__size {
+            width: 60px;
+            margin-right: 44px;
+
+            @include isMobile {
+                margin-right: 10px;
+            }
+        }
+    }
+}

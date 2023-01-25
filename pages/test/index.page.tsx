@@ -30,7 +30,7 @@ import {
     UiDropdown,
     UiEmpty,
     UiEmpty2,
-    UiLink, UiLoading, UiTooltip, UiTypography, UiHtml, UiSocialShare
+    UiLink, UiLoading, UiTooltip, UiTypography, UiHtml, UiSocialShare, UiLinkWave
 } from "shared/uikit";
 import { useObservable } from "shared/hooks";
 import { BootstrapModule } from "shared/modules";
@@ -265,6 +265,34 @@ const TestPage: NextPage<PropsType> = observer(({ application }) => {
                                 isDisabled={true}
                             />
                         </UiFormControl>
+                        <UiLink href={'#'}>
+                            <UiLinkWave
+                                size={'large'}
+                                color={'dark'}
+                            >
+                                <span>Cмотреть все</span>
+                                <UiIcon size={15} name={'chevronRightBold'} color={COLORS.RED}/>
+                            </UiLinkWave>
+                        </UiLink>
+                        <UiLink>
+                            <UiLinkWave
+                                size={'small'}
+                                color={'dark'}
+                            >
+                                <UiIcon size={24} name={'clock'} color={COLORS.RED}/>
+                                <span>Напомнить заказать</span>
+                            </UiLinkWave>
+                        </UiLink>
+                        <UiLink href={'#'}>
+                            <UiLinkWave>
+                                <span>Cмотреть все</span>
+                            </UiLinkWave>
+                        </UiLink>
+                        <UiLink href={'#'}>
+                            <UiLinkWave isLineSmall>
+                                <span>Скачать</span>
+                            </UiLinkWave>
+                        </UiLink>
                     </UiGrid>
                     <h2>Inputs</h2>
                     <UiGrid columns={5} gap={20}>

@@ -103,4 +103,8 @@ export const MENU = {
         name: 'Контакты',
         href: ROUTES.CONTACTS()
     }),
+    LICENSES: (): MenuItemType => ({
+        name: 'Лицензии',
+        href: ROUTES.LICENSES()
+    }),
 };

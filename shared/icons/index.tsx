@@ -16,13 +16,17 @@ export { checkSquare } from "./checkSquare";
 export { chevronDown } from "./chevronDown";
 export { chevronLeft } from "./chevronLeft";
 export { chevronRight } from "./chevronRight";
+export { chevronRightBold } from "./chevronRightBold";
 export { chevronUp } from "./chevronUp";
+export { clock } from "./clock";
 export { close } from "./close";
 export { download } from "./download";
 export { edit } from "./edit";
 export { exit } from "./exit";
 export { filter } from "./filter";
 export { heart } from "./heart";
+export { location } from "./location";
+export { mail } from "./mail";
 export { menu } from "./menu";
 export { menuOpen } from "./menuOpen";
 export { minus } from "./minus";
@@ -43,8 +47,6 @@ export { stocks } from "./stocks";
 export { trash } from "./trash";
 export { user } from "./user";
 export { warning } from "./warning";
-export { location } from "./location";
-export { mail } from "./mail";
 
 //
 export { account } from "./account";

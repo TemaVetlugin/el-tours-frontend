@@ -31,4 +31,5 @@ export const ROUTES = {
     P_PERSONAL_DATA: () => '/p/personal-data',
     P_PRIVACY: () => '/p/privacy',
     CONTACTS: () => '/contacts',
+    LICENSES: () => '/licenses',
 };

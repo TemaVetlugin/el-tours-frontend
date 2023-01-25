@@ -1,0 +1,101 @@
+.ui-link-wave {
+    $self: &;
+    @include text-medium;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    transition: color $transition;
+    cursor: pointer;
+
+    span {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: url('/assets/images/ui/wave.svg') left repeat-x;
+            transition: opacity $transition;
+            content: '';
+        }
+    }
+
+    &--line-small {
+        span {
+            &::before {
+                background-image: url('/assets/images/ui/wave-sm.svg');
+            }
+
+            &::after {
+                background-image: url('/assets/images/ui/wave-sm-hover.svg');
+            }
+        }
+    }
+
+    &--dark {
+        color: $cBlackText;
+
+        &:hover {
+            color: $cPrimary;
+
+            .ui-icon[data-name="chevronRightBold"] {
+                path[fill] {
+                    fill: $cPrimary;
+                }
+            }
+        }
+    }
+
+    &--primary {
+        color: $cPrimary;
+
+        span {
+            &::after {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: 5px;
+                background: url('/assets/images/ui/wave-hover.svg') left repeat-x;
+                opacity: 0;
+                transition: opacity $transition;
+                content: '';
+            }
+        }
+
+        &:hover {
+            color: $cPrimaryDark;
+
+            span::before {
+                opacity: 0;
+            }
+
+            span::after {
+                opacity: 1;
+            }
+        }
+    }
+
+    &--primary#{ $self }--line-small {
+        span {
+            &::after {
+                background-image: url('/assets/images/ui/wave-sm-hover.svg');
+            }
+        }
+    }
+
+    &--small {
+        @include text;
+    }
+
+    &--large {
+        @include text-big;
+    }
+
+    .ui-icon {
+        margin-top: 3px;
+    }
+}

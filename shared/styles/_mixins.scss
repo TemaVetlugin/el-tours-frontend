@@ -171,6 +171,13 @@
     line-height: 24px;
 }
 
+@mixin text-medium {
+    font-family: $fontPrimary;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+}
+
 @mixin text-label {
     font-family: $fontPrimary;
     font-weight: 400;
