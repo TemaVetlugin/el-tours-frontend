@@ -56,7 +56,7 @@ export const UiButton = observer((
     });
 
     const colors = {
-        button: [COLORS.PRIMARY_GRADIENT, COLORS.PRIMARY],
+        button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
         label: [COLORS.WHITE, COLORS.WHITE],
         ..._colors
     }

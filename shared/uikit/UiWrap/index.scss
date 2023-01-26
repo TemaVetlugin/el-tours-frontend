@@ -1,9 +1,9 @@
 .ui-wrap {
     max-width: 1370px;
     margin: 0 auto;
-    padding: 0 35px;
+    padding: 0 $wrapPadding;
 
     @include isMobile {
-        padding: 0 10px;
+        padding: 0 $wrapPaddingXS;
     }
 }

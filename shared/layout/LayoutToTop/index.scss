@@ -20,6 +20,10 @@
         right: 8px;
     }
 
+    @include is1024() {
+        right: 10px;
+    }
+
     &:hover {
         background: $cPrimaryDark;
     }
