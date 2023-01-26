@@ -68,13 +68,35 @@ const promo = [
     },
 ];
 
+const articles = [
+    {
+        id: 0,
+        name: 'Чтобы проблемы с кишечником не застали врасплох',
+        previewImageThumbnail: 'https://via.placeholder.com/420x236',
+        slug: 'detail',
+        isLarge: true
+    },
+    {
+        id: 1,
+        name: 'Выгодное предложение',
+        previewImageThumbnail: 'https://via.placeholder.com/420x236',
+        slug: 'detail',
+    },
+    {
+        id: 2,
+        name: 'Снижение цены',
+        previewImageThumbnail: 'https://via.placeholder.com/420x236',
+        slug: 'detail',
+    },
+];
+
 const HomePage: NextPage<PropsType> = observer((
     {
         application,
         homeBanners,
         hotCatalogProducts,
         feedbacks,
-        articles,
+        // articles,
         homeWhyTrusts,
         catalogCategories,
         compilations,
@@ -97,6 +119,7 @@ const HomePage: NextPage<PropsType> = observer((
             <UiSeo title={'Аптека Я+'}/>
             <UiWrap>
                 <PHomePromoActions promoActions={store.promoActions}/>
+                <PHomeArticles articles={store.articles}/>
 
                 <PHomeSlider homeBanners={store.homeBanners}/>
                 <PHomeHot catalogProducts={store.hotCatalogProducts}/>
