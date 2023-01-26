@@ -89,18 +89,18 @@ const LicensesPage: NextPage<PropsType> = observer(({ application }) => {
                         }}
                     >
                         {
-                            licenses.map((license) => {
+                            licenses.map((license, index) => {
                                 return (
-                                    <UiCard className={'p-licenses-item'}>
+                                    <UiCard key={index} className={'p-licenses-item'}>
                                         <h2 className="p-licenses-item__title">{license.title}</h2>
                                         <div className="p-licenses-item__text">
                                             <p>{license.text}</p>
                                         </div>
                                         <div className="p-licenses-item__documents">
                                             {
-                                                license.documents.map((document) => {
+                                                license.documents.map((document, index) => {
                                                     return (
-                                                        <div className="p-licenses-document">
+                                                        <div key={index} className="p-licenses-document">
                                                             <p className="p-licenses-document__name">{document.name}</p>
                                                             <div className="p-licenses-document__info">
                                                                 <div className="p-licenses-document__type">{document.type}</div>
