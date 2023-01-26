@@ -73,6 +73,9 @@ export type { IPaginationModel } from './PaginationModel';
 export { PromoActionModel } from './PromoActionModel';
 export type { IPromoActionModel } from './PromoActionModel';
 
+export { PromoActionModel2 } from './PromoActionModel2';
+export type { IPromoActionModel2 } from './PromoActionModel2';
+
 export { StoreBrandModel } from './StoreBrandModel';
 export type { IStoreBrandModel } from './StoreBrandModel';
 

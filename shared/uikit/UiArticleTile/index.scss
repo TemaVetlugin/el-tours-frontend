@@ -17,52 +17,33 @@
     &__image {
         position: relative;
         width: 100%;
-        height: 174px;
         margin-bottom: 20px;
+        padding-top: 56%;
         border-radius: 20px;
         background: center no-repeat;
         background-size: cover;
 
         @include isMobile {
-            height: 53vw;
+            padding-top: 57%;
         }
 
         @include isTablet() {
             height: 124px;
         }
 
-        @include is1024() {
-            height: 127px;
-        }
-
         #{ $self }--large & {
-            height: 357px;
             margin-bottom: 16px;
-
-            @include isMobile {
-                height: 53vw;
-            }
-
-            @include isTablet() {
-                height: 255px;
-            }
-
-            @include is1024() {
-                height: 260px;
-            }
         }
 
         #{ $self }--medium & {
-            height: 196px;
             margin-bottom: 16px;
+            padding-top: 62%;
 
             @include is360() {
-                height: 58vw;
                 margin-bottom: 8px;
             }
 
             @include is768($w1366) {
-                height: 140px;
                 margin-bottom: 8px;
             }
         }

@@ -11,7 +11,8 @@ import {
     CatalogProductModel, CompilationModel,
     HomeBannerModel,
     HomeWhyTrustModel,
-    FeedbackModel
+    FeedbackModel,
+    PromoActionModel2
 } from "shared/models";
 import { UiSeo, UiWrap } from "shared/uikit";
 import { homeRequest } from "shared/requests/frontend";
@@ -28,12 +29,44 @@ import { PHomeCatalogCategories } from "./components/PHomeCatalogCategories";
 import { PHomeAbout } from "./components/PHomeAbout";
 import { PHomeAlphabet } from "./components/PHomeAlphabet";
 import { PHomeDiscountCards } from "./components/PHomeDiscountCards";
+import { PHomePromoActions } from "./components/PHomePromoActions";
 
 import './index.scss';
 
 type PropsType = {
     application: ApplicationDataType,
 } & NonNullable<ReturnType<typeof homeRequest>['data']>;
+
+const promo = [
+    {
+        id: 0,
+        name: 'Выгодное предложение',
+        previewImageThumbnail: 'https://via.placeholder.com/310x174',
+        slug: 'promo-detail',
+        badge: 'Осталось 8 дней',
+    },
+    {
+        id: 1,
+        name: 'Чтобы проблемы с кишечником не застали врасплох',
+        previewImageThumbnail: 'https://via.placeholder.com/310x174',
+        slug: 'promo-detail',
+        badge: 'Осталось 8 дней'
+    },
+    {
+        id: 2,
+        name: 'Выгодное предложение',
+        previewImageThumbnail: 'https://via.placeholder.com/310x174',
+        slug: 'promo-detail',
+        badge: 'Осталось 8 дней'
+    },
+    {
+        id: 3,
+        name: 'Чтобы проблемы с кишечником не застали врасплох',
+        previewImageThumbnail: 'https://via.placeholder.com/310x174',
+        slug: 'promo-detail',
+        badge: 'Осталось 8 дней'
+    },
+];
 
 const HomePage: NextPage<PropsType> = observer((
     {
@@ -44,7 +77,7 @@ const HomePage: NextPage<PropsType> = observer((
         articles,
         homeWhyTrusts,
         catalogCategories,
-        compilations
+        compilations,
     }) => {
     BootstrapModule.application(application);
 
@@ -55,13 +88,16 @@ const HomePage: NextPage<PropsType> = observer((
         articles: articles.map(item => new ArticleModel(item)),
         homeWhyTrusts: homeWhyTrusts.map(item => new HomeWhyTrustModel(item)),
         catalogCategories: catalogCategories.map(item => new CatalogCategoryModel(item)),
-        compilations: compilations.map(item => new CompilationModel(item))
+        compilations: compilations.map(item => new CompilationModel(item)),
+        promoActions: promo.map(item => new PromoActionModel2(item)),
     });
 
     return (
         <Layout>
-            <UiSeo title={'Аптека Добротека'}/>
+            <UiSeo title={'Аптека Я+'}/>
             <UiWrap>
+                <PHomePromoActions promoActions={store.promoActions}/>
+
                 <PHomeSlider homeBanners={store.homeBanners}/>
                 <PHomeHot catalogProducts={store.hotCatalogProducts}/>
                 <PHomeDiscountCards/>
@@ -75,7 +111,7 @@ const HomePage: NextPage<PropsType> = observer((
                     <PHomeAlphabet/>
                 </LayoutSection>
                 <PHomeFeedbacks reviews={store.feedbacks}/>
-                <PHomeArticles articles={store.articles}/>
+                {/*<PHomeArticles articles={store.articles}/>*/}
                 <PHomeAbout/>
             </UiWrap>
         </Layout>

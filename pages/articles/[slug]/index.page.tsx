@@ -176,7 +176,6 @@ const ArticleDetailPage: NextPage<PropsType> = observer(({ application, article,
                     >
                         {store.articles.map(article => (
                             <UiArticleTile
-                                isSmall
                                 key={article.id}
                                 name={article.name}
                                 href={ROUTES.ARTICLE(article.slug)}

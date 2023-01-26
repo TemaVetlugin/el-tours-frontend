@@ -60,23 +60,6 @@
 
         &__aside {
             margin-left: auto;
-
-            .ui-link {
-                color: $cPrimary;
-                text-decoration: none;
-                font-size: 18px;
-                font-weight: 500;
-                line-height: 140%;
-                transition: $transition;
-
-                @include is360() {
-                    font-size: 14px;
-                }
-
-                &:hover {
-                    color: $cSecondary;
-                }
-            }
         }
     }
 }

@@ -37,7 +37,7 @@ export const Layout = observer((
             <LayoutToTop/>
             <NotifierModuleComponent/>
             <CAuthModal/>
-            <LayoutCookieLaw/>
+            {/*<LayoutCookieLaw/>*/}
         </div>
     )
 })
