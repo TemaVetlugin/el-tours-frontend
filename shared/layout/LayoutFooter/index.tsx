@@ -111,32 +111,32 @@ export const LayoutFooter = observer(() => {
         {
             href: '#',
             name: 'App Store',
-            img: './assets/images/footer/app-store.png'
+            img: '/assets/images/footer/app-store.png'
         },
         {
             href: '#',
             name: 'Google Play',
-            img: './assets/images/footer/google-play.png'
+            img: '/assets/images/footer/google-play.png'
         },
         {
             href: '#',
             name: 'AppGallery',
-            img: './assets/images/footer/app-gallery.png'
+            img: '/assets/images/footer/app-gallery.png'
         },
         {
             href: '#',
             name: 'RuMarket',
-            img: './assets/images/footer/ru-market.png'
+            img: '/assets/images/footer/ru-market.png'
         },
         {
             href: '#',
             name: 'NashMarket',
-            img: './assets/images/footer/nash-market.png'
+            img: '/assets/images/footer/nash-market.png'
         },
         {
             href: '#',
             name: 'Apk.file',
-            img: './assets/images/footer/apk.png'
+            img: '/assets/images/footer/apk.png'
         },
     ]
 
