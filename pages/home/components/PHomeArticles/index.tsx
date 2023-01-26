@@ -59,7 +59,7 @@ export const PHomeArticles = observer(({ articles }: PropsType) => {
                 <UiGrid media={{
                     [MEDIA_POINTS.IS_360]: { columns: 1, gap: 16 },
                     [MEDIA_POINTS.IS_768]: { columns: 3, gap: 16 },
-                    [MEDIA_POINTS.IS_1024]: { columns: 4, gap: 16 },
+                    [MEDIA_POINTS.IS_1024]: { columns: 3, gap: 16 },
                     [MEDIA_POINTS.IS_1366]: { columns: 3, gap: 20 }
                 }}>
                     {articles.map(article => (
@@ -74,32 +74,4 @@ export const PHomeArticles = observer(({ articles }: PropsType) => {
             )}
         </LayoutSection>
     )
-    // return (
-    //     <LayoutSection
-    //         className={'p-home-articles'}
-    //         title={'Полезные статьи'}
-    //         headerAside={
-    //             <UiLink href={ROUTES.ARTICLES()}>
-    //                 Смотреть все ⟶
-    //             </UiLink>
-    //         }
-    //     >
-    //         <UiGrid media={{
-    //             [MEDIA_POINTS.IS_360]: { columns: 1, gap: 20 },
-    //             [MEDIA_POINTS.IS_768]: { columns: 3, gap: 22 },
-    //             [MEDIA_POINTS.IS_1024]: { columns: 3, gap: 22 },
-    //             [MEDIA_POINTS.IS_1366]: { columns: 4, gap: 22 }
-    //         }}>
-    //             {articles.map(article => (
-    //                 <UiArticleTile
-    //                     isMedium
-    //                     key={article.id}
-    //                     href={ROUTES.ARTICLE(article.slug)}
-    //                     name={article.name}
-    //                     image={article.previewImageThumbnail}
-    //                 />
-    //             ))}
-    //         </UiGrid>
-    //     </LayoutSection>
-    // )
 });
