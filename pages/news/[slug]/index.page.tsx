@@ -8,18 +8,18 @@ import {
     UiBreadcrumbs,
     UiCard,
     UiGrid,
-    UiHtml, UiNewsTile,
-    UiSeo,
+    UiHtml, UiIcon, UiLink, UiNewsTile,
+    UiSeo, UiSlider,
     UiSocialShare,
     UiTypography,
     UiWrap
 } from "shared/uikit";
-import { MEDIA_POINTS, MENU, ROUTES } from "shared/contants";
+import { COLORS, MEDIA_POINTS, MENU, ROUTES } from "shared/contants";
 import { getApplicationData, Redis } from "shared/server";
 import { articlesGetRequest } from "shared/requests/api";
 import { ApplicationDataType } from "shared/types";
-import { ArticleModel, IArticleModel } from "shared/models";
-import { useObservable } from "shared/hooks";
+import { ArticleModel, IArticleModel, NewsModel } from "shared/models";
+import { useMedia, useObservable } from "shared/hooks";
 import { formatDate } from "shared/utilities";
 import { CCatalogProductsSlider, CLinkButton } from "shared/components";
 import { BootstrapModule } from "shared/modules";
@@ -161,7 +161,6 @@ const NewsDetailPage: NextPage<PropsType> = observer(({ application, newsItem, n
                 name: 'План поддержки здоровья летом',
                 previewImageThumbnail: 'https://via.placeholder.com/310x380',
                 slug: 'detail',
-                isLarge: true
             },
             {
                 id: 1,
@@ -187,6 +186,8 @@ const NewsDetailPage: NextPage<PropsType> = observer(({ application, newsItem, n
             detailImageThumbnail: 'https://via.placeholder.com/310x380'
         }
     }
+
+    const { is360 } = useMedia();
 
     return (
         <Layout>
@@ -267,7 +268,7 @@ const NewsDetailPage: NextPage<PropsType> = observer(({ application, newsItem, n
                                 <UiNewsTile
                                     key={newsItem.id}
                                     name={newsItem.name}
-                                    href={ROUTES.ARTICLE(newsItem.slug)}
+                                    href={ROUTES.NEWS_DETAIL(newsItem.slug)}
                                     image={newsItem.previewImageThumbnail}
                                 />
                             ))}
@@ -279,25 +280,58 @@ const NewsDetailPage: NextPage<PropsType> = observer(({ application, newsItem, n
                 </LayoutSection>
 
                 <LayoutSection
-                    className="p-news-detail-all"
+                    className={'p-news-detail-all'}
                     title={'Все новости:'}
+                    headerAside={
+                        <UiLink
+                            href={ROUTES.NEWS()}
+                            className={'underline-wave underline-wave--large'}
+                        >
+                            <span>Смотреть все</span>
+                            <UiIcon size={15} name={'chevronRightBold'} color={COLORS.RED}/>
+                        </UiLink>
+                    }
                 >
-                    <UiGrid
-                        media={{
+                    {is360 && (
+                        <div className="p-news-slider">
+                            <UiSlider
+                                effect='slide'
+                                items={store.news}
+                                perPage={'auto'}
+                                loop={true}
+                                renderItem={(newsItem: NewsModel) => (
+                                    <div
+                                        key={newsItem.id}
+                                        className='p-news-slider-slide'
+                                    >
+                                        <UiNewsTile
+                                            key={newsItem.id}
+                                            name={newsItem.name}
+                                            href={ROUTES.NEWS_DETAIL(newsItem.slug)}
+                                            image={newsItem.previewImageThumbnail}
+                                        />
+                                    </div>
+                                )}
+                            />
+                        </div>
+                    )}
+
+                    {!is360 && (
+                        <UiGrid media={{
                             [MEDIA_POINTS.IS_360]: { columns: 1, gap: 16 },
                             [MEDIA_POINTS.IS_768]: { columns: 3, gap: 16 },
                             [MEDIA_POINTS.IS_1024]: { columns: 4, gap: 16 },
-                        }}
-                    >
-                        {store.news.map(newsItem => (
-                            <UiNewsTile
-                                key={newsItem.id}
-                                name={newsItem.name}
-                                href={ROUTES.ARTICLE(newsItem.slug)}
-                                image={newsItem.previewImageThumbnail}
-                            />
-                        ))}
-                    </UiGrid>
+                        }}>
+                            {store.news.map(newsItem => (
+                                <UiNewsTile
+                                    key={newsItem.id}
+                                    name={newsItem.name}
+                                    href={ROUTES.NEWS_DETAIL(newsItem.slug)}
+                                    image={newsItem.previewImageThumbnail}
+                                />
+                            ))}
+                        </UiGrid>
+                    )}
                 </LayoutSection>
             </UiWrap>
         </Layout>
