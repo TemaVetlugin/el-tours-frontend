@@ -7,6 +7,9 @@ export type { IBadgeModel } from './BadgeModel';
 export { BrandModel } from './BrandModel';
 export type { IBrandModel } from './BrandModel';
 
+export { BrandModel2 } from './BrandModel2';
+export type { IBrandModel2 } from './BrandModel2';
+
 export { CartItemModel } from './CartItemModel';
 export type { ICartItemModel } from './CartItemModel';
 

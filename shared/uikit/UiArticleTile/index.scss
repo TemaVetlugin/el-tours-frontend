@@ -103,6 +103,10 @@
             font-size: 16px;
             line-height: 120%;
         }
+
+        #{ $self }--promo:not(&--large) & {
+            padding-left: 8px;
+        }
     }
 
     &:hover &__name {

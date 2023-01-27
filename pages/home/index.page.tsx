@@ -12,7 +12,8 @@ import {
     HomeBannerModel,
     HomeWhyTrustModel,
     FeedbackModel,
-    PromoActionModel2
+    PromoActionModel2,
+    BadgeModel, BrandModel2
 } from "shared/models";
 import { UiSeo, UiWrap } from "shared/uikit";
 import { homeRequest } from "shared/requests/frontend";
@@ -30,6 +31,7 @@ import { PHomeAbout } from "./components/PHomeAbout";
 import { PHomeAlphabet } from "./components/PHomeAlphabet";
 import { PHomeDiscountCards } from "./components/PHomeDiscountCards";
 import { PHomePromoActions } from "./components/PHomePromoActions";
+import { PHomeBrands } from "./components/PHomeBrands";
 
 import './index.scss';
 
@@ -90,6 +92,34 @@ const articles = [
     },
 ];
 
+const brands = [
+    {
+        id: 0,
+        name: 'Nutricia',
+        img: '/assets/images/brands/image1.png'
+    },
+    {
+        id: 1,
+        name: 'Канонфарма',
+        img: '/assets/images/brands/image2.png'
+    },
+    {
+        id: 2,
+        name: 'Эвалар',
+        img: '/assets/images/brands/image3.png'
+    },
+    {
+        id: 3,
+        name: 'Пенталгин',
+        img: '/assets/images/brands/image4.png'
+    },
+    {
+        id: 4,
+        name: 'Асна',
+        img: '/assets/images/brands/image5.png'
+    },
+]
+
 const HomePage: NextPage<PropsType> = observer((
     {
         application,
@@ -112,6 +142,7 @@ const HomePage: NextPage<PropsType> = observer((
         catalogCategories: catalogCategories.map(item => new CatalogCategoryModel(item)),
         compilations: compilations.map(item => new CompilationModel(item)),
         promoActions: promo.map(item => new PromoActionModel2(item)),
+        brands: brands.map(item => new BrandModel2(item)),
     });
 
     return (
@@ -119,6 +150,7 @@ const HomePage: NextPage<PropsType> = observer((
             <UiSeo title={'Аптека Я+'}/>
             <UiWrap>
                 <PHomePromoActions promoActions={store.promoActions}/>
+                <PHomeBrands brands={store.brands}/>
                 <PHomeArticles articles={store.articles}/>
 
                 <PHomeSlider homeBanners={store.homeBanners}/>
