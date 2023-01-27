@@ -67,6 +67,9 @@ export type { IHomeWhyTrustModel } from './HomeWhyTrustModel';
 export { ManufacturerModel } from './ManufacturerModel';
 export type { IManufacturerModel } from './ManufacturerModel';
 
+export { NewsModel } from './NewsModel';
+export type { INewsModel } from './NewsModel';
+
 export { OrderItemModel } from './OrderItemModel';
 export type { IOrderItemModel } from './OrderItemModel';
 

@@ -13,7 +13,7 @@ import {
     HomeWhyTrustModel,
     FeedbackModel,
     PromoActionModel2,
-    BadgeModel, BrandModel2, HomePromoBannerModel
+    BadgeModel, BrandModel2, HomePromoBannerModel, NewsModel
 } from "shared/models";
 import { UiSeo, UiWrap } from "shared/uikit";
 import { homeRequest } from "shared/requests/frontend";
@@ -32,9 +32,10 @@ import { PHomeAlphabet } from "./components/PHomeAlphabet";
 import { PHomeDiscountCards } from "./components/PHomeDiscountCards";
 import { PHomePromoActions } from "./components/PHomePromoActions";
 import { PHomeBrands } from "./components/PHomeBrands";
+import { PHomePromoBanners } from "./components/PHomePromoBanners";
+import { PHomeNews } from "./components/PHomeNews";
 
 import './index.scss';
-import { PHomePromoBanners } from "./components/PHomePromoBanners";
 
 type PropsType = {
     application: ApplicationDataType,
@@ -132,6 +133,37 @@ const promoBanners = [
     },
 ];
 
+const news = [
+    {
+        id: 0,
+        name: 'Бережем нервы. Как избавиться от стресса',
+        description: 'Различное расположение абсурдно начинает генезис свободного стиха, хотя в существование или актуальность этого он...',
+        previewImageThumbnail: 'https://dummyimage.com/310x380',
+        slug: 'news-detail'
+    },
+    {
+        id: 1,
+        name: 'Бережем нервы. Как избавиться от стресса',
+        description: 'Различное расположение абсурдно начинает генезис свободного стиха, хотя в существование или актуальность этого он...',
+        previewImageThumbnail: 'https://dummyimage.com/310x380',
+        slug: 'news-detail'
+    },
+    {
+        id: 2,
+        name: 'План поддержки здоровья летом',
+        description: 'Различное расположение абсурдно начинает генезис свободного стиха, хотя в существование или актуальность этого он...',
+        previewImageThumbnail: 'https://dummyimage.com/310x380',
+        slug: 'news-detail'
+    },
+    {
+        id: 3,
+        name: 'План поддержки здоровья летом',
+        description: 'Различное расположение абсурдно начинает генезис свободного стиха, хотя в существование или актуальность этого он...',
+        previewImageThumbnail: 'https://dummyimage.com/310x380',
+        slug: 'news-detail'
+    },
+];
+
 const HomePage: NextPage<PropsType> = observer((
     {
         application,
@@ -156,6 +188,7 @@ const HomePage: NextPage<PropsType> = observer((
         promoActions: promo.map(item => new PromoActionModel2(item)),
         brands: brands.map(item => new BrandModel2(item)),
         promoBanners: promoBanners.map(item => new HomePromoBannerModel(item)),
+        news: news.map(item => new NewsModel(item)),
     });
 
     return (
@@ -165,6 +198,7 @@ const HomePage: NextPage<PropsType> = observer((
                 <PHomePromoActions promoActions={store.promoActions}/>
                 <PHomeBrands brands={store.brands}/>
                 <PHomeArticles articles={store.articles}/>
+                <PHomeNews news={store.news}/>
                 <PHomePromoBanners promoBanners={store.promoBanners}/>
 
                 <PHomeSlider homeBanners={store.homeBanners}/>

@@ -1,12 +1,14 @@
-.p-home-articles {
-    .ui-article-tile {
-        &__image {
-            margin-bottom: 8px;
+.p-home-news {
+    .ui-news-tile {
+        &:nth-child(4n) {
+            @include is768($w1366) {
+                display: none;
+            }
         }
     }
 }
 
-.p-home-articles-slider {
+.p-home-news-slider {
     position: relative;
 
     @include isMobile {
@@ -30,7 +32,7 @@
 
     &-slide {
         @include isMobile {
-            width: 220px;
+            width: 203px;
             padding: 0 8px;
         }
     }

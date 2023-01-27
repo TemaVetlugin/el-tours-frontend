@@ -216,7 +216,8 @@
         }
     }
 
-    &:hover {
+    &:hover,
+    .ui-link:hover & {
         color: $cPrimary;
 
         .ui-icon[data-name="chevronRightBold"] {
@@ -255,7 +256,8 @@
             }
         }
 
-        &:hover {
+        &:hover,
+        .ui-link:hover & {
             color: $cPrimaryDark;
 
             span::before {

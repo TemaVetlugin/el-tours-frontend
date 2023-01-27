@@ -7,8 +7,8 @@
 
     &__image {
         width: 100%;
-        height: 380px;
         margin-bottom: 16px;
+        padding-top: 123%;
         border-radius: 20px;
         background: center no-repeat;
         background-size: cover;
@@ -16,22 +16,36 @@
         @include media(0, $w1366) {
             margin-bottom: 8px;
         }
+    }
 
-        @include media($w768, $w1366) {
-            height: 278px;
+    &__inner {
+        padding: 0 8px;
+
+        @include is360($w1024) {
+            padding: 0;
         }
     }
 
     &__name {
         @include h4;
         margin: 0;
-        padding-right: 20px;
+        padding-right: 10px;
         font-weight: 600;
         color: $cBlackText;
         transition: color $transition;
     }
 
+    &__description {
+        @include text;
+        margin: 8px 0;
+        color: $cGrayDark;
+
+        @include isMobile {
+            margin: 4px 0;
+        }
+    }
+
     &:hover &__name {
-        color: $cPrimaryDark;
+        color: $cPrimary;
     }
 }

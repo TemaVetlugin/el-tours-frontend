@@ -17,8 +17,10 @@
     }
 
     .ui-slider {
-        @include isMobile {
-            padding: 0 2px;
+        .swiper {
+            @include isMobile {
+                padding: 0 2px;
+            }
         }
     }
 
