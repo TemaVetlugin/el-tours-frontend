@@ -72,7 +72,7 @@
     }
 
     .ui-article-tile {
-        @include isTablet {
+        @include isMobileOrTablet {
             &:nth-child(n + 4) {
                 display: none;
             }

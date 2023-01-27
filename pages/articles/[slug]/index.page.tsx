@@ -8,13 +8,13 @@ import {
     UiBreadcrumbs,
     UiCard,
     UiGrid,
-    UiHtml,
+    UiHtml, UiIcon, UiLink,
     UiSeo,
     UiSocialShare,
     UiTypography,
     UiWrap
 } from "shared/uikit";
-import { MEDIA_POINTS, MENU, ROUTES } from "shared/contants";
+import { COLORS, MEDIA_POINTS, MENU, ROUTES } from "shared/contants";
 import { getApplicationData, Redis } from "shared/server";
 import { articlesGetRequest } from "shared/requests/api";
 import { ApplicationDataType } from "shared/types";
@@ -165,7 +165,16 @@ const ArticleDetailPage: NextPage<PropsType> = observer(({ application, article,
                 </LayoutSection>
                 <LayoutSection
                     className="p-articles-all"
-                    title={'Всё интересное:'}
+                    title={'Все интересное:'}
+                    headerAside={
+                        <UiLink
+                            href={ROUTES.ARTICLES()}
+                            className={'underline-wave underline-wave--large'}
+                        >
+                            <span>Смотреть все</span>
+                            <UiIcon size={15} name={'chevronRightBold'} color={COLORS.RED}/>
+                        </UiLink>
+                    }
                 >
                     <UiGrid
                         media={{
