@@ -13,7 +13,7 @@ import {
     HomeWhyTrustModel,
     FeedbackModel,
     PromoActionModel2,
-    BadgeModel, BrandModel2
+    BadgeModel, BrandModel2, HomePromoBannerModel
 } from "shared/models";
 import { UiSeo, UiWrap } from "shared/uikit";
 import { homeRequest } from "shared/requests/frontend";
@@ -34,6 +34,7 @@ import { PHomePromoActions } from "./components/PHomePromoActions";
 import { PHomeBrands } from "./components/PHomeBrands";
 
 import './index.scss';
+import { PHomePromoBanners } from "./components/PHomePromoBanners";
 
 type PropsType = {
     application: ApplicationDataType,
@@ -120,6 +121,17 @@ const brands = [
     },
 ]
 
+const promoBanners = [
+    {
+        id: 0,
+        href: '#',
+        image: '/assets/images/promoBanners/image.png',
+        imageMD: '/assets/images/promoBanners/image-1024.png',
+        imageSM: '/assets/images/promoBanners/image-768.png',
+        imageXS: '/assets/images/promoBanners/image-320.png',
+    },
+];
+
 const HomePage: NextPage<PropsType> = observer((
     {
         application,
@@ -143,6 +155,7 @@ const HomePage: NextPage<PropsType> = observer((
         compilations: compilations.map(item => new CompilationModel(item)),
         promoActions: promo.map(item => new PromoActionModel2(item)),
         brands: brands.map(item => new BrandModel2(item)),
+        promoBanners: promoBanners.map(item => new HomePromoBannerModel(item)),
     });
 
     return (
@@ -152,6 +165,7 @@ const HomePage: NextPage<PropsType> = observer((
                 <PHomePromoActions promoActions={store.promoActions}/>
                 <PHomeBrands brands={store.brands}/>
                 <PHomeArticles articles={store.articles}/>
+                <PHomePromoBanners promoBanners={store.promoBanners}/>
 
                 <PHomeSlider homeBanners={store.homeBanners}/>
                 <PHomeHot catalogProducts={store.hotCatalogProducts}/>

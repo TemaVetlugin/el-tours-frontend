@@ -58,6 +58,9 @@ export type { IHeaderSearchPromptModel } from './HeaderSearchPromptModel';
 export { HomeBannerModel } from './HomeBannerModel';
 export type { IHomeBannerModel } from './HomeBannerModel';
 
+export { HomePromoBannerModel } from './HomePromoBannerModel';
+export type { IHomePromoBannerModel } from './HomePromoBannerModel';
+
 export { HomeWhyTrustModel } from './HomeWhyTrustModel';
 export type { IHomeWhyTrustModel } from './HomeWhyTrustModel';
 
