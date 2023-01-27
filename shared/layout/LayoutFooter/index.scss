@@ -71,8 +71,13 @@
             background: rgba($cWhite, 0.2);
             content: '';
 
+            @include isMobile {
+                width: calc(100% + #{$wrapPaddingXS} * 2);
+                left: -#{$wrapPaddingXS};
+            }
+
             @include is768($w1366) {
-                width: calc(100% + #{$wrapPadding});
+                width: calc(100% + #{$wrapPadding} * 2);
                 left: -#{$wrapPadding};
             }
         }
@@ -245,7 +250,7 @@
             }
 
             @include is768($w1366) {
-                width: calc(100% + #{$wrapPadding});
+                width: calc(100% + #{$wrapPadding} * 2);
                 left: -#{$wrapPadding};
             }
         }
@@ -285,12 +290,12 @@
             content: '';
 
             @include isMobile {
-                width: calc(100% + #{$wrapPaddingXS});
+                width: calc(100% + #{$wrapPaddingXS} * 2);
                 left: -#{$wrapPaddingXS};
             }
 
             @include is768($w1366) {
-                width: calc(100% + #{$wrapPadding});
+                width: calc(100% + #{$wrapPadding} * 2);
                 left: -#{$wrapPadding};
             }
         }
