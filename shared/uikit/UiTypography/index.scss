@@ -1,7 +1,6 @@
 .ui-typography {
+    @include text-big;
     color: $cBlackText;
-    font-size: 18px;
-    line-height: 140%;
 
     @include isMobile {
         font-size: 14px;
@@ -21,16 +20,44 @@
     h1 {
         @include h1;
         margin: 0 0 40px;
+
+        @include isMobile {
+            margin-bottom: 16px;
+            font-size: 16px;
+            line-height: 120%;
+        }
+
+        @include isTablet {
+            margin-bottom: 30px;
+        }
+
+        @include is1024() {
+            font-size: 30px;
+            line-height: 120%;
+        }
     }
 
     h2 {
         @include h2;
         margin: 64px 0 24px;
+
+        @include isMobile {
+            margin: 40px 0 16px;
+        }
+
+        @include isTablet {
+            font-size: 24px;
+            line-height: 110%;
+        }
     }
 
     h3 {
         @include h3;
         margin: 64px 0 24px;
+
+        @include isMobile {
+            margin: 40px 0 16px;
+        }
     }
 
     h4 {
@@ -38,7 +65,14 @@
         margin: 24px 0 16px;
 
         @include isMobile {
-            margin-top: 16px;
+            margin: 16px 0;
+            font-size: 20px;
+            line-height: 100%;
+        }
+
+        @include isTablet {
+            font-size: 20px;
+            line-height: 100%;
         }
     }
 
@@ -50,11 +84,6 @@
             margin: 20px 0;
             font-size: 14px;
             line-height: 18px;
-        }
-
-        @include isTablet {
-            font-size: 16px;
-            line-height: 120%;
         }
     }
 
@@ -95,9 +124,8 @@
         border-left: 2px solid $cRed;
 
         @include isMobile {
-            padding: 17px 16px 17px 77px;
-            margin: 24px 0;
-            font-size: 17px;
+            padding: 16px 26px 16px 16px;
+            margin: 16px 0;
         }
     }
 
@@ -137,7 +165,7 @@
 
     ol {
         padding: 0;
-        margin: 30px 0;
+        margin: 16px 0;
         list-style: none;
         counter-reset: section;
 
