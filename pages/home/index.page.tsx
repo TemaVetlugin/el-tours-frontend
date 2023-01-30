@@ -201,21 +201,21 @@ const HomePage: NextPage<PropsType> = observer((
                 <PHomeNews news={store.news}/>
                 <PHomePromoBanners promoBanners={store.promoBanners}/>
 
-                <PHomeSlider homeBanners={store.homeBanners}/>
-                <PHomeHot catalogProducts={store.hotCatalogProducts}/>
-                <PHomeDiscountCards/>
-                <PHomeWhyTrusts homeWhyTrusts={store.homeWhyTrusts}/>
-                <PHomeCompilations compilations={store.compilations}/>
-                <LayoutSection
-                    title={'В нашем каталоге более 3000 товаров'}
-                    style={{ title: { textAlign: "center", display: "block" } }}
-                >
-                    <PHomeCatalogCategories catalogCategories={store.catalogCategories}/>
-                    <PHomeAlphabet/>
-                </LayoutSection>
-                <PHomeFeedbacks reviews={store.feedbacks}/>
+                {/*<PHomeSlider homeBanners={store.homeBanners}/>*/}
+                {/*<PHomeHot catalogProducts={store.hotCatalogProducts}/>*/}
+                {/*<PHomeDiscountCards/>*/}
+                {/*<PHomeWhyTrusts homeWhyTrusts={store.homeWhyTrusts}/>*/}
+                {/*<PHomeCompilations compilations={store.compilations}/>*/}
+                {/*<LayoutSection*/}
+                {/*    title={'В нашем каталоге более 3000 товаров'}*/}
+                {/*    style={{ title: { textAlign: "center", display: "block" } }}*/}
+                {/*>*/}
+                {/*    <PHomeCatalogCategories catalogCategories={store.catalogCategories}/>*/}
+                {/*    <PHomeAlphabet/>*/}
+                {/*</LayoutSection>*/}
+                {/*<PHomeFeedbacks reviews={store.feedbacks}/>*/}
                 {/*<PHomeArticles articles={store.articles}/>*/}
-                <PHomeAbout/>
+                {/*<PHomeAbout/>*/}
             </UiWrap>
         </Layout>
     )
