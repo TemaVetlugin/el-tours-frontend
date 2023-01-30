@@ -4,7 +4,7 @@
     }
 
     &__inner {
-        padding-right: 20px;
+        padding-right: 12px;
     }
 
     &__track {
@@ -12,18 +12,19 @@
         top: 0;
         right: 1px;
         bottom: 0;
-        width: 8px !important;
+        width: 4px !important;
         background: $cGrayLight;
         border-radius: 40px;
-        transform: scaleX(0.5);
+        //transform: scaleX(0.5);
         transition: $transition;
 
         &:hover {
-            transform: scaleX(1);
+            //transform: scaleX(1);
         }
     }
 
     &__thumb {
+        width: 4px !important;
         background: $cGrayDark;
         border-radius: 40px;
         cursor: grabbing;

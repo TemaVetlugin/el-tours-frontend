@@ -20,6 +20,7 @@ export { chevronRightBold } from "./chevronRightBold";
 export { chevronUp } from "./chevronUp";
 export { clock } from "./clock";
 export { close } from "./close";
+export { delivery } from "./delivery";
 export { download } from "./download";
 export { edit } from "./edit";
 export { exit } from "./exit";

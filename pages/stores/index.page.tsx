@@ -1,29 +1,26 @@
 import { observer } from "mobx-react";
 import { GetServerSideProps, NextPage } from 'next'
-import { useCallback, useEffect, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 
 import { Layout, LayoutTitle } from "shared/layout";
 import { ReturnType } from "shared/types";
 import { getApplicationData } from "shared/server";
 import {
     UiBoundary,
-    UiBreadcrumbs,
-    UiCard,
-    UiGrid,
-    UiLink,
+    UiBreadcrumbs, UiButton,
+    UiChecklist,
+    UiGrid, UiIcon,
     UiMap,
     UiScroll,
-    UiSelect,
     UiSeo,
-    UiStickerCard,
-    UiStickerCircle,
+    UiTabs,
     UiWrap
 } from "shared/uikit";
-import { useIsInitialized, useObservable } from "shared/hooks";
+import { useIsInitialized, useMedia, useObservable } from "shared/hooks";
 import { CityModel, StoreBrandModel, StoreModel } from "shared/models";
 import { citiesRequest, storeBrandsRequest, storesRequest } from "shared/requests/api";
 import { BootstrapModule, UserModule } from "shared/modules";
-import { MEDIA_POINTS, MENU, ROUTES } from "shared/contants";
+import { COLORS, MEDIA_POINTS, MENU, ROUTES } from "shared/contants";
 
 import './index.scss';
 
@@ -45,6 +42,7 @@ const StoresPage: NextPage<PropsType> = observer(({ application }) => {
         cityId: null as null | number,
         location: [0, 0],
         zoom: 14,
+        tab: 'list'
     });
 
     const load = useCallback(async () => {
@@ -84,7 +82,7 @@ const StoresPage: NextPage<PropsType> = observer(({ application }) => {
         }
         return store.cities.length > 0 ? store.cities[0] : new CityModel({
             name: 'г. Томск',
-            zoom: 7,
+            zoom: 12,
             latitude: 56.510233,
             longitude: 84.978771,
         });
@@ -107,10 +105,8 @@ const StoresPage: NextPage<PropsType> = observer(({ application }) => {
     let stores = store.stores.filter(item => {
         return store.cityId ? item.cityId === store.cityId : true
     });
-    const brands = store.storeBrands.filter(storeBrand => !!stores.find(item => item.storeBrandId === storeBrand.id));
-    stores = stores.filter(item => {
-        return store.storeBrandId ? item.storeBrandId === store.storeBrandId : true
-    });
+
+    const { is360, is768 } = useMedia();
 
     return (
         <Layout>
@@ -118,8 +114,180 @@ const StoresPage: NextPage<PropsType> = observer(({ application }) => {
             <UiWrap>
                 <UiBreadcrumbs items={[MENU.STORES()]}/>
                 <LayoutTitle value='Аптеки'/>
-                <UiCard>
-                    <UiBoundary isLoading={store.isLoading && isInitialized}>
+                {(is360 || is768) && (
+                    <div className="p-stores-tabs">
+                        <UiTabs
+                            items={[
+                                {
+                                    id: 'list',
+                                    name: 'Список',
+                                },
+                                {
+                                    id: 'map',
+                                    name: 'На карте',
+                                },
+                            ]}
+                            value={store.tab}
+                            name={'tab'}
+                            onChange={store.handleChange}
+                        />
+                    </div>
+                )}
+                <div className="p-stores__header">
+                    <div className="p-stores__filter">
+                        <UiChecklist
+                            isFlat={true}
+                            items={[
+                                {id: 0, name: 'Работает сейчас'},
+                                {id: 1, name: 'Круглосуточная'},
+                                {id: 2, name: 'С доставкой на дом'},
+                            ]}
+                        />
+                    </div>
+                    {!store.isLoading && (
+                        <div className="p-stores__results">Найдено 12 аптек</div>
+                    )}
+                </div>
+                <UiBoundary isLoading={store.isLoading && isInitialized}>
+                    {(is360 || is768) && store.tab === 'list' && (
+                        <div className="p-stores-panel">
+                            <div className="p-stores-panel__items">
+                                <div className="p-stores-item">
+                                    <UiGrid
+                                        className="p-stores-item__top"
+                                        media={{
+                                            [MEDIA_POINTS.IS_360]: { columns: 1 },
+                                            [MEDIA_POINTS.IS_768]: { columns: '202px auto', gap: 24 },
+                                        }}
+                                    >
+                                        <div>
+                                            <div className="p-stores-item__badge">
+                                                <UiIcon size={16} name={'delivery'} color={'#FEFEFE'}/>
+                                                <span>Доставим на дом</span>
+                                            </div>
+                                            <div className="p-stores-item__name">Аптека №12</div>
+                                        </div>
+                                        <div>
+                                            <div className="p-stores-item__text">«Центр лекарств и красоты»</div>
+                                            <div className="p-stores-item__address">г. Томск, ул. Учебная, 20</div>
+                                        </div>
+                                    </UiGrid>
+                                    <UiGrid
+                                        className="p-stores-item__bottom"
+                                        media={{
+                                            [MEDIA_POINTS.IS_360]: { columns: 1 },
+                                            [MEDIA_POINTS.IS_768]: { columns: '202px auto', gap: 24 },
+                                        }}
+                                    >
+                                        <div>
+                                            <a href={"tel:+73822427388"} className="p-stores-item__phone">+7 (3822) 42–73–88</a>
+                                            {is360 && (
+                                                <div className="p-stores-item__worktime">
+                                                    <span>Пн-пт: 8:00 - 22:00</span>
+                                                    <span>Сб: 10:00 - 18:00</span>
+                                                    <span>Вс: 10:00 - 18:00</span>
+                                                </div>
+                                            )}
+                                            <div className="p-stores-item__buttons">
+                                                <UiButton
+                                                    label="Выбрать"
+                                                    size={'small'}
+                                                    colors={{
+                                                        button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                                        label: [COLORS.WHITE, COLORS.WHITE]
+                                                    }}
+                                                />
+                                                <UiButton
+                                                    label="Маршрут"
+                                                    size={'small'}
+                                                    colors={{
+                                                        button: [COLORS.WHITE, COLORS.BLUE_LIGHT],
+                                                        label: [COLORS.PRIMARY, COLORS.PRIMARY]
+                                                    }}
+                                                />
+                                            </div>
+                                        </div>
+                                        {is768 && (
+                                            <div>
+                                                <div className="p-stores-item__worktime">
+                                                    <span>Пн-пт: 8:00 - 22:00</span>
+                                                    <span>Сб: 10:00 - 18:00</span>
+                                                    <span>Вс: 10:00 - 18:00</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </UiGrid>
+                                </div>
+                                <div className="p-stores-item">
+                                    <UiGrid
+                                        className="p-stores-item__top"
+                                        media={{
+                                            [MEDIA_POINTS.IS_360]: { columns: 1 },
+                                            [MEDIA_POINTS.IS_768]: { columns: '202px auto', gap: 24 },
+                                        }}
+                                    >
+                                        <div>
+                                            <div className="p-stores-item__badge">
+                                                <UiIcon size={16} name={'delivery'} color={'#FEFEFE'}/>
+                                                <span>Доставим на дом</span>
+                                            </div>
+                                            <div className="p-stores-item__name">Аптечный пункт №5564</div>
+                                        </div>
+                                        <div>
+                                            <div className="p-stores-item__text">«Центр лекарств и красоты»</div>
+                                            <div className="p-stores-item__address">г. Томск, ул. Розы Люксембург 1369а</div>
+                                        </div>
+                                    </UiGrid>
+                                    <UiGrid
+                                        className="p-stores-item__bottom"
+                                        media={{
+                                            [MEDIA_POINTS.IS_360]: { columns: 1 },
+                                            [MEDIA_POINTS.IS_768]: { columns: '202px auto', gap: 24 },
+                                        }}
+                                    >
+                                        <div>
+                                            <a href={"tel:+73822427388"} className="p-stores-item__phone">+7 (3822) 42–73–88</a>
+                                            {is360 && (
+                                                <div className="p-stores-item__worktime">
+                                                    <span>Пн-пт: 8:00 - 22:00</span>
+                                                    <span>Сб: 10:00 - 18:00</span>
+                                                    <span>Вс: 10:00 - 18:00</span>
+                                                </div>
+                                            )}
+                                            <div className="p-stores-item__buttons">
+                                                <UiButton
+                                                    label="Выбрать"
+                                                    size={'small'}
+                                                    colors={{
+                                                        button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                                        label: [COLORS.WHITE, COLORS.WHITE]
+                                                    }}
+                                                />
+                                                <UiButton
+                                                    label="Маршрут"
+                                                    size={'small'}
+                                                    colors={{
+                                                        button: [COLORS.WHITE, COLORS.BLUE_LIGHT],
+                                                        label: [COLORS.PRIMARY, COLORS.PRIMARY]
+                                                    }}
+                                                />
+                                            </div>
+                                        </div>
+                                        {is768 && (
+                                            <div>
+                                                <div className="p-stores-item__worktime">
+                                                    <span>Пн-пт: 8:00 - 22:00</span>
+                                                    <span>Сб: 10:00 - 18:00</span>
+                                                    <span>Вс: 10:00 - 18:00</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </UiGrid>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    {(is360 || is768) && store.tab === 'map' && (
                         <div className="p-stores-map">
                             <UiMap
                                 location={store.location}
@@ -127,73 +295,73 @@ const StoresPage: NextPage<PropsType> = observer(({ application }) => {
                                 stores={{ items: stores }}
                             />
                         </div>
-                        <div className="p-stores-panel">
-                            <UiGrid
-                                className="p-stores-panel__header"
-                                media={{
-                                    [MEDIA_POINTS.IS_360]: {columns: 1, gap: 16},
-                                    [MEDIA_POINTS.IS_768]: {columns: 2, gap: 16},
-                                    [MEDIA_POINTS.IS_1366]: {columns: 3, gap: 16},
-                                }}
-                            >
-                                <UiSelect
-                                    name='cityId'
-                                    onChange={(data) => handleChangeCity(data.value as number | null)}
-                                    items={store.cities}
-                                    value={store.cityId}
-                                />
-                                <UiSelect
-                                    name='storeBrandId'
-                                    placeholder='Выберите бренд'
-                                    onChange={store.handleChange}
-                                    items={[
-                                        { id: null, name: 'Все бренды' },
-                                        ...brands
-                                    ]}
-                                    value={store.storeBrandId}
-                                />
-                            </UiGrid>
-                            <UiScroll maxHeight={600}>
-                                <div className="p-stores-panel__items">
-                                    {stores.map(store => (
-                                        <UiLink key={store.id} href={ROUTES.STORE(store.id)} className="p-stores-item">
-                                            <div className="p-stores-item__name">{store.name}</div>
-                                            <div className="p-stores-item__worktime">
-                                                {store.worktime?.replace("\\n", "\n")}
+                    )}
+                    {!is768 && !is360 && (
+                        <UiGrid media={{
+                            [MEDIA_POINTS.IS_1024]: { columns: '323px auto', gap: 7 },
+                        }}>
+                            <div className="p-stores-panel">
+                                <UiScroll maxHeight={1332}>
+                                    <div className="p-stores-panel__items">
+                                        <div className="p-stores-item">
+                                            <div className="p-stores-item__top">
+                                                <div className="p-stores-item__badge">
+                                                    <UiIcon size={16} name={'delivery'} color={'#FEFEFE'}/>
+                                                    <span>Доставим на дом</span>
+                                                </div>
+                                                <div className="p-stores-item__name">Аптека №12</div>
+                                                <div className="p-stores-item__text">«Центр лекарств и красоты»</div>
+                                                <div className="p-stores-item__address">г. Томск, ул. Учебная, 20</div>
                                             </div>
-                                            {store.phone && (
-                                                <div className="p-stores-item__phone">{store.phone}</div>
-                                            )}
-                                        </UiLink>
-                                    ))}
-                                </div>
-                            </UiScroll>
-                        </div>
-                        <UiGrid
-                            media={{
-                                [MEDIA_POINTS.IS_360]: {columns: 1, gap: 16},
-                                [MEDIA_POINTS.IS_768]: {columns: 2, gap: 16},
-                                [MEDIA_POINTS.IS_1366]: {columns: 3, gap: 16},
-                            }}
-                        >
-                            <UiStickerCard
-                                withShadow
-                                title='Стоимость самовывоза — бесплатно'
-                                description='Мы уведомим вас, как только соберём заказ. Заказ хранится 2 суток с момента сборки в Аптеке'
-                                sticker={
-                                    <UiStickerCircle name={"pointRight"} size={60} stickerSize={32} color='#FFECBA'/>
-                                }
-                            />
-                            <UiStickerCard
-                                withShadow
-                                description='Если Вы не успеваете забрать заказ в течение 5 дней с момента доставки, позвоните по номеру +7 495 790-77-11 и попросите оператора продлить время хранения заказа в выбранной аптеке'
-                                sticker={
-                                    <UiStickerCircle name={"pointUp"} size={60} stickerSize={32} color='#FFECBA'/>
-                                }
-                            />
+                                            <a href={"tel:+73822427388"} className="p-stores-item__phone">+7 (3822) 42–73–88</a>
+                                            <div className="p-stores-item__worktime">
+                                                <span>Пн-пт: 8:00 - 22:00</span>
+                                                <span>Сб: 10:00 - 18:00</span>
+                                                <span>Вс: 10:00 - 18:00</span>
+                                            </div>
+                                            <UiButton
+                                                label="Выбрать эту аптеку"
+                                                size={'small'}
+                                                colors={{
+                                                    button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                                    label: [COLORS.WHITE, COLORS.WHITE]
+                                                }}
+                                            />
+                                        </div>
+                                        <div className="p-stores-item">
+                                            <div className="p-stores-item__top">
+                                                <div className="p-stores-item__name">Аптечный пункт №5564</div>
+                                                <div className="p-stores-item__text">«Центр лекарств и красоты»</div>
+                                                <div className="p-stores-item__address">г. Томск, ул. Розы Люксембург 1369а</div>
+                                            </div>
+                                            <a href={"tel:+73822427388"} className="p-stores-item__phone">+7 (3822) 42–73–88</a>
+                                            <div className="p-stores-item__worktime">
+                                                <span>Пн-пт: 8:00 - 22:00</span>
+                                                <span>Сб: 10:00 - 18:00</span>
+                                                <span>Вс: 10:00 - 18:00</span>
+                                            </div>
+                                            <UiButton
+                                                label="Выбрать эту аптеку"
+                                                size={'small'}
+                                                colors={{
+                                                    button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                                    label: [COLORS.WHITE, COLORS.WHITE]
+                                                }}
+                                            />
+                                        </div>
+                                    </div>
+                                </UiScroll>
+                            </div>
+                            <div className="p-stores-map">
+                                <UiMap
+                                    location={store.location}
+                                    zoom={store.zoom}
+                                    stores={{ items: stores }}
+                                />
+                            </div>
                         </UiGrid>
-                    </UiBoundary>
-                </UiCard>
+                    )}
+                </UiBoundary>
             </UiWrap>
         </Layout>
     )

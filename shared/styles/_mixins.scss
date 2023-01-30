@@ -295,3 +295,35 @@
         margin-top: 3px;
     }
 }
+
+@mixin tabsPrimary {
+    gap: 0;
+    background: $cPrimaryLight;
+    border-radius: 24px;
+
+    &-item {
+        @include text-medium;
+        justify-content: center;
+        width: 50%;
+        padding: 8px;
+        border: 0;
+        color: $cGrayDark;
+
+        @include isMobile {
+            padding: 6px;
+        }
+
+        @include isTablet {
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        &--active {
+            background: $cPrimary;
+        }
+
+        &:hover:not(&--active) {
+            background: $cPrimaryLight;
+        }
+    }
+}

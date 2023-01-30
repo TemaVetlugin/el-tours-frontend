@@ -12,5 +12,13 @@
         display: flex;
         align-items: center;
         gap: 24px;
+
+        @include isMobile {
+            gap: 16px;
+        }
+
+        @include isTablet {
+            gap: 40px;
+        }
     }
 }
