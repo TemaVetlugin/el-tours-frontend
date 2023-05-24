@@ -1,0 +1,46 @@
+.p-custom-content-slider {
+    position: relative;
+    width: 100%;
+    margin-top: 80px;
+    border-radius: 20px;
+
+    &-item {
+        width: 369px;
+        height: 445px;
+        background-position: center;
+        background-size: cover;
+        border-radius: 20px;
+    }
+
+    .swiper-slide {
+        width: 369px;
+        height: 445px;
+        filter: grayscale(1);
+        transition: 1.25s;
+
+        &-active {
+            filter: grayscale(0);
+        }
+    }
+
+    &__dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px;
+        margin-top: 32px;
+        gap: 16px;
+    }
+
+    &__dot {
+        width: 12px;
+        height: 12px;
+        background: $cLightGray;
+        border-radius: 100%;
+        cursor: pointer;
+
+        &--active {
+            background: $cBlack1;
+        }
+    }
+}

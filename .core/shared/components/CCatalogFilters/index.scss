@@ -1,0 +1,39 @@
+.c-catalog-filters {
+    &__button {
+        display: none;
+
+        @include isMobileOrTablet() {
+            position: fixed;
+            right: 8px;
+            bottom: 72px;
+            display: block;
+            z-index: 8;
+        }
+    }
+
+    &__inner {
+        padding: 24px 22px;
+
+        @include isMobileOrTablet() {
+            position: fixed;
+            top: 64px;
+            right: 0;
+            bottom: 64px;
+            left: 0;
+            display: none;
+            z-index: 7;
+            border-radius: 0;
+            overflow-y: auto;
+        }
+    }
+
+    &--opened &__inner {
+        display: block;
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+}

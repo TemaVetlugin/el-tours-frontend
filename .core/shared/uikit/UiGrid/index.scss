@@ -1,0 +1,8 @@
+.ui-grid {
+    display: grid;
+    align-items: start;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
+    @include is1366()
+}

@@ -1,0 +1,32 @@
+.ui-scroll {
+    &--disabled {
+        overflow: hidden;
+    }
+
+    &__inner {
+        padding-right: 12px;
+    }
+
+    &__track {
+        position: absolute;
+        top: 0;
+        right: 1px;
+        bottom: 0;
+        width: 4px !important;
+        background: $cGrayLight;
+        border-radius: 40px;
+        //transform: scaleX(0.5);
+        transition: $transition;
+
+        &:hover {
+            //transform: scaleX(1);
+        }
+    }
+
+    &__thumb {
+        width: 4px !important;
+        background: $cGrayDark;
+        border-radius: 40px;
+        cursor: grabbing;
+    }
+}

@@ -1,12 +1,12 @@
 import { runInAction } from "mobx";
 
-import { ICast } from "shared/casts/Cast";
+import { Cast } from "shared/casts/Cast";
 
 export class Model<IChildModel> {
     [key: string]: any;
 
     fillable: Array<keyof IChildModel> = [];
-    casts: Partial<Record<keyof IChildModel, ICast>> = {};
+    casts: Partial<Record<keyof IChildModel, Cast>> = {};
 
     update(payload: { [Property in keyof IChildModel]: any } | undefined) {
         if (!payload) {

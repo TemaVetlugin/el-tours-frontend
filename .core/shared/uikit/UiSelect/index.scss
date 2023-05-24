@@ -1,0 +1,76 @@
+.ui-select {
+    position: relative;
+    width: 100%;
+
+    &-view {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: $hControl;
+        padding: 0 14px;
+        background: $cWhite;
+        border: 1px solid $cGray;
+        border-radius: 24px;
+        color: $cBlackText;
+        font-size: 14px;
+        line-height: 18px;
+        cursor: pointer;
+        transition: border-color $transition;
+
+        @include isMobileOrTablet() {
+            height: $hControlMobile;
+        }
+
+        .ui-form-control--error & {
+            border-color: $cRed;
+        }
+
+        &__placeholder {
+            opacity: 0.75;
+            user-select: none;
+        }
+
+        &__icon {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    &--opened &-view {
+        border-color: $cPrimary;
+    }
+
+    &__items {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: none;
+        z-index: 100;
+        margin-top: 4px;
+        box-shadow: 0 0 20px rgba(74, 74, 74, 0.1);
+        border-radius: 4px;
+        background: $cWhite;
+        overflow: hidden;
+        min-width: 100%;
+    }
+
+    &--opened &__items {
+        display: block;
+    }
+
+    &__item {
+        padding: 8px 40px;
+        cursor: pointer;
+        color: $cBlackText;
+        font-size: 14px;
+        line-height: 18px;
+        white-space: nowrap;
+        transition: 0.2s;
+        user-select: none;
+
+        &:hover {
+            background: $cBlueLight;
+        }
+    }
+}

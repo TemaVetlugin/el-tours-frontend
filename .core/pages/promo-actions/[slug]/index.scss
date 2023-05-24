@@ -1,0 +1,126 @@
+.p-promo-action {
+    position: relative;
+    width: 100%;
+    margin-bottom: 64px;
+
+    @include is1024() {
+        padding: 16px;
+    }
+
+    &__inner {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        gap: 24px;
+
+        @include is768($w1366) {
+            gap: 24px;
+        }
+
+        @include isMobile {
+            display: block;
+            padding-top: 38px;
+        }
+    }
+
+    &__body {
+        @include is1024() {
+            width: calc(100% - 450px - 26px);
+        }
+    }
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 24px;
+        padding: 7px 8px;
+
+        @include isMobile {
+            position: absolute;
+            top: 8px;
+            left: 0;
+        }
+
+        @include isTablet {
+            margin-bottom: 16px;
+        }
+    }
+
+    &__image {
+        flex-shrink: 0;
+        width: 600px;
+
+        @include isMobile {
+            width: 100%;
+            margin-bottom: 8px;
+        }
+
+        @include isTablet {
+            width: 280px;
+        }
+
+        @include is1024() {
+            width: 463px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 24px;
+        }
+    }
+
+    &__title {
+        @include h2;
+        margin: 0 0 12px;
+        color: $cBlackText;
+
+        @include isMobile {
+            margin-bottom: 8px;
+            font-size: 20px;
+            line-height: 100%;
+        }
+
+        @include isTablet {
+            font-size: 20px;
+            line-height: 100%;
+        }
+
+        @include is1024() {
+            font-size: 24px;
+            line-height: 110%;
+        }
+    }
+
+    &__date {
+        @include text;
+        margin-bottom: 28px;
+        color: $cGrayDark;
+
+        @include isMobile {
+            margin-bottom: 8px;
+        }
+
+        @include isTablet {
+            margin-bottom: 12px;
+        }
+
+        @include is1024() {
+            margin-bottom: 20px;
+        }
+    }
+
+    .ui-typography {
+        * {
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 18px;
+
+            @include is360($w1024) {
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
+    }
+}

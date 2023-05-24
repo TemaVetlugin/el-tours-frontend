@@ -1,0 +1,71 @@
+.ui-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 54px;
+    gap: 4px;
+
+    @include isMobile {
+        margin-top: 30px;
+    }
+
+    @include isTablet {
+        margin-top: 24px;
+    }
+
+    &__page {
+        @include text;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border: $cGrayLight 1px solid;
+        border-radius: 600px;
+        cursor: pointer;
+        color: $cBlackText;
+        transition: 0.2s;
+
+        //@include isMobileOrTablet() {
+        //    height: $hControlMobile;
+        //    width: $hControlMobile;
+        //}
+
+        &--aside {
+            width: auto;
+            padding: 0 16px;
+            border: 0;
+            gap: 8px;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 18px;
+            color: $cPrimary;
+
+            &:hover {
+                color: $cPrimaryDark;
+
+                .ui-icon {
+                    @include iconColor($cPrimaryDark);
+                }
+            }
+        }
+
+        &--active {
+            background: $cGrayLight;
+            border: $cGrayLight 1px solid;
+        }
+
+        &:hover:not(&--aside):not(&--active) {
+            background: $cBlueLight;
+        }
+    }
+
+    &-more {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        height: auto;
+        cursor: pointer;
+    }
+}

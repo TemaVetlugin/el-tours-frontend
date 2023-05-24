@@ -1,0 +1,139 @@
+.layout-header-search {
+    position: relative;
+    flex: 1;
+    padding-right: 24px;
+
+    @include isMobileOrTablet {
+        padding-right: 0;
+    }
+
+    &-control {
+        position: relative;
+        font-size: 14px;
+        line-height: 100%;
+
+        &__input {
+            width: 100%;
+            height: $hControl;
+            padding-left: 48px;
+            border: 1px solid $cGrayTextLight;
+            border-radius: 40px;
+            cursor: pointer;
+            color: $cBlack1;
+            transition: $transition;
+
+            @include isMobileOrTablet() {
+                height: $hControlMobile;
+            }
+
+            &:focus {
+                border-color: $cPrimary;
+            }
+        }
+
+        &__icon {
+            position: absolute;
+            top: 50%;
+            left: 14px;
+            display: flex;
+            align-items: center;
+            margin-top: -10px;
+            cursor: pointer;
+        }
+
+        &__placeholder {
+            position: absolute;
+            top: 50%;
+            right: 14px;
+            left: 48px;
+            margin-top: -7px;
+            opacity: 0;
+            color: $cGray4;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        &__input:placeholder-shown ~ &__placeholder {
+            opacity: 1;
+        }
+    }
+
+    &__example {
+        color: $cGrayDark;
+    }
+
+    &__hints {
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin-top: 10px;
+        box-shadow: 0 0 4px rgba(55, 55, 55, 0.15);
+        background: $cWhite;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    &-hint {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 13px 20px;
+        cursor: pointer;
+        color: $cBlack1;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 100%;
+        letter-spacing: 0.01em;
+        transition: 0.25s;
+        gap: 24px;
+
+        &__price {
+            font-weight: 700;
+        }
+
+        &:hover {
+            background: #F8F8F8;
+            color: $cPrimary;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+        margin-top: 14px;
+        font-size: 14px;
+        line-height: 120%;
+        gap: 5px;
+
+        @include isMobileOrTablet() {
+            display: none;
+        }
+    }
+
+    &__prompts {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .layout-header--minified &__footer {
+        display: none;
+    }
+
+    &__prompt {
+        cursor: pointer;
+        color: $cPrimary;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &:not(:last-child)::after {
+            content: ',';
+        }
+    }
+}

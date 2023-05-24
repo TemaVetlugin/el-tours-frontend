@@ -1,0 +1,1 @@
+export { withRequireAuthorize } from './withRequireAuthorize';

@@ -1,0 +1,59 @@
+.c-back-call-request-create {
+    display: flex;
+    align-items: flex-start;
+
+    &__icon {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 28px;
+        height: 28px;
+        margin-right: 10px;
+        background: $cSecondaryGradient;
+        border-radius: 40px;
+        overflow: hidden;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: $cSecondary;
+            opacity: 0;
+            transition: $transition;
+            content: '';
+        }
+
+        &:hover::before {
+            opacity: 1;
+        }
+    }
+
+    &__number {
+        display: block;
+        margin-bottom: 3px;
+        color: $cBlack2;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 17px;
+        white-space: nowrap;
+    }
+
+    &__callback {
+        margin-left: 2px;
+        cursor: pointer;
+        color: $cPrimary;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 17px;
+        transition: color $transition;
+
+        &:hover {
+            color: $cSecondary;
+        }
+    }
+}

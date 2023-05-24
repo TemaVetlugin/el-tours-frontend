@@ -1,6 +1,3 @@
-export type ICast = {
-    set: (currentValue: any, newValue: any) => any;
-}
-export abstract class Cast implements ICast {
+export abstract class Cast {
     set: (currentValue: any, newValue: any) => any = () => {}
 }

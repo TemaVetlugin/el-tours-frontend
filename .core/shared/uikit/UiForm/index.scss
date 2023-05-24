@@ -1,0 +1,9 @@
+.ui-form {
+
+
+    & > &-control {
+        &:not(&:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+}

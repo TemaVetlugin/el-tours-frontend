@@ -1,0 +1,93 @@
+.p-contacts {
+    padding: 14px 0;
+
+    @include is360($w1366) {
+        padding: 0;
+    }
+
+    &-item {
+        padding: 24px 32px;
+        background: $cWhite;
+        box-shadow: 0 0 20px rgba(74, 74, 74, 0.1);
+        border-radius: 8px;
+
+        @include isMobileOrTablet {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        @include isMobile {
+            padding: 16px;
+        }
+
+        &__icon {
+            margin-bottom: 16px;
+
+            @include isMobileOrTablet {
+                width: 40px;
+                height: 40px;
+                margin: 0 16px 0 0;
+
+                .ui-icon {
+                    width: 100% !important;
+                    height: 100% !important;
+                }
+            }
+        }
+
+        &__label {
+            @include text-label;
+            margin-bottom: 4px;
+            color: $cGrayDark;
+        }
+
+        &__value {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 26px;
+            color: $cBlackText;
+            text-decoration: none;
+            transition: color $transition;
+
+            @include isMobileOrTablet {
+                font-size: 18px;
+                line-height: 24px;
+            }
+
+            &:hover:not(div) {
+                color: $cPrimaryDark;
+            }
+        }
+    }
+
+    &__image {
+        position: relative;
+        height: 100%;
+
+        @include isMobile {
+            display: none;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        top: 50%;
+        left: 80px;
+        width: 191.62px;
+        height: 200px;
+        background: center no-repeat;
+        background-size: contain;
+        transform: translateY(-50%);
+
+        @include is768($w1366) {
+            left: 0;
+            width: 134px;
+            height: 140px;
+        }
+
+        @include isTablet {
+            right: 0;
+            left: auto;
+        }
+    }
+}

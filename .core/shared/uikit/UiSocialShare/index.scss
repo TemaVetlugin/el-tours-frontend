@@ -1,0 +1,26 @@
+.ui-social-share {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &__text {
+        @include text;
+        margin-right: 4px;
+        color: $cPrimary;
+        transition: color $transition;
+    }
+
+    &:hover &__text {
+        color: $cPrimaryDark;
+    }
+
+    &__icon {
+        width: 16px;
+        height: 16px;
+        background: $cWhite;
+    }
+
+    &:hover &__icon {
+        @include iconColor($cPrimaryDark);
+    }
+}

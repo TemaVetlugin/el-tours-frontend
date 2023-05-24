@@ -1,0 +1,7 @@
+.ui-link {
+    text-decoration: none;
+}
+
+.underline-wave {
+    @include underlineWave;
+}

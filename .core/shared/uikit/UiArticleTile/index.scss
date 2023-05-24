@@ -1,0 +1,115 @@
+.ui-article-tile {
+    $self: &;
+    text-decoration: none;
+
+    &--large {
+        grid-column: span 2;
+
+        @include isMobile {
+            grid-column: auto;
+        }
+    }
+
+    &__badge {
+        position: absolute;
+    }
+
+    &__image {
+        position: relative;
+        width: 100%;
+        margin-bottom: 20px;
+        padding-top: 56%;
+        border-radius: 22px;
+        background: center no-repeat;
+        background-size: cover;
+
+        @include isMobile {
+            padding-top: 57%;
+        }
+
+        @include isTablet() {
+            height: 124px;
+        }
+
+        #{ $self }--large & {
+            margin-bottom: 16px;
+        }
+
+        #{ $self }--medium & {
+            margin-bottom: 16px;
+            padding-top: 62%;
+
+            @include is360() {
+                margin-bottom: 8px;
+            }
+
+            @include is768($w1366) {
+                margin-bottom: 8px;
+            }
+        }
+
+        #{ $self }--promo & {
+            margin-bottom: 16px;
+            border-radius: 24px;
+        }
+
+        #{ $self }--promo#{ $self }--large & {
+            margin-bottom: 24px;
+            border-radius: 20px;
+
+            @include isMobile {
+                margin-bottom: 16px;
+                border-radius: 24px;
+            }
+
+            @include isTablet {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    &__badge {
+        @include text-label;
+        position: absolute;
+        bottom: -8px;
+        left: 8px;
+        padding: 3px 6px 3px 8px;
+        background: center no-repeat;
+        background-size: 100% 100%;
+        color: $cWhite;
+    }
+
+    &__name {
+        @include h4;
+        margin: 0;
+        color: $cBlackText;
+        transition: color $transition;
+
+        @include media(0, $w1366) {
+            font-size: 16px;
+            line-height: 120%;
+        }
+
+        #{ $self }--large & {
+            @include h2;
+
+            @include isMobile {
+                font-size: 16px;
+                line-height: 18px;
+            }
+        }
+
+        #{ $self }--medium & {
+            font-size: 16px;
+            line-height: 120%;
+        }
+
+        #{ $self }--promo:not(&--large) & {
+            padding-left: 8px;
+        }
+    }
+
+    &:hover &__name {
+        color: $cPrimary;
+    }
+}

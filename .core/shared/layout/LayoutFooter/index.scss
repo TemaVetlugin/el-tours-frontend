@@ -1,0 +1,411 @@
+.layout-footer {
+    background: $cBlack;
+    border-radius: 24px 24px 0 0;
+
+    &__inner {
+        padding: 40px 0;
+
+        @include isMobileOrTablet {
+            padding: 30px 0;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        height: 100%;
+
+        @include isMobile {
+            flex-direction: column-reverse;
+        }
+    }
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+
+        @include isMobile {
+            margin-bottom: 24px;
+        }
+
+        @include isTablet {
+            padding-bottom: 24px;
+        }
+    }
+
+    &__contact {
+        @include text-medium;
+        font-weight: 500;
+        color: $cWhite;
+        text-decoration: none;
+        transition: color $transition;
+
+        &:hover {
+            color: $cPrimary;
+        }
+    }
+
+    &-bottom {
+        position: relative;
+        padding: 24px 0;
+
+        @include isMobile {
+            position: relative;
+            padding: 16px 0 28px;
+        }
+
+        @include is1024() {
+            padding-bottom: 34px;
+        }
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba($cWhite, 0.2);
+            content: '';
+
+            @include isMobile {
+                width: calc(100% + #{$wrapPaddingXS} * 2);
+                left: -#{$wrapPaddingXS};
+            }
+
+            @include is768($w1366) {
+                width: calc(100% + #{$wrapPadding} * 2);
+                left: -#{$wrapPadding};
+            }
+        }
+    }
+
+    &__documents {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+
+        @include isTablet {
+            height: 100%;
+        }
+
+        @include is1024() {
+            padding-left: 35px;
+        }
+    }
+
+    &__policy {
+        @include text;
+        text-decoration: none;
+        font-weight: 500;
+        color: $cWhite;
+        letter-spacing: -0.02em;
+        transition: color $transition;
+
+        &:hover {
+            color: $cPrimary;
+        }
+    }
+
+    &__copyright {
+        @include text;
+        color: $cWhite;
+
+        @include isMobile {
+            position: absolute;
+            bottom: 32px;
+            left: 0;
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        @include isTablet {
+            margin-top: auto;
+        }
+    }
+
+    &-menus {
+        display: flex;
+        gap: 100px;
+
+        @include is1024() {
+            gap: 50px;
+        }
+
+        @include isMobileOrTablet() {
+            order: 3;
+            width: 100%;
+        }
+
+        @include isMobile() {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+    }
+
+    &-menu {
+        &__name {
+            @include h5;
+            margin-bottom: 16px;
+            color: $cWhite;
+            text-decoration: none;
+
+            @include isMobile {
+                margin-bottom: 8px;
+            }
+
+            &[href]:hover {
+                color: $cPrimary;
+            }
+        }
+
+        &__items {
+            &--catalog {
+                column-count: 3;
+                column-gap: 0;
+
+                @include isMobile {
+                    column-count: 1;
+                }
+
+                @include isTablet {
+                    column-count: 2;
+                    column-gap: 35px;
+                }
+            }
+        }
+
+        &__items--catalog &__item {
+            color: $cWhite;
+
+            @include isMobileOrTablet {
+                font-weight: 400;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 10px;
+
+                @include isMobileOrTablet {
+                    margin-bottom: 8px;
+                }
+            }
+        }
+
+        &__item {
+            @include text;
+            display: table;
+            font-weight: 500;
+            color: #DBDBDB;
+            text-decoration: none;
+            transition: color $transition;
+
+            @include isMobile {
+                font-weight: 400;
+            }
+
+            &:hover {
+                color: $cPrimary;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 8px;
+            }
+        }
+    }
+
+    &__actions {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 32px 0;
+
+        @include isMobile {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 10px 0 47px;
+        }
+
+        @include isTablet {
+            padding: 24px 0;
+        }
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba($cWhite, 0.2);
+            content: '';
+
+            @include isMobile {
+                display: none;
+            }
+
+            @include is768($w1366) {
+                width: calc(100% + #{$wrapPadding} * 2);
+                left: -#{$wrapPadding};
+            }
+        }
+    }
+
+    &__warning {
+        position: relative;
+        padding: 24px 0;
+        font-family: $fontSecondary;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 120%;
+        text-align: center;
+        letter-spacing: 0.08em;
+        color: rgba($cWhite, 0.2);
+
+        @include isMobileOrTablet {
+            padding: 16px 0;
+        }
+
+        @include isMobile {
+            font-size: 20px;
+            line-height: 100%;
+        }
+
+        @include is768($w1366) {
+            font-size: 23px;
+        }
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba($cWhite, 0.2);
+            content: '';
+
+            @include isMobile {
+                width: calc(100% + #{$wrapPaddingXS} * 2);
+                left: -#{$wrapPaddingXS};
+            }
+
+            @include is768($w1366) {
+                width: calc(100% + #{$wrapPadding} * 2);
+                left: -#{$wrapPadding};
+            }
+        }
+    }
+
+    &__text {
+        @include text;
+        margin: 0;
+        padding-right: 60px;
+        font-weight: 500;
+        color: $cBlueLight;
+        opacity: 0.5;
+
+        @include is360($w1024) {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        @include is360($w1366) {
+            padding: 0;
+        }
+    }
+}
+
+.layout-footer-developer {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    @include isMobile {
+        justify-content: flex-end;
+    }
+
+    @include is1024() {
+        margin-right: 35px;
+        justify-content: flex-end;
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+        background: center no-repeat;
+        background-size: contain;
+    }
+
+    &__text {
+        @include text-label;
+        font-weight: 500;
+        color: $cWhite;
+        transition: color $transition;
+    }
+
+    &:hover &__text {
+        color: $cPrimary;
+    }
+}
+
+.layout-footer-socials {
+    display: flex;
+    align-items: center;
+
+    &__item {
+        width: 40px;
+        height: 40px;
+
+        &:not(:last-child) {
+            margin-right: 16px;
+        }
+
+        &:hover {
+            .ui-icon {
+                path {
+                    fill: $cPrimaryDark;
+                }
+            }
+        }
+    }
+}
+
+.layout-footer-download {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    text-decoration: none;
+
+    @include isMobileOrTablet {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    @include isMobile {
+        gap: 8px 10px;
+    }
+
+    @include isTablet {
+        max-width: 450px;
+    }
+
+    @include is1024() {
+        gap: 4px;
+    }
+
+    &__item {
+        img {
+            display: block;
+            width: auto;
+            height: 37px;
+        }
+    }
+}

@@ -1,0 +1,88 @@
+.layout-mobile {
+    &-header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 12;
+
+        @include is1024($wMax) {
+            display: none;
+        }
+
+        &__inner {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+            padding: 0 20px;
+            background: $cWhite;
+            border-bottom: 1px solid $cGray5;
+
+            @include isMobile() {
+                padding: 0 8px;
+            }
+        }
+
+        & > .ui-button {
+            width: 60px;
+            padding: 0;
+        }
+
+        &__logo {
+            img {
+                width: 140px;
+            }
+        }
+
+        &__left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        &__search {
+            position: absolute;
+            top: 0;
+            right: 100px;
+            bottom: 0;
+            left: 100px;
+            display: flex;
+            z-index: 5;
+            align-items: center;
+            background: $cWhite;
+
+            @include isMobile() {
+                right: 0;
+                left: 0;
+                padding: 0 8px;
+            }
+        }
+
+        @include isMobile {
+            .ui-button {
+                padding: 0 16px;
+            }
+        }
+    }
+
+    &-footer {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        z-index: 10;
+        justify-content: space-between;
+        align-items: center;
+        height: 64px;
+        padding: 0 20px;
+        background: $cWhite;
+        border-top: 1px solid $cGray5;
+
+        @include is1024($wMax) {
+            display: none;
+        }
+    }
+}

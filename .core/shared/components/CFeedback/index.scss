@@ -1,0 +1,117 @@
+.c-feedback {
+    position: relative;
+    padding: 30px;
+    background-color: #FBFBFB;
+    border: 1px solid #EDEDED;
+    border-radius: 20px;
+    transition: $transition;
+    break-inside: avoid;
+
+    @include media(0, $w1366) {
+        padding: 26px;
+        background-color: $cWhite;
+    }
+
+    &:hover {
+        @include media($w1366, $wMax) {
+            box-shadow: 10px 10px 20px rgba(81, 95, 120, 0.05);
+            background-color: $cWhite;
+            border-radius: 4px 30px;
+        }
+    }
+
+    &__header {
+        max-width: 80%;
+        margin-bottom: 12px;
+
+        @include media(0, $w1366) {
+            max-width: 100%;
+        }
+
+        @include isMobile {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__name {
+        margin-bottom: 10px;
+        color: $cGrayText;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 110%;
+        transition: color $transition;
+
+        @include media(0, $w1366) {
+            color: $cBlack2;
+        }
+    }
+
+    &:hover &__name {
+        color: $cBlack2;
+    }
+
+    &__date {
+        color: $cGrayTextLight;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    &__image {
+        position: absolute;
+        top: 18px;
+        right: 20px;
+        opacity: 0;
+        transition: opacity $transition;
+
+        @include media(0, $w1366) {
+            display: none;
+        }
+    }
+
+    &:hover &__image {
+        opacity: 1;
+    }
+
+    &__text {
+        margin: 0;
+        color: #686868;
+        font-size: 15px;
+        line-height: 140%;
+        transition: color $transition;
+
+        @include media(0, $w1366) {
+            color: $cGrayDark;
+        }
+    }
+
+    &:hover &__text {
+        color: $cGrayDark;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        color: $cPrimary;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 120%;
+        transition: 0.25s;
+
+        &:hover {
+            color: $cGrayMedium;
+        }
+
+        .ui-icon {
+            margin-left: 10px;
+        }
+    }
+
+    &:hover &__link {
+        .ui-icon {
+            path:first-child {
+                fill: #5E88C5;
+            }
+        }
+    }
+}

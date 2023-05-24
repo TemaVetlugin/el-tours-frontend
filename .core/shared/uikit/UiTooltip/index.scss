@@ -1,0 +1,61 @@
+.ui-tooltip {
+    position: relative;
+    width: fit-content;
+
+    &__inner {
+        cursor: pointer;
+    }
+
+    &__inner:hover ~ &__outer {
+        display: block;
+    }
+
+    &__outer {
+        position: absolute;
+        bottom: calc(100% - 3px);
+        left: -25px;
+        padding: 4px 8px;
+        background: rgba($cBlackText, 0.8);
+        border-radius: 8px;
+        transform: translateY(-50%);
+        display: none;
+        //
+        //@include media(0, $w1366) {
+        //    position: relative;
+        //    top: 0;
+        //    left: 0;
+        //    max-width: 192px;
+        //    margin: 10px 0 0;
+        //    padding: 0;
+        //    opacity: 1;
+        //    visibility: visible;
+        //    transform: none;
+        //}
+
+        i {
+            position: absolute;
+            top: 100%;
+            left: 32px;
+            width: 10px;
+            height: 7px;
+            background-size: contain;
+            content: '';
+            display: block;
+
+            @include media(0, $w1366) {
+                display: none;
+            }
+        }
+    }
+
+    &__label {
+        @include text;
+        color: $cWhite;
+        white-space: pre;
+
+        @include media(0, $w1366) {
+            font-size: 12px;
+            line-height: 140%;
+        }
+    }
+}
