@@ -4,8 +4,7 @@ import React, { useEffect } from "react";
 
 import { useObservable, useObserve } from "shared/hooks";
 import { bootstrapQuery } from "shared/queries/frontend";
-import { Cache } from "shared/utilities/client";
-import { CityService } from "shared/services/City.service";
+import { CityService } from "shared/services";
 
 export default function HomePage() {
     const store = useObservable({
@@ -15,8 +14,8 @@ export default function HomePage() {
     useEffect(() => {
         console.log(CityService.cities);
         (async () => {
-            const response = await Cache.remember('layout', async () => await bootstrapQuery(), 1000);
-            console.log(response);
+            const response = await bootstrapQuery();
+            console.log({response});
         })();
     }, []);
 
@@ -27,11 +26,9 @@ export default function HomePage() {
                 <p onClick={() => store.set("counter", store.counter + 1)}>
                     Get started {store.counter}&nbsp;
                 </p>
-                {CityService.cities.map(city => (
-                    <div key={city.id} onClick={() => city.update({name: Date.now()})}>
-                        {city.name}
-                    </div>
-                ))}
+                <div>
+                    {CityService.city.name}
+                </div>
             </div>
         </main>
     ))

@@ -40,7 +40,6 @@ export const Cache = new class implements CacheType {
 
     remember = async <T>(key: any, fallback: () => Promise<T>, ttl?: number) => {
         let result = await this.get<T>(key);
-        console.log({result})
         if (result === null) {
             result = await fallback();
             await this.set(key, result, ttl);

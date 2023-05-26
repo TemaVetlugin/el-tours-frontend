@@ -1,15 +1,35 @@
 import { CityInterface, CityModel } from "shared/models";
+import { makeAutoObservable } from "mobx";
 
 export const CityService = new class {
     cityId: number | null = null;
-    city: CityModel = new CityModel();
     cities: CityModel[] = [];
 
-    boot = (cities: CityInterface[], cityId: number | null) => {
-
+    constructor() {
+        makeAutoObservable(this);
     }
 
-    set = (cityId) => {
+    get city() {
+        if (this.cities.length === 0) {
+            return new CityModel();
+        }
+        if (!this.cityId) {
+            return this.cities[0];
+        }
+        const city = this.cities.find(city => city.id === this.cityId);
+        return city || this.cities[0];
+    }
+
+    boot = (cities: CityInterface[], cityId: number | string | null) => {
+        this.cities = cities.map(city => new CityModel(city));
+        if (cityId !== null) {
+            this.cityId = +cityId;
+        } else {
+            this.cityId = cities.find(city => !!city.isDefault)?.id || null;
+        }
+    }
+
+    set = (cityId: number) => {
 
     }
 }

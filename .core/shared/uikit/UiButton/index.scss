@@ -47,20 +47,18 @@
     }
 
     &--rounded {
+        font-size: 16px;
+        padding: 0 25px;
+        line-height: 19px;
         border-radius: 40px;
     }
 
     &--normal {
-        height: $hControl;
-        padding: 0 24px;
         font-size: 16px;
-        line-height: 19px;
-    }
-
-    @include modifiers('normal', 'rounded') {
-        font-size: 16px;
-        line-height: 100%;
         padding: 0 25px;
+        height: $hControl;
+        line-height: 19px;
+
     }
 
     &--small {

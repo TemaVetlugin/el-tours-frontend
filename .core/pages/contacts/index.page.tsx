@@ -42,7 +42,7 @@ const ContactsPage: NextPage<PropsType> = observer(({ application }) => {
                     >
                         <div className="p-contacts-item">
                             <div className="p-contacts-item__icon">
-                                <UiIcon size={60} name={'location'} color={COLORS.PRIMARY_DARK}/>
+                                <UiIcon size={60} name={'location'} color={COLORS.GREEN}/>
                             </div>
                             <div className="p-contacts-item__inner">
                                 <div className="p-contacts-item__label">Адрес:</div>
@@ -51,7 +51,7 @@ const ContactsPage: NextPage<PropsType> = observer(({ application }) => {
                         </div>
                         <div className="p-contacts-item">
                             <div className="p-contacts-item__icon">
-                                <UiIcon size={60} name={'mail'} color={COLORS.PRIMARY_DARK}/>
+                                <UiIcon size={60} name={'mail'} color={COLORS.GREEN}/>
                             </div>
                             <div className="p-contacts-item__inner">
                                 <div className="p-contacts-item__label">Информационная запись</div>

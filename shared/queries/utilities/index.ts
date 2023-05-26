@@ -1,1 +1,1 @@
-export { query } from './query';
+export { defineQuery } from './defineQuery';

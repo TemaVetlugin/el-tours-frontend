@@ -76,16 +76,6 @@
     font-weight: 500;
 }
 
-@mixin modifiers($firstModifier, $otherModifiers...) {
-    $result: '';
-    @for $i from 0 to length($otherModifiers) {
-        $modifier: nth($otherModifiers, $i + 1);
-        $result: "#{$result}#{&}--#{$modifier}";
-    }
-    &--#{$firstModifier}#{$result} {
-        @content;
-    }
-}
 
 @mixin placeholder {
     &::-webkit-input-placeholder {

@@ -44,7 +44,7 @@ export const UiEmpty2 = observer(function (
                     <UiButton
                         href={link}
                         colors={{
-                            button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                            button: [COLORS.PRIMARY, COLORS.GREEN],
                             label: [COLORS.WHITE, COLORS.WHITE]
                         }}
                     >

@@ -108,7 +108,7 @@ const TestPage: NextPage<PropsType> = observer(({ application }) => {
                                 size="large"
                                 iconOnly={true}
                                 colors={{
-                                    button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                    button: [COLORS.PRIMARY, COLORS.GREEN],
                                     label: [COLORS.WHITE, COLORS.WHITE]
                                 }}
                             >
@@ -119,7 +119,7 @@ const TestPage: NextPage<PropsType> = observer(({ application }) => {
                             <UiButton
                                 label="Название кнопки"
                                 colors={{
-                                    button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                    button: [COLORS.PRIMARY, COLORS.GREEN],
                                     label: [COLORS.WHITE, COLORS.WHITE]
                                 }}
                             />
@@ -127,7 +127,7 @@ const TestPage: NextPage<PropsType> = observer(({ application }) => {
                         <UiFormControl>
                             <UiButton
                                 colors={{
-                                    button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                    button: [COLORS.PRIMARY, COLORS.GREEN],
                                     label: [COLORS.WHITE, COLORS.WHITE]
                                 }}
                             >
@@ -138,7 +138,7 @@ const TestPage: NextPage<PropsType> = observer(({ application }) => {
                         <UiFormControl>
                             <UiButton
                                 colors={{
-                                    button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                    button: [COLORS.PRIMARY, COLORS.GREEN],
                                     label: [COLORS.WHITE, COLORS.WHITE]
                                 }}
                             >
@@ -150,7 +150,7 @@ const TestPage: NextPage<PropsType> = observer(({ application }) => {
                             <UiButton
                                 label="Название кнопки"
                                 colors={{
-                                    button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                    button: [COLORS.PRIMARY, COLORS.GREEN],
                                     label: [COLORS.WHITE, COLORS.WHITE]
                                 }}
                                 isDisabled={true}

@@ -7,6 +7,7 @@ export interface CityInterface {
     name?: string;
     latitude?: number;
     longitude?: number;
+    isDefault?: number,
     zoom?: number;
 }
 
@@ -16,10 +17,12 @@ export class CityModel extends Model<CityInterface> implements CityInterface {
         "name",
         "latitude",
         "longitude",
+        "isDefault",
         "zoom",
     ];
 
     id = 0;
+    isDefault = 0;
     name = 'г. Томск';
     latitude = 0;
     longitude = 0;
@@ -31,6 +34,7 @@ export class CityModel extends Model<CityInterface> implements CityInterface {
         makeObservable(this, {
             id: observable,
             name: observable,
+            isDefault: observable,
             latitude: observable,
             longitude: observable,
             zoom: observable,

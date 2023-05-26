@@ -193,7 +193,7 @@ const StoresPage: NextPage<PropsType> = observer(({ application }) => {
                                                     label="Выбрать"
                                                     size={'small'}
                                                     colors={{
-                                                        button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                                        button: [COLORS.PRIMARY, COLORS.GREEN],
                                                         label: [COLORS.WHITE, COLORS.WHITE]
                                                     }}
                                                 />
@@ -259,7 +259,7 @@ const StoresPage: NextPage<PropsType> = observer(({ application }) => {
                                                     label="Выбрать"
                                                     size={'small'}
                                                     colors={{
-                                                        button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                                        button: [COLORS.PRIMARY, COLORS.GREEN],
                                                         label: [COLORS.WHITE, COLORS.WHITE]
                                                     }}
                                                 />
@@ -323,7 +323,7 @@ const StoresPage: NextPage<PropsType> = observer(({ application }) => {
                                                 label="Выбрать эту аптеку"
                                                 size={'small'}
                                                 colors={{
-                                                    button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                                    button: [COLORS.PRIMARY, COLORS.GREEN],
                                                     label: [COLORS.WHITE, COLORS.WHITE]
                                                 }}
                                             />
@@ -344,7 +344,7 @@ const StoresPage: NextPage<PropsType> = observer(({ application }) => {
                                                 label="Выбрать эту аптеку"
                                                 size={'small'}
                                                 colors={{
-                                                    button: [COLORS.PRIMARY, COLORS.PRIMARY_DARK],
+                                                    button: [COLORS.PRIMARY, COLORS.GREEN],
                                                     label: [COLORS.WHITE, COLORS.WHITE]
                                                 }}
                                             />
