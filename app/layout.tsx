@@ -1,12 +1,15 @@
 import React from "react";
+import { configure } from "mobx";
 
-import { bootstrapQuery } from "shared/queries/frontend";
+import { bootQuery } from "shared/queries/frontend";
 import { Cache, Cookie } from "shared/utilities/server";
 import { LayoutHeader } from "shared/layout";
 
-import { Bootstrap } from "./bootstrap";
+import { Boot } from "./boot";
 
 import 'shared/styles/index.scss';
+
+configure({ enforceActions: "always" })
 
 type PropsType = {
     children: React.ReactNode
@@ -14,26 +17,26 @@ type PropsType = {
 
 export default async function Layout({ children }: PropsType) {
     const { data } = await Cache.remember(
-        'bootstrap',
-        async () => await bootstrapQuery(),
+        'boot',
+        async () => await bootQuery(),
         1
     );
 
     return (
-        <React.StrictMode>
             <html lang='ru'>
                 <body>
-                    <Bootstrap
+                    <Boot
                         cityId={Cookie.get('cityId')}
                         cities={data?.cities || []}
-                    />
-                    <LayoutHeader
                         headerMenu={data?.headerMenu || []}
+                        searchPrompts={data?.searchPrompts || []}
+                        compilations={data?.compilations || []}
+                        catalogCategories={data?.catalogCategories || []}
                     />
+                    <LayoutHeader/>
                     {children}
                 </body>
             </html>
-        </React.StrictMode>
     )
 }
 

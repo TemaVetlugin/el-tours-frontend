@@ -17,12 +17,13 @@ export const Cache = new class implements CacheType {
 
     get = async <T>(key: any) => {
         let itemJson = await localStorage.getItem(this.key(key));
+        console.log({itemJson})
         if (!itemJson) {
             return null;
         }
         try {
             const item = JSON.parse(itemJson);
-            if (!item.hasOwnProperty('expiry') || !item.hasOwnProperty('value') || Date.now() > item.expiry) {
+            if (!item.hasOwnProperty('expiry') || !item.hasOwnProperty('value') || (Date.now() > item.expiry && item.expiry !== -1)) {
                 return null;
             }
             return item.value as T;

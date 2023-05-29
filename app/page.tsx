@@ -1,23 +1,17 @@
 'use client';
 
-import React, { useEffect } from "react";
+import React from "react";
 
-import { useObservable, useObserve } from "shared/hooks";
-import { bootstrapQuery } from "shared/queries/frontend";
-import { CityService } from "shared/services";
+import { useCity, useObservable, useObserve, useUser } from "shared/hooks";
+import { CityService, UserService } from "shared/services";
 
 export default function HomePage() {
     const store = useObservable({
         counter: 5
     });
 
-    useEffect(() => {
-        console.log(CityService.cities);
-        (async () => {
-            const response = await bootstrapQuery();
-            console.log({response});
-        })();
-    }, []);
+    const city = useCity();
+    const user = useUser();
 
     return useObserve(() => (
         <main>
@@ -27,7 +21,8 @@ export default function HomePage() {
                     Get started {store.counter}&nbsp;
                 </p>
                 <div>
-                    {CityService.city.name}
+                    {city.name}
+                    {user.id}
                 </div>
             </div>
         </main>

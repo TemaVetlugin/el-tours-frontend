@@ -1,7 +1,5 @@
 import { makeObservable, observable } from "mobx";
 
-import { ModelArrayCast } from "shared/casts";
-
 import { Model } from "./Model";
 
 export interface CompilationModelInterface {
@@ -37,7 +35,6 @@ export class CompilationModel extends Model<CompilationModelInterface> implement
 			name: observable,
             slug: observable,
             imageThumbnail: observable,
-            catalogProducts: observable,
             catalogProductsCount: observable
         });
 

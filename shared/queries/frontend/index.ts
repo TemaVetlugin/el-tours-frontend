@@ -1,1 +1,1 @@
-export { bootstrapQuery } from './bootstrap.query';
+export { bootQuery } from './boot.query';

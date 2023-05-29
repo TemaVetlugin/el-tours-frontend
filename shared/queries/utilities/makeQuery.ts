@@ -4,6 +4,7 @@ import * as Sentry from "@sentry/browser";
 
 import { transformObjectKeys } from './transformObjectKeys';
 import { getBackendUrl } from './getBackendUrl';
+import { ResponseType } from '../types/ResponseType';
 
 declare global {
     interface Window {
@@ -25,18 +26,6 @@ type PostOptionsType = GetOptionsType & {
     files?: FileList,
     payload?: any
 };
-
-type ResponseType<T> = {
-    status: 'success' | 'error',
-    statusCode: number,
-    description?: string,
-    data?: T
-}
-
-type FinalResponseType<T> = ResponseType<T> & {
-    description: string,
-    isSuccess: boolean,
-}
 
 type SentryErrorType = {
     url?: string,
@@ -162,6 +151,6 @@ const _query = async (method: 'GET' | 'POST', {
     }
 }
 
-export const defineQuery = async <T = {}>(method: "GET" | "POST", options: GetOptionsType): Promise<FinalResponseType<T>> => {
-    return await _query('GET', options) as FinalResponseType<T>;
+export const makeQuery = async <T = {}>(method: "GET" | "POST", options: GetOptionsType): Promise<ResponseType<T>> => {
+    return await _query('GET', options) as ResponseType<T>;
 };

@@ -2,7 +2,7 @@ import { computed, makeObservable, observable } from "mobx";
 
 import { Model } from "./Model";
 
-export interface CityInterface {
+export interface CityModelInterface {
     id?: number;
     name?: string;
     latitude?: number;
@@ -11,8 +11,8 @@ export interface CityInterface {
     zoom?: number;
 }
 
-export class CityModel extends Model<CityInterface> implements CityInterface {
-    fillable: Array<keyof CityInterface> = [
+export class CityModel extends Model<CityModelInterface> implements CityModelInterface {
+    fillable: Array<keyof CityModelInterface> = [
         "id",
         "name",
         "latitude",
@@ -28,7 +28,7 @@ export class CityModel extends Model<CityInterface> implements CityInterface {
     longitude = 0;
     zoom = 7;
 
-    constructor(payload?: CityInterface) {
+    constructor(payload?: CityModelInterface) {
         super();
 
         makeObservable(this, {

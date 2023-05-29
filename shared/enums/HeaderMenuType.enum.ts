@@ -1,6 +1,6 @@
-import { defineEnum } from "./utilities/defineEnum";
+import { makeEnum } from "./utilities/makeEnum";
 
-export const HeaderMenuTypeEnum = defineEnum({
+export const HeaderMenuTypeEnum = makeEnum({
     Primary: {
         id: 'primary',
         name: 'Основное'

@@ -1,6 +1,10 @@
-import { CityInterface, CityModel } from "shared/models";
+import { CityModel, CityModelInterface } from "shared/models";
 import { makeAutoObservable } from "mobx";
 
+type BootType = {
+    cities: CityModelInterface[],
+    cityId: number | string | null
+}
 export const CityService = new class {
     cityId: number | null = null;
     cities: CityModel[] = [];
@@ -20,7 +24,7 @@ export const CityService = new class {
         return city || this.cities[0];
     }
 
-    boot = (cities: CityInterface[], cityId: number | string | null) => {
+    boot = ({ cities, cityId }: BootType) => {
         this.cities = cities.map(city => new CityModel(city));
         if (cityId !== null) {
             this.cityId = +cityId;

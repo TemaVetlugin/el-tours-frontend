@@ -28,7 +28,7 @@ const resolveEnum = <Value>(entry: EnumEntryType<Value>): ResolveEnumReturnType<
     }
 }
 
-export const defineEnum = <Value extends EnumEntryType<any>, Key extends string>(entries: Record<Key, Value>, defaultEnum: Record<keyof Value, any>): EnumType<Key, Value> => {
+export const makeEnum = <Value extends EnumEntryType<any>, Key extends string>(entries: Record<Key, Value>, defaultEnum: Record<keyof Value, any>): EnumType<Key, Value> => {
     const items: EnumEntryType<Value>[] = Object.values(entries);
     const result: Record<string, any> = {
         items: items,
