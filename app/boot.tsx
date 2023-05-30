@@ -6,7 +6,6 @@ import { enableStaticRendering } from "mobx-react-lite";
 import { CatalogService, CityService, LayoutService } from "shared/services";
 import { ResponseType } from "shared/queries/frontend/boot.query";
 import { UserService } from "shared/services/User.service";
-import { useReaction } from "shared/hooks/useReaction";
 
 enableStaticRendering(typeof window === "undefined");
 
@@ -17,6 +16,7 @@ type PropsType = {
 export const Boot = (
     {
         cities,
+        regions,
         cityId,
         searchPrompts,
         catalogCategories,
@@ -24,7 +24,7 @@ export const Boot = (
         headerMenu
     }: PropsType
 ) => {
-    CityService.boot({ cities, cityId });
+    CityService.boot({ cities, cityId, regions });
     CatalogService.boot({ catalogCategories });
     LayoutService.boot({ searchPrompts, compilations, headerMenu });
 

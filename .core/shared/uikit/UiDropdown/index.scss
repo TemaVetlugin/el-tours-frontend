@@ -16,7 +16,7 @@
 
         &__value {
             @include text;
-            color: $cBlackText;
+            color: $cBlack1;
         }
 
         &__view {
@@ -60,7 +60,7 @@
         align-items: center;
         padding: 6px 20px 6px;
         cursor: pointer;
-        color: $cBlackText;
+        color: $cBlack1;
         white-space: nowrap;
         transition: 0.2s;
         gap: 8px;

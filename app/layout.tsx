@@ -28,6 +28,7 @@ export default async function Layout({ children }: PropsType) {
                     <Boot
                         cityId={Cookie.get('cityId')}
                         cities={data?.cities || []}
+                        regions={data?.regions || []}
                         headerMenu={data?.headerMenu || []}
                         searchPrompts={data?.searchPrompts || []}
                         compilations={data?.compilations || []}

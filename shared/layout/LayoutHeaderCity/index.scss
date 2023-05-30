@@ -1,4 +1,13 @@
 .layout-header-city {
     display: flex;
     align-items: center;
+    margin-right: 70px;
+
+    &__name {
+        position: relative;
+        font-size: 14px;
+        font-weight: 500;
+        color: $cBlack1;
+        line-height: 18px;
+    }
 }

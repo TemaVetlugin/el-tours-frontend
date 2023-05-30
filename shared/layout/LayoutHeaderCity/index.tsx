@@ -12,7 +12,7 @@ import './index.scss';
 export const LayoutHeaderCity = observer(() => {
     return (
         <div className="layout-header-city">
-            <div className="layout-header-city__name">
+            <div className="layout-header-city__name underwave">
                 {CityService.city.name}
             </div>
             <UiIcon

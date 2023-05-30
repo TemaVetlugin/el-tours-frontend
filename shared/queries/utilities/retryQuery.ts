@@ -1,4 +1,4 @@
-import { wait } from "shared/utilities/client";
+import { wait } from "shared/utilities";
 
 import { ResponseType } from '../types/ResponseType';
 

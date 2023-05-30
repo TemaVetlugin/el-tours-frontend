@@ -42,12 +42,12 @@
         transition: color $transition;
 
         @include media(0, $w1366) {
-            color: $cBlack2;
+            color: $cBlack1;
         }
     }
 
     &:hover &__name {
-        color: $cBlack2;
+        color: $cBlack1;
     }
 
     &__date {

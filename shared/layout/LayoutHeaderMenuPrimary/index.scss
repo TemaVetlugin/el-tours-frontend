@@ -1,4 +1,14 @@
-.layout-header-city {
+.layout-header-menu-primary {
     display: flex;
     align-items: center;
+    gap: 24px;
+
+    &__item {
+        color: $cBlack1;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        white-space: nowrap;
+    }
 }

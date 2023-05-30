@@ -1,13 +1,15 @@
-import { CityModel, CityModelInterface } from "shared/models";
+import { CityModel, CityModelInterface, RegionModel, RegionModelInterface } from "shared/models";
 import { makeAutoObservable } from "mobx";
 
 type BootType = {
     cities: CityModelInterface[],
+    regions: RegionModelInterface[],
     cityId: number | string | null
 }
 export const CityService = new class {
     cityId: number | null = null;
     cities: CityModel[] = [];
+    regions: RegionModel[] = [];
 
     constructor() {
         makeAutoObservable(this);
@@ -24,8 +26,9 @@ export const CityService = new class {
         return city || this.cities[0];
     }
 
-    boot = ({ cities, cityId }: BootType) => {
+    boot = ({ cities, cityId, regions }: BootType) => {
         this.cities = cities.map(city => new CityModel(city));
+        this.regions = regions.map(region => new RegionModel(region));
         if (cityId !== null) {
             this.cityId = +cityId;
         } else {

@@ -1,6 +1,24 @@
 .layout-header {
     &__top {
+        height: 40px;
+        width: 100%;
         display: flex;
         align-items: center;
+    }
+
+    &__main {
+        display: flex;
+        align-items: center;
+    }
+
+    &__logo {
+        width: 164px;
+        height: 40px;
+        background-image: url("/assets/images/logo.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
+        margin-right: 56px;
     }
 }
