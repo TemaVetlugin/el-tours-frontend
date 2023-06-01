@@ -30,7 +30,7 @@ const ContactsPage: NextPage<PropsType> = observer(({ application }) => {
                             [MEDIA_POINTS.IS_360]: { columns: 1, gap: 16 },
                             [MEDIA_POINTS.IS_768]: { columns: '370px auto', gap: 20 },
                             [MEDIA_POINTS.IS_1024]: { columns: '760px auto', gap: 20 },
-                            [MEDIA_POINTS.IS_1366]: { columns: '860px auto', gap: 20 }
+                            [MEDIA_POINTS.IS_1440]: { columns: '860px auto', gap: 20 }
                         }}
                 >
                     <UiGrid

@@ -82,7 +82,7 @@ export const CatalogProducts = observer(({ catalogCategory }: PropsType) => {
             <UiGrid media={{
                 [MEDIA_POINTS.IS_360]: { gap: 0, columns: 1 },
                 [MEDIA_POINTS.IS_1024]: { gap: 30, columns: '310px 1fr' },
-                [MEDIA_POINTS.IS_1366]: { gap: 30, columns: '330px 1fr' },
+                [MEDIA_POINTS.IS_1440]: { gap: 30, columns: '330px 1fr' },
             }}>
                 <CCatalogFilters
                     isLoading={catalogFilters.isLoading}

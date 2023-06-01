@@ -9,7 +9,7 @@
         align-items: center;
         height: 26px;
         padding: 0 8px;
-        background: $cGray1;
+        background: $cGrayPrimary;
         border-radius: 600px;
         color: $cWhite;
         text-decoration: none;
@@ -20,8 +20,8 @@
         transition: 0.2s;
 
         &:hover {
-            background: $cGray2;
-            color: $cGray1;
+            background: $cGraySecondary;
+            color: $cGrayPrimary;
         }
     }
 }

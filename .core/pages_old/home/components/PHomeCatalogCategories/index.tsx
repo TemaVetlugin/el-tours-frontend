@@ -20,7 +20,7 @@ export const PHomeCatalogCategories = observer(({ catalogCategories }: PropsType
                 [MEDIA_POINTS.IS_360]: {columns: 1, gap: 8},
                 [MEDIA_POINTS.IS_768]: {columns: 3, gap: 16},
                 [MEDIA_POINTS.IS_1024]: {columns: 3, gap: 22},
-                [MEDIA_POINTS.IS_1366]: {columns: 4, gap: 22},
+                [MEDIA_POINTS.IS_1440]: {columns: 4, gap: 22},
             }}>
                 {catalogCategories.map(catalogCategory => (
                     <UiCardTile

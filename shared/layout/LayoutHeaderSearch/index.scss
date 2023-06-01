@@ -1,0 +1,18 @@
+.layout-header-search {
+    margin-right: 22px;
+
+    &__control {
+        position: relative;
+        flex: 1;
+    }
+
+    &__prompts {
+        display: flex;
+        align-items: center;
+    }
+    .ui-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}

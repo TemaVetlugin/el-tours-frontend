@@ -9,6 +9,7 @@
     &__main {
         display: flex;
         align-items: center;
+        padding: 24px 0;
     }
 
     &__logo {
@@ -20,5 +21,9 @@
         background-size: contain;
         cursor: pointer;
         margin-right: 56px;
+    }
+
+    &__catalog {
+        margin-right: 16px;
     }
 }

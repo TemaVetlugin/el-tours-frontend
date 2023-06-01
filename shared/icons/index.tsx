@@ -3,3 +3,4 @@ export type IconType = (size: [number, number], colors: string[], id?: string | 
 
 export { catalogMenu } from "./catalogMenu";
 export { chevronDown } from "./chevronDown";
+export { search } from "./search";

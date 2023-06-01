@@ -13,7 +13,7 @@
         right: 1px;
         bottom: 0;
         width: 4px !important;
-        background: $cGray3;
+        background: $cGraySecondary;
         border-radius: 40px;
         //transform: scaleX(0.5);
         transition: $transition;
@@ -25,7 +25,7 @@
 
     &__thumb {
         width: 4px !important;
-        background: $cGray1;
+        background: $cGrayPrimary;
         border-radius: 40px;
         cursor: grabbing;
     }

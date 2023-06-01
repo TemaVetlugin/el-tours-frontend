@@ -29,7 +29,7 @@ const ProfilePage: NextPage<PropsType> = withRequireAuthorize(observer(({ applic
                         [MEDIA_POINTS.IS_360]: { columns: 1, gap: 0 },
                         [MEDIA_POINTS.IS_768]: { columns: 1, gap: 0 },
                         [MEDIA_POINTS.IS_1024]: { columns: '1fr 210px', gap: 40 },
-                        [MEDIA_POINTS.IS_1366]: { columns: '1fr 294px', gap: 68 },
+                        [MEDIA_POINTS.IS_1440]: { columns: '1fr 294px', gap: 68 },
                     }}>
                         <PProfileForm/>
                     </UiGrid>

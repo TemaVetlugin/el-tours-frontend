@@ -82,7 +82,7 @@
     &__name {
         @include h4;
         margin: 0;
-        color: $cBlack1;
+        color: $cBlackAlike;
         transition: color $transition;
 
         @include media(0, $w1366) {

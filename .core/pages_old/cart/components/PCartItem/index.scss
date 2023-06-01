@@ -63,7 +63,7 @@
 
     &__name {
         margin-bottom: 14px;
-        color: $cBlack1;
+        color: $cBlackAlike;
         text-decoration: none;
         font-size: 19px;
         font-weight: 500;
@@ -116,7 +116,7 @@
         &__old {
             position: relative;
             margin-top: 4px;
-            color: $cGray1;
+            color: $cGrayPrimary;
             font-size: 20px;
             font-weight: 600;
             line-height: 120%;
@@ -145,7 +145,7 @@
         }
 
         &__description {
-            color: $cGray2;
+            color: $cGraySecondary;
             font-size: 16px;
             font-weight: 500;
             line-height: 120%;

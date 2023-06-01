@@ -1,22 +1,23 @@
 .ui-button {
-    $self: &;
     position: relative;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    border: 1px solid $cPrimary;
+    background: $cGreenPrimary;
+    border: none;
     border-radius: 24px;
     outline: none;
+    cursor: pointer;
     text-align: center;
     text-decoration: none;
     transition: $transition;
     overflow: hidden;
-    cursor: pointer;
+
+    &:hover:not(&--disabled) &__background {
+        background-color: $cGreenSecondary;
+        opacity: 1;
+    }
 
     &--disabled {
-        opacity: 0.5;
         cursor: auto;
+        opacity: 0.5;
     }
 
     &__background {
@@ -26,60 +27,59 @@
         width: 100%;
         height: 100%;
         background-color: transparent;
+        border-radius: 24px;
         opacity: 0;
         transition: $transition;
     }
 
-    &:hover:not(&--disabled) &__background {
-        opacity: 1;
-        background-color: $cPrimary;
-    }
-
     &__inner {
         position: relative;
-        display: inline-flex;
+        display: flex;
         z-index: 1;
         align-items: center;
         color: $cWhite;
+        white-space: nowrap;
         transition: $transition;
         gap: 8px;
-        white-space: nowrap;
-    }
-
-    &--rounded {
-        font-size: 16px;
-        padding: 0 25px;
-        line-height: 19px;
-        border-radius: 40px;
     }
 
     &--normal {
+        height: 48px;
+        padding: 0 24px;
         font-size: 16px;
-        padding: 0 25px;
-        height: $hControl;
         line-height: 19px;
-
     }
 
     &--small {
-        @include text;
         height: 30px;
-        padding: 6px 12px;
+        padding: 0 12px;
+        font-size: 14px;
+        line-height: 18px;
     }
 
     &--small &__inner {
-        gap: 6px;
-    }
-
-    &--large {
-        height: 56px;
+        gap: 4px;
     }
 
     &--icon {
-        padding: 0 12px;
+        width: 48px;
+        height: 48px;
+        padding: 0;
     }
 
-    &--large#{ $self }--icon {
-        padding: 0 16px;
+    &--icon &__inner {
+        justify-content: center;
+    }
+
+    &:not(&--icon) {
+        .ui-icon {
+            &:first-child {
+                margin-left: -8px;
+            }
+
+            &:last-child {
+                margin-right: -8px;
+            }
+        }
     }
 }

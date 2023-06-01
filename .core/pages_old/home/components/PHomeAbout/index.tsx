@@ -20,7 +20,7 @@ export const PHomeAbout = observer(() => {
                             [MEDIA_POINTS.IS_360]: {columns: 1, gap: 0},
                             [MEDIA_POINTS.IS_768]: {columns: 1, gap: 0},
                             [MEDIA_POINTS.IS_1024]: {columns: '1fr 420px', gap: 40},
-                            [MEDIA_POINTS.IS_1366]: {columns: '1fr 520px', gap: 80},
+                            [MEDIA_POINTS.IS_1440]: {columns: '1fr 520px', gap: 80},
                         }}>
                             <div
                                 className="p-home-about__image"

@@ -114,7 +114,7 @@
         &__name {
             @include h2;
             margin-bottom: 12px;
-            color: $cBlack1;
+            color: $cBlackAlike;
             transition: $transition;
 
             @include isMobile {
@@ -132,7 +132,7 @@
         &__text {
             @include text-label;
             margin-bottom: 4px;
-            color: $cBlack1;
+            color: $cBlackAlike;
 
             @include isTablet {
                 margin-top: 4px;

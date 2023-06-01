@@ -121,7 +121,7 @@ const CartPage: NextPage<PropsType> = observer(({ application }) => {
                             [MEDIA_POINTS.IS_360]: { columns: 1, gap: 24 },
                             [MEDIA_POINTS.IS_768]: { columns: 1, gap: 30 },
                             [MEDIA_POINTS.IS_1024]: { columns: '1fr 310px', gap: 30 },
-                            [MEDIA_POINTS.IS_1366]: { columns: '1fr 310px', gap: 30 }
+                            [MEDIA_POINTS.IS_1440]: { columns: '1fr 310px', gap: 30 }
                         }}>
                             <div>
                                 {withPrescription.length > 0 && (

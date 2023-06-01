@@ -201,7 +201,7 @@ const NewsDetailPage: NextPage<PropsType> = observer(({ application, newsItem, n
                     className="p-news-detail"
                     media={{
                         [MEDIA_POINTS.IS_360]: { columns: 1, gap: 20 },
-                        [MEDIA_POINTS.IS_1366]: { columns: '1fr 310px', gap: 20 }
+                        [MEDIA_POINTS.IS_1440]: { columns: '1fr 310px', gap: 20 }
                     }}
                 >
                     <LayoutSection title={store.newsItem.name}>
@@ -261,7 +261,7 @@ const NewsDetailPage: NextPage<PropsType> = observer(({ application, newsItem, n
                                 [MEDIA_POINTS.IS_360]: { columns: 1, gap: 24 },
                                 [MEDIA_POINTS.IS_768]: { columns: 2, gap: 28 },
                                 [MEDIA_POINTS.IS_1024]: { columns: 3, gap: 29 },
-                                [MEDIA_POINTS.IS_1366]: { columns: 1, gap: 24 }
+                                [MEDIA_POINTS.IS_1440]: { columns: 1, gap: 24 }
                             }}
                         >
                             {store.news.map(newsItem => (

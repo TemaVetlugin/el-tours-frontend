@@ -19,7 +19,7 @@
             border: 1px solid $cGrayTextLight;
             border-radius: 40px;
             cursor: pointer;
-            color: $cBlack1;
+            color: $cBlackAlike;
             transition: $transition;
 
             @include isMobileOrTablet() {
@@ -81,7 +81,7 @@
         align-items: center;
         padding: 13px 20px;
         cursor: pointer;
-        color: $cBlack1;
+        color: $cBlackAlike;
         text-decoration: none;
         font-size: 14px;
         font-weight: 400;

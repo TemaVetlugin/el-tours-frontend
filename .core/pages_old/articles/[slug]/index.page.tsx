@@ -100,7 +100,7 @@ const ArticleDetailPage: NextPage<PropsType> = observer(({ application, article,
                             [MEDIA_POINTS.IS_360]: { columns: 1, gap: 30 },
                             [MEDIA_POINTS.IS_768]: { columns: 1, gap: 48 },
                             [MEDIA_POINTS.IS_1024]: { columns: 1, gap: 72 },
-                            [MEDIA_POINTS.IS_1366]: { columns: '1fr 316px', gap: 124 }
+                            [MEDIA_POINTS.IS_1440]: { columns: '1fr 316px', gap: 124 }
                         }}
                     >
                         <UiCard>
@@ -144,7 +144,7 @@ const ArticleDetailPage: NextPage<PropsType> = observer(({ application, article,
                             <h3 className="p-article-aside__title">Всё интересное:</h3>
                             <UiGrid
                                 media={{
-                                    [MEDIA_POINTS.IS_1366]: { columns: 1, gap: 40 }
+                                    [MEDIA_POINTS.IS_1440]: { columns: 1, gap: 40 }
                                 }}
                             >
                                 {store.articles.map(article => (

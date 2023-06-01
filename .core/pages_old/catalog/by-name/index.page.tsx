@@ -64,7 +64,7 @@ const CatalogByNamePage: NextPage<PropsType> = observer(({ application }) => {
                         [MEDIA_POINTS.IS_360]: { columns: 1, gap: 20 },
                         [MEDIA_POINTS.IS_768]: { columns: '214px 1fr', gap: 30 },
                         [MEDIA_POINTS.IS_1024]: { columns: '236px 1fr', gap: 30 },
-                        [MEDIA_POINTS.IS_1366]: { columns: '242px 1fr', gap: 40 }
+                        [MEDIA_POINTS.IS_1440]: { columns: '242px 1fr', gap: 40 }
                     }}
                 >
                     <UiGrid
@@ -73,7 +73,7 @@ const CatalogByNamePage: NextPage<PropsType> = observer(({ application }) => {
                             [MEDIA_POINTS.IS_360]: { columns: 5, gap: [10, 12] },
                             [MEDIA_POINTS.IS_768]: { columns: 2, gap: [14, 12] },
                             [MEDIA_POINTS.IS_1024]: { columns: 2, gap: [20, 12] },
-                            [MEDIA_POINTS.IS_1366]: { columns: 2, gap: [20, 12] }
+                            [MEDIA_POINTS.IS_1440]: { columns: 2, gap: [20, 12] }
                         }}
                     >
                         {CATALOG_LETTERS.map(item => {

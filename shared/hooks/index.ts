@@ -1,7 +1,10 @@
 export { useAsyncEffect } from './useAsyncEffect';
 export { useCity } from './useCity';
 export { useDidUpdateEffect } from './useDidUpdateEffect';
+export { useMedia } from './useMedia';
+export { useNavigate } from './useNavigate';
 export { useObservable } from './useObservable';
 export { useObserve } from './useObserve';
 export { useReaction } from './useReaction';
+export { useSearchParams } from './useSearchParams';
 export { useUser } from './useUser';

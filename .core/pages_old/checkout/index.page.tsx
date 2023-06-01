@@ -167,7 +167,7 @@ const CheckoutPage: NextPage<PropsType> = observer(({ application }) => {
                             [MEDIA_POINTS.IS_360]: { columns: 1, gap: 24 },
                             [MEDIA_POINTS.IS_768]: { columns: 1, gap: 30 },
                             [MEDIA_POINTS.IS_1024]: { columns: '1fr 310px', gap: 30 },
-                            [MEDIA_POINTS.IS_1366]: { columns: '1fr 310px', gap: 30 }
+                            [MEDIA_POINTS.IS_1440]: { columns: '1fr 310px', gap: 30 }
                         }}>
                             <UiCard>
                                 <UiCardSection title='Контактные данные'>
@@ -175,7 +175,7 @@ const CheckoutPage: NextPage<PropsType> = observer(({ application }) => {
                                         [MEDIA_POINTS.IS_360]: { columns: 1, gap: 16, style: { marginBottom: 24 } },
                                         [MEDIA_POINTS.IS_768]: { columns: 2, gap: 16, style: { marginBottom: 24 } },
                                         [MEDIA_POINTS.IS_1024]: { columns: 2, gap: 24, style: { marginBottom: 24 } },
-                                        [MEDIA_POINTS.IS_1366]: { columns: 3, gap: 24, style: { marginBottom: 24 } }
+                                        [MEDIA_POINTS.IS_1440]: { columns: 3, gap: 24, style: { marginBottom: 24 } }
                                     }}>
                                         <UiFormControl
                                             isRequired

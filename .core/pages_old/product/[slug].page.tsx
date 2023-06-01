@@ -101,7 +101,7 @@ const ProductPage: NextPage<PropsType> = observer((
                         [MEDIA_POINTS.IS_360]: { columns: 1, gap: 32 },
                         [MEDIA_POINTS.IS_768]: { columns: '245px 1fr', gap: 40 },
                         [MEDIA_POINTS.IS_1024]: { columns: '339px 1fr', gap: 40 },
-                        [MEDIA_POINTS.IS_1366]: { columns: '482px 1fr', gap: 40 },
+                        [MEDIA_POINTS.IS_1440]: { columns: '482px 1fr', gap: 40 },
                     }}>
                         <div className='p-product-slider'>
                             <PProductSlider

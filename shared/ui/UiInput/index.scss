@@ -1,0 +1,37 @@
+.ui-input {
+    position: relative;
+
+    &__control {
+        width: 100%;
+        height: 48px;
+        padding-left: 15px;
+        border: 1px solid $cBorder;
+        border-radius: 24px;
+        color: $cBlackAlike;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        transition: border-color $transition;
+
+        &:focus {
+            border-color: $cGreenPrimary;
+        }
+    }
+
+    .ui-form-control--error & input {
+        border-color: $cRedPrimary;
+    }
+
+    input:placeholder-shown ~ &__placeholder {
+        opacity: 1;
+    }
+
+    &__placeholder {
+        position: absolute;
+        top: 15px;
+        left: 16px;
+        opacity: 0;
+        color: $cGrayPrimary;
+        pointer-events: none;
+    }
+}

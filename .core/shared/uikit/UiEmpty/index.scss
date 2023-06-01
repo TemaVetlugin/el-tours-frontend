@@ -17,7 +17,7 @@
     &__title {
         @include h2;
         margin: 0 0 16px;
-        color: $cBlack1;
+        color: $cBlackAlike;
 
         span {
             color: $cPrimary;
@@ -60,7 +60,7 @@
             border: 1px solid $cGrayMedium;
             border-radius: 40px;
             outline: none;
-            color: $cBlack1;
+            color: $cBlackAlike;
             font-size: 14px;
             line-height: 120%;
 

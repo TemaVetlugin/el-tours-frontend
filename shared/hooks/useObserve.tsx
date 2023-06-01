@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { Observer } from "mobx-react-lite";
 
-export const useObserve = (render: () => ReactElement) => {
+export function useObserve(render: () => ReactElement) {
     return (
         <Observer render={render}/>
     )

@@ -1,6 +1,6 @@
 .ui-typography {
     @include text-big;
-    color: $cBlack1;
+    color: $cBlackAlike;
 
     @include isMobile {
         font-size: 14px;
@@ -99,7 +99,7 @@
 
     b,
     strong {
-        color: $cBlack1;
+        color: $cBlackAlike;
         font-weight: 500;
     }
 

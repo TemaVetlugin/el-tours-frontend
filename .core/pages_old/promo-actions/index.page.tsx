@@ -115,13 +115,13 @@ const PromoActionsPage: NextPage<PropsType> = observer(({ application }) => {
                     [MEDIA_POINTS.IS_360]: { columns: 1, gap: 20 },
                     [MEDIA_POINTS.IS_768]: { columns: 1, gap: 30 },
                     [MEDIA_POINTS.IS_1024]: { columns: 1, gap: 50 },
-                    [MEDIA_POINTS.IS_1366]: { columns: 1, gap: 40 }
+                    [MEDIA_POINTS.IS_1440]: { columns: 1, gap: 40 }
                 }}>
                     <UiGrid media={{
                         [MEDIA_POINTS.IS_360]: { columns: 1, gap: 16 },
                         [MEDIA_POINTS.IS_768]: { columns: '1fr 222px', gap: 16 },
                         [MEDIA_POINTS.IS_1024]: { columns: '1fr 310px', gap: 20 },
-                        [MEDIA_POINTS.IS_1366]: { columns: '1fr 310px', gap: 20 }
+                        [MEDIA_POINTS.IS_1440]: { columns: '1fr 310px', gap: 20 }
                     }}>
                         <LayoutSubtitle>
                             Напоминаем пользователям нашего сайта и приложения, что акции, заявленные в этой рубрике
@@ -137,7 +137,7 @@ const PromoActionsPage: NextPage<PropsType> = observer(({ application }) => {
                                     [MEDIA_POINTS.IS_360]: { columns: 1, gap: 16 },
                                     [MEDIA_POINTS.IS_768]: { columns: 3, gap: 16 },
                                     [MEDIA_POINTS.IS_1024]: { columns: 4, gap: [16, 24] },
-                                    [MEDIA_POINTS.IS_1366]: { columns: 4, gap: [20, 50] }
+                                    [MEDIA_POINTS.IS_1440]: { columns: 4, gap: [20, 50] }
                                 }}
                             >
                                 {/*{store.promoActions.map(news => (*/}

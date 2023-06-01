@@ -57,7 +57,7 @@
 
     &__name {
         margin-bottom: 12px;
-        color: $cBlack1;
+        color: $cBlackAlike;
         text-decoration: none;
         font-size: 19px;
         font-weight: 500;
@@ -103,7 +103,7 @@
             position: relative;
             display: table;
             margin-top: 8px;
-            color: $cGray1;
+            color: $cGrayPrimary;
             font-weight: 600;
 
             &::after {

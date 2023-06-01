@@ -90,7 +90,7 @@
         @include text-big;
         margin: 0 0 8px;
         font-weight: 500;
-        color: $cBlack1;
+        color: $cBlackAlike;
 
         #{ $self }--search & {
             @include h1;
@@ -116,7 +116,7 @@
     &__description {
         @include text;
         margin: 0 0 16px;
-        color: $cBlack1;
+        color: $cBlackAlike;
         text-align: center;
 
         @include isMobile {

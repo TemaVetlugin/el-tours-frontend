@@ -1,9 +1,10 @@
-import React, { CSSProperties } from "react";
-import { observer } from "mobx-react";
+'use client';
+
+import React, { CSSProperties, useState } from "react";
+import { observer } from "mobx-react-lite";
 import classnames from "classnames";
 import Link from "next/link";
 
-import { useHover } from "shared/hooks";
 import { COLORS } from "shared/contants";
 
 import { UiLoading } from '../UiLoading';
@@ -20,12 +21,12 @@ type PropsType = {
     style?: React.CSSProperties,
     className?: string,
     hasBorder?: boolean,
-    isRounded?: boolean,
-    size?: 'small' | 'normal' | 'large';
+    size?: 'small' | 'normal' | 'large' | 'icon';
     colors?: {
         button?: [string, string] | string,
         label?: [string, string] | string,
         border?: [string, string] | string,
+        icon?: [string, string] | string,
     },
     isDisabled?: boolean,
     iconOnly?: boolean,
@@ -36,7 +37,6 @@ export const UiButton = observer((
         children,
         type = 'button',
         label,
-        isRounded = false,
         size = 'normal',
         href,
         style,
@@ -45,20 +45,22 @@ export const UiButton = observer((
         colors: _colors,
         isLoading = false,
         isDisabled = false,
-        iconOnly = false,
     }: PropsType
 ) => {
-    const { ref, isHovered } = useHover<any>();
+    const [isHovered, setIsHovered] = useState(false);
     const classNames = classnames('ui-button', `ui-button--${size}`, className, {
-        'ui-button--rounded': isRounded,
         'ui-button--disabled': isDisabled,
-        'ui-button--icon': iconOnly,
     });
 
-    const colors = {
-        button: [COLORS.PRIMARY, COLORS.GREEN],
+    let colors = {
+        button: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
         label: [COLORS.WHITE, COLORS.WHITE],
+        icon: [COLORS.WHITE, COLORS.WHITE],
         ..._colors
+    }
+
+    if (colors?.icon && !Array.isArray(colors.icon)) {
+        colors.icon = [colors.icon, colors.icon];
     }
 
     const hasBorder = !!colors?.border;
@@ -101,7 +103,7 @@ export const UiButton = observer((
     const content = () => {
         if (isLoading) {
             return (
-                <UiLoading style={{ height: 12 }} color={styles.label.color}/>
+                <UiLoading style={{ width: 50 }} color={styles.label.color}/>
             )
         }
 
@@ -111,11 +113,12 @@ export const UiButton = observer((
     if (href) {
         return (
             <Link
-                ref={ref}
                 href={href}
                 className={classNames}
                 type={type}
                 style={styles.button}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
                 onClick={(e) => {
                     if (isDisabled) {
                         e.preventDefault();
@@ -124,6 +127,17 @@ export const UiButton = observer((
                     onClick && onClick(e);
                 }}
             >
+                <style jsx>
+                    {`
+                    .ui-button {
+                        ${colors?.icon ? ` --icon-color: ${colors.icon[0]};` : ''}
+                    }
+
+                    .ui-button:hover {
+                        ${colors.icon ? ` --icon-color: ${colors.icon[1]};` : ''}
+                    }
+                `}
+                </style>
                 <div className="ui-button__background" style={styles.background}/>
                 <div className='ui-button__inner' style={styles.label}>
                     {content()}
@@ -134,13 +148,25 @@ export const UiButton = observer((
 
     return (
         <button
-            ref={ref}
             className={classNames}
             type={type}
             style={styles.button}
-            onClick={onClick}
             disabled={isDisabled}
+            onClick={onClick}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
         >
+            <style jsx>
+                {`
+                    .ui-button {
+                        ${colors?.icon ? ` --icon-color: ${colors.icon[0]};` : ''}
+                    }
+
+                    .ui-button:hover {
+                        ${colors.icon ? ` --icon-color: ${colors.icon[1]};` : ''}
+                    }
+                `}
+            </style>
             <div className="ui-button__background" style={styles.background}/>
             <div className='ui-button__inner' style={styles.label}>
                 {content()}

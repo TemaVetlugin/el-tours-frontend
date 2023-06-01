@@ -225,7 +225,7 @@ export const LayoutFooter = observer(() => {
                         [MEDIA_POINTS.IS_360]: { columns: 1, gap: 24 },
                         [MEDIA_POINTS.IS_768]: { columns: '300px auto', gap: 24 },
                         [MEDIA_POINTS.IS_1024]: { columns: '335px auto', gap: 24 },
-                        [MEDIA_POINTS.IS_1366]: { columns: '25% 75%' },
+                        [MEDIA_POINTS.IS_1440]: { columns: '25% 75%' },
                     }}
                     className="layout-footer-bottom"
                 >
@@ -250,7 +250,7 @@ export const LayoutFooter = observer(() => {
                         media={{
                             [MEDIA_POINTS.IS_360]: { columns: 1, gap: 24 },
                             [MEDIA_POINTS.IS_768]: { columns: 1, gap: 16 },
-                            [MEDIA_POINTS.IS_1366]: { columns: '66.6% auto' },
+                            [MEDIA_POINTS.IS_1440]: { columns: '66.6% auto' },
                         }}
                     >
                         <p className="layout-footer__text">

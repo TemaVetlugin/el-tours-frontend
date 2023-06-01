@@ -37,7 +37,7 @@ export const CCatalogProductsSlider = observer(({ catalogProducts }: PropsType) 
         [MEDIA_POINTS.IS_360]: 1,
         [MEDIA_POINTS.IS_768]: 2,
         [MEDIA_POINTS.IS_1024]: 3,
-        [MEDIA_POINTS.IS_1366]: 4,
+        [MEDIA_POINTS.IS_1440]: 4,
     });
 
     return (

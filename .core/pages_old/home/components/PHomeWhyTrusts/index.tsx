@@ -22,7 +22,7 @@ export const PHomeWhyTrusts = observer(({ homeWhyTrusts }: PropsType) => {
                 [MEDIA_POINTS.IS_360]: { columns: 1, gap: 8 },
                 [MEDIA_POINTS.IS_768]: { columns: 2, gap: 24 },
                 [MEDIA_POINTS.IS_1024]: { columns: 4, gap: 24 },
-                [MEDIA_POINTS.IS_1366]: { columns: 4, gap: 24 }
+                [MEDIA_POINTS.IS_1440]: { columns: 4, gap: 24 }
             }}>
                 {homeWhyTrusts.map(homeWhyTrust => (
                     <div

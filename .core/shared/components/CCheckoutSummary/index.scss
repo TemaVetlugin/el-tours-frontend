@@ -5,7 +5,7 @@
 
     &__title {
         margin-bottom: 20px;
-        color: $cBlack1;
+        color: $cBlackAlike;
         font-size: 26px;
         font-weight: 700;
         line-height: 100%;
@@ -34,7 +34,7 @@
 
         &__value {
             margin-left: auto;
-            color: $cBlack1;
+            color: $cBlackAlike;
             font-weight: 700;
         }
 
@@ -54,7 +54,7 @@
 
         &:last-child & {
             &__label {
-                color: $cBlack1;
+                color: $cBlackAlike;
                 font-size: 22px;
             }
 

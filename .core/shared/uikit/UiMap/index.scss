@@ -56,14 +56,14 @@
             }
 
             &__title {
-                color: $cBlack1;
+                color: $cBlackAlike;
                 font-size: 14px;
                 font-weight: 500;
                 white-space: nowrap;
             }
 
             &__description {
-                color: $cGray1;
+                color: $cGrayPrimary;
                 font-size: 13px;
                 font-weight: 400;
                 white-space: nowrap;
@@ -73,7 +73,7 @@
         &-balloon {
             &__title {
                 margin-bottom: 12px;
-                color: $cBlack1;
+                color: $cBlackAlike;
                 font-size: 18px;
                 font-weight: 500;
                 line-height: 140%;
@@ -81,7 +81,7 @@
 
             &__address {
                 margin-bottom: 12px;
-                color: $cBlack1;
+                color: $cBlackAlike;
                 font-size: 16px;
                 line-height: 140%;
             }
@@ -95,7 +95,7 @@
 
             &__inner {
                 margin-top: 12px;
-                color: $cBlack1;
+                color: $cBlackAlike;
                 font-size: 15px;
                 font-weight: 500;
                 line-height: 120%;

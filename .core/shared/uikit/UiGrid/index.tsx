@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import { observer } from 'mobx-react';
+import { observer } from 'mobx-react-lite';
 import classnames from "classnames";
 
 import { MediaPropType, RecordValueType } from "shared/types";
@@ -51,37 +53,6 @@ export const UiGrid = observer((
     // using styled jsx - fix for server render, cascade media styles 360 < 768 < 1024 < 1366
     return (
         <div className={classnames('ui-grid', className)}>
-            <style jsx>
-                {`
-                    .ui-grid {
-                        ${stylesToString({ gap, columns, style })}
-                    }
-
-                    @media (min-width: 0px) {
-                        .ui-grid {
-                            ${stylesToString(media[MEDIA_POINTS.IS_360] || {})}
-                        }
-                    }
-
-                    @media (min-width: ${MEDIA_POINTS.IS_768}px) {
-                        .ui-grid {
-                            ${stylesToString(media[MEDIA_POINTS.IS_768] || {})}
-                        }
-                    }
-
-                    @media (min-width: ${MEDIA_POINTS.IS_1024}px) {
-                        .ui-grid {
-                            ${stylesToString(media[MEDIA_POINTS.IS_1024] || {})}
-                        }
-                    }
-
-                    @media (min-width: ${MEDIA_POINTS.IS_1366}px) {
-                        .ui-grid {
-                            ${stylesToString(media[MEDIA_POINTS.IS_1366] || {})}
-                        }
-                    }
-                `}
-            </style>
             {children}
         </div>
     );
