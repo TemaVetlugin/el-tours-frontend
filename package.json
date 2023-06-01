@@ -32,6 +32,7 @@
         "react-loader-spinner": "^5.3.4",
         "redis": "^4.6.6",
         "sass": "^1.62.1",
+        "styled-jsx": "^5.1.2",
         "typescript": "5.0.4",
         "validator": "^13.9.0"
     },

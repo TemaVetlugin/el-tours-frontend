@@ -49,6 +49,7 @@ export const LayoutHeaderSearch = observer(() => {
                 </UiButton>
             </UiForm>
             <div className="layout-header-search__prompts">
+                <span>Например: </span>
                 {LayoutService.searchPrompts.map(searchPrompt => (
                     <Link
                         key={searchPrompt.id}

@@ -1,15 +1,38 @@
 .layout-header-search {
     margin-right: 22px;
+    flex: 1;
 
     &__control {
         position: relative;
         flex: 1;
+        margin-bottom: 4px;
     }
 
     &__prompts {
         display: flex;
         align-items: center;
+        gap: 4px;
+
+        span {
+            color: $cGrayPrimary;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 16px;
+        }
     }
+
+    &__prompt {
+        color: $cGreenPrimary;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        text-decoration: none;
+
+        &:not(&:last-child)::after {
+            content: ',';
+        }
+    }
+
     .ui-button {
         position: absolute;
         top: 0;

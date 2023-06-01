@@ -1,8 +1,11 @@
 export { UiButton } from './UiButton';
+export { UiButton } from './UiCheckbox';
 export { UiForm } from './UiForm';
+export { UiFormControl } from './UiFormControl';
 export { UiGrid } from './UiGrid';
 export { UiIcon } from './UiIcon';
 export { UiInput } from './UiInput';
 export { UiLoading } from './UiLoading';
+export { UiModal } from './UiModal';
 export { UiScroll } from './UiScroll';
 export { UiWrap } from './UiWrap';

@@ -6,6 +6,7 @@ import { Cache, Cookie } from "shared/utilities/server";
 import { LayoutHeader } from "shared/layout";
 
 import { Boot } from "./boot";
+import { StylesRegistry } from "./styles-registry";
 
 import 'shared/styles/index.scss';
 
@@ -23,7 +24,8 @@ export default async function Layout({ children }: PropsType) {
     );
 
     return (
-            <html lang='ru'>
+        <html lang='ru'>
+            <StylesRegistry>
                 <body>
                     <Boot
                         cityId={Cookie.get('cityId')}
@@ -37,7 +39,8 @@ export default async function Layout({ children }: PropsType) {
                     <LayoutHeader/>
                     {children}
                 </body>
-            </html>
+            </StylesRegistry>
+        </html>
     )
 }
 

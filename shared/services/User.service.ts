@@ -5,7 +5,10 @@ import { Cache } from "shared/utilities/client";
 import { usersBoot } from "shared/queries/main";
 import { retryQuery } from "shared/queries/utilities";
 
-export const UserService = new class {
+import { LayoutService } from "./Layout.service";
+import { makeService } from "./utilities/makeService";
+
+export const UserService = makeService(class {
     accessToken: string | null = null;
     user: UserModel = new UserModel();
 
@@ -26,4 +29,12 @@ export const UserService = new class {
             await Cache.set('accessToken', data.accessToken);
         }
     }
-}
+
+    requireAuthorization = () => {
+        if (this.user.isAuthorized) {
+            return true;
+        }
+        LayoutService.loginIsOpened = true;
+        return false;
+    }
+});

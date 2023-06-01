@@ -1,12 +1,15 @@
-import { CityModel, CityModelInterface, RegionModel, RegionModelInterface } from "shared/models";
 import { makeAutoObservable } from "mobx";
+
+import { CityModel, CityModelInterface, RegionModel, RegionModelInterface } from "shared/models";
+
+import { makeService } from "./utilities/makeService";
 
 type BootType = {
     cities: CityModelInterface[],
     regions: RegionModelInterface[],
     cityId: number | string | null
 }
-export const CityService = new class {
+export const CityService = makeService(class {
     cityId: number | null = null;
     cities: CityModel[] = [];
     regions: RegionModel[] = [];
@@ -39,4 +42,4 @@ export const CityService = new class {
     set = (cityId: number) => {
 
     }
-}
+});

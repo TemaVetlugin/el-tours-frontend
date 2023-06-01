@@ -1,0 +1,54 @@
+.ui-checkbox {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    gap: 8px;
+
+    &__control {
+        position: absolute;
+        bottom: 0;
+        left: 5px;
+        opacity: 0;
+    }
+
+    &__icon {
+        width: 24px;
+        min-width: 24px;
+        height: 24px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px $cGrayPrimary solid;
+        transition: 0.3s;
+
+        .ui-form-control--error & {
+            border-color: $cRedPrimary;
+        }
+    }
+
+    &__control:checked ~ &__icon {
+        border: 2px $cGrayPrimary solid;
+        background: $cGrayPrimary;
+    }
+
+    &__label {
+        color: $cBlackAlike;
+        font-size: 14px;
+        line-height: 18px;
+        padding-top: 4px;
+        word-break: break-word;
+
+        a {
+            font-weight: 500;
+            color: $cGreenPrimary;
+            text-decoration: none;
+            transition: 0.2s;
+
+            &:hover {
+                color: $cGreenSecondary;
+            }
+        }
+    }
+}

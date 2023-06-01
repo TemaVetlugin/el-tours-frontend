@@ -8,11 +8,4 @@
         transition: $transition;
     }
 
-    path[fill] {
-        fill: var(--icon-color, transparent);
-    }
-
-    path[stroke] {
-        stroke: var(--icon-color, transparent);
-    }
 }

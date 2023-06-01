@@ -1,0 +1,18 @@
+.layout-header-login {
+    &__modal {
+    }
+
+    .ui-form {
+        margin: 0 auto;
+        width: 310px;
+
+        .ui-button {
+            width: 100%;
+        }
+
+        .ui-checkbox {
+            width: 270px;
+            margin: 16px auto 0;
+        }
+    }
+}

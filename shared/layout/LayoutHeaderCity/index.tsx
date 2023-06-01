@@ -18,7 +18,7 @@ export const LayoutHeaderCity = observer(() => {
             <UiIcon
                 size={16}
                 name={'chevronDown'}
-                color={COLORS._007C81}
+                color={COLORS.GREEN_PRIMARY}
             />
         </div>
     );

@@ -68,13 +68,13 @@ export const UiButton = observer((
     const styles = {
         button: {
             ...style,
-            border: null as null | string,
             background: null as null | string,
         } as CSSProperties,
         background: {
             background: null as null | string,
         } as CSSProperties,
         label: {
+            border: null as null | string,
             color: null as null | string,
         } as CSSProperties
     };
@@ -129,14 +129,26 @@ export const UiButton = observer((
             >
                 <style jsx>
                     {`
-                    .ui-button {
-                        ${colors?.icon ? ` --icon-color: ${colors.icon[0]};` : ''}
-                    }
+                        .ui-button {
+                            path[fill] {
+                                ${colors?.icon ? `fill: ${colors.icon[0]};` : ''}
+                            }
 
-                    .ui-button:hover {
-                        ${colors.icon ? ` --icon-color: ${colors.icon[1]};` : ''}
-                    }
-                `}
+                            path[stroke] {
+                                ${colors?.icon ? `stroke: ${colors.icon[0]};` : ''}
+                            }
+                        }
+
+                        .ui-button:hover {
+                            path[fill] {
+                                ${colors?.icon ? `fill: ${colors.icon[1]};` : ''}
+                            }
+
+                            path[stroke] {
+                                ${colors?.icon ? `stroke: ${colors.icon[1]};` : ''}
+                            }
+                        }
+                    `}
                 </style>
                 <div className="ui-button__background" style={styles.background}/>
                 <div className='ui-button__inner' style={styles.label}>
@@ -158,13 +170,21 @@ export const UiButton = observer((
         >
             <style jsx>
                 {`
-                    .ui-button {
-                        ${colors?.icon ? ` --icon-color: ${colors.icon[0]};` : ''}
-                    }
+                  .ui-button :global(path[fill]) {
+                    fill: ${colors.icon[0]};
+                  }
 
-                    .ui-button:hover {
-                        ${colors.icon ? ` --icon-color: ${colors.icon[1]};` : ''}
-                    }
+                  .ui-button :global(path[stroke]) {
+                   stroke: ${colors.icon[0]};
+                  }
+
+                  .ui-button:hover :global(path[fill]) {
+                    ${colors?.icon ? `fill: ${colors.icon[1]};` : ''}
+                  }
+
+                  .ui-button:hover :global(path[stroke]) {
+                    ${colors?.icon ? `stroke: ${colors.icon[1]};` : ''}
+                  }
                 `}
             </style>
             <div className="ui-button__background" style={styles.background}/>

@@ -1,11 +1,13 @@
 import { CatalogCategoryModel, CatalogCategoryModelInterface } from "shared/models";
 import { makeAutoObservable } from "mobx";
 import { lodash } from "shared/utilities";
+import { makeService } from "./utilities/makeService";
 
 type BootType = {
     catalogCategories: CatalogCategoryModelInterface[],
 }
-export const CatalogService = new class {
+
+export const CatalogService = makeService(class {
     catalogCategories: CatalogCategoryModel[] = [];
 
     constructor() {
@@ -19,4 +21,4 @@ export const CatalogService = new class {
     get catalogCategoriesByCatalogCategoryId() {
         return lodash.groupBy(this.catalogCategories, 'catalogCategoryId');
     }
-}
+})
