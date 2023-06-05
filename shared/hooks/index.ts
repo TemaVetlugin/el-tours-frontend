@@ -2,6 +2,7 @@ export { useAction } from './useAction';
 export { useAsyncEffect } from './useAsyncEffect';
 export { useCity } from './useCity';
 export { useDidUpdateEffect } from './useDidUpdateEffect';
+export { useMask } from './useMask';
 export { useMedia } from './useMedia';
 export { useNavigate } from './useNavigate';
 export { useObservable } from './useObservable';

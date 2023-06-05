@@ -61,6 +61,7 @@ export const UiInput = observer((
                         handleChange((value as string) || '')
                     }}
                     value={value}
+                    onChange={() => {}}
                     {...options}
                 />
             )

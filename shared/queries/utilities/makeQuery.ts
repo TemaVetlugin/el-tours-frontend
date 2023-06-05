@@ -24,7 +24,7 @@ type GetOptionsType = {
 
 type PostOptionsType = GetOptionsType & {
     files?: FileList,
-    payload?: any
+    body?: any
 };
 
 type SentryErrorType = {
@@ -52,7 +52,7 @@ const catchError = ({ url, method, status, response, description, payload, endpo
 }
 
 const _query = async (method: 'GET' | 'POST', {
-    payload,
+    body: payload,
     files,
     headers,
     params,
@@ -151,6 +151,6 @@ const _query = async (method: 'GET' | 'POST', {
     }
 }
 
-export const makeQuery = async <T = {}>(method: "GET" | "POST", options: GetOptionsType): Promise<ResponseType<T>> => {
-    return await _query('GET', options) as ResponseType<T>;
+export const makeQuery = async <T = {}>(method: "GET" | "POST", options: GetOptionsType | PostOptionsType): Promise<ResponseType<T>> => {
+    return await _query(method, options) as ResponseType<T>;
 };

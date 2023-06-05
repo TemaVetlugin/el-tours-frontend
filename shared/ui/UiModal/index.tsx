@@ -1,6 +1,6 @@
 'use client';
 
-import React from "react";
+import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 
 import { COLORS } from "shared/contants";
@@ -17,7 +17,8 @@ type PropsType = {
     isOpened?: boolean,
     children?: React.ReactNode,
     width?: number,
-    onClose?: () => void
+    onClose?: () => void,
+    onOpen?: () => void,
 }
 
 const Modal = observer((
@@ -27,8 +28,14 @@ const Modal = observer((
         width = 400,
         isOpened = true,
         onClose,
+        onOpen,
     }: PropsType
 ) => {
+    useEffect(() => {
+        if (isOpened) {
+            onOpen && onOpen();
+        }
+    }, [isOpened]);
     if (!isOpened) {
         return null;
     }

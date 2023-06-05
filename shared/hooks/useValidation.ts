@@ -6,14 +6,14 @@ export function useValidation<_Entry,
     EntryKey extends keyof Entry,
     RulesKey extends keyof Rules,
     Entry extends Omit<_Entry, 'set' | 'reset' | 'update' | 'handleChange'>,
-    Rules = Partial<Record<EntryKey, ValidationValidatorType[]>>,
+    Rules = Partial<Record<EntryKey, ValidationValidatorType | ValidationValidatorType[]>>,
     Transformers = Partial<Record<RulesKey, (value: any) => any>>,
-    Result = Record<RulesKey, ValidationResultType> & { isValid: boolean, enableErrors: () => void }>
+    Result = Record<RulesKey, ValidationResultType> & { isValid: boolean, submit: () => void }>
 (entry: _Entry, rules: Rules, transformers?: Transformers, withErrors = false): Result {
     const [enableErrors, setEnableErrors] = useState(withErrors);
     const validationResults: { [key: string]: any } = {
         isValid: true,
-        enableErrors: () => {
+        submit: () => {
             setEnableErrors(true);
         }
     };
@@ -37,7 +37,10 @@ export function useValidation<_Entry,
             if (!!transformer) {
                 value = transformer(value)
             }
-            validationRules[key]?.forEach(validationRule => {
+            const rules: ValidationValidatorType[] = Array.isArray(validationRules[key])
+                ? validationRules[key]
+                : ([validationRules[key]] as any as ValidationValidatorType[]);
+            rules?.forEach(validationRule => {
                 if (validationResult.isValid) {
                     const validationResponse = validationRule(value);
                     validationResult.isValid = validationResponse === true;

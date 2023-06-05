@@ -9,6 +9,7 @@ import { LayoutService } from "./Layout.service";
 import { makeService } from "./utilities/makeService";
 
 export const UserService = makeService(class {
+    isLoading = true;
     accessToken: string | null = null;
     user: UserModel = new UserModel();
 
@@ -16,18 +17,24 @@ export const UserService = makeService(class {
         makeAutoObservable(this);
     }
 
-    boot = async () => {
-        const accessToken = await Cache.get<string>('accessToken');
+    boot = async (_accessToken: string | null = null) => {
+        let accessToken = _accessToken;
+        if (!accessToken) {
+            accessToken = await Cache.get<string>('accessToken');
+        }
         const { isSuccess, data } = await retryQuery(async () => await usersBoot({ accessToken }), {
             delay: 2500,
         });
         if (isSuccess && data) {
             runInAction(() => {
-                this.accessToken = data.accessToken;
+                this.accessToken = data.accessToken
                 this.user = new UserModel(data.item);
             });
-            await Cache.set('accessToken', data.accessToken);
+            await Cache.set('accessToken', accessToken);
         }
+        runInAction(() => {
+            this.isLoading = false;
+        });
     }
 
     requireAuthorization = () => {

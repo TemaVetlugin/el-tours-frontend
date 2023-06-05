@@ -110,6 +110,14 @@ export const UiButton = observer((
         return label || children || 'label';
     }
 
+    const handleClick = (e: React.MouseEvent<any>) => {
+        if (isDisabled || isLoading) {
+            e.preventDefault();
+            return;
+        }
+        onClick && onClick(e);
+    }
+
     if (href) {
         return (
             <Link
@@ -119,13 +127,7 @@ export const UiButton = observer((
                 style={styles.button}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                onClick={(e) => {
-                    if (isDisabled) {
-                        e.preventDefault();
-                        return;
-                    }
-                    onClick && onClick(e);
-                }}
+                onClick={handleClick}
             >
                 <style jsx>
                     {`
@@ -167,7 +169,7 @@ export const UiButton = observer((
             type={type}
             style={styles.button}
             disabled={isDisabled}
-            onClick={onClick}
+            onClick={handleClick}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
