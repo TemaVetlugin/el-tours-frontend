@@ -20,7 +20,6 @@ type PropsType = {
     isLoading?: boolean,
     style?: React.CSSProperties,
     className?: string,
-    hasBorder?: boolean,
     size?: 'small' | 'normal' | 'large' | 'icon';
     colors?: {
         button?: [string, string] | string,
@@ -29,22 +28,23 @@ type PropsType = {
         icon?: [string, string] | string,
     },
     isDisabled?: boolean,
-    iconOnly?: boolean,
+    notification?: string | number
 }
 
 export const UiButton = observer((
     {
         children,
         type = 'button',
-        label,
-        size = 'normal',
         href,
-        style,
         onClick,
-        className,
-        colors: _colors,
+        label,
         isLoading = false,
+        style,
+        className,
+        size = 'normal',
+        colors: _colors,
         isDisabled = false,
+        notification,
     }: PropsType
 ) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -154,6 +154,9 @@ export const UiButton = observer((
                 <div className='ui-button__inner' style={styles.label}>
                     {content()}
                 </div>
+                {!!notification && (
+                    <div className="ui-button__notification">{notification}</div>
+                )}
             </Link>
         )
     }
@@ -191,6 +194,9 @@ export const UiButton = observer((
             <div className='ui-button__inner' style={styles.label}>
                 {content()}
             </div>
+            {!!notification && (
+                <div className="ui-button__notification">{notification}</div>
+            )}
         </button>
     )
 })

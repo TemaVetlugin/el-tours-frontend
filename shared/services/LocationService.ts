@@ -3,13 +3,15 @@ import { makeAutoObservable } from "mobx";
 import { CityModel, CityModelInterface, RegionModel, RegionModelInterface } from "shared/models";
 
 import { makeService } from "./utilities/makeService";
+import { lodash } from "shared/utilities";
+import { Cookie } from "shared/utilities/client";
 
 type BootType = {
     cities: CityModelInterface[],
     regions: RegionModelInterface[],
     cityId: number | string | null
 }
-export const CityService = makeService(class {
+export const LocationService = makeService(class {
     cityId: number | null = null;
     cities: CityModel[] = [];
     regions: RegionModel[] = [];
@@ -39,7 +41,12 @@ export const CityService = makeService(class {
         }
     }
 
-    set = (cityId: number) => {
+    get citiesByRegionId() {
+        return lodash.groupBy(this.cities, 'regionId');
+    }
 
+    setCity = (cityId: number) => {
+        Cookie.set('cityId', cityId);
+        this.cityId = cityId;
     }
 });

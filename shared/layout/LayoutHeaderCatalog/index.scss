@@ -23,7 +23,7 @@
         align-items: center;
         padding: 8px 12px;
         border-radius: 16px 0 0 16px;
-        color: $cBlackAlike;
+        color: $cTypo;
         text-decoration: none;
         font-size: 16px;
         font-weight: 400;
@@ -48,7 +48,7 @@
 
         &__name {
             margin-bottom: 12px;
-            color: $cBlackAlike;
+            color: $cTypo;
             font-size: 16px;
             font-weight: 700;
             line-height: 120%;
@@ -57,7 +57,7 @@
 
     &-category-3 {
         display: block;
-        color: $cBlackAlike;
+        color: $cTypo;
         font-size: 14px;
         font-weight: 500;
         line-height: 18px;

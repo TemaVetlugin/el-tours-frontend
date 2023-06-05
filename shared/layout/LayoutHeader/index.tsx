@@ -4,15 +4,16 @@ import React from "react";
 import Link from "next/link";
 import { observer } from "mobx-react-lite";
 
-import { UiWrap } from "shared/ui";
-import { ROUTES } from "shared/contants";
+import { UiButton, UiIcon, UiWrap } from "shared/ui";
+import { COLORS, ROUTES } from "shared/contants";
 
-import { LayoutHeaderCity } from "../LayoutHeaderCity";
+import { LayoutHeaderLocation } from "../LayoutHeaderLocation";
 import { LayoutHeaderMenuPrimary } from "../LayoutHeaderMenuPrimary";
 import { LayoutHeaderMenuSecondary } from "../LayoutHeaderMenuSecondary";
 import { LayoutHeaderCatalog } from "../LayoutHeaderCatalog";
 import { LayoutHeaderSearch } from "../LayoutHeaderSearch";
 import { LayoutHeaderLogin } from "../LayoutHeaderLogin";
+import { LayoutHeaderPromo } from "../LayoutHeaderPromo";
 
 import './index.scss';
 
@@ -21,7 +22,7 @@ export const LayoutHeader = observer(() => {
         <div className='layout-header'>
             <UiWrap>
                 <div className="layout-header__top">
-                    <LayoutHeaderCity/>
+                    <LayoutHeaderLocation/>
                     <LayoutHeaderMenuPrimary/>
                     <LayoutHeaderMenuSecondary/>
                 </div>
@@ -33,9 +34,31 @@ export const LayoutHeader = observer(() => {
                         <LayoutHeaderCatalog/>
                     </div>
                     <LayoutHeaderSearch/>
-                    <LayoutHeaderLogin/>
+                    <div className="layout-header__actions">
+                        <LayoutHeaderLogin/>
+                        <UiButton
+                            size={'icon'}
+                            colors={{
+                                button: [COLORS.LIGHT_BLUE, COLORS.GREEN_PRIMARY],
+                                icon: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
+                            }}
+                        >
+                            <UiIcon size={24} name={'heart'} color={COLORS.GREEN_PRIMARY}/>
+                        </UiButton>
+                        <UiButton
+                            size={'icon'}
+                            notification={'2'}
+                            colors={{
+                                button: [COLORS.LIGHT_BLUE, COLORS.GREEN_PRIMARY],
+                                icon: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
+                            }}
+                        >
+                            <UiIcon size={24} name={'cart'} color={COLORS.GREEN_PRIMARY}/>
+                        </UiButton>
+                    </div>
                 </div>
             </UiWrap>
+            <LayoutHeaderPromo/>
         </div>
     );
 });

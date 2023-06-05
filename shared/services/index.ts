@@ -1,4 +1,4 @@
 export { CatalogService } from './Catalog.service';
-export { CityService } from './City.service';
+export { LocationService } from './LocationService';
 export { LayoutService } from './Layout.service';
 export { UserService } from './User.service';

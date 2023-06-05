@@ -1,6 +1,6 @@
 export const COLORS = {
     WHITE: '#FFFFFF',
-    BLACK_ALIKE: '#444449',
+    TYPO: '#444449',
     BORDER: '#A9B9DE',
     LIGHT_BLUE: '#EEF7FF',
     GRAY_PRIMARY: '#687CAB',

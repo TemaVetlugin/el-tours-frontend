@@ -1,5 +1,5 @@
 export { UiButton } from './UiButton';
-export { UiButton } from './UiCheckbox';
+export { UiCheckbox } from './UiCheckbox';
 export { UiForm } from './UiForm';
 export { UiFormControl } from './UiFormControl';
 export { UiGrid } from './UiGrid';

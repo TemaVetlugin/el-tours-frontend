@@ -26,4 +26,10 @@
     &__catalog {
         margin-right: 16px;
     }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
 }

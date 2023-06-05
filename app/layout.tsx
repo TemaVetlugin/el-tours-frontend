@@ -22,7 +22,6 @@ export default async function Layout({ children }: PropsType) {
         async () => await bootQuery(),
         1
     );
-
     return (
         <html lang='ru'>
             <StylesRegistry>
