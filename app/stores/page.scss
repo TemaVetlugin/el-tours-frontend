@@ -37,10 +37,11 @@
     }
 
     &__map {
+        flex: 1;
         height: 1300px;
         background: $cLightBlue;
         border-radius: 24px;
-        flex: 1;
+        overflow: hidden;
     }
 
     &-item {
@@ -54,10 +55,6 @@
 
         &__badge {
             display: inline-flex;
-            color: $cWhite;
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 16px;
             align-items: center;
             height: 20px;
             padding: 0 8px;
@@ -65,53 +62,58 @@
             box-shadow: 0 0 20px rgba(74, 74, 74, 0.1);
             background: $cGrayPrimary;
             border-radius: 50px;
+            color: $cWhite;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 16px;
             gap: 4px;
         }
 
         &__name {
+            margin-bottom: 12px;
             color: $cTypo;
             font-size: 30px;
             font-weight: 700;
-            margin-bottom: 12px;
             line-height: 120%;
         }
 
         &__brand {
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 16px;
             margin-bottom: 4px;
             color: $cTypo;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 16px;
         }
 
         &__address {
-            font-weight: 300;
-            font-size: 16px;
-            line-height: 18px;
-            color: $cGreenSecondary;
             margin-bottom: 12px;
+            cursor: pointer;
+            color: $cGreenSecondary;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 18px;
         }
 
         &__delimiter {
-            margin-bottom: 12px;
             width: 100%;
+            margin-bottom: 12px;
             border: 1px solid $cGraySecondary;
         }
 
         &__phone {
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 120%;
             margin-bottom: 12px;
             color: $cTypo;
             text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 120%;
         }
 
         &__schedule {
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 18px;
             color: $cGrayPrimary;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
         }
 
         &__footer {

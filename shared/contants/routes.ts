@@ -12,7 +12,12 @@ export const ROUTES = {
     COMPILATION: (slug: string = ''): RouteType => ({
         id: 'search',
         name: 'COMPILATION',
-        url: `/compilations/${slug}`,
+        url: `/compilation/${slug}`,
+    }),
+    COMPILATIONS: (): RouteType => ({
+        id: 'compilations',
+        name: 'Подборки',
+        url: `/compilations`,
     }),
     HOME: (): RouteType => ({
         id: 'home',

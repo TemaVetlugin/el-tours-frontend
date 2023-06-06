@@ -5,13 +5,15 @@ import { v4 } from 'uuid';
 
 import './index.scss';
 
+import icon from './assets/icon.svg';
+
 type PropsType = {
     map: ymaps.Map,
     location: [number, number],
     render?: () => ReactElement
 }
 
-export const Placemark = observer((
+export const Marker = observer((
     { map, render, location }: PropsType
 ) => {
     const [portal, setPortal] = useState<React.ReactPortal | null>(null)
@@ -30,7 +32,11 @@ export const Placemark = observer((
             }
         );
         const placemark = new ymaps.Placemark(location, {}, {
-            balloonContentLayout
+            balloonContentLayout,
+            iconLayout: 'default#image',
+            iconImageHref: icon.src,
+            iconImageSize: [28, 42],
+            iconImageOffset: [-10, -42]
         });
         map.geoObjects.add(placemark)
     }, [map, render]);

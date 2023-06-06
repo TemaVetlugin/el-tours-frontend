@@ -1,12 +1,13 @@
 'use client';
 
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useAsyncEffect, useCity, useObservable, useObserve } from "shared/hooks";
 import { UiButton, UiCheckbox, UiDataBoundary, UiIcon, UiPage, UiScroll, UiWrap } from "shared/ui";
 import { COLORS, ROUTES } from "shared/contants";
 import { StoreModel } from "shared/models";
 import { storesQuery } from "shared/queries/main";
+import { UiMap } from "shared/ui/UiMap";
 
 import './page.scss';
 
@@ -20,8 +21,15 @@ export default function StorePage({ params }: PropsType) {
     const city = useCity();
     const store = useObservable({
         isLoading: true,
-        stores: [] as StoreModel[]
+        stores: [] as StoreModel[],
+        location: [50, 50] as [number, number],
+        zoom: 14
     });
+
+    useEffect(() => {
+        store.set("location", city.location)
+        store.set("zoom", city.zoom)
+    }, [store, city])
 
     useAsyncEffect(async () => {
         store.set("isLoading", true);
@@ -64,19 +72,29 @@ export default function StorePage({ params }: PropsType) {
                         <div className="p-stores-aside">
                             <UiScroll>
                                 <div className="p-stores-aside__inner">
-                                    {[...store.stores,...store.stores,...store.stores,...store.stores].map(store => (
-                                        <div key={store.id} className="p-stores-item">
-                                            <div className="p-stores-item__badge">
-                                                <UiIcon size={16} name={'delivery'} color={COLORS.WHITE}/>
-                                                <span>Доставим на дом</span>
-                                            </div>
-                                            <div className="p-stores-item__name">{store.name}</div>
-                                            {store.storeBrand && (
-                                                <div className="p-stores-item__brand">{store.storeBrand.name}</div>
+                                    {store.stores.map(item => (
+                                        <div key={item.id} className="p-stores-item">
+                                            {!!item.hasDelivery && (
+                                                <div className="p-stores-item__badge">
+                                                    <UiIcon size={16} name={'delivery'} color={COLORS.WHITE}/>
+                                                    <span>Доставим на дом</span>
+                                                </div>
                                             )}
-                                            <div className="p-stores-item__address">{store.address}</div>
+                                            <div className="p-stores-item__name">{item.name}</div>
+                                            {item.storeBrand && (
+                                                <div className="p-stores-item__brand">{item.storeBrand.name}</div>
+                                            )}
+                                            <div
+                                                className="p-stores-item__address"
+                                                onClick={() => {
+                                                    store.set("location", item.location);
+                                                    store.set("zoom", 18);
+                                                }}
+                                            >
+                                                {item.address}
+                                            </div>
                                             <div className="p-stores-item__delimiter"/>
-                                            <div className="p-stores-item__phone">{store.phone}</div>
+                                            <div className="p-stores-item__phone">{item.phone}</div>
                                             <div className="p-stores-item__schedule">
 
                                             </div>
@@ -91,9 +109,18 @@ export default function StorePage({ params }: PropsType) {
                                 </div>
                             </UiScroll>
                         </div>
-                        <div className="p-stores__map">
-
-                        </div>
+                        <UiMap
+                            className="p-stores__map"
+                            location={store.location}
+                            zoom={store.zoom}
+                            render={(map) => store.stores.map(item => (
+                                <UiMap.Marker
+                                    key={item.id}
+                                    map={map}
+                                    location={item.location}
+                                />
+                            ))}
+                        />
                     </div>
                 </UiDataBoundary>
             </UiWrap>

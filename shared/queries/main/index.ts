@@ -1,3 +1,4 @@
+export { compilationsQuery } from './compilations.query';
 export { storesQuery } from './stores.query';
 export { usersBootQuery } from './usersBoot.query';
 export { usersLoginQuery } from './usersLogin.query';

@@ -48,7 +48,7 @@ export class CityModel extends Model<CityModelInterface> implements CityModelInt
         this.update(payload);
     }
 
-    get location() {
+    get location(): [number, number] {
         return [this.latitude, this.longitude];
     }
 }

@@ -8,6 +8,7 @@ export { UiIcon } from './UiIcon';
 export { UiInput } from './UiInput';
 export { UiLink } from './UiLink';
 export { UiLoading } from './UiLoading';
+export { UiMap } from './UiMap';
 export { UiModal } from './UiModal';
 export { UiPage } from './UiPage';
 export { UiScroll } from './UiScroll';

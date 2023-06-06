@@ -1,9 +1,10 @@
-import { makeObservable, observable } from "mobx";
+import { computed, makeObservable, observable } from "mobx";
 
-import { Model } from "./Model";
 import { ModelCast } from "shared/casts";
+
 import { StoreBrandModel, StoreBrandModelInterface } from "./StoreBrand.model";
 
+import { Model } from "./Model";
 
 export interface StoreModelInterface {
     id?: number;
@@ -71,8 +72,13 @@ export class StoreModel extends Model<StoreModelInterface> implements StoreModel
             longitude: observable,
             imagesThumbnails: observable,
             storeBrand: observable,
+            location: computed,
         });
 
         this.update(payload);
+    }
+
+    get location(): [number, number] {
+        return [this.latitude, this.longitude];
     }
 }
