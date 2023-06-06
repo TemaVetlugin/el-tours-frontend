@@ -1,0 +1,37 @@
+.ui-page-breadcrumbs {
+    margin-bottom: 24px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+
+    @include isMobileOrTablet {
+        margin-bottom: 16px;
+    }
+
+    @include isMobile {
+        line-height: 18px;
+    }
+
+    &__item {
+        display: inline;
+        color: $cGreenPrimary;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__current {
+        display: inline;
+        color: $cGrayPrimary;
+    }
+
+    &__dot {
+        display: inline-block;
+        margin: 0 8px;
+        color: $cGrayPrimary;
+        font-size: 14px;
+        line-height: 0;
+    }
+}

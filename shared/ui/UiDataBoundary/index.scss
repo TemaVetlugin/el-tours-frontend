@@ -1,0 +1,42 @@
+.ui-data-boundary {
+    display: flex;
+    flex: 1 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 30px;
+
+    &__loading {
+        img {
+            display: block;
+            height: 36px;
+            margin: 0 auto 24px;
+            opacity: 0.82;
+            animation: ui-data-boundary 1s infinite;
+        }
+    }
+
+    &__error {
+        text-align: center;
+        white-space: break-spaces;
+    }
+
+    & > .ui-button {
+        margin-top: 15px;
+    }
+}
+
+@keyframes ui-data-boundary {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.87;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}

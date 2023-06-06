@@ -40,7 +40,7 @@ export const LayoutHeaderPromo = observer(() => {
                         {compilations.map(compilation => (
                             <Link
                                 key={compilation.id}
-                                href={ROUTES.COMPILATION(compilation.slug)}
+                                href={ROUTES.COMPILATION(compilation.slug).url}
                                 className="layout-header-promo__compilation"
                             >
                                 {compilation.name}

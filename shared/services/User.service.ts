@@ -2,11 +2,12 @@ import { makeAutoObservable, runInAction } from "mobx";
 
 import { UserModel } from "shared/models";
 import { Cache } from "shared/utilities/client";
-import { usersBoot } from "shared/queries/main";
+import { usersBootQuery } from "shared/queries/main";
 import { retryQuery } from "shared/queries/utilities";
 
 import { LayoutService } from "./Layout.service";
 import { makeService } from "./utilities/makeService";
+import { LocationService } from "shared/services/LocationService";
 
 export const UserService = makeService(class {
     isLoading = true;
@@ -22,18 +23,30 @@ export const UserService = makeService(class {
         if (!accessToken) {
             accessToken = await Cache.get<string>('accessToken');
         }
-        const { isSuccess, data } = await retryQuery(async () => await usersBoot({ accessToken }), {
+        const { isSuccess, data } = await retryQuery(async () => await usersBootQuery({ accessToken }), {
             delay: 2500,
         });
         if (isSuccess && data) {
             runInAction(() => {
                 this.accessToken = data.accessToken
                 this.user = new UserModel(data.item);
+                Cache.set('accessToken', data.accessToken);
+                if (data.item.cityId) {
+                    LocationService.setCity(data.item.cityId)
+                }
             });
-            await Cache.set('accessToken', accessToken);
         }
         runInAction(() => {
             this.isLoading = false;
+        });
+    }
+
+    logout = async () => {
+        await Cache.set('accessToken', '');
+        runInAction(() => {
+            this.accessToken = null;
+            this.user = new UserModel();
+            this.boot();
         });
     }
 

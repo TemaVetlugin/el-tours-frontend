@@ -5,14 +5,7 @@ import * as Sentry from "@sentry/browser";
 import { transformObjectKeys } from './transformObjectKeys';
 import { getBackendUrl } from './getBackendUrl';
 import { ResponseType } from '../types/ResponseType';
-
-declare global {
-    interface Window {
-        application?: {
-            accessToken?: string | null,
-        };
-    }
-}
+import { UserService } from "shared/services";
 
 type GetOptionsType = {
     endpoint: string,
@@ -68,10 +61,9 @@ const _query = async (method: 'GET' | 'POST', {
     };
     let url = `${host || getBackendUrl()}${prefix}${endpoint}`;
 
-    if (typeof window !== 'undefined' && !!window?.application?.accessToken) {
+    if (UserService.accessToken) {
         options.headers = {
-            ...options.headers,
-            Authorization: `Bearer ${window.application.accessToken}`
+            Authorization: `Bearer ${UserService.accessToken}`
         }
     }
 

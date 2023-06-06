@@ -11,11 +11,14 @@ import { useObservable } from "shared/hooks";
 import { ROUTES } from "shared/contants";
 
 import './index.scss';
+import { is } from "immutable";
 
 export const LayoutHeaderCatalog = observer(() => {
     const store = useObservable({
         isOpened: false,
-        id: CatalogService.catalogCategoriesByCatalogCategoryId['null'][0].id ?? 0,
+        id: CatalogService.catalogCategoriesByCatalogCategoryId['null']
+            ? CatalogService.catalogCategoriesByCatalogCategoryId['null'][0].id ?? 0
+            : 0
     });
 
     return (
@@ -66,8 +69,11 @@ export const LayoutHeaderCatalog = observer(() => {
                                                     {CatalogService.catalogCategoriesByCatalogCategoryId[catalogCategory2.id].map(catalogCategory3 => (
                                                         <Link
                                                             key={catalogCategory3.id}
-                                                            href={ROUTES.CATALOG(catalogCategory3.slug)}
+                                                            href={ROUTES.CATALOG(catalogCategory3.slug).url}
                                                             className={'layout-header-catalog-category-3'}
+                                                            onClick={() => {
+                                                                store.set("isOpened", false);
+                                                            }}
                                                         >
                                                             {catalogCategory3.name}
                                                         </Link>

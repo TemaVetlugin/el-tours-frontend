@@ -9,6 +9,7 @@ import { LocationService } from "shared/services";
 import { useObservable, useOnClickOutside } from "shared/hooks";
 
 import './index.scss';
+import { usersUpdateQuery } from "shared/queries/main";
 
 export const LayoutHeaderLocation = observer(() => {
     const popup = useRef<HTMLDivElement>(null)
@@ -19,6 +20,15 @@ export const LayoutHeaderLocation = observer(() => {
     useOnClickOutside(popup, () => {
         store.set("isOpened", false);
     })
+
+    const handleSelect = (cityId: number) => {
+        LocationService.setCity(cityId);
+        usersUpdateQuery({
+            cityId: cityId,
+            cityConfirmed: true
+        });
+        store.set("isOpened", false);
+    }
     return (
         <div className="layout-header-location">
             <div
@@ -58,8 +68,7 @@ export const LayoutHeaderLocation = observer(() => {
                                                 key={city.id}
                                                 className={'layout-header-location-popup-region__city'}
                                                 onClick={() => {
-                                                    LocationService.setCity(city.id);
-                                                    store.set("isOpened", false);
+                                                    handleSelect(city.id);
                                                 }}
                                             >
                                                 <span>{city.name}</span>

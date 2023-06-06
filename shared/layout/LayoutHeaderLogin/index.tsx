@@ -10,7 +10,7 @@ import { LayoutService, UserService } from "shared/services";
 import { useMask, useNavigate, useObservable, useUser } from "shared/hooks";
 import { isMobilePhone, isRequired } from "shared/validations";
 import { useValidation } from "shared/hooks/useValidation";
-import { usersConfirm, usersLogin } from "shared/queries/main";
+import { usersConfirmQuery, usersLoginQuery } from "shared/queries/main";
 
 import './index.scss';
 
@@ -36,7 +36,7 @@ export const LayoutHeaderLogin = observer(() => {
             return;
         }
         store.set("isLoading", true);
-        const { isSuccess } = await usersLogin({
+        const { isSuccess } = await usersLoginQuery({
             phone: store.phone
         });
 
@@ -48,7 +48,7 @@ export const LayoutHeaderLogin = observer(() => {
 
     const handleConfirm = async () => {
         store.set("isLoading", true);
-        const { isSuccess, data, description } = await usersConfirm({
+        const { isSuccess, data, description } = await usersConfirmQuery({
             phone: store.phone,
             code: store.code
         });
@@ -76,7 +76,8 @@ export const LayoutHeaderLogin = observer(() => {
                     if (!UserService.requireAuthorization()) {
                         return;
                     }
-                    navigate(ROUTES.PROFILE());
+                    UserService.logout();
+                    // navigate(ROUTES.PROFILE().url);
                 }}
                 colors={{
                     button: [COLORS.LIGHT_BLUE, COLORS.GREEN_SECONDARY],
@@ -91,6 +92,7 @@ export const LayoutHeaderLogin = observer(() => {
                 width={435}
                 isOpened={LayoutService.loginIsOpened}
                 onOpen={() => {
+                    store.set("errorMessage", '');
                     store.set('step', 'login');
                 }}
                 onClose={() => LayoutService.set("loginIsOpened", false)}

@@ -16,6 +16,12 @@ export type { RegionModelInterface } from './Region.model';
 export { SearchPromptModel } from './SearchPrompt.model';
 export type { SearchPromptModelInterface } from './SearchPrompt.model';
 
+export { StoreModel } from './Store.model';
+export type { StoreModelInterface } from './Store.model';
+
+export { StoreBrandModel } from './StoreBrand.model';
+export type { StoreBrandModelInterface } from './StoreBrand.model';
+
 export { UserModel } from './User.model';
 export type { UserModelInterface } from './User.model';
 

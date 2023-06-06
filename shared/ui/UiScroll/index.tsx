@@ -1,5 +1,5 @@
 'use client';
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import classnames from "classnames";
 import { observer } from "mobx-react-lite";
 import { Scrollbars } from 'react-custom-scrollbars-2';
@@ -15,7 +15,10 @@ type PropsType = {
 }
 
 export const UiScroll = observer(({ maxHeight, height, className, children, style }: PropsType) => {
-    const classNames = useMemo(() => classnames('ui-scroll', className), [className]);
+    const [isDragging, setIsDragging] = useState(false);
+    const classNames = classnames('ui-scroll', className, {
+        'ui-scroll--scrolling': isDragging
+    });
 
     return (
         <Scrollbars
@@ -26,7 +29,11 @@ export const UiScroll = observer(({ maxHeight, height, className, children, styl
             autoHeight={!!maxHeight}
             universal
             hideTracksWhenNotNeeded
-            renderTrackVertical={props => <div {...props} className="ui-scroll__track"/>}
+            onScrollStart={() => {
+                setIsDragging(true)
+            }}
+            onScrollStop={() => setIsDragging(false)}
+            renderTrackVertical={props => <div {...props} className={"ui-scroll__track"}/>}
             renderThumbVertical={props => <div {...props} className="ui-scroll__thumb"/>}
         >
             <div className="ui-scroll__inner">

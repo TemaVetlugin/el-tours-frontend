@@ -29,7 +29,7 @@ export const LayoutHeader = observer(() => {
             </UiWrap>
             <UiWrap>
                 <div className="layout-header__main">
-                    <Link href={ROUTES.HOME()} className="layout-header__logo"/>
+                    <Link href={ROUTES.HOME().url} className="layout-header__logo"/>
                     <div className="layout-header__catalog">
                         <LayoutHeaderCatalog/>
                     </div>

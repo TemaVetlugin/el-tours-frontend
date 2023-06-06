@@ -1,3 +1,5 @@
-export { usersBoot } from './usersBoot.query';
-export { usersLogin } from './usersLogin.query';
-export { usersConfirm } from './usersConfirm.query';
+export { storesQuery } from './stores.query';
+export { usersBootQuery } from './usersBoot.query';
+export { usersLoginQuery } from './usersLogin.query';
+export { usersConfirmQuery } from './usersConfirm.query';
+export { usersUpdateQuery } from './usersUpdate.query';

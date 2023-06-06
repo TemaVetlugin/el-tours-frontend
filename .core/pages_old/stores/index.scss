@@ -23,14 +23,9 @@
 
     &-tabs {
         margin-bottom: 16px;
-
-        .ui-tabs {
-            @include tabsPrimary;
-        }
     }
 
     &__results {
-        @include text;
         color: $cGrayDark;
         white-space: nowrap;
 

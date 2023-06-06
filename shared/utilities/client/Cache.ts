@@ -17,7 +17,6 @@ export const Cache = new class implements CacheType {
 
     get = async <T>(key: any) => {
         let itemJson = await localStorage.getItem(this.key(key));
-        console.log({itemJson})
         if (!itemJson) {
             return null;
         }

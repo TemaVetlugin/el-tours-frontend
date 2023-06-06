@@ -30,7 +30,7 @@ export const LayoutHeaderSearch = observer(() => {
         if (!store.query) {
             return;
         }
-        navigate(ROUTES.SEARCH(), {
+        navigate(ROUTES.SEARCH().url, {
             q: store.query
         });
     }

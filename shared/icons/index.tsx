@@ -7,6 +7,7 @@ export { check } from "./check";
 export { chevronDown } from "./chevronDown";
 export { chevronUp } from "./chevronUp";
 export { close } from "./close";
+export { delivery } from "./delivery";
 export { heart } from "./heart";
 export { novelty } from "./novelty";
 export { percent } from "./percent";

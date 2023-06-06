@@ -5,6 +5,7 @@ import { CityModel, CityModelInterface, RegionModel, RegionModelInterface } from
 import { makeService } from "./utilities/makeService";
 import { lodash } from "shared/utilities";
 import { Cookie } from "shared/utilities/client";
+import { usersUpdateQuery } from "shared/queries/main";
 
 type BootType = {
     cities: CityModelInterface[],
@@ -45,7 +46,7 @@ export const LocationService = makeService(class {
         return lodash.groupBy(this.cities, 'regionId');
     }
 
-    setCity = (cityId: number) => {
+    setCity = (cityId: number, withUpdate = false) => {
         Cookie.set('cityId', cityId);
         this.cityId = cityId;
     }

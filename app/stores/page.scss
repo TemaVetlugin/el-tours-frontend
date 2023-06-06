@@ -1,0 +1,121 @@
+.p-stores {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 24px;
+    }
+
+    &__filters {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    &__count {
+        color: $cGrayPrimary;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    &-aside {
+        width: 350px;
+        height: 1300px;
+        margin-left: -30px;
+
+        &__inner {
+            padding-left: 30px;
+        }
+    }
+
+    &__map {
+        height: 1300px;
+        background: $cLightBlue;
+        border-radius: 24px;
+        flex: 1;
+    }
+
+    &-item {
+        padding: 16px 24px;
+        box-shadow: 0 0 20px rgba(74, 74, 74, 0.1);
+        border-radius: 24px;
+
+        &:not(&:last-child) {
+            margin-bottom: 16px;
+        }
+
+        &__badge {
+            display: inline-flex;
+            color: $cWhite;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 16px;
+            align-items: center;
+            height: 20px;
+            padding: 0 8px;
+            margin-bottom: 12px;
+            box-shadow: 0 0 20px rgba(74, 74, 74, 0.1);
+            background: $cGrayPrimary;
+            border-radius: 50px;
+            gap: 4px;
+        }
+
+        &__name {
+            color: $cTypo;
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 120%;
+        }
+
+        &__brand {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 16px;
+            margin-bottom: 4px;
+            color: $cTypo;
+        }
+
+        &__address {
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 18px;
+            color: $cGreenSecondary;
+            margin-bottom: 12px;
+        }
+
+        &__delimiter {
+            margin-bottom: 12px;
+            width: 100%;
+            border: 1px solid $cGraySecondary;
+        }
+
+        &__phone {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            margin-bottom: 12px;
+            color: $cTypo;
+            text-decoration: none;
+        }
+
+        &__schedule {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+            color: $cGrayPrimary;
+        }
+
+        &__footer {
+            margin-top: 20px;
+        }
+    }
+}

@@ -10,7 +10,7 @@ export type ResponseType = {
     item: UserModelInterface
 }
 
-export const usersBoot = async ({ accessToken }: RequestType) => {
+export const usersBootQuery = async ({ accessToken }: RequestType) => {
     return await makeQuery<ResponseType>("GET", {
         endpoint: '/main/users/boot',
         headers: accessToken ? {

@@ -4,7 +4,7 @@ type RequestType = {
     phone: string
 }
 
-export const usersLogin = async (body: RequestType) => {
+export const usersLoginQuery = async (body: RequestType) => {
     return await makeQuery("POST", {
         endpoint: '/main/users/login',
         body

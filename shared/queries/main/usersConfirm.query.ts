@@ -9,7 +9,7 @@ type ResponseType = {
     accessToken: string
 }
 
-export const usersConfirm = async (body: RequestType) => {
+export const usersConfirmQuery = async (body: RequestType) => {
     return await makeQuery<ResponseType>("POST", {
         endpoint: '/main/users/confirm',
         body
