@@ -1,5 +1,16 @@
 .c-catalog {
+    &__body {
+        display: flex;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
     &__filters {
         width: 280px;
+        min-width: 280px;
+    }
+
+    &__items {
+        flex: 1
     }
 }

@@ -13,13 +13,13 @@ export function useNavigate() {
         }
 
         if (replace) {
-            router.replace(url)
+            // router.replace(url)
 
             // https://github.com/vercel/next.js/discussions/48110
             // shit code for nextjs 13 shallow routing fix
-            // history.pushState({}, "", url);
-            // history.replaceState({}, "", url);
-            // window.dispatchEvent(new Event('historyReplace'));
+            history.pushState({}, "", url);
+            history.replaceState({}, "", url);
+            window.dispatchEvent(new Event('historyReplace'));
         } else {
             router.push(url);
         }

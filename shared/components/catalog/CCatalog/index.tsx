@@ -10,6 +10,7 @@ import { catalogProductsFiltersQuery, catalogProductsQuery } from "shared/querie
 import { CCatalogFilter } from "../CCatalogFilter";
 
 import './index.scss';
+import { CCatalogProducts } from "shared/components/catalog/CCatalogProducts";
 
 type PropsType = {
     title?: string,
@@ -54,8 +55,8 @@ export const CCatalog = observer((
             store.set("catalogProducts", data.items.map(item => new CatalogProductModel(item)))
             store.set("pagination", new PaginationModel(data.pagination));
         }
-        store.set('isCatalogFiltersLoading', false);
-    }, [store, searchParams, city.id]);
+        store.set('isCatalogProductsLoading', false);
+    }, [store, searchParams, params, city.id]);
 
     return (
         <div className={'c-catalog'}>
@@ -75,7 +76,10 @@ export const CCatalog = observer((
                     />
                 </div>
                 <div className="c-catalog__items">
-
+                    <CCatalogProducts
+                        isLoading={store.isCatalogProductsLoading}
+                        catalogProducts={store.catalogProducts}
+                    />
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import qs from "qs";
 import { useSearchParams as useSearchParamsNext } from "next/navigation";
 
@@ -19,16 +19,18 @@ export function useSearchParams<T extends Record<string, any>>(defaultValue: T):
         return () => window.removeEventListener('historyReplace', handler);
     }, []);
 
-    if (!searchParamsString) {
-        return defaultValue;
-    }
-    const parsed = qs.parse(searchParamsString);
-    const result: Record<string, any> = { ...defaultValue };
-    for (let key in parsed) {
-        result[key] = parsed[key];
-    }
-    return {
-        ...defaultValue,
-        ...parsed
-    } as T & Record<string, any>;
+    return useMemo(() => {
+        if (!searchParamsString) {
+            return defaultValue;
+        }
+        const parsed = qs.parse(searchParamsString);
+        const result: Record<string, any> = { ...defaultValue };
+        for (let key in parsed) {
+            result[key] = parsed[key];
+        }
+        return {
+            ...defaultValue,
+            ...parsed
+        };
+    }, [searchParamsString]) as T & Record<string, any>;
 }
