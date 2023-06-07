@@ -1,0 +1,12 @@
+@keyframes ui-skeleton {
+    to {
+        background-position-x: -200%;
+    }
+}
+
+.ui-skeleton {
+    background: #eee;
+    background: linear-gradient(110deg, $cLightBlue 8%, rgba($cGreenPrimary, 0.12) 18%, $cLightBlue 33%);
+    background-size: 200% 100%;
+    animation: 1.5s ui-skeleton linear infinite;
+}

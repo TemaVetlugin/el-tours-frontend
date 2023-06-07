@@ -1,3 +1,5 @@
+export { catalogProductsQuery } from './catalogProducts.query';
+export { catalogProductsFiltersQuery } from './catalogProductsFilters.query';
 export { compilationsQuery } from './compilations.query';
 export { storesQuery } from './stores.query';
 export { usersBootQuery } from './usersBoot.query';

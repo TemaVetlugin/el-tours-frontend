@@ -1,0 +1,52 @@
+.c-catalog-filter-item {
+    padding: 0 16px;
+
+    &:not(&:last-child) {
+        margin-bottom: 8px;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+    }
+
+    &__label {
+        color: $cTypo;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 120%;
+        font-family: $fontSecondary;
+    }
+
+    &__inner {
+        margin-top: 15px;
+    }
+
+    &--collapsable &__icon {
+        display: flex;
+    }
+
+    &--collapsable &__inner {
+        display: none;
+    }
+
+    &--opened &__inner {
+        display: block;
+    }
+
+    &--collapsable &__header {
+        cursor: pointer;
+    }
+
+    &__icon {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        width: 18px;
+        height: 18px;
+        background: $cGreenPrimary;
+        border-radius: 4px;
+    }
+}

@@ -58,6 +58,6 @@ const Modal = observer((
 })
 
 export const UiModal = Object.assign(Modal, {
-    Title: Title,
-    Description: Description
+    Title,
+    Description
 })

@@ -1,11 +1,11 @@
 import React from "react";
 
-import { UiControlChangeHandler } from './UiControlChangeHandler';
+import { ChangeHandlerType } from "shared/types";
 
 export type UiControlPropsType<ValueType, AdditionalProps = {}> = {
     name?: string,
     value?: ValueType | null,
     style?: React.CSSProperties,
     className?: string,
-    onChange?: UiControlChangeHandler<ValueType | null>
+    onChange?: ChangeHandlerType<ValueType | null>
 } & AdditionalProps;

@@ -1,0 +1,77 @@
+.ui-dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    &__label {
+        white-space: nowrap;
+        color: $cGrayPrimary;
+    }
+
+    &-control {
+        position: relative;
+        cursor: pointer;
+
+        &__value {
+            color: $cTypo;
+        }
+
+        &__view {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+            height: 40px;
+            padding: 8px 16px;
+            background: $cLightBlue;
+            border-radius: 24px;
+        }
+
+        &__icon {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__items {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        display: none;
+        z-index: 100;
+        min-width: 100%;
+        margin-top: 4px;
+        background: $cLightBlue;
+        border-radius: 24px;
+        overflow: hidden;
+    }
+
+    &--opened &__items {
+        display: block;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: 6px 20px 6px;
+        cursor: pointer;
+        color: $cTypo;
+        white-space: nowrap;
+        transition: 0.2s;
+        gap: 8px;
+
+        &:first-child {
+            padding-top: 12px;
+        }
+
+        &:last-child {
+            padding-bottom: 12px;
+        }
+
+        &:hover {
+            background: $cGrayPrimary;
+        }
+    }
+}

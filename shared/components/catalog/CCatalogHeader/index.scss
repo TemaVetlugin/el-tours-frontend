@@ -1,0 +1,34 @@
+.c-catalog-header {
+    margin-bottom: 48px;
+
+    @include isMobileOrTablet() {
+        margin-bottom: 30px;
+    }
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        @include isMobileOrTablet() {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+    }
+
+    &__filters {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+
+        &:not(&:empty) {
+            margin-top: 30px;
+
+            @include isMobileOrTablet() {
+                margin-top: 24px;
+            }
+        }
+    }
+}

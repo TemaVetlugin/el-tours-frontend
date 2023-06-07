@@ -1,2 +1,2 @@
-export type { UiControlChangeHandler } from './UiControlChangeHandler';
+export type { UiControlItemType } from './UiControlItemType';
 export type { UiControlPropsType } from './UiControlPropsType';

@@ -1,6 +1,8 @@
 import React from "react";
 export type IconType = (size: [number, number], colors: string[], id?: string | number) => React.ReactNode;
 
+export { arrowDown } from "./arrowDown";
+export { arrowUp } from "./arrowUp";
 export { cart } from "./cart";
 export { catalogMenu } from "./catalogMenu";
 export { check } from "./check";

@@ -1,7 +1,7 @@
 import qs from "qs";
 import { useSearchParams as useSearchParamsNext } from "next/navigation";
 
-export function useSearchParams<T extends Record<string, any>>(defaultValue: T): T {
+export function useSearchParams<T extends Record<string, any>>(defaultValue: T): T & Record<string, any> {
     const searchParams = useSearchParamsNext();
     const query = searchParams.toString();
     if (!query) {
@@ -14,5 +14,5 @@ export function useSearchParams<T extends Record<string, any>>(defaultValue: T):
             result[key] = parsed[key];
         }
     }
-    return result as T;
+    return result as T & Record<string, any>;
 }

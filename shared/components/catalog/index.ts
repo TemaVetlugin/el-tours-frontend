@@ -1,0 +1,1 @@
+export { CCatalog } from './CCatalog';

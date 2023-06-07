@@ -9,6 +9,8 @@ import { ROUTES } from "shared/contants";
 import { CatalogService } from "shared/services";
 import { CatalogCategoryModel } from "shared/models";
 
+import { CCatalog } from "shared/components/catalog";
+
 import './page.scss';
 
 type PropsType = {
@@ -56,6 +58,14 @@ export default function CatalogPage({ params }: PropsType) {
                             </UiLink>
                         ))}
                     </div>
+                )}
+                {(catalogCategories.length === 0 && catalogCategory) && (
+                    <CCatalog
+                        title={catalogCategory.name}
+                        params={{
+                            catalogCategoryId: catalogCategory.id
+                        }}
+                    />
                 )}
             </UiWrap>
         </UiPage>
