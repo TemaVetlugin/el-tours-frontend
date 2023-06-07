@@ -11,13 +11,12 @@ import './index.scss';
 
 type PropsType = {
     catalogFilter: CatalogFilterModel,
+    onChange: ChangeHandlerType<any>
 }
 
-export const CCatalogFilterItem = observer(({ catalogFilter }: PropsType) => {
-    const handleChange: ChangeHandlerType<any> = ({ name, value }) => {
-        catalogFilter.update({ value });
-        onChange();
-    }
+export const CCatalogFilterItem = observer((
+    { catalogFilter, onChange }: PropsType
+) => {
 
     const classNames = classnames('c-catalog-filter-item', {
         'c-catalog-filter-item--collapsable': catalogFilter.isCollapsable,
@@ -57,7 +56,7 @@ export const CCatalogFilterItem = observer(({ catalogFilter }: PropsType) => {
                         max={catalogFilter.items[1]}
                         value={catalogFilter.value}
                         name={catalogFilter.name}
-                        onChange={handleChange}
+                        onChange={onChange}
                     />
                 )}
                 {catalogFilter.type === 'checklist' && (
@@ -65,7 +64,7 @@ export const CCatalogFilterItem = observer(({ catalogFilter }: PropsType) => {
                         value={catalogFilter.value}
                         name={catalogFilter.name}
                         items={catalogFilter.items}
-                        onChange={handleChange}
+                        onChange={onChange}
                     />
                 )}
                 {catalogFilter.type === 'radio' && (
@@ -73,7 +72,7 @@ export const CCatalogFilterItem = observer(({ catalogFilter }: PropsType) => {
                         value={catalogFilter.value}
                         name={catalogFilter.name}
                         items={catalogFilter.items}
-                        onChange={handleChange}
+                        onChange={onChange}
                     />
                 )}
             </div>

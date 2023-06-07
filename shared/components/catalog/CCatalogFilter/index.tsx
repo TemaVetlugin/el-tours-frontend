@@ -3,6 +3,7 @@
 import React, { useEffect } from "react";
 import classnames from "classnames";
 import { observer } from "mobx-react-lite";
+import { usePathname, useRouter } from "next/navigation";
 
 import { UiSkeleton } from "shared/ui";
 import { CatalogFilterModel } from "shared/models";
@@ -23,22 +24,22 @@ export const CCatalogFilter = observer(({ catalogFilters = [], isLoading }: Prop
     const store = useObservable({
         isOpened: false
     });
-
     useEffect(() => {
         if (!params) {
             return;
         }
         catalogFilters.forEach(catalogFilter => {
-            if (!params[catalogFilter.name]) {
+            if (params.hasOwnProperty(catalogFilter.code)) {
                 catalogFilter.update({
-                    value: null
-                })
+                    isOpened: true
+                });
+                catalogFilter.setValue(params[catalogFilter.code]);
                 return;
             }
             catalogFilter.update({
-                isOpened: true
-            });
-            catalogFilter.setValue(params[catalogFilter.name]);
+                value: null
+            })
+
         });
     }, [catalogFilters, params])
 
@@ -49,14 +50,14 @@ export const CCatalogFilter = observer(({ catalogFilters = [], isLoading }: Prop
         delete query['page'];
 
         catalogFilters.forEach(catalogFilter => {
+            delete query[catalogFilter.name];
+            delete query[catalogFilter.code];
             if (catalogFilter.value) {
                 query[catalogFilter.name] = catalogFilter.value;
-            } else {
-                delete query[catalogFilter.name];
             }
         });
 
-        navigate(null, query);
+        navigate(null, query, true);
         store.set("isOpened", false);
     }
 
@@ -71,6 +72,10 @@ export const CCatalogFilter = observer(({ catalogFilters = [], isLoading }: Prop
                 <CCatalogFilterItem
                     key={catalogFilter.name}
                     catalogFilter={catalogFilter}
+                    onChange={({ value }) => {
+                        catalogFilter.update({ value });
+                        handleSubmit();
+                    }}
                 />
             ))}
         </div>

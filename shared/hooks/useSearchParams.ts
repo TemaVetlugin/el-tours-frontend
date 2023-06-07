@@ -1,18 +1,34 @@
+import { useEffect, useState } from "react";
 import qs from "qs";
 import { useSearchParams as useSearchParamsNext } from "next/navigation";
 
 export function useSearchParams<T extends Record<string, any>>(defaultValue: T): T & Record<string, any> {
+    const [searchParamsString, setSearchParamsString] = useState<string>('');
+
     const searchParams = useSearchParamsNext();
-    const query = searchParams.toString();
-    if (!query) {
+    useEffect(() => {
+        setSearchParamsString(searchParams.toString());
+    }, [searchParams]);
+
+    // shit code for nextjs 13 shallow routing fix [useNavigate]
+    useEffect(() => {
+        const handler = () => {
+            setSearchParamsString(window.location.search.substring(1));
+        }
+        window.addEventListener('historyReplace', handler);
+        return () => window.removeEventListener('historyReplace', handler);
+    }, []);
+
+    if (!searchParamsString) {
         return defaultValue;
     }
-    const parsed = qs.parse(query);
+    const parsed = qs.parse(searchParamsString);
     const result: Record<string, any> = { ...defaultValue };
     for (let key in parsed) {
-        if (result.hasOwnProperty(key)) {
-            result[key] = parsed[key];
-        }
+        result[key] = parsed[key];
     }
-    return result as T & Record<string, any>;
+    return {
+        ...defaultValue,
+        ...parsed
+    } as T & Record<string, any>;
 }

@@ -1,4 +1,4 @@
-import { action, makeObservable, observable } from "mobx";
+import { action, computed, makeObservable, observable } from "mobx";
 
 import { isNumeric } from "shared/utilities";
 
@@ -52,10 +52,16 @@ export class CatalogFilterModel extends Model<CatalogFilterModelInterface> imple
             items: observable,
             value: observable,
             isOpened: observable,
-            setValue: action
+            setValue: action,
+            code: computed
         });
 
         this.update(payload);
+    }
+
+    // name without []
+    get code() {
+        return this.name.replace('[]', '');
     }
 
     setValue = (entry: any) => {
