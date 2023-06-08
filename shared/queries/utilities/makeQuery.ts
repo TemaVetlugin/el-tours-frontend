@@ -90,12 +90,8 @@ const _query = async (method: 'GET' | 'POST', {
     }
 
     let response: Response;
-    console.log(1)
-    console.log(url)
     try {
-        console.log(2)
         response = await fetch(url, options);
-        console.log(response)
     } catch (e) {
         catchError({
             url, method, payload, endpoint,
@@ -103,7 +99,6 @@ const _query = async (method: 'GET' | 'POST', {
             response: '',
             description: 'Network error'
         });
-        console.log(e)
         return {
             status: 'success',
             statusCode: 900,

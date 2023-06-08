@@ -52,7 +52,6 @@ export default observer(function CartPage() {
         }
         return cartItem.catalogProduct.catalogProductOffers.find(offer => offer.storeId === form.storeId);
     });
-    console.log(cartItems.length)
 
     return (
         <UiPage className={'p-checkout'}>
