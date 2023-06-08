@@ -2,6 +2,7 @@ import React from "react";
 import { catalogProductsGetQuery } from "shared/queries/main";
 import { notFound } from "next/navigation";
 import { Client } from "./client";
+import { Cookie } from "shared/utilities/server";
 
 type PropsType = {
     params: {
@@ -22,10 +23,17 @@ export async function generateMetadata({ params }: PropsType) {
 }
 
 export default async function ProductPage({ params }: PropsType) {
-    const { isSuccess, data } = await catalogProductsGetQuery(params);
+    const cityId = Cookie.get('cityId');
+
+    const { isSuccess, data, description } = await catalogProductsGetQuery({
+        slug: params.slug,
+        cityId
+    });
+
     if (!isSuccess || !data) {
         notFound();
     }
+
     return (
         <Client catalogProduct={data.item}/>
     )

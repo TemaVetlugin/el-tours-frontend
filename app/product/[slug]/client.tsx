@@ -8,6 +8,7 @@ import { UiPage, UiWrap } from "shared/ui";
 import { CatalogProductModel, CatalogProductModelInterface } from "shared/models";
 import { CatalogService } from "shared/services";
 import { ROUTES } from "shared/contants";
+import { CCatalogProductsSlider } from "shared/components/catalog";
 
 type PropsType = {
     catalogProduct: CatalogProductModelInterface
@@ -16,7 +17,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
     const store = useObservable({
         catalogProduct: new CatalogProductModel(catalogProduct)
     });
-
+    console.log(catalogProduct)
     return (
         <UiPage className={'p-product'}>
             <UiPage.Wrap>
@@ -46,6 +47,12 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                     </div>
                 </div>
                 <div>{store.catalogProduct.name}</div>
+                <UiPage.Section title={'Аналоги'}>
+                    <CCatalogProductsSlider catalogProducts={store.catalogProduct.analogues}/>
+                </UiPage.Section>
+                <UiPage.Section title={'С этим товаром покупают'}>
+                    <CCatalogProductsSlider catalogProducts={store.catalogProduct.recommendations}/>
+                </UiPage.Section>
             </UiPage.Wrap>
         </UiPage>
     );

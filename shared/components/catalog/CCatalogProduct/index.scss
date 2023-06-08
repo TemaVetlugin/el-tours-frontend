@@ -6,7 +6,7 @@
     &__badges {
         position: absolute;
         left: 16px;
-        top: 0;
+        top: 4px;
     }
 
     &-badge {
@@ -17,6 +17,7 @@
         height: 32px;
         border-radius: 100%;
         gap: 8px;
+        white-space: nowrap;
 
         &:not(&:last-child) {
             margin-bottom: 4px;

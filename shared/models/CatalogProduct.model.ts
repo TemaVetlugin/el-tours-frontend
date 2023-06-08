@@ -37,6 +37,8 @@ export interface CatalogProductModelInterface {
     sideEffects?: string,
     withDelivery?: boolean,
     withPrescription?: boolean,
+    analogues?: CatalogProductModelInterface[]
+    recommendations?: CatalogProductModelInterface[]
 }
 
 export class CatalogProductModel extends Model<CatalogProductModelInterface> implements CatalogProductModelInterface {
@@ -67,6 +69,8 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
         "sideEffects",
         "withDelivery",
         "withPrescription",
+        "analogues",
+        "recommendations"
     ];
 
     casts = {
@@ -75,6 +79,8 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
         manufacturer: new ModelCast(ManufacturerModel),
         catalogProductOffers: new ModelArrayCast(CatalogProductOfferModel),
         substances: new ModelArrayCast(SubstanceModel),
+        analogues: new ModelArrayCast(CatalogProductModel),
+        recommendations: new ModelArrayCast(CatalogProductModel),
     };
 
     id = 0;
@@ -104,6 +110,8 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
     storageConditions = '';
     releaseForm = '';
     sideEffects = '';
+    analogues: CatalogProductModel[] = []
+    recommendations: CatalogProductModel[] = []
 
     constructor(payload?: CatalogProductModelInterface) {
         super();
@@ -136,6 +144,8 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
             storageConditions: observable,
             releaseForm: observable,
             sideEffects: observable,
+            analogues: observable,
+            recommendations: observable,
             isAvailable: computed,
             prices: computed,
         });

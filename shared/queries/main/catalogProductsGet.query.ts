@@ -2,7 +2,8 @@ import { CatalogProductModelInterface } from "shared/models";
 import { makeQuery } from "shared/queries/utilities";
 
 export type ParamsType = {
-    slug?: string
+    slug?: string,
+    cityId?: number | string | null
 }
 
 type ResponseType = {

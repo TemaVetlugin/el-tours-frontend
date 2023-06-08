@@ -5,6 +5,8 @@ export { cart } from "./cart";
 export { catalogMenu } from "./catalogMenu";
 export { check } from "./check";
 export { chevronDown } from "./chevronDown";
+export { chevronLeft } from "./chevronLeft";
+export { chevronRight } from "./chevronRight";
 export { chevronUp } from "./chevronUp";
 export { close } from "./close";
 export { delivery } from "./delivery";
