@@ -24,7 +24,7 @@ export const LayoutService = makeService(class {
         makeAutoObservable(this);
     }
 
-    boot = ({ searchPrompts, compilations, headerMenu }: BootType) => {
+    boot = ({ searchPrompts, headerMenu }: BootType) => {
         this.headerMenu = headerMenu.map(item => new HeaderMenuModel(item));
         this.searchPrompts = searchPrompts.map(item => new SearchPromptModel(item));
     }

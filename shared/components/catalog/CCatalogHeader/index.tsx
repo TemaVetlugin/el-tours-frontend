@@ -65,44 +65,8 @@ export const CCatalogHeader = observer(({ catalogFilters = [] }: PropsType) => {
     return (
         <div className='c-catalog-header'>
             <div className="c-catalog-header__inner">
-                <UiDropdown
-                    label='На странице:'
-                    onChange={handleChangeDropdown(12)}
-                    value={(query['per_page'] as string) ?? 12}
-                    name='per_page'
-                    items={[{
-                        id: 12,
-                        name: '12 товаров'
-                    }, {
-                        id: 24,
-                        name: '24 товара'
-                    }, {
-                        id: 36,
-                        name: '36 товаров'
-                    }]}
-                />
-                <UiDropdown
-                    label='Сортировать по:'
-                    onChange={handleChangeDropdown(defaultSort)}
-                    value={(query['sort'] as string) ?? defaultSort}
-                    name='sort'
-                    items={[{
-                        id: 'search',
-                        name: 'релевантности'
-                    }, {
-                        id: 'price_asc',
-                        name: 'возрастанию цены'
-                    }, {
-                        id: 'price_desc',
-                        name: 'убыванию цены'
-                    }, {
-                        id: 'name_asc',
-                        name: 'по названию от А до Я'
-                    }, {
-                        id: 'name_desc',
-                        name: 'по названию от Я до А'
-                    }]}
-                />
+
+
             </div>
             <div className="c-catalog-header__filters">
                 {catalogFilters?.map(catalogFilter => {
