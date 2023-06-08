@@ -17,7 +17,7 @@ type PropsType = {
 }
 
 export default async function Layout({ children }: PropsType) {
-    const { data } = await Cache.remember(
+    const { data, description } = await Cache.remember(
         'boot',
         async () => await bootQuery(),
         1
