@@ -14,6 +14,11 @@ export const ROUTES = {
         name,
         url: slug ? `/catalog/${slug}` : '/catalog',
     }),
+    CHECKOUT: (): RouteType => ({
+        id: 'checkout',
+        name: 'Оформление заказа',
+        url: '/checkout',
+    }),
     COMPILATION: (slug: string = ''): RouteType => ({
         id: 'search',
         name: 'COMPILATION',
@@ -33,6 +38,11 @@ export const ROUTES = {
         id: 'product' + slug,
         name,
         url: `/product/${slug}`,
+    }),
+    PROFILE: (): RouteType => ({
+        id: 'profile',
+        name: 'Личный кабинет',
+        url: '/profile',
     }),
     SEARCH: (): RouteType => ({
         id: 'search',

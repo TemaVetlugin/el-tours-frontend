@@ -15,6 +15,7 @@ export interface UserModelInterface {
     birthdate?: string;
     email?: string;
     cityConfirmed?: boolean;
+    isInitialized?: boolean;
 }
 
 export class UserModel extends Model<UserModelInterface> implements UserModelInterface {
@@ -29,6 +30,7 @@ export class UserModel extends Model<UserModelInterface> implements UserModelInt
         "middlename",
         "birthdate",
         "email",
+        "isInitialized",
     ];
 
     id = 0;
@@ -41,6 +43,7 @@ export class UserModel extends Model<UserModelInterface> implements UserModelInt
     birthdate = '';
     email = '';
     cityConfirmed = false;
+    isInitialized: boolean = false;
 
     constructor(payload: UserModelInterface = {}) {
         super();
@@ -56,6 +59,7 @@ export class UserModel extends Model<UserModelInterface> implements UserModelInt
             middlename: observable,
             email: observable,
             birthdate: observable,
+            isInitialized: observable,
             type: computed,
         });
 

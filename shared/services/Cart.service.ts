@@ -5,20 +5,23 @@ import { CartItemModel } from "shared/models";
 import { makeService } from "./utilities/makeService";
 import { cartItemsQuery, cartItemsSaveQuery } from "shared/queries/main";
 
+type BootProps = {
+    cityId: number
+}
 export const CartService = makeService(class {
-    isLoading = true;
     cartItems: CartItemModel[] = [];
 
     constructor() {
         makeAutoObservable(this);
     }
 
-    boot = async () => {
-        const { data, isSuccess } = await cartItemsQuery();
+    boot = async ({ cityId }: BootProps) => {
+        const { data, isSuccess } = await cartItemsQuery({
+            cityId
+        });
         if (isSuccess && data) {
             CartService.set("cartItems", data.items.map(item => new CartItemModel(item)));
         }
-        CartService.set("isLoading", false);
     }
 
     save = async (cartItem: { catalogProductId: number, quantity: number }) => {

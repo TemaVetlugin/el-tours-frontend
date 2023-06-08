@@ -13,7 +13,9 @@ import { CartService } from "shared/services/Cart.service";
 export const UserService = makeService(class {
     isLoading = true;
     accessToken: string | null = null;
-    user: UserModel = new UserModel();
+    user: UserModel = new UserModel({
+        isInitialized: false
+    });
 
     constructor() {
         makeAutoObservable(this);
@@ -30,17 +32,22 @@ export const UserService = makeService(class {
         if (isSuccess && data) {
             runInAction(() => {
                 this.accessToken = data.accessToken
-                this.user = new UserModel(data.item);
+                this.user = new UserModel({
+                    ...data.item,
+                    isInitialized: true
+                });
                 Cache.set('accessToken', data.accessToken);
                 if (data.item.cityId) {
                     LocationService.setCity(data.item.cityId)
                 }
+                CartService.boot({
+                    cityId: LocationService.city.id
+                });
             });
         }
         runInAction(() => {
             this.isLoading = false;
         });
-        CartService.boot();
     }
 
     logout = async () => {

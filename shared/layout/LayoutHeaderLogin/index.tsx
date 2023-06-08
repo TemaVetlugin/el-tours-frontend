@@ -77,7 +77,7 @@ export const LayoutHeaderLogin = observer(() => {
                         return;
                     }
                     UserService.logout();
-                    // navigate(ROUTES.PROFILE().url);
+                    navigate(ROUTES.PROFILE().url);
                 }}
                 colors={{
                     button: [COLORS.LIGHT_BLUE, COLORS.GREEN_SECONDARY],
@@ -141,12 +141,15 @@ export const LayoutHeaderLogin = observer(() => {
                         <UiModal.Title>Вход в личный кабинет</UiModal.Title>
                         <UiModal.Description>Пожалуйста авторизуйтесь, чтобы оформить заказ</UiModal.Description>
                         <UiForm onSubmit={handleConfirm}>
-                            <input
-                                value={store.code}
-                                onChange={(e) => {
-                                    store.set("code", e.target.value || '');
-                                }}
-                            />
+                            <UiFormControl>
+                                <UiInput
+                                    placeholder={'Введите код'}
+                                    name={'code'}
+                                    value={store.code}
+                                    onChange={store.handleChange}
+                                    autoFocus
+                                />
+                            </UiFormControl>
                             <UiFormControl
                                 errorMessage={store.errorMessage}
                             >

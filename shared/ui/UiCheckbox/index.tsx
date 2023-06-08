@@ -25,14 +25,15 @@ export const UiCheckbox = observer((
         className,
         onChange,
         value,
-        isRequired = false
+        isRequired = false,
+        style
     }: PropsType
 ) => {
     const classNames = classnames('ui-checkbox', className);
 
     const text = label || children;
     return (
-        <label className={classNames}>
+        <label className={classNames} style={style}>
             <input
                 required={isRequired}
                 type="checkbox"

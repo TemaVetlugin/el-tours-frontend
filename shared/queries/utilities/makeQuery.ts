@@ -12,7 +12,7 @@ type GetOptionsType = {
     host?: string,
     prefix?: string,
     headers?: Record<string, string>,
-    params?: Record<string, string | number | string[] | number[]>
+    params?: Record<string, string | number | string[] | number[] | null | undefined>
 }
 
 type PostOptionsType = GetOptionsType & {
