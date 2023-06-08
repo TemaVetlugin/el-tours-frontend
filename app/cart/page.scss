@@ -1,0 +1,16 @@
+.p-cart {
+    &__inner {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    &__items {
+        flex: 1;
+    }
+
+    &__aside {
+        min-width: 310px;
+        width: 310px;
+    }
+}

@@ -4,6 +4,11 @@ type RouteType = {
     url: string,
 }
 export const ROUTES = {
+    CART: (): RouteType => ({
+        id: 'cart',
+        name: 'Корзина',
+        url: '/cart',
+    }),
     CATALOG: (slug: string = '', name = 'Каталог'): RouteType => ({
         id: 'catalog' + slug,
         name,
@@ -23,6 +28,11 @@ export const ROUTES = {
         id: 'home',
         name: 'Главная',
         url: '/',
+    }),
+    PRODUCT: (slug: string = '', name = 'Каталог'): RouteType => ({
+        id: 'product' + slug,
+        name,
+        url: `/product/${slug}`,
     }),
     SEARCH: (): RouteType => ({
         id: 'search',

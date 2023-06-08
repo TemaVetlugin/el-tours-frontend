@@ -1,6 +1,6 @@
 'use client';
 
-import React from "react";
+import React, { CSSProperties } from "react";
 import { observer } from "mobx-react-lite";
 import classnames from "classnames";
 
@@ -11,18 +11,20 @@ import './index.scss';
 
 type PropsType = {
     className?: string,
+    style?: CSSProperties,
     children?: React.ReactNode
 }
 
 const Page = observer((
     {
         className,
+        style,
         children
     }: PropsType
 ) => {
 
     return (
-        <main className={classnames('ui-page', className)}>
+        <main className={classnames('ui-page', className)} style={style}>
             {children}
         </main>
     )

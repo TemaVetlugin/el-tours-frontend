@@ -1,0 +1,60 @@
+.c-cart-total {
+    background: $cWhite;
+    box-shadow: 0px 0px 20px rgba(74, 74, 74, 0.1);
+    border-radius: 8px;
+    padding: 24px;
+
+    &__title {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        margin-bottom: 4px;
+        color: $cTypo;
+    }
+
+    &__total {
+        margin-bottom: 24px;
+    }
+
+    &__price {
+        margin-bottom: 24px;
+    }
+
+    &__fields {
+
+    }
+
+    &-field {
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+
+        &__name {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        &__row {
+            flex: 1;
+            border-bottom: 1px dashed #CED8F1;
+            transform: translateY(-3px);
+        }
+
+        &__value {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 18px;
+            color: $cTypo;
+        }
+    }
+
+    &__children {
+        width: 100%;
+        margin-top: 24px;
+
+        .ui-button {
+            width: 100%;
+        }
+    }
+}

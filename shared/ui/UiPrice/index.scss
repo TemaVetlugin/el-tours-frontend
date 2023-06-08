@@ -1,0 +1,27 @@
+.ui-price {
+    &__current {
+        display: flex;
+        align-items: center;
+        color: $cTypo;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 90%;
+        gap: 4px;
+
+        * {
+            font-family: $fontSecondary;
+        }
+    }
+
+    &-value {
+        padding-top: 1px;
+        display: flex;
+        align-items: flex-start;
+        gap: 2px;
+
+        &__sub {
+            font-size: 12px;
+            line-height: 100%;
+        }
+    }
+}

@@ -13,15 +13,14 @@ export interface CatalogProductModelInterface {
     id?: number;
     name?: string;
     slug?: string;
-    previewImageThumbnail?: string;
+    imageThumbnail?: string;
     catalogCategoryId?: number;
     catalogCategory?: CatalogCategoryModelInterface | null;
     catalogProductOffers?: CatalogProductOfferModelInterface[];
     substances?: SubstanceModelInterface[];
     brand?: BrandModelInterface | null,
     manufacturer?: ManufacturerModelInterface | null,
-    prescriptionTypeId?: string,
-    detailImagesThumbnails?: string[],
+    imagesThumbnails?: string[],
     barcodes?: string[],
     isThermolabile?: boolean,
     instructionFull?: string,
@@ -36,6 +35,8 @@ export interface CatalogProductModelInterface {
     storageConditions?: string,
     releaseForm?: string,
     sideEffects?: string,
+    withDelivery?: boolean,
+    withPrescription?: boolean,
 }
 
 export class CatalogProductModel extends Model<CatalogProductModelInterface> implements CatalogProductModelInterface {
@@ -43,13 +44,13 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
         "id",
         "name",
         "slug",
-        "previewImageThumbnail",
+        "imageThumbnail",
         "catalogCategoryId",
         "catalogProductOffers",
         "brand",
         "substances",
         "manufacturer",
-        "detailImagesThumbnails",
+        "imagesThumbnails",
         "barcodes",
         "isThermolabile",
         "instructionFull",
@@ -64,6 +65,8 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
         "storageConditions",
         "releaseForm",
         "sideEffects",
+        "withDelivery",
+        "withPrescription",
     ];
 
     casts = {
@@ -77,16 +80,18 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
     id = 0;
     name = '';
     slug = '';
-    previewImageThumbnail = '';
+    imageThumbnail = '';
     catalogCategoryId = 0;
     catalogProductOffers: CatalogProductOfferModel[] = [];
     substances: SubstanceModel[] = [];
     catalogCategory: CatalogCategoryModel | null = null;
     brand: BrandModel | null = null;
     manufacturer: ManufacturerModel | null = null;
-    detailImagesThumbnails = [];
+    imagesThumbnails = [];
     barcodes = [];
     isThermolabile = false;
+    withDelivery = false;
+    withPrescription = true;
     instructionFull = '';
     description = '';
     instructionSpecial = '';
@@ -107,16 +112,18 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
             id: observable,
             name: observable,
             slug: observable,
-            previewImageThumbnail: observable,
+            imageThumbnail: observable,
             catalogCategoryId: observable,
             catalogCategory: observable,
             catalogProductOffers: observable,
             substances: observable,
             brand: observable,
             manufacturer: observable,
-            detailImagesThumbnails: observable,
+            imagesThumbnails: observable,
             barcodes: observable,
             isThermolabile: observable,
+            withDelivery: observable,
+            withPrescription: observable,
             instructionFull: observable,
             description: observable,
             instructionSpecial: observable,
@@ -129,24 +136,18 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
             storageConditions: observable,
             releaseForm: observable,
             sideEffects: observable,
-            priceFrom: computed,
             isAvailable: computed,
+            prices: computed,
         });
 
         this.update(payload);
     }
 
-    get priceFrom() {
-        if (this.catalogProductOffers.length === 0) {
-            return null;
-        }
-        return Math.min(...this.catalogProductOffers.map(offer => offer.price));
+    get prices() {
+        return this.catalogProductOffers.map(offer => offer.price);
     }
 
     get isAvailable() {
-        if (!this.priceFrom) {
-            return false;
-        }
         if (this.catalogProductOffers.every(catalogProductOffer => +catalogProductOffer.quantity <= 0)) {
             return false;
         }

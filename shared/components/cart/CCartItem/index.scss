@@ -1,0 +1,66 @@
+.c-cart-item {
+    display: flex;
+    align-items: flex-start;
+
+    &:not(&:last-child) {
+        padding-bottom: 16px;
+        border-bottom: 1px solid #EFEFEF;
+    }
+
+    &:not(&:first-child) {
+        padding-top: 16px;
+    }
+
+    &__image {
+        width: 76px;
+        height: 76px;
+        margin-right: 16px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    &__name {
+        margin-bottom: 8px;
+        color: $cTypo;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 120%;
+        transition: 0.2s;
+
+        &:hover {
+            color: $cGreenPrimary;
+        }
+    }
+
+    &__main {
+        flex: 1;
+    }
+
+    &__quantity {
+        margin-left: 60px;
+    }
+
+    &__price {
+        display: flex;
+        justify-content: flex-end;
+        width: 200px;
+        margin-left: 60px;
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    &__badge {
+        width: 24px;
+        height: 24px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

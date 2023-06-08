@@ -11,6 +11,7 @@ import { lodash } from "shared/utilities";
 import { makeService } from "./utilities/makeService";
 import { ROUTES } from "shared/contants";
 import { ReturnType } from "shared/types";
+import { Cache } from "shared/utilities/client";
 
 type BootType = {
     catalogCategories: CatalogCategoryModelInterface[],
@@ -28,7 +29,6 @@ export const CatalogService = makeService(class {
     boot = ({ catalogCategories, compilations }: BootType) => {
         this.catalogCategories = catalogCategories.map(item => new CatalogCategoryModel(item));
         this.compilations = compilations.map(item => new CompilationModel(item));
-
     }
 
     get catalogCategoryById() {
@@ -37,6 +37,20 @@ export const CatalogService = makeService(class {
 
     get catalogCategoriesByCatalogCategoryId() {
         return lodash.groupBy(this.catalogCategories, 'catalogCategoryId');
+    }
+
+    getViews = async () => {
+        let keys = await Cache.get<number[]>('CatalogModule.views');
+        if (!Array.isArray(keys)) {
+            keys = [];
+        }
+
+        return keys;
+    }
+
+    addView = async (catalogProductId: number) => {
+        let keys = await this.getViews();
+        Cache.set('CatalogModule.views', lodash.uniq([catalogProductId, ...keys]).slice(0, 18));
     }
 
     breadcrumbs = (catalogCategoryId: number | null = null) => {

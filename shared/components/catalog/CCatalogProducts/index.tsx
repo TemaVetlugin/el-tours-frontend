@@ -21,7 +21,7 @@ export const CCatalogProducts = observer(({ catalogProducts, columns = 3, isLoad
 
     if (isLoading) {
         return (
-            <UiGrid gap={12} media={{
+            <UiGrid gap={[20, 40]} media={{
                 [MEDIA_POINTS.IS_360]: { columns: 1 },
                 [MEDIA_POINTS.IS_768]: { columns: 2 },
                 [MEDIA_POINTS.IS_1024]: { columns: columns === 4 ? 3 : 2 },
@@ -37,7 +37,7 @@ export const CCatalogProducts = observer(({ catalogProducts, columns = 3, isLoad
     }
 
     return (
-        <UiGrid gap={12} style={{ alignItems: 'stretch' }} media={{
+        <UiGrid gap={[20, 40]} style={{ alignItems: 'stretch' }} media={{
             [MEDIA_POINTS.IS_360]: { columns: 1 },
             [MEDIA_POINTS.IS_768]: { columns: 2 },
             [MEDIA_POINTS.IS_1024]: { columns: columns === 4 ? 3 : 2 },

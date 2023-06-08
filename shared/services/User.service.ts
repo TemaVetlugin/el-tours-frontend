@@ -8,6 +8,7 @@ import { retryQuery } from "shared/queries/utilities";
 import { LayoutService } from "./Layout.service";
 import { makeService } from "./utilities/makeService";
 import { LocationService } from "shared/services/LocationService";
+import { CartService } from "shared/services/Cart.service";
 
 export const UserService = makeService(class {
     isLoading = true;
@@ -39,6 +40,7 @@ export const UserService = makeService(class {
         runInAction(() => {
             this.isLoading = false;
         });
+        CartService.boot();
     }
 
     logout = async () => {

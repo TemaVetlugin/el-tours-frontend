@@ -1,0 +1,22 @@
+.ui-quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 86px;
+    height: 44px;
+    padding: 0 8px;
+    border: 1px solid $cBorder;
+    user-select: none;
+    border-radius: 8px;
+
+    &__action {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        @include iconColor($cGrayPrimary);
+
+        &:hover {
+            @include iconColor($cGreenPrimary)
+        }
+    }
+}

@@ -8,11 +8,12 @@ export interface CatalogFilterModelInterface {
     name?: string;
     label?: string;
     isCollapsable?: boolean;
+    isSearchable?: boolean;
     isOpened?: boolean;
     isNumber?: boolean;
     isArray?: boolean;
     type?: string;
-    items?: any;
+    items?: any[];
     value?: any,
 }
 
@@ -21,6 +22,7 @@ export class CatalogFilterModel extends Model<CatalogFilterModelInterface> imple
         "name",
         "label",
         "isCollapsable",
+        "isSearchable",
         "isArray",
         "isNumber",
         "isOpened",
@@ -32,11 +34,12 @@ export class CatalogFilterModel extends Model<CatalogFilterModelInterface> imple
     name = '';
     label = '';
     isCollapsable = false;
+    isSearchable = true;
     isArray = false;
     isNumber = false;
     isOpened = false;
     type = '';
-    items: any = null;
+    items: any[] = [];
     value = null;
 
     constructor(payload?: CatalogFilterModelInterface) {
@@ -46,6 +49,7 @@ export class CatalogFilterModel extends Model<CatalogFilterModelInterface> imple
             name: observable,
             label: observable,
             isCollapsable: observable,
+            isSearchable: observable,
             isArray: observable,
             isNumber: observable,
             type: observable,

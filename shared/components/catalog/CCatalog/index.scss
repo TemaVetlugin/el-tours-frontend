@@ -1,4 +1,17 @@
 .c-catalog {
+    &__header {
+        margin-bottom: 48px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+    &__count {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color: $cGrayPrimary;
+    }
+
     &__body {
         display: flex;
         align-items: flex-start;

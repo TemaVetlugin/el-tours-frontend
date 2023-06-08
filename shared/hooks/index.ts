@@ -1,6 +1,8 @@
 export { useAction } from './useAction';
 export { useAsyncEffect } from './useAsyncEffect';
 export { useCity } from './useCity';
+export { useDebouncedCallback } from './useDebouncedCallback';
+export { useDebouncedValue } from './useDebouncedValue';
 export { useDidUpdateEffect } from './useDidUpdateEffect';
 export { useMask } from './useMask';
 export { useMedia } from './useMedia';

@@ -45,19 +45,21 @@ export default function CatalogPage({ params }: PropsType) {
                 <UiPage.Breadcrumbs
                     items={CatalogService.breadcrumbs(catalogCategory?.id || null)}
                 />
-                <UiPage.Title value={'Каталог'}/>
                 {catalogCategories.length > 0 && (
-                    <div className="p-catalog__categories">
-                        {catalogCategories.map(catalogCategory => (
-                            <UiLink
-                                key={catalogCategory.id}
-                                href={ROUTES.CATALOG(catalogCategory.slug).url}
-                                className={'p-catalog__category'}
-                            >
-                                {catalogCategory.name}
-                            </UiLink>
-                        ))}
-                    </div>
+                    <>
+                        <UiPage.Title value={catalogCategory?.name}/>
+                        <div className="p-catalog__categories">
+                            {catalogCategories.map(catalogCategory => (
+                                <UiLink
+                                    key={catalogCategory.id}
+                                    href={ROUTES.CATALOG(catalogCategory.slug).url}
+                                    className={'p-catalog__category'}
+                                >
+                                    {catalogCategory.name}
+                                </UiLink>
+                            ))}
+                        </div>
+                    </>
                 )}
                 {(catalogCategories.length === 0 && catalogCategory) && (
                     <CCatalog

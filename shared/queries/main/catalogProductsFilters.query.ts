@@ -3,6 +3,7 @@ import { makeQuery } from "shared/queries/utilities";
 
 type ParamsType = {
     query?: string,
+    cityId?: number,
     catalogCategoryId?: number,
 }
 

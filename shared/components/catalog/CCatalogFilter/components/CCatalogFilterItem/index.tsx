@@ -8,6 +8,7 @@ import { CatalogFilterModel } from "shared/models";
 import { COLORS } from "shared/contants";
 
 import './index.scss';
+import { useObservable } from "shared/hooks";
 
 type PropsType = {
     catalogFilter: CatalogFilterModel,
@@ -17,10 +18,12 @@ type PropsType = {
 export const CCatalogFilterItem = observer((
     { catalogFilter, onChange }: PropsType
 ) => {
-
+    const store = useObservable({
+        search: ''
+    });
     const classNames = classnames('c-catalog-filter-item', {
         'c-catalog-filter-item--collapsable': catalogFilter.isCollapsable,
-        'c-catalog-filter-item--opened': catalogFilter.isOpened,
+        'c-catalog-filter-item--opened': catalogFilter.isOpened || !catalogFilter.isCollapsable,
     });
 
     if (catalogFilter.items === null || !catalogFilter.items?.length) {
@@ -31,6 +34,10 @@ export const CCatalogFilterItem = observer((
         return null;
     }
 
+    const items = store.search
+        ? catalogFilter.items.filter(item => item?.name?.toLowerCase().indexOf(store.search.toLowerCase()) > -1)
+        : catalogFilter.items
+
     return (
         <div className={classNames}>
             <div className="c-catalog-filter-item__header" onClick={() => {
@@ -40,16 +47,33 @@ export const CCatalogFilterItem = observer((
                     });
                 }
             }}>
-                <div className="c-catalog-filter-item__label">{catalogFilter.label}</div>
-                <div className="c-catalog-filter-item__icon">
-                    <UiIcon
-                        size={10}
-                        name={catalogFilter.isOpened ? 'arrowUp' : "arrowDown"}
-                        color={COLORS.WHITE}
-                    />
-                </div>
+                {catalogFilter.label && (
+                    <>
+                        <div className="c-catalog-filter-item__label">{catalogFilter.label}</div>
+                        <div className="c-catalog-filter-item__icon">
+                            <UiIcon
+                                size={16}
+                                name={catalogFilter.isOpened ? 'chevronUp' : "chevronDown"}
+                                color={COLORS.GRAY_PRIMARY}
+                            />
+                        </div>
+                    </>
+                )}
             </div>
             <div className="c-catalog-filter-item__inner">
+                {catalogFilter.isSearchable && (
+                    <div className="c-catalog-filter-item__search">
+                        <UiIcon size={16} name={'search'}/>
+                        <input
+                            type="text"
+                            value={store.search || ''}
+                            onChange={(e) => {
+                            store.set("search", e.target.value);
+                        }}
+                            placeholder={'Поиск'}
+                        />
+                    </div>
+                )}
                 {catalogFilter.type === 'range' && (
                     <UiRange
                         min={catalogFilter.items[0]}
@@ -63,7 +87,7 @@ export const CCatalogFilterItem = observer((
                     <UiChecklist
                         value={catalogFilter.value}
                         name={catalogFilter.name}
-                        items={catalogFilter.items}
+                        items={items}
                         onChange={onChange}
                     />
                 )}
@@ -71,7 +95,7 @@ export const CCatalogFilterItem = observer((
                     <UiRadio
                         value={catalogFilter.value}
                         name={catalogFilter.name}
-                        items={catalogFilter.items}
+                        items={items}
                         onChange={onChange}
                     />
                 )}

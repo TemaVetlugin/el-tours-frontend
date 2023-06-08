@@ -11,6 +11,7 @@ import { CCatalogFilter } from "../CCatalogFilter";
 
 import './index.scss';
 import { CCatalogProducts } from "shared/components/catalog/CCatalogProducts";
+import { UiPage } from "shared/ui";
 
 type PropsType = {
     title?: string,
@@ -37,12 +38,15 @@ export const CCatalog = observer((
 
     useAsyncEffect(async () => {
         store.set('isCatalogFiltersLoading', true);
-        const { data, isSuccess } = await catalogProductsFiltersQuery(params || {});
+        const { data, isSuccess } = await catalogProductsFiltersQuery({
+            ...(params || {}),
+            cityId: city.id
+        });
         if (isSuccess && data) {
             store.set("catalogFilters", data.items.map(item => new CatalogFilterModel(item)))
         }
         store.set('isCatalogFiltersLoading', false);
-    }, [store, params]);
+    }, [store, params, city]);
 
     useAsyncEffect(async () => {
         store.set('isCatalogProductsLoading', true);
@@ -62,11 +66,13 @@ export const CCatalog = observer((
         <div className={'c-catalog'}>
             <div className="c-catalog__header">
                 <div className="c-catalog__title">
-
+                    <UiPage.Title style={{marginBottom: 0}} value={title}/>
                 </div>
-                <div className="c-catalog__count">
-
-                </div>
+                {!store.isCatalogProductsLoading && (
+                    <div className="c-catalog__count">
+                        {store.pagination.total} товаров
+                    </div>
+                )}
             </div>
             <div className="c-catalog__body">
                 <div className="c-catalog__filters">

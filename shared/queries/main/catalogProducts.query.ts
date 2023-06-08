@@ -2,6 +2,7 @@ import { CatalogFilterModelInterface, PaginationModel } from "shared/models";
 import { makeQuery } from "shared/queries/utilities";
 
 export type ParamsType = {
+    id?: number[],
     catalogCategoryId?: number,
     cityId: number
 }

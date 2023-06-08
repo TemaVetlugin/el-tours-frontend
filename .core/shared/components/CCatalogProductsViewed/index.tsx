@@ -6,9 +6,9 @@ import { CatalogModule } from "shared/modules";
 import { catalogProductsRequest } from "shared/requests/api";
 import { CatalogProductModel } from "shared/models";
 import { useObservable } from "shared/hooks";
+import { LayoutSection } from "shared/layout";
 
 import './index.scss';
-import { LayoutSection } from "shared/layout";
 
 export const CCatalogProductsViewed = observer(() => {
     const store = useObservable({

@@ -59,7 +59,11 @@ export const LayoutHeaderLocation = observer(() => {
                                     onClick={() => region.update({ isOpened: !region.isOpened })}
                                 >
                                     <div className="layout-header-location-popup-region__name">{region.name}</div>
-                                    <UiIcon size={16} name={'chevronUp'} color={COLORS.GRAY_PRIMARY}/>
+                                    <UiIcon
+                                        size={16}
+                                        name={region.isOpened ? 'chevronUp' : 'chevronDown'}
+                                        color={COLORS.GRAY_PRIMARY}
+                                    />
                                 </div>
                                 {region.isOpened && (
                                     <div className='layout-header-location-popup-region__cities'>

@@ -1,6 +1,9 @@
 export { BrandModel } from './Brand.model';
 export type { BrandModelInterface } from './Brand.model';
 
+export { CartItemModel } from './CartItem.model';
+export type { CartItemModelInterface } from './CartItem.model';
+
 export { CatalogCategoryModel } from './CatalogCategory.model';
 export type { CatalogCategoryModelInterface } from './CatalogCategory.model';
 

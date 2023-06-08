@@ -131,24 +131,20 @@ export const UiButton = observer((
             >
                 <style jsx>
                     {`
-                        .ui-button {
-                            path[fill] {
-                                ${colors?.icon ? `fill: ${colors.icon[0]};` : ''}
-                            }
-
-                            path[stroke] {
-                                ${colors?.icon ? `stroke: ${colors.icon[0]};` : ''}
-                            }
+                        .ui-button :global(path[fill]) {
+                            fill: ${colors.icon[0]};
                         }
 
-                        .ui-button:hover {
-                            path[fill] {
-                                ${colors?.icon ? `fill: ${colors.icon[1]};` : ''}
-                            }
+                        .ui-button :global(path[stroke]) {
+                            stroke: ${colors.icon[0]};
+                        }
 
-                            path[stroke] {
-                                ${colors?.icon ? `stroke: ${colors.icon[1]};` : ''}
-                            }
+                        .ui-button:hover :global(path[fill]) {
+                            ${colors?.icon ? `fill: ${colors.icon[1]};` : ''}
+                        }
+
+                        .ui-button:hover :global(path[stroke]) {
+                            ${colors?.icon ? `stroke: ${colors.icon[1]};` : ''}
                         }
                     `}
                 </style>
@@ -180,7 +176,7 @@ export const UiButton = observer((
                   }
 
                   .ui-button :global(path[stroke]) {
-                   stroke: ${colors.icon[0]};
+                    stroke: ${colors.icon[0]};
                   }
 
                   .ui-button:hover :global(path[fill]) {
