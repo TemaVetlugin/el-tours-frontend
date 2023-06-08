@@ -1,9 +1,10 @@
 'use client';
 
 import React from "react";
+import { observer } from "mobx-react-lite";
 
-import { useAsyncEffect, useCity, useObservable, useObserve } from "shared/hooks";
-import { UiButton, UiCheckbox, UiDataBoundary, UiForm, UiLink, UiMap, UiPage, UiWrap } from "shared/ui";
+import { useAsyncEffect, useCity, useObservable, useUser } from "shared/hooks";
+import { UiButton, UiCheckbox, UiDataBoundary, UiForm, UiLink, UiMap, UiPage, UiPrice, UiWrap } from "shared/ui";
 import { ROUTES } from "shared/contants";
 import { CartService } from "shared/services";
 import { CCartTotal } from "shared/components/cart";
@@ -15,9 +16,9 @@ import { CCheckoutStore } from "shared/components/checkout";
 import sectionIcon from './assets/section-icon.svg';
 import './page.scss';
 
-
-export default function CartPage() {
+export default observer(function CartPage() {
     const city = useCity();
+    const user = useUser();
     const store = useObservable({
         isLoading: true,
         stores: [] as StoreModel[]
@@ -28,6 +29,9 @@ export default function CartPage() {
     });
 
     useAsyncEffect(async () => {
+        if (!user.isInitialized) {
+            return;
+        }
         store.set("isLoading", true);
         await CartService.boot({
             cityId: city.id
@@ -40,7 +44,7 @@ export default function CartPage() {
             store.set("stores", data.items.map(item => new StoreModel(item)));
         }
         store.set("isLoading", false);
-    }, [store, city]);
+    }, [store, city, user]);
 
     const cartItems = CartService.cartItems.filter(cartItem => {
         if (!form.storeId) {
@@ -48,8 +52,9 @@ export default function CartPage() {
         }
         return cartItem.catalogProduct.catalogProductOffers.find(offer => offer.storeId === form.storeId);
     });
+    console.log(cartItems.length)
 
-    return useObserve(() => (
+    return (
         <UiPage className={'p-checkout'}>
             <UiForm>
                 <UiWrap>
@@ -97,11 +102,29 @@ export default function CartPage() {
                                     </div>
                                     <div className="p-checkout-section__inner">
                                         {cartItems.map((cartItem) => {
+                                            console.log(cartItem.catalogProduct.name)
+                                            let prices: number[] = [];
+                                            const offer = cartItem.catalogProduct.catalogProductOffers.find(offer => offer.storeId === form.storeId);
+                                            if (form.storeId && !offer) {
+                                                return null;
+                                            }
+                                            prices = !form.storeId
+                                                ? cartItem.catalogProduct.catalogProductOffers.map(offer => offer.price)
+                                                : (offer?.price ? [offer.price] : []);
                                             return (
                                                 <div key={cartItem.id} className="p-checkout-catalog-product">
                                                     <div
                                                         className="p-checkout-catalog-product__image"
+                                                        style={{ backgroundImage: `url(${cartItem.catalogProduct.imageThumbnail})` }}
                                                     />
+                                                    <div className="p-checkout-catalog-product__body">
+                                                        <div className="p-checkout-catalog-product__name">
+                                                            {cartItem.catalogProduct.name}
+                                                        </div>
+                                                    </div>
+                                                    <div className="p-checkout-catalog-product__price">
+                                                        <UiPrice prices={prices}/>
+                                                    </div>
                                                 </div>
                                             );
                                         })}
@@ -132,5 +155,5 @@ export default function CartPage() {
                 </UiWrap>
             </UiForm>
         </UiPage>
-    ))
-}
+    )
+});

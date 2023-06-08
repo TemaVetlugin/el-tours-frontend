@@ -2,6 +2,7 @@ export { cartItemsQuery } from './cartItems.query';
 export { cartItemsSaveQuery } from './cartItemsSave.query';
 export { catalogProductsQuery } from './catalogProducts.query';
 export { catalogProductsFiltersQuery } from './catalogProductsFilters.query';
+export { catalogProductsGetQuery } from './catalogProductsGet.query';
 export { compilationsQuery } from './compilations.query';
 export { storesQuery } from './stores.query';
 export { usersBootQuery } from './usersBoot.query';

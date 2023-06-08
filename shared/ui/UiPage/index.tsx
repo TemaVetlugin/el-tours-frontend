@@ -6,6 +6,8 @@ import classnames from "classnames";
 
 import { Title } from './components/Title';
 import { Breadcrumbs } from './components/Breadcrumbs';
+import { Wrap } from './components/Wrap';
+import { Section } from './components/Section';
 
 import './index.scss';
 
@@ -33,4 +35,6 @@ const Page = observer((
 export const UiPage = Object.assign(Page, {
     Title,
     Breadcrumbs,
+    Wrap,
+    Section
 })

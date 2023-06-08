@@ -5,8 +5,8 @@ import { observer } from "mobx-react-lite";
 
 import { CartItemModel } from "shared/models";
 
-import { UiIcon, UiPrice, UiQuantity } from "shared/ui";
-import { COLORS } from "shared/contants";
+import { UiIcon, UiLink, UiPrice, UiQuantity } from "shared/ui";
+import { COLORS, ROUTES } from "shared/contants";
 import { CartService } from "shared/services/Cart.service";
 
 import './index.scss';
@@ -25,7 +25,12 @@ export const CCartItem = observer(({ cartItem }: PropsType) => {
                 }}
             />
             <div className="c-cart-item__main">
-                <div className="c-cart-item__name">{cartItem.catalogProduct.name}</div>
+                <UiLink
+                    href={ROUTES.PRODUCT(cartItem.catalogProduct.slug).url}
+                    className="c-cart-item__name"
+                >
+                    {cartItem.catalogProduct.name}
+                </UiLink>
                 <div className="c-cart-item__info">
                     {cartItem.catalogProduct.withDelivery && (
                         <div className="c-cart-item__badge" style={{ backgroundColor: '#00A3B3' }}>

@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 
 import { CartItemModel } from "shared/models";
 
@@ -20,7 +20,9 @@ export const CartService = makeService(class {
             cityId
         });
         if (isSuccess && data) {
-            CartService.set("cartItems", data.items.map(item => new CartItemModel(item)));
+            runInAction(() => {
+                this.cartItems = data.items.map(item => new CartItemModel(item));
+            })
         }
     }
 
