@@ -3,7 +3,7 @@ import { configure } from "mobx";
 
 import { bootQuery } from "shared/queries/frontend";
 import { Cache, Cookie } from "shared/utilities/server";
-import { LayoutHeader } from "shared/layout";
+import { LayoutFooter, LayoutHeader } from "shared/layout";
 
 import { Boot } from "./boot";
 import { StylesRegistry } from "./styles-registry";
@@ -37,6 +37,7 @@ export default async function Layout({ children }: PropsType) {
                     />
                     <LayoutHeader/>
                     {children}
+                    <LayoutFooter/>
                 </body>
             </StylesRegistry>
         </html>

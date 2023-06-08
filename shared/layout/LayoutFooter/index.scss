@@ -1,0 +1,116 @@
+.layout-footer {
+    padding: 40px 70px 24px;
+    margin-top: 60px;
+    background: #292929;
+    border-radius: 24px 24px 0 0;
+
+    &__menus {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        padding-bottom: 40px;
+    }
+
+    &__aside {
+        width: 325px;
+    }
+
+    &__catalog {
+
+    }
+
+    &-menu {
+        height: 100%;
+        color: $cWhite;
+
+        &__title {
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 120%;
+        }
+
+        &__columns {
+            column-count: 3;
+            column-gap: 90px;
+            column-width: 190px;
+        }
+
+        &__item {
+            display: block;
+            color: $cWhite;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 18px;
+
+            &:not(&:last-child) {
+                margin-bottom: 8px;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &__contact {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 120%;
+
+            &:not(&:last-child) {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    &__contraindications {
+        height: 86px;
+        padding: 28px 0;
+        border-top: 1px solid rgba($cWhite, 0.2);
+        color: rgba($cWhite, 0.2);
+        text-align: justify;
+        font-size: 27px;
+        font-weight: 700;
+        line-height: 120%;
+
+        &::after {
+            /* used to stretch word */
+            display: inline-block;
+            width: 100%;
+            content: '';
+        }
+    }
+
+    &__copyright {
+        display: flex;
+        align-items: flex-start;
+        padding-top: 24px;
+        border-top: 1px solid rgba($cWhite, 0.2);
+        color: $cWhite;
+    }
+
+    &__policies {
+        width: 300px;
+        margin-right: 24px;
+    }
+
+    &__policy {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 120%;
+        white-space: nowrap;
+
+        &:not(&:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+
+    &__offer {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+        width: 580px;
+        color: rgba($cLightBlue, 0.5);
+    }
+}
