@@ -9,6 +9,11 @@ export const ROUTES = {
         name: 'Корзина',
         url: '/cart',
     }),
+    LICENSES: (): RouteType => ({
+        id: 'LICENSES',
+        name: 'Корзина',
+        url: '/licenses',
+    }),
     CATALOG: (slug: string = '', name = 'Каталог'): RouteType => ({
         id: 'catalog' + slug,
         name,
