@@ -107,7 +107,14 @@
         }
 
         &__action {
+            display: flex;
+            align-items: center;
+            gap: 16px;
             margin-bottom: 8px;
+
+            .ui-quantity {
+                min-width: 86px;
+            }
 
             .ui-button {
                 width: 100%;

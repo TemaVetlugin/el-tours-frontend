@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 import classnames from "classnames";
 import Link from "next/link";
 
-import { UiButton, UiIcon, UiScroll, UiWrap } from "shared/ui";
+import { UiButton, UiIcon, UiLink, UiScroll, UiWrap } from "shared/ui";
 import { CatalogService } from "shared/services";
 import { useObservable } from "shared/hooks";
 import { ROUTES } from "shared/contants";
@@ -37,13 +37,17 @@ export const LayoutHeaderCatalog = observer(() => {
                     <UiWrap className={'layout-header-catalog__inner'}>
                         <div className="layout-header-catalog-aside">
                             {CatalogService.catalogCategoriesByCatalogCategoryId['null']?.map(catalogCategory => (
-                                <div
+                                <UiLink
                                     key={catalogCategory.id}
                                     className={classnames("layout-header-catalog-category", {
                                         'layout-header-catalog-category--selected': store.id === catalogCategory.id
                                     })}
                                     onMouseEnter={() => {
                                         store.set("id", catalogCategory.id);
+                                    }}
+                                    href={ROUTES.CATALOG(catalogCategory.slug).url}
+                                    onClick={() => {
+                                        store.set("isOpened", false);
                                     }}
                                 >
                                     <div
@@ -53,14 +57,21 @@ export const LayoutHeaderCatalog = observer(() => {
                                     <div className="layout-header-catalog-category__name">
                                         {catalogCategory.name}
                                     </div>
-                                </div>
+                                </UiLink>
                             ))}
                         </div>
                         <div className="layout-header-catalog-main">
                             <UiScroll>
                                 <div className="layout-header-catalog-main__items">
                                     {CatalogService.catalogCategoriesByCatalogCategoryId[store.id]?.map(catalogCategory2 => (
-                                        <div key={catalogCategory2.id} className={'layout-header-catalog-category-2'}>
+                                        <UiLink
+                                            key={catalogCategory2.id}
+                                            className={'layout-header-catalog-category-2'}
+                                            href={ROUTES.CATALOG(catalogCategory2.slug).url}
+                                            onClick={() => {
+                                                store.set("isOpened", false);
+                                            }}
+                                        >
                                             <div className='layout-header-catalog-category-2__name'>
                                                 {catalogCategory2.name}
                                             </div>
@@ -80,7 +91,7 @@ export const LayoutHeaderCatalog = observer(() => {
                                                     ))}
                                                 </div>
                                             )}
-                                        </div>
+                                        </UiLink>
                                     ))}
                                 </div>
                             </UiScroll>

@@ -4,7 +4,7 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 import { useObservable } from "shared/hooks";
-import { UiButton, UiCard, UiIcon, UiPage, UiPrice } from "shared/ui";
+import { UiButton, UiCard, UiIcon, UiPage, UiPrice, UiQuantity } from "shared/ui";
 import { CatalogProductModel, CatalogProductModelInterface } from "shared/models";
 import { CartService, CatalogService } from "shared/services";
 import { COLORS, ROUTES } from "shared/contants";
@@ -38,6 +38,8 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
     });
 
     const tab = TABS.find(tab => tab.id === store.tab);
+    const cartItem = CartService.cartItems.find(cartItem => cartItem.catalogProductId === catalogProduct.id);
+
     return (
         <UiPage className={'p-product'}>
             <UiPage.Wrap>
@@ -131,13 +133,46 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                                     </div>
 
                                     <div className="p-product-commerce__action">
-                                        <UiButton
-                                            label={'В корзину'}
-                                            onClick={() => CartService.save({
-                                                catalogProductId: store.catalogProduct.id,
-                                                quantity: 1
-                                            })}
-                                        />
+                                        {!cartItem && (
+                                            <>
+                                                <UiButton onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    e.preventDefault();
+                                                    CartService.save({
+                                                        catalogProductId: store.catalogProduct.id,
+                                                        quantity: 1
+                                                    });
+                                                }}>
+                                                    <span>В корзину</span>
+                                                    <UiIcon size={24} name={"cart"}/>
+                                                </UiButton>
+                                            </>
+                                        )}
+                                        {cartItem && (
+                                            <>
+                                                <UiQuantity value={cartItem.quantity} onChange={(data) => {
+                                                    if (!cartItem || !data.value) {
+                                                        return;
+                                                    }
+                                                    cartItem.update({
+                                                        quantity: data.value
+                                                    })
+                                                    CartService.save({
+                                                        catalogProductId: store.catalogProduct.id,
+                                                        quantity: data.value
+                                                    })
+                                                }}/>
+                                                <UiButton
+                                                    colors={{
+                                                        button: [COLORS.TRANSPARENT, COLORS.LIGHT_BLUE],
+                                                        label: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                                                        border: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                                                    }}
+                                                    href={ROUTES.CART().url}
+                                                    label={'В корзине'}
+                                                />
+                                            </>
+                                        )}
                                     </div>
                                     <div className="p-product-commerce__hint">
                                         Цена актуальна на момент заказа
@@ -183,7 +218,6 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                             </div>
                         </div>
                     )}
-
                 </div>
                 <UiPage.Section title={'Аналоги'}>
                     <CCatalogProductsSlider catalogProducts={store.catalogProduct.analogues}/>
