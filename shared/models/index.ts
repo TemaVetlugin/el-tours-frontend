@@ -31,6 +31,12 @@ export type { HeaderMenuModelInterface } from './HeaderMenu.model';
 export { ManufacturerModel } from './Manufacturer.model';
 export type { ManufacturerModelInterface } from './Manufacturer.model';
 
+export { OrderItemModel } from './OrderItem.model';
+export type { OrderItemModelInterface } from './OrderItem.model';
+
+export { OrderModel } from './Order.model';
+export type { OrderModelInterface } from './Order.model';
+
 export { PaginationModel } from './Pagination.model';
 export type { PaginationModelInterface } from './Pagination.model';
 

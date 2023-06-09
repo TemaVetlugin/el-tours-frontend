@@ -120,33 +120,35 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                             </div>
                         </div>
                     </div>
-                    <UiCard className="p-product-commerce">
-                        {store.catalogProduct.catalogProductOffers.length > 0 && (
-                            <>
-                                <div className="p-product-commerce__price">
-                                    <UiPrice
-                                        prices={store.catalogProduct.prices}
-                                    />
-                                </div>
+                    <div className="p-product-commerce">
+                        <UiCard>
+                            {store.catalogProduct.catalogProductOffers.length > 0 && (
+                                <>
+                                    <div className="p-product-commerce__price">
+                                        <UiPrice
+                                            prices={store.catalogProduct.prices}
+                                        />
+                                    </div>
 
-                                <div className="p-product-commerce__action">
-                                    <UiButton
-                                        label={'В корзину'}
-                                        onClick={() => CartService.save({
-                                            catalogProductId: store.catalogProduct.id,
-                                            quantity: 1
-                                        })}
-                                    />
-                                </div>
-                                <div className="p-product-commerce__hint">
-                                    Цена актуальна на момент заказа
-                                </div>
-                            </>
-                        )}
-                        <div className="p-product-commerce__availability">
-                            В наличии в <span>{store.catalogProduct.catalogProductOffers.length} аптеках</span>
-                        </div>
-                    </UiCard>
+                                    <div className="p-product-commerce__action">
+                                        <UiButton
+                                            label={'В корзину'}
+                                            onClick={() => CartService.save({
+                                                catalogProductId: store.catalogProduct.id,
+                                                quantity: 1
+                                            })}
+                                        />
+                                    </div>
+                                    <div className="p-product-commerce__hint">
+                                        Цена актуальна на момент заказа
+                                    </div>
+                                </>
+                            )}
+                            <div className="p-product-commerce__availability">
+                                В наличии в <span>{store.catalogProduct.catalogProductOffers.length} аптеках</span>
+                            </div>
+                        </UiCard>
+                    </div>
                 </div>
                 <div className="p-product__info">
                     <div className="p-product__tabs">

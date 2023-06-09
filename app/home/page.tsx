@@ -18,8 +18,10 @@ export default function HomePage() {
 
     return useObserve(() => (
         <UiPage>
-            <UiPage.Title value={'Каталог'}/>
-
+            <UiPage.Wrap>
+                <UiPage.Breadcrumbs/>
+                <UiPage.Title value={'Главная'}/>
+            </UiPage.Wrap>
         </UiPage>
     ))
 }

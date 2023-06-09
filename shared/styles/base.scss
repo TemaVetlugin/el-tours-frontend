@@ -1,5 +1,16 @@
 * {
     box-sizing: border-box;
-    font-family: $fontPrimary;
     outline: none;
+    font-family: $fontPrimary;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
 }
