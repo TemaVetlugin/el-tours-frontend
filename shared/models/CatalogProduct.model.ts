@@ -7,6 +7,7 @@ import { CatalogProductOfferModel, CatalogProductOfferModelInterface } from "./C
 import { BrandModel, BrandModelInterface } from "./Brand.model";
 import { ManufacturerModel, ManufacturerModelInterface } from "./Manufacturer.model";
 import { SubstanceModel, SubstanceModelInterface } from "./Substance.model";
+import { CountryModel, CountryModelInterface } from "./Country.model";
 import { Model } from "./Model";
 
 export interface CatalogProductModelInterface {
@@ -19,6 +20,7 @@ export interface CatalogProductModelInterface {
     catalogProductOffers?: CatalogProductOfferModelInterface[];
     substances?: SubstanceModelInterface[];
     brand?: BrandModelInterface | null,
+    country?: CountryModelInterface | null,
     manufacturer?: ManufacturerModelInterface | null,
     imagesThumbnails?: string[],
     barcodes?: string[],
@@ -50,6 +52,7 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
         "catalogCategoryId",
         "catalogProductOffers",
         "brand",
+        "country",
         "substances",
         "manufacturer",
         "imagesThumbnails",
@@ -76,6 +79,7 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
     casts = {
         catalogCategory: new ModelCast(CatalogCategoryModel),
         brand: new ModelCast(BrandModel),
+        country: new ModelCast(CountryModel),
         manufacturer: new ModelCast(ManufacturerModel),
         catalogProductOffers: new ModelArrayCast(CatalogProductOfferModel),
         substances: new ModelArrayCast(SubstanceModel),
@@ -92,6 +96,7 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
     substances: SubstanceModel[] = [];
     catalogCategory: CatalogCategoryModel | null = null;
     brand: BrandModel | null = null;
+    country: CountryModel | null = null;
     manufacturer: ManufacturerModel | null = null;
     imagesThumbnails = [];
     barcodes = [];
@@ -126,6 +131,7 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
             catalogProductOffers: observable,
             substances: observable,
             brand: observable,
+            country: observable,
             manufacturer: observable,
             imagesThumbnails: observable,
             barcodes: observable,

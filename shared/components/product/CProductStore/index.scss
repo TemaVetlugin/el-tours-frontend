@@ -1,0 +1,53 @@
+.c-product-store {
+    display: flex;
+    align-items: flex-start;
+    padding: 16px 24px;
+    border: 1px solid #687CAB;
+    border-radius: 24px;
+
+    &:not(&:last-child) {
+        margin-bottom: 8px;
+    }
+
+    &__name {
+        width: 185px;
+        margin-right: 16px;
+        color: $cTypo;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 120%;
+    }
+
+    &__location {
+        width: 240px;
+        margin-right: 16px;
+    }
+
+    &__address {
+        margin-bottom: 4px;
+        color: $cGreenPrimary;
+    }
+
+    &__brand {
+        color: $cTypo;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+    }
+
+    &__phone {
+        width: 220px;
+        margin-left: auto;
+        color: $cTypo;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 120%;
+    }
+
+    &__price {
+        display: flex;
+        justify-content: flex-end;
+        width: 150px;
+        margin-left: 16px;
+    }
+}

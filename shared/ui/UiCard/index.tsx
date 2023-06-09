@@ -12,14 +12,11 @@ import './index.scss';
 type PropsType = {
     children?: React.ReactNode,
     className?: string,
-    isLight?: boolean
 }
 
-const Card = observer(({ children, className, isLight = false }: PropsType) => {
+const Card = observer(({ children, className }: PropsType) => {
     return (
-        <div className={classnames('ui-card', className, {
-            'ui-card--light': isLight
-        })}>
+        <div className={classnames('ui-card', className)}>
             {children}
         </div>
     )

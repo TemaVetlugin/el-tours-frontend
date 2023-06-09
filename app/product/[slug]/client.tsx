@@ -4,20 +4,40 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 import { useObservable } from "shared/hooks";
-import { UiPage, UiWrap } from "shared/ui";
+import { UiButton, UiCard, UiIcon, UiPage, UiPrice } from "shared/ui";
 import { CatalogProductModel, CatalogProductModelInterface } from "shared/models";
-import { CatalogService } from "shared/services";
-import { ROUTES } from "shared/contants";
+import { CartService, CatalogService } from "shared/services";
+import { COLORS, ROUTES } from "shared/contants";
 import { CCatalogProductsSlider } from "shared/components/catalog";
+
+import './page.scss';
+import { CProductStore } from "shared/components/product";
 
 type PropsType = {
     catalogProduct: CatalogProductModelInterface
 }
+
+const TABS = [{
+    id: 'description',
+    name: 'Описание'
+}, {
+    id: 'storageConditions',
+    name: 'Условия хранения'
+}, {
+    id: 'composition',
+    name: 'Состав'
+}, {
+    id: 'contraindications',
+    name: 'Противопоказания'
+},]
+
 export const Client = observer(({ catalogProduct }: PropsType) => {
     const store = useObservable({
+        tab: 'description',
         catalogProduct: new CatalogProductModel(catalogProduct)
     });
-    console.log(catalogProduct)
+
+    const tab = TABS.find(tab => tab.id === store.tab);
     return (
         <UiPage className={'p-product'}>
             <UiPage.Wrap>
@@ -27,28 +47,149 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                         ROUTES.PRODUCT(catalogProduct.slug, catalogProduct.name)
                     ]}
                 />
-                <UiPage.Title value={'Каталог'}/>
-                <div className="p-product__inner">
+                <UiPage.Title value={store.catalogProduct.name}/>
+                <div className="p-product__preview">
                     <div className="p-product__media">
                         <div
                             className="p-product__image"
-                            style={{backgroundImage: `url(${catalogProduct.imageThumbnail})`}}
+                            style={{ backgroundImage: `url(${store.catalogProduct.imageThumbnail})` }}
                         />
+                        <div className="p-product__badges">
+                            {store.catalogProduct.withDelivery && (
+                                <div className="p-product-badge" style={{ backgroundColor: '#00A3B3' }}>
+                                    <div className="p-product-badge__name">
+                                        Доставим на дом
+                                    </div>
+                                    <UiIcon size={24} name={'delivery'} color={COLORS.WHITE}/>
+                                </div>
+                            )}
+                            {store.catalogProduct.withDelivery && (
+                                <div className="p-product-badge" style={{ backgroundColor: '#E21F25' }}>
+                                    <div className="p-product-badge__name">
+                                        Требуется рецепт
+                                    </div>
+                                    <UiIcon size={24} name={'exclamationMark'} color={COLORS.WHITE}/>
+                                </div>
+                            )}
+                        </div>
                     </div>
                     <div className="p-product__properties">
                         <div className="p-product-property">
-                            <div className="p-product-property__name"></div>
-                            <span></span>
-                            <div className="p-product-property__value"></div>
+                            <div className="p-product-property__name">
+                                <span>Форма выпуска</span>
+                                <div className="p-product-property__row"/>
+                            </div>
+                            <div className="p-product-property__value">
+                                {store.catalogProduct.releaseForm}
+                            </div>
+                        </div>
+                        <div className="p-product-property">
+                            <div className="p-product-property__name">
+                                <span>Действующее вещество</span>
+                                <div className="p-product-property__row"/>
+                            </div>
+                            <div className="p-product-property__value">
+                                {store.catalogProduct.substances?.map(substance => substance.name).join(', ')}
+                            </div>
+                        </div>
+                        <div className="p-product-property">
+                            <div className="p-product-property__name">
+                                <span>Производитель</span>
+                                <div className="p-product-property__row"/>
+                            </div>
+                            <div className="p-product-property__value">
+                                {store.catalogProduct.manufacturer?.name}
+                            </div>
+                        </div>
+                        <div className="p-product-property">
+                            <div className="p-product-property__name">
+                                <span>Страна производства</span>
+                                <div className="p-product-property__row"/>
+                            </div>
+                            <div className="p-product-property__value">
+                                {store.catalogProduct.country?.name}
+                            </div>
+                        </div>
+                        <div className="p-product-property">
+                            <div className="p-product-property__name">
+                                <span>Бренд</span>
+                                <div className="p-product-property__row"/>
+                            </div>
+                            <div className="p-product-property__value">
+                                {store.catalogProduct.brand?.name}
+                            </div>
                         </div>
                     </div>
-                    <div className="p-product__commerce">
+                    <UiCard className="p-product-commerce">
+                        {store.catalogProduct.catalogProductOffers.length > 0 && (
+                            <>
+                                <div className="p-product-commerce__price">
+                                    <UiPrice
+                                        prices={store.catalogProduct.prices}
+                                    />
+                                </div>
 
-                    </div>
+                                <div className="p-product-commerce__action">
+                                    <UiButton
+                                        label={'В корзину'}
+                                        onClick={() => CartService.save({
+                                            catalogProductId: store.catalogProduct.id,
+                                            quantity: 1
+                                        })}
+                                    />
+                                </div>
+                                <div className="p-product-commerce__hint">
+                                    Цена актуальна на момент заказа
+                                </div>
+                            </>
+                        )}
+                        <div className="p-product-commerce__availability">
+                            В наличии в <span>{store.catalogProduct.catalogProductOffers.length} аптеках</span>
+                        </div>
+                    </UiCard>
                 </div>
-                <div>{store.catalogProduct.name}</div>
+                <div className="p-product__info">
+                    <div className="p-product__tabs">
+                        {TABS.map(tab => {
+                            const isActive = tab.id === store.tab;
+                            return (
+                                <UiButton
+                                    key={tab.id}
+                                    size={'small'}
+                                    label={tab.name}
+                                    onClick={() => store.set("tab", tab.id)}
+                                    colors={isActive ? {
+                                        button: [COLORS.GRAY_PRIMARY, COLORS.GRAY_PRIMARY],
+                                        border: [COLORS.GRAY_PRIMARY, COLORS.GRAY_PRIMARY],
+                                        label: [COLORS.WHITE, COLORS.WHITE]
+                                    } : {
+                                        button: [COLORS.TRANSPARENT, COLORS.LIGHT_BLUE],
+                                        border: [COLORS.GRAY_PRIMARY, COLORS.GRAY_PRIMARY],
+                                        label: [COLORS.GRAY_PRIMARY, COLORS.GRAY_PRIMARY]
+                                    }}
+                                />
+                            )
+                        })}
+                    </div>
+                    {tab && (
+                        <div className="p-product-description">
+                            <div className="p-product-description__name">
+                                {tab.name}
+                            </div>
+                            <div className="p-product-description__value">
+                                {store.catalogProduct[tab.id]}
+                            </div>
+                        </div>
+                    )}
+
+                </div>
                 <UiPage.Section title={'Аналоги'}>
                     <CCatalogProductsSlider catalogProducts={store.catalogProduct.analogues}/>
+                </UiPage.Section>
+                <UiPage.Section title={'Доступность в аптеках'}>
+                    {store.catalogProduct.catalogProductOffers.map(offer => (
+                        <CProductStore key={offer.id} catalogProductOffer={offer}/>
+                    ))}
                 </UiPage.Section>
                 <UiPage.Section title={'С этим товаром покупают'}>
                     <CCatalogProductsSlider catalogProducts={store.catalogProduct.recommendations}/>
