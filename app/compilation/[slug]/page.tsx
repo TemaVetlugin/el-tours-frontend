@@ -3,12 +3,13 @@
 import React from "react";
 
 import { useAsyncEffect, useCity, useObservable, useObserve } from "shared/hooks";
-import { UiDataBoundary, UiGrid, UiLink, UiPage, UiWrap } from "shared/ui";
+import { UiDataBoundary, UiPage, UiWrap } from "shared/ui";
 import { ROUTES } from "shared/contants";
 import { CompilationModel } from "shared/models";
-import { compilationsGetQuery, compilationsQuery } from "shared/queries/main";
+import { compilationsGetQuery } from "shared/queries/main";
 
 import './page.scss';
+import { CCatalog } from "shared/components/catalog";
 
 type PropsType = {
     params: {
@@ -26,11 +27,15 @@ export default function CompilationPage({ params }: PropsType) {
     useAsyncEffect(async () => {
         store.set("isLoading", true);
 
-        const { isSuccess, data } = await compilationsGetQuery(params);
-
-
+        const { isSuccess, data } = await compilationsGetQuery({
+            slug: params.slug,
+            cityId: city.id
+        });
+        if (isSuccess && data) {
+            store.set("compilation", new CompilationModel(data.item));
+        }
         store.set("isLoading", false);
-    }, [city.id]);
+    }, [city]);
 
     return useObserve(() => (
         <UiPage className={'p-compilations'}>
@@ -40,9 +45,15 @@ export default function CompilationPage({ params }: PropsType) {
                         ROUTES.COMPILATIONS(),
                     ]}
                 />
-                <UiPage.Title value={'Подборки'}/>
                 <UiDataBoundary isLoading={store.isLoading}>
-
+                    {!store.isLoading && (
+                        <CCatalog
+                            title={store.compilation.name}
+                            params={{
+                                id: store.compilation.catalogProducts.map(catalogProduct => catalogProduct.id)
+                            }}
+                        />
+                    )}
                 </UiDataBoundary>
             </UiWrap>
         </UiPage>

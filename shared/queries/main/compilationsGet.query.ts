@@ -3,7 +3,8 @@ import { CompilationModelInterface } from "shared/models";
 import { makeQuery } from "../utilities";
 
 type RequestType = {
-    slug: string
+    slug: string,
+    cityId: number
 };
 
 type ResponseType = {
