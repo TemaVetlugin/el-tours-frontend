@@ -24,9 +24,9 @@ export const ROUTES = {
         name: 'Оформление заказа',
         url: '/checkout',
     }),
-    COMPILATION: (slug: string = ''): RouteType => ({
+    COMPILATION: (slug: string = '', name = 'Подборка'): RouteType => ({
         id: 'search',
-        name: 'COMPILATION',
+        name,
         url: `/compilation/${slug}`,
     }),
     COMPILATIONS: (): RouteType => ({

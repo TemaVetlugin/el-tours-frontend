@@ -43,6 +43,7 @@ export default function CompilationPage({ params }: PropsType) {
                 <UiPage.Breadcrumbs
                     items={[
                         ROUTES.COMPILATIONS(),
+                        ROUTES.COMPILATION(store.compilation.slug, store.compilation.name),
                     ]}
                 />
                 <UiDataBoundary isLoading={store.isLoading}>
