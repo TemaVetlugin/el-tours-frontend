@@ -34,11 +34,19 @@ export const UiQuantity = observer((
 
     return (
         <div className={'ui-quantity'}>
-            <div className="ui-quantity__action" onClick={() => update(store.value - 1)}>
+            <div className="ui-quantity__action" onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault()
+                update(store.value - 1)
+            }}>
                 <UiIcon size={18} name={'minus'}/>
             </div>
             <div className="ui-quantity__value">{store.value}</div>
-            <div className="ui-quantity__action" onClick={() => update(store.value + 1)}>
+            <div className="ui-quantity__action" onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault()
+                update(store.value + 1)
+            }}>
                 <UiIcon size={18} name={'plus'}/>
             </div>
         </div>

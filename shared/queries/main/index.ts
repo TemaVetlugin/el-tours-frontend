@@ -4,6 +4,7 @@ export { catalogProductsQuery } from './catalogProducts.query';
 export { catalogProductsFiltersQuery } from './catalogProductsFilters.query';
 export { catalogProductsGetQuery } from './catalogProductsGet.query';
 export { compilationsQuery } from './compilations.query';
+export { ordersCreateQuery } from './ordersCreate.query';
 export { storesQuery } from './stores.query';
 export { usersBootQuery } from './usersBoot.query';
 export { usersLoginQuery } from './usersLogin.query';

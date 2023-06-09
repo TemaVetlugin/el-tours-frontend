@@ -6,7 +6,7 @@ import { observer } from "mobx-react-lite";
 import { CatalogProductModel } from "shared/models";
 
 import './index.scss';
-import { UiButton, UiIcon, UiLink, UiPrice } from "shared/ui";
+import { UiButton, UiIcon, UiLink, UiPrice, UiQuantity } from "shared/ui";
 import { COLORS, ROUTES } from "shared/contants";
 import { CartService } from "shared/services/Cart.service";
 
@@ -15,6 +15,7 @@ type PropsType = {
 }
 
 export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
+    const cartItem = CartService.cartItems.find(cartItem => cartItem.catalogProductId === catalogProduct.id);
     return (
         <UiLink href={ROUTES.PRODUCT(catalogProduct.slug).url} className="c-catalog-product">
             <div
@@ -45,22 +46,53 @@ export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
             <div className="c-catalog-product__price">
                 <UiPrice prices={catalogProduct.prices}/>
             </div>
-            <div className="c-catalog-product__footer">
-                <UiButton onClick={(e) => {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    CartService.save({
-                        catalogProductId: catalogProduct.id,
-                        quantity: 1
-                    });
-                }}>
-                    <span>В корзину</span>
-                    <UiIcon size={24} name={"cart"}/>
-                </UiButton>
-                <div className="c-catalog-product__favorite">
-                    <UiIcon size={24} name={"heart"}/>
+            {catalogProduct.catalogProductOffers.length > 0 && (
+                <div className="c-catalog-product__footer">
+                    {!cartItem && (
+                        <>
+                            <UiButton onClick={(e) => {
+                                e.stopPropagation();
+                                e.preventDefault();
+                                CartService.save({
+                                    catalogProductId: catalogProduct.id,
+                                    quantity: 1
+                                });
+                            }}>
+                                <span>В корзину</span>
+                                <UiIcon size={24} name={"cart"}/>
+                            </UiButton>
+                        </>
+                    )}
+                    {cartItem && (
+                        <>
+                            <UiQuantity value={cartItem.quantity} onChange={(data) => {
+                                if (!cartItem || !data.value) {
+                                    return;
+                                }
+                                cartItem.update({
+                                    quantity: data.value
+                                })
+                                CartService.save({
+                                    catalogProductId: catalogProduct.id,
+                                    quantity: data.value
+                                })
+                            }}/>
+                            <UiButton
+                                colors={{
+                                    button: [COLORS.TRANSPARENT, COLORS.LIGHT_BLUE],
+                                    label: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                                    border: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                                }}
+                                href={ROUTES.CART().url}
+                                label={'В корзине'}
+                            />
+                        </>
+                    )}
+                    <div className="c-catalog-product__favorite">
+                        <UiIcon size={24} name={"heart"}/>
+                    </div>
                 </div>
-            </div>
+            )}
         </UiLink>
     )
 })

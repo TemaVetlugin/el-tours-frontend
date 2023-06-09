@@ -3,24 +3,26 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import { useAsyncEffect, useCity, useObservable, useUser } from "shared/hooks";
+import { useAsyncEffect, useCity, useNavigate, useObservable, useUser } from "shared/hooks";
 import { UiButton, UiCheckbox, UiDataBoundary, UiForm, UiLink, UiMap, UiPage, UiPrice, UiWrap } from "shared/ui";
 import { ROUTES } from "shared/contants";
-import { CartService } from "shared/services";
+import { CartService, UserService } from "shared/services";
 import { CCartTotal } from "shared/components/cart";
 
 import { StoreModel } from "shared/models";
-import { storesQuery } from "shared/queries/main";
+import { ordersCreateQuery, storesQuery } from "shared/queries/main";
 import { CCheckoutStore } from "shared/components/checkout";
 
 import sectionIcon from './assets/section-icon.svg';
 import './page.scss';
 
 export default observer(function CartPage() {
+    const navigate = useNavigate();
     const city = useCity();
     const user = useUser();
     const store = useObservable({
         isLoading: true,
+        isSubmitting: false,
         stores: [] as StoreModel[]
     })
     const form = useObservable({
@@ -46,6 +48,22 @@ export default observer(function CartPage() {
         store.set("isLoading", false);
     }, [store, city, user]);
 
+    const handleSubmit = async () => {
+        if (!UserService.requireAuthorization() || !form.storeId) {
+            return;
+        }
+        store.set("isSubmitting", true);
+        const { isSuccess, data } = await ordersCreateQuery({
+            storeId: form.storeId
+        });
+
+        if (data) {
+            navigate(ROUTES.ORDER(data.item.id).url)
+        } else {
+            store.set("isSubmitting", false);
+        }
+    }
+
     const cartItems = CartService.cartItems.filter(cartItem => {
         if (!form.storeId) {
             return true;
@@ -55,7 +73,7 @@ export default observer(function CartPage() {
 
     return (
         <UiPage className={'p-checkout'}>
-            <UiForm>
+            <UiForm onSubmit={handleSubmit}>
                 <UiWrap>
                     <UiPage.Breadcrumbs items={[ROUTES.CHECKOUT()]}/>
                     <UiPage.Title value={'Оформление заказа'}/>
@@ -101,7 +119,6 @@ export default observer(function CartPage() {
                                     </div>
                                     <div className="p-checkout-section__inner">
                                         {cartItems.map((cartItem) => {
-                                            console.log(cartItem.catalogProduct.name)
                                             let prices: number[] = [];
                                             const offer = cartItem.catalogProduct.catalogProductOffers.find(offer => offer.storeId === form.storeId);
                                             if (form.storeId && !offer) {
@@ -131,11 +148,12 @@ export default observer(function CartPage() {
                                 </div>
                             </div>
                             <div className="p-checkout__aside">
-                                <CCartTotal>
+                                <CCartTotal storeId={form.storeId}>
                                     <UiButton
                                         type={'submit'}
                                         isDisabled={!form.storeId}
                                         label={'Оформить заказ'}
+                                        isLoading={store.isSubmitting}
                                     />
                                     <UiCheckbox
                                         isRequired

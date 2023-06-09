@@ -14,6 +14,11 @@ export const ROUTES = {
         name,
         url: slug ? `/catalog/${slug}` : '/catalog',
     }),
+    ORDER: (id: string | number = ''): RouteType => ({
+        id: 'order' + id,
+        name: 'Заказ',
+        url: `/order/${id}`,
+    }),
     CHECKOUT: (): RouteType => ({
         id: 'checkout',
         name: 'Оформление заказа',

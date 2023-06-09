@@ -13,15 +13,16 @@ import './index.scss';
 
 type PropsType = {
     children?: React.ReactNode,
+    storeId?: number | null
 }
 
-export const CCartTotal = observer(({ children }: PropsType) => {
+export const CCartTotal = observer(({ children, storeId }: PropsType) => {
     return (
         <div className="c-cart-total">
             <div className="c-cart-total__title">Итого</div>
             <div className="c-cart-total__price">
                 <UiPrice
-                    prices={CartService.totalPrices}
+                    prices={CartService.totalPrices(storeId)}
                 />
             </div>
             <div className="c-cart-total__fields">
@@ -29,7 +30,7 @@ export const CCartTotal = observer(({ children }: PropsType) => {
                     <div className="c-cart-total-field__name">Товаров</div>
                     <div className="c-cart-total-field__row"/>
                     <div className="c-cart-total-field__value">
-                        {CartService.quantity}
+                        {CartService.quantity(storeId)}
                     </div>
                 </div>
             </div>

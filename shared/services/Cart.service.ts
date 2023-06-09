@@ -37,11 +37,21 @@ export const CartService = makeService(class {
         }
     }
 
-    get totalPrices() {
+    totalPrices = (storeId?: number | null) => {
         let from = 0;
         let to = 0;
         this.cartItems.forEach(cartItem => {
-            const prices = cartItem.catalogProduct.catalogProductOffers.map(offer => offer.price);
+            const prices = cartItem.catalogProduct.catalogProductOffers
+                .filter(offer => {
+                    if (!storeId) {
+                        return true;
+                    }
+                    return offer.storeId === storeId;
+                })
+                .map(offer => offer.price);
+            if (prices.length === 0) {
+                return;
+            }
             const min = Math.min(...prices);
             const max = Math.max(...prices);
             from += min * cartItem.quantity;
@@ -50,9 +60,19 @@ export const CartService = makeService(class {
         return [from, to];
     }
 
-    get quantity() {
-        return this.cartItems.reduce((quantity, cartItem) => {
+    quantity = (storeId?: number | null) => {
+        return this.cartItems.filter(cartItem => {
+            if (!storeId) {
+                return true;
+            }
+            const offer = cartItem.catalogProduct.catalogProductOffers.find(offer => offer.storeId === storeId);
+            return !!offer;
+        }).reduce((quantity, cartItem) => {
             return quantity + cartItem.quantity;
         }, 0);
+    }
+
+    has = (catalogProductId: number) => {
+        return !!this.cartItems.find(cartItem => cartItem.catalogProductId === catalogProductId);
     }
 })

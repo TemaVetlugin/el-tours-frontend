@@ -35,6 +35,10 @@ export const CCheckoutStore = observer(({ store, value, name, onChange }: PropsT
         return total + (cartItem.quantity * offer.price);
     }, 0);
 
+    if (cartItems.length === 0) {
+        return null;
+    }
+
     return (
         <div className="c-checkout-store">
             <div className="c-checkout-store__header">
