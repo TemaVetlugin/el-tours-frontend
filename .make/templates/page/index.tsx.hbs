@@ -2,7 +2,7 @@ import { observer } from "mobx-react";
 import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 
-import { Layout } from "shared/layout";
+import { Template } from "shared/layout";
 import { ReturnType } from "shared/types";
 import { getApplicationData } from "shared/server";
 import { UiBoundary, UiWrap } from "shared/uikit";
@@ -18,14 +18,14 @@ const {{pascalCase name}}Page: NextPage<PropsType> = observer(({ application }) 
     BootstrapModule.application(application);
 
     return (
-        <Layout>
+        <Template>
             <Head>
                 <title>{{name}}</title>
             </Head>
             <UiWrap>
                 <UiBoundary isError onAction={() => {}}/>
             </UiWrap>
-        </Layout>
+        </Template>
     )
 });
 

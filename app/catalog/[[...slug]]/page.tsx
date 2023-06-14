@@ -1,15 +1,11 @@
-'use client';
-
 import React from "react";
-import { notFound } from "next/navigation";
+import { Metadata } from "next";
 
-import { useObservable, useObserve } from "shared/hooks";
-import { UiLink, UiPage, UiWrap } from "shared/ui";
-import { ROUTES } from "shared/contants";
-import { CatalogService } from "shared/services";
-import { CatalogCategoryModel } from "shared/models";
+import { Client } from "./client";
 
-import { CCatalog } from "shared/components/catalog";
+import { CatalogCategoryModelInterface } from "shared/models";
+import { catalogCategoriesQuery } from "shared/queries/main";
+import { Cache } from "shared/utilities/server";
 
 import './page.scss';
 
@@ -19,57 +15,27 @@ type PropsType = {
     }
 }
 
-export default function CatalogPage({ params }: PropsType) {
-    const store = useObservable({
-        counter: 5
-    });
+export default function Page({ params }: PropsType) {
+    return <Client slug={params.slug}/>
+}
 
-    let catalogCategory: CatalogCategoryModel | undefined;
-    if (params?.slug && params.slug.length > 0) {
-        catalogCategory = CatalogService.catalogCategories.find(catalogCategory => {
-            return params.slug ? catalogCategory.slug === params.slug[0] : false
-        });
+export async function generateMetadata({ params }: PropsType): Promise<Metadata> {
+    const { data, isSuccess } = await Cache.remember(
+        'catalogCategories',
+        async () => await catalogCategoriesQuery()
+    );
+    let catalogCategory: CatalogCategoryModelInterface | undefined;
 
-        if (!catalogCategory) {
-            notFound();
+    if (isSuccess && data) {
+        catalogCategory = data.items.find(catalogCategory => catalogCategory.slug === params?.slug?.at(0));
+        if (catalogCategory) {
+            return {
+                title: catalogCategory.name
+            }
         }
     }
 
-    const catalogCategories = catalogCategory
-        ? (CatalogService.catalogCategoriesByCatalogCategoryId[catalogCategory.id] ?? [])
-        : CatalogService.catalogCategoriesByCatalogCategoryId['null'];
-
-    return useObserve(() => (
-        <UiPage className={'p-catalog'}>
-            <UiWrap>
-                <UiPage.Breadcrumbs
-                    items={CatalogService.breadcrumbs(catalogCategory?.id || null)}
-                />
-                {catalogCategories.length > 0 && (
-                    <>
-                        <UiPage.Title value={catalogCategory?.name}/>
-                        <div className="p-catalog__categories">
-                            {catalogCategories.map(catalogCategory => (
-                                <UiLink
-                                    key={catalogCategory.id}
-                                    href={ROUTES.CATALOG(catalogCategory.slug).url}
-                                    className={'p-catalog__category'}
-                                >
-                                    {catalogCategory.name}
-                                </UiLink>
-                            ))}
-                        </div>
-                    </>
-                )}
-                {(catalogCategories.length === 0 && catalogCategory) && (
-                    <CCatalog
-                        title={catalogCategory.name}
-                        params={{
-                            catalogCategoryId: catalogCategory.id
-                        }}
-                    />
-                )}
-            </UiWrap>
-        </UiPage>
-    ))
+    return {
+        title: 'Каталог',
+    };
 }

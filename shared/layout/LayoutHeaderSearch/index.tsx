@@ -13,25 +13,25 @@ import './index.scss';
 
 export const LayoutHeaderSearch = observer(() => {
     const searchParams = useSearchParams({
-        q: '',
+        query: '',
     });
 
     const navigate = useNavigate();
 
     const store = useObservable({
-        query: searchParams.q
+        query: searchParams.query
     });
 
     useEffect(() => {
-        store.set("query", searchParams.q);
-    }, [store, searchParams.q]);
+        store.set("query", searchParams.query);
+    }, [store, searchParams.query]);
 
     const handleSubmit = () => {
         if (!store.query) {
             return;
         }
         navigate(ROUTES.SEARCH().url, {
-            q: store.query
+            query: store.query
         });
     }
 
@@ -53,7 +53,7 @@ export const LayoutHeaderSearch = observer(() => {
                 {LayoutService.searchPrompts.map(searchPrompt => (
                     <Link
                         key={searchPrompt.id}
-                        href={ROUTES.SEARCH() + '?q=' + searchPrompt.name}
+                        href={ROUTES.SEARCH().url + '?query=' + searchPrompt.name}
                         className={'layout-header-search__prompt'}
                     >
                         {searchPrompt.name}

@@ -10,8 +10,9 @@ import { CartService, CatalogService } from "shared/services";
 import { COLORS, ROUTES } from "shared/contants";
 import { CCatalogProductsSlider } from "shared/components/catalog";
 
+import { PProductStore } from "./components/PProductStore";
+
 import './page.scss';
-import { CProductStore } from "shared/components/product";
 
 type PropsType = {
     catalogProduct: CatalogProductModelInterface
@@ -224,7 +225,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                 </UiPage.Section>
                 <UiPage.Section title={'Доступность в аптеках'}>
                     {store.catalogProduct.catalogProductOffers.map(offer => (
-                        <CProductStore key={offer.id} catalogProductOffer={offer}/>
+                        <PProductStore key={offer.id} catalogProductOffer={offer}/>
                     ))}
                 </UiPage.Section>
                 <UiPage.Section title={'С этим товаром покупают'}>

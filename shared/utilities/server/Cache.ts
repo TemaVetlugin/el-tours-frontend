@@ -1,6 +1,8 @@
 import IoRedis from "ioredis";
-import type { CacheType } from "../types/Cache.type";
 import qs from "qs";
+import cliColor from 'cli-color';
+
+import type { CacheType } from "../types/Cache.type";
 
 export const Cache = new class implements CacheType {
     redis: IoRedis | null = null;
@@ -56,11 +58,21 @@ export const Cache = new class implements CacheType {
     }
 
     remember = async <T>(key: any, fallback: () => Promise<T>, ttl?: number) => {
+        const date = Date.now();
+
         let result = await this.get<T>(key);
+1
+        const hit = !!result ? 'HIT' : 'MISS';
+
         if (result === null) {
             result = await fallback();
             await this.set(key, result, ttl);
         }
+
+        const ms = Date.now() - date;
+
+        console.log('- ' +  cliColor.red('remember ') + cliColor.magentaBright(key) + ' in ' + cliColor.green(`${ms}ms`) + ' (cache: ' + cliColor.yellow(hit) + ')');
+
         return result;
     }
 }

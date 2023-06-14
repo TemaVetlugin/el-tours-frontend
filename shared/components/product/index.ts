@@ -1,1 +1,0 @@
-export { CProductStore } from './CProductStore';

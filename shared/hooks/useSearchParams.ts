@@ -3,9 +3,10 @@ import qs from "qs";
 import { useSearchParams as useSearchParamsNext } from "next/navigation";
 
 export function useSearchParams<T extends Record<string, any>>(defaultValue: T): T & Record<string, any> {
-    const [searchParamsString, setSearchParamsString] = useState<string>('');
-
     const searchParams = useSearchParamsNext();
+
+    const [searchParamsString, setSearchParamsString] = useState<string>(searchParams.toString());
+
     useEffect(() => {
         setSearchParamsString(searchParams.toString());
     }, [searchParams]);

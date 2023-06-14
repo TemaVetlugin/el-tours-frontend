@@ -16,6 +16,7 @@ import { UiPage } from "shared/ui";
 type PropsType = {
     title?: string,
     params?: {
+        query?: string,
         catalogCategoryId?: number,
         id?: number[]
     }
@@ -27,7 +28,6 @@ export const CCatalog = observer((
         params
     }: PropsType
 ) => {
-    console.log(params)
     const store = useObservable({
         isCatalogFiltersLoading: true,
         isCatalogProductsLoading: true,
