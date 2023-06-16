@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../vita-frontend/.idea/vita-frontend.iml" filepath="$PROJECT_DIR$/../vita-frontend/.idea/vita-frontend.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/yaplus-frontend.iml" filepath="$PROJECT_DIR$/.idea/yaplus-frontend.iml" />
     </modules>
   </component>

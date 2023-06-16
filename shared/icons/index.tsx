@@ -15,6 +15,7 @@ export { heart } from "./heart";
 export { minus } from "./minus";
 export { novelty } from "./novelty";
 export { percent } from "./percent";
+export { phone } from "./phone";
 export { plus } from "./plus";
 export { ruble } from "./ruble";
 export { search } from "./search";

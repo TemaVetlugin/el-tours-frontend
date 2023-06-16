@@ -8,7 +8,7 @@ import { UiButton } from "shared/ui";
 import { ChangeHandlerType } from "shared/types";
 
 import { CartService } from "shared/services";
-import { toCurrency } from "shared/utilities";
+import { currency } from "shared/utilities";
 import { COLORS } from "shared/contants";
 
 import './index.scss';
@@ -69,7 +69,7 @@ export const CCheckoutStore = observer(({ store, value, name, onChange }: PropsT
                 </div>
                 <div className="c-checkout-store__additional">
                     <div className="c-checkout-store__total">
-                        {toCurrency(total)}
+                        {currency(total)}
                     </div>
                     <div className="c-checkout-store__quantity">
                         Товаров: {cartItems.length} из {CartService.cartItems.length}
@@ -88,10 +88,10 @@ export const CCheckoutStore = observer(({ store, value, name, onChange }: PropsT
                             <div className="c-checkout-store-product__name">{cartItem.catalogProduct.name}</div>
                             <div className="c-checkout-store-product__prices">
                                 <div className="c-checkout-store-product__total">
-                                    {toCurrency(offer.price * cartItem.quantity)}
+                                    {currency(offer.price * cartItem.quantity)}
                                 </div>
                                 <div className="c-checkout-store-product__quantity">
-                                    {cartItem.quantity} X {toCurrency(offer.price)}
+                                    {cartItem.quantity} X {currency(offer.price)}
                                 </div>
                             </div>
                         </div>

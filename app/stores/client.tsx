@@ -11,6 +11,7 @@ import { storesQuery } from "shared/queries/main";
 import { UiMap } from "shared/ui/UiMap";
 
 import './page.scss';
+import { PStoreMarker } from "./components/PStoresMarker";
 
 export const Client = observer(() => {
     const city = useCity();
@@ -113,6 +114,7 @@ export const Client = observer(() => {
                                     key={item.id}
                                     map={map}
                                     location={item.location}
+                                    render={() => <PStoreMarker store={item}/>}
                                 />
                             ))}
                         />

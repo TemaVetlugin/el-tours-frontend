@@ -12,4 +12,5 @@ export { storesQuery } from './stores.query';
 export { usersBootQuery } from './usersBoot.query';
 export { usersLoginQuery } from './usersLogin.query';
 export { usersConfirmQuery } from './usersConfirm.query';
+export { userStoresToggleQuery } from './userStoresToggle.query';
 export { usersUpdateQuery } from './usersUpdate.query';

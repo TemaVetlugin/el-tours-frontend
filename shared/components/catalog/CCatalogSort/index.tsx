@@ -35,7 +35,7 @@ export const CCatalogSort = observer(() => {
     }, []);
 
     const handleSelect = (id: string) => {
-        const query = {
+        const query: Record<string, any> = {
             ...params,
         };
         if (defaultValue === id) {
@@ -71,7 +71,7 @@ export const CCatalogSort = observer(() => {
                                     'c-catalog-sort-control__item--active': item.id === store.value
                                 })}
                                 onClick={() => {
-                                    store.set("value")
+                                    store.set("value", item.id)
                                 }}
                             >
                                 <UiIcon size={16} name={'check'}/>
