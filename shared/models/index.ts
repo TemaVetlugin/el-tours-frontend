@@ -58,5 +58,11 @@ export type { SubstanceModelInterface } from './Substance.model';
 export { UserModel } from './User.model';
 export type { UserModelInterface } from './User.model';
 
+export { UserFavoriteModel } from './UserFavorite.model';
+export type { UserFavoriteModelInterface } from './UserFavorite.model';
+
+export { UserStoreModel } from './UserStore.model';
+export type { UserStoreModelInterface } from './UserStore.model';
+
 
 

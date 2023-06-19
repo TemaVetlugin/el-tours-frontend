@@ -9,6 +9,7 @@ export { compilationsGetQuery } from './compilationsGet.query';
 export { ordersCreateQuery } from './ordersCreate.query';
 export { ordersGetQuery } from './ordersGet.query';
 export { storesQuery } from './stores.query';
+export { userFavoriteToggleQuery } from './userFavoriteToggle.query';
 export { usersBootQuery } from './usersBoot.query';
 export { usersLoginQuery } from './usersLogin.query';
 export { usersConfirmQuery } from './usersConfirm.query';
