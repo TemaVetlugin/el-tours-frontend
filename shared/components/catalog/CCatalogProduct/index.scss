@@ -70,8 +70,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
-        @include iconColor($cGrayPrimary)
     }
 
     &__footer {

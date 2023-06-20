@@ -4,6 +4,7 @@ export { useCity } from './useCity';
 export { useDebouncedCallback } from './useDebouncedCallback';
 export { useDebouncedValue } from './useDebouncedValue';
 export { useDidUpdateEffect } from './useDidUpdateEffect';
+export { useIsBooting } from './useIsBooting';
 export { useMask } from './useMask';
 export { useMedia } from './useMedia';
 export { useNavigate } from './useNavigate';

@@ -39,6 +39,11 @@ export const ROUTES = {
         name: 'Подборки',
         url: `/compilations`,
     }),
+    FAVORITES: (): RouteType => ({
+        id: 'favorites',
+        name: 'Избранное',
+        url: '/favorites',
+    }),
     HOME: (): RouteType => ({
         id: 'home',
         name: 'Главная',

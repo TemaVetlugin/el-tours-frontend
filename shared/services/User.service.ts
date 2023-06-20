@@ -5,13 +5,14 @@ import { Cache } from "shared/utilities/client";
 import { usersBootQuery } from "shared/queries/main";
 import { retryQuery } from "shared/queries/utilities";
 
+import { LocationService } from "./LocationService";
 import { LayoutService } from "./Layout.service";
+import { CartService } from "./Cart.service";
+
 import { makeService } from "./utilities/makeService";
-import { LocationService } from "shared/services/LocationService";
-import { CartService } from "shared/services/Cart.service";
 
 export const UserService = makeService(class {
-    isLoading = true;
+    isBooting = true;
     accessToken: string | null = null;
     user: UserModel = new UserModel({
         isInitialized: false
@@ -46,7 +47,7 @@ export const UserService = makeService(class {
             });
         }
         runInAction(() => {
-            this.isLoading = false;
+            this.isBooting = false;
         });
     }
 
@@ -59,7 +60,7 @@ export const UserService = makeService(class {
         });
     }
 
-    requireAuthorization = () => {
+    isAuthorized = () => {
         if (this.user.isAuthorized) {
             return true;
         }

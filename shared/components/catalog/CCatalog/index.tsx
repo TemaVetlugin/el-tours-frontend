@@ -12,6 +12,7 @@ import { CCatalogFilter } from "../CCatalogFilter";
 import './index.scss';
 import { CCatalogProducts } from "shared/components/catalog/CCatalogProducts";
 import { UiPage } from "shared/ui";
+import { CCatalogActiveFilters } from "shared/components/catalog/CCatalogActiveFilters";
 
 type PropsType = {
     title?: string,
@@ -39,7 +40,6 @@ export const CCatalog = observer((
     const searchParams = useSearchParams({});
 
     useAsyncEffect(async () => {
-        store.set('isCatalogFiltersLoading', true);
         const { data, isSuccess } = await catalogProductsFiltersQuery({
             ...(params || {}),
             cityId: city.id
@@ -84,6 +84,7 @@ export const CCatalog = observer((
                     />
                 </div>
                 <div className="c-catalog__items">
+                    <CCatalogActiveFilters catalogFilters={store.catalogFilters}/>
                     <CCatalogProducts
                         isLoading={store.isCatalogProductsLoading}
                         catalogProducts={store.catalogProducts}

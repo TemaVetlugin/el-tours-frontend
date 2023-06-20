@@ -64,17 +64,20 @@ export const LayoutHeaderCatalog = observer(() => {
                             <UiScroll>
                                 <div className="layout-header-catalog-main__items">
                                     {CatalogService.catalogCategoriesByCatalogCategoryId[store.id]?.map(catalogCategory2 => (
-                                        <UiLink
+                                        <div
                                             key={catalogCategory2.id}
                                             className={'layout-header-catalog-category-2'}
-                                            href={ROUTES.CATALOG(catalogCategory2.slug).url}
-                                            onClick={() => {
-                                                store.set("isOpened", false);
-                                            }}
                                         >
-                                            <div className='layout-header-catalog-category-2__name'>
+                                            <UiLink
+
+                                                className='layout-header-catalog-category-2__name'
+                                                href={ROUTES.CATALOG(catalogCategory2.slug).url}
+                                                onClick={() => {
+                                                    store.set("isOpened", false);
+                                                }}
+                                            >
                                                 {catalogCategory2.name}
-                                            </div>
+                                            </UiLink>
                                             {CatalogService.catalogCategoriesByCatalogCategoryId[catalogCategory2.id]?.length && (
                                                 <div className="layout-header-catalog-category-2__items">
                                                     {CatalogService.catalogCategoriesByCatalogCategoryId[catalogCategory2.id].map(catalogCategory3 => (
@@ -91,7 +94,7 @@ export const LayoutHeaderCatalog = observer(() => {
                                                     ))}
                                                 </div>
                                             )}
-                                        </UiLink>
+                                        </div>
                                     ))}
                                 </div>
                             </UiScroll>

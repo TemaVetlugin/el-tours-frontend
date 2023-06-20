@@ -6,6 +6,8 @@ import { observer } from "mobx-react-lite";
 
 import { UiButton, UiIcon, UiLink, UiWrap } from "shared/ui";
 import { COLORS, ROUTES } from "shared/contants";
+import { CartService, UserService } from "shared/services";
+import { useNavigate } from "shared/hooks";
 
 import { LayoutHeaderLocation } from "../LayoutHeaderLocation";
 import { LayoutHeaderMenuPrimary } from "../LayoutHeaderMenuPrimary";
@@ -16,9 +18,9 @@ import { LayoutHeaderLogin } from "../LayoutHeaderLogin";
 import { LayoutHeaderPromo } from "../LayoutHeaderPromo";
 
 import './index.scss';
-import { CartService } from "shared/services/Cart.service";
 
 export const LayoutHeader = observer(() => {
+    const navigate = useNavigate();
     return (
         <div className='layout-header'>
             <UiWrap>
@@ -38,6 +40,13 @@ export const LayoutHeader = observer(() => {
                     <div className="layout-header__actions">
                         <LayoutHeaderLogin/>
                         <UiButton
+                            onClick={() => {
+                                if (!UserService.isAuthorized()) {
+                                    return;
+                                }
+                                navigate(ROUTES.FAVORITES())
+                            }}
+                            notification={UserService.user.userFavorites.length}
                             size={'icon'}
                             colors={{
                                 button: [COLORS.LIGHT_BLUE, COLORS.GREEN_PRIMARY],

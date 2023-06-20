@@ -6,9 +6,9 @@ import { UiChecklist, UiIcon, UiRadio, UiRange } from "shared/ui";
 import { ChangeHandlerType } from "shared/types";
 import { CatalogFilterModel } from "shared/models";
 import { COLORS } from "shared/contants";
+import { useObservable } from "shared/hooks";
 
 import './index.scss';
-import { useObservable } from "shared/hooks";
 
 type PropsType = {
     catalogFilter: CatalogFilterModel,
@@ -30,7 +30,7 @@ export const CCatalogFilterItem = observer((
         return null;
     }
 
-    if (catalogFilter.type === 'range' && catalogFilter.items[1] === 0) {
+    if (catalogFilter.type === 'range' && catalogFilter.range[1] === 0) {
         return null;
     }
 
@@ -76,8 +76,8 @@ export const CCatalogFilterItem = observer((
                 )}
                 {catalogFilter.type === 'range' && (
                     <UiRange
-                        min={catalogFilter.items[0]}
-                        max={catalogFilter.items[1]}
+                        min={catalogFilter.range[0]}
+                        max={catalogFilter.range[1]}
                         value={catalogFilter.value}
                         name={catalogFilter.name}
                         onChange={onChange}

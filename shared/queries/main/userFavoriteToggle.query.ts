@@ -1,11 +1,13 @@
+import { UserFavoriteModelInterface } from "shared/models";
+
 import { makeQuery } from "../utilities";
 
 type RequestType = {
-    storeId: number,
+    catalogProductId: number,
 }
 
 type ResponseType = {
-    items: any[]
+    items: UserFavoriteModelInterface[]
 }
 
 export const userFavoriteToggleQuery = async (body: RequestType) => {

@@ -46,6 +46,7 @@ export const UiLink = observer((
             onClick={onClick}
             onMouseEnter={onMouseEnter}
             target={target}
+            prefetch={false}
         >
             {children}
         </Link>

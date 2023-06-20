@@ -12,6 +12,7 @@ export { close } from "./close";
 export { delivery } from "./delivery";
 export { exclamationMark } from "./exclamationMark";
 export { heart } from "./heart";
+export { heartFilled } from "./heartFilled";
 export { minus } from "./minus";
 export { novelty } from "./novelty";
 export { percent } from "./percent";

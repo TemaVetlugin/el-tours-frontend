@@ -49,7 +49,7 @@ export default observer(function CartPage() {
     }, [store, city, user]);
 
     const handleSubmit = async () => {
-        if (!UserService.requireAuthorization() || !form.storeId) {
+        if (!UserService.isAuthorized() || !form.storeId) {
             return;
         }
         store.set("isSubmitting", true);

@@ -71,9 +71,9 @@ export const LayoutHeaderLogin = observer(() => {
         <div className='layout-header-login'>
             <UiButton
                 style={{ minWidth: 116 }}
-                isLoading={UserService.isLoading}
+                isLoading={UserService.isBooting}
                 onClick={() => {
-                    if (!UserService.requireAuthorization()) {
+                    if (!UserService.isAuthorized()) {
                         return;
                     }
                     UserService.logout();

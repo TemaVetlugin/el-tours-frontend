@@ -4,11 +4,12 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 import { CatalogProductModel } from "shared/models";
-
-import './index.scss';
 import { UiButton, UiIcon, UiLink, UiPrice, UiQuantity } from "shared/ui";
 import { COLORS, ROUTES } from "shared/contants";
-import { CartService } from "shared/services/Cart.service";
+import { CartService, UserService } from "shared/services";
+import { userFavoriteToggleQuery } from "shared/queries/main";
+
+import './index.scss';
 
 type PropsType = {
     catalogProduct: CatalogProductModel,
@@ -16,6 +17,22 @@ type PropsType = {
 
 export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
     const cartItem = CartService.cartItems.find(cartItem => cartItem.catalogProductId === catalogProduct.id);
+    const inFavorite = UserService.user.userFavorites.some(userFavorite => userFavorite.catalogProductId === catalogProduct.id);
+
+    const handleToggleFavorite = async () => {
+        if (!UserService.isAuthorized()) {
+            return;
+        }
+        const { isSuccess, data } = await userFavoriteToggleQuery({
+            catalogProductId: catalogProduct.id
+        });
+        if (isSuccess && data) {
+            UserService.user.update({
+                userFavorites: data.items
+            });
+        }
+    }
+
     return (
         <UiLink href={ROUTES.PRODUCT(catalogProduct.slug).url} className="c-catalog-product">
             <div
@@ -88,8 +105,19 @@ export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
                             />
                         </>
                     )}
-                    <div className="c-catalog-product__favorite">
-                        <UiIcon size={24} name={"heart"}/>
+                    <div
+                        className="c-catalog-product__favorite"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            handleToggleFavorite();
+                        }}
+                    >
+                        <UiIcon
+                            size={24}
+                            name={inFavorite ? "heartFilled" : "heart"}
+                            color={COLORS.GRAY_PRIMARY}
+                        />
                     </div>
                 </div>
             )}

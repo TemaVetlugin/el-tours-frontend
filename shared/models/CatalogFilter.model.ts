@@ -13,7 +13,8 @@ export interface CatalogFilterModelInterface {
     isNumber?: boolean;
     isArray?: boolean;
     type?: string;
-    items?: any[];
+    items?: { id: string | number, name: string }[];
+    range?: [number, number];
     value?: any,
 }
 
@@ -28,6 +29,7 @@ export class CatalogFilterModel extends Model<CatalogFilterModelInterface> imple
         "isOpened",
         "type",
         "items",
+        "range",
         "value"
     ];
 
@@ -39,7 +41,8 @@ export class CatalogFilterModel extends Model<CatalogFilterModelInterface> imple
     isNumber = false;
     isOpened = false;
     type = '';
-    items: any[] = [];
+    items: { id: string | number, name: string }[] = [];
+    range: [number, number] = [0, 0];
     value = null;
 
     constructor(payload?: CatalogFilterModelInterface) {

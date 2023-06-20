@@ -1,3 +1,5 @@
+import { UserStoreModelInterface } from "shared/models";
+
 import { makeQuery } from "../utilities";
 
 type RequestType = {
@@ -5,7 +7,7 @@ type RequestType = {
 }
 
 type ResponseType = {
-    items: any[]
+    items: UserStoreModelInterface[]
 }
 
 export const userStoresToggleQuery = async (body: RequestType) => {
