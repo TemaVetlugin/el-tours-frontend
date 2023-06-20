@@ -1,15 +1,16 @@
 .c-catalog {
     &__header {
-        margin-bottom: 48px;
         display: flex;
         align-items: center;
+        margin-bottom: 48px;
         gap: 16px;
     }
+
     &__count {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 18px;
         color: $cGrayPrimary;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
     }
 
     &__body {
@@ -25,5 +26,9 @@
 
     &__items {
         flex: 1
+    }
+
+    &__sort {
+        margin-left: auto;
     }
 }

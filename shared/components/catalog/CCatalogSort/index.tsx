@@ -1,21 +1,21 @@
 'use client';
 
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import classnames from "classnames";
 import { observer } from "mobx-react-lite";
 
 import { UiIcon } from "shared/ui";
-import { useNavigate, useObservable, useSearchParams } from "shared/hooks";
+import { useNavigate, useObservable, useOnClickOutside, useSearchParams } from "shared/hooks";
 
 import './index.scss';
 
 export const CCatalogSort = observer(() => {
+    const ref = useRef<HTMLDivElement>(null);
     const navigate = useNavigate();
     const params = useSearchParams({
         sort: 'name_asc'
     });
     const store = useObservable({
-        value: params.sort,
         isOpened: false
     });
 
@@ -45,22 +45,32 @@ export const CCatalogSort = observer(() => {
         }
 
         navigate(null, query, true);
-        store.set("isOpened", false);
+        setTimeout(() => store.set("isOpened", false), 10);
     }
 
-    const item = items.find(item => item.id === store.value) || items[0];
+    useOnClickOutside(ref, () => {
+        store.set("isOpened", false);
+    });
+
+    const selected = items.find(item => item.id === params.sort) || items[0];
     return (
-        <div className={classnames('c-catalog-sort', {
-            'c-catalog-sort--opened': store.isOpened
-        })}>
+        <div className={'c-catalog-sort'}>
             <div className="c-catalog-sort__label">
                 Сортировать:
             </div>
-            <div className="c-catalog-sort-control">
+            <div
+                ref={ref}
+                onClick={() => {
+                    store.set("isOpened", !store.isOpened)
+                }}
+                className={classnames('c-catalog-sort-control', {
+                    'c-catalog-sort-control--opened': store.isOpened
+                })}
+            >
                 <div className="c-catalog-sort-control__body">
                     <UiIcon size={24} name={'sort'}/>
-                    <span>{item.name}</span>
-                    <UiIcon size={24} name={'chevronDown'}/>
+                    <span>{selected.name}</span>
+                    <UiIcon size={16} name={'chevronDown'}/>
                 </div>
                 <div className="c-catalog-sort-control__items">
                     {items.map(item => {
@@ -68,10 +78,10 @@ export const CCatalogSort = observer(() => {
                             <div
                                 key={item.id}
                                 className={classnames('c-catalog-sort-control__item', {
-                                    'c-catalog-sort-control__item--active': item.id === store.value
+                                    'c-catalog-sort-control__item--active': item.id === selected.id
                                 })}
                                 onClick={() => {
-                                    store.set("value", item.id)
+                                    handleSelect(item.id)
                                 }}
                             >
                                 <UiIcon size={16} name={'check'}/>

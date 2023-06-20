@@ -23,6 +23,20 @@ export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
         if (!UserService.isAuthorized()) {
             return;
         }
+
+        // optimistic update
+        UserService.user.update({
+            userFavorites: inFavorite
+                ? UserService.user.userFavorites.filter(userFavorite => userFavorite.catalogProductId !== catalogProduct.id)
+                : [
+                    ...UserService.user.userFavorites,
+                    {
+                        id: Date.now(),
+                        catalogProductId: catalogProduct.id
+                    }
+                ]
+        });
+
         const { isSuccess, data } = await userFavoriteToggleQuery({
             catalogProductId: catalogProduct.id
         });

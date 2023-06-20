@@ -43,7 +43,7 @@ export class CatalogFilterModel extends Model<CatalogFilterModelInterface> imple
     type = '';
     items: { id: string | number, name: string }[] = [];
     range: [number, number] = [0, 0];
-    value = null;
+    value: any = null;
 
     constructor(payload?: CatalogFilterModelInterface) {
         super();

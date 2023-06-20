@@ -1,101 +1,87 @@
 'use client';
 
-import React, { useEffect } from "react";
+import React from "react";
+import { toJS } from "mobx";
 import { observer } from "mobx-react-lite";
 
-import { UiCheckbox, UiChecklist, UiDropdown } from "shared/ui";
 import { CatalogFilterModel } from "shared/models";
-import { ChangeHandlerType } from "shared/types";
+import { UiIcon } from "shared/ui";
 import { useNavigate, useSearchParams } from "shared/hooks";
 
 import './index.scss';
 
 type PropsType = {
-    catalogFilters?: CatalogFilterModel[],
+    catalogFilters: CatalogFilterModel[],
 }
 
 export const CCatalogHeader = observer(({ catalogFilters = [] }: PropsType) => {
     const navigate = useNavigate();
-    const searchParams = useSearchParams({
-        sort: 'name_asc'
-    });
+    const hasActiveFilters = catalogFilters.some(catalogFilter => !!catalogFilter.value);
+    const searchParams = useSearchParams({});
 
-    useEffect(() => {
-        if (!searchParams) {
-            return;
-        }
-        catalogFilters.forEach(catalogFilter => {
-            if (searchParams[catalogFilter.name]) {
-                catalogFilter.setValue(searchParams[catalogFilter.name]);
+    const handleRemoveFilter = (catalogFilter: CatalogFilterModel, removeValue: number | string) => {
+        const query = {
+            ...searchParams,
+        };
+        delete query['page'];
+        delete query[catalogFilter.name];
+        delete query[catalogFilter.code];
+
+        if (Array.isArray(toJS(catalogFilter.value))) {
+            const value = catalogFilter.value.filter((v: any) => v != removeValue);
+            if (value.length > 0) {
+                query[catalogFilter.name] = value;
             }
-        });
-    }, [catalogFilters, searchParams])
+        }
 
-    const handleChangeFilter: (catalogFilter: CatalogFilterModel) => ChangeHandlerType<any> = (catalogFilter) => (
-        {
-            name,
-            value
-        }
-    ) => {
-        catalogFilter.update({ value });
-
-        const params = {
-            ...searchParams,
-            [name]: value
-        };
-        if (!value) {
-            delete params[name];
-        }
-        navigate(null, params);
-    }
-    const handleChangeDropdown: (defaultValue: number | string) => ChangeHandlerType<any> = (defaultValue) => (
-        { name, value }
-    ) => {
-        const params = {
-            ...searchParams,
-            [name]: value
-        };
-        if (value == defaultValue) {
-            delete params[name];
-            delete params['page'];
-        }
-        navigate(null, params);
+        navigate(null, query, true);
     }
 
     return (
-        <div className='c-catalog-header'>
-            <div className="c-catalog-header__inner">
-
-
-            </div>
+        <div className="c-catalog-header">
             <div className="c-catalog-header__filters">
-                {catalogFilters?.map(catalogFilter => {
-                    if (catalogFilter.type === 'checkbox') {
-                        return (
-                            <UiCheckbox
-                                key={catalogFilter.name}
-                                name={catalogFilter.name}
-                                label={catalogFilter.label}
-                                value={catalogFilter.value}
-                                onChange={handleChangeFilter(catalogFilter)}
-                            />
-                        );
+                {hasActiveFilters && (
+                    <div className="c-catalog-header__clear">
+                        <span>Сбросить фильтры</span>
+                        <i onClick={() => {
+                            navigate(null, undefined, true);
+                        }}>
+                            <UiIcon size={8} name={"close"}/>
+                        </i>
+                    </div>
+                )}
+                {catalogFilters.map(catalogFilter => {
+                    if (!catalogFilter.value) {
+                        return null;
                     }
-                    if (catalogFilter.type === 'checklist') {
-                        return (
-                            <UiChecklist
-                                isFlat
-                                key={catalogFilter.name}
-                                name={catalogFilter.name}
-                                items={catalogFilter.items}
-                                value={catalogFilter.value}
-                                onChange={handleChangeFilter(catalogFilter)}
-                            />
-                        );
-                    }
+                    const catalogFilterValue = toJS(catalogFilter.value);
+                    let values: any[] = Array.isArray(catalogFilterValue) ? catalogFilterValue : [catalogFilterValue];
 
-                    return null;
+                    return values.map(value => {
+                        const item = catalogFilter.items.find(item => item.id == value);
+                        if (!item) {
+                            return null;
+                        }
+                        return (
+                            <div
+                                key={catalogFilter.name + value}
+                                className="c-catalog-header__filter"
+                            >
+                                <span>
+                                    {item.name}
+                                </span>
+                                <i onClick={() => {
+                                    handleRemoveFilter(catalogFilter, value);
+                                }}>
+                                    <UiIcon size={8} name={"close"}/>
+                                </i>
+                            </div>
+                        )
+                    });
                 })}
+            </div>
+            <div className="c-catalog-header__sort">
+
             </div>
         </div>
     )

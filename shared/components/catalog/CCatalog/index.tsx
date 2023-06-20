@@ -6,13 +6,15 @@ import { observer } from "mobx-react-lite";
 import { useAsyncEffect, useCity, useObservable, useSearchParams } from "shared/hooks";
 import { CatalogFilterModel, CatalogProductModel, PaginationModel } from "shared/models";
 import { catalogProductsFiltersQuery, catalogProductsQuery } from "shared/queries/main";
+import { UiPage } from "shared/ui";
 
 import { CCatalogFilter } from "../CCatalogFilter";
+import { CCatalogProducts } from "../CCatalogProducts";
+import { CCatalogHeader } from "../CCatalogHeader";
 
 import './index.scss';
-import { CCatalogProducts } from "shared/components/catalog/CCatalogProducts";
-import { UiPage } from "shared/ui";
-import { CCatalogActiveFilters } from "shared/components/catalog/CCatalogActiveFilters";
+import { CCatalogSort } from "shared/components/catalog/CCatalogSort";
+
 
 type PropsType = {
     title?: string,
@@ -75,6 +77,9 @@ export const CCatalog = observer((
                         {store.pagination.total} товаров
                     </div>
                 )}
+                <div className="c-catalog__sort">
+                    <CCatalogSort/>
+                </div>
             </div>
             <div className="c-catalog__body">
                 <div className="c-catalog__filters">
@@ -84,7 +89,7 @@ export const CCatalog = observer((
                     />
                 </div>
                 <div className="c-catalog__items">
-                    <CCatalogActiveFilters catalogFilters={store.catalogFilters}/>
+                    <CCatalogHeader catalogFilters={store.catalogFilters}/>
                     <CCatalogProducts
                         isLoading={store.isCatalogProductsLoading}
                         catalogProducts={store.catalogProducts}
