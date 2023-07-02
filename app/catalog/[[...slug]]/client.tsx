@@ -1,10 +1,9 @@
 'use client';
 
-import React from "react";
+import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { notFound } from "next/navigation";
 
-import { useObservable } from "shared/hooks";
 import { UiLink, UiPage, UiWrap } from "shared/ui";
 import { ROUTES } from "shared/contants";
 import { CatalogService } from "shared/services";
@@ -19,9 +18,9 @@ type PropsType = {
 }
 
 export const Client = observer(({ slug }: PropsType) => {
-    const store = useObservable({
-        counter: 5
-    });
+    useEffect(() => {
+        console.log('useEffect');
+    }, []);
 
     let catalogCategory: CatalogCategoryModel | undefined;
     if (slug && slug.length > 0) {

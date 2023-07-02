@@ -1,19 +1,28 @@
 'use client';
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import { useObservable, useObserve } from "shared/hooks";
+import { useNavigate, useObservable, useObserve } from "shared/hooks";
 import { UiPage } from "shared/ui";
+import { useRouter } from "next/navigation";
 
 export default function TestPage() {
-    const store = useObservable({
-        count: 1
-    })
+    const [count, setCount] = useState(1)
+    const router = useRouter();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        console.log('useEffect')
+    }, []);
+    const handleClick = () => {
+        router.replace(`/test?date=${Date.now()}`);
+    }
 
     return useObserve(() => (
         <UiPage>
             <UiPage.Title value={'Каталог'}/>
-            <div onClick={() => store.set("count", store.count - 1)}>button</div>
+            <button onClick={handleClick}>test</button>
+            <div onClick={() => setCount(count + 1)}>count: {count}</div>
         </UiPage>
     ))
 }

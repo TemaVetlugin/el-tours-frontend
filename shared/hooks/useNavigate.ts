@@ -25,7 +25,7 @@ export function useNavigate() {
         }
 
         if (replace) {
-            // router.replace(url)
+            // router.replace(url)`
 
             // https://github.com/vercel/next.js/discussions/48110
             // shit code for nextjs 13 shallow routing fix

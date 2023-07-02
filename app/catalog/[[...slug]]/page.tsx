@@ -1,12 +1,12 @@
 import React from "react";
 import { Metadata } from "next";
 
-import { Client } from "./client";
 
 import { CatalogCategoryModelInterface } from "shared/models";
 import { catalogCategoriesQuery } from "shared/queries/main";
 import { Cache } from "shared/utilities/server";
 
+import { Client } from "./client";
 import './page.scss';
 
 type PropsType = {

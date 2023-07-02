@@ -16,6 +16,9 @@ export type { CatalogProductModelInterface } from './CatalogProduct.model';
 export { CatalogProductOfferModel } from './CatalogProductOffer.model';
 export type { CatalogProductOfferModelInterface } from './CatalogProductOffer.model';
 
+export { CheckoutItemModel } from './CheckoutItem.model';
+export type { CheckoutItemModelInterface } from './CheckoutItem.model';
+
 export { CityModel } from './City.model';
 export type { CityModelInterface } from './City.model';
 

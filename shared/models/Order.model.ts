@@ -13,6 +13,9 @@ export interface OrderModelInterface {
     statusId?: number;
     orderItems?: OrderItemModelInterface[],
     store?: StoreModelInterface,
+    loyaltyDiscount?: number
+    totalOriginal?: number
+    total?: number
 }
 
 export class OrderModel extends Model<OrderModelInterface> implements OrderModelInterface {
@@ -23,6 +26,9 @@ export class OrderModel extends Model<OrderModelInterface> implements OrderModel
         "statusId",
         "orderItems",
         "store",
+        "loyaltyDiscount",
+        "totalOriginal",
+        "total",
     ];
 
     casts = {
@@ -36,6 +42,9 @@ export class OrderModel extends Model<OrderModelInterface> implements OrderModel
     statusId = 0;
     orderItems: OrderItemModel[] = [];
     store = new StoreModel();
+    loyaltyDiscount = 0;
+    totalOriginal = 0;
+    total = 0;
 
     constructor(payload?: OrderModelInterface) {
         super();
@@ -47,7 +56,9 @@ export class OrderModel extends Model<OrderModelInterface> implements OrderModel
             statusId: observable,
             orderItems: observable,
             store: observable,
-            total: computed,
+            total: observable,
+            loyaltyDiscount: observable,
+            totalOriginal: observable,
             quantity: computed,
         });
 
@@ -57,12 +68,6 @@ export class OrderModel extends Model<OrderModelInterface> implements OrderModel
     get quantity() {
         return this.orderItems.reduce((total, orderItem) => {
             return total + orderItem.quantity;
-        }, 0);
-    }
-
-    get total() {
-        return this.orderItems.reduce((total, orderItem) => {
-            return total + orderItem.total;
         }, 0);
     }
 }

@@ -43,5 +43,3 @@ export default async function Layout({ children }: PropsType) {
         </html>
     )
 }
-
-export const runtime = 'nodejs';

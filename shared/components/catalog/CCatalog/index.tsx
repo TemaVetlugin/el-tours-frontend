@@ -1,6 +1,6 @@
 'use client';
 
-import React from "react";
+import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 
 import { useAsyncEffect, useCity, useObservable, useSearchParams } from "shared/hooks";

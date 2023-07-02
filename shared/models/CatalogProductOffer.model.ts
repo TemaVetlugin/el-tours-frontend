@@ -10,7 +10,7 @@ import { Model } from "./Model";
 export interface CatalogProductOfferModelInterface {
     id?: number;
     price?: number,
-    priceBase?: number,
+    priceOffer?: number,
     quantity?: number,
     catalogProductId?: number,
     catalogProduct?: CatalogProductModelInterface,
@@ -22,7 +22,7 @@ export class CatalogProductOfferModel extends Model<CatalogProductOfferModelInte
     fillable: Array<keyof CatalogProductOfferModelInterface> = [
         "id",
         "price",
-        "priceBase",
+        "priceOffer",
         "quantity",
         "catalogProductId",
         "catalogProduct",
@@ -37,7 +37,7 @@ export class CatalogProductOfferModel extends Model<CatalogProductOfferModelInte
 
     id = 0;
     price = 0;
-    priceBase = 0;
+    priceOffer = 0;
     quantity = 0;
     catalogProductId = 0;
     storeId = 0;
@@ -50,7 +50,7 @@ export class CatalogProductOfferModel extends Model<CatalogProductOfferModelInte
         makeObservable(this, {
             id: observable,
             price: observable,
-            priceBase: observable,
+            priceOffer: observable,
             quantity: observable,
             catalogProductId: observable,
             catalogProduct: observable,

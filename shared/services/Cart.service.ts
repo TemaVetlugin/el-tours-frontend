@@ -9,6 +9,7 @@ type BootProps = {
     cityId: number
 }
 export const CartService = makeService(class {
+    isLoading = true;
     cartItems: CartItemModel[] = [];
 
     constructor() {
@@ -24,6 +25,9 @@ export const CartService = makeService(class {
                 this.cartItems = data.items.map(item => new CartItemModel(item));
             })
         }
+        runInAction(() => {
+            this.isLoading = false;
+        })
     }
 
     save = async (cartItem: { catalogProductId: number, quantity: number }) => {
@@ -60,14 +64,8 @@ export const CartService = makeService(class {
         return [from, to];
     }
 
-    quantity = (storeId?: number | null) => {
-        return this.cartItems.filter(cartItem => {
-            if (!storeId) {
-                return true;
-            }
-            const offer = cartItem.catalogProduct.catalogProductOffers.find(offer => offer.storeId === storeId);
-            return !!offer;
-        }).reduce((quantity, cartItem) => {
+    get quantity() {
+        return this.cartItems.reduce((quantity, cartItem) => {
             return quantity + cartItem.quantity;
         }, 0);
     }

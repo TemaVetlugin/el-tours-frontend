@@ -3,7 +3,7 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import { StoreModel } from "shared/models";
+import { CheckoutItemModel, StoreModel } from "shared/models";
 import { UiButton } from "shared/ui";
 import { ChangeHandlerType } from "shared/types";
 
@@ -14,31 +14,14 @@ import { COLORS } from "shared/contants";
 import './index.scss';
 
 type PropsType = {
-    store: StoreModel,
+    checkoutItem: CheckoutItemModel,
     value: number | null,
     name: string,
     onChange: ChangeHandlerType<number>
 }
 
-export const CCheckoutStore = observer(({ store, value, name, onChange }: PropsType) => {
-    const cartItems = CartService.cartItems.filter(cartItem => {
-        return cartItem.catalogProduct.catalogProductOffers.some(offer => {
-            return offer.storeId === store.id;
-        });
-    });
-
-    const total = cartItems.reduce((total, cartItem) => {
-        const offer = cartItem.catalogProduct.catalogProductOffers.find(offer => offer.storeId === store.id);
-        if (!offer) {
-            return total;
-        }
-        return total + (cartItem.quantity * offer.price);
-    }, 0);
-
-    if (cartItems.length === 0) {
-        return null;
-    }
-
+export const CCheckoutStore = observer(({ checkoutItem, value, name, onChange }: PropsType) => {
+    const {store, cartItems, order} = checkoutItem;
     return (
         <div className="c-checkout-store">
             <div className="c-checkout-store__header">
@@ -69,10 +52,10 @@ export const CCheckoutStore = observer(({ store, value, name, onChange }: PropsT
                 </div>
                 <div className="c-checkout-store__additional">
                     <div className="c-checkout-store__total">
-                        {currency(total)}
+                        {currency(order.total)}
                     </div>
                     <div className="c-checkout-store__quantity">
-                        Товаров: {cartItems.length} из {CartService.cartItems.length}
+                        Товаров: {checkoutItem.quantity} из {CartService.quantity}
                     </div>
                 </div>
             </div>
