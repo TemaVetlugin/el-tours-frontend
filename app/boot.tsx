@@ -4,14 +4,15 @@ import React, { useEffect } from "react";
 import { enableStaticRendering } from "mobx-react-lite";
 
 import { CatalogService, ContentResourceService, LayoutService, LocationService } from "shared/services";
-import { ResponseType } from "shared/queries/frontend/boot.query";
+import { bootQuery } from "shared/queries/frontend/boot.query";
 import { UserService } from "shared/services/User.service";
+import { ReturnType } from "shared/types";
 
 enableStaticRendering(typeof window === "undefined");
 
 type PropsType = {
     cityId: number | string | null,
-} & ResponseType;
+} & NonNullable<ReturnType<typeof bootQuery>['data']>;
 
 export const Boot = (
     {

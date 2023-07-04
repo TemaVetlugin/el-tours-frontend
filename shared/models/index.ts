@@ -34,6 +34,9 @@ export type { CountryModelInterface } from './Country.model';
 export { HeaderMenuModel } from './HeaderMenu.model';
 export type { HeaderMenuModelInterface } from './HeaderMenu.model';
 
+export { HomeBannerModel } from './HomeBanner.model';
+export type { HomeBannerModelInterface } from './HomeBanner.model';
+
 export { ManufacturerModel } from './Manufacturer.model';
 export type { ManufacturerModelInterface } from './Manufacturer.model';
 

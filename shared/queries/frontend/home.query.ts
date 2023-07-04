@@ -1,12 +1,4 @@
-import {
-    CatalogCategoryModelInterface,
-    CityModelInterface,
-    CompilationModelInterface,
-    ContentResourceModelInterface,
-    HeaderMenuModelInterface,
-    RegionModelInterface,
-    SearchPromptModelInterface
-} from "shared/models"
+import { HomeBannerModelInterface } from "shared/models"
 
 import { makeQuery } from "../utilities";
 
@@ -15,13 +7,7 @@ type RequestType = {
 }
 
 export type ResponseType = {
-    regions: RegionModelInterface[],
-    cities: CityModelInterface[],
-    headerMenu: HeaderMenuModelInterface[],
-    searchPrompts: SearchPromptModelInterface[],
-    compilations: CompilationModelInterface[],
-    catalogCategories: CatalogCategoryModelInterface[],
-    contentResources: ContentResourceModelInterface[],
+    homeBanners: HomeBannerModelInterface[]
 }
 
 export const homeQuery = async (params: RequestType) => {

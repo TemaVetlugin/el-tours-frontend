@@ -2,9 +2,10 @@ import React from "react";
 import { Metadata } from "next";
 
 import { Client } from "./client";
-import './page.scss';
 import { Cache, Cookie } from "shared/utilities/server";
-import { homeQuery } from "shared/queries/frontend/home.query";
+import { homeQuery } from "shared/queries/frontend";
+
+import './page.scss';
 
 export default async function Page() {
     const cityId = Cookie.get('cityId');
@@ -15,7 +16,11 @@ export default async function Page() {
         }),
     );
 
-    return <Client/>
+    return (
+        <Client
+            homeBanners={data?.homeBanners || []}
+        />
+    );
 }
 
 export async function generateMetadata(): Promise<Metadata> {

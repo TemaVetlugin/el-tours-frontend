@@ -2,7 +2,7 @@
 
 import React from "react";
 import { observer } from "mobx-react-lite";
-import { EffectFade, Autoplay } from "swiper";
+import { EffectFade, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperInstance } from 'swiper/types';
 import classnames from "classnames";
@@ -34,6 +34,7 @@ type PropsType = {
     gap?: number,
     renderItem: (item: any, isActive: boolean) => React.ReactNode,
     renderNavigation?: (navigation: NavigationType) => React.ReactNode;
+    className?: string,
     slideClassName?: string,
     autoHeight?: boolean,
     autoPlay?: number
@@ -49,6 +50,7 @@ export const UiSlider = observer((
         perPage = 1,
         gap = 0,
         slideClassName,
+        className,
         autoPlay,
         autoHeight = true
     }: PropsType
@@ -114,7 +116,7 @@ export const UiSlider = observer((
     }
 
     return (
-        <div className="ui-slider">
+        <div className={classnames('ui-slider', className)}>
             <div className="ui-slider__inner">
                 <Swiper
                     autoplay={autoPlay ? { delay: autoPlay } : {}}

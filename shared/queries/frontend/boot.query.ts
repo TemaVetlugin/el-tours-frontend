@@ -10,7 +10,7 @@ import {
 
 import { makeQuery } from "../utilities";
 
-export type ResponseType = {
+type ResponseType = {
     regions: RegionModelInterface[],
     cities: CityModelInterface[],
     headerMenu: HeaderMenuModelInterface[],

@@ -6,7 +6,7 @@ import { useCity } from "./useCity";
 
 export function useContentResource(code: string) {
     const city = useCity();
-    console.log(ContentResourceService.contentResources.length)
+
     const [contentResource, setContentResource] = useState(() => {
         return ContentResourceService.get(code, city.id);
     });
