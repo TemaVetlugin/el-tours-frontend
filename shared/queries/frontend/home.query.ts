@@ -10,18 +10,23 @@ import {
 
 import { makeQuery } from "../utilities";
 
+type RequestType = {
+    cityId: number | null
+}
+
 export type ResponseType = {
     regions: RegionModelInterface[],
     cities: CityModelInterface[],
     headerMenu: HeaderMenuModelInterface[],
     searchPrompts: SearchPromptModelInterface[],
     compilations: CompilationModelInterface[],
+    catalogCategories: CatalogCategoryModelInterface[],
     contentResources: ContentResourceModelInterface[],
-    catalogCategories: CatalogCategoryModelInterface[]
 }
 
-export const bootQuery = async () => {
+export const homeQuery = async (params: RequestType) => {
     return await makeQuery<ResponseType>("GET", {
-        endpoint: '/frontend/boot',
+        endpoint: '/frontend/home',
+        params
     });
 }

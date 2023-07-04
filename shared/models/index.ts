@@ -25,6 +25,9 @@ export type { CityModelInterface } from './City.model';
 export { CompilationModel } from './Compilation.model';
 export type { CompilationModelInterface } from './Compilation.model';
 
+export { ContentResourceModel } from './ContentResource.model';
+export type { ContentResourceModelInterface } from './ContentResource.model';
+
 export { CountryModel } from './Country.model';
 export type { CountryModelInterface } from './Country.model';
 

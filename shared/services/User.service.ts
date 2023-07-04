@@ -5,7 +5,7 @@ import { Cache } from "shared/utilities/client";
 import { usersBootQuery } from "shared/queries/main";
 import { retryQuery } from "shared/queries/utilities";
 
-import { LocationService } from "./LocationService";
+import { LocationService } from "./Location.service";
 import { LayoutService } from "./Layout.service";
 import { CartService } from "./Cart.service";
 

@@ -57,11 +57,11 @@ export const Cache = new class implements CacheType {
         }
     }
 
-    remember = async <T>(key: any, fallback: () => Promise<T>, ttl?: number) => {
+    remember = async <T>(key: any, fallback: () => Promise<T>, ttl = process.env.NEXT_PUBLIC_CACHE_TTL ? +process.env.NEXT_PUBLIC_CACHE_TTL : undefined) => {
         const date = Date.now();
 
         let result = await this.get<T>(key);
-1
+
         const hit = !!result ? 'HIT' : 'MISS';
 
         if (result === null) {
@@ -71,7 +71,7 @@ export const Cache = new class implements CacheType {
 
         const ms = Date.now() - date;
 
-        console.log('- ' +  cliColor.red('remember ') + cliColor.magentaBright(key) + ' in ' + cliColor.green(`${ms}ms`) + ' (cache: ' + cliColor.yellow(hit) + ')');
+        console.log('- ' + cliColor.red('remember ') + cliColor.magentaBright(key) + ' in ' + cliColor.green(`${ms}ms`) + ' (cache: ' + cliColor.yellow(hit) + ')');
 
         return result;
     }

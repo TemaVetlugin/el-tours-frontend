@@ -1,27 +1,25 @@
-'use client';
-
 import React from "react";
+import { Metadata } from "next";
 
-import { useCity, useObservable, useObserve, useUser } from "shared/hooks";
-import { LocationService, UserService } from "shared/services";
-import { UiButton } from "shared/ui/UiButton";
-import { UiIcon, UiPage } from "shared/ui";
-import { COLORS } from "shared/contants";
+import { Client } from "./client";
+import './page.scss';
+import { Cache, Cookie } from "shared/utilities/server";
+import { homeQuery } from "shared/queries/frontend/home.query";
 
-export default function HomePage() {
-    const store = useObservable({
-        counter: 5
-    });
+export default async function Page() {
+    const cityId = Cookie.get('cityId');
+    const { data, description } = await Cache.remember(
+        'boot',
+        async () => await homeQuery({
+            cityId: cityId === null ? cityId : +cityId
+        }),
+    );
 
-    const city = useCity();
-    const user = useUser();
+    return <Client/>
+}
 
-    return useObserve(() => (
-        <UiPage>
-            <UiPage.Wrap>
-                <UiPage.Breadcrumbs/>
-                <UiPage.Title value={'Главная'}/>
-            </UiPage.Wrap>
-        </UiPage>
-    ))
+export async function generateMetadata(): Promise<Metadata> {
+    return {
+        title: 'Главная',
+    };
 }

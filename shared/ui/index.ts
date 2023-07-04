@@ -2,6 +2,7 @@ export { UiButton } from './UiButton';
 export { UiCard } from './UiCard';
 export { UiCheckbox } from './UiCheckbox';
 export { UiChecklist } from './UiChecklist';
+export { UiContentResource } from './UiContentResource';
 export { UiDataBoundary } from './UiDataBoundary';
 export { UiDropdown } from './UiDropdown';
 export { UiForm } from './UiForm';

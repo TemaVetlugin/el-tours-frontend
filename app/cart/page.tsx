@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { Client } from "./client";
 import './page.scss';
 
-export default function CartPage() {
+export default function Page() {
     return <Client/>
 }
 

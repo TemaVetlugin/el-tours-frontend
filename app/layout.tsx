@@ -20,7 +20,6 @@ export default async function Layout({ children }: PropsType) {
     const { data, description } = await Cache.remember(
         'boot',
         async () => await bootQuery(),
-        1
     );
     return (
         <html lang='ru'>
@@ -28,6 +27,7 @@ export default async function Layout({ children }: PropsType) {
                 <body>
                     <Boot
                         cityId={Cookie.get('cityId')}
+                        contentResources={data?.contentResources || []}
                         cities={data?.cities || []}
                         regions={data?.regions || []}
                         headerMenu={data?.headerMenu || []}

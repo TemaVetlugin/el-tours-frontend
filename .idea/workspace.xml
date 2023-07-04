@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/api/cache/clear/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/home/client.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/home/page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/hooks/useContentResource.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/models/ContentResource.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/queries/frontend/home.query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/services/ContentResource.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/ui/UiContentResource/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea-personal.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webResources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/yaplus-frontend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/yaplus-frontend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/boot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/boot.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/cart/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/home/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/home/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/hooks/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/frontend/boot.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/frontend/boot.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/frontend/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/frontend/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/services/LocationService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/services/Location.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/services/User.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/services/User.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/services/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/services/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/utilities/server/Cache.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/utilities/server/Cache.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/utilities/server/Cookie.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/utilities/server/Cookie.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2S6uxdTsl1j95gn7HQCz8EQt9fG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.laravel-idea.search-composer-json": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "/home/izica/git/yaplus-frontend/shared/ui",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "/home/izica/git/yaplus-frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/shared/ui" />
+      <recent name="$PROJECT_DIR$/shared/hooks" />
+      <recent name="$PROJECT_DIR$/shared/services" />
+      <recent name="$PROJECT_DIR$/shared/models" />
+      <recent name="$PROJECT_DIR$/shared/queries/frontend" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="" />
+      <created>1688479599508</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1688479599508</updated>
+      <workItem from="1688479602473" duration="8903000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -5,7 +5,6 @@ import { CityModel, CityModelInterface, RegionModel, RegionModelInterface } from
 import { makeService } from "./utilities/makeService";
 import { lodash } from "shared/utilities";
 import { Cookie } from "shared/utilities/client";
-import { usersUpdateQuery } from "shared/queries/main";
 
 type BootType = {
     cities: CityModelInterface[],

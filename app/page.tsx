@@ -1,3 +1,4 @@
-import HomePage from "./home/page";
+import HomePage, { generateMetadata } from "./home/page";
 
 export default HomePage;
+export { generateMetadata };

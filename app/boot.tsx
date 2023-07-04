@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { enableStaticRendering } from "mobx-react-lite";
 
-import { CatalogService, LocationService, LayoutService } from "shared/services";
+import { CatalogService, ContentResourceService, LayoutService, LocationService } from "shared/services";
 import { ResponseType } from "shared/queries/frontend/boot.query";
 import { UserService } from "shared/services/User.service";
 
@@ -21,9 +21,11 @@ export const Boot = (
         searchPrompts,
         catalogCategories,
         compilations,
-        headerMenu
+        headerMenu,
+        contentResources
     }: PropsType
 ) => {
+    ContentResourceService.boot({ contentResources });
     LocationService.boot({ cities, cityId, regions });
     CatalogService.boot({ catalogCategories, compilations });
     LayoutService.boot({ searchPrompts, headerMenu });
