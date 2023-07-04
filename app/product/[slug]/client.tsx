@@ -55,7 +55,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                     <div className="p-product__media">
                         <div
                             className="p-product__image"
-                            style={{ backgroundImage: `url(${store.catalogProduct.imageThumbnail})` }}
+                            style={{ backgroundImage: `url(${store.catalogProduct.image})` }}
                         />
                         <div className="p-product__badges">
                             {store.catalogProduct.withDelivery && (

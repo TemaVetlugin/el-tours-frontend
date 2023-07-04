@@ -1,0 +1,22 @@
+.ui-page-section-link {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    color: $cTypo;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    gap: 8px;
+
+    span {
+        position: relative;
+    }
+
+    &__arrow {
+        width: 14px;
+        height: 14px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}

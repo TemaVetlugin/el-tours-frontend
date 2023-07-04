@@ -1,3 +1,6 @@
+export { ArticleModel } from './Article.model';
+export type { ArticleModelInterface } from './Article.model';
+
 export { BrandModel } from './Brand.model';
 export type { BrandModelInterface } from './Brand.model';
 
@@ -48,6 +51,9 @@ export type { OrderModelInterface } from './Order.model';
 
 export { PaginationModel } from './Pagination.model';
 export type { PaginationModelInterface } from './Pagination.model';
+
+export { PromoActionModel } from './PromoAction.model';
+export type { PromoActionModelInterface } from './PromoAction.model';
 
 export { RegionModel } from './Region.model';
 export type { RegionModelInterface } from './Region.model';

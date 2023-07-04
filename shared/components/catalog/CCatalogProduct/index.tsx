@@ -51,7 +51,7 @@ export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
         <UiLink href={ROUTES.PRODUCT(catalogProduct.slug).url} className="c-catalog-product">
             <div
                 className="c-catalog-product__image"
-                style={{ backgroundImage: `url(${catalogProduct.imageThumbnail})` }}
+                style={{ backgroundImage: `url(${catalogProduct.image})` }}
             />
             <div className="c-catalog-product__badges">
                 {catalogProduct.withDelivery && (

@@ -8,6 +8,7 @@ import { Title } from './components/Title';
 import { Breadcrumbs } from './components/Breadcrumbs';
 import { Wrap } from './components/Wrap';
 import { Section } from './components/Section';
+import { SectionLink } from './components/SectionLink';
 
 import './index.scss';
 
@@ -36,5 +37,6 @@ export const UiPage = Object.assign(Page, {
     Title,
     Breadcrumbs,
     Wrap,
-    Section
+    Section,
+    SectionLink
 })

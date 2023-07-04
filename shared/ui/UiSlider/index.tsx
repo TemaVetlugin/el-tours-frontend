@@ -1,8 +1,8 @@
 'use client';
 
-import React from "react";
+import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
-import { EffectFade, Autoplay } from "swiper/modules";
+import { Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperInstance } from 'swiper/types';
 import classnames from "classnames";
@@ -31,6 +31,7 @@ type PropsType = {
     effect?: 'slide' | 'fade',
     loop?: boolean,
     perPage?: number | 'auto',
+    perGroup?: number,
     gap?: number,
     renderItem: (item: any, isActive: boolean) => React.ReactNode,
     renderNavigation?: (navigation: NavigationType) => React.ReactNode;
@@ -48,6 +49,7 @@ export const UiSlider = observer((
         effect = 'slide',
         loop = false,
         perPage = 1,
+        perGroup,
         gap = 0,
         slideClassName,
         className,
@@ -56,9 +58,14 @@ export const UiSlider = observer((
     }: PropsType
 ) => {
     const store = useObservable({
+        isInitialized: false,
         swiper: null as SwiperInstance | null,
         activeSlide: 0
     });
+
+    useEffect(() => {
+        store.set("isInitialized", true);
+    }, []);
 
     if (!items || items.length === 0) {
         return null;
@@ -116,13 +123,16 @@ export const UiSlider = observer((
     }
 
     return (
-        <div className={classnames('ui-slider', className)}>
+        <div className={classnames('ui-slider', className, {
+            'ui-slider--initialized': store.isInitialized,
+            [`${className}--initialized`]: store.isInitialized,
+        })}>
             <div className="ui-slider__inner">
                 <Swiper
                     autoplay={autoPlay ? { delay: autoPlay } : {}}
                     autoHeight={autoHeight}
                     slidesPerView={perPage}
-                    slidesPerGroup={perPage === 'auto' ? 1 : perPage}
+                    slidesPerGroup={perPage === 'auto' ? 1 : (perGroup || perPage)}
                     spaceBetween={gap}
                     onSwiper={swiper => {
                         store.set("swiper", swiper);

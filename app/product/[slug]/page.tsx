@@ -33,6 +33,8 @@ export default async function Page({ params }: PropsType) {
         cityId
     });
 
+    console.log(isSuccess, data, description)
+
     if (!isSuccess || !data) {
         notFound();
     }

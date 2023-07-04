@@ -14,7 +14,7 @@ export interface CatalogProductModelInterface {
     id?: number;
     name?: string;
     slug?: string;
-    imageThumbnail?: string;
+    image?: string;
     catalogCategoryId?: number;
     catalogCategory?: CatalogCategoryModelInterface | null;
     catalogProductOffers?: CatalogProductOfferModelInterface[];
@@ -22,7 +22,7 @@ export interface CatalogProductModelInterface {
     brand?: BrandModelInterface | null,
     country?: CountryModelInterface | null,
     manufacturer?: ManufacturerModelInterface | null,
-    imagesThumbnails?: string[],
+    images?: string[],
     barcodes?: string[],
     isThermolabile?: boolean,
     instructionFull?: string,
@@ -48,14 +48,14 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
         "id",
         "name",
         "slug",
-        "imageThumbnail",
+        "image",
         "catalogCategoryId",
         "catalogProductOffers",
         "brand",
         "country",
         "substances",
         "manufacturer",
-        "imagesThumbnails",
+        "images",
         "barcodes",
         "isThermolabile",
         "instructionFull",
@@ -90,7 +90,7 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
     id = 0;
     name = '';
     slug = '';
-    imageThumbnail = '';
+    image = '';
     catalogCategoryId = 0;
     catalogProductOffers: CatalogProductOfferModel[] = [];
     substances: SubstanceModel[] = [];
@@ -98,7 +98,7 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
     brand: BrandModel | null = null;
     country: CountryModel | null = null;
     manufacturer: ManufacturerModel | null = null;
-    imagesThumbnails = [];
+    images = [];
     barcodes = [];
     isThermolabile = false;
     withDelivery = false;
@@ -125,7 +125,7 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
             id: observable,
             name: observable,
             slug: observable,
-            imageThumbnail: observable,
+            image: observable,
             catalogCategoryId: observable,
             catalogCategory: observable,
             catalogProductOffers: observable,
@@ -133,7 +133,7 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
             brand: observable,
             country: observable,
             manufacturer: observable,
-            imagesThumbnails: observable,
+            images: observable,
             barcodes: observable,
             isThermolabile: observable,
             withDelivery: observable,

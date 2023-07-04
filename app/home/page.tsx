@@ -19,6 +19,8 @@ export default async function Page() {
     return (
         <Client
             homeBanners={data?.homeBanners || []}
+            promoActions={data?.promoActions || []}
+            brands={data?.brands || []}
         />
     );
 }

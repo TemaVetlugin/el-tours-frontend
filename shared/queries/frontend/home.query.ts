@@ -1,4 +1,4 @@
-import { HomeBannerModelInterface } from "shared/models"
+import { BrandModelInterface, HomeBannerModelInterface, PromoActionModelInterface } from "shared/models"
 
 import { makeQuery } from "../utilities";
 
@@ -7,7 +7,9 @@ type RequestType = {
 }
 
 export type ResponseType = {
-    homeBanners: HomeBannerModelInterface[]
+    homeBanners: HomeBannerModelInterface[],
+    promoActions: PromoActionModelInterface[],
+    brands: BrandModelInterface[],
 }
 
 export const homeQuery = async (params: RequestType) => {

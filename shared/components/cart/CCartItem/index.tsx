@@ -21,7 +21,7 @@ export const CCartItem = observer(({ cartItem }: PropsType) => {
             <div
                 className="c-cart-item__image"
                 style={{
-                    backgroundImage: `url(${cartItem.catalogProduct.imageThumbnail})`
+                    backgroundImage: `url(${cartItem.catalogProduct.image})`
                 }}
             />
             <div className="c-cart-item__main">

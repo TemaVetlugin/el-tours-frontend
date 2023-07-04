@@ -140,7 +140,7 @@ export const Client = observer(() => {
                                                 <div key={cartItem.id} className="p-checkout-catalog-product">
                                                     <div
                                                         className="p-checkout-catalog-product__image"
-                                                        style={{ backgroundImage: `url(${cartItem.catalogProduct.imageThumbnail})` }}
+                                                        style={{ backgroundImage: `url(${cartItem.catalogProduct.image})` }}
                                                     />
                                                     <div className="p-checkout-catalog-product__body">
                                                         <div className="p-checkout-catalog-product__name">

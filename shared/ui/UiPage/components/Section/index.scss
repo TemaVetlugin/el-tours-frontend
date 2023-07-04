@@ -1,12 +1,22 @@
 .ui-page-section {
     width: 100%;
 
+    &__header {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 24px;
+    }
+
+    &__link {
+        margin-left: auto;
+    }
+
     &:not(&:last-child) {
         margin-bottom: 70px;
     }
 
     &__title {
-        margin-bottom: 24px;
         color: $cTypo;
         font-family: $fontSecondary;
         font-size: 30px;
