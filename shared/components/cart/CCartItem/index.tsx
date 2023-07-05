@@ -51,12 +51,18 @@ export const CCartItem = observer(({ cartItem }: PropsType) => {
                 </div>
             </div>
             <div className="c-cart-item__quantity">
-                <UiQuantity value={cartItem.quantity} onChange={(data) => {
-                    cartItem.update({
-                        quantity: data.value
-                    });
-                    CartService.save(cartItem);
-                }}/>
+                <UiQuantity
+                    value={cartItem.quantity}
+                    onChange={(data) => {
+                        cartItem.update({
+                            quantity: data.value
+                        });
+                        CartService.save(cartItem);
+                    }}
+                    onChanging={() => {
+                        CartService.set("isSaving", true);
+                    }}
+                />
                 <div className="c-cart-item__price-offer">
                     {priceOffer.join('-')}/шт.
                 </div>

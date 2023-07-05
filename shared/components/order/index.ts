@@ -1,1 +1,1 @@
-export { CProfileMenu } from './COrderItem';
+export { COrderItem } from './COrderItem';

@@ -65,28 +65,4 @@
             overflow: hidden;
         }
     }
-
-    &-catalog-product {
-        display: flex;
-        align-items: flex-start;
-        padding: 16px 0;
-        width: 100%;
-
-        &:not(&:last-child) {
-            border-bottom:  1px solid #CED8F1;;
-        }
-
-        &__image {
-            width: 76px;
-            height: 76px;
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
-            margin-right: 16px;
-        }
-
-        &__price {
-            margin-left: auto;
-        }
-    }
 }

@@ -9,10 +9,12 @@ import { UiIcon } from "shared/ui";
 
 import './index.scss';
 
-type PropsType = UiControlPropsType<number>;
+type PropsType = UiControlPropsType<number> & {
+    onChanging?: () => void
+};
 
 export const UiQuantity = observer((
-    { name = 'quantity', value, onChange }: PropsType) => {
+    { name = 'quantity', value, onChange, onChanging }: PropsType) => {
     const store = useObservable({
         value: value || 1,
     });
@@ -25,13 +27,14 @@ export const UiQuantity = observer((
             name,
             value: value,
         })
-    }, 1000);
+    }, 1400);
 
     const update = (value: number) => {
         if (value < 1) {
             return;
         }
         store.set('value', value);
+        onChanging && onChanging();
         handleChange(value);
     }
 

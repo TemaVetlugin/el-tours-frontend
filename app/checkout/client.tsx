@@ -16,6 +16,7 @@ import { CCheckoutStore } from "shared/components/checkout";
 import sectionIcon from './assets/section-icon.svg';
 
 import './page.scss';
+import { COrderItem } from "shared/components/order";
 
 export const Client = observer(() => {
     const navigate = useNavigate();
@@ -119,42 +120,19 @@ export const Client = observer(() => {
                                         />
                                     </div>
                                 </div>
-                                <div className="p-checkout-section">
-                                    <div className="p-checkout-section__header">
-                                        <div className="p-checkout-section__icon">2</div>
-                                        <div className="p-checkout-section__title">Состав заказа</div>
+                                {checkoutItem && (
+                                    <div className="p-checkout-section">
+                                        <div className="p-checkout-section__header">
+                                            <div className="p-checkout-section__icon">2</div>
+                                            <div className="p-checkout-section__title">Состав заказа</div>
+                                        </div>
+                                        <div className="p-checkout-section__inner">
+                                            {checkoutItem?.cartItems.map((cartItem) => (
+                                                <COrderItem key={cartItem.id} orderItem={cartItem.orderItem}/>
+                                            ))}
+                                        </div>
                                     </div>
-                                    <div className="p-checkout-section__inner">
-                                        {cartItems.map((cartItem) => {
-                                            let prices: number[] = [];
-                                            const offer = cartItem.catalogProduct.catalogProductOffers.find(offer => offer.storeId === form.storeId);
-                                            if (form.storeId && !offer) {
-                                                return null;
-                                            }
-                                            prices = !form.storeId
-                                                ? cartItem.catalogProduct.catalogProductOffers.map(offer => offer.price)
-                                                : (offer?.price ? [offer.price] : []);
-                                            return (
-                                                <div key={cartItem.id} className="p-checkout-catalog-product">
-                                                    <div
-                                                        className="p-checkout-catalog-product__image"
-                                                        style={{ backgroundImage: `url(${cartItem.catalogProduct.image})` }}
-                                                    />
-                                                    <div className="p-checkout-catalog-product__body">
-                                                        <div className="p-checkout-catalog-product__name">
-                                                            {cartItem.catalogProduct.name}
-                                                        </div>
-                                                    </div>
-                                                    <div className="p-checkout-catalog-product__price">
-                                                        <UiPrice
-                                                            price={prices}
-                                                        />
-                                                    </div>
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
-                                </div>
+                                )}
                             </div>
                             <div className="p-checkout__aside">
                                 <CCartTotal

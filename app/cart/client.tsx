@@ -2,6 +2,7 @@
 
 import React from "react";
 import { observer } from "mobx-react-lite";
+import classnames from "classnames";
 
 import { UiButton, UiDataBoundary, UiIcon, UiPage, UiWrap } from "shared/ui";
 import { COLORS, ROUTES } from "shared/contants";
@@ -12,6 +13,7 @@ import { CatalogProductModel, StoreModel } from "shared/models";
 import { cartQuery } from "shared/queries/frontend";
 import { CCatalogProductsSlider } from "shared/components/catalog";
 import { currency } from "shared/utilities";
+import { DeliveryTypeEnum } from "shared/enums";
 
 import './page.scss';
 
@@ -19,7 +21,7 @@ export const Client = observer(() => {
     const city = useCity();
     const user = useUser();
     const store = useObservable({
-        deliveryType: 'selfpickup',
+        deliveryType: DeliveryTypeEnum.Selfpickup.id,
         deliveryStore: null as StoreModel | null,
         recommendations: [] as CatalogProductModel[]
     });
@@ -68,25 +70,34 @@ export const Client = observer(() => {
                         <div className="p-cart__main">
                             <div className="p-cart__header">
                                 <div className="p-cart-delivery">
-                                    <div className="p-cart-delivery-type">
+                                    <div
+                                        onClick={() => store.set("deliveryType", DeliveryTypeEnum.Selfpickup.id)}
+                                        className={classnames('p-cart-delivery-item', {
+                                            'p-cart-delivery-item--active': store.deliveryType === DeliveryTypeEnum.Selfpickup.id
+                                        })}
+                                    >
                                         <UiIcon size={24} name={'deliverySelfpickup'}/>
-                                        <div className="p-cart-delivery-type__inner">
-                                            <div className="p-cart-delivery-type__name">Самовывоз</div>
-                                            <div className="p-cart-delivery-type__price">Бесплатно</div>
+                                        <div className="p-cart-delivery-item__inner">
+                                            <div className="p-cart-delivery-item__name">Самовывоз</div>
+                                            <div className="p-cart-delivery-item__price">Бесплатно</div>
                                         </div>
                                     </div>
-                                </div>
-                                {store.deliveryStore && (
-                                    <div className="p-cart-delivery">
-                                        <div className="p-cart-delivery-type">
+                                    {store.deliveryStore && (
+                                        <div
+                                            onClick={() => store.set("deliveryType", DeliveryTypeEnum.Courier.id)}
+                                            className={classnames('p-cart-delivery-item', {
+                                                'p-cart-delivery-item--active': store.deliveryType === DeliveryTypeEnum.Courier.id
+                                            })}
+                                        >
                                             <UiIcon size={24} name={'deliveryCourier'}/>
-                                            <div className="p-cart-delivery-type__inner">
-                                                <div className="p-cart-delivery-type__name">Доставка</div>
-                                                <div className="p-cart-delivery-type__price">{currency(store.deliveryStore.deliveryPrice)}</div>
+                                            <div className="p-cart-delivery-item__inner">
+                                                <div className="p-cart-delivery-item__name">Доставка</div>
+                                                <div
+                                                    className="p-cart-delivery-item__price">{currency(store.deliveryStore.deliveryPrice)}</div>
                                             </div>
                                         </div>
-                                    </div>
-                                )}
+                                    )}
+                                </div>
                             </div>
                             {CartService.cartItems.map((cartItem) => (
                                 <CCartItem key={cartItem.id} cartItem={cartItem}/>
@@ -104,6 +115,7 @@ export const Client = observer(() => {
                                     <span>Окончательная цена зависит от выбранной аптеки</span>
                                 </div>
                                 <UiButton
+                                    isLoading={CartService.isSaving}
                                     href={ROUTES.CHECKOUT().url}
                                     label={'Продолжить'}
                                 />

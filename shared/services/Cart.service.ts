@@ -10,6 +10,7 @@ type BootProps = {
 }
 export const CartService = makeService(class {
     isLoading = true;
+    isSaving = false;
     cartItems: CartItemModel[] = [];
 
     constructor() {
@@ -31,6 +32,9 @@ export const CartService = makeService(class {
     }
 
     save = async (cartItem: { catalogProductId: number, quantity: number }) => {
+        runInAction(() => {
+            this.isSaving = true;
+        })
         const { isSuccess, data } = await cartItemsSaveQuery({
             catalogProductId: cartItem.catalogProductId,
             quantity: cartItem.quantity
@@ -39,6 +43,9 @@ export const CartService = makeService(class {
         if (isSuccess && data) {
             CartService.set("cartItems", data.items.map(item => new CartItemModel(item)));
         }
+        runInAction(() => {
+            this.isSaving = false;
+        })
     }
 
     totalPrices = (storeId?: number | null) => {

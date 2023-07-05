@@ -53,7 +53,7 @@ export const UiPrice = observer((
 
     return (
         <div className={'ui-price'}>
-            {(!isEqual && offer) && (
+            {(!isEqual && offer && offer[0] > 0) && (
                 <div className="ui-price__offer">
                     {offer.length === 1 && (
                         <>

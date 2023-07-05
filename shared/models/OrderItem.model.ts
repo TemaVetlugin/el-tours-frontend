@@ -6,13 +6,15 @@ import { CatalogProductModelInterface, CatalogProductModel } from "./CatalogProd
 import { Model } from "./Model";
 
 export interface OrderItemModelInterface {
-    id: number;
-    orderId: number;
-    name: string;
-    quantity: number;
-    price: number;
-    catalogProduct: CatalogProductModelInterface;
-    catalogProductId: number;
+    id?: number;
+    orderId?: number;
+    name?: string;
+    quantity?: number;
+    priceOffer?: number;
+    totalOffer?: number;
+    total?: number;
+    catalogProduct?: CatalogProductModelInterface;
+    catalogProductId?: number;
 }
 
 export class OrderItemModel extends Model<OrderItemModelInterface> implements OrderItemModelInterface {
@@ -21,7 +23,9 @@ export class OrderItemModel extends Model<OrderItemModelInterface> implements Or
         "orderId",
         "name",
         "quantity",
-        "price",
+        "priceOffer",
+        "totalOffer",
+        "total",
         "catalogProduct",
         "catalogProductId"
     ];
@@ -34,7 +38,9 @@ export class OrderItemModel extends Model<OrderItemModelInterface> implements Or
     orderId = 0;
     name = '';
     quantity = 0;
-    price = 0;
+    priceOffer = 0;
+    totalOffer = 0;
+    total = 0;
     catalogProduct = new CatalogProductModel();
     catalogProductId = 0;
 
@@ -46,16 +52,13 @@ export class OrderItemModel extends Model<OrderItemModelInterface> implements Or
             orderId: observable,
             name: observable,
             quantity: observable,
-            price: observable,
+            priceOffer: observable,
+            totalOffer: observable,
+            total: observable,
             catalogProduct: observable,
             catalogProductId: observable,
-            total: computed
         });
 
         this.update(payload);
-    }
-
-    get total() {
-        return this.quantity * this.price;
     }
 }
