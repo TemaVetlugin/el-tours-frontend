@@ -13,11 +13,11 @@ type PropsType = {
     children?: React.ReactNode
 }
 
-export const SectionLink = observer(({ href, children }: PropsType) => {
+export const Link = observer(({ href, children }: PropsType) => {
     return (
-        <UiLink href={href} className="ui-page-section-link">
+        <UiLink href={href} className="ui-page-link">
             <span className={'underwave'}>{children}</span>
-            <div className="ui-page-section-link__arrow" style={{ backgroundImage: `url(${arrow.src})` }}/>
+            <div className="ui-page-link__arrow" style={{ backgroundImage: `url(${arrow.src})` }}/>
         </UiLink>
     )
 })

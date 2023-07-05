@@ -59,6 +59,21 @@ export const ROUTES = {
         name: 'Мой профиль',
         url: '/profile',
     }),
+    PROFILE_ORDERS: (): RouteType => ({
+        id: 'profile',
+        name: 'Мои заказы',
+        url: '/profile/orders',
+    }),
+    PROFILE_PREORDERS: (): RouteType => ({
+        id: 'profile',
+        name: 'Мои предзаказы',
+        url: '/profile/preorders',
+    }),
+    PROFILE_REMINDERS: (): RouteType => ({
+        id: 'profile',
+        name: 'Напомнить',
+        url: '/profile/reminders',
+    }),
     SEARCH: (): RouteType => ({
         id: 'search',
         name: 'Поиск',

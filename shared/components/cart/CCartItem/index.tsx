@@ -8,9 +8,9 @@ import { CartItemModel } from "shared/models";
 import { UiIcon, UiLink, UiPrice, UiQuantity } from "shared/ui";
 import { COLORS, ROUTES } from "shared/contants";
 import { CartService, UserService } from "shared/services";
+import { currency } from "shared/utilities";
 
 import './index.scss';
-import { currency } from "shared/utilities";
 
 type PropsType = {
     cartItem: CartItemModel,
@@ -40,7 +40,7 @@ export const CCartItem = observer(({ cartItem }: PropsType) => {
                 <div className="c-cart-item__info">
                     {cartItem.catalogProduct.isDeliverable && (
                         <div className="c-cart-item__badge" style={{ backgroundColor: '#00A3B3' }}>
-                            <UiIcon size={19} name={'delivery'} color={COLORS.WHITE}/>
+                            <UiIcon size={19} name={'deliveryCourier'} color={COLORS.WHITE}/>
                         </div>
                     )}
                     {cartItem.catalogProduct.withPrescription && (
@@ -91,7 +91,7 @@ export const CCartItem = observer(({ cartItem }: PropsType) => {
             <div className="c-cart-item__price">
                 <UiPrice
                     quantity={cartItem.quantity}
-                    prices={cartItem.catalogProduct.price}
+                    price={cartItem.catalogProduct.price}
                 />
             </div>
         </div>

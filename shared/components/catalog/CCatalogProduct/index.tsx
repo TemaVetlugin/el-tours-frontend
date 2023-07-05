@@ -35,7 +35,7 @@ export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
                         <div className="c-catalog-product-badge__name">
                             Доставим на дом
                         </div>
-                        <UiIcon size={24} name={'delivery'} color={COLORS.WHITE}/>
+                        <UiIcon size={24} name={'deliveryCourier'} color={COLORS.WHITE}/>
                     </div>
                 )}
                 {catalogProduct.isDeliverable && (
@@ -51,7 +51,10 @@ export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
                 {catalogProduct.name}
             </div>
             <div className="c-catalog-product__price">
-                <UiPrice prices={catalogProduct.price}/>
+                <UiPrice
+                    priceOffer={catalogProduct.priceOffer}
+                    price={catalogProduct.price}
+                />
             </div>
             {catalogProduct.catalogProductOffers.length > 0 && (
                 <div className="c-catalog-product__footer">

@@ -14,14 +14,35 @@
     }
 
     &-value {
-        padding-top: 1px;
         display: flex;
         align-items: flex-start;
+        padding-top: 1px;
         gap: 2px;
 
         &__sub {
             font-size: 12px;
             line-height: 100%;
         }
+    }
+
+    &__offer {
+        display: flex;
+        align-items: center;
+        color: $cGraySecondary;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+        gap: 4px;
+
+        * {
+            font-family: $fontPrimary;
+        }
+    }
+    &__offer &-value {
+        text-decoration: line-through;
+    }
+    &__offer &-value__sub {
+        line-height: 16px;
     }
 }

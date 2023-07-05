@@ -26,7 +26,7 @@ export const PProductStore = observer((
                 {catalogProductOffer.store.phone}
             </div>
             <div className="p-product-store__price">
-                <UiPrice prices={[catalogProductOffer.price]}/>
+                <UiPrice price={[catalogProductOffer.price]}/>
             </div>
         </div>
     )

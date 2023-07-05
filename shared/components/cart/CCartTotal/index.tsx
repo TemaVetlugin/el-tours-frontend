@@ -21,7 +21,7 @@ export const CCartTotal = observer(({ children, items, total }: PropsType) => {
                 <>
                     <div className="c-cart-total__title">Итого</div>
                     <div className="c-cart-total__price">
-                        <UiPrice prices={total}/>
+                        <UiPrice price={total}/>
                     </div>
                 </>
             )}

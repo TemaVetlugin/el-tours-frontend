@@ -17,7 +17,7 @@ export const PHomePromoActions = observer(({ promoActions }: PropsType) => {
     return (
         <UiPage.Section
             title={'Акции'}
-            link={(<UiPage.SectionLink href={ROUTES.HOME().url}>Смотреть все</UiPage.SectionLink>)}
+            link={(<UiPage.Link href={ROUTES.HOME().url}>Смотреть все</UiPage.Link>)}
         >
             <UiGrid columns={4} gap={20} className="">
                 {promoActions.slice(0, 4).map(promoAction => (

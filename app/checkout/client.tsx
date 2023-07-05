@@ -8,16 +8,14 @@ import { UiButton, UiCheckbox, UiDataBoundary, UiForm, UiLink, UiMap, UiPage, Ui
 import { ROUTES } from "shared/contants";
 import { CartService, UserService } from "shared/services";
 import { CCartTotal } from "shared/components/cart";
-
+import { currency } from "shared/utilities";
 import { CheckoutItemModel } from "shared/models";
 import { checkoutQuery, ordersCreateQuery } from "shared/queries/main";
 import { CCheckoutStore } from "shared/components/checkout";
 
 import sectionIcon from './assets/section-icon.svg';
-import './page.scss';
-import { currency } from "shared/utilities";
 
-``
+import './page.scss';
 
 export const Client = observer(() => {
     const navigate = useNavigate();
@@ -149,7 +147,7 @@ export const Client = observer(() => {
                                                     </div>
                                                     <div className="p-checkout-catalog-product__price">
                                                         <UiPrice
-                                                            prices={prices}
+                                                            price={prices}
                                                         />
                                                     </div>
                                                 </div>

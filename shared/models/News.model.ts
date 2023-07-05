@@ -7,6 +7,7 @@ export interface NewsModelInterface {
     name?: string;
     slug?: string;
     previewImage?: string;
+    preview?: string;
 }
 
 export class NewsModel extends Model<NewsModelInterface> implements NewsModelInterface {
@@ -15,12 +16,14 @@ export class NewsModel extends Model<NewsModelInterface> implements NewsModelInt
         "name",
         "slug",
         "previewImage",
+        "preview",
     ];
 
     id = 0;
     name = '';
     slug = '';
     previewImage = '';
+    preview = '';
 
     constructor(payload?: NewsModelInterface) {
         super();
@@ -30,6 +33,7 @@ export class NewsModel extends Model<NewsModelInterface> implements NewsModelInt
             name: observable,
             slug: observable,
             previewImage: observable,
+            preview: observable,
         });
 
         this.update(payload);

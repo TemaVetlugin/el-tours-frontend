@@ -63,7 +63,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                                     <div className="p-product-badge__name">
                                         Доставим на дом
                                     </div>
-                                    <UiIcon size={24} name={'delivery'} color={COLORS.WHITE}/>
+                                    <UiIcon size={24} name={'deliveryCourier'} color={COLORS.WHITE}/>
                                 </div>
                             )}
                             {store.catalogProduct.isDeliverable && (
@@ -129,7 +129,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                                 <>
                                     <div className="p-product-commerce__price">
                                         <UiPrice
-                                            prices={store.catalogProduct.price}
+                                            price={store.catalogProduct.price}
                                         />
                                     </div>
 

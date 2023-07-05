@@ -1,0 +1,1 @@
+export { CProfileMenu } from './CProfileMenu';

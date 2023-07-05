@@ -28,6 +28,10 @@ export const UiIcon = observer((
         return Array.isArray(color) ? color : [color];
     }, [color]);
 
+    if(!icons[name]){
+        console.error(`UiIcon: icon ${name} not found`);
+        return null;
+    }
     return (
         <div className='ui-icon' data-name={name} style={{ width: sizes[0], height: sizes[1] }}>
             {icons[name](sizes, colors)}

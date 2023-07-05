@@ -16,6 +16,8 @@ export default async function Page() {
         }),
     );
 
+    console.log(description)
+
     return (
         <Client
             homeBanners={data?.homeBanners || []}

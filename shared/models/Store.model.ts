@@ -18,6 +18,8 @@ export interface StoreModelInterface {
     storeBrand?: StoreBrandModelInterface;
     cityId?: number;
     longitude?: number;
+    deliveryPrice?: number;
+    deliveryFreeFrom?: number;
 }
 
 export class StoreModel extends Model<StoreModelInterface> implements StoreModelInterface {
@@ -33,6 +35,8 @@ export class StoreModel extends Model<StoreModelInterface> implements StoreModel
         "cityId",
         "phone",
         "storeBrand",
+        "deliveryPrice",
+        "deliveryFreeFrom",
     ];
 
     casts = {
@@ -51,6 +55,8 @@ export class StoreModel extends Model<StoreModelInterface> implements StoreModel
     schedule: [number, number, number, number][] = [];
     latitude = 0;
     longitude = 0;
+    deliveryPrice = 0;
+    deliveryFreeFrom = 0;
     imagesThumbnails: string[] = [];
     storeBrand = new StoreBrandModel();
 
@@ -71,6 +77,8 @@ export class StoreModel extends Model<StoreModelInterface> implements StoreModel
             latitude: observable,
             longitude: observable,
             imagesThumbnails: observable,
+            deliveryPrice: observable,
+            deliveryFreeFrom: observable,
             storeBrand: observable,
             location: computed,
         });

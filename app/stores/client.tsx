@@ -72,7 +72,7 @@ export const Client = observer(() => {
                                         <div key={item.id} className="p-stores-item">
                                             {!!item.hasDelivery && (
                                                 <div className="p-stores-item__badge">
-                                                    <UiIcon size={16} name={'delivery'} color={COLORS.WHITE}/>
+                                                    <UiIcon size={16} name={'deliveryCourier'} color={COLORS.WHITE}/>
                                                     <span>Доставим на дом</span>
                                                 </div>
                                             )}
