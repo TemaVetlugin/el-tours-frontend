@@ -1,4 +1,5 @@
 export { cartItemsQuery } from './cartItems.query';
+export { cartItemsClearQuery } from './cartItemsClearQuery.query';
 export { cartItemsSaveQuery } from './cartItemsSave.query';
 export { catalogCategoriesQuery } from './catalogCategories.query';
 export { catalogProductsQuery } from './catalogProducts.query';

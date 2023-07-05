@@ -21,6 +21,11 @@ export default async function Page() {
             homeBanners={data?.homeBanners || []}
             promoActions={data?.promoActions || []}
             brands={data?.brands || []}
+            articles={data?.articles || []}
+            news={data?.news || []}
+            catalogProductsNew={data?.catalogProductsNew || []}
+            catalogProductsProfit={data?.catalogProductsProfit || []}
+            catalogProductsPopular={data?.catalogProductsPopular || []}
         />
     );
 }

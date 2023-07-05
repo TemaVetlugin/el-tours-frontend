@@ -21,6 +21,7 @@
     }
 
     &__name {
+        display: block;
         margin-bottom: 8px;
         color: $cTypo;
         text-decoration: none;
@@ -40,6 +41,44 @@
 
     &__quantity {
         margin-left: 60px;
+        width: 175px;
+
+        .ui-quantity {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__price-offer {
+        color: $cGraySecondary;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px;
+        margin-bottom: 10px;
+        text-decoration: line-through;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    &__action {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        color: $cGrayPrimary;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px;
+        gap: 4px;
+
+        &:hover {
+            color: $cTypo;
+            @include iconColor($cTypo);
+        }
     }
 
     &__price {
@@ -56,11 +95,11 @@
     }
 
     &__badge {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 24px;
         height: 24px;
         border-radius: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 }

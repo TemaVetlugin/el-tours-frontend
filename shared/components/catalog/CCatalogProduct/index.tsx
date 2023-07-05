@@ -8,6 +8,7 @@ import { UiButton, UiIcon, UiLink, UiPrice, UiQuantity } from "shared/ui";
 import { COLORS, ROUTES } from "shared/contants";
 import { CartService, UserService } from "shared/services";
 import { userFavoriteToggleQuery } from "shared/queries/main";
+import { useNavigate, useObservable, useUser } from "shared/hooks";
 
 import './index.scss';
 
@@ -16,36 +17,11 @@ type PropsType = {
 }
 
 export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
+    const navigate = useNavigate();
+    const store = useObservable({
+        isLoading: false,
+    })
     const cartItem = CartService.cartItems.find(cartItem => cartItem.catalogProductId === catalogProduct.id);
-    const inFavorite = UserService.user.userFavorites.some(userFavorite => userFavorite.catalogProductId === catalogProduct.id);
-
-    const handleToggleFavorite = async () => {
-        if (!UserService.isAuthorized()) {
-            return;
-        }
-
-        // optimistic update
-        UserService.user.update({
-            userFavorites: inFavorite
-                ? UserService.user.userFavorites.filter(userFavorite => userFavorite.catalogProductId !== catalogProduct.id)
-                : [
-                    ...UserService.user.userFavorites,
-                    {
-                        id: Date.now(),
-                        catalogProductId: catalogProduct.id
-                    }
-                ]
-        });
-
-        const { isSuccess, data } = await userFavoriteToggleQuery({
-            catalogProductId: catalogProduct.id
-        });
-        if (isSuccess && data) {
-            UserService.user.update({
-                userFavorites: data.items
-            });
-        }
-    }
 
     return (
         <UiLink href={ROUTES.PRODUCT(catalogProduct.slug).url} className="c-catalog-product">
@@ -54,7 +30,7 @@ export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
                 style={{ backgroundImage: `url(${catalogProduct.image})` }}
             />
             <div className="c-catalog-product__badges">
-                {catalogProduct.withDelivery && (
+                {catalogProduct.isDeliverable && (
                     <div className="c-catalog-product-badge" style={{ backgroundColor: '#00A3B3' }}>
                         <div className="c-catalog-product-badge__name">
                             Доставим на дом
@@ -62,7 +38,7 @@ export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
                         <UiIcon size={24} name={'delivery'} color={COLORS.WHITE}/>
                     </div>
                 )}
-                {catalogProduct.withDelivery && (
+                {catalogProduct.isDeliverable && (
                     <div className="c-catalog-product-badge" style={{ backgroundColor: '#E21F25' }}>
                         <div className="c-catalog-product-badge__name">
                             Требуется рецепт
@@ -75,19 +51,21 @@ export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
                 {catalogProduct.name}
             </div>
             <div className="c-catalog-product__price">
-                <UiPrice prices={catalogProduct.prices}/>
+                <UiPrice prices={catalogProduct.price}/>
             </div>
             {catalogProduct.catalogProductOffers.length > 0 && (
                 <div className="c-catalog-product__footer">
                     {!cartItem && (
                         <>
-                            <UiButton onClick={(e) => {
+                            <UiButton onClick={async (e) => {
                                 e.stopPropagation();
                                 e.preventDefault();
-                                CartService.save({
+                                store.set("isLoading", true);
+                                await CartService.save({
                                     catalogProductId: catalogProduct.id,
                                     quantity: 1
                                 });
+                                store.set("isLoading", false);
                             }}>
                                 <span>В корзину</span>
                                 <UiIcon size={24} name={"cart"}/>
@@ -97,7 +75,7 @@ export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
                     {cartItem && (
                         <>
                             <UiQuantity value={cartItem.quantity} onChange={(data) => {
-                                if (!cartItem || !data.value) {
+                                if (!cartItem || data.value === null) {
                                     return;
                                 }
                                 cartItem.update({
@@ -114,7 +92,11 @@ export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
                                     label: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
                                     border: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
                                 }}
-                                href={ROUTES.CART().url}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    navigate(ROUTES.CART());
+                                }}
                                 label={'В корзине'}
                             />
                         </>
@@ -124,12 +106,12 @@ export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
                         onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();
-                            handleToggleFavorite();
+                            UserService.toggleFavorite(catalogProduct.id)
                         }}
                     >
                         <UiIcon
                             size={24}
-                            name={inFavorite ? "heartFilled" : "heart"}
+                            name={UserService.hasFavorite(catalogProduct.id) ? "heartFilled" : "heart"}
                             color={COLORS.GRAY_PRIMARY}
                         />
                     </div>

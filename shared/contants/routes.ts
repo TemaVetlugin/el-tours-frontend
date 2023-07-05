@@ -56,7 +56,7 @@ export const ROUTES = {
     }),
     PROFILE: (): RouteType => ({
         id: 'profile',
-        name: 'Личный кабинет',
+        name: 'Мой профиль',
         url: '/profile',
     }),
     SEARCH: (): RouteType => ({

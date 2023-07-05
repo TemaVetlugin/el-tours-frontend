@@ -58,7 +58,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                             style={{ backgroundImage: `url(${store.catalogProduct.image})` }}
                         />
                         <div className="p-product__badges">
-                            {store.catalogProduct.withDelivery && (
+                            {store.catalogProduct.isDeliverable && (
                                 <div className="p-product-badge" style={{ backgroundColor: '#00A3B3' }}>
                                     <div className="p-product-badge__name">
                                         Доставим на дом
@@ -66,7 +66,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                                     <UiIcon size={24} name={'delivery'} color={COLORS.WHITE}/>
                                 </div>
                             )}
-                            {store.catalogProduct.withDelivery && (
+                            {store.catalogProduct.isDeliverable && (
                                 <div className="p-product-badge" style={{ backgroundColor: '#E21F25' }}>
                                     <div className="p-product-badge__name">
                                         Требуется рецепт
@@ -129,7 +129,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                                 <>
                                     <div className="p-product-commerce__price">
                                         <UiPrice
-                                            prices={store.catalogProduct.prices}
+                                            prices={store.catalogProduct.price}
                                         />
                                     </div>
 

@@ -8,17 +8,30 @@ import { ReturnType } from "shared/types";
 import { PHomeBanners } from "./components/PHomeBanners";
 import { PHomePromoActions } from "./components/PHomePromoActions";
 import { useCity, useDidUpdateEffect, useObservable } from "shared/hooks";
-import { BrandModel, HomeBannerModel, PromoActionModel } from "shared/models";
+import { ArticleModel, BrandModel, HomeBannerModel, PromoActionModel } from "shared/models";
 import { PHomeBrands } from "./components/PHomeBrands";
+import { PHomeArticles } from "./components/PHomeArticles";
 
 type PropsType = NonNullable<ReturnType<typeof homeQuery>['data']>;
-export const Client = observer(({ homeBanners, promoActions,brands }: PropsType) => {
+export const Client = observer((
+    {
+        homeBanners,
+        promoActions,
+        brands,
+        articles,
+        news,
+        catalogProductsProfit,
+        catalogProductsNew,
+        catalogProductsPopular
+    }: PropsType
+) => {
     const city = useCity();
 
     const store = useObservable({
         homeBanners: homeBanners.map(item => new HomeBannerModel(item)),
         promoActions: promoActions.map(item => new PromoActionModel(item)),
         brands: brands.map(item => new BrandModel(item)),
+        articles: articles.map(item => new ArticleModel(item)),
     });
 
     useDidUpdateEffect(() => {
@@ -40,6 +53,7 @@ export const Client = observer(({ homeBanners, promoActions,brands }: PropsType)
                 <PHomeBanners homeBanners={store.homeBanners}/>
                 <PHomePromoActions promoActions={store.promoActions}/>
                 <PHomeBrands brands={store.brands}/>
+                <PHomeArticles articles={store.articles}/>
             </UiPage.Wrap>
         </UiPage>
     );

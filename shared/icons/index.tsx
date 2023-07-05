@@ -12,6 +12,7 @@ export { chevronUp } from "./chevronUp";
 export { close } from "./close";
 export { delivery } from "./delivery";
 export { exclamationMark } from "./exclamationMark";
+export { exclamationTriangle } from "./exclamationTriangle";
 export { heart } from "./heart";
 export { heartFilled } from "./heartFilled";
 export { minus } from "./minus";

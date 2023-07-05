@@ -3,30 +3,30 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import { PromoActionModel } from "shared/models";
+import { ArticleModel, PromoActionModel } from "shared/models";
 import { UiGrid, UiLink, UiPage } from "shared/ui";
 import { ROUTES } from "shared/contants";
 
 import './index.scss';
 
 type PropsType = {
-    promoActions: PromoActionModel[],
+    articles: ArticleModel[],
 }
 
-export const PHomePromoActions = observer(({ promoActions }: PropsType) => {
+export const PHomeArticles = observer(({ articles }: PropsType) => {
     return (
         <UiPage.Section
-            title={'Акции'}
+            title={'Интересно'}
             link={(<UiPage.SectionLink href={ROUTES.HOME().url}>Смотреть все</UiPage.SectionLink>)}
         >
-            <UiGrid columns={4} gap={20} className="">
-                {promoActions.slice(0, 4).map(promoAction => (
-                    <UiLink href={ROUTES.HOME().url} key={promoAction.id} className="p-home-articles-item">
+            <UiGrid columns={3} gap={20} className="">
+                {articles.slice(0, 4).map(article => (
+                    <UiLink href={ROUTES.HOME().url} key={article.id} className="p-home-articles-item">
                         <div
                             className="p-home-articles-item__image"
-                            style={{ backgroundImage: `url(${promoAction.previewImage})` }}
+                            style={{ backgroundImage: `url(${article.previewImage})` }}
                         />
-                        <div className="p-home-articles-item__name">{promoAction.name}</div>
+                        <div className="p-home-articles-item__name">{article.name}</div>
                     </UiLink>
                 ))}
             </UiGrid>

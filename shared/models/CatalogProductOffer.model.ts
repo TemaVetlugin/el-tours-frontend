@@ -15,6 +15,7 @@ export interface CatalogProductOfferModelInterface {
     catalogProductId?: number,
     catalogProduct?: CatalogProductModelInterface,
     storeId?: number,
+    isDeliverable?: boolean | number,
     store?: StoreModelInterface,
 }
 
@@ -27,6 +28,7 @@ export class CatalogProductOfferModel extends Model<CatalogProductOfferModelInte
         "catalogProductId",
         "catalogProduct",
         "store",
+        "isDeliverable",
         "storeId",
     ];
 
@@ -41,6 +43,7 @@ export class CatalogProductOfferModel extends Model<CatalogProductOfferModelInte
     quantity = 0;
     catalogProductId = 0;
     storeId = 0;
+    isDeliverable = 0;
     store = new StoreModel();
     catalogProduct = new CatalogProductModel();
 
@@ -55,6 +58,7 @@ export class CatalogProductOfferModel extends Model<CatalogProductOfferModelInte
             catalogProductId: observable,
             catalogProduct: observable,
             storeId: observable,
+            isDeliverable: observable,
             store: observable,
             quantityLabel: computed
         });

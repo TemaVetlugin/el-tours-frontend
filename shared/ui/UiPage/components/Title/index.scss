@@ -1,8 +1,15 @@
 .ui-page-title {
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 120%;
-    color: $cTypo;
+    display: flex;
+    align-items: center;
+    width: 100%;
     margin-bottom: 40px;
+    color: $cTypo;
     font-family: $fontSecondary;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 120%;
+
+    &__aside {
+        margin-left: auto;
+    }
 }

@@ -71,12 +71,11 @@ export const LayoutHeaderLogin = observer(() => {
         <div className='layout-header-login'>
             <UiButton
                 style={{ minWidth: 116 }}
-                isLoading={UserService.isBooting}
+                isLoading={UserService.isLoading}
                 onClick={() => {
                     if (!UserService.isAuthorized()) {
                         return;
                     }
-                    UserService.logout();
                     navigate(ROUTES.PROFILE().url);
                 }}
                 colors={{

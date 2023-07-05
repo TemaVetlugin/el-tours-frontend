@@ -8,12 +8,20 @@ import './index.scss';
 type PropsType = {
     value?: string,
     style?: CSSProperties,
+    aside?: () => React.ReactNode
 }
 
-export const Title = observer(({ value, style }: PropsType) => {
+export const Title = observer(({ value, style, aside }: PropsType) => {
     return (
         <div className="ui-page-title" style={style}>
-            {value}
+            <div className="ui-page-title__value">
+                {value}
+            </div>
+            {!!aside && (
+                <div className="ui-page-title__aside">
+                    {aside()}
+                </div>
+            )}
         </div>
     )
 })

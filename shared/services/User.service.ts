@@ -2,7 +2,7 @@ import { makeAutoObservable, runInAction } from "mobx";
 
 import { UserModel } from "shared/models";
 import { Cache } from "shared/utilities/client";
-import { usersBootQuery } from "shared/queries/main";
+import { userFavoriteToggleQuery, usersBootQuery } from "shared/queries/main";
 import { retryQuery } from "shared/queries/utilities";
 
 import { LocationService } from "./Location.service";
@@ -12,7 +12,7 @@ import { CartService } from "./Cart.service";
 import { makeService } from "./utilities/makeService";
 
 export const UserService = makeService(class {
-    isBooting = true;
+    isLoading = true;
     accessToken: string | null = null;
     user: UserModel = new UserModel({
         isInitialized: false
@@ -47,7 +47,7 @@ export const UserService = makeService(class {
             });
         }
         runInAction(() => {
-            this.isBooting = false;
+            this.isLoading = false;
         });
     }
 
@@ -66,5 +66,37 @@ export const UserService = makeService(class {
         }
         LayoutService.loginIsOpened = true;
         return false;
+    }
+
+    hasFavorite = (catalogProductId: number) => {
+        return this.user.userFavorites.some(userFavorite => userFavorite.catalogProductId === catalogProductId);
+    }
+
+    toggleFavorite = async (catalogProductId: number) => {
+        if (!this.isAuthorized()) {
+            return;
+        }
+
+        // optimistic update
+        UserService.user.update({
+            userFavorites: this.hasFavorite(catalogProductId)
+                ? UserService.user.userFavorites.filter(userFavorite => userFavorite.catalogProductId !== catalogProductId)
+                : [
+                    ...UserService.user.userFavorites,
+                    {
+                        id: Date.now(),
+                        catalogProductId
+                    }
+                ]
+        });
+
+        const { isSuccess, data } = await userFavoriteToggleQuery({
+            catalogProductId
+        });
+        if (isSuccess && data) {
+            this.user.update({
+                userFavorites: data.items
+            });
+        }
     }
 });

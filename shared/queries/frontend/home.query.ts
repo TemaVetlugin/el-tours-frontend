@@ -1,4 +1,10 @@
-import { BrandModelInterface, HomeBannerModelInterface, PromoActionModelInterface } from "shared/models"
+import {
+    ArticleModelInterface,
+    BrandModelInterface,
+    CatalogProductModelInterface,
+    HomeBannerModelInterface,
+    PromoActionModelInterface
+} from "shared/models"
 
 import { makeQuery } from "../utilities";
 
@@ -10,6 +16,11 @@ export type ResponseType = {
     homeBanners: HomeBannerModelInterface[],
     promoActions: PromoActionModelInterface[],
     brands: BrandModelInterface[],
+    articles: ArticleModelInterface[],
+    news: ArticleModelInterface[],
+    catalogProductsProfit: CatalogProductModelInterface[],
+    catalogProductsNew: CatalogProductModelInterface[],
+    catalogProductsPopular: CatalogProductModelInterface[],
 }
 
 export const homeQuery = async (params: RequestType) => {

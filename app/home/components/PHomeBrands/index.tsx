@@ -15,7 +15,7 @@ type PropsType = {
 export const PHomeBrands = observer(({ brands }: PropsType) => {
     return (
         <UiSlider
-            className={'p-home-brands-slider'}
+            className={'p-home-brands'}
             items={brands}
             perPage={5}
             perGroup={1}
@@ -33,14 +33,14 @@ export const PHomeBrands = observer(({ brands }: PropsType) => {
                 }
                 return (
                     <>
-                        <div className='p-home-brands-slider__control'>
-                            <div className="p-home-brands-slider__arrow" onClick={navigation.prev}>
+                        <div className='p-home-brands__control'>
+                            <div className="p-home-brands__arrow" onClick={navigation.prev}>
                                 <UiIcon size={25} name={'chevronLeft'}/>
                             </div>
                         </div>
                         <div
-                            className='p-home-brands-slider__control p-home-brands-slider__control--next'>
-                            <div className="p-home-brands-slider__arrow" onClick={navigation.next}>
+                            className='p-home-brands__control p-home-brands__control--next'>
+                            <div className="p-home-brands__arrow" onClick={navigation.next}>
                                 <UiIcon size={25} name={'chevronRight'}/>
                             </div>
                         </div>

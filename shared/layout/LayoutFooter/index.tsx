@@ -30,7 +30,7 @@ export const LayoutFooter = () => {
                         <div className="layout-footer-menu">
                             <div className="layout-footer-menu__title">Каталог</div>
                             <div className="layout-footer-menu__columns">
-                                {CatalogService.catalogCategoriesByCatalogCategoryId['null'].map((catalogCategory) => (
+                                {CatalogService.catalogCategoriesByCatalogCategoryId['null']?.map((catalogCategory) => (
                                     <UiLink
                                         key={catalogCategory.id}
                                         href={ROUTES.CATALOG(catalogCategory.slug).url}

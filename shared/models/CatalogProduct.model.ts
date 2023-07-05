@@ -37,7 +37,6 @@ export interface CatalogProductModelInterface {
     storageConditions?: string,
     releaseForm?: string,
     sideEffects?: string,
-    withDelivery?: boolean,
     withPrescription?: boolean,
     analogues?: CatalogProductModelInterface[]
     recommendations?: CatalogProductModelInterface[]
@@ -70,7 +69,6 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
         "storageConditions",
         "releaseForm",
         "sideEffects",
-        "withDelivery",
         "withPrescription",
         "analogues",
         "recommendations"
@@ -92,16 +90,9 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
     slug = '';
     image = '';
     catalogCategoryId = 0;
-    catalogProductOffers: CatalogProductOfferModel[] = [];
-    substances: SubstanceModel[] = [];
-    catalogCategory: CatalogCategoryModel | null = null;
-    brand: BrandModel | null = null;
-    country: CountryModel | null = null;
-    manufacturer: ManufacturerModel | null = null;
     images = [];
     barcodes = [];
     isThermolabile = false;
-    withDelivery = false;
     withPrescription = true;
     instructionFull = '';
     description = '';
@@ -115,6 +106,12 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
     storageConditions = '';
     releaseForm = '';
     sideEffects = '';
+    substances: SubstanceModel[] = [];
+    catalogCategory: CatalogCategoryModel | null = null;
+    brand: BrandModel | null = null;
+    country: CountryModel | null = null;
+    manufacturer: ManufacturerModel | null = null;
+    catalogProductOffers: CatalogProductOfferModel[] = [];
     analogues: CatalogProductModel[] = []
     recommendations: CatalogProductModel[] = []
 
@@ -136,7 +133,6 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
             images: observable,
             barcodes: observable,
             isThermolabile: observable,
-            withDelivery: observable,
             withPrescription: observable,
             instructionFull: observable,
             description: observable,
@@ -153,14 +149,20 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
             analogues: observable,
             recommendations: observable,
             isAvailable: computed,
-            prices: computed,
+            price: computed,
+            priceOffer: computed,
+            isDeliverable: computed,
         });
 
         this.update(payload);
     }
 
-    get prices() {
+    get price() {
         return this.catalogProductOffers.map(offer => offer.price);
+    }
+
+    get priceOffer() {
+        return this.catalogProductOffers.map(offer => offer.priceOffer);
     }
 
     get isAvailable() {
@@ -168,5 +170,9 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
             return false;
         }
         return true;
+    }
+
+    get isDeliverable() {
+        return this.catalogProductOffers.some(catalogProductOffer => catalogProductOffer.isDeliverable);
     }
 }

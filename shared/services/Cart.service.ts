@@ -3,7 +3,7 @@ import { makeAutoObservable, runInAction } from "mobx";
 import { CartItemModel } from "shared/models";
 
 import { makeService } from "./utilities/makeService";
-import { cartItemsQuery, cartItemsSaveQuery } from "shared/queries/main";
+import { cartItemsClearQuery, cartItemsQuery, cartItemsSaveQuery } from "shared/queries/main";
 
 type BootProps = {
     cityId: number
@@ -72,5 +72,10 @@ export const CartService = makeService(class {
 
     has = (catalogProductId: number) => {
         return !!this.cartItems.find(cartItem => cartItem.catalogProductId === catalogProductId);
+    }
+
+    clear = () => {
+        this.cartItems = [];
+        cartItemsClearQuery();
     }
 })

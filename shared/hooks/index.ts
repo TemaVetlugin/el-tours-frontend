@@ -12,6 +12,7 @@ export { useNavigate } from './useNavigate';
 export { useObservable } from './useObservable';
 export { useObserve } from './useObserve';
 export { useOnClickOutside } from './useOnClickOutside';
+export { usePrivatePage } from './usePrivatePage';
 export { useReaction } from './useReaction';
 export { useSearchParams } from './useSearchParams';
 export { useUser } from './useUser';

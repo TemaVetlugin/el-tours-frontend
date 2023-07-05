@@ -28,6 +28,9 @@ export const UiQuantity = observer((
     }, 1000);
 
     const update = (value: number) => {
+        if (value < 1) {
+            return;
+        }
         store.set('value', value);
         handleChange(value);
     }
