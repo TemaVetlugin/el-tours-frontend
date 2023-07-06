@@ -12,6 +12,9 @@ export interface OrderModelInterface {
     createdAt?: string;
     statusId?: string;
     deliveryTypeId?: string;
+    deliveryDate?: string;
+    deliveryTime?: string;
+    deliveryAddress?: string;
     paymentTypeId?: string;
     orderItems?: OrderItemModelInterface[],
     store?: StoreModelInterface,
@@ -32,6 +35,9 @@ export class OrderModel extends Model<OrderModelInterface> implements OrderModel
         "createdAt",
         "statusId",
         "deliveryTypeId",
+        "deliveryDate",
+        "deliveryTime",
+        "deliveryAddress",
         "paymentTypeId",
         "orderItems",
         "store",
@@ -56,6 +62,9 @@ export class OrderModel extends Model<OrderModelInterface> implements OrderModel
     createdAt = '';
     statusId = '';
     deliveryTypeId = '';
+    deliveryDate = '';
+    deliveryTime = '';
+    deliveryAddress = '';
     paymentTypeId = '';
     orderItems: OrderItemModel[] = [];
     store = new StoreModel();
@@ -77,6 +86,9 @@ export class OrderModel extends Model<OrderModelInterface> implements OrderModel
             createdAt: observable,
             statusId: observable,
             deliveryTypeId: observable,
+            deliveryDate: observable,
+            deliveryTime: observable,
+            deliveryAddress: observable,
             paymentTypeId: observable,
             orderItems: observable,
             store: observable,

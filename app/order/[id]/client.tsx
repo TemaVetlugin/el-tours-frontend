@@ -12,6 +12,7 @@ import './page.scss';
 import { COrderItem, COrderTotal } from "shared/components/order";
 import { currency, date } from "shared/utilities";
 import { COLORS, ROUTES } from "shared/contants";
+import { OrderDeliveryTypeEnum } from "shared/enums";
 
 type PropsType = {
     id: string
@@ -41,17 +42,29 @@ export const Client = observer(({ id }: PropsType) => {
                 <UiDataBoundary isLoading={store.isLoading}>
                     <UiGrid gap={116} columns={'1fr 310px'}>
                         <UiPage.Section title={`Заказ №${id} успешно оформлен`}>
-                            <div className="p-order-delivery">
-                                <UiIcon color={COLORS.GRAY_PRIMARY} size={24} name={'deliverySelfpickup'}/>
-                                <div className="p-order-delivery__inner">
-                                    <span>
-                                        Самовывоз <b>{store.order.store.name}</b> по адресу {store.order.store.address}
-                                    </span>
-                                    <span>
-                                        Заказ будет храниться в аптеке до {date(store.order.createdAt).plus({ days: 5 }).toFormat('dd.MM.yyyy')}
-                                    </span>
+                            {store.order.deliveryType.is(OrderDeliveryTypeEnum.Selfpickup) && (
+                                <div className="p-order-delivery">
+                                    <UiIcon color={COLORS.GRAY_PRIMARY} size={24} name={'deliverySelfpickup'}/>
+                                    <div className="p-order-delivery__inner">
+                                        <span>
+                                            Самовывоз <b>{store.order.store.name}</b> по адресу {store.order.store.address}
+                                        </span>
+                                        <span>
+                                            Заказ будет храниться в аптеке до {date(store.order.createdAt).plus({ days: 5 }).toFormat('dd.MM.yyyy')}
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
+                            )}
+                            {store.order.deliveryType.is(OrderDeliveryTypeEnum.Courier) && (
+                                <div className="p-order-delivery">
+                                    <UiIcon color={COLORS.GRAY_PRIMARY} size={24} name={'deliveryCourier'}/>
+                                    <div className="p-order-delivery__inner">
+                                        <span>
+                                            Доставим <b>{date(store.order.deliveryDate).setLocale('ru').toFormat('d MMMM')} {store.order.deliveryTime}</b> по адресу {store.order.deliveryAddress}
+                                        </span>
+                                    </div>
+                                </div>
+                            )}
                             <div className="p-order__items">
                                 {store.order.orderItems.map(orderItem => (
                                     <COrderItem

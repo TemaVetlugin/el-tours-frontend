@@ -4,7 +4,7 @@ import { makeQuery } from "../utilities";
 
 type RequestType = {
     storeId: number,
-}
+} & Record<string, any>
 
 type ResponseType = {
     item: {

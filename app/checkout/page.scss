@@ -64,6 +64,12 @@
                 display: flex;
                 align-items: flex-start;
             }
+
+            &--row {
+                gap: 16px;
+                display: flex;
+                align-items: flex-start;
+            }
         }
 
         &__map {

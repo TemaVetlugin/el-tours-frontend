@@ -47,6 +47,7 @@ export const UiRadio = observer((
                                 name={name}
                                 type="radio"
                                 checked={item.id === value}
+                                onChange={() => {}}
                             />
                             <div className="ui-radio-item__icon">
                                 <span/>

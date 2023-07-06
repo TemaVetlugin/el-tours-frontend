@@ -1,4 +1,4 @@
-import { runInAction } from "mobx";
+import { runInAction, set } from "mobx";
 
 import { Cast } from "shared/casts/Cast";
 
@@ -19,6 +19,12 @@ export class Model<IChildModel> {
                     this[key] = this.casts[property]?.set(this[key], payload[property]) || payload[property];
                 }
             });
+        });
+    }
+
+    handleChange = <R>(data: { name: string, value: R }) => {
+        runInAction(() => {
+            set(this, data.name, data.value);
         });
     }
 }

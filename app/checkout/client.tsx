@@ -1,13 +1,27 @@
 'use client';
 
-import React, { useEffect } from "react";
+import React from "react";
 import { observer } from "mobx-react-lite";
 
 import { useAsyncEffect, useCity, useNavigate, useObservable, usePrivatePage, useUser } from "shared/hooks";
-import { UiButton, UiCheckbox, UiDataBoundary, UiForm, UiLink, UiPage, UiRadio, UiWrap } from "shared/ui";
-import { ROUTES } from "shared/contants";
+import {
+    UiButton,
+    UiCheckbox,
+    UiDataBoundary,
+    UiDatepicker,
+    UiForm,
+    UiFormControl,
+    UiGrid,
+    UiInput,
+    UiLink,
+    UiPage,
+    UiRadio,
+    UiSelect,
+    UiWrap
+} from "shared/ui";
+import { MASKS, ROUTES } from "shared/contants";
 import { CartService, UserService } from "shared/services";
-import { currency } from "shared/utilities";
+import { currency, date } from "shared/utilities";
 import { CheckoutItemModel } from "shared/models";
 import { checkoutQuery, ordersCreateQuery } from "shared/queries/main";
 import { COrderItem, COrderTotal } from "shared/components/order";
@@ -17,6 +31,8 @@ import { CCheckoutWarning } from "shared/components/checkout";
 import './page.scss';
 import { OrderDeliveryTypeEnum, OrderPaymentTypeEnum } from "shared/enums";
 import { UserAddressModel } from "shared/models/UserAddress.model";
+import { useValidation } from "shared/hooks/useValidation";
+import { isMobilePhone, isRequired } from "shared/validations";
 
 
 const DELIVERY_TIMES = [
@@ -48,7 +64,7 @@ export const Client = observer(({ deliveryTypeId }: PropsType) => {
         paymentTypeId: OrderPaymentTypeEnum.Online.id,
         deliveryTypeId: deliveryTypeId === OrderDeliveryTypeEnum.Courier.id ? OrderDeliveryTypeEnum.Courier.id : OrderDeliveryTypeEnum.Selfpickup.id,
         userAddress: new UserAddressModel(),
-        deliveryDate: null,
+        deliveryDate: date().plus({ day: 1 }).toFormat('yyyy-MM-dd'),
         deliveryTime: DELIVERY_TIMES[0].id,
         userPhone: UserService.user.phone
     });
@@ -60,6 +76,7 @@ export const Client = observer(({ deliveryTypeId }: PropsType) => {
             return;
         }
         store.set("isLoading", true);
+        form.set("userPhone", UserService.user.phone);
         const { isSuccess, data } = await checkoutQuery({
             cityId: city.id,
             deliveryTypeId: deliveryTypeId,
@@ -78,16 +95,27 @@ export const Client = observer(({ deliveryTypeId }: PropsType) => {
         store.set("isLoading", false);
     }, [store, city, isGranted]);
 
-    useEffect(() => {
-        console.log('full render')
-    }, []);
+    const validation = useValidation(form, {
+        userPhone: [isRequired(), isMobilePhone()],
+    });
+
+    const validationUserAddress = useValidation(form.userAddress, {
+        address: [isRequired()],
+        apartment: [isRequired()],
+    });
 
     const handleSubmit = async () => {
+        validation.submit();
+        validationUserAddress.submit();
         if (!UserService.isAuthorized() || !form.storeId) {
+            return;
+        }
+        if (!validation.isValid || (isDeliveryCourier && !validationUserAddress.isValid)) {
             return;
         }
         store.set("isSubmitting", true);
         const { isSuccess, data } = await ordersCreateQuery({
+            ...form,
             storeId: form.storeId
         });
 
@@ -118,19 +146,93 @@ export const Client = observer(({ deliveryTypeId }: PropsType) => {
                     <UiDataBoundary isLoading={store.isLoading}>
                         <div className="p-checkout__inner">
                             <div className="p-checkout__main">
-                                <PCheckoutStores
-                                    checkoutItems={store.checkoutItems}
-                                    city={city}
-                                    onChange={form.handleChange}
-                                    value={form.storeId}
-                                />
+                                {!isDeliveryCourier && (
+                                    <PCheckoutStores
+                                        checkoutItems={store.checkoutItems}
+                                        city={city}
+                                        onChange={form.handleChange}
+                                        value={form.storeId}
+                                    />
+                                )}
+                                {isDeliveryCourier && (
+                                    <div className="p-checkout-section">
+                                        <div className="p-checkout-section__header">
+                                            <div className="p-checkout-section__counter"/>
+                                            <div className="p-checkout-section__title">Адрес доставки</div>
+                                        </div>
+                                        <div className="p-checkout-section__inner" style={{ maxWidth: 720 }}>
+                                            <UiGrid columns={1} gap={16}>
+                                                <UiFormControl
+                                                    errorMessage={validationUserAddress.address.errorMessage}>
+                                                    <UiInput
+                                                        placeholder={'Укажите адрес доставки'}
+                                                        value={form.userAddress.address}
+                                                        name={'address'}
+                                                        onChange={form.userAddress.handleChange}
+                                                    />
+                                                </UiFormControl>
+                                                <UiGrid columns={4} gap={16}>
+                                                    <UiFormControl
+                                                        errorMessage={validationUserAddress.apartment.errorMessage}>
+                                                        <UiInput
+                                                            placeholder={'Квартира/офис'}
+                                                            value={form.userAddress.apartment}
+                                                            name={'apartment'}
+                                                            onChange={form.userAddress.handleChange}
+                                                        />
+                                                    </UiFormControl>
+                                                    <UiInput
+                                                        placeholder={'Этаж'}
+                                                        value={form.userAddress.floor}
+                                                        name={'floor'}
+                                                        onChange={form.userAddress.handleChange}
+                                                    />
+                                                    <UiInput
+                                                        placeholder={'Подъезд'}
+                                                        value={form.userAddress.entrance}
+                                                        name={'entrance'}
+                                                        onChange={form.userAddress.handleChange}
+                                                    />
+                                                    <UiInput
+                                                        placeholder={'Домофон'}
+                                                        value={form.userAddress.intercom}
+                                                        name={'intercom'}
+                                                        onChange={form.userAddress.handleChange}
+                                                    />
+                                                </UiGrid>
+                                                <UiInput
+                                                    placeholder={'Комментарий курьеру'}
+                                                    value={form.userAddress.comment}
+                                                    name={'comment'}
+                                                    onChange={form.userAddress.handleChange}
+                                                />
+                                            </UiGrid>
+                                        </div>
+                                    </div>
+                                )}
                                 {isDeliveryCourier && (
                                     <div className="p-checkout-section">
                                         <div className="p-checkout-section__header">
                                             <div className="p-checkout-section__counter"/>
                                             <div className="p-checkout-section__title">Дата и время доставки</div>
                                         </div>
-                                        <div className="p-checkout-section__inner">
+                                        <div className="p-checkout-section__inner p-checkout-section__inner--row">
+                                            <UiFormControl label={'Дата доставки'} style={{ width: 170 }}>
+                                                <UiDatepicker
+                                                    min={date().plus({ day: 1 }).toISO() as string}
+                                                    value={form.deliveryDate}
+                                                    name={'deliveryDate'}
+                                                    onChange={form.handleChange}
+                                                />
+                                            </UiFormControl>
+                                            <UiFormControl label={'Время доставки'} style={{ width: 170 }}>
+                                                <UiSelect
+                                                    items={DELIVERY_TIMES}
+                                                    value={form.deliveryTime}
+                                                    name={'deliveryTime'}
+                                                    onChange={form.handleChange}
+                                                />
+                                            </UiFormControl>
                                         </div>
                                     </div>
                                 )}
@@ -156,14 +258,18 @@ export const Client = observer(({ deliveryTypeId }: PropsType) => {
                                             Контактные данные
                                         </div>
                                     </div>
-                                    <div className="p-checkout-section__inner">
-                                        <UiRadio
-                                            isFlat
-                                            items={OrderPaymentTypeEnum.items}
-                                            value={form.paymentTypeId}
-                                            name={'paymentTypeId'}
-                                            onChange={form.handleChange}
-                                        />
+                                    <div className="p-checkout-section__inner" style={{ maxWidth: 340 }}>
+                                        <UiFormControl
+                                            label={'Номер телефона'}
+                                            errorMessage={validation.userPhone.errorMessage}
+                                        >
+                                            <UiInput
+                                                mask={MASKS.MOBILE_PHONE}
+                                                value={form.userPhone}
+                                                name={'userPhone'}
+                                                onChange={form.handleChange}
+                                            />
+                                        </UiFormControl>
                                     </div>
                                 </div>
                                 {checkoutItem && (

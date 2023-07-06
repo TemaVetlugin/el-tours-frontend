@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { action, extendObservable, makeObservable, set } from "mobx";
+import { action, extendObservable, makeObservable, set, toJS } from "mobx";
 
 class Observable<T extends Object> {
     private readonly entry: T;
@@ -44,6 +44,10 @@ class Observable<T extends Object> {
             result[key] = (this as any as T)[key];
         }
         return result as T;
+    }
+
+    toRaw = () => {
+        return toJS(this);
     }
 }
 
