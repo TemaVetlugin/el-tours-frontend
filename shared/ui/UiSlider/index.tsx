@@ -8,7 +8,7 @@ import { Swiper as SwiperInstance } from 'swiper/types';
 import classnames from "classnames";
 
 import { useObservable } from "shared/hooks";
-import { ChangeHandlerType } from "shared/types";
+import { OnChangeType } from "shared/types";
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -26,7 +26,7 @@ type NavigationType = {
 
 type PropsType = {
     value?: number,
-    onChange?: ChangeHandlerType<number>,
+    onChange?: OnChangeType<number>,
     items: any[],
     effect?: 'slide' | 'fade',
     loop?: boolean,

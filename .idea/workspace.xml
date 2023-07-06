@@ -5,59 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/order/[id]/client.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/profile/orders/client.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/profile/orders/page.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/profile/orders/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/components/order/COrder/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/components/order/COrder/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/enums/OrderPaymentTypeEnum.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/enums/OrderStatusEnum.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/icons/repeat.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/queries/main/orders.query.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/ui/UiBadge/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/ui/UiBadge/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/ui/UiPanel/components/Header/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/ui/UiPanel/components/Header/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/ui/UiPanel/components/Title/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/ui/UiPanel/components/Title/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/ui/UiPanel/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/ui/UiPanel/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/utilities/date.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/checkout/components/PCheckoutAddress/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/checkout/components/PCheckoutStores/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/components/checkout/CCheckoutWarning/index.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/components/checkout/CCheckoutWarning/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/models/UserAddress.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/cart/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/checkout/assets/section-icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/checkout/section-icon.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/checkout/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/home/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/home/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/not-found.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/not-found.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/order/[id]/page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/order/[id]/page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/order/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/order/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/profile/page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/profile/page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/cart/CCartTotal/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/order/COrderTotal/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/cart/CCartTotal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/order/COrderTotal/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/cart/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/cart/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/order/COrderItem/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/order/COrderItem/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/order/COrderItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/order/COrderItem/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/order/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/order/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/contants/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/contants/routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/enums/DeliveryType.enum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/enums/OrderDeliveryTypeEnum.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/enums/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/enums/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/hooks/usePrivatePage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/hooks/usePrivatePage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/icons/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/icons/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/CatalogProduct.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/CatalogProduct.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/checkout/page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/checkout/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogFilter/components/CCatalogFilterItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogFilter/components/CCatalogFilterItem/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/checkout/CCheckoutStore/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/checkout/CCheckoutStore/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/checkout/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/checkout/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/order/COrder/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/order/COrder/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/order/COrderTotal/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/order/COrderTotal/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/order/COrderTotal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/order/COrderTotal/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/models/Order.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/Order.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/OrderItem.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/OrderItem.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/queries/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/services/User.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/services/User.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/styles/_colors.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/styles/_colors.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/main/checkout.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/checkout.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/types/ChangeHandlerType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/types/OnChangeType.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/types/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/ui/UiPrice/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiPrice/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/ui/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/utilities/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/utilities/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/utilities/server/Cache.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/utilities/server/Cache.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiRadio/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiRadio/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiRadio/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiRadio/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiSlider/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiSlider/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/types/UiControlPropsType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/types/UiControlPropsType.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +59,7 @@
     "RunOnceActivity.laravel-idea.search-composer-json": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "dev",
-    "last_opened_file_path": "/home/izica/git/yaplus-frontend/shared/enums",
+    "last_opened_file_path": "/home/izica/git/yaplus-frontend/public/assets/images/checkout",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -106,11 +80,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/shared/enums" />
-      <recent name="$PROJECT_DIR$/shared/icons" />
-      <recent name="$PROJECT_DIR$/shared/queries/main" />
-      <recent name="$PROJECT_DIR$/shared/components/order" />
+      <recent name="$PROJECT_DIR$/public/assets/images/checkout" />
       <recent name="$PROJECT_DIR$/shared/ui" />
+      <recent name="$PROJECT_DIR$/shared" />
+      <recent name="$PROJECT_DIR$/shared/models" />
+      <recent name="$PROJECT_DIR$/app/checkout/components" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -132,7 +106,8 @@
       <workItem from="1688542704279" duration="10374000" />
       <workItem from="1688570207794" duration="10537000" />
       <workItem from="1688588987590" duration="10092000" />
-      <workItem from="1688626128319" duration="12592000" />
+      <workItem from="1688626128319" duration="14099000" />
+      <workItem from="1688658033791" duration="3862000" />
     </task>
     <servers />
   </component>

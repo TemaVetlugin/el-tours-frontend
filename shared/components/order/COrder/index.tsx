@@ -4,17 +4,20 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 import { OrderModel } from "shared/models";
 
-import './index.scss';
+import classnames from "classnames";
+
 import { currency, date } from "shared/utilities";
 import { UiButton, UiIcon } from "shared/ui";
 import { useObservable } from "shared/hooks";
-import classnames from "classnames";
 import { COLORS } from "shared/contants";
 import { COrderItem } from "shared/components/order";
+
+import './index.scss';
 
 type PropsType = {
     order: OrderModel
 }
+
 export const COrder = observer(({ order }: PropsType) => {
     const store = useObservable({
         isOpened: false

@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import classnames from "classnames";
 
 import { UiChecklist, UiIcon, UiRadio, UiRange } from "shared/ui";
-import { ChangeHandlerType } from "shared/types";
+import { OnChangeType } from "shared/types";
 import { CatalogFilterModel } from "shared/models";
 import { COLORS } from "shared/contants";
 import { useObservable } from "shared/hooks";
@@ -12,7 +12,7 @@ import './index.scss';
 
 type PropsType = {
     catalogFilter: CatalogFilterModel,
-    onChange: ChangeHandlerType<any>
+    onChange: OnChangeType<any>
 }
 
 export const CCatalogFilterItem = observer((

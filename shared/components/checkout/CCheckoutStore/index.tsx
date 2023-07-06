@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 
 import { CheckoutItemModel, StoreModel } from "shared/models";
 import { UiButton } from "shared/ui";
-import { ChangeHandlerType } from "shared/types";
+import { OnChangeType } from "shared/types";
 
 import { CartService } from "shared/services";
 import { currency } from "shared/utilities";
@@ -17,7 +17,7 @@ type PropsType = {
     checkoutItem: CheckoutItemModel,
     value: number | null,
     name: string,
-    onChange: ChangeHandlerType<number>
+    onChange: OnChangeType<number>
 }
 
 export const CCheckoutStore = observer(({ checkoutItem, value, name, onChange }: PropsType) => {

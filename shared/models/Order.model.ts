@@ -22,6 +22,7 @@ export interface OrderModelInterface {
     totalLoyaltyPromocode?: number
     totalLoyaltyGift?: number
     totalLoyaltyDiscount?: number
+    totalDelivery?: number
     total?: number
 }
 
@@ -42,6 +43,7 @@ export class OrderModel extends Model<OrderModelInterface> implements OrderModel
         "totalLoyaltyPromocode",
         "totalLoyaltyGift",
         "totalLoyaltyDiscount",
+        "totalDelivery",
         "total",
     ];
 
@@ -64,6 +66,7 @@ export class OrderModel extends Model<OrderModelInterface> implements OrderModel
     totalLoyaltyPromocode = 0;
     totalLoyaltyGift = 0;
     totalLoyaltyDiscount = 0;
+    totalDelivery = 0;
     total = 0;
 
     constructor(payload?: OrderModelInterface) {
@@ -82,6 +85,7 @@ export class OrderModel extends Model<OrderModelInterface> implements OrderModel
             totalLoyaltyPromocode: observable,
             totalLoyaltyGift: observable,
             totalLoyaltyDiscount: observable,
+            totalDelivery: observable,
             total: observable,
             quantity: computed,
             code: computed,

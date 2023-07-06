@@ -17,7 +17,7 @@ const value = (value: number, quantity: number) => {
     const price = value * quantity;
     const main = Math.floor(price);
     let sub: number | string = Math.round((price - main) * 100);
-    sub = `${sub}`.padEnd(2, '0');
+    sub = `${sub}`.padStart(2, '0');
     return (
         <div className={'ui-price-value'}>
             <div className="ui-price-value__main">

@@ -11,7 +11,7 @@ type PropsType = {
     children?: React.ReactNode,
     storeId?: number | null,
     total?: number[],
-    items?: [string | number, string | number][]
+    items?: [string | number, string | number | null][]
 }
 
 export const COrderTotal = observer(({ children, items, total }: PropsType) => {
@@ -25,7 +25,7 @@ export const COrderTotal = observer(({ children, items, total }: PropsType) => {
                     </div>
                 </>
             )}
-            {!!items && items.map((item) => {
+            {!!items && items.filter(item => item[1] !== null).map((item) => {
                 return (
                     <div key={`${item[0]}${item[1]}`} className="c-order-total__fields">
                         <div className="c-order-total-field">

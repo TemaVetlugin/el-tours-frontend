@@ -23,7 +23,7 @@ export const Client = observer(() => {
     const user = useUser();
     const navigate = useNavigate();
     const store = useObservable({
-        deliveryType: OrderDeliveryTypeEnum.Selfpickup.id,
+        deliveryTypeId: OrderDeliveryTypeEnum.Selfpickup.id,
         deliveryStore: null as StoreModel | null,
         recommendations: [] as CatalogProductModel[]
     });
@@ -73,9 +73,9 @@ export const Client = observer(() => {
                             <div className="p-cart__header">
                                 <div className="p-cart-delivery">
                                     <div
-                                        onClick={() => store.set("deliveryType", OrderDeliveryTypeEnum.Selfpickup.id)}
+                                        onClick={() => store.set("deliveryTypeId", OrderDeliveryTypeEnum.Selfpickup.id)}
                                         className={classnames('p-cart-delivery-item', {
-                                            'p-cart-delivery-item--active': store.deliveryType === OrderDeliveryTypeEnum.Selfpickup.id
+                                            'p-cart-delivery-item--active': store.deliveryTypeId === OrderDeliveryTypeEnum.Selfpickup.id
                                         })}
                                     >
                                         <UiIcon size={24} name={'deliverySelfpickup'}/>
@@ -86,9 +86,9 @@ export const Client = observer(() => {
                                     </div>
                                     {store.deliveryStore && (
                                         <div
-                                            onClick={() => store.set("deliveryType", OrderDeliveryTypeEnum.Courier.id)}
+                                            onClick={() => store.set("deliveryTypeId", OrderDeliveryTypeEnum.Courier.id)}
                                             className={classnames('p-cart-delivery-item', {
-                                                'p-cart-delivery-item--active': store.deliveryType === OrderDeliveryTypeEnum.Courier.id
+                                                'p-cart-delivery-item--active': store.deliveryTypeId === OrderDeliveryTypeEnum.Courier.id
                                             })}
                                         >
                                             <UiIcon size={24} name={'deliveryCourier'}/>
@@ -122,7 +122,9 @@ export const Client = observer(() => {
                                         if (!UserService.isAuthorized()) {
                                             return;
                                         }
-                                        navigate(ROUTES.CHECKOUT());
+                                        navigate(ROUTES.CHECKOUT(), {
+                                            deliveryTypeId: store.deliveryTypeId
+                                        });
                                     }}
                                     label={'Продолжить'}
                                 />

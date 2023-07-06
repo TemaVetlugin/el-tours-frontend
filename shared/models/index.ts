@@ -76,6 +76,9 @@ export type { SubstanceModelInterface } from './Substance.model';
 export { UserModel } from './User.model';
 export type { UserModelInterface } from './User.model';
 
+export { UserAddressModel } from './UserAddress.model';
+export type { UserAddressModelInterface } from './UserAddress.model';
+
 export { UserFavoriteModel } from './UserFavorite.model';
 export type { UserFavoriteModelInterface } from './UserFavorite.model';
 

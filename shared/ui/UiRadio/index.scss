@@ -25,7 +25,7 @@
         }
 
         &__control:checked ~ &__icon {
-            border: 2px solid $cGreenSecondary;
+            border: 2px solid $cGreenPrimary;
 
             span {
                 display: block;

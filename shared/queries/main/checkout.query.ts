@@ -4,6 +4,7 @@ import { makeQuery } from "../utilities";
 
 type RequestType = {
     cityId?: number,
+    deliveryTypeId?: string,
 }
 
 type ResponseType = {

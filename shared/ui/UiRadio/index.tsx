@@ -36,18 +36,17 @@ export const UiRadio = observer((
             <div className="ui-radio__inner">
                 {items.map(item => {
                     return (
-                        <label key={item.id} className='ui-radio-item'>
+                        <div onClick={() => {
+                            onChange({
+                                name,
+                                value: item.id
+                            });
+                        }} key={item.id} className='ui-radio-item'>
                             <input
                                 className='ui-radio-item__control'
                                 name={name}
                                 type="radio"
                                 checked={item.id === value}
-                                onChange={(e) => {
-                                    onChange({
-                                        name,
-                                        value: item.id
-                                    });
-                                }}
                             />
                             <div className="ui-radio-item__icon">
                                 <span/>
@@ -55,7 +54,7 @@ export const UiRadio = observer((
                             <div className="ui-radio-item__label">
                                 {item.name}
                             </div>
-                        </label>
+                        </div>
                     )
                 })}
             </div>
