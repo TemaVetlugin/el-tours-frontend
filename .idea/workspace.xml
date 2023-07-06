@@ -5,26 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/shared/ui/UiDatepicker/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/ui/UiDatepicker/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/ui/UiSelect/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/ui/UiSelect/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkout/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkout/page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/order/[id]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/order/[id]/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/order/[id]/page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/order/[id]/page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/hooks/useObservable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/hooks/useObservable.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/Model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/Model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/Order.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/Order.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/UserAddress.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/UserAddress.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/queries/main/ordersCreate.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/ordersCreate.query.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/ui/UiRadio/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiRadio/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/ui/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/utilities/date.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/utilities/date.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/utilities/server/Cache.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/utilities/server/Cache.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +83,7 @@
       <workItem from="1688588987590" duration="10092000" />
       <workItem from="1688626128319" duration="14099000" />
       <workItem from="1688658033791" duration="4087000" />
-      <workItem from="1688666193157" duration="5165000" />
+      <workItem from="1688666193157" duration="5329000" />
     </task>
     <servers />
   </component>
