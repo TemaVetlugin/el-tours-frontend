@@ -1,8 +1,10 @@
 .c-catalog-product {
     padding: 0 16px;
     text-decoration: none;
-    display: block;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
     &__badges {
         position: absolute;
@@ -64,6 +66,7 @@
 
     &__price {
         margin-bottom: 14px;
+        margin-top: auto;
     }
 
     &__favorite {

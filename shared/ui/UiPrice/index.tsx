@@ -8,7 +8,7 @@ import { lodash } from "shared/utilities";
 import './index.scss';
 
 type PropsType = {
-    price: number[] | null,
+    price?: number[] | null,
     priceOffer?: number[] | null,
     quantity?: number,
 }

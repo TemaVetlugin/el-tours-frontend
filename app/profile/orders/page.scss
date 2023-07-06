@@ -13,17 +13,4 @@
             }
         }
     }
-
-    &-orders-head {
-        padding: 0 16px;
-        color: $cGrayPrimary;
-        font-size: 12px;
-        margin-bottom: 4px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 16px;
-        display: grid;
-        width: 100%;
-        grid-template-columns: 160px 60px 100px 120px 120px 1fr;
-    }
 }

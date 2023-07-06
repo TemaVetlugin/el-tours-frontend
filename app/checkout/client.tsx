@@ -3,20 +3,19 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import { useAsyncEffect, useCity, useNavigate, useObservable, useUser } from "shared/hooks";
+import { useAsyncEffect, useCity, useNavigate, useObservable, usePrivatePage, useUser } from "shared/hooks";
 import { UiButton, UiCheckbox, UiDataBoundary, UiForm, UiLink, UiMap, UiPage, UiPrice, UiWrap } from "shared/ui";
 import { ROUTES } from "shared/contants";
 import { CartService, UserService } from "shared/services";
-import { CCartTotal } from "shared/components/cart";
 import { currency } from "shared/utilities";
 import { CheckoutItemModel } from "shared/models";
 import { checkoutQuery, ordersCreateQuery } from "shared/queries/main";
 import { CCheckoutStore } from "shared/components/checkout";
+import { COrderItem, COrderTotal } from "shared/components/order";
 
 import sectionIcon from './assets/section-icon.svg';
 
 import './page.scss';
-import { COrderItem } from "shared/components/order";
 
 export const Client = observer(() => {
     const navigate = useNavigate();
@@ -32,8 +31,10 @@ export const Client = observer(() => {
         storeId: null as number | null,
     });
 
+    const isGranted = usePrivatePage(ROUTES.CART().url);
+
     useAsyncEffect(async () => {
-        if (!user.isInitialized) {
+        if (!isGranted) {
             return;
         }
         store.set("isLoading", true);
@@ -45,7 +46,7 @@ export const Client = observer(() => {
             store.set("checkoutItems", data.items.map(item => new CheckoutItemModel(item)));
         }
         store.set("isLoading", false);
-    }, [store, city, user]);
+    }, [store, city, isGranted]);
 
 
     const handleSubmit = async () => {
@@ -135,15 +136,15 @@ export const Client = observer(() => {
                                 )}
                             </div>
                             <div className="p-checkout__aside">
-                                <CCartTotal
+                                <COrderTotal
                                     total={!checkoutItem
                                         ? store.checkoutItems.map(checkoutItem => checkoutItem.order.total)
                                         : [checkoutItem.order.total]
                                     }
                                     items={!checkoutItem ? [] : [
                                         ['Кол-во товаров', checkoutItem.quantity],
-                                        ['Стоимость товаров', currency(checkoutItem.order.totalOriginal)],
-                                        ['Скидка', currency(checkoutItem.order.loyaltyDiscount)],
+                                        ['Стоимость товаров', currency(checkoutItem.order.totalOffer)],
+                                        ['Скидка', currency(checkoutItem.order.totalLoyaltyDiscount)],
                                     ]}
                                 >
                                     <UiButton
@@ -162,7 +163,7 @@ export const Client = observer(() => {
                                         Ознакомлен и согласен с условиями <UiLink href={'#'}>Пользовательского
                                         соглашения</UiLink> и <UiLink href={'#'}>Политики конфиденциальности</UiLink>
                                     </UiCheckbox>
-                                </CCartTotal>
+                                </COrderTotal>
                             </div>
                         </div>
                     </UiDataBoundary>

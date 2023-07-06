@@ -8,6 +8,7 @@ export { catalogProductsGetQuery } from './catalogProductsGet.query';
 export { checkoutQuery } from './checkout.query';
 export { compilationsQuery } from './compilations.query';
 export { compilationsGetQuery } from './compilationsGet.query';
+export { ordersQuery } from './orders.query';
 export { ordersCreateQuery } from './ordersCreate.query';
 export { ordersGetQuery } from './ordersGet.query';
 export { storesQuery } from './stores.query';

@@ -27,6 +27,7 @@ export { pencil } from "./pencil";
 export { percent } from "./percent";
 export { phone } from "./phone";
 export { plus } from "./plus";
+export { repeat } from "./repeat";
 export { ruble } from "./ruble";
 export { search } from "./search";
 export { sort } from "./sort";

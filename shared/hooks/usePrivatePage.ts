@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import { LayoutService } from "shared/services";
 import { useNavigate } from "./useNavigate";
 import { useUser } from "./useUser";
-import { ROUTES } from "shared/contants";
 
-export function usePrivatePage() {
+export function usePrivatePage(redirectUrl = '/') {
     const [isGranted, setIsGranted] = useState(false);
     const user = useUser();
     const navigate = useNavigate();
@@ -13,7 +12,7 @@ export function usePrivatePage() {
             return;
         }
         if (!user.isAuthorized) {
-            navigate(ROUTES.HOME().url);
+            navigate(redirectUrl);
             LayoutService.set("loginIsOpened", true);
             return;
         }

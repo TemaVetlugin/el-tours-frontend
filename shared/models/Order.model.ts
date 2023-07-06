@@ -3,31 +3,45 @@ import { computed, makeObservable, observable } from "mobx";
 import { ModelArrayCast, ModelCast } from "shared/casts";
 
 import { Model } from "./Model";
-import { OrderItemModelInterface, OrderItemModel } from "./OrderItem.model";
-import { StoreModelInterface, StoreModel } from "./Store.model";
+import { OrderItemModel, OrderItemModelInterface } from "./OrderItem.model";
+import { StoreModel, StoreModelInterface } from "./Store.model";
+import { OrderDeliveryTypeEnum, OrderPaymentTypeEnum, OrderStatusEnum } from "shared/enums";
 
 export interface OrderModelInterface {
     id?: number;
-    code?: string;
     createdAt?: string;
-    statusId?: number;
+    statusId?: string;
+    deliveryTypeId?: string;
+    paymentTypeId?: string;
     orderItems?: OrderItemModelInterface[],
     store?: StoreModelInterface,
     loyaltyDiscount?: number
     totalOriginal?: number
+    totalOffer?: number
+    totalLoyalty?: number
+    totalLoyaltyPromocode?: number
+    totalLoyaltyGift?: number
+    totalLoyaltyDiscount?: number
     total?: number
 }
 
 export class OrderModel extends Model<OrderModelInterface> implements OrderModelInterface {
     fillable: Array<keyof OrderModelInterface> = [
         "id",
-        "code",
         "createdAt",
         "statusId",
+        "deliveryTypeId",
+        "paymentTypeId",
         "orderItems",
         "store",
         "loyaltyDiscount",
         "totalOriginal",
+        "total",
+        "totalOffer",
+        "totalLoyalty",
+        "totalLoyaltyPromocode",
+        "totalLoyaltyGift",
+        "totalLoyaltyDiscount",
         "total",
     ];
 
@@ -37,13 +51,19 @@ export class OrderModel extends Model<OrderModelInterface> implements OrderModel
     }
 
     id = 0;
-    code = '';
     createdAt = '';
-    statusId = 0;
+    statusId = '';
+    deliveryTypeId = '';
+    paymentTypeId = '';
     orderItems: OrderItemModel[] = [];
     store = new StoreModel();
     loyaltyDiscount = 0;
     totalOriginal = 0;
+    totalOffer = 0;
+    totalLoyalty = 0;
+    totalLoyaltyPromocode = 0;
+    totalLoyaltyGift = 0;
+    totalLoyaltyDiscount = 0;
     total = 0;
 
     constructor(payload?: OrderModelInterface) {
@@ -51,15 +71,23 @@ export class OrderModel extends Model<OrderModelInterface> implements OrderModel
 
         makeObservable(this, {
             id: observable,
-            code: observable,
             createdAt: observable,
             statusId: observable,
+            deliveryTypeId: observable,
+            paymentTypeId: observable,
             orderItems: observable,
             store: observable,
+            totalOffer: observable,
+            totalLoyalty: observable,
+            totalLoyaltyPromocode: observable,
+            totalLoyaltyGift: observable,
+            totalLoyaltyDiscount: observable,
             total: observable,
-            loyaltyDiscount: observable,
-            totalOriginal: observable,
             quantity: computed,
+            code: computed,
+            status: computed,
+            deliveryType: computed,
+            paymentType: computed,
         });
 
         this.update(payload);
@@ -69,5 +97,21 @@ export class OrderModel extends Model<OrderModelInterface> implements OrderModel
         return this.orderItems.reduce((total, orderItem) => {
             return total + orderItem.quantity;
         }, 0);
+    }
+
+    get deliveryType() {
+        return OrderDeliveryTypeEnum.from(this.deliveryTypeId);
+    }
+
+    get paymentType() {
+        return OrderPaymentTypeEnum.from(this.paymentTypeId);
+    }
+
+    get status() {
+        return OrderStatusEnum.from(this.statusId);
+    }
+
+    get code() {
+        return `${this.id}`.padStart(6, '0')
     }
 }

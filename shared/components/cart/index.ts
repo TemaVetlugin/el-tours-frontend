@@ -1,2 +1,1 @@
-export {CCartItem} from './CCartItem'
-export {CCartTotal} from './CCartTotal'
+export { CCartItem } from './CCartItem'

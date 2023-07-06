@@ -16,7 +16,7 @@ export const COrderItem = observer(({ orderItem }: PropsType) => {
         <div className="c-order-item">
             <div
                 className="c-order-item__image"
-                style={{ backgroundImage: `url(${orderItem.catalogProduct.image})` }}
+                style={{ backgroundImage: `url(${orderItem.catalogProduct?.image})` }}
             />
             <div className="c-order-item__body">
                 <div className="c-order-item__header">

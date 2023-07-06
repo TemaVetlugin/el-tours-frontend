@@ -10,13 +10,11 @@ import './page.scss';
 export default async function Page() {
     const cityId = Cookie.get('cityId');
     const { data, description } = await Cache.remember(
-        'boot',
+        `homeQuery:${cityId}`,
         async () => await homeQuery({
             cityId: cityId === null ? cityId : +cityId
         }),
     );
-
-    console.log(description)
 
     return (
         <Client

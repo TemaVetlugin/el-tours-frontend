@@ -27,6 +27,8 @@ export interface CatalogProductModelInterface {
     isThermolabile?: boolean,
     instructionFull?: string,
     description?: string,
+    dosage?: string,
+    packageAmount?: string,
     instructionSpecial?: string,
     indications?: string,
     contraindications?: string,
@@ -56,6 +58,8 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
         "manufacturer",
         "images",
         "barcodes",
+        "dosage",
+        "packageAmount",
         "isThermolabile",
         "instructionFull",
         "description",
@@ -96,6 +100,8 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
     withPrescription = true;
     instructionFull = '';
     description = '';
+    dosage = '';
+    packageAmount = '';
     instructionSpecial = '';
     indications = '';
     contraindications = '';
@@ -131,6 +137,8 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
             country: observable,
             manufacturer: observable,
             images: observable,
+            dosage: observable,
+            packageAmount: observable,
             barcodes: observable,
             isThermolabile: observable,
             withPrescription: observable,

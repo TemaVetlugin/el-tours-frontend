@@ -15,6 +15,7 @@ export { UiLoading } from './UiLoading';
 export { UiMap } from './UiMap';
 export { UiModal } from './UiModal';
 export { UiPage } from './UiPage';
+export { UiPanel } from './UiPanel';
 export { UiPrice } from './UiPrice';
 export { UiQuantity } from './UiQuantity';
 export { UiRadio } from './UiRadio';

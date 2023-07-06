@@ -1,6 +1,6 @@
 import { makeEnum } from "./utilities/makeEnum";
 
-export const DeliveryTypeEnum = makeEnum({
+export const OrderDeliveryTypeEnum = makeEnum({
     Selfpickup: {
         id: 'selfpickup',
         name: 'Самовывоз'

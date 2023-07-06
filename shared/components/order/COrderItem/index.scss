@@ -3,10 +3,7 @@
     align-items: flex-start;
     width: 100%;
     padding: 16px 0;
-
-    &:not(&:last-child) {
-        border-bottom: 1px solid #CED8F1;;
-    }
+    border-bottom: 1px solid #CED8F1;;
 
     &__image {
         width: 76px;

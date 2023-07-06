@@ -60,11 +60,13 @@ export const UserService = makeService(class {
         });
     }
 
-    isAuthorized = () => {
+    isAuthorized = (showModal = true) => {
         if (this.user.isAuthorized) {
             return true;
         }
-        LayoutService.loginIsOpened = true;
+        if (showModal) {
+            LayoutService.loginIsOpened = true;
+        }
         return false;
     }
 

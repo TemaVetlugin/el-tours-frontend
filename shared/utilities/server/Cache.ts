@@ -33,15 +33,19 @@ export const Cache = new class implements CacheType {
 
     get = async <T>(key: any) => {
         if (!this.redis) {
+            console.log(1)
             return null;
         }
         let result = await this.redis.get(this.key(key));
         if (!result) {
+            console.log(2)
             return null;
         }
         try {
+            console.log(3)
             return JSON.parse(result) as T | null;
         } catch (e) {
+            console.log(4)
         }
         return null;
     }

@@ -14,24 +14,24 @@ type PropsType = {
     items?: [string | number, string | number][]
 }
 
-export const CCartTotal = observer(({ children, items, total }: PropsType) => {
+export const COrderTotal = observer(({ children, items, total }: PropsType) => {
     return (
-        <div className="c-cart-total">
+        <div className="c-order-total">
             {total && (
                 <>
-                    <div className="c-cart-total__title">Итого</div>
-                    <div className="c-cart-total__price">
+                    <div className="c-order-total__title">Итого</div>
+                    <div className="c-order-total__price">
                         <UiPrice price={total}/>
                     </div>
                 </>
             )}
             {!!items && items.map((item) => {
                 return (
-                    <div key={`${item[0]}${item[1]}`} className="c-cart-total__fields">
-                        <div className="c-cart-total-field">
-                            <div className="c-cart-total-field__name">{item[0]}</div>
-                            <div className="c-cart-total-field__row"/>
-                            <div className="c-cart-total-field__value">
+                    <div key={`${item[0]}${item[1]}`} className="c-order-total__fields">
+                        <div className="c-order-total-field">
+                            <div className="c-order-total-field__name">{item[0]}</div>
+                            <div className="c-order-total-field__row"/>
+                            <div className="c-order-total-field__value">
                                 {item[1]}
                             </div>
                         </div>
@@ -39,7 +39,7 @@ export const CCartTotal = observer(({ children, items, total }: PropsType) => {
                 )
             })}
             {children && (
-                <div className="c-cart-total__children">
+                <div className="c-order-total__children">
                     {children}
                 </div>
             )}

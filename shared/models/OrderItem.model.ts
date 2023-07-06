@@ -13,7 +13,7 @@ export interface OrderItemModelInterface {
     priceOffer?: number;
     totalOffer?: number;
     total?: number;
-    catalogProduct?: CatalogProductModelInterface;
+    catalogProduct?: CatalogProductModelInterface | null;
     catalogProductId?: number;
 }
 
@@ -41,7 +41,7 @@ export class OrderItemModel extends Model<OrderItemModelInterface> implements Or
     priceOffer = 0;
     totalOffer = 0;
     total = 0;
-    catalogProduct = new CatalogProductModel();
+    catalogProduct: CatalogProductModel | null = null;
     catalogProductId = 0;
 
     constructor(payload?: OrderItemModelInterface) {

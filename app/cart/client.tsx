@@ -6,22 +6,24 @@ import classnames from "classnames";
 
 import { UiButton, UiDataBoundary, UiIcon, UiPage, UiWrap } from "shared/ui";
 import { COLORS, ROUTES } from "shared/contants";
-import { CartService } from "shared/services";
-import { CCartItem, CCartTotal } from "shared/components/cart";
-import { useAsyncEffect, useCity, useObservable, useUser } from "shared/hooks";
+import { CartService, UserService } from "shared/services";
+import { CCartItem } from "shared/components/cart";
+import { COrderTotal } from "shared/components/order";
+import { useAsyncEffect, useCity, useNavigate, useObservable, useUser } from "shared/hooks";
 import { CatalogProductModel, StoreModel } from "shared/models";
 import { cartQuery } from "shared/queries/frontend";
 import { CCatalogProductsSlider } from "shared/components/catalog";
 import { currency } from "shared/utilities";
-import { DeliveryTypeEnum } from "shared/enums";
+import { OrderDeliveryTypeEnum } from "shared/enums";
 
 import './page.scss';
 
 export const Client = observer(() => {
     const city = useCity();
     const user = useUser();
+    const navigate = useNavigate();
     const store = useObservable({
-        deliveryType: DeliveryTypeEnum.Selfpickup.id,
+        deliveryType: OrderDeliveryTypeEnum.Selfpickup.id,
         deliveryStore: null as StoreModel | null,
         recommendations: [] as CatalogProductModel[]
     });
@@ -71,9 +73,9 @@ export const Client = observer(() => {
                             <div className="p-cart__header">
                                 <div className="p-cart-delivery">
                                     <div
-                                        onClick={() => store.set("deliveryType", DeliveryTypeEnum.Selfpickup.id)}
+                                        onClick={() => store.set("deliveryType", OrderDeliveryTypeEnum.Selfpickup.id)}
                                         className={classnames('p-cart-delivery-item', {
-                                            'p-cart-delivery-item--active': store.deliveryType === DeliveryTypeEnum.Selfpickup.id
+                                            'p-cart-delivery-item--active': store.deliveryType === OrderDeliveryTypeEnum.Selfpickup.id
                                         })}
                                     >
                                         <UiIcon size={24} name={'deliverySelfpickup'}/>
@@ -84,9 +86,9 @@ export const Client = observer(() => {
                                     </div>
                                     {store.deliveryStore && (
                                         <div
-                                            onClick={() => store.set("deliveryType", DeliveryTypeEnum.Courier.id)}
+                                            onClick={() => store.set("deliveryType", OrderDeliveryTypeEnum.Courier.id)}
                                             className={classnames('p-cart-delivery-item', {
-                                                'p-cart-delivery-item--active': store.deliveryType === DeliveryTypeEnum.Courier.id
+                                                'p-cart-delivery-item--active': store.deliveryType === OrderDeliveryTypeEnum.Courier.id
                                             })}
                                         >
                                             <UiIcon size={24} name={'deliveryCourier'}/>
@@ -104,7 +106,7 @@ export const Client = observer(() => {
                             ))}
                         </div>
                         <div className="p-cart__aside">
-                            <CCartTotal
+                            <COrderTotal
                                 total={CartService.totalPrices()}
                                 items={[
                                     ['Товаров', CartService.quantity]
@@ -116,10 +118,15 @@ export const Client = observer(() => {
                                 </div>
                                 <UiButton
                                     isLoading={CartService.isSaving}
-                                    href={ROUTES.CHECKOUT().url}
+                                    onClick={() => {
+                                        if (!UserService.isAuthorized()) {
+                                            return;
+                                        }
+                                        navigate(ROUTES.CHECKOUT());
+                                    }}
                                     label={'Продолжить'}
                                 />
-                            </CCartTotal>
+                            </COrderTotal>
                         </div>
                     </div>
                 </UiDataBoundary>

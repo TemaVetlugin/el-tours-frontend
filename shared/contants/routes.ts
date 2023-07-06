@@ -34,6 +34,11 @@ export const ROUTES = {
         name,
         url: `/compilation/${slug}`,
     }),
+    NOT_FOUND: (): RouteType => ({
+        id: 'search',
+        name: 'Страница не найдена',
+        url: `/404`,
+    }),
     COMPILATIONS: (): RouteType => ({
         id: 'compilations',
         name: 'Подборки',
