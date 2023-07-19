@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/cart/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkout/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/favorites/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/favorites/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/news/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/news/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogFilter/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogFilter/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogHeader/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogHeader/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogSort/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogSort/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/profile/CProfileMenu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/profile/CProfileMenu/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/hooks/usePrivatePage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/hooks/usePrivatePage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeader/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeader/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderLogin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderLogin/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderSearch/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderSearch/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/hooks/useNavigate.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +97,7 @@
       <workItem from="1689660989784" duration="17000" />
       <workItem from="1689663098802" duration="11115000" />
       <workItem from="1689764419799" duration="2753000" />
-      <workItem from="1689791425761" duration="11576000" />
+      <workItem from="1689791425761" duration="11601000" />
     </task>
     <servers />
   </component>
