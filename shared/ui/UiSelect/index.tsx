@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { observer } from "mobx-react-lite";
 import classnames from "classnames";
 
@@ -24,7 +24,8 @@ export const UiSelect = observer((
     {
         placeholder = 'Не выбрано',
         value,
-        onChange = () => {},
+        onChange = () => {
+        },
         className,
         name = 'ui-select',
         style,
@@ -45,12 +46,18 @@ export const UiSelect = observer((
         store.set('isOpened', false);
     });
 
-    const item = items.find(item => item.id == value);
-
     const handleChange = (value: number | string | null) => {
         store.set("isOpened", false);
         onChange({ name, value });
     }
+
+    const item = useMemo(() => {
+        const item = items.find(item => item.id == value);
+        if (!item || !item.id) {
+            return null;
+        }
+        return item;
+    }, [items, value]);
 
     return (
         <div ref={ref} className={classNames} style={style}>

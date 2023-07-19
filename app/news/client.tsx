@@ -3,18 +3,19 @@
 import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 
-import { UiDataBoundary, UiGrid, UiPage, UiWrap } from "shared/ui";
+import { UiDataBoundary, UiGrid, UiPage, UiSelect, UiWrap } from "shared/ui";
 import { ROUTES } from "shared/contants";
-import { useAsyncEffect, useCity, useObservable, useSearchParams } from "shared/hooks";
+import { useAsyncEffect, useCity, useNavigate, useObservable, useSearchParams, useRouter } from "shared/hooks";
 import { NewsModel, PaginationModel, TagModel } from "shared/models";
 import { newsQuery, tagsQuery } from "shared/queries/main";
 import { CTileNews } from "shared/components/tiles";
 
 import './page.scss';
-import { wait } from "shared/utilities";
 
 export const Client = observer(() => {
     const city = useCity();
+    const navigate = useNavigate();
+    const router = useRouter()
     const store = useObservable({
         tags: [] as TagModel[],
         news: [] as NewsModel[],
@@ -22,7 +23,7 @@ export const Client = observer(() => {
         isLoading: true,
         isShallowLoading: true,
     });
-    const { page } = useSearchParams({ page: 1 })
+    const searchParams = useSearchParams({ page: 1, tagId: null as null | number })
 
     useEffect(() => {
         document.title = 'Новости';
@@ -37,9 +38,9 @@ export const Client = observer(() => {
 
     useAsyncEffect(async () => {
         store.set("isShallowLoading", true);
-        await wait(1000);
         const { isSuccess, data } = await newsQuery({
-            page,
+            page: searchParams.page,
+            tagId: searchParams.tagId,
             cityId: city.id
         });
         if (isSuccess && data) {
@@ -48,16 +49,32 @@ export const Client = observer(() => {
         }
         store.set("isLoading", false);
         store.set("isShallowLoading", false);
-    }, [page, city]);
+    }, [searchParams.page, city]);
 
     return (
         <UiPage>
             <UiWrap>
                 <UiPage.Breadcrumbs items={[ROUTES.NEWS()]}/>
                 <UiPage.Title value={'Новости'}/>
+                {store.tags.length > 0 && (
+                    <UiSelect
+                        placeholder={'Все рубрики'}
+                        items={[
+                            { id: null, name: 'Все рубрики' },
+                            ...store.tags
+                        ]}
+                        value={searchParams.tagId}
+                        onChange={(data) => {
+                            router.replace(null, {
+                                ...searchParams,
+                                tagId: data.value
+                            });
+                        }}
+                    />
+                )}
                 <UiDataBoundary isLoading={store.isLoading} isShallowLoading={store.isShallowLoading}>
-                    <UiGrid columns={4} gap={20}>
-                        {store.news.map(news => <CTileNews key={news.id} value={news}/>)}
+                    <UiGrid columns={4} gap={[20, 50]}>
+                        {store.news.map(news => <CTileNews key={news.id} isLight value={news}/>)}
                     </UiGrid>
                 </UiDataBoundary>
                 <UiPage.Pagination pagination={store.pagination}/>

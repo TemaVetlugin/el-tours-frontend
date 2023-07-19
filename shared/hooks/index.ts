@@ -14,5 +14,6 @@ export { useObserve } from './useObserve';
 export { useOnClickOutside } from './useOnClickOutside';
 export { usePrivatePage } from './usePrivatePage';
 export { useReaction } from './useReaction';
+export { useRouter } from './useRouter';
 export { useSearchParams } from './useSearchParams';
 export { useUser } from './useUser';

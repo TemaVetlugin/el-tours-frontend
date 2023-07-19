@@ -39,7 +39,7 @@ export const CCatalog = observer((
         pagination: new PaginationModel()
     });
     const city = useCity();
-    const searchParams = useSearchParams({});
+    const searchParams = useSearchParams();
 
     useAsyncEffect(async () => {
         const { data, isSuccess } = await catalogProductsFiltersQuery({

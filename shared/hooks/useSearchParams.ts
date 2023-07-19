@@ -2,7 +2,9 @@ import { useEffect, useMemo, useState } from "react";
 import qs from "qs";
 import { useSearchParams as useSearchParamsNext } from "next/navigation";
 
-export function useSearchParams<T extends Record<string, any>>(defaultValue: T): T & Record<string, any> {
+type TransformerType = 'number' | 'nullable';
+
+export function useSearchParams<T extends Record<string, any>>(defaultValue: T | null = null): T & Record<string, any> {
     const searchParams = useSearchParamsNext();
 
     const [searchParamsString, setSearchParamsString] = useState<string>(searchParams.toString());
@@ -16,22 +18,21 @@ export function useSearchParams<T extends Record<string, any>>(defaultValue: T):
         const handler = () => {
             setSearchParamsString(window.location.search.substring(1));
         }
-        window.addEventListener('historyReplace', handler);
-        return () => window.removeEventListener('historyReplace', handler);
+        window.addEventListener('router.replace', handler);
+        return () => window.removeEventListener('router.replace', handler);
     }, []);
 
     return useMemo(() => {
         if (!searchParamsString) {
             return defaultValue;
         }
-        const parsed = qs.parse(searchParamsString);
-        const result: Record<string, any> = { ...defaultValue };
+        const parsed = qs.parse(searchParamsString, {
+            interpretNumericEntities: true,
+        });
+        const result: Record<string, any> = defaultValue ? { ...defaultValue } : {};
         for (let key in parsed) {
             result[key] = parsed[key];
         }
-        return {
-            ...defaultValue,
-            ...parsed
-        };
-    }, [searchParamsString]) as T & Record<string, any>;
+        return result;
+    }, [defaultValue, searchParamsString]) as T & Record<string, any>;
 }

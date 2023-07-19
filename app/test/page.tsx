@@ -2,14 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 
-import { useNavigate, useObservable, useObserve } from "shared/hooks";
+import { useObserve } from "shared/hooks";
 import { UiPage } from "shared/ui";
 import { useRouter } from "next/navigation";
 
 export default function TestPage() {
     const [count, setCount] = useState(1)
     const router = useRouter();
-    const navigate = useNavigate();
 
     useEffect(() => {
         console.log('useEffect')

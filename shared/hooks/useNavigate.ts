@@ -20,7 +20,8 @@ export function useNavigate() {
 
         if (!!params) {
             url = url + '?' + qs.stringify(params, {
-                arrayFormat: 'brackets'
+                arrayFormat: 'brackets',
+                skipNulls: true
             });
         }
 
@@ -33,7 +34,7 @@ export function useNavigate() {
                 as: url,
                 new: url
             }, "", url);
-            window.dispatchEvent(new Event('historyReplace'));
+            window.dispatchEvent(new Event('router.replace'));
         } else {
             router.push(url);
         }

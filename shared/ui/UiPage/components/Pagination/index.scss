@@ -1,4 +1,4 @@
-.ui-pagination {
+.ui-pages-pagination {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,47 +11,41 @@
         align-items: center;
         width: 40px;
         height: 40px;
-        border: $cTypo 1px solid;
-        border-radius: 4px;
+        border: $cBorder 1px solid;
+        border-radius: 100%;
         cursor: pointer;
         color: $cTypo;
-        font-size: 18px;
-        font-weight: 700;
-        line-height: 22px;
+        font-size: 14px;
+        line-height: 18px;
         transition: 0.2s;
 
-        &--aside {
-            border: 1px solid #BCBCBC;
-        }
-
         &--active {
-            background: $cGreenPrimary;
-            border: $cGreenPrimary 1px solid;
-            border-radius: 6px 2px;
-            color: $cWhite;
+            background: $cBorder;
         }
 
         &:hover {
-            border: $cGreenPrimary 1px solid;
-            background: $cGreenPrimary;
+            border: $cTypo 1px solid;
         }
     }
 
-    &-more {
+    &-aside {
         display: flex;
-        justify-content: center;
         align-items: center;
-        width: 76px;
-        height: 76px;
-        margin: 0 auto;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-        background: $cWhite;
-        border-radius: 100%;
+        padding: 10px 0;
         cursor: pointer;
         color: $cGreenPrimary;
-        text-transform: uppercase;
-        font-size: 15px;
-        font-weight: 700;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 300;
         line-height: 18px;
+        transition: 0.2s;
+        gap: 4px;
+
+        @include iconColor($cGreenPrimary);
+
+        &:hover {
+            color: $cGreenSecondary;
+            @include iconColor($cGreenSecondary);
+        }
     }
 }

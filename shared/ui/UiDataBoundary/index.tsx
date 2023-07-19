@@ -62,14 +62,14 @@ export const UiDataBoundary = observer((
     }
 
     return (
-        <div className={classnames('ui-data-boundary', className)}>
+        <div className={classnames('ui-data-boundary', className, {
+            'ui-data-boundary--shallow': isShallowLoading,
+        })}>
             {children}
-            {isShallowLoading && (
-                <div className='ui-data-boundary__loading ui-data-boundary__loading--shallow'>
-                    <img src="/assets/images/logo.svg" alt=""/>
-                    <UiLoading size={40}/>
-                </div>
-            )}
+            <div className='ui-data-boundary__loading ui-data-boundary__loading--shallow'>
+                <img src="/assets/images/logo.svg" alt=""/>
+                <UiLoading size={40}/>
+            </div>
         </div>
     );
 });

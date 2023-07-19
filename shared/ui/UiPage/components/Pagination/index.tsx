@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 import classnames from "classnames";
 
 import { PaginationModel } from "shared/models";
-import { useNavigate, useSearchParams } from "shared/hooks";
+import { useRouter, useSearchParams } from "shared/hooks";
 import { UiIcon } from "shared/ui";
 
 import './index.scss';
@@ -16,19 +16,17 @@ type PropsType = {
 }
 
 export const Pagination = observer(({ pagination, className }: PropsType) => {
-    const navigate = useNavigate();
+    const router = useRouter();
     const searchParams = useSearchParams({});
     const { page } = pagination;
 
     const handleChange = (page: number | string | undefined) => {
-        window.scrollTo({
-            top: 0
-        });
-
-        navigate(null, {
+        window.scrollTo({ top: 0 });
+        pagination.update({ page: page || 1 });
+        router.replace(null, {
             ...searchParams,
             page: page || 1
-        }, true)
+        });
     }
 
     if (pagination.pages < 2) {
@@ -36,17 +34,16 @@ export const Pagination = observer(({ pagination, className }: PropsType) => {
     }
 
     return (
-        <div className={classnames('ui-pagination', className)}>
-            <div className="ui-pagination__page ui-pagination__page--aside" onClick={() => {
-                if (page > 1) {
-                    handleChange(page - 1);
-                }
-            }}>
-                <UiIcon size={10} name='chevronLeft'/>
-            </div>
+        <div className={classnames('ui-pages-pagination', className)}>
+            {page > 1 && (
+                <div className="ui-pages-pagination-aside" onClick={() => handleChange(page - 1)}>
+                    <UiIcon size={24} name='chevronLeft'/>
+                    <span>Назад</span>
+                </div>
+            )}
             {pagination.items.map(item => {
-                const className = classnames('ui-pagination__page', {
-                    'ui-pagination__page--active': item.id == page
+                const className = classnames('ui-pages-pagination__page', {
+                    'ui-pages-pagination__page--active': item.id == page
                 })
                 return (
                     <div key={item.id} className={className} onClick={() => handleChange(item.id)}>
@@ -54,13 +51,12 @@ export const Pagination = observer(({ pagination, className }: PropsType) => {
                     </div>
                 )
             })}
-            <div className="ui-pagination__page ui-pagination__page--aside" onClick={() => {
-                if (page < pagination.pages) {
-                    handleChange(page + 1);
-                }
-            }}>
-                <UiIcon size={10} name='chevronRight'/>
-            </div>
+            {page < pagination.pages && (
+                <div className="ui-pages-pagination-aside" onClick={() => handleChange(page + 1)}>
+                    <span>Далее</span>
+                    <UiIcon size={24} name='chevronRight'/>
+                </div>
+            )}
         </div>
     )
 });
