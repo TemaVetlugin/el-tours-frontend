@@ -7,7 +7,7 @@ import Link from "next/link";
 import { UiButton, UiCheckbox, UiForm, UiFormControl, UiIcon, UiInput, UiModal } from "shared/ui";
 import { COLORS, MASKS, ROUTES } from "shared/contants";
 import { LayoutService, UserService } from "shared/services";
-import { useMask, useNavigate, useObservable, useUser } from "shared/hooks";
+import { useMask, useObservable, useRouter, useUser } from "shared/hooks";
 import { isMobilePhone, isRequired } from "shared/validations";
 import { useValidation } from "shared/hooks/useValidation";
 import { usersConfirmQuery, usersLoginQuery } from "shared/queries/main";
@@ -16,7 +16,7 @@ import './index.scss';
 
 export const LayoutHeaderLogin = observer(() => {
     const user = useUser();
-    const navigate = useNavigate();
+    const router = useRouter();
     const store = useObservable({
         errorMessage: '',
         isAccepted: 1,
@@ -76,7 +76,7 @@ export const LayoutHeaderLogin = observer(() => {
                     if (!UserService.isAuthorized()) {
                         return;
                     }
-                    navigate(ROUTES.PROFILE().url);
+                    router.push(ROUTES.PROFILE());
                 }}
                 colors={{
                     button: [COLORS.LIGHT_BLUE, COLORS.GREEN_SECONDARY],

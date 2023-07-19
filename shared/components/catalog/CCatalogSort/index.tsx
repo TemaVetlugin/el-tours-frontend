@@ -5,13 +5,13 @@ import classnames from "classnames";
 import { observer } from "mobx-react-lite";
 
 import { UiIcon } from "shared/ui";
-import { useNavigate, useObservable, useOnClickOutside, useSearchParams } from "shared/hooks";
+import { useObservable, useOnClickOutside, useRouter, useSearchParams } from "shared/hooks";
 
 import './index.scss';
 
 export const CCatalogSort = observer(() => {
     const ref = useRef<HTMLDivElement>(null);
-    const navigate = useNavigate();
+    const router = useRouter();
     const params = useSearchParams({
         sort: 'name_asc'
     });
@@ -44,7 +44,7 @@ export const CCatalogSort = observer(() => {
             query['sort'] = id;
         }
 
-        navigate(null, query, true);
+        router.replace(null, query);
         setTimeout(() => store.set("isOpened", false), 10);
     }
 

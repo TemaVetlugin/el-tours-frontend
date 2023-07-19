@@ -7,7 +7,7 @@ import { observer } from "mobx-react-lite";
 import { UiButton, UiIcon, UiLink, UiWrap } from "shared/ui";
 import { COLORS, ROUTES } from "shared/contants";
 import { CartService, UserService } from "shared/services";
-import { useNavigate } from "shared/hooks";
+import { useRouter } from "shared/hooks";
 
 import { LayoutHeaderLocation } from "../LayoutHeaderLocation";
 import { LayoutHeaderMenuPrimary } from "../LayoutHeaderMenuPrimary";
@@ -20,7 +20,7 @@ import { LayoutHeaderPromo } from "../LayoutHeaderPromo";
 import './index.scss';
 
 export const LayoutHeader = observer(() => {
-    const navigate = useNavigate();
+    const router = useRouter();
     return (
         <div className='layout-header'>
             <UiWrap>
@@ -44,7 +44,7 @@ export const LayoutHeader = observer(() => {
                                 if (!UserService.isAuthorized()) {
                                     return;
                                 }
-                                navigate(ROUTES.FAVORITES())
+                                router.push(ROUTES.FAVORITES())
                             }}
                             notification={UserService.user.userFavorites.length}
                             size={'icon'}

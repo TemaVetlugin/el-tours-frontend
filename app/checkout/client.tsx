@@ -3,7 +3,7 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import { useAsyncEffect, useCity, useNavigate, useObservable, usePrivatePage, useUser } from "shared/hooks";
+import { useAsyncEffect, useCity, useObservable, usePrivatePage, useRouter } from "shared/hooks";
 import {
     UiButton,
     UiCheckbox,
@@ -50,9 +50,8 @@ type PropsType = {
 export const Client = observer(({ deliveryTypeId }: PropsType) => {
     const isDeliveryCourier = deliveryTypeId === OrderDeliveryTypeEnum.Courier.id;
 
-    const navigate = useNavigate();
+    const router = useRouter();
     const city = useCity();
-    const user = useUser();
     const store = useObservable({
         isLoading: true,
         isSubmitting: false,
@@ -84,7 +83,7 @@ export const Client = observer(({ deliveryTypeId }: PropsType) => {
         if (isSuccess && data) {
             if (data.items.length === 0) {
                 alert('В выбранном городе данный тип доставки недоступен');
-                navigate(ROUTES.CART());
+                router.push(ROUTES.CART());
                 return;
             }
             store.set("checkoutItems", data.items.map(item => new CheckoutItemModel(item)));
@@ -120,7 +119,7 @@ export const Client = observer(({ deliveryTypeId }: PropsType) => {
         });
 
         if (data) {
-            navigate(ROUTES.ORDER(data.item.id).url)
+            router.push(ROUTES.ORDER(data.item.id).url)
         } else {
             store.set("isSubmitting", false);
         }

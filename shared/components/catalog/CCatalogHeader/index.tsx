@@ -6,7 +6,7 @@ import { observer } from "mobx-react-lite";
 
 import { CatalogFilterModel } from "shared/models";
 import { UiIcon } from "shared/ui";
-import { useNavigate, useSearchParams } from "shared/hooks";
+import { useRouter, useSearchParams } from "shared/hooks";
 
 import './index.scss';
 
@@ -15,7 +15,7 @@ type PropsType = {
 }
 
 export const CCatalogHeader = observer(({ catalogFilters = [] }: PropsType) => {
-    const navigate = useNavigate();
+    const router = useRouter();
     const hasActiveFilters = catalogFilters.some(catalogFilter => !!catalogFilter.value);
     const searchParams = useSearchParams({});
 
@@ -34,7 +34,7 @@ export const CCatalogHeader = observer(({ catalogFilters = [] }: PropsType) => {
             }
         }
 
-        navigate(null, query, true);
+        router.replace(null, query);
     }
 
     return (
@@ -44,7 +44,7 @@ export const CCatalogHeader = observer(({ catalogFilters = [] }: PropsType) => {
                     <div className="c-catalog-header__clear">
                         <span>Сбросить фильтры</span>
                         <i onClick={() => {
-                            navigate(null, undefined, true);
+                            router.replace(null, {});
                         }}>
                             <UiIcon size={8} name={"close"}/>
                         </i>

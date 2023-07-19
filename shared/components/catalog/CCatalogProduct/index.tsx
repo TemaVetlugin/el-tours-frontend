@@ -7,8 +7,7 @@ import { CatalogProductModel } from "shared/models";
 import { UiButton, UiIcon, UiLink, UiPrice, UiQuantity } from "shared/ui";
 import { COLORS, ROUTES } from "shared/contants";
 import { CartService, UserService } from "shared/services";
-import { userFavoriteToggleQuery } from "shared/queries/main";
-import { useNavigate, useObservable, useUser } from "shared/hooks";
+import { useObservable, useRouter } from "shared/hooks";
 
 import './index.scss';
 
@@ -17,7 +16,7 @@ type PropsType = {
 }
 
 export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
-    const navigate = useNavigate();
+    const router = useRouter();
     const store = useObservable({
         isLoading: false,
     })
@@ -98,7 +97,7 @@ export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
                                 onClick={(e) => {
                                     e.preventDefault();
                                     e.stopPropagation();
-                                    navigate(ROUTES.CART());
+                                    router.push(ROUTES.CART());
                                 }}
                                 label={'В корзине'}
                             />

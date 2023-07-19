@@ -6,12 +6,12 @@ import { observer } from "mobx-react-lite";
 import { UiIcon, UiLink } from "shared/ui";
 import { ROUTES } from "shared/contants";
 import { CartService, UserService } from "shared/services";
-import { useNavigate } from "shared/hooks";
+import { useRouter } from "shared/hooks";
 
 import './index.scss';
 
 export const CProfileMenu = observer(() => {
-    const navigate = useNavigate();
+    const router = useRouter();
     return (
         <div className="c-profile-menu">
             <UiLink href={ROUTES.PROFILE().url} className={'c-profile-menu-item'}>
@@ -46,7 +46,7 @@ export const CProfileMenu = observer(() => {
             </UiLink>
             <div className="c-profile-menu__logout" onClick={() => {
                 UserService.logout();
-                navigate(ROUTES.HOME());
+                router.push(ROUTES.HOME());
             }}>
                 <span>Выйти</span>
                 <UiIcon size={24} name={'logout'}/>

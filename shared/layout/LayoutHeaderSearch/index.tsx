@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import { UiButton, UiForm, UiIcon, UiInput } from "shared/ui";
 import { LayoutService } from "shared/services";
-import { useNavigate, useObservable, useSearchParams } from "shared/hooks";
+import { useObservable, useRouter, useSearchParams } from "shared/hooks";
 import { ROUTES } from "shared/contants";
 
 import './index.scss';
@@ -16,7 +16,7 @@ export const LayoutHeaderSearch = observer(() => {
         query: '',
     });
 
-    const navigate = useNavigate();
+    const router = useRouter();
 
     const store = useObservable({
         query: searchParams.query
@@ -30,7 +30,7 @@ export const LayoutHeaderSearch = observer(() => {
         if (!store.query) {
             return;
         }
-        navigate(ROUTES.SEARCH().url, {
+        router.push(ROUTES.SEARCH(), {
             query: store.query
         });
     }

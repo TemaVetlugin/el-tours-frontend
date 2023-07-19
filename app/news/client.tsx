@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 
 import { UiDataBoundary, UiGrid, UiPage, UiSelect, UiWrap } from "shared/ui";
 import { ROUTES } from "shared/contants";
-import { useAsyncEffect, useCity, useNavigate, useObservable, useSearchParams, useRouter } from "shared/hooks";
+import { useAsyncEffect, useCity, useObservable, useRouter, useSearchParams } from "shared/hooks";
 import { NewsModel, PaginationModel, TagModel } from "shared/models";
 import { newsQuery, tagsQuery } from "shared/queries/main";
 import { CTileNews } from "shared/components/tiles";
@@ -14,7 +14,6 @@ import './page.scss';
 
 export const Client = observer(() => {
     const city = useCity();
-    const navigate = useNavigate();
     const router = useRouter()
     const store = useObservable({
         tags: [] as TagModel[],

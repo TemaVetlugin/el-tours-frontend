@@ -3,11 +3,10 @@
 import React, { useEffect } from "react";
 import classnames from "classnames";
 import { observer } from "mobx-react-lite";
-import { usePathname, useRouter } from "next/navigation";
 
 import { UiSkeleton } from "shared/ui";
 import { CatalogFilterModel } from "shared/models";
-import { useNavigate, useObservable, useSearchParams } from "shared/hooks";
+import { useObservable, useRouter, useSearchParams } from "shared/hooks";
 
 import { CCatalogFilterItem } from "./components/CCatalogFilterItem";
 
@@ -19,21 +18,21 @@ type PropsType = {
 }
 
 export const CCatalogFilter = observer(({ catalogFilters = [], isLoading }: PropsType) => {
-    const navigate = useNavigate();
-    const params = useSearchParams({});
+    const router = useRouter();
+    const searchParams = useSearchParams({});
     const store = useObservable({
         isOpened: false
     });
     useEffect(() => {
-        if (!params) {
+        if (!searchParams) {
             return;
         }
         catalogFilters.forEach(catalogFilter => {
-            if (params.hasOwnProperty(catalogFilter.code)) {
+            if (searchParams.hasOwnProperty(catalogFilter.code)) {
                 catalogFilter.update({
                     isOpened: true
                 });
-                catalogFilter.setValue(params[catalogFilter.code]);
+                catalogFilter.setValue(searchParams[catalogFilter.code]);
                 return;
             }
             catalogFilter.update({
@@ -41,11 +40,11 @@ export const CCatalogFilter = observer(({ catalogFilters = [], isLoading }: Prop
             })
 
         });
-    }, [catalogFilters, params])
+    }, [catalogFilters, searchParams])
 
     const handleSubmit = () => {
         const query = {
-            ...params,
+            ...searchParams,
         };
         delete query['page'];
 
@@ -57,7 +56,7 @@ export const CCatalogFilter = observer(({ catalogFilters = [], isLoading }: Prop
             }
         });
 
-        navigate(null, query, true);
+        router.replace(null, query);
         store.set("isOpened", false);
     }
 
