@@ -73,6 +73,9 @@ export type { StoreBrandModelInterface } from './StoreBrand.model';
 export { SubstanceModel } from './Substance.model';
 export type { SubstanceModelInterface } from './Substance.model';
 
+export { TagModel } from './Tag.model';
+export type { TagModelInterface } from './Tag.model';
+
 export { UserModel } from './User.model';
 export type { UserModelInterface } from './User.model';
 

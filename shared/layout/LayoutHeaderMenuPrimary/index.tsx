@@ -7,6 +7,7 @@ import { HeaderMenuModelInterface } from "shared/models";
 
 import { LayoutService } from "shared/services";
 import { HeaderMenuTypeEnum } from "shared/enums";
+import { UiLink } from "shared/ui";
 
 import './index.scss';
 
@@ -18,9 +19,9 @@ export const LayoutHeaderMenuPrimary = observer(() => {
     return (
         <div className="layout-header-menu-primary">
             {LayoutService.headerMenu.filter(headerMenu => headerMenu.type.is(HeaderMenuTypeEnum.Primary)).map(item => (
-                <a key={item.id} href={item.href} className="layout-header-menu-primary__item">
+                <UiLink key={item.id} href={item.href} className="layout-header-menu-primary__item">
                     {item.name}
-                </a>
+                </UiLink>
             ))}
         </div>
     );

@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 
 import { useObservable } from "shared/hooks";
 import { UiButton, UiCard, UiIcon, UiPage, UiPrice, UiQuantity } from "shared/ui";
-import { CatalogProductModel, CatalogProductModelInterface } from "shared/models";
+import { CatalogProductModel, CatalogProductModelInterface, CatalogProductOfferModel } from "shared/models";
 import { CartService, CatalogService } from "shared/services";
 import { COLORS, ROUTES } from "shared/contants";
 import { CCatalogProductsSlider } from "shared/components/catalog";
@@ -30,12 +30,13 @@ const TABS = [{
 }, {
     id: 'contraindications',
     name: 'Противопоказания'
-},]
+}];
 
 export const Client = observer(({ catalogProduct }: PropsType) => {
     const store = useObservable({
         tab: 'description',
-        catalogProduct: new CatalogProductModel(catalogProduct)
+        catalogProduct: new CatalogProductModel(catalogProduct),
+        catalogProductOffers: [] as CatalogProductOfferModel[]
     });
 
     const tab = TABS.find(tab => tab.id === store.tab);

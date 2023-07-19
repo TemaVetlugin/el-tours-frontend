@@ -25,6 +25,9 @@ export default async function Layout({ children }: PropsType) {
     return (
         <html lang='ru'>
             <StylesRegistry>
+                <head>
+                    <link rel="shortcut icon" type="image/png" href="/assets/favicon.ico"/>
+                </head>
                 <body>
                     <Boot
                         cityId={Cookie.get('cityId')}

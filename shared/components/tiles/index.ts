@@ -1,0 +1,1 @@
+export { CTileNews } from './CNewsTile';

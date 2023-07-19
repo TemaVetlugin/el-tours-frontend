@@ -54,6 +54,11 @@ export const ROUTES = {
         name: 'Главная',
         url: '/',
     }),
+    NEWS: (slug: string = '', name = 'Новости'): RouteType => ({
+        id: 'news' + slug,
+        name,
+        url: slug ? `/news/${slug}` : '/news',
+    }),
     PRODUCT: (slug: string = '', name = 'Каталог'): RouteType => ({
         id: 'product' + slug,
         name,
