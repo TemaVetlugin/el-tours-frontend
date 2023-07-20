@@ -1,3 +1,5 @@
+export { articlesQuery } from './articles.query';
+export { articlesGetQuery } from './articlesGet.query';
 export { cartItemsQuery } from './cartItems.query';
 export { cartItemsClearQuery } from './cartItemsClearQuery.query';
 export { cartItemsSaveQuery } from './cartItemsSave.query';
@@ -13,6 +15,8 @@ export { newsQuery } from './news.query';
 export { ordersQuery } from './orders.query';
 export { ordersCreateQuery } from './ordersCreate.query';
 export { ordersGetQuery } from './ordersGet.query';
+export { promoActionsQuery } from './promoActions.query';
+export { promoActionsGetQuery } from './promoActionsGet.query';
 export { storesQuery } from './stores.query';
 export { tagsQuery } from './tags.query';
 export { userFavoriteToggleQuery } from './userFavoriteToggle.query';

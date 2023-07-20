@@ -11,10 +11,9 @@ import { UiPage } from "shared/ui";
 import { CCatalogFilter } from "../CCatalogFilter";
 import { CCatalogProducts } from "../CCatalogProducts";
 import { CCatalogHeader } from "../CCatalogHeader";
+import { CCatalogSort } from "../CCatalogSort";
 
 import './index.scss';
-import { CCatalogSort } from "shared/components/catalog/CCatalogSort";
-
 
 type PropsType = {
     title?: string,
@@ -70,7 +69,7 @@ export const CCatalog = observer((
         <div className={'c-catalog'}>
             <div className="c-catalog__header">
                 <div className="c-catalog__title">
-                    <UiPage.Title style={{marginBottom: 0}} value={title}/>
+                    <UiPage.Header style={{marginBottom: 0}} title={title}/>
                 </div>
                 {!store.isCatalogProductsLoading && (
                     <div className="c-catalog__count">

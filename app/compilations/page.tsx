@@ -17,7 +17,7 @@ type PropsType = {
     }
 }
 
-export default function StorePage({ params }: PropsType) {
+export default function Page({ params }: PropsType) {
     const city = useCity();
     const store = useObservable({
         isLoading: true,

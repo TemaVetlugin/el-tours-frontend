@@ -23,7 +23,7 @@ export const CTileNews = observer(({ item, template = 'base' }: PropsType) => {
                 href={ROUTES.NEWS(item.slug)}
             />
             <div className="c-tile-news__inner">
-                <UiLink className="c-tile-news__name">{item.name}</UiLink>
+                <UiLink href={ROUTES.NEWS(item.slug)} className="c-tile-news__name">{item.name}</UiLink>
                 {template === 'base' && (
                     <>
                         <div className="c-tile-news__preview">{item.preview}</div>

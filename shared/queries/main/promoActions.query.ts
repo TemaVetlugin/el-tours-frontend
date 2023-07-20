@@ -1,4 +1,4 @@
-import { NewsModelInterface, PaginationModelInterface } from "shared/models";
+import { ArticleModelInterface, PaginationModelInterface } from "shared/models";
 
 import { makeQuery } from "../utilities";
 
@@ -9,13 +9,13 @@ type RequestType = {
 }
 
 type ResponseType = {
-    items: NewsModelInterface[],
+    items: ArticleModelInterface[],
     pagination: PaginationModelInterface
 }
 
-export const newsQuery = async (params: RequestType) => {
+export const promoActionsQuery = async (params: RequestType) => {
     return await makeQuery<ResponseType>("GET", {
-        endpoint: '/main/news',
+        endpoint: '/main/promo-actions',
         params
     });
 }

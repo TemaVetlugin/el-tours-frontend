@@ -7,9 +7,9 @@ import { UiDataBoundary, UiPage, UiWrap } from "shared/ui";
 import { ROUTES } from "shared/contants";
 import { CompilationModel } from "shared/models";
 import { compilationsGetQuery } from "shared/queries/main";
+import { CCatalog } from "shared/components/catalog";
 
 import './page.scss';
-import { CCatalog } from "shared/components/catalog";
 
 type PropsType = {
     params: {
@@ -17,7 +17,7 @@ type PropsType = {
     }
 }
 
-export default function CompilationPage({ params }: PropsType) {
+export default function Page({ params }: PropsType) {
     const city = useCity();
     const store = useObservable({
         isLoading: true,

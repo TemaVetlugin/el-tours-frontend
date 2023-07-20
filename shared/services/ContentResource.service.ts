@@ -23,7 +23,7 @@ export const ContentResourceService = makeService(class {
             return contentResource.code === code &&
                 (contentResource.cities.some(city => {
                     return city.id === cityId
-                }) || contentResource.contentResourceCities.length === 0);
+                }) || contentResource.cities.length === 0);
         }) || null
     }
 });

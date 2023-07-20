@@ -1,0 +1,12 @@
+.p-news-detail {
+    &__image {
+        width: 400px;
+        height: 490px;
+        margin-bottom: 24px;
+        margin-right: 24px;
+        background-position: center;
+        background-size: cover;
+        border-radius: 24px;
+        float: left;
+    }
+}
