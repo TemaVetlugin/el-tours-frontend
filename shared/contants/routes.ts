@@ -59,6 +59,16 @@ export const ROUTES = {
         name,
         url: slug ? `/news/${slug}` : '/news',
     }),
+    PROMO_ACTIONS: (slug: string = '', name = 'Акции'): RouteType => ({
+        id: 'promo_actions' + slug,
+        name,
+        url: slug ? `/promo-actions/${slug}` : '/promo-actions',
+    }),
+    ARTICLES: (slug: string = '', name = 'Интересно'): RouteType => ({
+        id: 'articles' + slug,
+        name,
+        url: slug ? `/articles/${slug}` : '/articles',
+    }),
     PRODUCT: (slug: string = '', name = 'Каталог'): RouteType => ({
         id: 'product' + slug,
         name,

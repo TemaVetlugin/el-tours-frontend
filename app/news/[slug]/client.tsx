@@ -74,7 +74,7 @@ export const Client = observer(({ slug }: PropsType) => {
                             </UiPage.Content>
                         </div>
                         <UiPage.Aside title={'Другие новости'}>
-                            {store.other.map(news => <CTileNews template={'light'} key={news.id} value={news}/>)}
+                            {store.other.map(news => <CTileNews template={'light'} key={news.id} item={news}/>)}
                             <UiPage.Link href={ROUTES.NEWS()}>
                                 Смотреть все
                             </UiPage.Link>

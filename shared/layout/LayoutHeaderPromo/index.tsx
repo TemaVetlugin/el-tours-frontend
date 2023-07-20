@@ -6,7 +6,7 @@ import { observer } from "mobx-react-lite";
 
 import { CatalogService } from "shared/services";
 import { UiIcon, UiWrap } from "shared/ui";
-import { COLORS, ROUTES } from "shared/contants";
+import { ROUTES } from "shared/contants";
 import { useCity } from "shared/hooks";
 
 import './index.scss';
@@ -14,8 +14,8 @@ import './index.scss';
 export const LayoutHeaderPromo = observer(() => {
     const city = useCity();
     const compilations = CatalogService.compilations.filter((compilation) => {
-        return compilation.compilationCities.some(compilationCities => {
-            return +compilationCities.cityId === +city.id
+        return compilation.cities.some(compilationCity => {
+            return +compilationCity.id === +city.id
         });
     })
     return (

@@ -20,8 +20,8 @@ export const PHomeNews = observer(({ news }: PropsType) => {
             title={'Новости'}
             link={(<UiPage.Link href={ROUTES.HOME().url}>Смотреть все</UiPage.Link>)}
         >
-            <UiGrid columns={4} gap={20} className="">
-                {news.slice(0, 4).map(item => <CTileNews value={item}/>)}
+            <UiGrid columns={4} gap={20}>
+                {news.slice(0, 4).map(item => <CTileNews key={item.id} item={item}/>)}
             </UiGrid>
         </UiPage.Section>
     )

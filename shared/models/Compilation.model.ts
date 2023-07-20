@@ -2,6 +2,8 @@ import { makeObservable, observable } from "mobx";
 
 import { Model } from "./Model";
 import { CatalogProductModel, CatalogProductModelInterface } from "shared/models/CatalogProduct.model";
+import { CityModel, CityModelInterface } from "shared/models/City.model";
+import { ModelArrayCast } from "shared/casts";
 
 interface CompilationCityModelInterface {
     cityId: number
@@ -14,11 +16,13 @@ export interface CompilationModelInterface {
     imageThumbnail?: string;
     catalogProducts?: CatalogProductModelInterface[]
     catalogProductsCount?: number;
-    compilationCities?: CompilationCityModelInterface[]
+    cities?: CityModelInterface[]
 }
 
 export class CompilationModel extends Model<CompilationModelInterface> implements CompilationModelInterface {
-    casts = {}
+    casts = {
+        cities: new ModelArrayCast(CityModel)
+    }
     fillable: Array<keyof CompilationModelInterface> = [
         "id",
         "name",
@@ -26,7 +30,7 @@ export class CompilationModel extends Model<CompilationModelInterface> implement
         "imageThumbnail",
         "catalogProducts",
         "catalogProductsCount",
-        "compilationCities"
+        "cities"
     ];
 
     id = 0;
@@ -35,7 +39,7 @@ export class CompilationModel extends Model<CompilationModelInterface> implement
     imageThumbnail = '';
     catalogProducts: CatalogProductModel[] = [];
     catalogProductsCount = 0;
-    compilationCities: CompilationCityModelInterface[] = [];
+    cities: CityModel[] = [];
 
     constructor(payload?: CompilationModelInterface) {
         super();
@@ -47,7 +51,7 @@ export class CompilationModel extends Model<CompilationModelInterface> implement
             imageThumbnail: observable,
             catalogProducts: observable,
             catalogProductsCount: observable,
-            compilationCities: observable
+            cities: observable
         });
 
         this.update(payload);

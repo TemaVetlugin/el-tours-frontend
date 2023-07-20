@@ -1,10 +1,8 @@
-import { computed, makeObservable, observable } from "mobx";
+import { makeObservable, observable } from "mobx";
 
 import { Model } from "./Model";
-
-interface ContentResourceCityModelInterface {
-    cityId: number
-}
+import { CityModel, CityModelInterface } from "./City.model";
+import { ModelArrayCast } from "shared/casts";
 
 export interface ContentResourceModelInterface {
     id?: number;
@@ -17,10 +15,13 @@ export interface ContentResourceModelInterface {
     image2?: string;
     image3?: string;
     image4?: string;
-    contentResourceCities?: ContentResourceCityModelInterface[]
+    cities?: CityModelInterface[]
 }
 
 export class ContentResourceModel extends Model<ContentResourceModelInterface> implements ContentResourceModelInterface {
+    casts = {
+        cities: new ModelArrayCast(CityModel)
+    }
     fillable: Array<keyof ContentResourceModelInterface> = [
         "id",
         "code",
@@ -32,7 +33,7 @@ export class ContentResourceModel extends Model<ContentResourceModelInterface> i
         "image2",
         "image3",
         "image4",
-        "contentResourceCities",
+        "cities",
     ];
 
     id = 0;
@@ -45,7 +46,7 @@ export class ContentResourceModel extends Model<ContentResourceModelInterface> i
     image2 = '';
     image3 = '';
     image4 = '';
-    contentResourceCities: ContentResourceCityModelInterface[] = [];
+    cities: CityModel[] = [];
 
     constructor(payload?: ContentResourceModelInterface) {
         super();
@@ -61,7 +62,7 @@ export class ContentResourceModel extends Model<ContentResourceModelInterface> i
             image2: observable,
             image3: observable,
             image4: observable,
-            contentResourceCities: observable,
+            cities: observable,
         });
 
         this.update(payload);

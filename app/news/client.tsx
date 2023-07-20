@@ -48,32 +48,37 @@ export const Client = observer(() => {
         }
         store.set("isLoading", false);
         store.set("isShallowLoading", false);
-    }, [searchParams.page, city]);
+    }, [searchParams.page, city, searchParams.tagId]);
 
     return (
         <UiPage>
             <UiWrap>
                 <UiPage.Breadcrumbs items={[ROUTES.NEWS()]}/>
-                <UiPage.Header title={'Новости'}/>
-                {store.tags.length > 0 && (
-                    <UiSelect
-                        placeholder={'Все рубрики'}
-                        items={[
-                            { id: null, name: 'Все рубрики' },
-                            ...store.tags
-                        ]}
-                        value={searchParams.tagId}
-                        onChange={(data) => {
-                            router.replace(null, {
-                                ...searchParams,
-                                tagId: data.value
-                            });
-                        }}
-                    />
-                )}
+                <UiPage.Header
+                    title={'Новости'}
+                    aside={() => store.tags.length > 0 && (
+                        <UiSelect
+                            style={{
+                                minWidth: 310
+                            }}
+                            placeholder={'Все рубрики'}
+                            items={[
+                                { id: null, name: 'Все рубрики' },
+                                ...store.tags
+                            ]}
+                            value={searchParams.tagId}
+                            onChange={(data) => {
+                                router.replace(null, {
+                                    ...searchParams,
+                                    tagId: data.value
+                                });
+                            }}
+                        />
+                    )}
+                />
                 <UiDataBoundary isLoading={store.isLoading} withShallowLoading isShallowLoading={store.isShallowLoading}>
                     <UiGrid columns={4} gap={[20, 50]}>
-                        {store.news.map(news => <CTileNews key={news.id} template={'light'} value={news}/>)}
+                        {store.news.map(news => <CTileNews key={news.id} template={'light'} item={news}/>)}
                     </UiGrid>
                 </UiDataBoundary>
                 <UiPage.Pagination pagination={store.pagination}/>

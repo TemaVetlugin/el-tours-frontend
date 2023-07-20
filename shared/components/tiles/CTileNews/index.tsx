@@ -10,23 +10,23 @@ import { ROUTES } from "shared/contants";
 import './index.scss';
 
 type PropsType = {
-    value: NewsModel,
+    item: NewsModel,
     template?: 'base' | 'light'
 }
 
-export const CTileNews = observer(({ value: news, template = 'base' }: PropsType) => {
+export const CTileNews = observer(({ item, template = 'base' }: PropsType) => {
     return (
         <div className="c-tile-news">
             <UiLink
                 className="c-tile-news__image"
-                style={{ backgroundImage: `url(${news.previewImage})` }}
-                href={ROUTES.NEWS(news.slug)}
+                style={{ backgroundImage: `url(${item.previewImage})` }}
+                href={ROUTES.NEWS(item.slug)}
             />
             <div className="c-tile-news__inner">
-                <UiLink className="c-tile-news__name">{news.name}</UiLink>
+                <UiLink className="c-tile-news__name">{item.name}</UiLink>
                 {template === 'base' && (
                     <>
-                        <div className="c-tile-news__preview">{news.preview}</div>
+                        <div className="c-tile-news__preview">{item.preview}</div>
                         <UiPage.Link href={ROUTES.HOME().url}>Читать</UiPage.Link>
                     </>
                 )}

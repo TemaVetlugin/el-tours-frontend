@@ -1,1 +1,2 @@
-export { CTileNews } from './CNewsTile';
+export { CTileNews } from './CTileNews';
+export { CTilePromoAction } from './CTilePromoAction';

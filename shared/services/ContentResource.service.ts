@@ -21,8 +21,8 @@ export const ContentResourceService = makeService(class {
     get = (code: string, cityId: number) => {
         return this.contentResources.find(contentResource => {
             return contentResource.code === code &&
-                (contentResource.contentResourceCities.some(contentResourceCity => {
-                    return contentResourceCity.cityId === cityId
+                (contentResource.cities.some(city => {
+                    return city.id === cityId
                 }) || contentResource.contentResourceCities.length === 0);
         }) || null
     }
