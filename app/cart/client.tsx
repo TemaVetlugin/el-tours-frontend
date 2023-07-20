@@ -43,8 +43,8 @@ export const Client = observer(() => {
         <UiPage className={'p-cart'}>
             <UiWrap>
                 <UiPage.Breadcrumbs items={[ROUTES.CART()]}/>
-                <UiPage.Title
-                    value={'Корзина'}
+                <UiPage.Header
+                    title={'Корзина'}
                     aside={() => {
                         if (CartService.cartItems.length === 0) {
                             return null

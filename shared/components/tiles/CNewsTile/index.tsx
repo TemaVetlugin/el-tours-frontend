@@ -11,10 +11,10 @@ import './index.scss';
 
 type PropsType = {
     value: NewsModel,
-    isLight?: boolean
+    template?: 'base' | 'light'
 }
 
-export const CTileNews = observer(({ value: news, isLight = false }: PropsType) => {
+export const CTileNews = observer(({ value: news, template = 'base' }: PropsType) => {
     return (
         <div className="c-tile-news">
             <UiLink
@@ -24,7 +24,7 @@ export const CTileNews = observer(({ value: news, isLight = false }: PropsType) 
             />
             <div className="c-tile-news__inner">
                 <UiLink className="c-tile-news__name">{news.name}</UiLink>
-                {!isLight && (
+                {template === 'base' && (
                     <>
                         <div className="c-tile-news__preview">{news.preview}</div>
                         <UiPage.Link href={ROUTES.HOME().url}>Читать</UiPage.Link>

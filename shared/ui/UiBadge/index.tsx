@@ -18,7 +18,7 @@ type PropsType = {
     children?: React.ReactNode,
 }
 
-export const UiDataBoundary = observer((
+export const UiBadge = observer((
     {
         isError = false,
         isLoading = false,

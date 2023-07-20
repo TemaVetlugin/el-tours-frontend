@@ -13,6 +13,7 @@ type PropsType = {
     isError?: boolean;
     isLoading?: boolean;
     className?: string,
+    withShallowLoading?: boolean;
     isShallowLoading?: boolean;
     errorMessage?: string;
     actionText?: string;
@@ -25,6 +26,7 @@ export const UiDataBoundary = observer((
     {
         isError = false,
         isLoading = false,
+        withShallowLoading = false,
         isShallowLoading = false,
         className,
         actionText = 'Обновить',
@@ -35,7 +37,6 @@ export const UiDataBoundary = observer((
     }: PropsType
 ) => {
     const styles = {
-        height: 80,
         ...style
     };
 
@@ -61,15 +62,21 @@ export const UiDataBoundary = observer((
         );
     }
 
-    return (
-        <div className={classnames('ui-data-boundary', className, {
-            'ui-data-boundary--shallow': isShallowLoading,
-        })}>
-            {children}
-            <div className='ui-data-boundary__loading ui-data-boundary__loading--shallow'>
-                <img src="/assets/images/logo.svg" alt=""/>
-                <UiLoading size={40}/>
+    if (withShallowLoading) {
+        return (
+            <div className={classnames('ui-data-boundary', className, {
+                'ui-data-boundary--shallow': isShallowLoading,
+            })}>
+                {children}
+                <div className='ui-data-boundary__loading ui-data-boundary__loading--shallow'>
+                    <img src="/assets/images/logo.svg" alt=""/>
+                    <UiLoading size={40}/>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
+
+    return (
+        <>{children}</>
+    )
 });

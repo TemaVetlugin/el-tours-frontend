@@ -36,7 +36,7 @@ export const Client = observer(() => {
             <UiWrap>
                 <UiDataBoundary isLoading={!isGranted}>
                     <UiPage.Breadcrumbs items={[ROUTES.PROFILE()]}/>
-                    <UiPage.Title value={mask(MASKS.MOBILE_PHONE, user.phone)}/>
+                    <UiPage.Header title={mask(MASKS.MOBILE_PHONE, user.phone)}/>
                     <UiGrid columns={'280px 1fr'} gap={50}>
                         <div>
                             <CProfileMenu/>

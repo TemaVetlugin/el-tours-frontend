@@ -64,7 +64,7 @@ export default observer(function LicensesPage() {
         <UiPage>
             <UiPage.Wrap>
                 <UiPage.Breadcrumbs items={[ROUTES.LICENSES()]}/>
-                <UiPage.Title value='Лицензии'/>
+                <UiPage.Header title='Лицензии'/>
                 <UiGrid className={'p-licenses'}
                         media={{
                             [MEDIA_POINTS.IS_360]: { columns: 1 },

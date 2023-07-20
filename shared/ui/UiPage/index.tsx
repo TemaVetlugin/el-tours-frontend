@@ -4,12 +4,15 @@ import React, { CSSProperties } from "react";
 import { observer } from "mobx-react-lite";
 import classnames from "classnames";
 
-import { Title } from './components/Title';
+import { Header } from './components/Header';
 import { Breadcrumbs } from './components/Breadcrumbs';
 import { Wrap } from './components/Wrap';
 import { Section } from './components/Section';
-import { Link } from './components/SectionLink';
+import { Link } from './components/Link';
 import { Pagination } from './components/Pagination';
+import { Content } from './components/Content';
+import { Aside } from './components/Aside';
+import { Actions } from './components/Actions';
 
 import './index.scss';
 
@@ -35,10 +38,13 @@ const Page = observer((
 })
 
 export const UiPage = Object.assign(Page, {
-    Title,
+    Header,
     Breadcrumbs,
     Wrap,
     Section,
     Link,
-    Pagination
+    Pagination,
+    Aside,
+    Content,
+    Actions
 })

@@ -51,7 +51,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                         ROUTES.PRODUCT(catalogProduct.slug, catalogProduct.name)
                     ]}
                 />
-                <UiPage.Title value={store.catalogProduct.name}/>
+                <UiPage.Header title={store.catalogProduct.name}/>
                 <div className="p-product__preview">
                     <div className="p-product__media">
                         <div

@@ -49,7 +49,7 @@ export const Client = observer(() => {
                         ROUTES.STORES()
                     ]}
                 />
-                <UiPage.Title value={'Аптеки'}/>
+                <UiPage.Header title={'Аптеки'}/>
                 <UiDataBoundary isLoading={store.isLoading}>
                     <div className="p-stores__header">
                         <div className="p-stores__filters">

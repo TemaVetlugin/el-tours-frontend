@@ -22,18 +22,17 @@ import {
 import { MASKS, ROUTES } from "shared/contants";
 import { CartService, UserService } from "shared/services";
 import { currency, date } from "shared/utilities";
-import { CheckoutItemModel } from "shared/models";
+import { CheckoutItemModel, UserAddressModel } from "shared/models";
 import { checkoutQuery, ordersCreateQuery } from "shared/queries/main";
 import { COrderItem, COrderTotal } from "shared/components/order";
-import { PCheckoutStores } from "./components/PCheckoutStores";
 import { CCheckoutWarning } from "shared/components/checkout";
+import { OrderDeliveryTypeEnum, OrderPaymentTypeEnum } from "shared/enums";
+import { isMobilePhone, isRequired } from "shared/validations";
+import { useValidation } from "shared/hooks";
+
+import { PCheckoutStores } from "./components/PCheckoutStores";
 
 import './page.scss';
-import { OrderDeliveryTypeEnum, OrderPaymentTypeEnum } from "shared/enums";
-import { UserAddressModel } from "shared/models/UserAddress.model";
-import { useValidation } from "shared/hooks/useValidation";
-import { isMobilePhone, isRequired } from "shared/validations";
-
 
 const DELIVERY_TIMES = [
     { id: '10:00 - 12:00', name: '10:00 - 12:00' },
@@ -141,7 +140,7 @@ export const Client = observer(({ deliveryTypeId }: PropsType) => {
             <UiForm onSubmit={handleSubmit}>
                 <UiWrap>
                     <UiPage.Breadcrumbs items={[ROUTES.CHECKOUT()]}/>
-                    <UiPage.Title value={'Оформление заказа'}/>
+                    <UiPage.Header title={'Оформление заказа'}/>
                     <UiDataBoundary isLoading={store.isLoading}>
                         <div className="p-checkout__inner">
                             <div className="p-checkout__main">

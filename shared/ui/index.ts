@@ -9,6 +9,7 @@ export { UiDropdown } from './UiDropdown';
 export { UiForm } from './UiForm';
 export { UiFormControl } from './UiFormControl';
 export { UiGrid } from './UiGrid';
+export { UiHtml } from './UiHtml';
 export { UiIcon } from './UiIcon';
 export { UiInput } from './UiInput';
 export { UiLink } from './UiLink';

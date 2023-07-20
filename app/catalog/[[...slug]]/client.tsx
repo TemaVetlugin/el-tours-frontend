@@ -45,7 +45,7 @@ export const Client = observer(({ slug }: PropsType) => {
                 />
                 {catalogCategories.length > 0 && (
                     <>
-                        <UiPage.Title value={catalogCategory?.name}/>
+                        <UiPage.Header title={catalogCategory?.name}/>
                         <div className="p-catalog__categories">
                             {catalogCategories.map(catalogCategory => (
                                 <UiLink

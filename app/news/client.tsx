@@ -3,12 +3,12 @@
 import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 
-import { UiDataBoundary, UiGrid, UiPage, UiSelect, UiWrap } from "shared/ui";
 import { ROUTES } from "shared/contants";
 import { useAsyncEffect, useCity, useObservable, useRouter, useSearchParams } from "shared/hooks";
 import { NewsModel, PaginationModel, TagModel } from "shared/models";
 import { newsQuery, tagsQuery } from "shared/queries/main";
 import { CTileNews } from "shared/components/tiles";
+import { UiDataBoundary, UiGrid, UiPage, UiSelect, UiWrap } from "shared/ui";
 
 import './page.scss';
 
@@ -54,7 +54,7 @@ export const Client = observer(() => {
         <UiPage>
             <UiWrap>
                 <UiPage.Breadcrumbs items={[ROUTES.NEWS()]}/>
-                <UiPage.Title value={'Новости'}/>
+                <UiPage.Header title={'Новости'}/>
                 {store.tags.length > 0 && (
                     <UiSelect
                         placeholder={'Все рубрики'}
@@ -71,9 +71,9 @@ export const Client = observer(() => {
                         }}
                     />
                 )}
-                <UiDataBoundary isLoading={store.isLoading} isShallowLoading={store.isShallowLoading}>
+                <UiDataBoundary isLoading={store.isLoading} withShallowLoading isShallowLoading={store.isShallowLoading}>
                     <UiGrid columns={4} gap={[20, 50]}>
-                        {store.news.map(news => <CTileNews key={news.id} isLight value={news}/>)}
+                        {store.news.map(news => <CTileNews key={news.id} template={'light'} value={news}/>)}
                     </UiGrid>
                 </UiDataBoundary>
                 <UiPage.Pagination pagination={store.pagination}/>

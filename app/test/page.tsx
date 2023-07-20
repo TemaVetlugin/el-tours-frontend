@@ -19,7 +19,7 @@ export default function TestPage() {
 
     return useObserve(() => (
         <UiPage>
-            <UiPage.Title value={'Каталог'}/>
+            <UiPage.Header title={'Каталог'}/>
             <button onClick={handleClick}>test</button>
             <div onClick={() => setCount(count + 1)}>count: {count}</div>
         </UiPage>

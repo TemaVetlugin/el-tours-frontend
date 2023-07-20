@@ -14,7 +14,7 @@ export const Client = observer(() => {
         <UiPage>
             <UiWrap>
                 <UiPage.Breadcrumbs items={[ROUTES.CART()]}/>
-                <UiPage.Title value={'title'}/>
+                <UiPage.Header title={'title'}/>
 
             </UiWrap>
         </UiPage>

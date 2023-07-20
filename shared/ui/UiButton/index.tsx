@@ -3,9 +3,9 @@
 import React, { CSSProperties, useState } from "react";
 import { observer } from "mobx-react-lite";
 import classnames from "classnames";
-import Link from "next/link";
 
 import { COLORS } from "shared/contants";
+import { useRouter } from "shared/hooks";
 
 import { UiLoading } from '../UiLoading';
 
@@ -51,6 +51,8 @@ export const UiButton = observer((
     const classNames = classnames('ui-button', `ui-button--${size}`, className, {
         'ui-button--disabled': isDisabled,
     });
+
+    const router = useRouter();
 
     let colors = {
         button: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
@@ -115,48 +117,18 @@ export const UiButton = observer((
             e.preventDefault();
             return;
         }
+        if (href) {
+            router.push(href);
+        }
         onClick && onClick(e);
     }
 
-    if (href) {
-        return (
-            <Link
-                href={href}
-                className={classNames}
-                type={type}
-                style={styles.button}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                onClick={handleClick}
-            >
-                <style jsx>
-                    {`
-                        .ui-button :global(path[fill]) {
-                            fill: ${colors.icon[0]};
-                        }
-
-                        .ui-button :global(path[stroke]) {
-                            stroke: ${colors.icon[0]};
-                        }
-
-                        .ui-button:hover :global(path[fill]) {
-                            ${colors?.icon ? `fill: ${colors.icon[1]};` : ''}
-                        }
-
-                        .ui-button:hover :global(path[stroke]) {
-                            ${colors?.icon ? `stroke: ${colors.icon[1]};` : ''}
-                        }
-                    `}
-                </style>
-                <div className="ui-button__background" style={styles.background}/>
-                <div className='ui-button__inner' style={styles.label}>
-                    {content()}
-                </div>
-                {!!notification && (
-                    <div className="ui-button__notification">{notification}</div>
-                )}
-            </Link>
-        )
+    const handleMouseDown = (e: React.MouseEvent<any>) => {
+        //middle mouse click when link is provided
+        e.preventDefault();
+        if (e.button === 1 && href) {
+            window.open(href, '_blank')?.focus();
+        }
     }
 
     return (
@@ -166,26 +138,27 @@ export const UiButton = observer((
             style={styles.button}
             disabled={isDisabled}
             onClick={handleClick}
+            onMouseDown={handleMouseDown}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             <style jsx>
                 {`
-                  .ui-button :global(path[fill]) {
-                    fill: ${colors.icon[0]};
-                  }
+                    .ui-button :global(path[fill]) {
+                        fill: ${colors.icon[0]};
+                    }
 
-                  .ui-button :global(path[stroke]) {
-                    stroke: ${colors.icon[0]};
-                  }
+                    .ui-button :global(path[stroke]) {
+                        stroke: ${colors.icon[0]};
+                    }
 
-                  .ui-button:hover :global(path[fill]) {
-                    ${colors?.icon ? `fill: ${colors.icon[1]};` : ''}
-                  }
+                    .ui-button:hover :global(path[fill]) {
+                        ${colors?.icon ? `fill: ${colors.icon[1]};` : ''}
+                    }
 
-                  .ui-button:hover :global(path[stroke]) {
-                    ${colors?.icon ? `stroke: ${colors.icon[1]};` : ''}
-                  }
+                    .ui-button:hover :global(path[stroke]) {
+                        ${colors?.icon ? `stroke: ${colors.icon[1]};` : ''}
+                    }
                 `}
             </style>
             <div className="ui-button__background" style={styles.background}/>

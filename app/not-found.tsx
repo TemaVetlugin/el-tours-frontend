@@ -12,7 +12,7 @@ export default function NotFound() {
         <UiPage>
             <UiPage.Wrap>
                 <UiPage.Breadcrumbs items={[ROUTES.NOT_FOUND()]}/>
-                <UiPage.Title value={'Страница не найдена'}/>
+                <UiPage.Header title={'Страница не найдена'}/>
                 <p>Ошибка 404: запрашиваемая вами страница не найдена</p>
                 <br/>
                 <UiButton label={'Перейти на главную'} href={ROUTES.HOME().url}/>

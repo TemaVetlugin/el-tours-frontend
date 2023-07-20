@@ -46,7 +46,7 @@ export default function StorePage({ params }: PropsType) {
                         ROUTES.COMPILATIONS()
                     ]}
                 />
-                <UiPage.Title value={'Подборки'}/>
+                <UiPage.Header title={'Подборки'}/>
                 <UiDataBoundary isLoading={store.isLoading}>
                     <UiGrid columns={4} gap={20}>
                         {store.compilations.map(compilation => (
