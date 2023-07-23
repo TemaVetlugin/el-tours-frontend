@@ -1,6 +1,8 @@
 import qs from "qs";
+import { ROUTES } from "shared/contants";
 
-import { RouteType } from "shared/types";
+type RoutesType = typeof ROUTES;
+type RouteType = ReturnType<RoutesType[keyof RoutesType]>;
 
 export const url = (href: string | RouteType | null | undefined, params?: Record<string, any>) => {
     let url: string = window.location.pathname;
