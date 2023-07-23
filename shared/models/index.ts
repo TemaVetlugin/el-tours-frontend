@@ -88,6 +88,9 @@ export type { UserAddressModelInterface } from './UserAddress.model';
 export { UserFavoriteModel } from './UserFavorite.model';
 export type { UserFavoriteModelInterface } from './UserFavorite.model';
 
+export { UserReminderModel } from './UserReminder.model';
+export type { UserReminderModelInterface } from './UserReminder.model';
+
 export { UserStoreModel } from './UserStore.model';
 export type { UserStoreModelInterface } from './UserStore.model';
 

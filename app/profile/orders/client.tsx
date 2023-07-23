@@ -8,11 +8,11 @@ import { MASKS, ROUTES } from "shared/contants";
 import { useAsyncEffect, useObservable, usePrivatePage, useUser } from "shared/hooks";
 import { mask } from "shared/utilities";
 import { CProfileMenu } from "shared/components/profile";
-
-import './page.scss';
 import { ordersQuery } from "shared/queries/main";
 import { OrderModel } from "shared/models";
 import { COrder } from "shared/components/order";
+
+import './page.scss';
 
 export const Client = observer(() => {
     const isGranted = usePrivatePage();
@@ -29,7 +29,7 @@ export const Client = observer(() => {
         if (isSuccess && data) {
             store.set("orders", data.items.map(item => new OrderModel(item)));
         }
-    }, [isGranted]);
+    }, [isGranted, store]);
 
     return (
         <UiPage>

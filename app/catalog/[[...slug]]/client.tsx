@@ -18,10 +18,6 @@ type PropsType = {
 }
 
 export const Client = observer(({ slug }: PropsType) => {
-    useEffect(() => {
-        console.log('useEffect');
-    }, []);
-
     let catalogCategory: CatalogCategoryModel | undefined;
     if (slug && slug.length > 0) {
         catalogCategory = CatalogService.catalogCategories.find(catalogCategory => {

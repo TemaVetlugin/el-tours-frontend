@@ -81,15 +81,31 @@
     }
 
     &__unavailable {
+        margin-top: auto;
         margin-bottom: 12px;
         color: $cGrayPrimary;
         font-size: 16px;
         font-weight: 700;
         line-height: 19px;
-        margin-top: auto;
     }
 
     .ui-button {
         flex: 1;
+    }
+
+    &__remind {
+        display: flex;
+        align-items: center;
+        margin-top: 12px;
+        color: $cTypo;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+        gap: 4px;
+
+        span {
+            position: relative;
+            display: block;
+        }
     }
 }

@@ -4,4 +4,8 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 24px;
+
+    .ui-button {
+        width: calc((100% - 16px) / 2);
+    }
 }

@@ -7,6 +7,12 @@ export const Notifier = new class {
             }) as ((value: boolean) => void),
             message: '',
             isOpened: false,
+        },
+        prompt: {
+            resolve: (() => {
+            }) as ((value: boolean) => void),
+            message: '',
+            isOpened: false,
         }
     }
 
@@ -19,7 +25,6 @@ export const Notifier = new class {
     alert = async (message: string) => {
         return new Promise(resolve => {
             runInAction(() => {
-                console.log(123)
                 this.data.alert.message = message;
                 this.data.alert.isOpened = true;
                 this.data.alert.resolve = (value: boolean) => {
@@ -28,8 +33,21 @@ export const Notifier = new class {
                     })
                     resolve(value);
                 };
+            })
+        });
+    }
 
-                console.log(this.data.alert.isOpened);
+    prompt = async (message: string) => {
+        return new Promise(resolve => {
+            runInAction(() => {
+                this.data.prompt.message = message;
+                this.data.prompt.isOpened = true;
+                this.data.prompt.resolve = (value: boolean) => {
+                    runInAction(() => {
+                        this.data.prompt.isOpened = false;
+                    })
+                    resolve(value);
+                };
             })
         });
     }

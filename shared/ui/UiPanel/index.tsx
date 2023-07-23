@@ -6,6 +6,7 @@ import classnames from "classnames";
 
 import { Title } from './components/Title';
 import { Header } from './components/Header';
+import { Description } from './components/Description';
 
 import './index.scss';
 
@@ -24,6 +25,7 @@ const Panel = observer(({ children, className }: PropsType) => {
 
 export const UiPanel = Object.assign(Panel, {
     Header,
+    Description,
     Title
 })
 

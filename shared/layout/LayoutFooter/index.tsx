@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 
 import { CatalogService } from "shared/services";
 import { UiButton, UiLink, UiModal, UiWrap } from "shared/ui";
-import { ROUTES } from "shared/contants";
+import { COLORS, ROUTES } from "shared/contants";
 import { Notifier } from "shared/utilities";
 
 import './index.scss';
@@ -62,16 +62,34 @@ export const LayoutFooter = observer(() => {
                         </div>
                     </div>
                     <div className="layout-footer__offer">
-                        Цены на сайте не являются публичной офертой. Внешний вид товара может отличаться от представленного на сайте. Цены на сайте отличаются от цен в аптеках и действуют только при оформлении заказа с помощью сайта.и
+                        Цены на сайте не являются публичной офертой. Внешний вид товара может отличаться от представленного на сайте. Цены на сайте отличаются от цен в аптеках и
+                        действуют только при оформлении заказа с помощью сайта.и
                     </div>
                 </div>
             </UiWrap>
-            <UiModal isOpened={Notifier.data.alert.isOpened} onClose={() => Notifier.data.alert.resolve(true)} width={350}>
+            <UiModal isOpened={Notifier.data.alert.isOpened} onClose={() => Notifier.data.alert.resolve(true)} width={380}>
                 <UiModal.Description>
                     {Notifier.data.alert.message}
                 </UiModal.Description>
                 <UiModal.Actions>
                     <UiButton label={'Понятно'} onClick={() => Notifier.data.alert.resolve(true)}/>
+                </UiModal.Actions>
+            </UiModal>
+            <UiModal isOpened={Notifier.data.prompt.isOpened} onClose={() => Notifier.data.prompt.resolve(false)} width={380}>
+                <UiModal.Description>
+                    {Notifier.data.prompt.message}
+                </UiModal.Description>
+                <UiModal.Actions>
+                    <UiButton label={'Принять'} onClick={() => Notifier.data.prompt.resolve(true)}/>
+                    <UiButton
+                        label={'Отменить'}
+                        onClick={() => Notifier.data.prompt.resolve(false)}
+                        colors={{
+                            button: [COLORS.TRANSPARENT, COLORS.GREEN_PRIMARY],
+                            border: [COLORS.GREEN_PRIMARY, COLORS.GREEN_PRIMARY],
+                            label: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
+                        }}
+                    />
                 </UiModal.Actions>
             </UiModal>
         </div>

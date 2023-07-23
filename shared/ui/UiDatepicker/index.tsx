@@ -13,10 +13,10 @@ import { useObservable, useOnClickOutside } from "shared/hooks";
 
 import { UiControlPropsType } from "../types";
 
-import "react-datepicker/dist/react-datepicker.css";
 import './index.scss';
 
 registerLocale('ru', ru)
+
 type PropsType = UiControlPropsType<string> & {
     min?: string
 };
@@ -36,6 +36,8 @@ export const UiDatepicker = observer((
     useOnClickOutside(ref, () => {
         store.set("isOpened", false)
     })
+
+    console.log(value);
     return (
         <div ref={ref} className={classnames('ui-datepicker', {
             'ui-datepicker--opened': store.isOpened
@@ -53,10 +55,12 @@ export const UiDatepicker = observer((
             {store.isOpened && (
                 <div className="ui-datepicker__outer">
                     <DatePicker
-                        dateFormat={'yyyy-MM-dd'}
-                        value={value || undefined}
                         inline
+                        dateFormat={'yyyy-MM-dd'}
+                        previousMonthButtonLabel={(<UiIcon size={24} name={'chevronLeft'} color={'#000'}/>)}
+                        nextMonthButtonLabel={(<UiIcon size={24} name={'chevronRight'} color={'#000'}/>)}
                         locale={'ru'}
+                        selected={date(value).toJSDate() || null}
                         minDate={min ? date(min).toJSDate() : undefined}
                         onChange={(data) => {
                             if (data) {

@@ -1,0 +1,29 @@
+.p-profile-reminders {
+    &__items {
+        margin-top: 50px;
+    }
+
+    &-item {
+        position: relative;
+
+        &__close {
+            position: absolute;
+            top: 0;
+            right: 16px;
+            cursor: pointer;
+        }
+
+        &__date {
+            display: flex;
+            align-items: center;
+            margin-top: 12px;
+            color: $cGrayPrimary;
+            gap: 4px;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 18px;
+            padding-left: 16px;
+        }
+    }
+}

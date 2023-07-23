@@ -1,4 +1,8 @@
 .c-order {
+    &:not(&:last-child) {
+        margin-bottom: 8px;
+    }
+
     &-preview {
         display: grid;
         align-items: center;
