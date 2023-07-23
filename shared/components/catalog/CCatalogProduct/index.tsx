@@ -10,6 +10,7 @@ import { CartService, UserService } from "shared/services";
 import { useObservable, useRouter } from "shared/hooks";
 
 import './index.scss';
+import { Notifier } from "shared/utilities";
 
 type PropsType = {
     catalogProduct: CatalogProductModel,
@@ -49,75 +50,115 @@ export const CCatalogProduct = observer(({ catalogProduct }: PropsType) => {
             <div className="c-catalog-product__name">
                 {catalogProduct.name}
             </div>
-            <div className="c-catalog-product__price">
-                <UiPrice
-                    priceOffer={catalogProduct.priceOffer}
-                    price={catalogProduct.price}
-                />
-            </div>
-            {catalogProduct.catalogProductOffers.length > 0 && (
-                <div className="c-catalog-product__footer">
-                    {!cartItem && (
-                        <>
-                            <UiButton onClick={async (e) => {
+            {catalogProduct.catalogProductOffers.length === 0 && (
+                <>
+                    <div className="c-catalog-product__unavailable">
+                        Нет в наличии
+                    </div>
+                    <div className="c-catalog-product__footer">
+                        <UiButton
+                            onClick={async (e) => {
                                 e.stopPropagation();
                                 e.preventDefault();
-                                store.set("isLoading", true);
-                                await CartService.save({
-                                    catalogProductId: catalogProduct.id,
-                                    quantity: 1
-                                });
-                                store.set("isLoading", false);
-                            }}>
-                                <span>В корзину</span>
-                                <UiIcon size={24} name={"cart"}/>
-                            </UiButton>
-                        </>
-                    )}
-                    {cartItem && (
-                        <>
-                            <UiQuantity value={cartItem.quantity} onChange={(data) => {
-                                if (!cartItem || data.value === null) {
-                                    return;
-                                }
-                                cartItem.update({
-                                    quantity: data.value
-                                })
-                                CartService.save({
-                                    catalogProductId: catalogProduct.id,
-                                    quantity: data.value
-                                })
-                            }}/>
-                            <UiButton
-                                colors={{
-                                    button: [COLORS.TRANSPARENT, COLORS.LIGHT_BLUE],
-                                    label: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
-                                    border: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
-                                }}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    router.push(ROUTES.CART());
-                                }}
-                                label={'В корзине'}
+                                Notifier.alert('Мы сообщим Вам о поступлении товара - пришлем пуш или смс');
+                            }}
+                            colors={{
+                                button: [COLORS.TRANSPARENT, COLORS.GREEN_PRIMARY],
+                                label: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
+                                border: [COLORS.GREEN_PRIMARY, COLORS.GREEN_PRIMARY],
+                            }}
+                        >
+                            Сообщить о поступлении
+                        </UiButton>
+                        <div
+                            className="c-catalog-product__favorite"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                UserService.toggleFavorite(catalogProduct.id)
+                            }}
+                        >
+                            <UiIcon
+                                size={24}
+                                name={UserService.hasFavorite(catalogProduct.id) ? "heartFilled" : "heart"}
+                                color={COLORS.GRAY_PRIMARY}
                             />
-                        </>
-                    )}
-                    <div
-                        className="c-catalog-product__favorite"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            UserService.toggleFavorite(catalogProduct.id)
-                        }}
-                    >
-                        <UiIcon
-                            size={24}
-                            name={UserService.hasFavorite(catalogProduct.id) ? "heartFilled" : "heart"}
-                            color={COLORS.GRAY_PRIMARY}
+                        </div>
+                    </div>
+                </>
+
+            )}
+            {catalogProduct.catalogProductOffers.length > 0 && (
+                <>
+                    <div className="c-catalog-product__price">
+                        <UiPrice
+                            priceOffer={catalogProduct.priceOffer}
+                            price={catalogProduct.price}
                         />
                     </div>
-                </div>
+                    <div className="c-catalog-product__footer">
+                        {!cartItem && (
+                            <>
+                                <UiButton onClick={async (e) => {
+                                    e.stopPropagation();
+                                    e.preventDefault();
+                                    store.set("isLoading", true);
+                                    await CartService.save({
+                                        catalogProductId: catalogProduct.id,
+                                        quantity: 1
+                                    });
+                                    store.set("isLoading", false);
+                                }}>
+                                    <span>В корзину</span>
+                                    <UiIcon size={24} name={"cart"}/>
+                                </UiButton>
+                            </>
+                        )}
+                        {cartItem && (
+                            <>
+                                <UiQuantity value={cartItem.quantity} onChange={(data) => {
+                                    if (!cartItem || data.value === null) {
+                                        return;
+                                    }
+                                    cartItem.update({
+                                        quantity: data.value
+                                    })
+                                    CartService.save({
+                                        catalogProductId: catalogProduct.id,
+                                        quantity: data.value
+                                    })
+                                }}/>
+                                <UiButton
+                                    colors={{
+                                        button: [COLORS.TRANSPARENT, COLORS.LIGHT_BLUE],
+                                        label: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                                        border: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                                    }}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        router.push(ROUTES.CART());
+                                    }}
+                                    label={'В корзине'}
+                                />
+                            </>
+                        )}
+                        <div
+                            className="c-catalog-product__favorite"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                UserService.toggleFavorite(catalogProduct.id)
+                            }}
+                        >
+                            <UiIcon
+                                size={24}
+                                name={UserService.hasFavorite(catalogProduct.id) ? "heartFilled" : "heart"}
+                                color={COLORS.GRAY_PRIMARY}
+                            />
+                        </div>
+                    </div>
+                </>
             )}
         </UiLink>
     )

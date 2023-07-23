@@ -19,6 +19,11 @@ export const ROUTES = {
         name,
         url: slug ? `/catalog/${slug}` : '/catalog',
     }),
+    CATALOG_MARK: (id: string = '', name = 'Каталог'): RouteType => ({
+        id: 'catalog' + id,
+        name,
+        url: id ? `/catalog/mark/${id}` : '/catalog',
+    }),
     ORDER: (id: string | number = ''): RouteType => ({
         id: 'order' + id,
         name: 'Заказ',
@@ -103,5 +108,10 @@ export const ROUTES = {
         id: 'stores',
         name: 'Аптеки',
         url: '/stores',
+    }),
+    PAGE: (slug: string, name: string): RouteType => ({
+        id: 'stores',
+        name,
+        url: `/page/${slug}`,
     }),
 };

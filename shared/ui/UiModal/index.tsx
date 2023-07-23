@@ -9,6 +9,7 @@ import { UiIcon } from "../UiIcon";
 
 import { Title } from './components/Title';
 import { Description } from './components/Description';
+import { Actions } from './components/Actions';
 
 import './index.scss';
 
@@ -59,5 +60,6 @@ const Modal = observer((
 
 export const UiModal = Object.assign(Modal, {
     Title,
+    Actions,
     Description
 })

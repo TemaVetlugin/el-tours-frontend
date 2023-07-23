@@ -21,7 +21,7 @@ export const PHomeCatalogProductsNew = observer(({ catalogProducts }: PropsType)
     return (
         <UiPage.Section
             title={'Новинки'}
-            link={(<UiPage.Link href={ROUTES.HOME().url}>Смотреть все</UiPage.Link>)}
+            link={(<UiPage.Link href={ROUTES.CATALOG_MARK('new')}>Смотреть все</UiPage.Link>)}
         >
             <UiGrid columns={4} gap={[20, 40]} className="">
                 {catalogProducts.map((catalogProduct, index) => {

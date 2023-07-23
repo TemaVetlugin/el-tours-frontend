@@ -40,26 +40,24 @@ export const CCatalogFilterItem = observer((
 
     return (
         <div className={classNames}>
-            <div className="c-catalog-filter-item__header" onClick={() => {
-                if (catalogFilter.isCollapsable) {
-                    catalogFilter.update({
-                        isOpened: !catalogFilter.isOpened
-                    });
-                }
-            }}>
-                {catalogFilter.label && (
-                    <>
-                        <div className="c-catalog-filter-item__label">{catalogFilter.label}</div>
-                        <div className="c-catalog-filter-item__icon">
-                            <UiIcon
-                                size={16}
-                                name={catalogFilter.isOpened ? 'chevronUp' : "chevronDown"}
-                                color={COLORS.GRAY_PRIMARY}
-                            />
-                        </div>
-                    </>
-                )}
-            </div>
+            {catalogFilter.label && (
+                <div className="c-catalog-filter-item__header" onClick={() => {
+                    if (catalogFilter.isCollapsable) {
+                        catalogFilter.update({
+                            isOpened: !catalogFilter.isOpened
+                        });
+                    }
+                }}>
+                    <div className="c-catalog-filter-item__label">{catalogFilter.label}</div>
+                    <div className="c-catalog-filter-item__icon">
+                        <UiIcon
+                            size={16}
+                            name={catalogFilter.isOpened ? 'chevronUp' : "chevronDown"}
+                            color={COLORS.GRAY_PRIMARY}
+                        />
+                    </div>
+                </div>
+            )}
             <div className="c-catalog-filter-item__inner">
                 {catalogFilter.isSearchable && (
                     <div className="c-catalog-filter-item__search">
@@ -68,8 +66,8 @@ export const CCatalogFilterItem = observer((
                             type="text"
                             value={store.search || ''}
                             onChange={(e) => {
-                            store.set("search", e.target.value);
-                        }}
+                                store.set("search", e.target.value);
+                            }}
                             placeholder={'Поиск'}
                         />
                     </div>

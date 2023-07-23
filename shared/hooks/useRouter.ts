@@ -38,6 +38,7 @@ export function useRouter() {
                 router.push(toUrl(href, params));
             },
             replace: (href: RouteType | string | null, params?: Record<string, any>) => {
+                // console.log('replace')
                 // https://github.com/vercel/next.js/discussions/48110
                 // shit code for nextjs 13 shallow routing fix
                 const url = toUrl(href, params);
@@ -47,6 +48,7 @@ export function useRouter() {
                     new: url
                 }, "", url);
                 window.dispatchEvent(new Event('router.replace'));
+                // router.replace(toUrl(href, params))
             },
         }
     }, [pathname, router]);

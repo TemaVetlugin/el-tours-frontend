@@ -1,14 +1,16 @@
 'use client';
 
 import React from "react";
+import { observer } from "mobx-react-lite";
 
 import { CatalogService } from "shared/services";
+import { UiButton, UiLink, UiModal, UiWrap } from "shared/ui";
+import { ROUTES } from "shared/contants";
+import { Notifier } from "shared/utilities";
 
 import './index.scss';
-import { UiLink, UiWrap } from "shared/ui";
-import { ROUTES } from "shared/contants";
 
-export const LayoutFooter = () => {
+export const LayoutFooter = observer(() => {
     return (
         <div className="layout-footer">
             <UiWrap>
@@ -64,6 +66,14 @@ export const LayoutFooter = () => {
                     </div>
                 </div>
             </UiWrap>
+            <UiModal isOpened={Notifier.data.alert.isOpened} onClose={() => Notifier.data.alert.resolve(true)} width={350}>
+                <UiModal.Description>
+                    {Notifier.data.alert.message}
+                </UiModal.Description>
+                <UiModal.Actions>
+                    <UiButton label={'Понятно'} onClick={() => Notifier.data.alert.resolve(true)}/>
+                </UiModal.Actions>
+            </UiModal>
         </div>
     );
-};
+});

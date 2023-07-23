@@ -4,7 +4,9 @@ import { makeQuery } from "shared/queries/utilities";
 export type ParamsType = {
     id?: number[],
     catalogCategoryId?: number,
-    cityId: number
+    cityId?: number,
+    query?: string,
+    markId?: string[]
 }
 
 type ResponseType = {

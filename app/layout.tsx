@@ -9,11 +9,19 @@ import { Boot } from "./boot";
 import { StylesRegistry } from "./styles-registry";
 
 import 'shared/styles/index.scss';
+import { Metadata } from "next";
+import { headers } from "next/headers";
 
 configure({ enforceActions: "always" })
 
 type PropsType = {
     children: React.ReactNode
+}
+
+export async function generateMetadata(params: any, params2: any): Promise<Metadata> {
+    return {
+        title: 'title',
+    };
 }
 
 export default async function Layout({ children }: PropsType) {
@@ -47,3 +55,4 @@ export default async function Layout({ children }: PropsType) {
         </html>
     )
 }
+export const dynamic = 'force-dynamic'

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from "react";
+import React from "react";
 import { observer } from "mobx-react-lite";
 
 import { useAsyncEffect, useCity, useObservable, useSearchParams } from "shared/hooks";
@@ -12,16 +12,13 @@ import { CCatalogFilter } from "../CCatalogFilter";
 import { CCatalogProducts } from "../CCatalogProducts";
 import { CCatalogHeader } from "../CCatalogHeader";
 import { CCatalogSort } from "../CCatalogSort";
+import { ReturnType } from "shared/types";
 
 import './index.scss';
 
 type PropsType = {
     title?: string,
-    params?: {
-        query?: string,
-        catalogCategoryId?: number,
-        id?: number[]
-    }
+    params?: Parameters<typeof catalogProductsQuery>[0] | Parameters<typeof catalogProductsFiltersQuery>[0];
 }
 
 export const CCatalog = observer((
@@ -69,7 +66,7 @@ export const CCatalog = observer((
         <div className={'c-catalog'}>
             <div className="c-catalog__header">
                 <div className="c-catalog__title">
-                    <UiPage.Header style={{marginBottom: 0}} title={title}/>
+                    <UiPage.Header style={{ marginBottom: 0 }} title={title}/>
                 </div>
                 {!store.isCatalogProductsLoading && (
                     <div className="c-catalog__count">

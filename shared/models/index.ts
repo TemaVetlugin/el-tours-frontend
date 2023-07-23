@@ -28,6 +28,9 @@ export type { CityModelInterface } from './City.model';
 export { CompilationModel } from './Compilation.model';
 export type { CompilationModelInterface } from './Compilation.model';
 
+export { ContentPageModel } from './ContentPage.model';
+export type { ContentPageModelInterface } from './ContentPage.model';
+
 export { ContentResourceModel } from './ContentResource.model';
 export type { ContentResourceModelInterface } from './ContentResource.model';
 

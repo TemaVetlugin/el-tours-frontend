@@ -26,6 +26,7 @@ export const Client = observer(() => {
 
     useEffect(() => {
         document.title = 'Новости';
+        console.log('full render')
     }, []);
 
     useAsyncEffect(async () => {

@@ -5,4 +5,5 @@ export { isFalsy } from './isFalsy';
 export { isNumeric } from './isNumeric';
 export { lodash } from './lodash';
 export { mask } from './mask';
+export { Notifier } from './Notifier';
 export { wait } from './wait';

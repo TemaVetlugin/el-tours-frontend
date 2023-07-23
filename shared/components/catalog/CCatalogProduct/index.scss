@@ -1,15 +1,15 @@
 .c-catalog-product {
-    padding: 0 16px;
-    text-decoration: none;
     position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding: 0 16px;
+    text-decoration: none;
 
     &__badges {
         position: absolute;
-        left: 16px;
         top: 4px;
+        left: 16px;
     }
 
     &-badge {
@@ -19,8 +19,8 @@
         width: 32px;
         height: 32px;
         border-radius: 100%;
-        gap: 8px;
         white-space: nowrap;
+        gap: 8px;
 
         &:not(&:last-child) {
             margin-bottom: 4px;
@@ -65,8 +65,8 @@
     }
 
     &__price {
-        margin-bottom: 14px;
         margin-top: auto;
+        margin-bottom: 14px;
     }
 
     &__favorite {
@@ -78,6 +78,15 @@
     &__footer {
         display: flex;
         gap: 14px;
+    }
+
+    &__unavailable {
+        margin-bottom: 12px;
+        color: $cGrayPrimary;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 19px;
+        margin-top: auto;
     }
 
     .ui-button {

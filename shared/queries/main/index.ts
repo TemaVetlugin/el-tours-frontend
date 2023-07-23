@@ -10,6 +10,7 @@ export { catalogProductsGetQuery } from './catalogProductsGet.query';
 export { checkoutQuery } from './checkout.query';
 export { compilationsQuery } from './compilations.query';
 export { compilationsGetQuery } from './compilationsGet.query';
+export { contentPageGet } from './contentPageGet.query';
 export { newsGetQuery } from './newsGet.query';
 export { newsQuery } from './news.query';
 export { ordersQuery } from './orders.query';

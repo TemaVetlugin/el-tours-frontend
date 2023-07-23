@@ -20,7 +20,7 @@ export const PHomeCatalogProductsProfit = observer(({ catalogProducts }: PropsTy
     return (
         <UiPage.Section
             title={'Выгодно'}
-            link={(<UiPage.Link href={ROUTES.HOME().url}>Смотреть все</UiPage.Link>)}
+            link={(<UiPage.Link href={ROUTES.CATALOG_MARK('discount')}>Смотреть все</UiPage.Link>)}
         >
             <UiGrid columns={4} gap={[20, 40]} className="">
                 {catalogProducts.map((catalogProduct, index) => {
