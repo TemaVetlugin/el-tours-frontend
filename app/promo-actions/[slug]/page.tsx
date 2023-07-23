@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 
-import { articlesGetQuery } from "shared/queries/main";
+import { newsGetQuery, promoActionsGetQuery } from "shared/queries/main";
 import { Cache } from "shared/utilities/server";
 
 import { Client } from "./client";
@@ -17,9 +17,10 @@ type PropsType = {
 
 export async function generateMetadata({ params }: PropsType): Promise<Metadata> {
     const { isSuccess, data } = await Cache.remember(
-        `articlesGetQuery:${params.slug}`,
-        async () => await articlesGetQuery(params)
+        `promoActionsGetQuery:${params.slug}`,
+        async () => await promoActionsGetQuery(params)
     );
+
     if (isSuccess && data) {
         return {
             title: data.item.name
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: PropsType): Promise<Metadata>
     }
 
     return {
-        title: 'Интересно',
+        title: 'Акция',
     }
 }
 

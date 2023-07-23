@@ -5,33 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/profile/reminders/client.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/profile/reminders/page.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/profile/reminders/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/models/UserReminder.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/queries/main/userReminders.query.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/queries/main/userRemindersDelete.query.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/queries/main/userRemindersSave.query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/promo-actions/[slug]/client.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/promo-actions/[slug]/page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/promo-actions/[slug]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/promo-actions/client.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/promo-actions/page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/promo-actions/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/types/UrlType.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/utilities/url.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catalog/[[...slug]]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/[[...slug]]/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/profile/orders/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/profile/orders/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/test/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/test/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/order/COrder/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/order/COrder/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutFooter/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutFooter/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/queries/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/ui/UiDatepicker/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiDatepicker/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/ui/UiDatepicker/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiDatepicker/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/ui/UiModal/components/Actions/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiModal/components/Actions/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/ui/UiModal/components/Description/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiModal/components/Description/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/ui/UiModal/components/Title/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiModal/components/Title/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/ui/UiModal/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiModal/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/ui/UiPanel/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiPanel/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/utilities/Notifier.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/utilities/Notifier.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/articles/[slug]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/articles/[slug]/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/articles/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/articles/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/articles/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/articles/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/articles/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/articles/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/home/components/PHomeArticles/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/home/components/PHomeArticles/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/home/components/PHomeNews/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/home/components/PHomeNews/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/news/[slug]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/news/[slug]/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/news/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/news/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/news/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/news/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/news/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/news/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/news/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/tiles/CTileNews/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/tiles/CTileNews/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/tiles/CTilePromoAction/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/tiles/CTilePromoAction/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/tiles/CTilePromoAction/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/tiles/CTilePromoAction/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/hooks/useRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/hooks/useRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/Article.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/Article.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/PromoAction.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/PromoAction.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/main/articlesGet.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/articlesGet.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/main/promoActions.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/promoActions.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/main/promoActionsGet.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/promoActionsGet.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/types/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiButton/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiButton/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiLink/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiLink/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiPage/components/Actions/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiPage/components/Actions/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiTypography/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiTypography/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/utilities/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/utilities/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +67,7 @@
     "RunOnceActivity.laravel-idea.search-composer-json": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "dev",
-    "last_opened_file_path": "/home/izica/git/yaplus-frontend/shared/ui/UiPanel/components",
+    "last_opened_file_path": "/home/izica/git/yaplus-frontend/shared/types",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -80,11 +88,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/shared/types" />
+      <recent name="$PROJECT_DIR$/shared/utilities" />
+      <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/shared/ui/UiPanel/components" />
       <recent name="$PROJECT_DIR$/app/profile" />
-      <recent name="$PROJECT_DIR$/shared/queries/main" />
-      <recent name="$PROJECT_DIR$/shared/models" />
-      <recent name="$PROJECT_DIR$/shared/ui/UiModal/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/catalog/mark/[id]" />
@@ -130,7 +138,7 @@
       <workItem from="1689850859815" duration="16539000" />
       <workItem from="1689927184592" duration="5630000" />
       <workItem from="1690098906140" duration="10787000" />
-      <workItem from="1690136884852" duration="7596000" />
+      <workItem from="1690136884852" duration="11186000" />
     </task>
     <servers />
   </component>

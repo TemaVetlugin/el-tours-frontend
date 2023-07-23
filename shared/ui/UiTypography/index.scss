@@ -1,8 +1,8 @@
 .ui-typography {
     color: $cTypo;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 18px;
 
     @include isMobile {
         font-size: 14px;
@@ -89,8 +89,8 @@
 
     p {
         font-weight: 400;
-        font-size: 18px;
-        line-height: 24px;
+        font-size: 16px;
+        line-height: 18px;
         margin: 0 0 24px;
 
         @include isMobile {

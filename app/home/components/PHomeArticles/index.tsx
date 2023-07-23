@@ -16,7 +16,7 @@ export const PHomeArticles = observer(({ articles }: PropsType) => {
     return (
         <UiPage.Section
             title={'Интересно'}
-            link={(<UiPage.Link href={ROUTES.HOME().url}>Смотреть все</UiPage.Link>)}
+            link={(<UiPage.Link href={ROUTES.ARTICLES()}>Смотреть все</UiPage.Link>)}
         >
             <UiGrid columns={3} gap={20} className="">
                 {articles.slice(0, 3).map(article => <CTileArticle key={article.id} item={article}/>)}

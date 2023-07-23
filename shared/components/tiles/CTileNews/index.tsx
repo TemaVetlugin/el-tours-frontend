@@ -27,7 +27,7 @@ export const CTileNews = observer(({ item, template = 'base' }: PropsType) => {
                 {template === 'base' && (
                     <>
                         <div className="c-tile-news__preview">{item.preview}</div>
-                        <UiPage.Link href={ROUTES.HOME().url}>Читать</UiPage.Link>
+                        <UiPage.Link href={ROUTES.NEWS(item.slug)}>Читать</UiPage.Link>
                     </>
                 )}
             </div>

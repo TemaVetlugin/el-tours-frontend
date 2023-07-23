@@ -80,9 +80,11 @@ export const Client = observer(({ slug }: PropsType) => {
                             </UiPage.Link>
                         </UiPage.Aside>
                     </UiGrid>
-                    <UiPage.Section title={'Товары в статье'}>
-                        <CCatalogProductsSlider catalogProducts={store.item.catalogProducts}/>
-                    </UiPage.Section>
+                    {store.item.catalogProducts.length > 0 && (
+                        <UiPage.Section title={'Товары в новости'}>
+                            <CCatalogProductsSlider catalogProducts={store.item.catalogProducts}/>
+                        </UiPage.Section>
+                    )}
                 </UiDataBoundary>
             </UiPage.Wrap>
         </UiPage>

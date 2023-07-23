@@ -24,10 +24,6 @@ export const Client = observer(() => {
     });
     const searchParams = useSearchParams({ page: 1, tagId: null as null | number })
 
-    useEffect(() => {
-        document.title = 'Интересно';
-    }, []);
-
     useAsyncEffect(async () => {
         const { isSuccess, data } = await tagsQuery({ has: ['articles'] });
         if (isSuccess && data) {

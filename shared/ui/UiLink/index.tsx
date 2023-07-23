@@ -5,15 +5,15 @@ import { observer } from "mobx-react-lite";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import classnames from "classnames";
-import { ROUTES } from "shared/contants";
+import { url } from "shared/utilities";
+
+import { UrlType } from "shared/types";
 
 import './index.scss';
 
-type RoutesType = typeof ROUTES;
-type RouteType = ReturnType<RoutesType[keyof RoutesType]>;
 
 type PropsType = {
-    href?: string | RouteType | null,
+    href?: UrlType,
     activeRoutes?: string[],
     className?: string | [string, string],
     style?: React.CSSProperties,
@@ -42,17 +42,11 @@ export const UiLink = observer((
     const classNames = classnames('ui-link', classNamesArray[0], {
         [activeClassName]: route === href || activeRoutes?.includes(route)
     });
-    let url = '#';
-    if (typeof href === 'string') {
-        url = href;
-    } else if (typeof href === 'object' && href && 'url' in href) {
-        url = href.url
-    }
 
     return (
         <Link
             style={style}
-            href={url}
+            href={url(href)}
             className={classNames}
             onClick={onClick}
             onMouseEnter={onMouseEnter}

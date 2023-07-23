@@ -9,7 +9,6 @@ type RequestType = {
 
 type ResponseType = {
     item: ArticleModelInterface,
-    other: ArticleModelInterface[],
 }
 
 export const articlesGetQuery = async (params: RequestType) => {

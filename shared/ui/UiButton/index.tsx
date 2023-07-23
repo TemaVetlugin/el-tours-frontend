@@ -6,6 +6,8 @@ import classnames from "classnames";
 
 import { COLORS } from "shared/contants";
 import { useRouter } from "shared/hooks";
+import { UrlType } from "shared/types";
+import { url } from "shared/utilities";
 
 import { UiLoading } from '../UiLoading';
 
@@ -14,7 +16,7 @@ import './index.scss';
 type PropsType = {
     children?: React.ReactNode,
     type?: 'button' | 'submit' | 'reset',
-    href?: string,
+    href?: UrlType,
     onClick?: (e: React.MouseEvent) => void,
     label?: string,
     isLoading?: boolean,
@@ -127,7 +129,7 @@ export const UiButton = observer((
         //middle mouse click when link is provided
         e.preventDefault();
         if (e.button === 1 && href) {
-            window.open(href, '_blank')?.focus();
+            window.open(url(href), '_blank')?.focus();
         }
     }
 

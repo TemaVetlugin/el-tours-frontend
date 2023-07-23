@@ -6,4 +6,5 @@ export { isNumeric } from './isNumeric';
 export { lodash } from './lodash';
 export { mask } from './mask';
 export { Notifier } from './Notifier';
+export { url } from './url';
 export { wait } from './wait';

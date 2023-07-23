@@ -1,15 +1,14 @@
-import { ArticleModelInterface, PaginationModelInterface } from "shared/models";
+import { PaginationModelInterface, PromoActionModelInterface } from "shared/models";
 
 import { makeQuery } from "../utilities";
 
 type RequestType = {
     page?: number,
-    tagId?: number | null,
     cityId: number
 }
 
 type ResponseType = {
-    items: ArticleModelInterface[],
+    items: PromoActionModelInterface[],
     pagination: PaginationModelInterface
 }
 

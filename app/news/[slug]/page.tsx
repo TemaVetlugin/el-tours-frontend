@@ -7,6 +7,7 @@ import { Cache } from "shared/utilities/server";
 import { Client } from "./client";
 
 import './page.scss';
+import { notFound } from "next/navigation";
 
 type PropsType = {
     params: {
@@ -24,8 +25,9 @@ export async function generateMetadata({ params }: PropsType): Promise<Metadata>
             title: data.item.name
         }
     }
+
     return {
-        title: 'Новости',
+        title: 'Новость',
     }
 }
 
