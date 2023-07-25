@@ -24,7 +24,7 @@ export interface CatalogProductModelInterface {
     manufacturer?: ManufacturerModelInterface | null,
     images?: string[],
     barcodes?: string[],
-    isThermolabile?: boolean,
+    thermolabile?: string,
     instructionFull?: string,
     description?: string,
     dosage?: string,
@@ -38,6 +38,7 @@ export interface CatalogProductModelInterface {
     dispensingConditions?: string,
     storageConditions?: string,
     releaseForm?: string,
+    size?: string,
     sideEffects?: string,
     withPrescription?: boolean,
     analogues?: CatalogProductModelInterface[]
@@ -60,7 +61,7 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
         "barcodes",
         "dosage",
         "packageAmount",
-        "isThermolabile",
+        "thermolabile",
         "instructionFull",
         "description",
         "instructionSpecial",
@@ -72,6 +73,7 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
         "dispensingConditions",
         "storageConditions",
         "releaseForm",
+        "size",
         "sideEffects",
         "withPrescription",
         "analogues",
@@ -96,7 +98,7 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
     catalogCategoryId = 0;
     images = [];
     barcodes = [];
-    isThermolabile = false;
+    thermolabile = '';
     withPrescription = true;
     instructionFull = '';
     description = '';
@@ -111,6 +113,7 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
     dispensingConditions = '';
     storageConditions = '';
     releaseForm = '';
+    size = '';
     sideEffects = '';
     substances: SubstanceModel[] = [];
     catalogCategory: CatalogCategoryModel | null = null;
@@ -138,9 +141,10 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
             manufacturer: observable,
             images: observable,
             dosage: observable,
+            size: observable,
             packageAmount: observable,
             barcodes: observable,
-            isThermolabile: observable,
+            thermolabile: observable,
             withPrescription: observable,
             instructionFull: observable,
             description: observable,

@@ -65,7 +65,7 @@
 
     &-property {
         display: flex;
-        align-items: flex-end;
+        align-items: flex-start;
         width: 100%;
 
         &:not(&:last-child) {
@@ -88,13 +88,34 @@
             transform: translateY(-3px);
         }
 
-        &__value {
+        &__aside {
             flex: 1;
-            color: $cGreenPrimary;
-            font-size: 14px;
+        }
+
+        &__value {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            color: $cTypo;
             font-size: 14px;
             font-weight: 400;
             line-height: 18px;
+            gap: 4px;
+
+            &--link {
+                color: $cGreenPrimary;
+                transition: 0.25s;
+
+                &:hover {
+                    color: $cGreenSecondary;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        &__image {
+            height: 32px;
+            margin-top: 8px;
         }
     }
 
@@ -109,8 +130,8 @@
         &__action {
             display: flex;
             align-items: center;
-            gap: 16px;
             margin-bottom: 8px;
+            gap: 16px;
 
             .ui-quantity {
                 min-width: 86px;

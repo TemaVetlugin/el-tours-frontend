@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/product/[slug]/constants/properties.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/product/[slug]/constants/tabs.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/icons/snow.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/[slug]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/[slug]/page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/contants/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/contants/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/icons/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/icons/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/CatalogProduct.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/CatalogProduct.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/Manufacturer.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/Manufacturer.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/utilities/url.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/utilities/url.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,24 +37,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.laravel-idea.search-composer-json&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/izica/git/yaplus-frontend/shared/types&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/izica/git/yaplus-frontend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.laravel-idea.search-composer-json": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "/home/izica/git/yaplus-frontend/shared/icons",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "Errors",
+    "ts.external.directory.path": "/home/izica/git/yaplus-frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -54,11 +65,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/shared/icons" />
       <recent name="$PROJECT_DIR$/shared/types" />
       <recent name="$PROJECT_DIR$/shared/utilities" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/shared/ui/UiPanel/components" />
-      <recent name="$PROJECT_DIR$/app/profile" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/catalog/mark/[id]" />
@@ -105,7 +116,8 @@
       <workItem from="1689927184592" duration="5630000" />
       <workItem from="1690098906140" duration="10787000" />
       <workItem from="1690136884852" duration="13062000" />
-      <workItem from="1690181887025" duration="1323000" />
+      <workItem from="1690181887025" duration="1381000" />
+      <workItem from="1690271292500" duration="4574000" />
     </task>
     <servers />
   </component>

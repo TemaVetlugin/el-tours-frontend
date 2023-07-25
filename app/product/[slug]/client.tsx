@@ -4,7 +4,7 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 import { useObservable } from "shared/hooks";
-import { UiButton, UiCard, UiIcon, UiPage, UiPrice, UiQuantity } from "shared/ui";
+import { UiButton, UiCard, UiIcon, UiLink, UiPage, UiPrice, UiQuantity } from "shared/ui";
 import { CatalogProductModel, CatalogProductModelInterface, CatalogProductOfferModel } from "shared/models";
 import { CartService, CatalogService } from "shared/services";
 import { COLORS, ROUTES } from "shared/contants";
@@ -12,25 +12,14 @@ import { CCatalogProductsSlider } from "shared/components/catalog";
 
 import { PProductStore } from "./components/PProductStore";
 
+import { TABS } from "./constants/tabs";
+import { PROPERTIES } from "./constants/properties";
+
 import './page.scss';
 
 type PropsType = {
     catalogProduct: CatalogProductModelInterface
 }
-
-const TABS = [{
-    id: 'description',
-    name: 'Описание'
-}, {
-    id: 'storageConditions',
-    name: 'Условия хранения'
-}, {
-    id: 'composition',
-    name: 'Состав'
-}, {
-    id: 'contraindications',
-    name: 'Противопоказания'
-}];
 
 export const Client = observer(({ catalogProduct }: PropsType) => {
     const store = useObservable({
@@ -41,6 +30,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
 
     const tab = TABS.find(tab => tab.id === store.tab);
     const cartItem = CartService.cartItems.find(cartItem => cartItem.catalogProductId === catalogProduct.id);
+
 
     return (
         <UiPage className={'p-product'}>
@@ -78,51 +68,36 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                         </div>
                     </div>
                     <div className="p-product__properties">
-                        <div className="p-product-property">
-                            <div className="p-product-property__name">
-                                <span>Форма выпуска</span>
-                                <div className="p-product-property__row"/>
-                            </div>
-                            <div className="p-product-property__value">
-                                {store.catalogProduct.releaseForm}
-                            </div>
-                        </div>
-                        <div className="p-product-property">
-                            <div className="p-product-property__name">
-                                <span>Действующее вещество</span>
-                                <div className="p-product-property__row"/>
-                            </div>
-                            <div className="p-product-property__value">
-                                {store.catalogProduct.substances?.map(substance => substance.name).join(', ')}
-                            </div>
-                        </div>
-                        <div className="p-product-property">
-                            <div className="p-product-property__name">
-                                <span>Производитель</span>
-                                <div className="p-product-property__row"/>
-                            </div>
-                            <div className="p-product-property__value">
-                                {store.catalogProduct.manufacturer?.name}
-                            </div>
-                        </div>
-                        <div className="p-product-property">
-                            <div className="p-product-property__name">
-                                <span>Страна производства</span>
-                                <div className="p-product-property__row"/>
-                            </div>
-                            <div className="p-product-property__value">
-                                {store.catalogProduct.country?.name}
-                            </div>
-                        </div>
-                        <div className="p-product-property">
-                            <div className="p-product-property__name">
-                                <span>Бренд</span>
-                                <div className="p-product-property__row"/>
-                            </div>
-                            <div className="p-product-property__value">
-                                {store.catalogProduct.brand?.name}
-                            </div>
-                        </div>
+                        {PROPERTIES.map(property => {
+                            const href = property.href(store.catalogProduct);
+                            const value = property.value(store.catalogProduct);
+                            const image = property.image(store.catalogProduct);
+                            if (!value) {
+                                return null;
+                            }
+                            return (
+                                <div key={property.id} className="p-product-property">
+                                    <div className="p-product-property__name">
+                                        <span>{property.label}</span>
+                                        <div className="p-product-property__row"/>
+                                    </div>
+                                    <div className="p-product-property__aside">
+                                        {href ? (
+                                            <UiLink href={href} className="p-product-property__value p-product-property__value--link">
+                                                {value}
+                                            </UiLink>
+                                        ) : (
+                                            <div className="p-product-property__value">
+                                                {value}
+                                            </div>
+                                        )}
+                                        {image && (
+                                            <img className="p-product-property__image" src={image} alt={property.label}/>
+                                        )}
+                                    </div>
+                                </div>
+                            )
+                        })}
                     </div>
                     <div className="p-product-commerce">
                         <UiCard>
@@ -234,5 +209,6 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                 </UiPage.Section>
             </UiPage.Wrap>
         </UiPage>
-    );
+    )
+        ;
 });

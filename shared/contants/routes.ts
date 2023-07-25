@@ -24,6 +24,21 @@ export const ROUTES = {
         name,
         url: id ? `/catalog/mark/${id}` : '/catalog',
     }),
+    CATALOG_BRAND: (id: number = 0, name = 'Бренд'): RouteType => ({
+        id: 'catalog' + id,
+        name,
+        url: id ? `/catalog/brand/${id}` : '/catalog',
+    }),
+    CATALOG_MANUFACTURER: (id: number = 0, name = 'Производитель'): RouteType => ({
+        id: 'catalog' + id,
+        name,
+        url: id ? `/catalog/manufacturer/${id}` : '/catalog',
+    }),
+    CATALOG_SUBSTANCE: (id: number = 0, name = 'Действующее вещество'): RouteType => ({
+        id: 'catalog' + id,
+        name,
+        url: id ? `/catalog/substance/${id}` : '/catalog',
+    }),
     ORDER: (id: string | number = ''): RouteType => ({
         id: 'order' + id,
         name: 'Заказ',

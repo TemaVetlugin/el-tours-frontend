@@ -5,7 +5,7 @@ type RoutesType = typeof ROUTES;
 type RouteType = ReturnType<RoutesType[keyof RoutesType]>;
 
 export const url = (href: string | RouteType | null | undefined, params?: Record<string, any>) => {
-    let url: string = window.location.pathname;
+    let url: string = window !== undefined ? window.location.pathname : '/';
 
     if (typeof href === 'string') {
         url = href;

@@ -30,6 +30,7 @@ export { plus } from "./plus";
 export { repeat } from "./repeat";
 export { ruble } from "./ruble";
 export { search } from "./search";
+export { snow } from "./snow";
 export { sort } from "./sort";
 export { trash } from "./trash";
 export { user } from "./user";
