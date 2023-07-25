@@ -2,7 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { brandsGetQuery } from "shared/queries/main";
+import { manufacturersGetQuery } from "shared/queries/main";
 import { Cache } from "shared/utilities/server";
 
 import { Client } from "./client";
@@ -16,22 +16,22 @@ type PropsType = {
 }
 
 export default async function Page({ params }: PropsType) {
-    const { isSuccess, data, description } = await Cache.remember(`brandsGetQuery:${params.id}`, async () => await brandsGetQuery(params));
+    const { isSuccess, data, description } = await Cache.remember(`manufacturersGetQuery:${params.id}`, async () => await manufacturersGetQuery(params));
 
     if (!isSuccess || !data) {
         notFound();
         return null;
     }
 
-    return <Client brand={data.item}/>
+    return <Client manufacturer={data.item}/>
 }
 
 export async function generateMetadata({ params }: PropsType): Promise<Metadata> {
-    const { isSuccess, data } = await Cache.remember(`brandsGetQuery:${params.id}`, async () => await brandsGetQuery(params));
+    const { isSuccess, data } = await Cache.remember(`manufacturersGetQuery:${params.id}`, async () => await manufacturersGetQuery(params));
 
     if (isSuccess && data) {
         return {
-            title: `Бренд: ${data.item.name}`
+            title: `Производитель: ${data.item.name}`
         }
     }
 

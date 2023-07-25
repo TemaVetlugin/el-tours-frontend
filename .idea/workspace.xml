@@ -5,17 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/product/[slug]/constants/properties.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/product/[slug]/constants/tabs.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/icons/snow.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/manufacturer/[id]/client.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/manufacturer/[id]/page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/manufacturer/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/substance/[id]/client.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/substance/[id]/page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/substance/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/queries/main/brandsGet.query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/queries/main/manufacturersGet.query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/queries/main/substancesGet.query.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/brand/[id]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/brand/[id]/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/brand/[id]/marks.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/brand/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/brand/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/home/components/PHomeBrands/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/home/components/PHomeBrands/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/product/[slug]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product/[slug]/page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/contants/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/contants/routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/icons/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/icons/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/CatalogProduct.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/CatalogProduct.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/Manufacturer.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/Manufacturer.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/[slug]/constants/properties.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/constants/properties.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/main/catalogProducts.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/catalogProducts.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/utilities/url.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/utilities/url.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +51,7 @@
     "RunOnceActivity.laravel-idea.search-composer-json": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "dev",
-    "last_opened_file_path": "/home/izica/git/yaplus-frontend/shared/icons",
+    "last_opened_file_path": "/home/izica/git/yaplus-frontend/app/catalog",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -65,11 +72,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/catalog" />
+      <recent name="$PROJECT_DIR$/shared/queries/main" />
       <recent name="$PROJECT_DIR$/shared/icons" />
       <recent name="$PROJECT_DIR$/shared/types" />
       <recent name="$PROJECT_DIR$/shared/utilities" />
-      <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$/shared/ui/UiPanel/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/catalog/mark/[id]" />
@@ -117,7 +124,7 @@
       <workItem from="1690098906140" duration="10787000" />
       <workItem from="1690136884852" duration="13062000" />
       <workItem from="1690181887025" duration="1381000" />
-      <workItem from="1690271292500" duration="4574000" />
+      <workItem from="1690271292500" duration="6807000" />
     </task>
     <servers />
   </component>

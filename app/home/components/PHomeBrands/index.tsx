@@ -4,9 +4,10 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 import { BrandModel } from "shared/models";
-import { UiIcon, UiSlider } from "shared/ui";
+import { UiIcon, UiLink, UiSlider } from "shared/ui";
 
 import './index.scss';
+import { ROUTES } from "shared/contants";
 
 type PropsType = {
     brands: BrandModel[],
@@ -22,9 +23,9 @@ export const PHomeBrands = observer(({ brands }: PropsType) => {
             loop
             renderItem={(brand: BrandModel) => {
                 return (
-                    <div className="p-home-brands-slide">
+                    <UiLink href={ROUTES.CATALOG_BRAND(brand.id)} className="p-home-brands-slide">
                         <img src={brand.image} alt=""/>
-                    </div>
+                    </UiLink>
                 )
             }}
             renderNavigation={(navigation) => {

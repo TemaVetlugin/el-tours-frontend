@@ -6,30 +6,30 @@ import { observer } from "mobx-react-lite";
 import { UiPage, UiWrap } from "shared/ui";
 import { ROUTES } from "shared/contants";
 import { CCatalog } from "shared/components/catalog";
-import { BrandModel, BrandModelInterface } from "shared/models";
+import { SubstanceModel, SubstanceModelInterface } from "shared/models";
 import { useObservable } from "shared/hooks";
 
 import './page.scss';
 
 type PropsType = {
-    brand: BrandModelInterface
+    substance: SubstanceModelInterface
 }
 
-export const Client = observer(({ brand }: PropsType) => {
+export const Client = observer(({ substance }: PropsType) => {
     const store = useObservable({
-        brand: new BrandModel(brand)
+        substance: new SubstanceModel(substance)
     })
     return (
         <UiPage className={'p-catalog'}>
             <UiWrap>
                 <UiPage.Breadcrumbs
-                    items={[ROUTES.CATALOG(), ROUTES.CATALOG_BRAND(store.brand.id, store.brand.name)]}
+                    items={[ROUTES.CATALOG(), ROUTES.CATALOG_SUBSTANCE(store.substance.id, store.substance.name)]}
                 />
                 <CCatalog
-                    title={`Бренд: ${store.brand.name}`}
+                    title={`Действующее вещество: ${store.substance.name}`}
                     params={{
-                        brandId: [store.brand.id],
-                        except: ['brand']
+                        substanceId: [store.substance.id],
+                        except: ['substance']
                     }}
                 />
             </UiWrap>

@@ -6,7 +6,10 @@ export type ParamsType = {
     catalogCategoryId?: number,
     cityId?: number,
     query?: string,
-    markId?: string[]
+    markId?: string[],
+    brandId?: number[],
+    manufacturerId?: number[],
+    substanceId?: number[],
 }
 
 type ResponseType = {

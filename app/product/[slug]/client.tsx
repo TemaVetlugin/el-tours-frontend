@@ -31,7 +31,6 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
     const tab = TABS.find(tab => tab.id === store.tab);
     const cartItem = CartService.cartItems.find(cartItem => cartItem.catalogProductId === catalogProduct.id);
 
-
     return (
         <UiPage className={'p-product'}>
             <UiPage.Wrap>

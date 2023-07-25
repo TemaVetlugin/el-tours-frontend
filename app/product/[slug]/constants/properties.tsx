@@ -45,12 +45,12 @@ export const PROPERTIES: PropertyType[] = [{
 },   {
     id: 'thermolabile',
     label: 'Термолабильность',
-    value: (catalogProduct) => (
+    value: (catalogProduct) => catalogProduct.thermolabile ? (
         <>
             <span>{catalogProduct.thermolabile}</span>
             <UiIcon size={16} name={'snow'}/>
         </>
-    ),
+    ) : null,
     href: () => null,
     image: () => null
 },{
