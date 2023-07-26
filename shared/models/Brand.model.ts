@@ -6,16 +6,19 @@ export interface BrandModelInterface {
 	id?: number;
 	name?: string;
 	image?: string;
+	sort?: number;
 }
 
 export class BrandModel extends Model<BrandModelInterface> implements BrandModelInterface {
     fillable: Array<keyof BrandModelInterface> = [
 		"id",
+		"sort",
 		"name",
 		"image",
     ];
 
 	id = 0;
+	sort = 0;
 	name = '';
     image = '';
 
@@ -24,6 +27,7 @@ export class BrandModel extends Model<BrandModelInterface> implements BrandModel
 
         makeObservable(this, {
 			id: observable,
+			sort: observable,
 			name: observable,
             image: observable,
         });

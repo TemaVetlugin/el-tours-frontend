@@ -3,6 +3,7 @@ import {
     BrandModelInterface,
     CatalogProductModelInterface,
     HomeBannerModelInterface,
+    ManufacturerModelInterface,
     PromoActionModelInterface
 } from "shared/models"
 
@@ -16,6 +17,7 @@ export type ResponseType = {
     homeBanners: HomeBannerModelInterface[],
     promoActions: PromoActionModelInterface[],
     brands: BrandModelInterface[],
+    manufacturers: ManufacturerModelInterface[],
     articles: ArticleModelInterface[],
     news: ArticleModelInterface[],
     catalogProductsProfit: CatalogProductModelInterface[],

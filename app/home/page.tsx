@@ -21,6 +21,7 @@ export default async function Page() {
             homeBanners={data?.homeBanners || []}
             promoActions={data?.promoActions || []}
             brands={data?.brands || []}
+            manufacturers={data?.manufacturers || []}
             articles={data?.articles || []}
             news={data?.news || []}
             catalogProductsNew={data?.catalogProductsNew || []}

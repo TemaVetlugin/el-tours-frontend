@@ -12,11 +12,11 @@ import {
     ArticleModel,
     BrandModel,
     CatalogProductModel,
-    HomeBannerModel,
+    HomeBannerModel, ManufacturerModel,
     NewsModel,
     PromoActionModel
 } from "shared/models";
-import { PHomeBrands } from "./components/PHomeBrands";
+import { PHomeBrandsAndManufacturers } from "./components/PHomeBrandsAndManufacturers";
 import { PHomeArticles } from "./components/PHomeArticles";
 import { PHomeNews } from "./components/PHomeNews";
 import { PHomeCatalogProductsProfit } from "./components/PHomeCatalogProductsProfit";
@@ -30,6 +30,7 @@ export const Client = observer((
         promoActions,
         brands,
         articles,
+        manufacturers,
         news,
         catalogProductsProfit,
         catalogProductsNew,
@@ -42,6 +43,7 @@ export const Client = observer((
         homeBanners: homeBanners.map(item => new HomeBannerModel(item)),
         promoActions: promoActions.map(item => new PromoActionModel(item)),
         brands: brands.map(item => new BrandModel(item)),
+        manufacturers: manufacturers.map(item => new ManufacturerModel(item)),
         articles: articles.map(item => new ArticleModel(item)),
         news: news.map(item => new NewsModel(item)),
         catalogProductsProfit: catalogProductsProfit.map(item => new CatalogProductModel(item)),
@@ -58,6 +60,7 @@ export const Client = observer((
                 store.set("homeBanners", data.homeBanners.map(item => new HomeBannerModel(item)));
                 store.set("promoActions", data.promoActions.map(item => new PromoActionModel(item)));
                 store.set("brands", data.brands.map(item => new BrandModel(item)));
+                store.set("manufacturers", data.manufacturers.map(item => new ManufacturerModel(item)));
                 store.set('articles', data.articles.map(item => new ArticleModel(item)));
                 store.set('news', data.news.map(item => new NewsModel(item)));
                 store.set('catalogProductsProfit', data.catalogProductsProfit.map(item => new CatalogProductModel(item)));
@@ -72,7 +75,7 @@ export const Client = observer((
             <UiPage.Wrap>
                 <PHomeBanners homeBanners={store.homeBanners}/>
                 <PHomePromoActions promoActions={store.promoActions}/>
-                <PHomeBrands brands={store.brands}/>
+                <PHomeBrandsAndManufacturers manufacturers={store.manufacturers} brands={store.brands}/>
                 <PHomeCatalogProductsProfit catalogProducts={store.catalogProductsProfit}/>
                 <PHomeArticles articles={store.articles}/>
                 <PHomeCatalogProductsNew catalogProducts={store.catalogProductsProfit}/>

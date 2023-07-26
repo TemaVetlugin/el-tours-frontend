@@ -7,9 +7,10 @@ import { CatalogProductModel } from "shared/models";
 import { UiGrid, UiPage } from "shared/ui";
 import { ROUTES } from "shared/contants";
 
-import './index.scss';
 import { CCatalogProduct } from "shared/components/catalog";
 import { useContentResource } from "shared/hooks";
+
+import './index.scss';
 
 type PropsType = {
     catalogProducts: CatalogProductModel[],

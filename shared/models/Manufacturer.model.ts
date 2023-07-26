@@ -6,16 +6,19 @@ export interface ManufacturerModelInterface {
 	id?: number;
 	name?: string;
 	image?: string;
+	sort?: number;
 }
 
 export class ManufacturerModel extends Model<ManufacturerModelInterface> implements ManufacturerModelInterface {
     fillable: Array<keyof ManufacturerModelInterface> = [
 		"id",
 		"name",
-		"image"
+		"image",
+        "sort"
     ];
 
 	id = 0;
+	sort = 0;
 	name = '';
     image = '';
 
@@ -24,6 +27,7 @@ export class ManufacturerModel extends Model<ManufacturerModelInterface> impleme
 
         makeObservable(this, {
 			id: observable,
+			sort: observable,
 			name: observable,
             image: observable
         });
