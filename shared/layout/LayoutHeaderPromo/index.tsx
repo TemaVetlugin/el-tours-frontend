@@ -5,7 +5,7 @@ import Link from "next/link";
 import { observer } from "mobx-react-lite";
 
 import { CatalogService } from "shared/services";
-import { UiIcon, UiWrap } from "shared/ui";
+import { UiIcon, UiLink, UiWrap } from "shared/ui";
 import { ROUTES } from "shared/contants";
 import { useCity } from "shared/hooks";
 
@@ -23,28 +23,28 @@ export const LayoutHeaderPromo = observer(() => {
             <UiWrap>
                 <div className="layout-header-promo__inner">
                     <div className="layout-header-promo__items">
-                        <Link href={'#'} className="layout-header-promo__item">
+                        <UiLink href={ROUTES.PROMO_ACTIONS()} className="layout-header-promo__item">
                             <UiIcon size={16} name={'percent'}/>
                             <span>Акции</span>
-                        </Link>
-                        <Link href={'#'} className="layout-header-promo__item">
+                        </UiLink>
+                        <UiLink href={ROUTES.CATALOG_MARK('new')} className="layout-header-promo__item">
                             <UiIcon size={16} name={'novelty'}/>
                             <span>Новинки</span>
-                        </Link>
-                        <Link href={'#'} className="layout-header-promo__item">
+                        </UiLink>
+                        <UiLink href={ROUTES.CATALOG_MARK('discount')} className="layout-header-promo__item">
                             <UiIcon size={16} name={'ruble'}/>
                             <span>Выгодно</span>
-                        </Link>
+                        </UiLink>
                     </div>
                     <div className="layout-header-promo__compilations">
                         {compilations.map(compilation => (
-                            <Link
+                            <UiLink
                                 key={compilation.id}
-                                href={ROUTES.COMPILATION(compilation.slug).url}
+                                href={ROUTES.COMPILATION(compilation.slug)}
                                 className="layout-header-promo__compilation"
                             >
                                 {compilation.name}
-                            </Link>
+                            </UiLink>
                         ))}
                     </div>
                 </div>

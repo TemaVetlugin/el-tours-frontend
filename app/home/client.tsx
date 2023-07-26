@@ -3,25 +3,19 @@
 import React from "react";
 import { UiPage } from "shared/ui";
 import { observer } from "mobx-react-lite";
+
 import { homeQuery } from "shared/queries/frontend";
 import { ReturnType } from "shared/types";
-import { PHomeBanners } from "./components/PHomeBanners";
-import { PHomePromoActions } from "./components/PHomePromoActions";
 import { useCity, useDidUpdateEffect, useObservable } from "shared/hooks";
-import {
-    ArticleModel,
-    BrandModel,
-    CatalogProductModel,
-    HomeBannerModel, ManufacturerModel,
-    NewsModel,
-    PromoActionModel
-} from "shared/models";
+import { ArticleModel, BrandModel, CatalogProductModel, HomeBannerModel, ManufacturerModel, NewsModel, PromoActionModel } from "shared/models";
+import { ROUTES } from "shared/contants";
+
+import { PHomeBanners } from "./components/PHomeBanners";
 import { PHomeBrandsAndManufacturers } from "./components/PHomeBrandsAndManufacturers";
+import { PHomePromoActions } from "./components/PHomePromoActions";
 import { PHomeArticles } from "./components/PHomeArticles";
 import { PHomeNews } from "./components/PHomeNews";
-import { PHomeCatalogProductsProfit } from "./components/PHomeCatalogProductsProfit";
-import { PHomeCatalogProductsNew } from "./components/PHomeCatalogProductsNew";
-import { PHomeCatalogProductsPopular } from "./components/PHomeCatalogProductsPopular";
+import { PHomeCatalogProducts } from "./components/PHomeCatalogProducts";
 
 type PropsType = NonNullable<ReturnType<typeof homeQuery>['data']>;
 export const Client = observer((
@@ -76,11 +70,26 @@ export const Client = observer((
                 <PHomeBanners homeBanners={store.homeBanners}/>
                 <PHomePromoActions promoActions={store.promoActions}/>
                 <PHomeBrandsAndManufacturers manufacturers={store.manufacturers} brands={store.brands}/>
-                <PHomeCatalogProductsProfit catalogProducts={store.catalogProductsProfit}/>
+                <PHomeCatalogProducts
+                    title={'Выгодно'}
+                    href={ROUTES.CATALOG_MARK('discount')}
+                    contentResourceCode={'home.catalog-products-profit'}
+                    catalogProducts={store.catalogProductsProfit}
+                />
                 <PHomeArticles articles={store.articles}/>
-                <PHomeCatalogProductsNew catalogProducts={store.catalogProductsProfit}/>
+                <PHomeCatalogProducts
+                    title={'Новинки'}
+                    href={ROUTES.CATALOG_MARK('new')}
+                    contentResourceCode={'home.catalog-products-new'}
+                    catalogProducts={store.catalogProductsNew}
+                />
                 <PHomeNews news={store.news}/>
-                <PHomeCatalogProductsPopular catalogProducts={store.catalogProductsProfit}/>
+                <PHomeCatalogProducts
+                    title={'Популярное'}
+                    href={ROUTES.CATALOG_MARK('popular')}
+                    contentResourceCode={'home.catalog-products-popular'}
+                    catalogProducts={store.catalogProductsPopular}
+                />
             </UiPage.Wrap>
         </UiPage>
     );

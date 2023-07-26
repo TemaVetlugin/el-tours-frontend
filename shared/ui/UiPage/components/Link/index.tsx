@@ -4,16 +4,14 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 import { UiLink } from "shared/ui";
-import { ROUTES } from "shared/contants";
+import { UrlType } from "shared/types";
 
 import arrow from './assets/arrow.svg';
+
 import './index.scss';
 
-type RoutesType = typeof ROUTES;
-type RouteType = ReturnType<RoutesType[keyof RoutesType]>;
-
 type PropsType = {
-    href: string | RouteType,
+    href: UrlType,
     children?: React.ReactNode
 }
 
