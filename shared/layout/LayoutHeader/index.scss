@@ -1,4 +1,16 @@
 .layout-header {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 196px;
+    background: $cWhite;
+
+    &-dummy {
+        height: 196px;
+    }
+
     &__top {
         height: 40px;
         width: 100%;

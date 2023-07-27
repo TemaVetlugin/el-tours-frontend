@@ -50,9 +50,13 @@ export const PHomeBrandsAndManufacturers = observer(({ brands, manufacturers }: 
             loop
             renderItem={(item: ItemType) => {
                 return (
-                    <UiLink href={item.href} className="p-home-brands-slide">
-                        <img src={item.image} alt=""/>
-                    </UiLink>
+                    <UiLink
+                        href={item.href}
+                        className="p-home-brands-slide"
+                        style={{
+                            backgroundImage: `url(${item.image})`
+                        }}
+                    />
                 )
             }}
             renderNavigation={(navigation) => {

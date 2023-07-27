@@ -45,9 +45,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
-        img {
-            height: 80px;
-        }
+        height: 80px;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 }
