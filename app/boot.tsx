@@ -22,14 +22,14 @@ export const Boot = (
         searchPrompts,
         catalogCategories,
         compilations,
-        headerMenu,
+        headerMenuItems,
         contentResources
     }: PropsType
 ) => {
     ContentResourceService.boot({ contentResources });
     LocationService.boot({ cities, cityId, regions });
     CatalogService.boot({ catalogCategories, compilations });
-    LayoutService.boot({ searchPrompts, headerMenu });
+    LayoutService.boot({ searchPrompts, headerMenuItems });
 
     useEffect(() => {
         UserService.boot();

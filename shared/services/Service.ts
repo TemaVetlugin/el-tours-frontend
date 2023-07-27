@@ -1,15 +1,15 @@
 import {
     CompilationModel,
     CompilationModelInterface,
-    HeaderMenuModel,
-    HeaderMenuModelInterface,
+    HeaderMenuItemModel,
+    HeaderMenuItemModelInterface,
     SearchPromptModel,
     SearchPromptModelInterface
 } from "shared/models";
 import { makeAutoObservable, runInAction, set } from "mobx";
 
 type BootType = {
-    headerMenu: HeaderMenuModelInterface[],
+    headerMenu: HeaderMenuItemModelInterface[],
     searchPrompts: SearchPromptModelInterface[],
     compilations: CompilationModelInterface[]
 }

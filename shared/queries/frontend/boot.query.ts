@@ -3,7 +3,7 @@ import {
     CityModelInterface,
     CompilationModelInterface,
     ContentResourceModelInterface,
-    HeaderMenuModelInterface,
+    HeaderMenuItemModelInterface,
     RegionModelInterface,
     SearchPromptModelInterface
 } from "shared/models"
@@ -13,7 +13,7 @@ import { makeQuery } from "../utilities";
 type ResponseType = {
     regions: RegionModelInterface[],
     cities: CityModelInterface[],
-    headerMenu: HeaderMenuModelInterface[],
+    headerMenuItems: HeaderMenuItemModelInterface[],
     searchPrompts: SearchPromptModelInterface[],
     compilations: CompilationModelInterface[],
     contentResources: ContentResourceModelInterface[],

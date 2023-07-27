@@ -3,7 +3,7 @@ import { configure } from "mobx";
 
 import { bootQuery } from "shared/queries/frontend";
 import { Cache, Cookie } from "shared/utilities/server";
-import { LayoutFooter, LayoutHeader } from "shared/layout";
+import { LayoutCatalogAlphabet, LayoutFooter, LayoutHeader } from "shared/layout";
 
 import { Boot } from "./boot";
 import { StylesRegistry } from "./styles-registry";
@@ -42,13 +42,14 @@ export default async function Layout({ children }: PropsType) {
                         contentResources={data?.contentResources || []}
                         cities={data?.cities || []}
                         regions={data?.regions || []}
-                        headerMenu={data?.headerMenu || []}
+                        headerMenuItems={data?.headerMenuItems || []}
                         searchPrompts={data?.searchPrompts || []}
                         compilations={data?.compilations || []}
                         catalogCategories={data?.catalogCategories || []}
                     />
                     <LayoutHeader/>
                     {children}
+                    <LayoutCatalogAlphabet/>
                     <LayoutFooter/>
                 </body>
             </StylesRegistry>

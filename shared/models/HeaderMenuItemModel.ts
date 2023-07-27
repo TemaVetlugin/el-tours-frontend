@@ -3,15 +3,15 @@ import { computed, makeObservable, observable } from "mobx";
 import { Model } from "./Model";
 import { HeaderMenuTypeEnum } from "shared/enums";
 
-export interface HeaderMenuModelInterface {
+export interface HeaderMenuItemModelInterface {
     id?: number;
     typeId?: string,
     name?: string;
     href?: string;
 }
 
-export class HeaderMenuModel extends Model<HeaderMenuModelInterface> implements HeaderMenuModelInterface {
-    fillable: Array<keyof HeaderMenuModelInterface> = [
+export class HeaderMenuItemModel extends Model<HeaderMenuItemModelInterface> implements HeaderMenuItemModelInterface {
+    fillable: Array<keyof HeaderMenuItemModelInterface> = [
         "id",
         "typeId",
         "name",
@@ -23,7 +23,7 @@ export class HeaderMenuModel extends Model<HeaderMenuModelInterface> implements 
     typeId = '';
     href = '';
 
-    constructor(payload?: HeaderMenuModelInterface) {
+    constructor(payload?: HeaderMenuItemModelInterface) {
         super();
 
         makeObservable(this, {

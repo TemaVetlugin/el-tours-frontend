@@ -29,6 +29,11 @@ export const ROUTES = {
         name,
         url: id ? `/catalog/brand/${id}` : '/catalog',
     }),
+    CATALOG_NAME: (id: string = '', name = 'Товары по алфавиту'): RouteType => ({
+        id: 'catalog' + id,
+        name,
+        url: id ? `/catalog/name/${id}` : '/catalog',
+    }),
     CATALOG_MANUFACTURER: (id: number = 0, name = 'Производитель'): RouteType => ({
         id: 'catalog' + id,
         name,

@@ -1,9 +1,8 @@
 import { makeAutoObservable } from "mobx";
 
 import {
-    CompilationModelInterface,
-    HeaderMenuModel,
-    HeaderMenuModelInterface,
+    HeaderMenuItemModel,
+    HeaderMenuItemModelInterface,
     SearchPromptModel,
     SearchPromptModelInterface
 } from "shared/models";
@@ -11,11 +10,11 @@ import {
 import { makeService } from "shared/services/utilities/makeService";
 
 type BootType = {
-    headerMenu: HeaderMenuModelInterface[],
+    headerMenuItems: HeaderMenuItemModelInterface[],
     searchPrompts: SearchPromptModelInterface[],
 }
 export const LayoutService = makeService(class {
-    headerMenu: HeaderMenuModel[] = [];
+    headerMenuItems: HeaderMenuItemModel[] = [];
     searchPrompts: SearchPromptModel[] = [];
 
     loginIsOpened = false;
@@ -24,8 +23,8 @@ export const LayoutService = makeService(class {
         makeAutoObservable(this);
     }
 
-    boot = ({ searchPrompts, headerMenu }: BootType) => {
-        this.headerMenu = headerMenu.map(item => new HeaderMenuModel(item));
+    boot = ({ searchPrompts, headerMenuItems }: BootType) => {
+        this.headerMenuItems = headerMenuItems.map(item => new HeaderMenuItemModel(item));
         this.searchPrompts = searchPrompts.map(item => new SearchPromptModel(item));
     }
 });
