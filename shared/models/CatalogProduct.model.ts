@@ -25,11 +25,11 @@ export interface CatalogProductModelInterface {
     images?: string[],
     barcodes?: string[],
     thermolabile?: string,
-    instructionFull?: string,
+    instruction?: string,
     description?: string,
     dosage?: string,
     packageAmount?: string,
-    instructionSpecial?: string,
+    specialInstructions?: string,
     indications?: string,
     contraindications?: string,
     composition?: string,
@@ -37,6 +37,7 @@ export interface CatalogProductModelInterface {
     expirationTime?: string,
     dispensingConditions?: string,
     storageConditions?: string,
+    applicationType?: string,
     releaseForm?: string,
     size?: string,
     sideEffects?: string,
@@ -62,9 +63,10 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
         "dosage",
         "packageAmount",
         "thermolabile",
-        "instructionFull",
+        "instruction",
         "description",
-        "instructionSpecial",
+        "specialInstructions",
+        "applicationType",
         "indications",
         "contraindications",
         "composition",
@@ -100,11 +102,12 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
     barcodes = [];
     thermolabile = '';
     withPrescription = true;
-    instructionFull = '';
+    instruction = '';
     description = '';
     dosage = '';
     packageAmount = '';
-    instructionSpecial = '';
+    specialInstructions = '';
+    applicationType = '';
     indications = '';
     contraindications = '';
     composition = '';
@@ -146,9 +149,10 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
             barcodes: observable,
             thermolabile: observable,
             withPrescription: observable,
-            instructionFull: observable,
+            instruction: observable,
+            applicationType: observable,
             description: observable,
-            instructionSpecial: observable,
+            specialInstructions: observable,
             indications: observable,
             contraindications: observable,
             composition: observable,

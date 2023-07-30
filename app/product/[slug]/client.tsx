@@ -9,6 +9,7 @@ import { CatalogProductModel, CatalogProductModelInterface, CatalogProductOfferM
 import { CartService, CatalogService } from "shared/services";
 import { COLORS, ROUTES } from "shared/contants";
 import { CCatalogProductsSlider } from "shared/components/catalog";
+import { html } from "shared/utilities";
 
 import { PProductStore } from "./components/PProductStore";
 
@@ -23,6 +24,7 @@ type PropsType = {
 }
 
 export const Client = observer(({ catalogProduct }: PropsType) => {
+    console.log(catalogProduct)
     const store = useObservable({
         tab: 'description',
         catalogProduct: new CatalogProductModel(catalogProduct),
@@ -172,6 +174,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                 <div className="p-product__info">
                     <div className="p-product__tabs">
                         {TABS.map(tab => {
+
                             const isActive = tab.id === store.tab;
                             return (
                                 <UiButton
@@ -198,7 +201,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                                 {tab.name}
                             </div>
                             <div className="p-product-description__value">
-                                {store.catalogProduct[tab.id]}
+                                {html(store.catalogProduct[tab.id])}
                             </div>
                         </div>
                     )}

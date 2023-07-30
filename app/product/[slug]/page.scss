@@ -164,7 +164,9 @@
 
     &__tabs {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
+        max-width: 870px;
         margin-bottom: 40px;
         gap: 8px;
 
