@@ -1,12 +1,15 @@
 .layout-header-location {
     position: relative;
-    display: flex;
-    align-items: center;
-    margin-right: 70px;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        margin-right: 70px;
+        cursor: pointer;
+    }
 
     &__name {
         position: relative;
-        cursor: pointer;
         color: $cTypo;
         font-size: 14px;
         font-weight: 500;

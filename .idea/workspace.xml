@@ -4,7 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="" />
+    <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/compilations/[slug]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/compilations/client.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/queries/main/catalogProductViewSave.query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/queries/main/cities.query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/server/getCity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/server/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.make/templates/page/index.tsx.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/.make/templates/page/index.tsx.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/blank/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/blank/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/boot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/boot.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/compilation/[slug]/page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/compilations/[slug]/page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/compilation/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/compilations/[slug]/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/compilations/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/compilations/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/home/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/home/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/home/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/home/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/[slug]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/test/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/test/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/contants/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/contants/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/hooks/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/hooks/useAsyncEffect.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/hooks/useAsyncEffect.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/hooks/useObserve.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/hooks/useRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/hooks/useRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderLocation/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderLocation/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderLocation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderLocation/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderPromo/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderPromo/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/frontend/boot.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/frontend/boot.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/frontend/home.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/frontend/home.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/utilities/makeQuery.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/utilities/makeQuery.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/services/Catalog.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/services/Catalog.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/services/Location.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/services/Location.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/utilities/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/utilities/index.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,24 +59,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.laravel-idea.search-composer-json&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/izica/git/yaplus-frontend/shared/layout/LayoutCatalogAlphabet&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/izica/git/yaplus-frontend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.laravel-idea.search-composer-json": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "/home/izica/git/yaplus-frontend/app/compilations/[slug]",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.splitter.proportion": "0.27373737",
+    "ts.external.directory.path": "/home/izica/git/yaplus-frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -52,13 +88,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/shared/layout/LayoutCatalogAlphabet" />
+      <recent name="$PROJECT_DIR$/app/compilations/[slug]" />
+      <recent name="$PROJECT_DIR$/app/compilations" />
+      <recent name="$PROJECT_DIR$/shared/queries/main" />
+      <recent name="$PROJECT_DIR$/shared/queries/frontend" />
       <recent name="$PROJECT_DIR$/shared/layout" />
-      <recent name="$PROJECT_DIR$/app/catalog/name/[id]" />
-      <recent name="$PROJECT_DIR$/app/catalog" />
-      <recent name="$PROJECT_DIR$/app/home/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/shared/utilities" />
       <recent name="$PROJECT_DIR$/app/catalog/mark/[id]" />
       <recent name="$PROJECT_DIR$/app/page/[slug]" />
       <recent name="$PROJECT_DIR$/shared/ui/UiPage/components" />
@@ -106,7 +143,9 @@
       <workItem from="1690181887025" duration="1381000" />
       <workItem from="1690271292500" duration="7473000" />
       <workItem from="1690354152010" duration="11887000" />
-      <workItem from="1690435861947" duration="7107000" />
+      <workItem from="1690435861947" duration="8966000" />
+      <workItem from="1690531172912" duration="3267000" />
+      <workItem from="1690723908844" duration="14170000" />
     </task>
     <servers />
   </component>

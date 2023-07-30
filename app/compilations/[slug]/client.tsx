@@ -1,24 +1,24 @@
 'use client';
 
+import { observer } from "mobx-react-lite";
 import React from "react";
 
-import { useAsyncEffect, useCity, useObservable, useObserve } from "shared/hooks";
-import { UiDataBoundary, UiPage, UiWrap } from "shared/ui";
+import { CCatalog } from "shared/components/catalog";
 import { ROUTES } from "shared/contants";
+import { useAsyncEffect, useCity, useObservable, useRouter } from "shared/hooks";
 import { CompilationModel } from "shared/models";
 import { compilationsGetQuery } from "shared/queries/main";
-import { CCatalog } from "shared/components/catalog";
+import { UiDataBoundary, UiPage, UiWrap } from "shared/ui";
 
 import './page.scss';
 
 type PropsType = {
-    params: {
-        slug: string
-    }
+    slug: string
 }
 
-export default function Page({ params }: PropsType) {
+export const Client = observer(({ slug }: PropsType) => {
     const city = useCity();
+    const router = useRouter();
     const store = useObservable({
         isLoading: true,
         compilation: new CompilationModel(),
@@ -28,26 +28,28 @@ export default function Page({ params }: PropsType) {
         store.set("isLoading", true);
 
         const { isSuccess, data } = await compilationsGetQuery({
-            slug: params.slug,
+            slug: slug,
             cityId: city.id
         });
         if (isSuccess && data) {
             store.set("compilation", new CompilationModel(data.item));
+        } else {
+            router.notFound();
         }
         store.set("isLoading", false);
-    }, [city]);
+    }, [city, slug]);
 
-    return useObserve(() => (
+    return (
         <UiPage className={'p-compilations'}>
             <UiWrap>
-                <UiPage.Breadcrumbs
-                    items={[
-                        ROUTES.COMPILATIONS(),
-                        ROUTES.COMPILATION(store.compilation.slug, store.compilation.name),
-                    ]}
-                />
                 <UiDataBoundary isLoading={store.isLoading}>
-                    {!store.isLoading && (
+                    <UiPage.Breadcrumbs
+                        items={[
+                            ROUTES.COMPILATIONS(),
+                            ROUTES.COMPILATIONS(store.compilation.slug, store.compilation.name),
+                        ]}
+                    />
+                    {(!store.isLoading && store.compilation.catalogProducts.length > 0) && (
                         <CCatalog
                             title={store.compilation.name}
                             params={{
@@ -58,5 +60,5 @@ export default function Page({ params }: PropsType) {
                 </UiDataBoundary>
             </UiWrap>
         </UiPage>
-    ))
-}
+    );
+});

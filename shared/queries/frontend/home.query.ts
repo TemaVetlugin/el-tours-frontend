@@ -10,7 +10,8 @@ import {
 import { makeQuery } from "../utilities";
 
 type RequestType = {
-    cityId: number | null
+    cityId: number | null,
+    onlyCatalogProducts?: boolean
 }
 
 export type ResponseType = {

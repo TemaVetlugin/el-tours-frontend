@@ -1,11 +1,6 @@
 import { makeAutoObservable } from "mobx";
 
-import {
-    CatalogCategoryModel,
-    CatalogCategoryModelInterface,
-    CompilationModel,
-    CompilationModelInterface
-} from "shared/models";
+import { CatalogCategoryModel, CatalogCategoryModelInterface, CompilationModel, CompilationModelInterface } from "shared/models";
 import { lodash } from "shared/utilities";
 
 import { makeService } from "./utilities/makeService";
@@ -14,8 +9,8 @@ import { ReturnType } from "shared/types";
 import { Cache } from "shared/utilities/client";
 
 type BootType = {
-    catalogCategories: CatalogCategoryModelInterface[],
-    compilations: CompilationModelInterface[]
+    catalogCategories?: CatalogCategoryModelInterface[],
+    compilations?: CompilationModelInterface[]
 }
 
 export const CatalogService = makeService(class {
@@ -27,8 +22,12 @@ export const CatalogService = makeService(class {
     }
 
     boot = ({ catalogCategories, compilations }: BootType) => {
-        this.catalogCategories = catalogCategories.map(item => new CatalogCategoryModel(item));
-        this.compilations = compilations.map(item => new CompilationModel(item));
+        if (catalogCategories) {
+            this.catalogCategories = catalogCategories.map(item => new CatalogCategoryModel(item));
+        }
+        if (compilations) {
+            this.compilations = compilations.map(item => new CompilationModel(item));
+        }
     }
 
     get catalogCategoryById() {

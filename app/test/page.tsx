@@ -1,10 +1,8 @@
 'use client';
 
-import React, { useEffect, useState } from "react";
-
-import { useObserve } from "shared/hooks";
-import { UiDatepicker, UiPage } from "shared/ui";
 import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+import { UiDatepicker, UiPage } from "shared/ui";
 
 export default function TestPage() {
     const [count, setCount] = useState(1)
@@ -14,7 +12,7 @@ export default function TestPage() {
         router.replace(`/test?date=${Date.now()}`);
     }
 
-    return useObserve(() => (
+    return (
         <UiPage>
             <UiPage.Wrap>
                 <UiPage.Header title={'Каталог'}/>
@@ -23,5 +21,5 @@ export default function TestPage() {
                 <UiDatepicker/>
             </UiPage.Wrap>
         </UiPage>
-    ))
+    );
 }

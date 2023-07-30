@@ -9,7 +9,6 @@ export { useIsBooting } from './useIsBooting';
 export { useMask } from './useMask';
 export { useMedia } from './useMedia';
 export { useObservable } from './useObservable';
-export { useObserve } from './useObserve';
 export { useOnClickOutside } from './useOnClickOutside';
 export { usePrivatePage } from './usePrivatePage';
 export { useReaction } from './useReaction';

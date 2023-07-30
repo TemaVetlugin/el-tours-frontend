@@ -11,6 +11,7 @@ type BootType = {
     regions: RegionModelInterface[],
     cityId: number | string | null
 }
+
 export const LocationService = makeService(class {
     cityId: number | null = null;
     cities: CityModel[] = [];
@@ -36,8 +37,12 @@ export const LocationService = makeService(class {
         this.regions = regions.map(region => new RegionModel(region));
         if (cityId !== null) {
             this.cityId = +cityId;
-        } else {
+        }
+        if (!this.cityId) {
             this.cityId = cities.find(city => !!city.isDefault)?.id || null;
+        }
+        if (!this.cityId) {
+            this.cityId = cities[0]?.id || null;
         }
     }
 

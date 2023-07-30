@@ -1,5 +1,6 @@
 import React from "react";
 import { configure } from "mobx";
+import { Metadata } from "next";
 
 import { bootQuery } from "shared/queries/frontend";
 import { Cache, Cookie } from "shared/utilities/server";
@@ -9,8 +10,7 @@ import { Boot } from "./boot";
 import { StylesRegistry } from "./styles-registry";
 
 import 'shared/styles/index.scss';
-import { Metadata } from "next";
-import { headers } from "next/headers";
+import { getCity } from "shared/server";
 
 configure({ enforceActions: "always" })
 
@@ -25,9 +25,12 @@ export async function generateMetadata(params: any, params2: any): Promise<Metad
 }
 
 export default async function Layout({ children }: PropsType) {
+    const city = await getCity();
     const { data, description } = await Cache.remember(
-        `bootQuery`,
-        async () => await bootQuery(),
+        `bootQuery:${city.id}`,
+        async () => await bootQuery({
+            cityId: city.id
+        }),
     );
 
     return (
@@ -38,7 +41,7 @@ export default async function Layout({ children }: PropsType) {
                 </head>
                 <body>
                     <Boot
-                        cityId={Cookie.get('cityId')}
+                        cityId={city.id}
                         contentResources={data?.contentResources || []}
                         cities={data?.cities || []}
                         regions={data?.regions || []}

@@ -7,11 +7,12 @@ import { CatalogService, ContentResourceService, LayoutService, LocationService 
 import { bootQuery } from "shared/queries/frontend/boot.query";
 import { UserService } from "shared/services/User.service";
 import { ReturnType } from "shared/types";
+import { useCity, useDidUpdateEffect } from "shared/hooks";
 
 enableStaticRendering(typeof window === "undefined");
 
 type PropsType = {
-    cityId: number | string | null,
+    cityId: number,
 } & NonNullable<ReturnType<typeof bootQuery>['data']>;
 
 export const Boot = (
@@ -37,6 +38,28 @@ export const Boot = (
 
     // render fix
     return (
-        <div className='boot'/>
+        <div className='boot'>
+            <BootHydrate/>
+        </div>
+    );
+};
+
+const BootHydrate = () => {
+    const city = useCity();
+    useDidUpdateEffect(() => {
+        (async () => {
+            const { data, isSuccess } = await bootQuery({
+                cityId: city.id,
+                isHydrate: true
+            });
+            if (data && isSuccess) {
+                ContentResourceService.boot(data);
+                CatalogService.boot(data);
+            }
+        })();
+    }, [city]);
+
+    return (
+        <div className='boot-hydrate'/>
     );
 };

@@ -1,8 +1,8 @@
 import { DependencyList, useEffect } from "react";
 
-export function useAsyncEffect(effectCallback: () => Promise<void>, dependencyList: DependencyList) {
+export function useAsyncEffect(callback: () => Promise<void>, dependencyList: DependencyList) {
     useEffect(() => {
-        effectCallback();
+        callback();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, dependencyList);
 }

@@ -6,7 +6,7 @@ import { observer } from "mobx-react-lite";
 
 import { homeQuery } from "shared/queries/frontend";
 import { ReturnType } from "shared/types";
-import { useCity, useDidUpdateEffect, useObservable } from "shared/hooks";
+import { useAsyncEffect, useCity, useDidUpdateEffect, useObservable } from "shared/hooks";
 import { ArticleModel, BrandModel, CatalogProductModel, HomeBannerModel, ManufacturerModel, NewsModel, PromoActionModel } from "shared/models";
 import { ROUTES } from "shared/contants";
 
@@ -62,7 +62,22 @@ export const Client = observer((
                 store.set('catalogProductsPopular', data.catalogProductsPopular.map(item => new CatalogProductModel((item))));
             }
         })();
-    }, [city])
+    }, [city]);
+
+
+    // rehydrate offers
+    useAsyncEffect(async () => {
+        const { data, isSuccess } = await homeQuery({
+            cityId: city.id,
+            onlyCatalogProducts: true
+        });
+
+        if (data && isSuccess) {
+            store.set('catalogProductsProfit', data.catalogProductsProfit.map(item => new CatalogProductModel(item)));
+            store.set('catalogProductsNew', data.catalogProductsNew.map(item => new CatalogProductModel(item)));
+            store.set('catalogProductsPopular', data.catalogProductsPopular.map(item => new CatalogProductModel((item))));
+        }
+    }, []);
 
     return (
         <UiPage>

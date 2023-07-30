@@ -2,17 +2,19 @@ import React from "react";
 import { Metadata } from "next";
 
 import { Client } from "./client";
-import { Cache, Cookie } from "shared/utilities/server";
+import { Cache } from "shared/utilities/server";
 import { homeQuery } from "shared/queries/frontend";
+import { getCity } from "shared/server";
 
 import './page.scss';
 
 export default async function Page() {
-    const cityId = Cookie.get('cityId');
+    const city = await getCity();
+
     const { data, description } = await Cache.remember(
-        `homeQuery:${cityId}`,
+        `homeQuery:${city.id}`,
         async () => await homeQuery({
-            cityId: cityId === null ? cityId : +cityId
+            cityId: city.id
         }),
     );
 

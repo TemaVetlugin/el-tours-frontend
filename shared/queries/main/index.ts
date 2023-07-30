@@ -12,6 +12,7 @@ export { checkoutQuery } from './checkout.query';
 export { compilationsGetQuery } from './compilationsGet.query';
 export { compilationsQuery } from './compilations.query';
 export { contentPageGet } from './contentPageGet.query';
+export { citiesQuery } from './cities.query';
 export { manufacturersGetQuery } from './manufacturersGet.query';
 export { newsGetQuery } from './newsGet.query';
 export { newsQuery } from './news.query';

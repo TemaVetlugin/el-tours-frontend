@@ -8,7 +8,6 @@ import { ROUTES } from "shared/contants";
 
 import './page.scss';
 
-
 export const Client = observer(() => {
     return (
         <UiPage>

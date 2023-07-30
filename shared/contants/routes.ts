@@ -54,20 +54,15 @@ export const ROUTES = {
         name: 'Оформление заказа',
         url: '/checkout',
     }),
-    COMPILATION: (slug: string = '', name = 'Подборка'): RouteType => ({
-        id: 'search',
-        name,
-        url: `/compilation/${slug}`,
-    }),
     NOT_FOUND: (): RouteType => ({
         id: 'search',
         name: 'Страница не найдена',
         url: `/404`,
     }),
-    COMPILATIONS: (): RouteType => ({
-        id: 'compilations',
-        name: 'Подборки',
-        url: `/compilations`,
+    COMPILATIONS: (slug: string = '', name = 'Подборки'): RouteType => ({
+        id: 'compilations' + slug,
+        name,
+        url: slug ? `/compilations/${slug}` : '/compilations',
     }),
     FAVORITES: (): RouteType => ({
         id: 'favorites',

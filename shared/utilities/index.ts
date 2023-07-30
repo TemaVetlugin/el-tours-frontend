@@ -1,5 +1,6 @@
 export { currency } from './currency';
 export { date } from './date';
+export { geolocation } from './geolocation';
 export { html } from './html';
 export { isFalsy } from './isFalsy';
 export { isNumeric } from './isNumeric';

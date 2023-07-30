@@ -3,7 +3,8 @@ import { Metadata } from "next";
 
 import { catalogProductsGetQuery } from "shared/queries/main";
 import { notFound } from "next/navigation";
-import { Cookie } from "shared/utilities/server";
+import { getCity } from "shared/server";
+import { Cache, Cookie } from "shared/utilities/server";
 
 import { Client } from "./client";
 
@@ -14,7 +15,14 @@ type PropsType = {
 }
 
 export async function generateMetadata({ params }: PropsType): Promise<Metadata> {
-    const { isSuccess, data } = await catalogProductsGetQuery(params);
+    const city = await getCity();
+    const { isSuccess, data } = await Cache.remember(
+        `catalogProductsGetQuery:${params.slug}`,
+        async () => await catalogProductsGetQuery({
+            slug: params.slug,
+            cityId: city.id
+        })
+    );
     if (isSuccess && data) {
         return {
             title: data.item.name
@@ -26,12 +34,15 @@ export async function generateMetadata({ params }: PropsType): Promise<Metadata>
 }
 
 export default async function Page({ params }: PropsType) {
-    const cityId = Cookie.get('cityId');
+    const city = await getCity();
 
-    const { isSuccess, data, description } = await catalogProductsGetQuery({
-        slug: params.slug,
-        cityId
-    });
+    const { isSuccess, data } = await Cache.remember(
+        `catalogProductsGetQuery:${params.slug}`,
+        async () => await catalogProductsGetQuery({
+            slug: params.slug,
+            cityId: city.id
+        })
+    );
 
     if (!isSuccess || !data) {
         notFound();

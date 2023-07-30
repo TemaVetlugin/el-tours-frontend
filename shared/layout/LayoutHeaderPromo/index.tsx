@@ -1,7 +1,6 @@
 'use client';
 
 import React from "react";
-import Link from "next/link";
 import { observer } from "mobx-react-lite";
 
 import { CatalogService } from "shared/services";
@@ -12,12 +11,6 @@ import { useCity } from "shared/hooks";
 import './index.scss';
 
 export const LayoutHeaderPromo = observer(() => {
-    const city = useCity();
-    const compilations = CatalogService.compilations.filter((compilation) => {
-        return compilation.cities.some(compilationCity => {
-            return +compilationCity.id === +city.id
-        });
-    })
     return (
         <div className='layout-header-promo'>
             <UiWrap>
@@ -37,10 +30,10 @@ export const LayoutHeaderPromo = observer(() => {
                         </UiLink>
                     </div>
                     <div className="layout-header-promo__compilations">
-                        {compilations.map(compilation => (
+                        {CatalogService.compilations.map(compilation => (
                             <UiLink
                                 key={compilation.id}
-                                href={ROUTES.COMPILATION(compilation.slug)}
+                                href={ROUTES.COMPILATIONS(compilation.slug)}
                                 className="layout-header-promo__compilation"
                             >
                                 {compilation.name}

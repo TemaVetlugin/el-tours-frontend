@@ -1,8 +1,10 @@
+import { RedirectType } from "next/dist/client/components/redirect";
+import { redirect, usePathname, useRouter as useRouterNext } from "next/navigation";
 import { useMemo } from "react";
-import { usePathname, useRouter as useRouterNext } from "next/navigation";
+import { ROUTES } from "shared/contants";
+import { UrlType } from "shared/types";
 
 import { url } from "shared/utilities";
-import { UrlType } from "shared/types";
 
 export function useRouter() {
     const router = useRouterNext();
@@ -29,6 +31,12 @@ export function useRouter() {
                 window.dispatchEvent(new Event('router.replace'));
                 // router.replace(toUrl(href, params))
             },
+            redirect: (href: UrlType, params?: Record<string, any>) => {
+                router.replace(url(href, params))
+            },
+            notFound: () => {
+                router.replace(url(ROUTES.NOT_FOUND()))
+            }
         }
     }, [pathname, router]);
 }

@@ -1,9 +1,9 @@
 'use client';
 
-import React from "react";
+import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 
-import { useObservable } from "shared/hooks";
+import { useCity, useObservable } from "shared/hooks";
 import { UiButton, UiCard, UiIcon, UiLink, UiPage, UiPrice, UiQuantity } from "shared/ui";
 import { CatalogProductModel, CatalogProductModelInterface, CatalogProductOfferModel } from "shared/models";
 import { CartService, CatalogService } from "shared/services";
@@ -16,6 +16,7 @@ import { TABS } from "./constants/tabs";
 import { PROPERTIES } from "./constants/properties";
 
 import './page.scss';
+import { catalogProductViewSaveQuery } from "shared/queries/main/catalogProductViewSave.query";
 
 type PropsType = {
     catalogProduct: CatalogProductModelInterface
@@ -27,6 +28,13 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
         catalogProduct: new CatalogProductModel(catalogProduct),
         catalogProductOffers: [] as CatalogProductOfferModel[]
     });
+    const city = useCity();
+    useEffect(() => {
+        catalogProductViewSaveQuery({
+            catalogProductId: store.catalogProduct.id,
+            cityId: city.id
+        });
+    }, [city])
 
     const tab = TABS.find(tab => tab.id === store.tab);
     const cartItem = CartService.cartItems.find(cartItem => cartItem.catalogProductId === catalogProduct.id);
