@@ -1,4 +1,4 @@
-import { set } from "mobx";
+import { runInAction, set } from "mobx";
 
 export function makeService<T>(Service: new () => T) {
     const service = new Service() as T & {
@@ -6,7 +6,9 @@ export function makeService<T>(Service: new () => T) {
     };
     service.set = <Key extends keyof T>(key: Key, value: T[Key]): T[Key] => {
         if (service[key] !== value) {
-            set(service, key, value);
+            runInAction(() => {
+                set(service, key, value);
+            });
         }
         return value;
     };

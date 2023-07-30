@@ -1,14 +1,15 @@
 'use client';
 
-import React, { useEffect, useRef } from "react";
 import { observer } from "mobx-react-lite";
-
-import { UiIcon } from "shared/ui";
+import React, { useRef } from "react";
 import { COLORS } from "shared/contants";
-import { LocationService, UserService } from "shared/services";
 import { useAsyncEffect, useObservable, useOnClickOutside, useUser } from "shared/hooks";
+import { CityModel } from "shared/models";
+import { citiesLocateQuery, usersUpdateQuery } from "shared/queries/main";
+import { LocationService } from "shared/services";
+
+import { UiButton, UiIcon } from "shared/ui";
 import { geolocation } from "shared/utilities";
-import { usersUpdateQuery } from "shared/queries/main";
 
 import './index.scss';
 
@@ -16,19 +17,41 @@ export const LayoutHeaderLocation = observer(() => {
     const popup = useRef<HTMLDivElement>(null)
     const user = useUser();
     const store = useObservable({
-        isOpened: false
+        isOpened: false,
+        cityGuess: null as CityModel | null,
+        isGuessing: false
     });
 
     useAsyncEffect(async () => {
-        if (user.cityConfirmed) {
+        if (user.cityConfirmed || !user.isInitialized) {
             return;
         }
-        const data = await geolocation();
+        const geo = await geolocation();
+        const { isSuccess, data } = await citiesLocateQuery({
+            latitude: geo?.latitude || null,
+            longitude: geo?.longitude || null,
+        });
+        if (isSuccess && data) {
+            store.set("cityGuess", new CityModel(data.item));
+            store.set("isGuessing", true);
+        }
     }, [user]);
 
     useOnClickOutside(popup, () => {
         store.set("isOpened", false);
-    })
+    });
+
+    const handleGuessAccept = () => {
+        store.set("isGuessing", false);
+        if (store.cityGuess) {
+            LocationService.setCity(store.cityGuess.id);
+        }
+    }
+
+    const handleGuessCancel = () => {
+        store.set("isGuessing", false);
+        store.set("isOpened", true);
+    }
 
     const handleSelect = (cityId: number) => {
         LocationService.setCity(cityId);
@@ -43,7 +66,10 @@ export const LayoutHeaderLocation = observer(() => {
         <div className="layout-header-location">
             <div
                 className="layout-header-location__inner"
-                onClick={() => store.set("isOpened", !store.isOpened)}
+                onClick={() => {
+                    store.set("isOpened", !store.isOpened)
+                    store.set("isGuessing", false);
+                }}
             >
                 <div className="layout-header-location__name underwave">
                     {LocationService.city.name}
@@ -54,6 +80,29 @@ export const LayoutHeaderLocation = observer(() => {
                     color={COLORS.GREEN_PRIMARY}
                 />
             </div>
+            {(store.isGuessing && store.cityGuess) && (
+                <div className="layout-header-location-guess">
+                    <div className="layout-header-location-guess__title">Мы верно определили ваш город?</div>
+                    <div className="layout-header-location-guess__city">{store.cityGuess.name}</div>
+                    <div className="layout-header-location-guess__actions">
+                        <UiButton
+                            label={'Да'}
+                            size={"small"}
+                            onClick={handleGuessAccept}
+                        />
+                        <UiButton
+                            label={'Нет'}
+                            size={"small"}
+                            onClick={handleGuessCancel}
+                            colors={{
+                                button: [COLORS.TRANSPARENT, COLORS.GREEN_SECONDARY],
+                                label: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
+                                border: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                            }}
+                        />
+                    </div>
+                </div>
+            )}
             {store.isOpened && (
                 <div className="layout-header-location-popup" ref={popup}>
                     <div className="layout-header-location-popup__title">Выбор города</div>

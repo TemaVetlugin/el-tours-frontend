@@ -1,30 +1,44 @@
 'use client';
 
-import React from "react";
-import Link from "next/link";
+import classnames from "classnames";
 import { observer } from "mobx-react-lite";
+import React, { useEffect } from "react";
 
-import { UiButton, UiIcon, UiLink, UiWrap } from "shared/ui";
 import { COLORS, ROUTES } from "shared/contants";
-import { CartService, UserService } from "shared/services";
 import { useRouter } from "shared/hooks";
+import { CartService, LayoutService, UserService } from "shared/services";
+import { UiButton, UiIcon, UiLink, UiWrap } from "shared/ui";
 
+import { LayoutHeaderCatalog } from "../LayoutHeaderCatalog";
 import { LayoutHeaderLocation } from "../LayoutHeaderLocation";
+import { LayoutHeaderLogin } from "../LayoutHeaderLogin";
 import { LayoutHeaderMenuPrimary } from "../LayoutHeaderMenuPrimary";
 import { LayoutHeaderMenuSecondary } from "../LayoutHeaderMenuSecondary";
-import { LayoutHeaderCatalog } from "../LayoutHeaderCatalog";
-import { LayoutHeaderSearch } from "../LayoutHeaderSearch";
-import { LayoutHeaderLogin } from "../LayoutHeaderLogin";
 import { LayoutHeaderPromo } from "../LayoutHeaderPromo";
+import { LayoutHeaderSearch } from "../LayoutHeaderSearch";
 
 import './index.scss';
 
 export const LayoutHeader = observer(() => {
     const router = useRouter();
+    useEffect(() => {
+        const handleMinified = () => {
+            const isMinified = window.scrollY > 20;
+            if (LayoutService.headerIsMinified !== isMinified) {
+                LayoutService.set("headerIsMinified", isMinified);
+            }
+        }
+        handleMinified();
+        window.addEventListener('scroll', handleMinified);
+
+        return () => window.removeEventListener('scroll', handleMinified)
+    }, []);
     return (
         <>
-            <div className="layout-header-dummy"/>
-            <div className='layout-header'>
+            <div className={classnames('layout-header layout-header--dummy')}/>
+            <div className={classnames('layout-header layout-header--fixed', {
+                'layout-header--minified': LayoutService.headerIsMinified
+            })}>
                 <UiWrap>
                     <div className="layout-header__top">
                         <LayoutHeaderLocation/>
@@ -34,7 +48,7 @@ export const LayoutHeader = observer(() => {
                 </UiWrap>
                 <UiWrap>
                     <div className="layout-header__main">
-                        <Link href={ROUTES.HOME().url} className="layout-header__logo"/>
+                        <UiLink href={ROUTES.HOME()} className="layout-header__logo"/>
                         <div className="layout-header__catalog">
                             <LayoutHeaderCatalog/>
                         </div>

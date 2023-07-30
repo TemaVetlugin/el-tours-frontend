@@ -1,16 +1,16 @@
 .layout-header-search {
-    margin-right: 22px;
     flex: 1;
+    margin-right: 22px;
 
     &__control {
         position: relative;
         flex: 1;
-        margin-bottom: 4px;
     }
 
     &__prompts {
         display: flex;
         align-items: center;
+        margin-top: 4px;
         gap: 4px;
 
         span {
@@ -23,10 +23,10 @@
 
     &__prompt {
         color: $cGreenPrimary;
+        text-decoration: none;
         font-size: 12px;
         font-weight: 400;
         line-height: 16px;
-        text-decoration: none;
 
         &:not(&:last-child)::after {
             content: ',';

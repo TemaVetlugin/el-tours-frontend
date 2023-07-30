@@ -7,6 +7,8 @@ export const geolocation = async (): Promise<GeolocationCoordinates | null> => {
             resolve(data.coords);
         }, () => {
             resolve(null);
+        }, {
+            enableHighAccuracy: true
         })
     );
 }

@@ -2,9 +2,8 @@
 
 import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
-import Link from "next/link";
 
-import { UiButton, UiForm, UiIcon, UiInput } from "shared/ui";
+import { UiButton, UiForm, UiIcon, UiInput, UiLink } from "shared/ui";
 import { LayoutService } from "shared/services";
 import { useObservable, useRouter, useSearchParams } from "shared/hooks";
 import { ROUTES } from "shared/contants";
@@ -51,13 +50,13 @@ export const LayoutHeaderSearch = observer(() => {
             <div className="layout-header-search__prompts">
                 <span>Например: </span>
                 {LayoutService.searchPrompts.map(searchPrompt => (
-                    <Link
+                    <UiLink
                         key={searchPrompt.id}
                         href={ROUTES.SEARCH().url + '?query=' + searchPrompt.name}
                         className={'layout-header-search__prompt'}
                     >
                         {searchPrompt.name}
-                    </Link>
+                    </UiLink>
                 ))}
             </div>
         </div>

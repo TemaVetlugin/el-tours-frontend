@@ -33,3 +33,4 @@ export { usersBootQuery } from './usersBoot.query';
 export { usersConfirmQuery } from './usersConfirm.query';
 export { usersLoginQuery } from './usersLogin.query';
 export { usersUpdateQuery } from './usersUpdate.query';
+export { citiesLocateQuery } from './citiesLocate.query';

@@ -17,6 +17,7 @@ export const LayoutService = makeService(class {
     headerMenuItems: HeaderMenuItemModel[] = [];
     searchPrompts: SearchPromptModel[] = [];
 
+    headerIsMinified = false;
     loginIsOpened = false;
 
     constructor() {

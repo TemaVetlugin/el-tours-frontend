@@ -1,16 +1,16 @@
 'use client';
 
-import React from "react";
 import { observer } from "mobx-react-lite";
 import Link from "next/link";
-
-import { UiButton, UiCheckbox, UiForm, UiFormControl, UiIcon, UiInput, UiModal } from "shared/ui";
+import React from "react";
 import { COLORS, MASKS, ROUTES } from "shared/contants";
-import { LayoutService, UserService } from "shared/services";
 import { useMask, useObservable, useRouter, useUser } from "shared/hooks";
-import { isMobilePhone, isRequired } from "shared/validations";
 import { useValidation } from "shared/hooks/useValidation";
 import { usersConfirmQuery, usersLoginQuery } from "shared/queries/main";
+import { LayoutService, UserService } from "shared/services";
+
+import { UiButton, UiCheckbox, UiForm, UiFormControl, UiIcon, UiInput, UiModal } from "shared/ui";
+import { isMobilePhone, isRequired } from "shared/validations";
 
 import './index.scss';
 
@@ -69,24 +69,43 @@ export const LayoutHeaderLogin = observer(() => {
 
     return (
         <div className='layout-header-login'>
-            <UiButton
-                style={{ minWidth: 116 }}
-                isLoading={UserService.isLoading}
-                onClick={() => {
-                    if (!UserService.isAuthorized()) {
-                        return;
-                    }
-                    router.push(ROUTES.PROFILE());
-                }}
-                colors={{
-                    button: [COLORS.LIGHT_BLUE, COLORS.GREEN_SECONDARY],
-                    label: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
-                    icon: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
-                }}
-            >
-                <UiIcon size={24} name={'user'}/>
-                <span>{user.isAuthorized ? useMask(MASKS.MOBILE_PHONE, user.phone) : 'Войти'}</span>
-            </UiButton>
+            {user.isAuthorized && (
+                <UiButton
+                    style={{ minWidth: 116 }}
+                    isLoading={UserService.isLoading}
+                    onClick={() => {
+                        router.push(ROUTES.PROFILE());
+                    }}
+                    colors={{
+                        button: [COLORS.LIGHT_BLUE, COLORS.GREEN_SECONDARY],
+                        label: [COLORS.TYPO, COLORS.WHITE],
+                        icon: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
+                    }}
+                >
+                    <UiIcon size={24} name={'user'}/>
+                    <span>
+                    {useMask('+{7} *** 00-00', user.phone.replace(user.phone.substring(1,7), '***'))}
+                </span>
+                </UiButton>
+            )}
+            {!user.isAuthorized && (
+                <UiButton
+                    style={{ minWidth: 116 }}
+                    isLoading={UserService.isLoading}
+                    onClick={() => {
+                        UserService.isAuthorized();
+                    }}
+                    colors={{
+                        button: [COLORS.LIGHT_BLUE, COLORS.GREEN_SECONDARY],
+                        label: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
+                        icon: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
+                    }}
+                >
+                    <UiIcon size={24} name={'user'}/>
+                    <span>Войти</span>
+                </UiButton>
+            )}
+
             <UiModal
                 width={435}
                 isOpened={LayoutService.loginIsOpened}

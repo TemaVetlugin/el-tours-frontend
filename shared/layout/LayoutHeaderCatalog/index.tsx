@@ -10,8 +10,9 @@ import { CatalogService } from "shared/services";
 import { useObservable } from "shared/hooks";
 import { ROUTES } from "shared/contants";
 
+import icon from './assets/icon.svg';
+
 import './index.scss';
-import { is } from "immutable";
 
 export const LayoutHeaderCatalog = observer(() => {
     const store = useObservable({
@@ -21,11 +22,18 @@ export const LayoutHeaderCatalog = observer(() => {
             : 0
     });
 
+    const handleToggle = () => {
+        store.set("isOpened", !store.isOpened)
+        if (store.isOpened) {
+            document.body.classList.add('overflow-hidden');
+        } else {
+            document.body.classList.remove('overflow-hidden');
+        }
+    }
+
     return (
         <>
-            <UiButton
-                onClick={() => store.set("isOpened", !store.isOpened)}
-            >
+            <UiButton onClick={handleToggle}>
                 <UiIcon
                     size={24}
                     name={store.isOpened ? "close" : "catalogMenu"}
@@ -36,29 +44,41 @@ export const LayoutHeaderCatalog = observer(() => {
                 <div className="layout-header-catalog">
                     <UiWrap className={'layout-header-catalog__inner'}>
                         <div className="layout-header-catalog-aside">
-                            {CatalogService.catalogCategoriesByCatalogCategoryId['null']?.map(catalogCategory => (
-                                <UiLink
-                                    key={catalogCategory.id}
-                                    className={classnames("layout-header-catalog-category", {
-                                        'layout-header-catalog-category--selected': store.id === catalogCategory.id
-                                    })}
-                                    onMouseEnter={() => {
-                                        store.set("id", catalogCategory.id);
-                                    }}
-                                    href={ROUTES.CATALOG(catalogCategory.slug).url}
-                                    onClick={() => {
-                                        store.set("isOpened", false);
-                                    }}
-                                >
-                                    <div
-                                        className="layout-header-catalog-category__icon"
-                                        style={{ backgroundImage: `url(${catalogCategory.icon})` }}
-                                    />
-                                    <div className="layout-header-catalog-category__name">
-                                        {catalogCategory.name}
-                                    </div>
+                            <div className="layout-header-catalog-aside__items">
+                                <UiScroll>
+                                    {CatalogService.catalogCategoriesByCatalogCategoryId['null']?.map(catalogCategory => (
+                                        <UiLink
+                                            key={catalogCategory.id}
+                                            className={classnames("layout-header-catalog-category", {
+                                                'layout-header-catalog-category--selected': store.id === catalogCategory.id
+                                            })}
+                                            onMouseEnter={() => {
+                                                store.set("id", catalogCategory.id);
+                                            }}
+                                            href={ROUTES.CATALOG(catalogCategory.slug).url}
+                                            onClick={() => {
+                                                store.set("isOpened", false);
+                                            }}
+                                        >
+                                            <div
+                                                className="layout-header-catalog-category__icon"
+                                                style={{ backgroundImage: `url(${catalogCategory.icon || icon.src})` }}
+                                            />
+                                            <div className="layout-header-catalog-category__name">
+                                                {catalogCategory.name}
+                                            </div>
+                                        </UiLink>
+                                    ))}
+                                </UiScroll>
+                            </div>
+                            <div className="layout-header-catalog-aside__footer">
+                                <UiLink href={ROUTES.COMPILATIONS()} className={'layout-header-catalog-aside__link'}>
+                                    {ROUTES.COMPILATIONS().name}
                                 </UiLink>
-                            ))}
+                                <UiLink href={ROUTES.PROMO_ACTIONS()} className={'layout-header-catalog-aside__link'}>
+                                    {ROUTES.PROMO_ACTIONS().name}
+                                </UiLink>
+                            </div>
                         </div>
                         <div className="layout-header-catalog-main">
                             <UiScroll>
