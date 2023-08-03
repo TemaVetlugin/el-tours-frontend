@@ -1,14 +1,14 @@
 'use client';
 
-import React from "react";
-import { observer } from "mobx-react-lite";
 import classnames from "classnames";
+import { observer } from "mobx-react-lite";
 import Link from "next/link";
+import React, { useEffect } from "react";
+import { ROUTES } from "shared/contants";
+import { useObservable } from "shared/hooks";
+import { CatalogService } from "shared/services";
 
 import { UiButton, UiIcon, UiLink, UiScroll, UiWrap } from "shared/ui";
-import { CatalogService } from "shared/services";
-import { useObservable } from "shared/hooks";
-import { ROUTES } from "shared/contants";
 
 import icon from './assets/icon.svg';
 
@@ -22,23 +22,21 @@ export const LayoutHeaderCatalog = observer(() => {
             : 0
     });
 
-    const handleToggle = () => {
-        store.set("isOpened", !store.isOpened)
+    const handleNavigate = () => {
+        store.set("isOpened", false);
+    }
+
+    useEffect(() => {
         if (store.isOpened) {
             document.body.classList.add('overflow-hidden');
         } else {
             document.body.classList.remove('overflow-hidden');
         }
-    }
-
-    const handleNavigate = () => {
-        store.set("isOpened", false);
-        document.body.classList.remove('overflow-hidden');
-    }
+    }, [store.isOpened])
 
     return (
         <>
-            <UiButton onClick={handleToggle}>
+            <UiButton onClick={() => store.set("isOpened", !store.isOpened)}>
                 <UiIcon
                     size={24}
                     name={store.isOpened ? "close" : "catalogMenu"}

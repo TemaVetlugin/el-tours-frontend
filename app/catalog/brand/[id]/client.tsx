@@ -29,7 +29,8 @@ export const Client = observer(({ brand }: PropsType) => {
                     title={`Бренд: ${store.brand.name}`}
                     params={{
                         brandId: [store.brand.id],
-                        except: ['brand']
+                        except: ['brand'],
+                        apply: ['brand'],
                     }}
                 />
             </UiWrap>

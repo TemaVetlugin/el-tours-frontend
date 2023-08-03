@@ -3,13 +3,14 @@
     justify-content: center;
     align-content: center;
     width: 100%;
+    margin-top: 110px;
     gap: 24px;
 
     &__label {
+        color: $cGrayPrimary;
         font-size: 16px;
         font-weight: 500;
         line-height: 19px;
-        color: $cGrayPrimary;
     }
 
     &__items {
@@ -42,7 +43,7 @@
             margin-left: 16px;
         }
 
-        &:nth-last-child(1), &:nth-last-child(2), &:nth-last-child(2) {
+        &:nth-last-child(1), &:nth-last-child(2), &:nth-last-child(3) {
             border-right: 1px solid #CED8F1;
         }
     }

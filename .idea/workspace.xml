@@ -6,21 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/[[...slug]]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/[[...slug]]/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/brand/[id]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/brand/[id]/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/manufacturer/[id]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/manufacturer/[id]/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/mark/[id]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/mark/[id]/client.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/catalog/mark/[id]/marks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/mark/[id]/marks.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catalog/mark/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/mark/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkout/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/home/components/PHomeBanners/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/home/components/PHomeBanners/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product/[slug]/constants/properties.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/constants/properties.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalog/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/enums/OrderStatusEnum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/enums/OrderStatusEnum.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/hooks/useRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/hooks/useRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/name/[id]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/name/[id]/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/substance/[id]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/substance/[id]/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/search/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/search/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogFilter/components/CCatalogFilterItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogFilter/components/CCatalogFilterItem/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/layout/LayoutCatalogAlphabet/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutCatalogAlphabet/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutCatalogAlphabet/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutCatalogAlphabet/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderCatalog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderCatalog/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderLocation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderLocation/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderLogin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderLogin/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderPromo/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderPromo/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/main/catalogProducts.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/catalogProducts.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/main/catalogProductsFilters.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/catalogProductsFilters.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiChecklist/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiChecklist/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +138,7 @@
       <workItem from="1690995888118" duration="913000" />
       <workItem from="1691047138765" duration="508000" />
       <workItem from="1691047654701" duration="635000" />
-      <workItem from="1691048796037" duration="1429000" />
+      <workItem from="1691048796037" duration="4634000" />
     </task>
     <servers />
   </component>

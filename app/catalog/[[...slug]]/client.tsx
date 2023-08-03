@@ -59,7 +59,8 @@ export const Client = observer(({ slug }: PropsType) => {
                     <CCatalog
                         title={catalogCategory.name}
                         params={{
-                            catalogCategoryId: catalogCategory.id
+                            catalogCategoryId: catalogCategory.id,
+                            apply: ["catalog_category"]
                         }}
                     />
                 )}

@@ -10,7 +10,7 @@ export type ParamsType = {
     brandId?: number[],
     manufacturerId?: number[],
     substanceId?: number[],
-    startsWith?: string,
+    nameStartsWith?: string,
 }
 
 type ResponseType = {

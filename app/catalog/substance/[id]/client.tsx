@@ -1,13 +1,13 @@
 'use client';
 
-import React from "react";
 import { observer } from "mobx-react-lite";
+import React from "react";
+import { CCatalog } from "shared/components/catalog";
+import { ROUTES } from "shared/contants";
+import { useObservable } from "shared/hooks";
+import { SubstanceModel, SubstanceModelInterface } from "shared/models";
 
 import { UiPage, UiWrap } from "shared/ui";
-import { ROUTES } from "shared/contants";
-import { CCatalog } from "shared/components/catalog";
-import { SubstanceModel, SubstanceModelInterface } from "shared/models";
-import { useObservable } from "shared/hooks";
 
 import './page.scss';
 
@@ -29,7 +29,8 @@ export const Client = observer(({ substance }: PropsType) => {
                     title={`Действующее вещество: ${store.substance.name}`}
                     params={{
                         substanceId: [store.substance.id],
-                        except: ['substance']
+                        except: ['substance'],
+                        apply: ['substance']
                     }}
                 />
             </UiWrap>

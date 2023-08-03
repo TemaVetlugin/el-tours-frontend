@@ -24,6 +24,7 @@ export const Client = observer(({ query }: PropsType) => {
                     title={'Поиск'}
                     params={{
                         query,
+                        apply: ['query']
                     }}
                 />
             </UiWrap>

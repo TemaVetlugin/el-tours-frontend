@@ -58,46 +58,48 @@ export const CCatalogFilterItem = observer((
                     </div>
                 </div>
             )}
-            <div className="c-catalog-filter-item__inner">
-                {catalogFilter.isSearchable && (
-                    <div className="c-catalog-filter-item__search">
-                        <UiIcon size={16} name={'search'}/>
-                        <input
-                            type="text"
-                            value={store.search || ''}
-                            onChange={(e) => {
-                                store.set("search", e.target.value);
-                            }}
-                            placeholder={'Поиск'}
+            {catalogFilter.isOpened && (
+                <div className="c-catalog-filter-item__inner">
+                    {catalogFilter.isSearchable && (
+                        <div className="c-catalog-filter-item__search">
+                            <UiIcon size={16} name={'search'}/>
+                            <input
+                                type="text"
+                                value={store.search || ''}
+                                onChange={(e) => {
+                                    store.set("search", e.target.value);
+                                }}
+                                placeholder={'Поиск'}
+                            />
+                        </div>
+                    )}
+                    {catalogFilter.type === 'range' && (
+                        <UiRange
+                            min={catalogFilter.range[0]}
+                            max={catalogFilter.range[1]}
+                            value={catalogFilter.value}
+                            name={catalogFilter.name}
+                            onChange={onChange}
                         />
-                    </div>
-                )}
-                {catalogFilter.type === 'range' && (
-                    <UiRange
-                        min={catalogFilter.range[0]}
-                        max={catalogFilter.range[1]}
-                        value={catalogFilter.value}
-                        name={catalogFilter.name}
-                        onChange={onChange}
-                    />
-                )}
-                {catalogFilter.type === 'checklist' && (
-                    <UiChecklist
-                        value={catalogFilter.value}
-                        name={catalogFilter.name}
-                        items={items}
-                        onChange={onChange}
-                    />
-                )}
-                {catalogFilter.type === 'radio' && (
-                    <UiRadio
-                        value={catalogFilter.value}
-                        name={catalogFilter.name}
-                        items={items}
-                        onChange={onChange}
-                    />
-                )}
-            </div>
+                    )}
+                    {catalogFilter.type === 'checklist' && (
+                        <UiChecklist
+                            value={catalogFilter.value}
+                            name={catalogFilter.name}
+                            items={items}
+                            onChange={onChange}
+                        />
+                    )}
+                    {catalogFilter.type === 'radio' && (
+                        <UiRadio
+                            value={catalogFilter.value}
+                            name={catalogFilter.name}
+                            items={items}
+                            onChange={onChange}
+                        />
+                    )}
+                </div>
+            )}
         </div>
     )
 });

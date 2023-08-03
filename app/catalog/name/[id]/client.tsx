@@ -25,7 +25,8 @@ export const Client = observer(({ letter: _letter }: PropsType) => {
                 <CCatalog
                     title={`Товары по алфавиту: ${letter.label}`}
                     params={{
-                        startsWith: letter.query,
+                        nameStartsWith: letter.query,
+                        apply: ['name_starts_with'],
                     }}
                 />
             </UiWrap>

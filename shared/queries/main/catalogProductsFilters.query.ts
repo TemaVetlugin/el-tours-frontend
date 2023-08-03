@@ -1,10 +1,13 @@
 import { CatalogFilterModelInterface } from "shared/models";
 import { makeQuery } from "shared/queries/utilities";
 
+type FilterNameType =  'brand' | 'catalog_category' | 'dosage' | 'id' | 'manufacturer' | 'mark' | 'name_starts_with' | 'package_amount' | 'query' | 'release_form' | 'store' | 'substance';
+
 type ParamsType = {
     query?: string,
     cityId?: number,
-    except?: string[],
+    apply?: FilterNameType[],
+    except?: FilterNameType[],
     catalogCategoryId?: number,
 }
 
