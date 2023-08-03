@@ -1,9 +1,8 @@
-import { RedirectType } from "next/dist/client/components/redirect";
-import { redirect, usePathname, useRouter as useRouterNext } from "next/navigation";
+import { usePathname, useRouter as useRouterNext } from "next/navigation";
 import { useMemo } from "react";
+
 import { ROUTES } from "shared/contants";
 import { UrlType } from "shared/types";
-
 import { url } from "shared/utilities";
 
 export function useRouter() {
@@ -19,7 +18,6 @@ export function useRouter() {
                 router.push(url(href, params));
             },
             replace: (href: UrlType, params?: Record<string, any>) => {
-                // console.log('replace')
                 // https://github.com/vercel/next.js/discussions/48110
                 // shit code for nextjs 13 shallow routing fix
                 const to = url(href, params);
@@ -32,10 +30,10 @@ export function useRouter() {
                 // router.replace(toUrl(href, params))
             },
             redirect: (href: UrlType, params?: Record<string, any>) => {
-                router.replace(url(href, params))
+                router.replace(url(href, params));
             },
             notFound: () => {
-                router.replace(url(ROUTES.NOT_FOUND()))
+                router.replace(url(ROUTES.NOT_FOUND()));
             }
         }
     }, [pathname, router]);

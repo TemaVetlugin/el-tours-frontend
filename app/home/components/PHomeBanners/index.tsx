@@ -22,6 +22,7 @@ export const PHomeBanners = observer(({ homeBanners }: PropsType) => {
                 className={'p-home-banners-slider'}
                 items={homeBanners}
                 autoPlay={5000}
+                loop
                 renderItem={(homeBanner: HomeBannerModel) => {
                     return (
                         <div className={'p-home-banners-slide'} style={{ backgroundImage: `url(${homeBanner.image})` }}>

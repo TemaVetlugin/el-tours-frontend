@@ -16,7 +16,7 @@ export const LayoutHeaderPromo = observer(() => {
             <UiWrap>
                 <div className="layout-header-promo__inner">
                     <div className="layout-header-promo__items">
-                        <UiLink href={ROUTES.PROMO_ACTIONS()} className="layout-header-promo__item">
+                        <UiLink href={ROUTES.CATALOG_MARK('promo-action')} className="layout-header-promo__item">
                             <UiIcon size={16} name={'percent'}/>
                             <span>Акции</span>
                         </UiLink>

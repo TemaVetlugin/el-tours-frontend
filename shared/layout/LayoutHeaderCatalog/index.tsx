@@ -31,6 +31,11 @@ export const LayoutHeaderCatalog = observer(() => {
         }
     }
 
+    const handleNavigate = () => {
+        store.set("isOpened", false);
+        document.body.classList.remove('overflow-hidden');
+    }
+
     return (
         <>
             <UiButton onClick={handleToggle}>
@@ -56,9 +61,7 @@ export const LayoutHeaderCatalog = observer(() => {
                                                 store.set("id", catalogCategory.id);
                                             }}
                                             href={ROUTES.CATALOG(catalogCategory.slug).url}
-                                            onClick={() => {
-                                                store.set("isOpened", false);
-                                            }}
+                                            onClick={handleNavigate}
                                         >
                                             <div
                                                 className="layout-header-catalog-category__icon"
@@ -72,10 +75,10 @@ export const LayoutHeaderCatalog = observer(() => {
                                 </UiScroll>
                             </div>
                             <div className="layout-header-catalog-aside__footer">
-                                <UiLink href={ROUTES.COMPILATIONS()} className={'layout-header-catalog-aside__link'}>
+                                <UiLink href={ROUTES.COMPILATIONS()} onClick={handleNavigate} className={'layout-header-catalog-aside__link'}>
                                     {ROUTES.COMPILATIONS().name}
                                 </UiLink>
-                                <UiLink href={ROUTES.PROMO_ACTIONS()} className={'layout-header-catalog-aside__link'}>
+                                <UiLink href={ROUTES.PROMO_ACTIONS()} onClick={handleNavigate} className={'layout-header-catalog-aside__link'}>
                                     {ROUTES.PROMO_ACTIONS().name}
                                 </UiLink>
                             </div>
@@ -89,12 +92,9 @@ export const LayoutHeaderCatalog = observer(() => {
                                             className={'layout-header-catalog-category-2'}
                                         >
                                             <UiLink
-
                                                 className='layout-header-catalog-category-2__name'
                                                 href={ROUTES.CATALOG(catalogCategory2.slug).url}
-                                                onClick={() => {
-                                                    store.set("isOpened", false);
-                                                }}
+                                                onClick={handleNavigate}
                                             >
                                                 {catalogCategory2.name}
                                             </UiLink>
@@ -105,9 +105,7 @@ export const LayoutHeaderCatalog = observer(() => {
                                                             key={catalogCategory3.id}
                                                             href={ROUTES.CATALOG(catalogCategory3.slug).url}
                                                             className={'layout-header-catalog-category-3'}
-                                                            onClick={() => {
-                                                                store.set("isOpened", false);
-                                                            }}
+                                                            onClick={handleNavigate}
                                                         >
                                                             {catalogCategory3.name}
                                                         </Link>

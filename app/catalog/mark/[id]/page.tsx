@@ -28,6 +28,6 @@ export async function generateMetadata({ params }: PropsType): Promise<Metadata>
     }
 
     return {
-        title: MARKS[params.id]
+        title: `Каталог: ${MARKS[params.id]}`
     }
 }

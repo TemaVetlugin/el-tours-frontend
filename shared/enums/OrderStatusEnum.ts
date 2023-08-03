@@ -7,6 +7,11 @@ export const OrderStatusEnum = makeEnum({
         name: 'Новый',
         color: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
     },
+    Done: {
+        id: 'done',
+        name: 'Завершён',
+        color: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
+    },
 } as const, {
     id: null,
     name: 'Неопределён',

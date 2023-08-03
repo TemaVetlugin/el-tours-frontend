@@ -11,7 +11,6 @@ import { LETTERS } from "./letters";
 import './index.scss';
 
 export const LayoutCatalogAlphabet = observer(() => {
-    return null;
     const letters = Object.entries(LETTERS);
     return (
         <div className="layout-catalog-alphabet">

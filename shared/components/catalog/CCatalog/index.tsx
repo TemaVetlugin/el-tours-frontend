@@ -1,7 +1,7 @@
 'use client';
 
-import React from "react";
 import { observer } from "mobx-react-lite";
+import React from "react";
 
 import { useAsyncEffect, useCity, useObservable, useSearchParams } from "shared/hooks";
 import { CatalogFilterModel, CatalogProductModel, PaginationModel } from "shared/models";
@@ -9,10 +9,9 @@ import { catalogProductsFiltersQuery, catalogProductsQuery } from "shared/querie
 import { UiPage } from "shared/ui";
 
 import { CCatalogFilter } from "../CCatalogFilter";
-import { CCatalogProducts } from "../CCatalogProducts";
 import { CCatalogHeader } from "../CCatalogHeader";
+import { CCatalogProducts } from "../CCatalogProducts";
 import { CCatalogSort } from "../CCatalogSort";
-import { ReturnType } from "shared/types";
 
 import './index.scss';
 
@@ -90,6 +89,7 @@ export const CCatalog = observer((
                         isLoading={store.isCatalogProductsLoading}
                         catalogProducts={store.catalogProducts}
                     />
+                    <UiPage.Pagination pagination={store.pagination}/>
                 </div>
             </div>
         </div>

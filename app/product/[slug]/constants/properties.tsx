@@ -1,7 +1,7 @@
-import { CatalogProductModel } from "shared/models";
-import { ROUTES } from "shared/contants";
-import { UrlType } from "shared/types";
 import React from "react";
+import { ROUTES } from "shared/contants";
+import { CatalogProductModel } from "shared/models";
+import { UrlType } from "shared/types";
 import { UiIcon } from "shared/ui";
 
 type PropertyType = {
@@ -18,7 +18,7 @@ export const PROPERTIES: PropertyType[] = [{
     value: (catalogProduct) => catalogProduct.dosage,
     href: () => null,
     image: () => null
-},{
+}, {
     id: 'packageAmount',
     label: 'Количество в упаковке',
     value: (catalogProduct) => catalogProduct.packageAmount,
@@ -30,7 +30,7 @@ export const PROPERTIES: PropertyType[] = [{
     value: (catalogProduct) => catalogProduct.size,
     href: () => null,
     image: () => null
-},  {
+}, {
     id: 'releaseForm',
     label: 'Форма выпуска',
     value: (catalogProduct) => catalogProduct.releaseForm,
@@ -42,7 +42,7 @@ export const PROPERTIES: PropertyType[] = [{
     value: (catalogProduct) => catalogProduct.substances?.map(substance => substance.name).join(', '),
     href: (catalogProduct) => ROUTES.CATALOG_SUBSTANCE(catalogProduct.substances[0]?.id),
     image: () => null
-},   {
+}, {
     id: 'thermolabile',
     label: 'Термолабильность',
     value: (catalogProduct) => catalogProduct.thermolabile ? (
@@ -53,12 +53,6 @@ export const PROPERTIES: PropertyType[] = [{
     ) : null,
     href: () => null,
     image: () => null
-},{
-    id: 'country',
-    label: 'Страна производства',
-    value: (catalogProduct) => catalogProduct.country?.name || null,
-    href: () => null,
-    image: (catalogProduct) => null
 }, {
     id: 'manufacturer',
     label: 'Производитель',

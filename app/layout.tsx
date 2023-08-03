@@ -3,14 +3,14 @@ import { configure } from "mobx";
 import { Metadata } from "next";
 
 import { bootQuery } from "shared/queries/frontend";
-import { Cache, Cookie } from "shared/utilities/server";
+import { Cache } from "shared/utilities/server";
 import { LayoutCatalogAlphabet, LayoutFooter, LayoutHeader } from "shared/layout";
+import { getCity } from "shared/server";
 
 import { Boot } from "./boot";
 import { StylesRegistry } from "./styles-registry";
 
 import 'shared/styles/index.scss';
-import { getCity } from "shared/server";
 
 configure({ enforceActions: "always" })
 
@@ -18,7 +18,7 @@ type PropsType = {
     children: React.ReactNode
 }
 
-export async function generateMetadata(params: any, params2: any): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
     return {
         title: 'title',
     };

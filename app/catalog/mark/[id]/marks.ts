@@ -1,6 +1,6 @@
 export const MARKS: Record<string, string> = {
     new: 'новинки',
-    action: 'акция',
+    'promo-action': 'акции',
     discount: 'выгодно',
     delivery: 'доставим на дом',
 };

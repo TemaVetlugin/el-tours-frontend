@@ -6,10 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product/[slug]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product/[slug]/constants/tabs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/constants/tabs.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product/[slug]/page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/CatalogProduct.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/CatalogProduct.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/mark/[id]/marks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/mark/[id]/marks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/mark/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/mark/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/checkout/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/home/components/PHomeBanners/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/home/components/PHomeBanners/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/[slug]/constants/properties.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/constants/properties.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalog/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/enums/OrderStatusEnum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/enums/OrderStatusEnum.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/hooks/useRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/hooks/useRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutCatalogAlphabet/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutCatalogAlphabet/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutCatalogAlphabet/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutCatalogAlphabet/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderCatalog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderCatalog/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderLocation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderLocation/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderLogin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderLogin/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderPromo/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderPromo/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,30 +36,34 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2S6uxdTsl1j95gn7HQCz8EQt9fG" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.laravel-idea.search-composer-json": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dev",
-    "last_opened_file_path": "/home/izica/git/yaplus-frontend/shared/queries/main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "settings.editor.splitter.proportion": "0.27373737",
-    "ts.external.directory.path": "/home/izica/git/yaplus-frontend/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.laravel-idea.search-composer-json&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/izica/git/yaplus-frontend/shared/queries/main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.27373737&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/izica/git/yaplus-frontend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -116,7 +131,15 @@
       <workItem from="1690354152010" duration="11887000" />
       <workItem from="1690435861947" duration="8966000" />
       <workItem from="1690531172912" duration="3267000" />
-      <workItem from="1690723908844" duration="21549000" />
+      <workItem from="1690723908844" duration="21706000" />
+      <workItem from="1690792543653" duration="8555000" />
+      <workItem from="1690871213825" duration="940000" />
+      <workItem from="1690872226025" duration="8997000" />
+      <workItem from="1690995822660" duration="46000" />
+      <workItem from="1690995888118" duration="913000" />
+      <workItem from="1691047138765" duration="508000" />
+      <workItem from="1691047654701" duration="635000" />
+      <workItem from="1691048796037" duration="1429000" />
     </task>
     <servers />
   </component>

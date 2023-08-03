@@ -44,8 +44,16 @@ export const LayoutHeaderLocation = observer(() => {
     const handleGuessAccept = () => {
         store.set("isGuessing", false);
         if (store.cityGuess) {
-            LocationService.setCity(store.cityGuess.id);
+            confirmCity(store.cityGuess.id);
         }
+    }
+
+    const confirmCity = (cityId: number) => {
+        LocationService.setCity(cityId);
+        usersUpdateQuery({
+            cityId,
+            cityConfirmed: true
+        });
     }
 
     const handleGuessCancel = () => {
@@ -54,11 +62,7 @@ export const LayoutHeaderLocation = observer(() => {
     }
 
     const handleSelect = (cityId: number) => {
-        LocationService.setCity(cityId);
-        usersUpdateQuery({
-            cityId: cityId,
-            cityConfirmed: true
-        });
+        confirmCity(cityId);
         store.set("isOpened", false);
     }
 
