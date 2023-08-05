@@ -7,7 +7,8 @@ type SearchHint = {
 }
 
 type RequestType = {
-    query: string
+    query: string,
+    cityId: number,
 }
 
 type ResponseType = {

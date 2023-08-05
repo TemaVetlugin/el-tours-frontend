@@ -5,7 +5,8 @@ import { makeQuery } from "../utilities";
 type RequestType = {
     page?: number,
     tagId?: number | null,
-    cityId: number
+    cityId: number,
+    query?: string,
 }
 
 type ResponseType = {

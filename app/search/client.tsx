@@ -3,7 +3,7 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 import { ROUTES } from "shared/contants";
-import { useAsyncEffect, useObservable, useRouter, useSearchParams } from "shared/hooks";
+import { useAsyncEffect, useCity, useObservable, useRouter, useSearchParams } from "shared/hooks";
 import { searchCountsQuery } from "shared/queries/main";
 import { UiDataBoundary, UiPage, UiWrap } from "shared/ui";
 import { PSearchCatalogProducts } from "./component/PSearchCatalogProducts";
@@ -22,6 +22,8 @@ export const Client = observer(({ query, page }: PropsType) => {
         query: ''
     });
 
+    const city = useCity();
+
     const store = useObservable({
         isLoading: true,
     });
@@ -35,14 +37,17 @@ export const Client = observer(({ query, page }: PropsType) => {
     });
 
     useAsyncEffect(async () => {
-        const { isSuccess, data } = await searchCountsQuery({ query: searchParams.query });
+        const { isSuccess, data } = await searchCountsQuery({
+            query: searchParams.query,
+            cityId: city.id
+        });
         if (isSuccess && data) {
             counts.update(data);
             guessTab();
 
             store.set("isLoading", false);
         }
-    }, [searchParams.query]);
+    }, [searchParams.query, city]);
 
     const guessTab = () => {
         const tabs: Partial<keyof typeof counts>[] = ['catalogProducts', 'compilations', 'news', 'articles'];

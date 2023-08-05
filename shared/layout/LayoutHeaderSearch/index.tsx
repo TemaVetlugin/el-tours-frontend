@@ -3,7 +3,7 @@
 import { observer } from "mobx-react-lite";
 import React, { useEffect } from "react";
 import { ROUTES } from "shared/contants";
-import { useDebouncedCallback, useObservable, useRouter, useSearchParams } from "shared/hooks";
+import { useCity, useDebouncedCallback, useObservable, useRouter, useSearchParams } from "shared/hooks";
 import { searchHintsQuery } from "shared/queries/main";
 import { LayoutService } from "shared/services";
 import { ReturnType, UrlType } from "shared/types";
@@ -19,6 +19,7 @@ export const LayoutHeaderSearch = observer(() => {
         query: '',
     });
 
+    const city = useCity();
     const router = useRouter();
 
     const store = useObservable({
@@ -57,7 +58,8 @@ export const LayoutHeaderSearch = observer(() => {
             return;
         }
         const { isSuccess, data } = await searchHintsQuery({
-            query: store.query
+            query: store.query,
+            cityId: city.id
         });
 
         if (isSuccess && data) {

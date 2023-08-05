@@ -4,19 +4,22 @@ import { observer } from "mobx-react-lite";
 import React from "react";
 
 import { CCatalog } from "shared/components/catalog";
+import { useSearchParams } from "shared/hooks";
 
-type PropsType = {
-    query?: string,
-}
+export const PSearchCatalogProducts = observer(() => {
+    const searchParams = useSearchParams({
+        page: 1,
+        query: ''
+    })
 
-export const PSearchCatalogProducts = observer(({ query }: PropsType) => {
-    if (!query) {
+    if (!searchParams.query) {
         return null;
     }
+
     return (
         <CCatalog
             params={{
-                query,
+                query: searchParams.query,
                 apply: ['query']
             }}
         />
