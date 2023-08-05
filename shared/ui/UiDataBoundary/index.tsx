@@ -18,6 +18,7 @@ type PropsType = {
     errorMessage?: string;
     actionText?: string;
     onAction?: () => void;
+    render?: () => React.ReactNode,
     style?: React.CSSProperties,
     children?: React.ReactNode,
 }
@@ -33,6 +34,7 @@ export const UiDataBoundary = observer((
         errorMessage = 'Что-то пошло не так. \nНе удалось загрузить данные.',
         style = {},
         onAction,
+        render,
         children
     }: PropsType
 ) => {
@@ -67,6 +69,7 @@ export const UiDataBoundary = observer((
             <div className={classnames('ui-data-boundary', className, {
                 'ui-data-boundary--shallow': isShallowLoading,
             })}>
+                {!!render && render()}
                 {children}
                 <div className='ui-data-boundary__loading ui-data-boundary__loading--shallow'>
                     <img src="/assets/images/logo.svg" alt=""/>
@@ -77,6 +80,9 @@ export const UiDataBoundary = observer((
     }
 
     return (
-        <>{children}</>
+        <>
+            {!!render && render()}
+            {children}
+        </>
     )
 });

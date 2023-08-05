@@ -64,13 +64,17 @@ export const CCatalog = observer((
     return (
         <div className={'c-catalog'}>
             <div className="c-catalog__header">
-                <div className="c-catalog__title">
-                    <UiPage.Header style={{ marginBottom: 0 }} title={title}/>
-                </div>
-                {!store.isCatalogProductsLoading && (
-                    <div className="c-catalog__count">
-                        {store.pagination.total} товаров
-                    </div>
+                {title && (
+                    <>
+                        <div className="c-catalog__title">
+                            <UiPage.Header style={{ marginBottom: 0 }} title={title}/>
+                        </div>
+                        {!store.isCatalogProductsLoading && (
+                            <div className="c-catalog__count">
+                                {store.pagination.total} товаров
+                            </div>
+                        )}
+                    </>
                 )}
                 <div className="c-catalog__sort">
                     <CCatalogSort/>

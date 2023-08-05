@@ -40,8 +40,9 @@
         z-index: 100;
         min-width: 100%;
         margin-top: 2px;
-        box-shadow: 0px 0px 20px 0px rgba(74, 74, 74, 0.10);
-        background: #FFFFFF;
+        box-shadow: 0 0 20px 0px rgba(74, 74, 74, 0.10);
+        background: $cWhite;
+        border-radius: 24px;
         overflow: hidden;
     }
 
@@ -50,7 +51,7 @@
     }
 
     &__item {
-        padding: 8px 40px;
+        padding: 10px 40px;
         cursor: pointer;
         user-select: none;
         color: $cTypo;

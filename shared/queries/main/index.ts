@@ -34,3 +34,5 @@ export { usersConfirmQuery } from './usersConfirm.query';
 export { usersLoginQuery } from './usersLogin.query';
 export { usersUpdateQuery } from './usersUpdate.query';
 export { citiesLocateQuery } from './citiesLocate.query';
+export { searchCountsQuery } from './searchCounts.query';
+export { searchHintsQuery } from './searchHints.query';

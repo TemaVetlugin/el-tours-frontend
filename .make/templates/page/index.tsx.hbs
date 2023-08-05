@@ -14,7 +14,7 @@ type PropsType = {
     application: ReturnType<typeof getApplicationData>
 }
 
-const {{pascalCase name}}Client: NextPage<PropsType> = observer(({ application }) => {
+const {{pascalCase name}}Index: NextPage<PropsType> = observer(({ application }) => {
     BootstrapModule.application(application);
 
     return (
@@ -37,4 +37,4 @@ export const getServerSideProps: GetServerSideProps<PropsType> = async (context)
     }
 }
 
-export default {{pascalCase name}}Client;
+export default {{pascalCase name}}Index;

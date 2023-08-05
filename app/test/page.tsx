@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { UiDatepicker, UiPage } from "shared/ui";
+import { UiDatepicker, UiPage, UiSelect } from "shared/ui";
 
 export default function TestPage() {
     const [count, setCount] = useState(1)
@@ -19,6 +19,10 @@ export default function TestPage() {
                 <button onClick={handleClick}>test</button>
                 <div onClick={() => setCount(count + 1)}>count: {count}</div>
                 <UiDatepicker/>
+                <UiSelect items={[{
+                    id: 1,
+                    name: 'dsa'
+                }]}/>
             </UiPage.Wrap>
         </UiPage>
     );

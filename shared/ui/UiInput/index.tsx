@@ -15,6 +15,8 @@ type PropsType = UiControlPropsType<string, {
     type?: 'text' | 'password' | 'email',
     placeholder?: string,
     mask?: string,
+    onFocus?: () => void,
+    onBlur?: () => void,
     autoFocus?: boolean
 }>;
 
@@ -27,6 +29,8 @@ export const UiInput = observer((
         mask,
         onChange,
         placeholder,
+        onBlur = () => {},
+        onFocus = () => {}
     }: PropsType
 ) => {
     const [isFocused, setIsFocused] = useState(false);
@@ -45,12 +49,16 @@ export const UiInput = observer((
                 placeholder: ' ',
                 lazy: !isFocused,
                 placeholderChar: '_',
-                onFocus: () => setIsFocused(true),
+                onFocus: () => {
+                    setIsFocused(true)
+                    onFocus();
+                },
                 onBlur: () => {
                     setIsFocused(false);
                     if(mask === MASKS.MOBILE_PHONE && isMobilePhone()(value) !== true){
                         handleChange('');
                     }
+                    onBlur();
                 }
             };
 
@@ -75,6 +83,8 @@ export const UiInput = observer((
                 onChange={(event) => handleChange(event.target.value)}
                 placeholder={' '}
                 autoFocus={autoFocus}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
         );
     };
