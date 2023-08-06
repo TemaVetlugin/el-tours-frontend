@@ -5,21 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/shared/layout/LayoutFooterBanner/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/layout/LayoutFooterBanner/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/models/FooterBannerModel.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/boot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/boot.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutCatalogAlphabet/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutCatalogAlphabet/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutFooter/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutFooter/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderMenuPrimary/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderMenuPrimary/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderMenuSecondary/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderMenuSecondary/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/FooterMenuItemModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/FooterMenuItemModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/HeaderMenuItemModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/HeaderMenuItemModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/queries/frontend/boot.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/frontend/boot.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogHeader/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogHeader/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogHeader/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogHeader/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutFooterBanner/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutFooterBanner/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutFooterBanner/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutFooterBanner/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/services/Layout.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/services/Layout.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiPage/components/Wrap/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiPage/components/Wrap/index.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +135,7 @@
       <workItem from="1691248930151" duration="7971000" />
       <workItem from="1691288384632" duration="427000" />
       <workItem from="1691313134054" duration="10210000" />
-      <workItem from="1691332346280" duration="94000" />
+      <workItem from="1691332346280" duration="454000" />
     </task>
     <servers />
   </component>

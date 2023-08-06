@@ -32,6 +32,7 @@ export const LayoutService = makeService(class {
     }
 
     boot = ({ searchPrompts, headerMenuItems, footerMenuItems, footerBanners }: BootType) => {
+        console.log(footerBanners)
         this.headerMenuItems = headerMenuItems.map(item => new HeaderMenuItemModel(item));
         this.footerMenuItems = footerMenuItems.map(item => new FooterMenuItemModel(item));
         this.footerBanners = footerBanners.map(item => new FooterBannerModel(item));

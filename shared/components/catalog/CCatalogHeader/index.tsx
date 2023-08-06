@@ -41,13 +41,11 @@ export const CCatalogHeader = observer(({ catalogFilters = [] }: PropsType) => {
         <div className="c-catalog-header">
             <div className="c-catalog-header__filters">
                 {hasActiveFilters && (
-                    <div className="c-catalog-header__clear">
+                    <div className="c-catalog-header__clear" onClick={() => {
+                        router.replace(null, {});
+                    }}>
                         <span>Сбросить фильтры</span>
-                        <i onClick={() => {
-                            router.replace(null, {});
-                        }}>
-                            <UiIcon size={8} name={"close"}/>
-                        </i>
+                        <i><UiIcon size={8} name={"close"}/></i>
                     </div>
                 )}
                 {catalogFilters.map(catalogFilter => {
