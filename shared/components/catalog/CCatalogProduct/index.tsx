@@ -43,24 +43,32 @@ export const CCatalogProduct = observer(({ catalogProduct, withRemind = true }: 
                     className="c-catalog-product__image"
                     style={{ backgroundImage: `url(${catalogProduct.image})` }}
                 />
-                <div className="c-catalog-product__badges">
-                    {catalogProduct.isDeliverable && (
-                        <div className="c-catalog-product-badge" style={{ backgroundColor: '#00A3B3' }}>
-                            <div className="c-catalog-product-badge__name">
-                                Доставим на дом
+                {catalogProduct.badges.length > 0 && (
+                    <div className="c-catalog-product__badges">
+                        {catalogProduct.badges.map(badge => (
+                            <div key={badge.icon} className="c-catalog-product-badge" style={{ backgroundColor: badge.color }}>
+                                <div className="c-catalog-product-badge__name">{badge.label}</div>
+                                <UiIcon size={24} name={badge.icon} color={COLORS.WHITE}/>
                             </div>
-                            <UiIcon size={24} name={'deliveryCourier'} color={COLORS.WHITE}/>
-                        </div>
-                    )}
-                    {catalogProduct.isDeliverable && (
-                        <div className="c-catalog-product-badge" style={{ backgroundColor: '#E21F25' }}>
-                            <div className="c-catalog-product-badge__name">
-                                Требуется рецепт
+                        ))}
+                    </div>
+                )}
+
+                {(catalogProduct.dosage || catalogProduct.packageAmount) && (
+                    <div className="c-catalog-product__properties">
+                        {catalogProduct.dosage && (
+                            <div className="c-catalog-product__property c-catalog-product__property--green">
+                                {catalogProduct.dosage}
                             </div>
-                            <UiIcon size={24} name={'exclamationMark'} color={COLORS.WHITE}/>
-                        </div>
-                    )}
-                </div>
+                        )}
+                        {catalogProduct.packageAmount && (
+                            <div className="c-catalog-product__property c-catalog-product__property--blue">
+                                {catalogProduct.packageAmount}
+                            </div>
+                        )}
+                    </div>
+                )}
+
                 <div className="c-catalog-product__name">
                     {catalogProduct.name}
                 </div>

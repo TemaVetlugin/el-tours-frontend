@@ -34,4 +34,5 @@ export { snow } from "./snow";
 export { sort } from "./sort";
 export { trash } from "./trash";
 export { user } from "./user";
+export { wallet } from "./wallet";
 export { warning } from "./warning";

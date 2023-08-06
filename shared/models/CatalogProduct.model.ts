@@ -1,20 +1,28 @@
 import { computed, makeObservable, observable } from "mobx";
 
 import { ModelArrayCast, ModelCast } from "shared/casts";
+import { BrandModel, BrandModelInterface } from "./Brand.model";
 
 import { CatalogCategoryModel, CatalogCategoryModelInterface } from "./CatalogCategory.model";
 import { CatalogProductOfferModel, CatalogProductOfferModelInterface } from "./CatalogProductOffer.model";
-import { BrandModel, BrandModelInterface } from "./Brand.model";
-import { ManufacturerModel, ManufacturerModelInterface } from "./Manufacturer.model";
-import { SubstanceModel, SubstanceModelInterface } from "./Substance.model";
 import { CountryModel, CountryModelInterface } from "./Country.model";
+import { ManufacturerModel, ManufacturerModelInterface } from "./Manufacturer.model";
 import { Model } from "./Model";
+import { SubstanceModel, SubstanceModelInterface } from "./Substance.model";
+
+type CatalogProductBadge = {
+    label: string,
+    icon: string,
+    color: string
+}
 
 export interface CatalogProductModelInterface {
     id?: number;
     name?: string;
     slug?: string;
     image?: string;
+    newAt?: string;
+    promoActionsCount?: number;
     catalogCategoryId?: number;
     catalogCategory?: CatalogCategoryModelInterface | null;
     catalogProductOffers?: CatalogProductOfferModelInterface[];
@@ -79,7 +87,9 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
         "sideEffects",
         "withPrescription",
         "analogues",
-        "recommendations"
+        "recommendations",
+        "newAt",
+        "promoActionsCount"
     ];
 
     casts = {
@@ -97,6 +107,8 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
     name = '';
     slug = '';
     image = '';
+    newAt = '';
+    promoActionsCount = 0;
     catalogCategoryId = 0;
     images = [];
     barcodes = [];
@@ -135,6 +147,8 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
             name: observable,
             slug: observable,
             image: observable,
+            newAt: observable,
+            promoActionsCount: observable,
             catalogCategoryId: observable,
             catalogCategory: observable,
             catalogProductOffers: observable,
@@ -168,6 +182,7 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
             price: computed,
             priceOffer: computed,
             isDeliverable: computed,
+            badges: computed,
         });
 
         this.update(payload);
@@ -190,5 +205,43 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
 
     get isDeliverable() {
         return this.catalogProductOffers.some(catalogProductOffer => catalogProductOffer.isDeliverable);
+    }
+
+    get badges(): CatalogProductBadge[] {
+        const badges: CatalogProductBadge[] = [];
+        if (this.isDeliverable) {
+            badges.push({
+                label: 'Доставим на дом',
+                icon: 'deliveryCourier',
+                color: '#00A3B3'
+            })
+        }
+        if (this.promoActionsCount > 0 && this.price.length > 0 && this.priceOffer.length > 0) {
+            if (Math.min(...this.price) < Math.min(...this.priceOffer) || Math.max(...this.price) < Math.max(...this.priceOffer)) {
+                badges.push({
+                    label: 'Выгодно',
+                    icon: 'wallet',
+                    color: '#EF7F1A'
+                })
+            }
+        }
+
+        if (this.promoActionsCount > 0) {
+            badges.push({
+                label: 'Акция',
+                icon: 'percent',
+                color: '#B0CB1F'
+            })
+        }
+
+        if (this.withPrescription) {
+            badges.push({
+                label: 'Требуется рецепт',
+                icon: 'exclamationMark',
+                color: '#E21F25'
+            })
+        }
+
+        return badges;
     }
 }

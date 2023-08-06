@@ -7,9 +7,10 @@ import * as icons from 'shared/icons';
 
 import './index.scss';
 
+type IconsName = keyof typeof icons;
 type PropsType = {
     size: number | [number, number],
-    name: keyof typeof icons,
+    name: IconsName | string,
     color?: string | string[]
 }
 
@@ -28,13 +29,13 @@ export const UiIcon = observer((
         return Array.isArray(color) ? color : [color];
     }, [color]);
 
-    if(!icons[name]){
+    if(!icons[name as IconsName]){
         console.error(`UiIcon: icon ${name} not found`);
         return null;
     }
     return (
         <div className='ui-icon' data-name={name} style={{ width: sizes[0], height: sizes[1] }}>
-            {icons[name](sizes, colors)}
+            {icons[name as IconsName](sizes, colors)}
         </div>
     )
 })

@@ -20,7 +20,7 @@
         height: 32px;
         border-radius: 100%;
         white-space: nowrap;
-        gap: 8px;
+        gap: 4px;
 
         &:not(&:last-child) {
             margin-bottom: 4px;
@@ -96,17 +96,45 @@
     &__remind {
         display: flex;
         align-items: center;
+        padding-bottom: 3px;
         margin-top: 12px;
         color: $cTypo;
         font-size: 14px;
         font-weight: 500;
         line-height: 18px;
         gap: 4px;
-        padding-bottom: 3px;
 
         span {
             position: relative;
             display: block;
+        }
+    }
+
+    &__properties {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        gap: 8px;
+    }
+
+    &__property {
+        display: flex;
+        align-items: center;
+        height: 20px;
+        padding: 0 6px;
+        border-radius: 24px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+
+        &--green {
+            border: 1px solid $cGreenSecondary;
+            color: $cGreenSecondary;
+        }
+
+        &--blue {
+            border: 1px solid #0047FF;
+            color: #0047FF;
         }
     }
 }
