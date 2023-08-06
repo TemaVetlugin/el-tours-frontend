@@ -38,7 +38,7 @@ export const CCatalogProduct = observer(({ catalogProduct, withRemind = true }: 
 
     return (
         <>
-            <UiLink href={ROUTES.PRODUCT(catalogProduct.slug).url} className="c-catalog-product">
+            <UiLink href={ROUTES.PRODUCT(catalogProduct)} className="c-catalog-product">
                 <div
                     className="c-catalog-product__image"
                     style={{ backgroundImage: `url(${catalogProduct.image})` }}

@@ -107,7 +107,7 @@ export const LayoutHeaderSearch = observer(() => {
                                         <LayoutHeaderSearchHintsSection
                                             title={"Товары"}
                                             items={hints.catalogProducts}
-                                            href={(catalogProduct) => ROUTES.PRODUCT(catalogProduct.slug)}
+                                            href={(catalogProduct) => ROUTES.PRODUCT(catalogProduct)}
                                         />
                                         <LayoutHeaderSearchHintsSection
                                             title={"Бренды"}

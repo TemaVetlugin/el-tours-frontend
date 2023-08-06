@@ -89,10 +89,10 @@ export const ROUTES = {
         name,
         url: slug ? `/articles/${slug}` : '/articles',
     }),
-    PRODUCT: (slug: string = '', name = 'Каталог'): RouteType => ({
+    PRODUCT: ({ slug, name, externalId }: { slug?: string | null, name?: string, externalId?: string | null }): RouteType => ({
         id: 'product' + slug,
-        name,
-        url: `/product/${slug}`,
+        name: name || 'Каталог',
+        url: `/product/${slug || externalId}`,
     }),
     PROFILE: (): RouteType => ({
         id: 'profile',

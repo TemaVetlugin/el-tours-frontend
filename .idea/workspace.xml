@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/favorites/assets/image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/favorites/page.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/ui/UiShare/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/ui/UiShare/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProductsViewed/index.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProductsViewed/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/favorites/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/favorites/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/favorites/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/favorites/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/[slug]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/cart/CCartItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/cart/CCartItem/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/catalog/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/contants/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/contants/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderSearch/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderSearch/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/CatalogProduct.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/CatalogProduct.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/services/Catalog.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/services/Catalog.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +48,7 @@
     "RunOnceActivity.laravel-idea.search-composer-json": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "dev",
-    "last_opened_file_path": "/home/izica/git/yaplus-frontend/shared/ui/UiWrap",
+    "last_opened_file_path": "/home/izica/git/yaplus-frontend/shared/components/catalog",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -65,11 +70,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/shared/components/catalog" />
       <recent name="$PROJECT_DIR$/shared/ui/UiWrap" />
       <recent name="$PROJECT_DIR$/shared/ui" />
       <recent name="$PROJECT_DIR$/shared/icons" />
       <recent name="$PROJECT_DIR$/shared/layout" />
-      <recent name="$PROJECT_DIR$/shared/models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/favorites/assets" />
@@ -135,7 +140,7 @@
       <workItem from="1691248930151" duration="7971000" />
       <workItem from="1691288384632" duration="427000" />
       <workItem from="1691313134054" duration="10210000" />
-      <workItem from="1691332346280" duration="6369000" />
+      <workItem from="1691332346280" duration="7350000" />
     </task>
     <servers />
   </component>

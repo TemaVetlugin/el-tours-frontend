@@ -20,6 +20,7 @@ export interface CatalogProductModelInterface {
     id?: number;
     name?: string;
     slug?: string;
+    externalId?: string;
     image?: string;
     newAt?: string;
     promoActionsCount?: number;
@@ -59,6 +60,7 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
         "id",
         "name",
         "slug",
+        "externalId",
         "image",
         "catalogCategoryId",
         "catalogProductOffers",
@@ -106,6 +108,7 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
     id = 0;
     name = '';
     slug = '';
+    externalId = '';
     image = '';
     newAt = '';
     promoActionsCount = 0;

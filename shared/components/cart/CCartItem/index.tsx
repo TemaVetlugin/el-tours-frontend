@@ -32,7 +32,7 @@ export const CCartItem = observer(({ cartItem }: PropsType) => {
             />
             <div className="c-cart-item__main">
                 <UiLink
-                    href={ROUTES.PRODUCT(cartItem.catalogProduct.slug).url}
+                    href={ROUTES.PRODUCT(cartItem.catalogProduct)}
                     className="c-cart-item__name"
                 >
                     {cartItem.catalogProduct.name}

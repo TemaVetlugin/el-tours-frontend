@@ -1,6 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
 import { CatalogCategoryModel, CatalogCategoryModelInterface, CompilationModel, CompilationModelInterface } from "shared/models";
+import { catalogProductViewSaveQuery } from "shared/queries/main/catalogProductViewSave.query";
 import { lodash } from "shared/utilities";
 
 import { makeService } from "./utilities/makeService";
@@ -39,7 +40,7 @@ export const CatalogService = makeService(class {
     }
 
     getViews = async () => {
-        let keys = await Cache.get<number[]>('CatalogModule.views');
+        let keys = await Cache.get<number[]>('CatalogService.views');
         if (!Array.isArray(keys)) {
             keys = [];
         }
@@ -47,9 +48,13 @@ export const CatalogService = makeService(class {
         return keys;
     }
 
-    addView = async (catalogProductId: number) => {
+    view = async (catalogProductId: number, cityId: number) => {
         let keys = await this.getViews();
-        Cache.set('CatalogModule.views', lodash.uniq([catalogProductId, ...keys]).slice(0, 18));
+        Cache.set('CatalogService.views', lodash.uniq([catalogProductId, ...keys]).slice(0, 18));
+        catalogProductViewSaveQuery({
+            catalogProductId,
+            cityId
+        });
     }
 
     breadcrumbs = (catalogCategoryId: number | null = null) => {

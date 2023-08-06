@@ -30,12 +30,10 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
         catalogProductOffers: [] as CatalogProductOfferModel[]
     });
     const city = useCity();
+
     useEffect(() => {
-        catalogProductViewSaveQuery({
-            catalogProductId: store.catalogProduct.id,
-            cityId: city.id
-        });
-    }, [city])
+        CatalogService.view(store.catalogProduct.id, city.id);
+    }, [store, city])
 
     const tab = TABS.find(tab => tab.id === store.tab);
     const cartItem = CartService.cartItems.find(cartItem => cartItem.catalogProductId === catalogProduct.id);
@@ -46,7 +44,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                 <UiPage.Breadcrumbs
                     items={[
                         ...CatalogService.breadcrumbs(catalogProduct.catalogCategoryId),
-                        ROUTES.PRODUCT(catalogProduct.slug, catalogProduct.name)
+                        ROUTES.PRODUCT(catalogProduct)
                     ]}
                 />
                 <UiPage.Header title={store.catalogProduct.name}/>
@@ -173,8 +171,10 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                 <div className="p-product__info">
                     <div className="p-product__tabs">
                         {TABS.map(tab => {
-
                             const isActive = tab.id === store.tab;
+                            if (!store.catalogProduct[tab.id]) {
+                                return null;
+                            }
                             return (
                                 <UiButton
                                     key={tab.id}
@@ -194,7 +194,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                             )
                         })}
                     </div>
-                    {tab && (
+                    {(tab && !!store.catalogProduct[tab.id]) && (
                         <div className="p-product-description">
                             <div className="p-product-description__name">
                                 {tab.name}
@@ -205,17 +205,23 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                         </div>
                     )}
                 </div>
-                <UiPage.Section title={'Аналоги'}>
-                    <CCatalogProductsSlider catalogProducts={store.catalogProduct.analogues}/>
-                </UiPage.Section>
-                <UiPage.Section title={'Доступность в аптеках'}>
-                    {store.catalogProduct.catalogProductOffers.map(offer => (
-                        <PProductStore key={offer.id} catalogProductOffer={offer}/>
-                    ))}
-                </UiPage.Section>
-                <UiPage.Section title={'С этим товаром покупают'}>
-                    <CCatalogProductsSlider catalogProducts={store.catalogProduct.recommendations}/>
-                </UiPage.Section>
+                {store.catalogProduct.analogues.length > 0 && (
+                    <UiPage.Section title={'Аналоги'}>
+                        <CCatalogProductsSlider catalogProducts={store.catalogProduct.analogues}/>
+                    </UiPage.Section>
+                )}
+                {store.catalogProduct.catalogProductOffers.length > 0 && (
+                    <UiPage.Section title={'Доступность в аптеках'}>
+                        {store.catalogProduct.catalogProductOffers.map(offer => (
+                            <PProductStore key={offer.id} catalogProductOffer={offer}/>
+                        ))}
+                    </UiPage.Section>
+                )}
+                {store.catalogProduct.recommendations.length > 0 && (
+                    <UiPage.Section title={'С этим товаром покупают'}>
+                        <CCatalogProductsSlider catalogProducts={store.catalogProduct.recommendations}/>
+                    </UiPage.Section>
+                )}
             </UiPage.Wrap>
         </UiPage>
     )

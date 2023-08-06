@@ -3,7 +3,7 @@
 import { observer } from "mobx-react-lite";
 import React, { useEffect } from "react";
 
-import { CCatalog } from "shared/components/catalog";
+import { CCatalog, CCatalogProductsViewed } from "shared/components/catalog";
 import { COLORS, ROUTES } from "shared/contants";
 import { useIsBooting, useRouter } from "shared/hooks";
 import { UserService } from "shared/services";
@@ -59,6 +59,7 @@ export const Client = observer(() => {
                         />
                     )}
                 </UiDataBoundary>
+                <CCatalogProductsViewed/>
             </UiPage.Wrap>
         </UiPage>
     )
