@@ -1,10 +1,87 @@
 .layout-header-login {
-    &__modal {
+    &-confirm {
+        &__title {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-family: $fontSecondary;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 20px;
+        }
+
+        &__again {
+            margin-top: 35px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: $cGreenPrimary;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 18px;
+            letter-spacing: 0px;
+            transition: 0.2s;
+
+            &:hover {
+                color: $cGreenSecondary;
+            }
+        }
+
+        &-code {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+
+            &__control {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                opacity: 0;
+            }
+
+            &__items {
+                position: relative;
+                display: flex;
+                z-index: 1;
+                align-items: center;
+                gap: 10px;
+            }
+
+            &__item {
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+                text-align: left;
+                font-family: $fontSecondary;
+                font-size: 30px;
+                font-weight: 700;
+                line-height: 20px;
+                transition: 0.2s;
+                pointer-events: none;
+
+                &:empty {
+                    border-bottom: 2px solid $cGrayPrimary;
+                }
+            }
+
+
+            &__item--active + &__item:not(&__item--active), &__control:focus + &__items > &__item:first-child:not(&__item--active) {
+                border-color: $cGreenPrimary;
+            }
+        }
     }
 
     .ui-form {
-        margin: 0 auto;
         width: 310px;
+        margin: 0 auto;
 
         .ui-button {
             width: 100%;
@@ -13,6 +90,28 @@
         .ui-checkbox {
             width: 270px;
             margin: 16px auto 0;
+        }
+    }
+
+    .ui-modal {
+        &-title {
+            padding-right: 0;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 36px;
+        }
+
+        &-description {
+            padding-right: 0;
+            margin-bottom: 24px;
+            color: $cGrayPrimary;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
         }
     }
 }

@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
-
-import { UiDataBoundary, UiPage, UiWrap } from "shared/ui";
-import { ROUTES } from "shared/contants";
+import React, { useEffect } from "react";
 import { CCatalog } from "shared/components/catalog";
+import { ROUTES } from "shared/contants";
 import { useIsBooting, useRouter } from "shared/hooks";
 import { UserService } from "shared/services";
+
+import { UiDataBoundary, UiPage, UiWrap } from "shared/ui";
 
 export const Client = observer(() => {
     const isBooting = useIsBooting();
@@ -22,6 +22,7 @@ export const Client = observer(() => {
         }
     }, [isBooting, router]);
 
+    const id = UserService.user.userFavorites.map(userFavorite => userFavorite.catalogProductId)
     return (
         <UiPage className={'p-search'}>
             <UiWrap>
@@ -31,12 +32,15 @@ export const Client = observer(() => {
                             ROUTES.FAVORITES(),
                         ]}
                     />
-                    <CCatalog
-                        title={'Избранное'}
-                        params={{
-                            id: UserService.user.userFavorites.map(userFavorite => userFavorite.catalogProductId),
-                        }}
-                    />
+                    {id.length > 0 && (
+                        <CCatalog
+                            title={'Избранное'}
+                            params={{
+                                id,
+                                apply: ['id']
+                            }}
+                        />
+                    )}
                 </UiDataBoundary>
             </UiWrap>
         </UiPage>

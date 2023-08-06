@@ -1,5 +1,6 @@
 'use client';
 
+import classnames from "classnames";
 import { observer } from "mobx-react-lite";
 import Link from "next/link";
 import React from "react";
@@ -21,7 +22,7 @@ export const LayoutHeaderLogin = observer(() => {
         errorMessage: '',
         isAccepted: 1,
         isLoading: false,
-        step: 'login',
+        step: 'confirm',
         phone: '',
         code: '',
     });
@@ -85,7 +86,7 @@ export const LayoutHeaderLogin = observer(() => {
                 >
                     <UiIcon size={24} name={'user'}/>
                     <span>
-                    {useMask('+{7} *** 00-00', user.phone.replace(user.phone.substring(1,7), '***'))}
+                    {useMask('+{7} *** 00-00', user.phone.replace(user.phone.substring(1, 7), '***'))}
                 </span>
                 </UiButton>
             )}
@@ -157,18 +158,51 @@ export const LayoutHeaderLogin = observer(() => {
                 )}
                 {store.step === 'confirm' && (
                     <>
-                        <UiModal.Title>Вход в личный кабинет</UiModal.Title>
-                        <UiModal.Description>Пожалуйста авторизуйтесь, чтобы оформить заказ</UiModal.Description>
+                        <div className="layout-header-login-confirm__title">
+                            Сейчас вам поступит звонок. <br/>
+                            Введите последние 4 цифры <br/>
+                            входящего звонка
+                        </div>
+                        <UiModal.Description>
+                            на Ваш телефон <br/>
+                            <b>{useMask('+{7} (000) 000 00-00', store.phone)}</b>
+                        </UiModal.Description>
                         <UiForm onSubmit={handleConfirm}>
-                            <UiFormControl>
-                                <UiInput
-                                    placeholder={'Введите код'}
-                                    name={'code'}
-                                    value={store.code}
-                                    onChange={store.handleChange}
+
+                            <label className="layout-header-login-confirm-code">
+                                <input
                                     autoFocus
+                                    type="text"
+                                    className="layout-header-login-confirm-code__control"
+                                    value={store.code}
+                                    maxLength={4}
+                                    onChange={(e) => {
+                                        store.set("code", (e.target.value || '').replace(/[^0-9.]/g, ''))
+                                    }}
                                 />
-                            </UiFormControl>
+                                <div className="layout-header-login-confirm-code__items">
+                                    <div className={classnames("layout-header-login-confirm-code__item", {
+                                        'layout-header-login-confirm-code__item--active': !!store.code.at(0)
+                                    })}>
+                                        {store.code.at(0)}
+                                    </div>
+                                    <div className={classnames("layout-header-login-confirm-code__item", {
+                                        'layout-header-login-confirm-code__item--active': !!store.code.at(1)
+                                    })}>
+                                        {store.code.at(1)}
+                                    </div>
+                                    <div className={classnames("layout-header-login-confirm-code__item", {
+                                        'layout-header-login-confirm-code__item--active': !!store.code.at(2)
+                                    })}>
+                                        {store.code.at(2)}
+                                    </div>
+                                    <div className={classnames("layout-header-login-confirm-code__item", {
+                                        'layout-header-login-confirm-code__item--active': !!store.code.at(3)
+                                    })}>
+                                        {store.code.at(3)}
+                                    </div>
+                                </div>
+                            </label>
                             <UiFormControl
                                 errorMessage={store.errorMessage}
                             >
@@ -179,6 +213,14 @@ export const LayoutHeaderLogin = observer(() => {
                                     label={'Продолжить'}
                                 />
                             </UiFormControl>
+                            <div
+                                className="layout-header-login-confirm__again"
+                                onClick={() => {
+                                    store.set("step", "login")
+                                }}
+                            >
+                                Запросить звонок еще раз
+                            </div>
                         </UiForm>
                     </>
                 )}

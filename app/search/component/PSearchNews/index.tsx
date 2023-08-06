@@ -48,7 +48,7 @@ export const PSearchNews = observer(() => {
         store.set("isShallowLoading", false);
     }, [searchParams.page, city, searchParams.tagId]);
 
-    if (!query) {
+    if (!searchParams.query) {
         return null;
     }
 
