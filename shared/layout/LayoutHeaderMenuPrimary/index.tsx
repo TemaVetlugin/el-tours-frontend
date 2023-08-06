@@ -19,7 +19,7 @@ export const LayoutHeaderMenuPrimary = observer(() => {
     return (
         <div className="layout-header-menu-primary">
             {LayoutService.headerMenuItems.filter(headerMenu => headerMenu.type.is(HeaderMenuItemTypeEnum.Primary)).map(item => (
-                <UiLink key={item.id} href={item.href} className="layout-header-menu-primary__item">
+                <UiLink key={item.id} href={item.url} className="layout-header-menu-primary__item">
                     {item.name}
                 </UiLink>
             ))}

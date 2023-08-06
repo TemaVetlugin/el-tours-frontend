@@ -37,6 +37,9 @@ export type { ContentResourceModelInterface } from './ContentResource.model';
 export { CountryModel } from './Country.model';
 export type { CountryModelInterface } from './Country.model';
 
+export { FooterBannerModel } from './FooterBannerModel';
+export type { FooterBannerModelInterface } from './FooterBannerModel';
+
 export { FooterMenuItemModel } from './FooterMenuItemModel';
 export type { FooterMenuItemModelInterface } from './FooterMenuItemModel';
 

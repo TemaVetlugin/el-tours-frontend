@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useEffect } from "react";
 import { enableStaticRendering } from "mobx-react-lite";
+import React, { useEffect } from "react";
+import { useCity, useDidUpdateEffect } from "shared/hooks";
+import { bootQuery } from "shared/queries/frontend/boot.query";
 
 import { CatalogService, ContentResourceService, LayoutService, LocationService } from "shared/services";
-import { bootQuery } from "shared/queries/frontend/boot.query";
 import { UserService } from "shared/services/User.service";
 import { ReturnType } from "shared/types";
-import { useCity, useDidUpdateEffect } from "shared/hooks";
 
 enableStaticRendering(typeof window === "undefined");
 
@@ -24,6 +24,7 @@ export const Boot = (
         catalogCategories,
         compilations,
         headerMenuItems,
+        footerBanners,
         footerMenuItems,
         contentResources
     }: PropsType
@@ -31,7 +32,7 @@ export const Boot = (
     ContentResourceService.boot({ contentResources });
     LocationService.boot({ cities, cityId, regions });
     CatalogService.boot({ catalogCategories, compilations });
-    LayoutService.boot({ searchPrompts, headerMenuItems, footerMenuItems });
+    LayoutService.boot({ searchPrompts, headerMenuItems, footerMenuItems, footerBanners });
 
     useEffect(() => {
         UserService.boot();

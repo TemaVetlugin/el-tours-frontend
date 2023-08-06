@@ -20,7 +20,7 @@ export const LayoutFooter = observer(() => {
                         <div className="layout-footer-menu">
                             <div className="layout-footer-menu__title">Покупателям</div>
                             {LayoutService.footerMenuItems.filter(footerMenuItem => footerMenuItem.type.is(FooterMenuItemTypeEnum.Top)).map(footerMenuItem => (
-                                <UiLink key={footerMenuItem.id} href={footerMenuItem.href} className="layout-footer-menu__item">
+                                <UiLink key={footerMenuItem.id} href={footerMenuItem.url} className="layout-footer-menu__item">
                                     {footerMenuItem.name}
                                 </UiLink>
                             ))}
@@ -59,7 +59,7 @@ export const LayoutFooter = observer(() => {
                 <div className="layout-footer__copyright">
                     <div className="layout-footer-menu-secondary">
                         {LayoutService.footerMenuItems.filter(footerMenuItem => footerMenuItem.type.is(FooterMenuItemTypeEnum.Bottom)).map(footerMenuItem => (
-                            <UiLink key={footerMenuItem.id} href={footerMenuItem.href} className="layout-footer-menu-secondary__item">
+                            <UiLink key={footerMenuItem.id} href={footerMenuItem.url} className="layout-footer-menu-secondary__item">
                                 {footerMenuItem.name}
                             </UiLink>
                         ))}

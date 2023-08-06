@@ -7,7 +7,7 @@ export interface FooterMenuItemModelInterface {
     id?: number;
     typeId?: string,
     name?: string;
-    href?: string;
+    url?: string;
 }
 
 export class FooterMenuItemModel extends Model<FooterMenuItemModelInterface> implements FooterMenuItemModelInterface {
@@ -15,13 +15,13 @@ export class FooterMenuItemModel extends Model<FooterMenuItemModelInterface> imp
         "id",
         "typeId",
         "name",
-        "href"
+        "url"
     ];
 
     id = 0;
     name = '';
     typeId = '';
-    href = '';
+    url = '';
 
     constructor(payload?: FooterMenuItemModelInterface) {
         super();
@@ -30,7 +30,7 @@ export class FooterMenuItemModel extends Model<FooterMenuItemModelInterface> imp
             id: observable,
             typeId: observable,
             name: observable,
-            href: observable,
+            url: observable,
             type: computed
         });
 

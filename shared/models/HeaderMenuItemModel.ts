@@ -7,7 +7,7 @@ export interface HeaderMenuItemModelInterface {
     id?: number;
     typeId?: string,
     name?: string;
-    href?: string;
+    url?: string;
 }
 
 export class HeaderMenuItemModel extends Model<HeaderMenuItemModelInterface> implements HeaderMenuItemModelInterface {
@@ -15,13 +15,13 @@ export class HeaderMenuItemModel extends Model<HeaderMenuItemModelInterface> imp
         "id",
         "typeId",
         "name",
-        "href"
+        "url"
     ];
 
     id = 0;
     name = '';
     typeId = '';
-    href = '';
+    url = '';
 
     constructor(payload?: HeaderMenuItemModelInterface) {
         super();
@@ -30,7 +30,7 @@ export class HeaderMenuItemModel extends Model<HeaderMenuItemModelInterface> imp
             id: observable,
             typeId: observable,
             name: observable,
-            href: observable,
+            url: observable,
             type: computed
         });
 

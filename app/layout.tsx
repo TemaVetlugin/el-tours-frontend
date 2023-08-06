@@ -1,6 +1,8 @@
+import Script from "next/script";
 import React from "react";
 import { configure } from "mobx";
 import { Metadata } from "next";
+import { LayoutFooterBanner } from "shared/layout/LayoutFooterBanner";
 
 import { bootQuery } from "shared/queries/frontend";
 import { Cache } from "shared/utilities/server";
@@ -37,6 +39,20 @@ export default async function Layout({ children }: PropsType) {
             <StylesRegistry>
                 <head>
                     <link rel="shortcut icon" type="image/png" href="/assets/favicon.ico"/>
+                    <Script>
+                        {`
+                            (function(){(function c(d,w,m,i) {
+                                window.supportAPIMethod = m;
+                                var s = d.createElement('script');
+                                s.id = 'supportScript';
+                                var id = '822b8068a863e9e5c22e000b2f5a15b0';
+                                s.src = (!i ? 'https://lcab.talk-me.ru/support/support.js' : 'https://static.site-chat.me/support/support.int.js') + '?h=' + id;
+                                s.onerror = i ? undefined : function(){c(d,w,m,true)};
+                                w[m] = w[m] ? w[m] : function(){(w[m].q = w[m].q ? w[m].q : []).push(arguments);};
+                                (d.head ? d.head : d.body).appendChild(s);
+                            })(document,window,'TalkMe')})();
+                        `}
+                    </Script>
                 </head>
                 <body>
                     <Boot
@@ -46,12 +62,14 @@ export default async function Layout({ children }: PropsType) {
                         regions={data?.regions || []}
                         headerMenuItems={data?.headerMenuItems || []}
                         footerMenuItems={data?.footerMenuItems || []}
+                        footerBanners={data?.footerBanners || []}
                         searchPrompts={data?.searchPrompts || []}
                         compilations={data?.compilations || []}
                         catalogCategories={data?.catalogCategories || []}
                     />
                     <LayoutHeader/>
                     {children}
+                    <LayoutFooterBanner/>
                     <LayoutCatalogAlphabet/>
                     <LayoutFooter/>
                 </body>
