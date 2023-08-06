@@ -21,4 +21,19 @@
         font-weight: 700;
         line-height: 20px;
     }
+
+    &--large, &--large & {
+        grid-column: span 2;
+    }
+
+    &--large & {
+        &__name {
+            font-size: 30px;
+        }
+
+        &__image {
+            height: 357px;
+            margin-bottom: 24px;
+        }
+    }
 }

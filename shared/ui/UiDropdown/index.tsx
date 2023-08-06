@@ -1,35 +1,35 @@
 'use client';
 
-import React, { useRef } from "react";
-import { observer } from "mobx-react-lite";
 import classnames from "classnames";
+import { observer } from "mobx-react-lite";
+import React, { useRef } from "react";
 
-import { useOnClickOutside, useObservable } from "shared/hooks";
-import { COLORS } from "shared/contants";
+import { useObservable, useOnClickOutside } from "shared/hooks";
 
-import { UiControlItemType, UiControlPropsType } from "../types";
-import { UiIcon } from '../UiIcon';
+import { UiControlPropsType } from "../types";
 
 import './index.scss';
 
-type PropsType = UiControlPropsType<number | string, {
-    label?: string,
-    control?: (item: UiControlItemType | null, isOpened: boolean) => React.ReactNode,
-    items: UiControlItemType[]
+type PropsType<T> = UiControlPropsType<number | string, {
+    items: T[],
+    isLoading: boolean
+    itemLabel: (item: T) => string,
+    children: React.ReactNode
 }>;
 
-export const UiDropdown = observer((
+export const UiDropdown = observer(<T extends { id: string | number | null }, >(
     {
-        label,
         className,
         name = 'ui-dropdown',
         value,
         style,
         items,
-        control,
+        isLoading,
+        itemLabel,
+        children,
         onChange = () => {
         }
-    }: PropsType
+    }: PropsType<T>
 ) => {
     const ref = useRef<HTMLDivElement>(null);
 
@@ -49,44 +49,21 @@ export const UiDropdown = observer((
 
     return (
         <div className={classNames} style={style} ref={ref}>
-            {label && (
-                <div className="ui-dropdown__label">
-                    {label}
-                </div>
-            )}
-            <div className="ui-dropdown-control">
-                <div className="ui-dropdown-control__inner" onClick={() => {
-                    store.set("isOpened", !store.isOpened);
-                }}>
-                    {!control && (
-                        <div className="ui-dropdown-control__view">
-                            <div className="ui-dropdown-control__value">
-                                {item?.name || 'Не выбрано'}
-                            </div>
-                            <div className="ui-dropdown-control__icon">
-                                <UiIcon
-                                    size={16}
-                                    color={COLORS.GRAY_PRIMARY}
-                                    name={store.isOpened ? 'chevronUp' : 'chevronDown'}
-                                />
-                            </div>
-                        </div>
-                    )}
-                    {control && control(item || null, store.isOpened)}
-                </div>
-                <div className="ui-dropdown__items">
-                    {items.map(item => (
-                        <div key={item.id} className="ui-dropdown__item" onClick={() => {
-                            onChange({
-                                name,
-                                value: item.id
-                            });
-                            store.set("isOpened", false);
-                        }}>
-                            {item.name}
-                        </div>
-                    ))}
-                </div>
+            <div className="ui-dropdown__control">
+                {children}
+            </div>
+            <div className="ui-dropdown__items">
+                {items.map(item => (
+                    <div key={item.id} className="ui-dropdown__item" onClick={() => {
+                        onChange({
+                            name,
+                            value: item.id
+                        });
+                        store.set("isOpened", false);
+                    }}>
+                        {itemLabel(item)}
+                    </div>
+                ))}
             </div>
 
         </div>

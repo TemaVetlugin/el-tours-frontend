@@ -66,7 +66,7 @@ export const Client = observer(({ slug }: PropsType) => {
                                 </UiPage.Actions>
                                 <UiPage.Header title={store.item.name}/>
                                 {!!store.item.dateTo && (
-                                    <div className="p-promo-action__date">Акция действует до 04.12.2022 {date(store.item.dateTo).toFormat('dd.MM.yyyy')}</div>
+                                    <div className="p-promo-action__date">Акция действует до {date(store.item.dateTo).toFormat('dd.MM.yyyy')}</div>
                                 )}
                                 <UiTypography>
                                     {html(store.item.content)}

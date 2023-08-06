@@ -24,7 +24,6 @@ type PropsType = {
 }
 
 export const Client = observer(({ catalogProduct }: PropsType) => {
-    console.log(catalogProduct)
     const store = useObservable({
         tab: 'description',
         catalogProduct: new CatalogProductModel(catalogProduct),

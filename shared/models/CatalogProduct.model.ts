@@ -216,7 +216,7 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
                 color: '#00A3B3'
             })
         }
-        if (this.promoActionsCount > 0 && this.price.length > 0 && this.priceOffer.length > 0) {
+        if (this.price.length > 0 && this.priceOffer.length > 0) {
             if (Math.min(...this.price) < Math.min(...this.priceOffer) || Math.max(...this.price) < Math.max(...this.priceOffer)) {
                 badges.push({
                     label: 'Выгодно',

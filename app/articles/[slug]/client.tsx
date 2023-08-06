@@ -50,10 +50,7 @@ export const Client = observer(({ slug }: PropsType) => {
                     <UiPage.Header title={store.item.name}/>
                     <UiPage.Content>
                         <UiTypography>
-                            <div
-                                className={'p-articles-detail__image'}
-                                style={{ backgroundImage: `url(${store.item.contentImage})` }}
-                            />
+                            <img src={store.item.contentImage} alt=""/>
                             {html(store.item.content)}
                         </UiTypography>
                         <UiPage.Actions>

@@ -75,7 +75,6 @@ export const LayoutHeaderLogin = observer(() => {
                     style={{ minWidth: 116 }}
                     isLoading={UserService.isLoading}
                     onClick={() => {
-                        console.log(123, ROUTES.PROFILE())
                         router.push(ROUTES.PROFILE());
                     }}
                     colors={{

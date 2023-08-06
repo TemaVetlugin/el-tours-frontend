@@ -52,6 +52,7 @@ export const Client = observer(() => {
                 <UiPage.Breadcrumbs items={[ROUTES.NEWS()]}/>
                 <UiPage.Header
                     title={'Новости'}
+                    subtitle={'Скидки не суммируются, покупателю предоставляется максимальная из действующих скидок. В акциях не участвуют товары со специальной ценой.'}
                     aside={() => store.tags.length > 0 && (
                         <UiSelect
                             style={{

@@ -11,12 +11,12 @@ import './index.scss';
 
 type PropsType = {
     item: ArticleModel,
-    template?: 'base' | 'light'
+    template?: 'base' | 'light' | 'large'
 }
 
 export const CTileArticle = observer(({ item, template = 'base' }: PropsType) => {
     return (
-        <UiLink href={ROUTES.ARTICLES(item.slug)} key={item.id} className="c-tile-article">
+        <UiLink href={ROUTES.ARTICLES(item.slug)} key={item.id} className={`c-tile-article c-tile-article--${template}`}>
             <div
                 className="c-tile-article__image"
                 style={{ backgroundImage: `url(${item.previewImage})` }}

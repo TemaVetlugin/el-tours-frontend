@@ -84,6 +84,9 @@ export const CCatalogProduct = observer(({ catalogProduct, withRemind = true }: 
                                     e.preventDefault();
                                     Notifier.alert('Мы сообщим Вам о поступлении товара - пришлем пуш или смс');
                                 }}
+                                style={{
+                                    padding: '0 15px'
+                                }}
                                 colors={{
                                     button: [COLORS.TRANSPARENT, COLORS.GREEN_PRIMARY],
                                     label: [COLORS.GREEN_PRIMARY, COLORS.WHITE],

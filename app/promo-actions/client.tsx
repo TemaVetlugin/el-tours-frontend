@@ -43,6 +43,7 @@ export const Client = observer(() => {
                 <UiPage.Breadcrumbs items={[ROUTES.PROMO_ACTIONS()]}/>
                 <UiPage.Header
                     title={'Акции'}
+                    subtitle={'Напоминаем пользователям нашего сайта и приложения, что акции, заявленные в этой рубрике действуют только при оформлении заказа через сайт или приложение и при соблюдении опубликованных условий. Индивидуальные аптечные скидки не суммируются и дисконтные карты аптек к нашим заказам не применяются.'}
                 />
                 <UiDataBoundary isLoading={store.isLoading} withShallowLoading isShallowLoading={store.isShallowLoading}>
                     <UiGrid columns={4} gap={[20, 50]}>

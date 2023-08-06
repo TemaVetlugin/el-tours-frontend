@@ -15,7 +15,6 @@ type PropsType = {
 }
 
 export async function generateMetadata({ params }: PropsType): Promise<Metadata> {
-    console.log(111)
     const { isSuccess, data } = await Cache.remember(
         `contentPageGet:${params.slug}`,
         async () => await contentPageGet({ slug: params.slug })
@@ -33,12 +32,10 @@ export async function generateMetadata({ params }: PropsType): Promise<Metadata>
 }
 
 export default async function Page({ params }: PropsType) {
-    console.log(1)
     const { isSuccess, data, description } = await Cache.remember(
         `contentPageGet:${params.slug}`,
         async () => await contentPageGet({ slug: params.slug })
     );
-    console.log(data, description);
     if (isSuccess && data) {
         return <Client contentPage={data.item}/>
     }

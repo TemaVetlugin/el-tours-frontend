@@ -34,7 +34,6 @@ export const UiChecklist = observer((
         'ui-checklist--flat': isFlat
     });
 
-    console.log('render')
     const handleChange = (item: { id: string | number, name: string }) => (data: {
         name: string,
         value: number | null

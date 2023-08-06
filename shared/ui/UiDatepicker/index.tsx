@@ -37,7 +37,6 @@ export const UiDatepicker = observer((
         store.set("isOpened", false)
     })
 
-    console.log(value);
     return (
         <div ref={ref} className={classnames('ui-datepicker', {
             'ui-datepicker--opened': store.isOpened

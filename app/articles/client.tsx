@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
+import React from "react";
+import { CTileArticle } from "shared/components/tiles";
 
 import { ROUTES } from "shared/contants";
 import { useAsyncEffect, useCity, useObservable, useRouter, useSearchParams } from "shared/hooks";
 import { ArticleModel, PaginationModel, TagModel } from "shared/models";
 import { articlesQuery, tagsQuery } from "shared/queries/main";
-import { CTileArticle } from "shared/components/tiles";
 import { UiDataBoundary, UiGrid, UiPage, UiSelect, UiWrap } from "shared/ui";
 
 import './page.scss';
@@ -52,6 +52,7 @@ export const Client = observer(() => {
                 <UiPage.Breadcrumbs items={[ROUTES.ARTICLES()]}/>
                 <UiPage.Header
                     title={'Интересно'}
+                    subtitle={'Скидки не суммируются, покупателю предоставляется максимальная из действующих скидок. В акциях не участвуют товары со специальной ценой.'}
                     aside={() => store.tags.length > 0 && (
                         <UiSelect
                             style={{
@@ -74,7 +75,9 @@ export const Client = observer(() => {
                 />
                 <UiDataBoundary isLoading={store.isLoading} withShallowLoading isShallowLoading={store.isShallowLoading}>
                     <UiGrid columns={4} gap={[20, 50]}>
-                        {store.articles.map(articles => <CTileArticle key={articles.id} template={'light'} item={articles}/>)}
+                        {store.articles.map((articles, index) => (
+                            <CTileArticle key={articles.id} template={index === 0 ? 'large' : 'light'} item={articles}/>
+                        ))}
                     </UiGrid>
                 </UiDataBoundary>
                 <UiPage.Pagination pagination={store.pagination}/>
