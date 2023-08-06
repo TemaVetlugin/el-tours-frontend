@@ -49,27 +49,32 @@ export const LayoutHeaderCatalog = observer(() => {
                         <div className="layout-header-catalog-aside">
                             <div className="layout-header-catalog-aside__items">
                                 <UiScroll>
-                                    {CatalogService.catalogCategoriesByCatalogCategoryId['null']?.map(catalogCategory => (
-                                        <UiLink
-                                            key={catalogCategory.id}
-                                            className={classnames("layout-header-catalog-category", {
-                                                'layout-header-catalog-category--selected': store.id === catalogCategory.id
-                                            })}
-                                            onMouseEnter={() => {
-                                                store.set("id", catalogCategory.id);
-                                            }}
-                                            href={ROUTES.CATALOG(catalogCategory.slug).url}
-                                            onClick={handleNavigate}
-                                        >
-                                            <div
-                                                className="layout-header-catalog-category__icon"
-                                                style={{ backgroundImage: `url(${catalogCategory.icon || icon.src})` }}
-                                            />
-                                            <div className="layout-header-catalog-category__name">
-                                                {catalogCategory.name}
-                                            </div>
-                                        </UiLink>
-                                    ))}
+                                    {CatalogService.catalogCategoriesByCatalogCategoryId['null']?.map(catalogCategory => {
+                                        if (!catalogCategory.catalogCategoriesCount && !catalogCategory.catalogProductsCount) {
+                                            return null;
+                                        }
+                                        return (
+                                            <UiLink
+                                                key={catalogCategory.id}
+                                                className={classnames("layout-header-catalog-category", {
+                                                    'layout-header-catalog-category--selected': store.id === catalogCategory.id
+                                                })}
+                                                onMouseEnter={() => {
+                                                    store.set("id", catalogCategory.id);
+                                                }}
+                                                href={ROUTES.CATALOG(catalogCategory.slug).url}
+                                                onClick={handleNavigate}
+                                            >
+                                                <div
+                                                    className="layout-header-catalog-category__icon"
+                                                    style={{ backgroundImage: `url(${catalogCategory.icon || icon.src})` }}
+                                                />
+                                                <div className="layout-header-catalog-category__name">
+                                                    {catalogCategory.name}
+                                                </div>
+                                            </UiLink>
+                                        )
+                                    })}
                                 </UiScroll>
                             </div>
                             <div className="layout-header-catalog-aside__footer">
@@ -84,34 +89,44 @@ export const LayoutHeaderCatalog = observer(() => {
                         <div className="layout-header-catalog-main">
                             <UiScroll>
                                 <div className="layout-header-catalog-main__items">
-                                    {CatalogService.catalogCategoriesByCatalogCategoryId[store.id]?.map(catalogCategory2 => (
-                                        <div
-                                            key={catalogCategory2.id}
-                                            className={'layout-header-catalog-category-2'}
-                                        >
-                                            <UiLink
-                                                className='layout-header-catalog-category-2__name'
-                                                href={ROUTES.CATALOG(catalogCategory2.slug).url}
-                                                onClick={handleNavigate}
+                                    {CatalogService.catalogCategoriesByCatalogCategoryId[store.id]?.map(catalogCategory2 => {
+                                        if (!catalogCategory2.catalogCategoriesCount && !catalogCategory2.catalogProductsCount) {
+                                            return null;
+                                        }
+                                        return (
+                                            <div
+                                                key={catalogCategory2.id}
+                                                className={'layout-header-catalog-category-2'}
                                             >
-                                                {catalogCategory2.name}
-                                            </UiLink>
-                                            {CatalogService.catalogCategoriesByCatalogCategoryId[catalogCategory2.id]?.length && (
-                                                <div className="layout-header-catalog-category-2__items">
-                                                    {CatalogService.catalogCategoriesByCatalogCategoryId[catalogCategory2.id].map(catalogCategory3 => (
-                                                        <Link
-                                                            key={catalogCategory3.id}
-                                                            href={ROUTES.CATALOG(catalogCategory3.slug).url}
-                                                            className={'layout-header-catalog-category-3'}
-                                                            onClick={handleNavigate}
-                                                        >
-                                                            {catalogCategory3.name}
-                                                        </Link>
-                                                    ))}
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
+                                                <UiLink
+                                                    className='layout-header-catalog-category-2__name'
+                                                    href={ROUTES.CATALOG(catalogCategory2.slug).url}
+                                                    onClick={handleNavigate}
+                                                >
+                                                    {catalogCategory2.name}
+                                                </UiLink>
+                                                {CatalogService.catalogCategoriesByCatalogCategoryId[catalogCategory2.id]?.length && (
+                                                    <div className="layout-header-catalog-category-2__items">
+                                                        {CatalogService.catalogCategoriesByCatalogCategoryId[catalogCategory2.id].map(catalogCategory3 => {
+                                                            if (!catalogCategory3.catalogCategoriesCount && !catalogCategory3.catalogProductsCount) {
+                                                                return null;
+                                                            }
+                                                            return (
+                                                                <Link
+                                                                    key={catalogCategory3.id}
+                                                                    href={ROUTES.CATALOG(catalogCategory3.slug).url}
+                                                                    className={'layout-header-catalog-category-3'}
+                                                                    onClick={handleNavigate}
+                                                                >
+                                                                    {catalogCategory3.name}
+                                                                </Link>
+                                                            )
+                                                        })}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )
+                                    })}
                                 </div>
                             </UiScroll>
                         </div>
