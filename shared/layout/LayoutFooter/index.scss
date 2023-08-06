@@ -94,27 +94,50 @@
         color: $cWhite;
     }
 
-    &__policies {
+    &-menu-secondary {
         width: 300px;
         margin-right: 24px;
-    }
 
-    &__policy {
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 120%;
-        white-space: nowrap;
+        &__item {
+            display: block;
+            color: $cWhite;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 120%;
+            white-space: nowrap;
 
-        &:not(&:last-child) {
-            margin-bottom: 16px;
+            &:not(&:last-child) {
+                margin-bottom: 16px;
+            }
+
+            &:hover:not(div) {
+                text-decoration: underline;
+            }
         }
     }
 
     &__offer {
+        width: 580px;
+        margin-right: 66px;
+        color: rgba($cLightBlue, 0.5);
         font-size: 14px;
         font-weight: 500;
         line-height: 18px;
-        width: 580px;
-        color: rgba($cLightBlue, 0.5);
+    }
+
+    &__powered {
+        display: flex;
+        align-items: center;
+        color: $cWhite;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+        white-space: nowrap;
+        gap: 10px;
+
+        img {
+            width: 24px;
+            height: 24px;
+        }
     }
 }

@@ -32,7 +32,6 @@ export default async function Layout({ children }: PropsType) {
             cityId: city.id
         }),
     );
-
     return (
         <html lang='ru'>
             <StylesRegistry>
@@ -46,6 +45,7 @@ export default async function Layout({ children }: PropsType) {
                         cities={data?.cities || []}
                         regions={data?.regions || []}
                         headerMenuItems={data?.headerMenuItems || []}
+                        footerMenuItems={data?.footerMenuItems || []}
                         searchPrompts={data?.searchPrompts || []}
                         compilations={data?.compilations || []}
                         catalogCategories={data?.catalogCategories || []}

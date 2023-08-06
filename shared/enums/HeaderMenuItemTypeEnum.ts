@@ -1,13 +1,13 @@
 import { makeEnum } from "./utilities/makeEnum";
 
-export const HeaderMenuTypeEnum = makeEnum({
+export const HeaderMenuItemTypeEnum = makeEnum({
     Primary: {
         id: 'primary',
         name: 'Основное'
     },
     Secondary: {
         id: 'secondary',
-        name: 'Дополнительное'
+        name: 'secondary'
     },
 } as const, {
     id: null,

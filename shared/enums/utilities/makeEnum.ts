@@ -23,7 +23,10 @@ const resolveEnum = <Value>(entry: EnumEntryType<Value>): ResolveEnumReturnType<
             return values.map(value => value.id).includes(entry.id);
         },
         is: (value: EnumEntryType<any> | string) => {
-            return `${value.id}` === `${entry.id}` || `${value}` === `${entry.id}`;
+            if (typeof value === 'object' && 'id' in value) {
+                return `${value.id}` === `${entry.id}`
+            }
+            return `${value}` === `${entry.id}`;
         }
     }
 }
@@ -36,7 +39,7 @@ export const makeEnum = <Value extends EnumEntryType<any>, Key extends string>(e
         from: (id: EnumValueType) => {
             let value = items.find(item => item.id === id);
             if (!value) {
-                value = {...(defaultEnum as object)} as (EnumEntryType<Value> & {
+                value = { ...(defaultEnum as object) } as (EnumEntryType<Value> & {
                     id: EnumValueType,
                     name: string
                 });

@@ -1,17 +1,17 @@
 import { computed, makeObservable, observable } from "mobx";
+import { FooterMenuItemTypeEnum } from "shared/enums";
 
 import { Model } from "./Model";
-import { HeaderMenuItemTypeEnum } from "shared/enums";
 
-export interface HeaderMenuItemModelInterface {
+export interface FooterMenuItemModelInterface {
     id?: number;
     typeId?: string,
     name?: string;
     href?: string;
 }
 
-export class HeaderMenuItemModel extends Model<HeaderMenuItemModelInterface> implements HeaderMenuItemModelInterface {
-    fillable: Array<keyof HeaderMenuItemModelInterface> = [
+export class FooterMenuItemModel extends Model<FooterMenuItemModelInterface> implements FooterMenuItemModelInterface {
+    fillable: Array<keyof FooterMenuItemModelInterface> = [
         "id",
         "typeId",
         "name",
@@ -23,7 +23,7 @@ export class HeaderMenuItemModel extends Model<HeaderMenuItemModelInterface> imp
     typeId = '';
     href = '';
 
-    constructor(payload?: HeaderMenuItemModelInterface) {
+    constructor(payload?: FooterMenuItemModelInterface) {
         super();
 
         makeObservable(this, {
@@ -38,6 +38,6 @@ export class HeaderMenuItemModel extends Model<HeaderMenuItemModelInterface> imp
     }
 
     get type() {
-        return HeaderMenuItemTypeEnum.from(this.typeId);
+        return FooterMenuItemTypeEnum.from(this.typeId);
     }
 }

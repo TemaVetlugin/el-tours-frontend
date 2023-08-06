@@ -2,7 +2,7 @@ import {
     CatalogCategoryModelInterface,
     CityModelInterface,
     CompilationModelInterface,
-    ContentResourceModelInterface,
+    ContentResourceModelInterface, FooterMenuItemModelInterface,
     HeaderMenuItemModelInterface,
     RegionModelInterface,
     SearchPromptModelInterface
@@ -19,6 +19,7 @@ type ResponseType = {
     regions: RegionModelInterface[],
     cities: CityModelInterface[],
     headerMenuItems: HeaderMenuItemModelInterface[],
+    footerMenuItems: FooterMenuItemModelInterface[],
     searchPrompts: SearchPromptModelInterface[],
     compilations: CompilationModelInterface[],
     contentResources: ContentResourceModelInterface[],
