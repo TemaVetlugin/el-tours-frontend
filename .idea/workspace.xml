@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/licenses/client.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/queries/main/licenseSections.query.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/licenses/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/licenses/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.make/generators/model.js" beforeDir="false" afterPath="$PROJECT_DIR$/.make/generators/model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.make/templates/model/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/.make/templates/model/template.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/icons/wallet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/icons/wallet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiLightbox/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiLightbox/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +67,7 @@
     "RunOnceActivity.laravel-idea.search-composer-json": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "dev",
-    "last_opened_file_path": "/home/izica/git/yaplus-frontend/app/licenses",
+    "last_opened_file_path": "/home/izica/git/yaplus-frontend/shared/models",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -82,11 +89,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/shared/models" />
+      <recent name="$PROJECT_DIR$/shared/queries/main" />
       <recent name="$PROJECT_DIR$/app/licenses" />
       <recent name="$PROJECT_DIR$/app/contacts/assets" />
       <recent name="$PROJECT_DIR$/app/contacts" />
-      <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$/shared/ui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/contacts/assets" />
@@ -153,7 +160,7 @@
       <workItem from="1691288384632" duration="427000" />
       <workItem from="1691313134054" duration="10210000" />
       <workItem from="1691332346280" duration="8195000" />
-      <workItem from="1691374917845" duration="13260000" />
+      <workItem from="1691374917845" duration="15352000" />
     </task>
     <servers />
   </component>

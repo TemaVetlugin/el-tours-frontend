@@ -28,9 +28,9 @@ export const UiLightbox = observer(({ items, isOpened, onClose, index = 0 }: Pro
                     if (item.type === 'video') {
                         return {
                             type: 'video',
+                            autoPlay: true,
                             sources: [{
                                 src: item.src,
-                                autoPlay: true,
                                 type: "video/mp4",
                             }]
                         };

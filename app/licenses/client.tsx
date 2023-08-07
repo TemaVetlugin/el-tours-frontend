@@ -2,13 +2,16 @@
 
 import React from "react";
 import { observer } from "mobx-react-lite";
+import { useObservable } from "shared/hooks";
 import { UiCard, UiGrid, UiLink, UiPage } from "shared/ui";
 import { MEDIA_POINTS, ROUTES } from "shared/contants";
 
 import "./page.scss";
 
 export const Client = observer(() => {
+    const store = useObservable({
 
+    });
     const licenses = [
         {
             title: 'На фармдеятельность',

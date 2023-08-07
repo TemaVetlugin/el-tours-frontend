@@ -12,16 +12,16 @@ module.exports = {
     }],
     actions: [{
         type: 'add',
-        path: '../shared/models/{{pascalCase name}}Model.ts',
+        path: '../shared/models/{{pascalCase name}}.model.ts',
         templateFile: 'templates/model/template.hbs'
     }, {
         type: 'append',
         path: '../shared/models/index.ts',
-        template: `export { {{pascalCase name}}Model } from './{{pascalCase name}}Model';`
+        template: `export { {{pascalCase name}}Model } from './{{pascalCase name}}.model.ts';`
     }, {
         type: 'append',
         path: '../shared/models/index.ts',
-        template: `export type { I{{pascalCase name}}Model } from './{{pascalCase name}}Model';`
+        template: `export type { {{pascalCase name}}ModelInterface } from './{{pascalCase name}}.model.ts';`
     }, {
         type: 'sortExports',
         path: '../../shared/models/index.ts',
