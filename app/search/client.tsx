@@ -88,8 +88,7 @@ export const Client = observer(({ query, page }: PropsType) => {
                     isLoading={store.isLoading}
                     render={() => (
                         <>
-                            {searchParams.tab === 'catalogProducts' && <PSearchCatalogProducts query={searchParams.query}/>}
-                            {searchParams.tab === 'catalogProducts' && <PSearchCatalogProducts query={searchParams.query}/>}
+                            {searchParams.tab === 'catalogProducts' && <PSearchCatalogProducts/>}
                         </>
                     )}
                 />

@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/product/[slug]/assets/play.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/ui/UiLightbox/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/ui/UiLightbox/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product/[slug]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product/[slug]/page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/ui/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/[slug]/components/PProductCommerce/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/components/PProductCommerce/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/search/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/search/client.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +133,7 @@
       <workItem from="1691288384632" duration="427000" />
       <workItem from="1691313134054" duration="10210000" />
       <workItem from="1691332346280" duration="8195000" />
-      <workItem from="1691374917845" duration="9562000" />
+      <workItem from="1691374917845" duration="9694000" />
     </task>
     <servers />
   </component>

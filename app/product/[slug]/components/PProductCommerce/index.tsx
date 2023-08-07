@@ -36,6 +36,7 @@ export const PProductCommerce = observer(({ isLoading, catalogProduct }: PropsTy
                         <div className="p-product-commerce__unavailable">Нет в наличии</div>
                         <div className='p-product-commerce__actions'>
                             <CCatalogProductFavorite catalogProduct={catalogProduct}/>
+                            <UiShare template={'icon'}/>
                         </div>
                     </div>
                     <div className="p-product-commerce__body">

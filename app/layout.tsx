@@ -39,7 +39,7 @@ export default async function Layout({ children }: PropsType) {
             <StylesRegistry>
                 <head>
                     <link rel="shortcut icon" type="image/png" href="/assets/favicon.ico"/>
-                    <Script>
+                    <Script id={'talkme'}>
                         {`
                             (function(){(function c(d,w,m,i) {
                                 window.supportAPIMethod = m;
