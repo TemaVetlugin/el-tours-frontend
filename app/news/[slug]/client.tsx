@@ -71,7 +71,7 @@ export const Client = observer(({ slug }: PropsType) => {
                                         <span>Все новости</span>
                                     </UiButton>
                                     <UiShare style={{ marginLeft: 'auto' }}/>
-                                </UiPage.Actions>
+1                                </UiPage.Actions>
                             </UiPage.Content>
                         </div>
                         <UiPage.Aside title={'Другие новости'}>

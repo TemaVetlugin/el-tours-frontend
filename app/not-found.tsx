@@ -15,7 +15,7 @@ export default function NotFound() {
                 <UiPage.Header title={'Страница не найдена'}/>
                 <p>Ошибка 404: запрашиваемая вами страница не найдена</p>
                 <br/>
-                <UiButton label={'Перейти на главную'} href={ROUTES.HOME().url}/>
+                <UiButton label={'Перейти на главную'} href={ROUTES.HOME()}/>
             </UiPage.Wrap>
         </UiPage>
     );
