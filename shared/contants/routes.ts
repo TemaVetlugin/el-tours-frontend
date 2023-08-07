@@ -11,8 +11,13 @@ export const ROUTES = {
     }),
     LICENSES: (): RouteType => ({
         id: 'LICENSES',
-        name: 'Корзина',
+        name: 'Лицензии',
         url: '/licenses',
+    }),
+    CONTACTS: (): RouteType => ({
+        id: 'contacts',
+        name: 'Контакты',
+        url: '/contacts',
     }),
     CATALOG: (slug: string = '', name = 'Каталог'): RouteType => ({
         id: 'catalog' + slug,
