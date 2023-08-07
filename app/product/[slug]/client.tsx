@@ -10,7 +10,7 @@ import { useAsyncEffect, useCity, useObservable } from "shared/hooks";
 import { CatalogProductModel, CatalogProductModelInterface } from "shared/models";
 import { catalogProductsGetQuery } from "shared/queries/main";
 import { CatalogService } from "shared/services";
-import { UiButton, UiIcon, UiLink, UiPage, UiSlider } from "shared/ui";
+import { UiButton, UiIcon, UiLightbox, UiLink, UiPage, UiSlider } from "shared/ui";
 import { html } from "shared/utilities";
 import { PProductCommerce } from "./components/PProductCommerce";
 
@@ -18,6 +18,8 @@ import { PProductStore } from "./components/PProductStore";
 import { PROPERTIES } from "./constants/properties";
 
 import { TABS } from "./constants/tabs";
+
+import playImage from './assets/play.svg';
 
 import './page.scss';
 
@@ -28,9 +30,11 @@ type PropsType = {
 export const Client = observer(({ catalogProduct }: PropsType) => {
     const store = useObservable({
         tab: 'description',
+        activeSlide: 0,
+        isLightbox: false,
+        lightboxIndex: 0,
         catalogProduct: new CatalogProductModel(catalogProduct),
         isLoading: true,
-        activeSlide: 0
     });
     const city = useCity();
 
@@ -53,9 +57,9 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
 
     const tab = TABS.find(tab => tab.id === store.tab);
     const media = [
-        ...store.catalogProduct.images,
-        ...store.catalogProduct.gifs,
-        ...store.catalogProduct.videos,
+        ...store.catalogProduct.images.map((src) => ({type: 'image', src})),
+        ...store.catalogProduct.gifs.map((src) => ({type: 'image', src})),
+        ...store.catalogProduct.videos.map((src) => ({type: 'video', src})),
     ];
     return (
         <UiPage className={'p-product'}>
@@ -70,9 +74,20 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                 <div className="p-product__preview">
                     <div className="p-product-media">
                         <CCatalogProductBadges badges={store.catalogProduct.badges} className={'p-product__badges'}/>
+                        {media.length > 0 && (
+                            <UiLightbox
+                                items={media}
+                                isOpened={store.isLightbox}
+                                onClose={() => store.set("isLightbox", false)}
+                                index={store.lightboxIndex}
+                            />
+                        )}
                         <div
+                            onClick={() => {
+                                store.set("isLightbox", true);
+                            }}
                             className="p-product-media__image"
-                            style={{ backgroundImage: `url(${media[store.activeSlide] ?? store.catalogProduct.image})` }}
+                            style={{ backgroundImage: `url(${media[store.activeSlide]?.src ?? store.catalogProduct.image})` }}
                         />
                         {media.length > 0 && (
                             <UiSlider
@@ -88,16 +103,31 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                                             'p-product-media-slide__inner--active': index === store.activeSlide
                                         })}
                                     >
-                                        <div
-                                            className={'p-product-media-slide__image'}
-                                            onClick={() => {
-                                                store.set("activeSlide", index);
-                                                console.log(index)
-                                            }}
-                                            style={{
-                                                backgroundImage: `url(${item})`
-                                            }}
-                                        />
+                                        {item.type === 'image' && (
+                                            <div
+                                                className={'p-product-media-slide__image'}
+                                                onClick={() => {
+                                                    store.set("activeSlide", index);
+                                                    store.set("lightboxIndex", index);
+                                                }}
+                                                style={{
+                                                    backgroundImage: `url(${item.src})`
+                                                }}
+                                            />
+                                        )}
+                                        {item.type === 'video' && (
+                                            <div className={'p-product-media-slide__video'}
+                                                onClick={() => {
+                                                    store.set("lightboxIndex", index);
+                                                    store.set("isLightbox", true);
+                                                }}
+                                            >
+                                                <video src={item.src}/>
+                                                <div className="p-product-media-slide__overlay">
+                                                    <img src={playImage.src} alt=""/>
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
                                 )}
                                 renderNavigation={(navigation) => {
