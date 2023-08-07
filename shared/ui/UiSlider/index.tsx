@@ -7,7 +7,7 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperInstance } from 'swiper/types';
 
-import { useObservable } from "shared/hooks";
+import { useStore } from "shared/hooks";
 import { OnChangeType } from "shared/types";
 
 import 'swiper/css';
@@ -58,7 +58,7 @@ export const UiSlider = observer(<T, >(
         autoHeight = true
     }: PropsType<T>
 ) => {
-    const store = useObservable({
+    const store = useStore({
         isInitialized: false,
         swiper: null as SwiperInstance | null,
         activeSlide: 0

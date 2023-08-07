@@ -3,7 +3,7 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 import { COLORS } from "shared/contants";
-import { useObservable } from "shared/hooks";
+import { useStore } from "shared/hooks";
 
 import { CatalogProductModel } from "shared/models";
 import { userRemindersSaveQuery } from "shared/queries/main";
@@ -18,7 +18,7 @@ type PropsType = {
 }
 
 export const CCatalogProductRemind = observer(({ catalogProduct }: PropsType) => {
-    const store = useObservable({
+    const store = useStore({
         isRemind: false,
         remindAt: date().plus({ days: 7 }).toISO()
     })

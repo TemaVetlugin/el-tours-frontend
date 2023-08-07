@@ -9,7 +9,7 @@ import { COLORS, ROUTES } from "shared/contants";
 import { CartService, UserService } from "shared/services";
 import { CCartItem } from "shared/components/cart";
 import { COrderTotal } from "shared/components/order";
-import { useAsyncEffect, useCity, useObservable, useRouter, useUser } from "shared/hooks";
+import { useAsyncEffect, useCity, useStore, useRouter, useUser } from "shared/hooks";
 import { CatalogProductModel, StoreModel } from "shared/models";
 import { cartQuery } from "shared/queries/frontend";
 import { CCatalogProductsSlider } from "shared/components/catalog";
@@ -22,7 +22,7 @@ export const Client = observer(() => {
     const city = useCity();
     const user = useUser();
     const router = useRouter();
-    const store = useObservable({
+    const store = useStore({
         deliveryTypeId: OrderDeliveryTypeEnum.Selfpickup.id,
         deliveryStore: null as StoreModel | null,
         recommendations: [] as CatalogProductModel[]

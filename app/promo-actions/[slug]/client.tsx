@@ -3,7 +3,7 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import { useAsyncEffect, useCity, useObservable, useRouter } from "shared/hooks";
+import { useAsyncEffect, useCity, useStore, useRouter } from "shared/hooks";
 import { UiButton, UiDataBoundary, UiGrid, UiIcon, UiPage, UiShare, UiTypography } from "shared/ui";
 import { PromoActionModel } from "shared/models";
 import { COLORS, ROUTES } from "shared/contants";
@@ -16,7 +16,7 @@ type PropsType = {
 }
 
 export const Client = observer(({ slug }: PropsType) => {
-    const store = useObservable({
+    const store = useStore({
         item: new PromoActionModel(),
         isLoading: true
     });

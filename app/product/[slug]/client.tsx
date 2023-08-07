@@ -6,7 +6,7 @@ import React, { useEffect } from "react";
 import { CCatalogProductBadges, CCatalogProductsSlider } from "shared/components/catalog";
 import { COLORS, ROUTES } from "shared/contants";
 
-import { useAsyncEffect, useCity, useObservable } from "shared/hooks";
+import { useAsyncEffect, useCity, useStore } from "shared/hooks";
 import { CatalogProductModel, CatalogProductModelInterface } from "shared/models";
 import { catalogProductsGetQuery } from "shared/queries/main";
 import { CatalogService } from "shared/services";
@@ -28,7 +28,7 @@ type PropsType = {
 }
 
 export const Client = observer(({ catalogProduct }: PropsType) => {
-    const store = useObservable({
+    const store = useStore({
         tab: 'description',
         activeSlide: 0,
         isLightbox: false,

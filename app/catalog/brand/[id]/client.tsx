@@ -7,7 +7,7 @@ import { UiPage, UiWrap } from "shared/ui";
 import { ROUTES } from "shared/contants";
 import { CCatalog } from "shared/components/catalog";
 import { BrandModel, BrandModelInterface } from "shared/models";
-import { useObservable } from "shared/hooks";
+import { useStore } from "shared/hooks";
 
 import './page.scss';
 
@@ -16,7 +16,7 @@ type PropsType = {
 }
 
 export const Client = observer(({ brand }: PropsType) => {
-    const store = useObservable({
+    const store = useStore({
         brand: new BrandModel(brand)
     })
     return (

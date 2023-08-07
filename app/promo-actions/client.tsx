@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 
 import { ROUTES } from "shared/contants";
-import { useAsyncEffect, useCity, useObservable, useRouter, useSearchParams } from "shared/hooks";
+import { useAsyncEffect, useCity, useStore, useRouter, useSearchParams } from "shared/hooks";
 import { PaginationModel, PromoActionModel, TagModel } from "shared/models";
 import { promoActionsQuery, tagsQuery } from "shared/queries/main";
 import { CTilePromoAction } from "shared/components/tiles";
@@ -15,7 +15,7 @@ import './page.scss';
 export const Client = observer(() => {
     const city = useCity();
     const router = useRouter()
-    const store = useObservable({
+    const store = useStore({
         promoActions: [] as PromoActionModel[],
         pagination: new PaginationModel(),
         isLoading: true,

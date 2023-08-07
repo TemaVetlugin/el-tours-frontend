@@ -3,7 +3,7 @@
 import { observer } from "mobx-react-lite";
 import React, { useRef } from "react";
 import { COLORS } from "shared/contants";
-import { useAsyncEffect, useObservable, useOnClickOutside, useUser } from "shared/hooks";
+import { useAsyncEffect, useStore, useOnClickOutside, useUser } from "shared/hooks";
 import { CityModel } from "shared/models";
 import { citiesLocateQuery, usersUpdateQuery } from "shared/queries/main";
 import { LocationService } from "shared/services";
@@ -16,7 +16,7 @@ import './index.scss';
 export const LayoutHeaderLocation = observer(() => {
     const popup = useRef<HTMLDivElement>(null)
     const user = useUser();
-    const store = useObservable({
+    const store = useStore({
         isOpened: false,
         cityGuess: null as CityModel | null,
         isGuessing: false

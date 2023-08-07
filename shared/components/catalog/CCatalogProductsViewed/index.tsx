@@ -3,7 +3,7 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 import { CCatalogProductsSlider } from "shared/components/catalog";
-import { useAsyncEffect, useObservable } from "shared/hooks";
+import { useAsyncEffect, useStore } from "shared/hooks";
 
 import { CatalogProductModel } from "shared/models";
 import { catalogProductsQuery } from "shared/queries/main";
@@ -13,7 +13,7 @@ import { UiPage } from "shared/ui";
 import './index.scss';
 
 export const CCatalogProductsViewed = observer(() => {
-    const store = useObservable({
+    const store = useStore({
         isInitialized: false,
         catalogProducts: [] as CatalogProductModel[]
     });

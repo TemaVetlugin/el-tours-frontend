@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 import classnames from "classnames";
 import ReactSlider from "react-slider";
 
-import { useObservable } from "shared/hooks";
+import { useStore } from "shared/hooks";
 
 import { UiControlPropsType } from "../types";
 
@@ -29,7 +29,7 @@ export const UiRange = observer((
         max
     }: PropsType
 ) => {
-    const store = useObservable({
+    const store = useStore({
         value: [min, max],
         buffer: [] as string[]
     });

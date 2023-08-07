@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 import Link from "next/link";
 import React from "react";
 import { COLORS, MASKS, ROUTES } from "shared/contants";
-import { useMask, useObservable, useRouter, useUser } from "shared/hooks";
+import { useMask, useStore, useRouter, useUser } from "shared/hooks";
 import { useValidation } from "shared/hooks/useValidation";
 import { usersConfirmQuery, usersLoginQuery } from "shared/queries/main";
 import { LayoutService, UserService } from "shared/services";
@@ -18,7 +18,7 @@ import './index.scss';
 export const LayoutHeaderLogin = observer(() => {
     const user = useUser();
     const router = useRouter();
-    const store = useObservable({
+    const store = useStore({
         errorMessage: '',
         isAccepted: 1,
         isLoading: false,

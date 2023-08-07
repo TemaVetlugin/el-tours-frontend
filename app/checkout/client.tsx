@@ -3,7 +3,7 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import { useAsyncEffect, useCity, useObservable, usePrivatePage, useRouter } from "shared/hooks";
+import { useAsyncEffect, useCity, useStore, usePrivatePage, useRouter } from "shared/hooks";
 import {
     UiButton,
     UiCheckbox,
@@ -51,12 +51,12 @@ export const Client = observer(({ deliveryTypeId }: PropsType) => {
 
     const router = useRouter();
     const city = useCity();
-    const store = useObservable({
+    const store = useStore({
         isLoading: true,
         isSubmitting: false,
         checkoutItems: [] as CheckoutItemModel[],
     })
-    const form = useObservable({
+    const form = useStore({
         isAccepted: 1,
         storeId: null as number | null,
         paymentTypeId: OrderPaymentTypeEnum.Online.id,

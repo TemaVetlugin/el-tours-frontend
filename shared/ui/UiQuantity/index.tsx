@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 
 import { UiControlPropsType } from "shared/ui/types";
-import { useDebouncedCallback, useObservable } from "shared/hooks";
+import { useDebouncedCallback, useStore } from "shared/hooks";
 import { UiIcon } from "shared/ui";
 
 import './index.scss';
@@ -15,7 +15,7 @@ type PropsType = UiControlPropsType<number> & {
 
 export const UiQuantity = observer((
     { name = 'quantity', value, onChange, onChanging }: PropsType) => {
-    const store = useObservable({
+    const store = useStore({
         value: value || 1,
     });
     useEffect(() => {

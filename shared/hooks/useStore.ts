@@ -51,7 +51,7 @@ class Observable<T extends Object> {
     }
 }
 
-export function useObservable<T extends Object>(entry: T): Observable<T> & T {
+export function useStore<T extends Object>(entry: T): Observable<T> & T {
     return useMemo(() => {
         return new Observable(entry) as Observable<T> & T;
     }, []);

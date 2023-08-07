@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 
-import { useAsyncEffect, useCity, useObservable } from "shared/hooks";
+import { useAsyncEffect, useCity, useStore } from "shared/hooks";
 import { UiButton, UiCheckbox, UiDataBoundary, UiIcon, UiPage, UiScroll, UiWrap } from "shared/ui";
 import { COLORS, ROUTES } from "shared/contants";
 import { StoreModel } from "shared/models";
@@ -15,7 +15,7 @@ import { PStoreMarker } from "./components/PStoresMarker";
 
 export const Client = observer(() => {
     const city = useCity();
-    const store = useObservable({
+    const store = useStore({
         isLoading: true,
         stores: [] as StoreModel[],
         location: [50, 50] as [number, number],

@@ -7,7 +7,7 @@ import { UiPage, UiWrap } from "shared/ui";
 import { ROUTES } from "shared/contants";
 import { CCatalog } from "shared/components/catalog";
 import { ManufacturerModel, ManufacturerModelInterface } from "shared/models";
-import { useObservable } from "shared/hooks";
+import { useStore } from "shared/hooks";
 
 import './page.scss';
 
@@ -16,7 +16,7 @@ type PropsType = {
 }
 
 export const Client = observer(({ manufacturer }: PropsType) => {
-    const store = useObservable({
+    const store = useStore({
         manufacturer: new ManufacturerModel(manufacturer)
     })
     return (

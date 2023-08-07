@@ -4,7 +4,7 @@ import { observer } from "mobx-react-lite";
 import React from "react";
 import { CCatalog } from "shared/components/catalog";
 import { ROUTES } from "shared/contants";
-import { useObservable } from "shared/hooks";
+import { useStore } from "shared/hooks";
 import { SubstanceModel, SubstanceModelInterface } from "shared/models";
 
 import { UiPage, UiWrap } from "shared/ui";
@@ -16,7 +16,7 @@ type PropsType = {
 }
 
 export const Client = observer(({ substance }: PropsType) => {
-    const store = useObservable({
+    const store = useStore({
         substance: new SubstanceModel(substance)
     })
     return (

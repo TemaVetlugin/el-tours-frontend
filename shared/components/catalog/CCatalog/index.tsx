@@ -3,7 +3,7 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 
-import { useAsyncEffect, useCity, useObservable, useSearchParams } from "shared/hooks";
+import { useAsyncEffect, useCity, useStore, useSearchParams } from "shared/hooks";
 import { CatalogFilterModel, CatalogProductModel, PaginationModel } from "shared/models";
 import { catalogProductsFiltersQuery, catalogProductsQuery } from "shared/queries/main";
 import { UiPage } from "shared/ui";
@@ -26,7 +26,7 @@ export const CCatalog = observer((
         params
     }: PropsType
 ) => {
-    const store = useObservable({
+    const store = useStore({
         isCatalogFiltersLoading: true,
         isCatalogProductsLoading: true,
         catalogFilters: [] as CatalogFilterModel[],

@@ -4,7 +4,7 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 import { UiDataBoundary, UiGrid, UiIcon, UiPage } from "shared/ui";
-import { useAsyncEffect, useObservable, useUser } from "shared/hooks";
+import { useAsyncEffect, useStore, useUser } from "shared/hooks";
 import { ordersGetQuery } from "shared/queries/main";
 import { OrderModel } from "shared/models";
 
@@ -19,7 +19,7 @@ type PropsType = {
 }
 export const Client = observer(({ id }: PropsType) => {
     const user = useUser();
-    const store = useObservable({
+    const store = useStore({
         isLoading: true,
         order: new OrderModel()
     });

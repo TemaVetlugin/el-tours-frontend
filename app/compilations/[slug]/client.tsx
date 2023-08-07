@@ -5,7 +5,7 @@ import React from "react";
 
 import { CCatalog } from "shared/components/catalog";
 import { ROUTES } from "shared/contants";
-import { useAsyncEffect, useCity, useObservable, useRouter } from "shared/hooks";
+import { useAsyncEffect, useCity, useStore, useRouter } from "shared/hooks";
 import { CompilationModel } from "shared/models";
 import { compilationsGetQuery } from "shared/queries/main";
 import { UiDataBoundary, UiPage, UiWrap } from "shared/ui";
@@ -19,7 +19,7 @@ type PropsType = {
 export const Client = observer(({ slug }: PropsType) => {
     const city = useCity();
     const router = useRouter();
-    const store = useObservable({
+    const store = useStore({
         isLoading: true,
         compilation: new CompilationModel(),
     });

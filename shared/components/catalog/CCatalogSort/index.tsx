@@ -5,7 +5,7 @@ import classnames from "classnames";
 import { observer } from "mobx-react-lite";
 
 import { UiIcon } from "shared/ui";
-import { useObservable, useOnClickOutside, useRouter, useSearchParams } from "shared/hooks";
+import { useStore, useOnClickOutside, useRouter, useSearchParams } from "shared/hooks";
 
 import './index.scss';
 
@@ -15,7 +15,7 @@ export const CCatalogSort = observer(() => {
     const params = useSearchParams({
         sort: 'name_asc'
     });
-    const store = useObservable({
+    const store = useStore({
         isOpened: false
     });
 

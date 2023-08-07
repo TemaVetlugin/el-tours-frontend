@@ -4,7 +4,7 @@ import { observer } from "mobx-react-lite";
 import React from "react";
 import { ROUTES } from "shared/contants";
 
-import { useAsyncEffect, useCity, useObservable } from "shared/hooks";
+import { useAsyncEffect, useCity, useStore } from "shared/hooks";
 import { CompilationModel } from "shared/models";
 import { compilationsQuery } from "shared/queries/main";
 import { UiDataBoundary, UiGrid, UiLink, UiPage, UiWrap } from "shared/ui";
@@ -14,7 +14,7 @@ import './page.scss';
 
 export const Client = observer(() => {
     const city = useCity();
-    const store = useObservable({
+    const store = useStore({
         isLoading: true,
         compilations: [] as CompilationModel[],
     });

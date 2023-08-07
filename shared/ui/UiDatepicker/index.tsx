@@ -9,7 +9,7 @@ import classnames from "classnames";
 import { date } from "shared/utilities";
 import { UiIcon } from "shared/ui";
 import { COLORS } from "shared/contants";
-import { useObservable, useOnClickOutside } from "shared/hooks";
+import { useStore, useOnClickOutside } from "shared/hooks";
 
 import { UiControlPropsType } from "../types";
 
@@ -30,7 +30,7 @@ export const UiDatepicker = observer((
     }: PropsType
 ) => {
     const ref = useRef<HTMLDivElement>(null);
-    const store = useObservable({
+    const store = useStore({
         isOpened: false
     });
     useOnClickOutside(ref, () => {

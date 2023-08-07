@@ -3,7 +3,7 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 import { ROUTES } from "shared/contants";
-import { useAsyncEffect, useCity, useObservable, useRouter, useSearchParams } from "shared/hooks";
+import { useAsyncEffect, useCity, useStore, useRouter, useSearchParams } from "shared/hooks";
 import { searchCountsQuery } from "shared/queries/main";
 import { UiDataBoundary, UiPage, UiWrap } from "shared/ui";
 import { PSearchCatalogProducts } from "./component/PSearchCatalogProducts";
@@ -24,11 +24,11 @@ export const Client = observer(({ query, page }: PropsType) => {
 
     const city = useCity();
 
-    const store = useObservable({
+    const store = useStore({
         isLoading: true,
     });
 
-    const counts = useObservable({
+    const counts = useStore({
         catalogProducts: 0,
         compilations: 0,
         news: 0,

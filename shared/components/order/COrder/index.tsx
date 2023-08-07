@@ -8,7 +8,7 @@ import classnames from "classnames";
 
 import { currency, date } from "shared/utilities";
 import { UiButton, UiIcon } from "shared/ui";
-import { useObservable } from "shared/hooks";
+import { useStore } from "shared/hooks";
 import { COLORS } from "shared/contants";
 import { COrderItem } from "shared/components/order";
 
@@ -19,7 +19,7 @@ type PropsType = {
 }
 
 export const COrder = observer(({ order }: PropsType) => {
-    const store = useObservable({
+    const store = useStore({
         isOpened: false
     });
 

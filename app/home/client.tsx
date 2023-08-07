@@ -6,7 +6,7 @@ import { observer } from "mobx-react-lite";
 
 import { homeQuery } from "shared/queries/frontend";
 import { ReturnType } from "shared/types";
-import { useAsyncEffect, useCity, useDidUpdateEffect, useObservable } from "shared/hooks";
+import { useAsyncEffect, useCity, useDidUpdateEffect, useStore } from "shared/hooks";
 import { ArticleModel, BrandModel, CatalogProductModel, HomeBannerModel, ManufacturerModel, NewsModel, PromoActionModel } from "shared/models";
 import { ROUTES } from "shared/contants";
 
@@ -33,7 +33,7 @@ export const Client = observer((
 ) => {
     const city = useCity();
 
-    const store = useObservable({
+    const store = useStore({
         homeBanners: homeBanners.map(item => new HomeBannerModel(item)),
         promoActions: promoActions.map(item => new PromoActionModel(item)),
         brands: brands.map(item => new BrandModel(item)),

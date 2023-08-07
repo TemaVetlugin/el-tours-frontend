@@ -8,7 +8,7 @@ import { ROUTES } from "shared/contants";
 
 import './page.scss';
 import { ContentPageModel, ContentPageModelInterface } from "shared/models";
-import { useObservable } from "shared/hooks";
+import { useStore } from "shared/hooks";
 import { html } from "shared/utilities";
 
 
@@ -17,7 +17,7 @@ type PropsType = {
 }
 
 export const Client = observer(({ contentPage }: PropsType) => {
-    const store = useObservable({
+    const store = useStore({
         contentPage: new ContentPageModel(contentPage)
     })
     return (

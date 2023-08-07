@@ -4,7 +4,7 @@ import classnames from "classnames";
 import { observer } from "mobx-react-lite";
 import React, { useRef } from "react";
 
-import { useObservable, useOnClickOutside } from "shared/hooks";
+import { useStore, useOnClickOutside } from "shared/hooks";
 
 import { UiControlPropsType } from "../types";
 
@@ -33,7 +33,7 @@ export const UiDropdown = observer(<T extends { id: string | number | null }, >(
 ) => {
     const ref = useRef<HTMLDivElement>(null);
 
-    const store = useObservable({
+    const store = useStore({
         isOpened: false,
     });
 

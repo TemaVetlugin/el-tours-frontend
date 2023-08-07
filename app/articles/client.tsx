@@ -5,7 +5,7 @@ import React from "react";
 import { CTileArticle } from "shared/components/tiles";
 
 import { ROUTES } from "shared/contants";
-import { useAsyncEffect, useCity, useObservable, useRouter, useSearchParams } from "shared/hooks";
+import { useAsyncEffect, useCity, useStore, useRouter, useSearchParams } from "shared/hooks";
 import { ArticleModel, PaginationModel, TagModel } from "shared/models";
 import { articlesQuery, tagsQuery } from "shared/queries/main";
 import { UiDataBoundary, UiGrid, UiPage, UiSelect, UiWrap } from "shared/ui";
@@ -15,7 +15,7 @@ import './page.scss';
 export const Client = observer(() => {
     const city = useCity();
     const router = useRouter()
-    const store = useObservable({
+    const store = useStore({
         tags: [] as TagModel[],
         articles: [] as ArticleModel[],
         pagination: new PaginationModel(),

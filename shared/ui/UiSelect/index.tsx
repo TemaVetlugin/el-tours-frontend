@@ -4,7 +4,7 @@ import React, { useMemo, useRef } from "react";
 import { observer } from "mobx-react-lite";
 import classnames from "classnames";
 
-import { useOnClickOutside, useObservable } from "shared/hooks";
+import { useOnClickOutside, useStore } from "shared/hooks";
 import { COLORS } from "shared/contants";
 
 import { UiIcon } from "../UiIcon";
@@ -34,7 +34,7 @@ export const UiSelect = observer((
 ) => {
     const ref = useRef<HTMLDivElement>(null);
 
-    const store = useObservable({
+    const store = useStore({
         isOpened: false,
     });
 

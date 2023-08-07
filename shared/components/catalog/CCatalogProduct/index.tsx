@@ -5,7 +5,7 @@ import React from "react";
 import { CCatalogProductBadges } from "shared/components/catalog";
 
 import { COLORS, ROUTES } from "shared/contants";
-import { useObservable, useRouter } from "shared/hooks";
+import { useStore, useRouter } from "shared/hooks";
 
 import { CatalogProductModel } from "shared/models";
 import { CartService } from "shared/services";
@@ -25,7 +25,7 @@ type PropsType = {
 
 export const CCatalogProduct = observer(({ catalogProduct, withRemind = true }: PropsType) => {
     const router = useRouter();
-    const store = useObservable({
+    const store = useStore({
         isLoading: false,
         isRemind: false,
         remindAt: date().plus({ days: 7 }).toISO()

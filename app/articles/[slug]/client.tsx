@@ -6,7 +6,7 @@ import { CCatalogProductsSlider } from "shared/components/catalog";
 import { CTileArticle } from "shared/components/tiles";
 import { COLORS, ROUTES } from "shared/contants";
 
-import { useAsyncEffect, useCity, useObservable, useRouter } from "shared/hooks";
+import { useAsyncEffect, useCity, useStore, useRouter } from "shared/hooks";
 import { ArticleModel } from "shared/models";
 import { articlesGetQuery } from "shared/queries/main";
 import { UiButton, UiDataBoundary, UiGrid, UiIcon, UiPage, UiShare, UiTypography } from "shared/ui";
@@ -17,7 +17,7 @@ type PropsType = {
 }
 
 export const Client = observer(({ slug }: PropsType) => {
-    const store = useObservable({
+    const store = useStore({
         item: new ArticleModel(),
         other: [] as ArticleModel[],
         isLoading: true

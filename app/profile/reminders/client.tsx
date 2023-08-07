@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 
 import { UiDataBoundary, UiGrid, UiIcon, UiPage, UiPanel, UiWrap } from "shared/ui";
 import { COLORS, MASKS, ROUTES } from "shared/contants";
-import { useAsyncEffect, useCity, useObservable, usePrivatePage, useUser } from "shared/hooks";
+import { useAsyncEffect, useCity, useStore, usePrivatePage, useUser } from "shared/hooks";
 import { date, mask, Notifier } from "shared/utilities";
 import { CProfileMenu } from "shared/components/profile";
 import { userRemindersDeleteQuery, userRemindersQuery } from "shared/queries/main";
@@ -17,7 +17,7 @@ export const Client = observer(() => {
     const isGranted = usePrivatePage();
     const user = useUser();
     const city = useCity();
-    const store = useObservable({
+    const store = useStore({
         userReminders: [] as UserReminderModel[]
     });
 

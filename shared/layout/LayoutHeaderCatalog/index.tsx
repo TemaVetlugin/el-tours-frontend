@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { ROUTES } from "shared/contants";
-import { useObservable } from "shared/hooks";
+import { useStore } from "shared/hooks";
 import { CatalogService } from "shared/services";
 
 import { UiButton, UiIcon, UiLink, UiScroll, UiWrap } from "shared/ui";
@@ -15,7 +15,7 @@ import icon from './assets/icon.svg';
 import './index.scss';
 
 export const LayoutHeaderCatalog = observer(() => {
-    const store = useObservable({
+    const store = useStore({
         isOpened: false,
         id: CatalogService.catalogCategoriesByCatalogCategoryId['null']
             ? CatalogService.catalogCategoriesByCatalogCategoryId['null'][0].id ?? 0

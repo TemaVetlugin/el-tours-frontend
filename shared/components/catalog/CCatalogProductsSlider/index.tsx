@@ -6,7 +6,7 @@ import classnames from "classnames";
 
 import { CatalogProductModel } from "shared/models";
 import { UiIcon, UiSlider } from "shared/ui";
-import { useMedia, useObservable } from "shared/hooks";
+import { useMedia, useStore } from "shared/hooks";
 import { CCatalogProduct } from "../CCatalogProduct";
 import { MEDIA_POINTS } from "shared/contants";
 
@@ -17,7 +17,7 @@ type PropsType = {
 }
 
 export const CCatalogProductsSlider = observer(({ catalogProducts }: PropsType) => {
-    const store = useObservable({
+    const store = useStore({
         isInitialized: false,
     });
 

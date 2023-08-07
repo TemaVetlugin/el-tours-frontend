@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 
 import { UiDataBoundary, UiGrid, UiPage, UiPanel, UiWrap } from "shared/ui";
 import { MASKS, ROUTES } from "shared/contants";
-import { useAsyncEffect, useObservable, usePrivatePage, useUser } from "shared/hooks";
+import { useAsyncEffect, useStore, usePrivatePage, useUser } from "shared/hooks";
 import { mask } from "shared/utilities";
 import { CProfileMenu } from "shared/components/profile";
 import { ordersQuery } from "shared/queries/main";
@@ -17,7 +17,7 @@ import './page.scss';
 export const Client = observer(() => {
     const isGranted = usePrivatePage();
     const user = useUser();
-    const store = useObservable({
+    const store = useStore({
         orders: [] as OrderModel[]
     });
 

@@ -6,7 +6,7 @@ import { observer } from "mobx-react-lite";
 
 import { UiSkeleton } from "shared/ui";
 import { CatalogFilterModel } from "shared/models";
-import { useObservable, useRouter, useSearchParams } from "shared/hooks";
+import { useStore, useRouter, useSearchParams } from "shared/hooks";
 
 import { CCatalogFilterItem } from "./components/CCatalogFilterItem";
 
@@ -20,7 +20,7 @@ type PropsType = {
 export const CCatalogFilter = observer(({ catalogFilters = [], isLoading }: PropsType) => {
     const router = useRouter();
     const searchParams = useSearchParams({});
-    const store = useObservable({
+    const store = useStore({
         isOpened: false
     });
     useEffect(() => {
