@@ -1,122 +1,67 @@
 'use client';
 
-import React from "react";
 import { observer } from "mobx-react-lite";
-import { useStore } from "shared/hooks";
-import { UiCard, UiGrid, UiLink, UiPage } from "shared/ui";
+import React from "react";
 import { MEDIA_POINTS, ROUTES } from "shared/contants";
+import { useAsyncEffect, useCity, useStore } from "shared/hooks";
+import { LicenseSectionModel } from "shared/models";
+import { licenseSectionsQuery } from "shared/queries/main";
+import { UiCard, UiGrid, UiLink, UiPage } from "shared/ui";
 
 import "./page.scss";
 
 export const Client = observer(() => {
     const store = useStore({
-
+        isLoading: false,
+        licenseSections: [] as LicenseSectionModel[]
     });
-    const licenses = [
-        {
-            title: 'На фармдеятельность',
-            text: 'Etiam eu vehicula lectus, eget rutrum lectus. Nunc vehicula sem at pulvinar varius. Mauris rutrum mauris et nisl porttitor, in facilisis diam faucibus. Vivamus tellus purus, vehicula eu blandit sed, tempus ac dolor. Nulla facilisi. Vestibulum quis vehicula odio. Cras et quam egestas, iaculis neque nec, venenatis libero. Praesent metus mi, porttitor eu euismod nec, feugiat vitae ligula. Fusce ac auctor diam, sit amet cursus elit. Aliquam eget ante id mi rutrum efficitur et hendrerit est. Donec sollicitudin sem eu nisl congue, et pellentesque ligula elementum. Curabitur a lectus augue. In enim nisl, dictum sed suscipit id, imperdiet eu mauris.',
-            documents: [
-                {
-                    name: 'Название документа',
-                    href: '#',
-                    type: 'PDF',
-                    size: '5,4 Мб',
-                },
-                {
-                    name: 'Название документа',
-                    href: '#',
-                    type: 'PDF',
-                    size: '5,4 Мб',
-                },
-                {
-                    name: 'Название документа',
-                    href: '#',
-                    type: 'PDF',
-                    size: '5,4 Мб',
-                },
-            ],
-        },
-        {
-            title: 'На дистанционную торговлю',
-            text: 'Etiam eu vehicula lectus, eget rutrum lectus. Nunc vehicula sem at pulvinar varius. Mauris rutrum mauris et nisl porttitor, in facilisis diam faucibus. Vivamus tellus purus, vehicula eu blandit sed, tempus ac dolor. Nulla facilisi. Vestibulum quis vehicula odio. Cras et quam egestas, iaculis neque nec, venenatis libero. Praesent metus mi, porttitor eu euismod nec, feugiat vitae ligula. Fusce ac auctor diam, sit amet cursus elit. Aliquam eget ante id mi rutrum efficitur et hendrerit est. Donec sollicitudin sem eu nisl congue, et pellentesque ligula elementum. Curabitur a lectus augue. In enim nisl, dictum sed suscipit id, imperdiet eu mauris.',
-            documents: [
-                {
-                    name: 'Название документа',
-                    href: '#',
-                    type: 'PDF',
-                    size: '5,4 Мб',
-                },
-                {
-                    name: 'Название документа',
-                    href: '#',
-                    type: 'PDF',
-                    size: '5,4 Мб',
-                },
-                {
-                    name: 'Название документа',
-                    href: '#',
-                    type: 'PDF',
-                    size: '5,4 Мб',
-                },
-            ],
-        },
-    ];
+
+    const city = useCity();
+    useAsyncEffect(async () => {
+        store.set("isLoading", true);
+        const { isSuccess, data } = await licenseSectionsQuery({
+            cityId: city.id
+        });
+
+        if (isSuccess && data) {
+            store.set("licenseSections", data.items.map(item => new LicenseSectionModel(item)));
+        }
+        store.set("isLoading", false);
+    }, [city]);
 
     return (
         <UiPage>
             <UiPage.Wrap>
                 <UiPage.Breadcrumbs items={[ROUTES.LICENSES()]}/>
                 <UiPage.Header title='Лицензии'/>
-                <UiGrid className={'p-licenses'}
-                        media={{
-                            [MEDIA_POINTS.IS_360]: { columns: 1 },
-                            [MEDIA_POINTS.IS_1024]: { columns: '868px' },
-                        }}
-                >
-                    <UiGrid
-                        media={{
-                            [MEDIA_POINTS.IS_360]: { columns: 1, gap: 24 },
-                            [MEDIA_POINTS.IS_1024]: { columns: 1, gap: 40 },
-                        }}
-                    >
-                        {
-                            licenses.map((license, index) => {
-                                return (
-                                    <UiCard key={index} className={'p-licenses-item'}>
-                                        <h2 className="p-licenses-item__title">{license.title}</h2>
-                                        <div className="p-licenses-item__text">
-                                            <p>{license.text}</p>
+                <div className={'p-licenses'}>
+                    {store.licenseSections.map((licenseSection) => (
+                        <UiCard key={licenseSection.id} className={'p-licenses-item'}>
+                            <h2 className="p-licenses-item__title">{licenseSection.name}</h2>
+                            <div className="p-licenses-item__text">
+                                {licenseSection.description}
+                            </div>
+                            <div className="p-licenses-item__documents">
+                                {licenseSection.licenses.map((license) => (
+                                    <div key={license.id} className="p-licenses-document">
+                                        <p className="p-licenses-document__name">{license.name}</p>
+                                        <div className="p-licenses-document__info">
+                                            <div className="p-licenses-document__type">{license.media[0]?.extension}</div>
+                                            <div className="p-licenses-document__size">{license.media[0]?.sizeFormatted}</div>
                                         </div>
-                                        <div className="p-licenses-item__documents">
-                                            {
-                                                license.documents.map((document, index) => {
-                                                    return (
-                                                        <div key={index} className="p-licenses-document">
-                                                            <p className="p-licenses-document__name">{document.name}</p>
-                                                            <div className="p-licenses-document__info">
-                                                                <div
-                                                                    className="p-licenses-document__type">{document.type}</div>
-                                                                <div
-                                                                    className="p-licenses-document__size">{document.size}</div>
-                                                            </div>
-                                                            <UiLink
-                                                                href={document.href}
-                                                                className={'p-licenses-document__link underwave'}
-                                                            >
-                                                                Скачать
-                                                            </UiLink>
-                                                        </div>
-                                                    )
-                                                })
-                                            }
-                                        </div>
-                                    </UiCard>
-                                )
-                            })
-                        }
-                    </UiGrid>
-                </UiGrid>
+                                        <UiLink
+                                            target={'_blank'}
+                                            href={license.file}
+                                            className={'p-licenses-document__link underwave'}
+                                        >
+                                            Скачать
+                                        </UiLink>
+                                    </div>
+                                ))}
+                            </div>
+                        </UiCard>
+                    ))}
+                </div>
             </UiPage.Wrap>
         </UiPage>
     )

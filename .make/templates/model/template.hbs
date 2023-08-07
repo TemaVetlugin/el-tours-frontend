@@ -6,8 +6,8 @@ export interface {{pascalCase name}}ModelInterface {
 {{{modelTypes properties}}}
 }
 
-export class {{pascalCase name}}Model extends Model<I{{pascalCase name}}Model> implements {{pascalCase name}}ModelInterface {
-    fillable: Array<keyof I{{pascalCase name}}Model> = [
+export class {{pascalCase name}}Model extends Model<{{pascalCase name}}ModelInterface> implements {{pascalCase name}}ModelInterface {
+    fillable: Array<keyof {{pascalCase name}}ModelInterface> = [
 {{{modelFillable properties}}}
     ];
 

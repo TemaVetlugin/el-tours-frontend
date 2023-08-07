@@ -34,12 +34,12 @@ export { HomeBannerModel } from './HomeBanner.model';
 export type { HomeBannerModelInterface } from './HomeBanner.model';
 export { LicenseModel } from './License.model.ts';
 export type { LicenseModelInterface } from './License.model.ts';
-
 export { LicenseSectionModel } from './LicenseSection.model.ts';
 export type { LicenseSectionModelInterface } from './LicenseSection.model.ts';
-
 export { ManufacturerModel } from './Manufacturer.model';
 export type { ManufacturerModelInterface } from './Manufacturer.model';
+export { MediaModel } from './Media.model.ts';
+export type { MediaModelInterface } from './Media.model.ts';
 export { NewsModel } from './News.model';
 export type { NewsModelInterface } from './News.model';
 export { OrderItemModel } from './OrderItem.model';

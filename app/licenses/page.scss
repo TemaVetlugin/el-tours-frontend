@@ -1,5 +1,11 @@
 .p-licenses {
+    width: 870px;
+
     &-item {
+        &:not(&:last-child) {
+            margin-bottom: 40px;
+        }
+
         @include isMobile {
             padding: 12px;
         }
@@ -100,19 +106,19 @@
         }
 
         &__type {
-            width: 40px;
             margin-right: 16px;
+            text-transform: uppercase;
             font-size: 14px;
             font-weight: 400;
             line-height: 18px;
         }
 
         &__size {
-            width: 60px;
             margin-right: 44px;
             font-size: 14px;
             font-weight: 400;
             line-height: 18px;
+            white-space: nowrap;
 
             @include isMobile {
                 margin-right: 10px;
