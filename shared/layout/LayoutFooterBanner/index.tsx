@@ -19,7 +19,7 @@ export const LayoutFooterBanner = observer(() => {
 
     return (
         <UiPage.Wrap>
-            <UiLink href={footerBanner.url} className="layout-footer-banner">
+            <UiLink href={footerBanner.href} className="layout-footer-banner">
                 <img src={footerBanner.image} alt=""/>
             </UiLink>
         </UiPage.Wrap>
