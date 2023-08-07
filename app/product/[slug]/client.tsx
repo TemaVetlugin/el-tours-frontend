@@ -1,5 +1,6 @@
 'use client';
 
+import classnames from "classnames";
 import { observer } from "mobx-react-lite";
 import React, { useEffect } from "react";
 import { CCatalogProductBadges, CCatalogProductsSlider } from "shared/components/catalog";
@@ -9,11 +10,11 @@ import { useAsyncEffect, useCity, useObservable } from "shared/hooks";
 import { CatalogProductModel, CatalogProductModelInterface } from "shared/models";
 import { catalogProductsGetQuery } from "shared/queries/main";
 import { CatalogService } from "shared/services";
-import { UiButton, UiIcon, UiLink, UiPage } from "shared/ui";
+import { UiButton, UiIcon, UiLink, UiPage, UiSlider } from "shared/ui";
 import { html } from "shared/utilities";
+import { PProductCommerce } from "./components/PProductCommerce";
 
 import { PProductStore } from "./components/PProductStore";
-import { PProductCommerce } from "./components/PProductCommerce";
 import { PROPERTIES } from "./constants/properties";
 
 import { TABS } from "./constants/tabs";
@@ -29,6 +30,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
         tab: 'description',
         catalogProduct: new CatalogProductModel(catalogProduct),
         isLoading: true,
+        activeSlide: 0
     });
     const city = useCity();
 
@@ -50,7 +52,11 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
     }, [city]);
 
     const tab = TABS.find(tab => tab.id === store.tab);
-
+    const media = [
+        ...store.catalogProduct.images,
+        ...store.catalogProduct.gifs,
+        ...store.catalogProduct.videos,
+    ];
     return (
         <UiPage className={'p-product'}>
             <UiPage.Wrap>
@@ -62,13 +68,60 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                 />
                 <UiPage.Header title={store.catalogProduct.name}/>
                 <div className="p-product__preview">
-                    <div className="p-product__media">
-
-                        <div
-                            className="p-product__image"
-                            style={{ backgroundImage: `url(${store.catalogProduct.image})` }}
-                        />
+                    <div className="p-product-media">
                         <CCatalogProductBadges badges={store.catalogProduct.badges} className={'p-product__badges'}/>
+                        <div
+                            className="p-product-media__image"
+                            style={{ backgroundImage: `url(${media[store.activeSlide] ?? store.catalogProduct.image})` }}
+                        />
+                        {media.length > 0 && (
+                            <UiSlider
+                                className={'p-product-media-slider'}
+                                slideClassName={'p-product-media-slide'}
+                                perGroup={1}
+                                perPage={'auto'}
+                                gap={6}
+                                items={media}
+                                renderItem={(item, _, index) => (
+                                    <div
+                                        className={classnames('p-product-media-slide__inner', {
+                                            'p-product-media-slide__inner--active': index === store.activeSlide
+                                        })}
+                                    >
+                                        <div
+                                            className={'p-product-media-slide__image'}
+                                            onClick={() => {
+                                                store.set("activeSlide", index);
+                                                console.log(index)
+                                            }}
+                                            style={{
+                                                backgroundImage: `url(${item})`
+                                            }}
+                                        />
+                                    </div>
+                                )}
+                                renderNavigation={(navigation) => {
+                                    if (navigation.pages() < 6) {
+                                        return null;
+                                    }
+                                    return (
+                                        <>
+                                            <div className='p-product-media-slider__control'>
+                                                <div className="p-product-media-slider__arrow" onClick={navigation.prev}>
+                                                    <UiIcon size={16} name={'chevronLeft'}/>
+                                                </div>
+                                            </div>
+                                            <div
+                                                className='p-product-media-slider__control p-product-media-slider__control--next'>
+                                                <div className="p-product-media-slider__arrow" onClick={navigation.next}>
+                                                    <UiIcon size={16} name={'chevronRight'}/>
+                                                </div>
+                                            </div>
+                                        </>
+                                    );
+                                }}
+                            />
+                        )}
                     </div>
                     <div className="p-product__properties">
                         {PROPERTIES.map(property => {

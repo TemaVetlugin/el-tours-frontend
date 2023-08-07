@@ -6,16 +6,73 @@
         gap: 20px;
     }
 
-    &__media {
-        position: relative;
-    }
 
-    &__image {
+    &-media {
+        position: relative;
         width: 424px;
-        height: 336px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
+        max-width: 424px;
+
+        &__image {
+            width: 424px;
+            height: 336px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        &-slider {
+            position: relative;
+            padding: 0 22px;
+
+            &__arrow {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                @include iconColor($cGreenPrimary);
+            }
+
+            &__control {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+
+                &--next {
+                    right: 0;
+                    left: auto;
+                }
+            }
+        }
+
+        &-slide {
+            width: 64px !important;
+            height: 64px;
+
+            &__inner {
+                border: 1px solid transparent;
+                border-radius: 8px;
+                cursor: pointer;
+                overflow: hidden;
+
+                &:hover {
+                    border: 1px solid $cBorder;
+                }
+
+                &--active {
+                    border: 1px solid $cGreenPrimary;
+                }
+            }
+
+            &__image {
+                width: 64px;
+                height: 64px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        }
     }
 
     &__badges {

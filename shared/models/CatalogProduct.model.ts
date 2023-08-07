@@ -32,6 +32,8 @@ export interface CatalogProductModelInterface {
     country?: CountryModelInterface | null,
     manufacturer?: ManufacturerModelInterface | null,
     images?: string[],
+    gifs?: string[],
+    videos?: string[],
     barcodes?: string[],
     thermolabile?: string,
     instruction?: string,
@@ -69,6 +71,8 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
         "substances",
         "manufacturer",
         "images",
+        "gifs",
+        "videos",
         "barcodes",
         "dosage",
         "packageAmount",
@@ -113,7 +117,9 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
     newAt = '';
     promoActionsCount = 0;
     catalogCategoryId = 0;
-    images = [];
+    images: string[] = [];
+    gifs: string[] = [];
+    videos: string[] = [];
     barcodes = [];
     thermolabile = '';
     withPrescription = true;
@@ -160,6 +166,8 @@ export class CatalogProductModel extends Model<CatalogProductModelInterface> imp
             country: observable,
             manufacturer: observable,
             images: observable,
+            gifs: observable,
+            videos: observable,
             dosage: observable,
             size: observable,
             packageAmount: observable,

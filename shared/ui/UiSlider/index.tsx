@@ -1,17 +1,18 @@
 'use client';
 
-import React, { useEffect } from "react";
-import { observer } from "mobx-react-lite";
+import classnames from "classnames";
+import { Observer, observer } from "mobx-react-lite";
+import React, { ReactElement, useEffect } from "react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperInstance } from 'swiper/types';
-import classnames from "classnames";
 
 import { useObservable } from "shared/hooks";
 import { OnChangeType } from "shared/types";
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';
+
 import './index.scss';
 
 type NavigationType = {
@@ -24,16 +25,16 @@ type NavigationType = {
     set: (slide: number) => void
 }
 
-type PropsType = {
+type PropsType<T> = {
     value?: number,
     onChange?: OnChangeType<number>,
-    items: any[],
+    items: T[],
     effect?: 'slide' | 'fade',
     loop?: boolean,
     perPage?: number | 'auto',
     perGroup?: number,
     gap?: number,
-    renderItem: (item: any, isActive: boolean) => React.ReactNode,
+    renderItem: (item: T, isActive: boolean, index: number) => ReactElement,
     renderNavigation?: (navigation: NavigationType) => React.ReactNode;
     className?: string,
     slideClassName?: string,
@@ -41,7 +42,7 @@ type PropsType = {
     autoPlay?: number
 }
 
-export const UiSlider = observer((
+export const UiSlider = observer(<T, >(
     {
         items,
         renderItem,
@@ -55,7 +56,7 @@ export const UiSlider = observer((
         className,
         autoPlay,
         autoHeight = true
-    }: PropsType
+    }: PropsType<T>
 ) => {
     const store = useObservable({
         isInitialized: false,
@@ -150,7 +151,7 @@ export const UiSlider = observer((
                 >
                     {items.map((item, index) => (
                         <SwiperSlide key={index} className={slideClassName}>
-                            {({ isActive }) => renderItem(item, isActive)}
+                            {({ isActive }) => <Observer render={() => renderItem(item, isActive, index)}/>}
                         </SwiperSlide>
                     ))}
                 </Swiper>

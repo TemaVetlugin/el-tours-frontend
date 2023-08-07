@@ -45,7 +45,8 @@
         "typescript": "5.0.4",
         "use-debounce": "^9.0.4",
         "uuid": "^9.0.0",
-        "validator": "^13.9.0"
+        "validator": "^13.9.0",
+        "yet-another-react-lightbox": "^3.12.0"
     },
     "devDependencies": {
         "@types/cli-color": "^2.0.2",
