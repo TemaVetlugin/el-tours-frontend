@@ -1,4 +1,4 @@
-import { computed, makeObservable, observable } from "mobx";
+import { makeObservable, observable } from "mobx";
 import { ModelArrayCast } from "shared/casts";
 import { MediaModel, MediaModelInterface } from "shared/models/Media.model";
 

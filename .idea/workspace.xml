@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/shared/utilities/file.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.make/templates/model/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/.make/templates/model/template.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/licenses/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/licenses/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/licenses/page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/licenses/page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/FooterBannerModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/FooterBanner.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/FooterMenuItemModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/FooterMenuItem.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/models/HeaderMenuItemModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/HeaderMenuItem.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/models/License.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/License.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/models/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/queries/main/licenseSections.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/licenseSections.query.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/styles/underwave.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/styles/underwave.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/utilities/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/utilities/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +158,7 @@
       <workItem from="1691332346280" duration="8195000" />
       <workItem from="1691374917845" duration="15352000" />
       <workItem from="1691398181742" duration="1313000" />
-      <workItem from="1691399502777" duration="164000" />
+      <workItem from="1691399502777" duration="303000" />
     </task>
     <servers />
   </component>
