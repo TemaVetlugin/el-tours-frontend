@@ -8,7 +8,8 @@ import { UiDropdown, UiIcon } from "shared/ui";
 import './index.scss';
 
 type PropsType = {
-    template?: 'icon' | 'inline'
+    template?: 'icon' | 'inline',
+    style?: React.CSSProperties
 }
 
 const ITEMS = [
@@ -16,7 +17,7 @@ const ITEMS = [
     { id: 'fb', name: 'Facebook', icon: 'vk', color: '#3B5998' },
     { id: 'ok', name: 'Одноклассники', icon: 'vk', color: '#F97400' },
 ]
-export const UiShare = observer(({ template = 'inline' }: PropsType) => {
+export const UiShare = observer(({ template = 'inline', style }: PropsType) => {
     const handleShare = (id: string) => {
         const url = window.location.origin + window.location.pathname;
 
@@ -34,7 +35,7 @@ export const UiShare = observer(({ template = 'inline' }: PropsType) => {
     }
 
     return (
-        <div className={'ui-share'}>
+        <div className={'ui-share'} style={style}>
             <UiDropdown
                 items={ITEMS}
                 itemLabel={item => (

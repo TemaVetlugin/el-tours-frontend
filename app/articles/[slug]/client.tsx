@@ -1,16 +1,16 @@
 'use client';
 
-import React from "react";
 import { observer } from "mobx-react-lite";
+import React from "react";
+import { CCatalogProductsSlider } from "shared/components/catalog";
+import { CTileArticle } from "shared/components/tiles";
+import { COLORS, ROUTES } from "shared/contants";
 
 import { useAsyncEffect, useCity, useObservable, useRouter } from "shared/hooks";
-import { UiButton, UiDataBoundary, UiIcon, UiPage, UiTypography } from "shared/ui";
 import { ArticleModel } from "shared/models";
-import { COLORS, ROUTES } from "shared/contants";
-import { html } from "shared/utilities";
 import { articlesGetQuery } from "shared/queries/main";
-import { CCatalogProductsSlider } from "shared/components/catalog";
-import { notFound } from "next/navigation";
+import { UiButton, UiDataBoundary, UiGrid, UiIcon, UiPage, UiShare, UiTypography } from "shared/ui";
+import { html } from "shared/utilities";
 
 type PropsType = {
     slug: string
@@ -19,6 +19,7 @@ type PropsType = {
 export const Client = observer(({ slug }: PropsType) => {
     const store = useObservable({
         item: new ArticleModel(),
+        other: [] as ArticleModel[],
         isLoading: true
     });
     const city = useCity();
@@ -30,6 +31,7 @@ export const Client = observer(({ slug }: PropsType) => {
         });
         if (isSuccess && data) {
             store.set("item", new ArticleModel(data.item));
+            store.set("other", data.other.map(item => new ArticleModel(item)));
         } else {
             router.push(ROUTES.NOT_FOUND())
             return;
@@ -48,23 +50,32 @@ export const Client = observer(({ slug }: PropsType) => {
                 />
                 <UiDataBoundary isLoading={store.isLoading}>
                     <UiPage.Header title={store.item.name}/>
-                    <UiPage.Content>
-                        <UiTypography>
-                            <img src={store.item.contentImage} alt=""/>
-                            {html(store.item.content)}
-                        </UiTypography>
-                        <UiPage.Actions>
-                            <UiButton href={ROUTES.NEWS().url} size={"small"} colors={{
-                                icon: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
-                                label: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
-                                button: [COLORS.TRANSPARENT, COLORS.TRANSPARENT],
-                                border: [COLORS.TRANSPARENT, COLORS.TRANSPARENT]
-                            }}>
-                                <UiIcon size={16} name={"chevronLeft"}/>
-                                <span>Все статьи</span>
-                            </UiButton>
-                        </UiPage.Actions>
-                    </UiPage.Content>
+                    <UiGrid columns='1fr 316px' gap={124}>
+                        <UiPage.Content>
+                            <UiTypography>
+                                <img src={store.item.contentImage} alt=""/>
+                                {html(store.item.content)}
+                            </UiTypography>
+                            <UiPage.Actions>
+                                <UiButton href={ROUTES.NEWS().url} size={"small"} colors={{
+                                    icon: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                                    label: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                                    button: [COLORS.TRANSPARENT, COLORS.TRANSPARENT],
+                                    border: [COLORS.TRANSPARENT, COLORS.TRANSPARENT]
+                                }}>
+                                    <UiIcon size={16} name={"chevronLeft"}/>
+                                    <span>Все статьи</span>
+                                </UiButton>
+                                <UiShare style={{ marginLeft: 'auto' }}/>
+                            </UiPage.Actions>
+                        </UiPage.Content>
+                        <UiPage.Aside title={'Другие статьи'}>
+                            {store.other.map(news => <CTileArticle template={'light'} key={news.id} item={news}/>)}
+                            <UiPage.Link href={ROUTES.NEWS()}>
+                                Смотреть все
+                            </UiPage.Link>
+                        </UiPage.Aside>
+                    </UiGrid>
                     {store.item.catalogProducts.length > 0 && (
                         <UiPage.Section title={'Товары в акции'}>
                             <CCatalogProductsSlider catalogProducts={store.item.catalogProducts}/>

@@ -4,7 +4,7 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 import { useAsyncEffect, useCity, useObservable, useRouter } from "shared/hooks";
-import { UiButton, UiDataBoundary, UiGrid, UiIcon, UiPage, UiTypography } from "shared/ui";
+import { UiButton, UiDataBoundary, UiGrid, UiIcon, UiPage, UiShare, UiTypography } from "shared/ui";
 import { PromoActionModel } from "shared/models";
 import { COLORS, ROUTES } from "shared/contants";
 import { date, html } from "shared/utilities";
@@ -63,6 +63,7 @@ export const Client = observer(({ slug }: PropsType) => {
                                         <UiIcon size={16} name={"chevronLeft"}/>
                                         <span>Все акции</span>
                                     </UiButton>
+                                    <UiShare style={{marginLeft: 'auto'}}/>
                                 </UiPage.Actions>
                                 <UiPage.Header title={store.item.name}/>
                                 {!!store.item.dateTo && (

@@ -36,4 +36,14 @@
             margin-bottom: 24px;
         }
     }
+
+    &--light & {
+        &__name {
+            font-size: 16px;
+        }
+
+        &__image {
+            height: 196px;
+        }
+    }
 }
