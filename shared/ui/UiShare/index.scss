@@ -1,5 +1,33 @@
-.ui-wrap {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 70px;
+.ui-share {
+    &-inline {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        color: $cGreenPrimary;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        gap: 4px;
+        @include iconColor($cGreenPrimary);
+
+        &:hover {
+            color: $cGreenSecondary;
+            @include iconColor($cGreenSecondary);
+        }
+    }
+
+    &-icon {
+        cursor: pointer;
+        @include iconColor($cGrayPrimary);
+
+        &:hover {
+            @include iconColor($cGraySecondary)
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
 }

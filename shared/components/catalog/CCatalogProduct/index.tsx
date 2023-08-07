@@ -2,6 +2,7 @@
 
 import { observer } from "mobx-react-lite";
 import React from "react";
+import { CCatalogProductBadges } from "shared/components/catalog";
 
 import { COLORS, ROUTES } from "shared/contants";
 import { useObservable, useRouter } from "shared/hooks";
@@ -39,17 +40,7 @@ export const CCatalogProduct = observer(({ catalogProduct, withRemind = true }: 
                 className="c-catalog-product__image"
                 style={{ backgroundImage: `url(${catalogProduct.image})` }}
             />
-            {catalogProduct.badges.length > 0 && (
-                <div className="c-catalog-product__badges">
-                    {catalogProduct.badges.map(badge => (
-                        <div key={badge.icon} className="c-catalog-product-badge" style={{ backgroundColor: badge.color }}>
-                            <div className="c-catalog-product-badge__name">{badge.label}</div>
-                            <UiIcon size={24} name={badge.icon} color={COLORS.WHITE}/>
-                        </div>
-                    ))}
-                </div>
-            )}
-
+            <CCatalogProductBadges badges={catalogProduct.badges} className={'c-catalog-product__badges'}/>
             {(catalogProduct.dosage || catalogProduct.packageAmount) && (
                 <div className="c-catalog-product__properties">
                     {catalogProduct.dosage && (

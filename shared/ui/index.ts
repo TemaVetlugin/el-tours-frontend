@@ -28,3 +28,4 @@ export { UiSkeleton } from './UiSkeleton';
 export { UiSlider } from './UiSlider';
 export { UiTypography } from './UiTypography';
 export { UiWrap } from './UiWrap';
+export { UiShare } from './UiShare';

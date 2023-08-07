@@ -12,8 +12,8 @@ import './index.scss';
 
 type PropsType<T> = UiControlPropsType<number | string, {
     items: T[],
-    isLoading: boolean
-    itemLabel: (item: T) => string,
+    isLoading?: boolean
+    itemLabel?: (item: T) => string | React.ReactNode,
     children: React.ReactNode
 }>;
 
@@ -24,8 +24,8 @@ export const UiDropdown = observer(<T extends { id: string | number | null }, >(
         value,
         style,
         items,
-        isLoading,
-        itemLabel,
+        isLoading = false,
+        itemLabel = (item) => `${item.id}`,
         children,
         onChange = () => {
         }
@@ -45,11 +45,9 @@ export const UiDropdown = observer(<T extends { id: string | number | null }, >(
         store.set('isOpened', false);
     });
 
-    const item = items.find(item => item.id == value);
-
     return (
         <div className={classNames} style={style} ref={ref}>
-            <div className="ui-dropdown__control">
+            <div className="ui-dropdown__control" onClick={() => store.set("isOpened", !store.isOpened)}>
                 {children}
             </div>
             <div className="ui-dropdown__items">

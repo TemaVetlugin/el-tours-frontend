@@ -6,7 +6,7 @@ import { CCatalogProductFavorite, CCatalogProductRemind, CCatalogProductSubscrib
 import { COLORS, ROUTES } from "shared/contants";
 import { CatalogProductModel } from "shared/models";
 import { CartService, UserService } from "shared/services";
-import { UiButton, UiCard, UiIcon, UiLink, UiLoading, UiPrice, UiQuantity } from "shared/ui";
+import { UiButton, UiCard, UiIcon, UiLink, UiLoading, UiPrice, UiQuantity, UiShare } from "shared/ui";
 
 import './index.scss';
 
@@ -59,6 +59,10 @@ export const PProductCommerce = observer(({ isLoading, catalogProduct }: PropsTy
                                 priceOffer={catalogProduct.priceOffer}
                                 packageAmount={catalogProduct.packageAmount}
                             />
+                            <div className='p-product-commerce__actions'>
+                                <CCatalogProductFavorite catalogProduct={catalogProduct}/>
+                                <UiShare template={'icon'}/>
+                            </div>
                         </div>
                         <div className="p-product-commerce__body">
                             <div className="p-product-commerce__action">

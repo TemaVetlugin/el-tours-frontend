@@ -1,0 +1,36 @@
+.c-catalog-product-badges {
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 100%;
+        white-space: nowrap;
+        gap: 4px;
+
+        &:not(&:last-child) {
+            margin-bottom: 4px;
+            box-shadow: 0 0 20px rgba(74, 74, 74, 0.1);
+            border-radius: 50px;
+        }
+
+        &:hover {
+            width: auto;
+            padding: 0 8px;
+            border-radius: 50px;
+        }
+
+        &__name {
+            display: none;
+            color: $cWhite;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 16px;
+        }
+
+        &:hover &__name {
+            display: block;
+        }
+    }
+}

@@ -5,3 +5,4 @@ export { CCatalogProductRemind } from './CCatalogProductRemind';
 export { CCatalogProductsSlider } from './CCatalogProductsSlider';
 export { CCatalogProductsViewed } from './CCatalogProductsViewed';
 export { CCatalogProductSubscribe } from './CCatalogProductSubscribe';
+export { CCatalogProductBadges } from './CCatalogProductBadges';

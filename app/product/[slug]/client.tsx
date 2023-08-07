@@ -2,7 +2,7 @@
 
 import { observer } from "mobx-react-lite";
 import React, { useEffect } from "react";
-import { CCatalogProductsSlider } from "shared/components/catalog";
+import { CCatalogProductBadges, CCatalogProductsSlider } from "shared/components/catalog";
 import { COLORS, ROUTES } from "shared/contants";
 
 import { useAsyncEffect, useCity, useObservable } from "shared/hooks";
@@ -63,28 +63,12 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                 <UiPage.Header title={store.catalogProduct.name}/>
                 <div className="p-product__preview">
                     <div className="p-product__media">
+
                         <div
                             className="p-product__image"
                             style={{ backgroundImage: `url(${store.catalogProduct.image})` }}
                         />
-                        <div className="p-product__badges">
-                            {store.catalogProduct.isDeliverable && (
-                                <div className="p-product-badge" style={{ backgroundColor: '#00A3B3' }}>
-                                    <div className="p-product-badge__name">
-                                        Доставим на дом
-                                    </div>
-                                    <UiIcon size={24} name={'deliveryCourier'} color={COLORS.WHITE}/>
-                                </div>
-                            )}
-                            {store.catalogProduct.isDeliverable && (
-                                <div className="p-product-badge" style={{ backgroundColor: '#E21F25' }}>
-                                    <div className="p-product-badge__name">
-                                        Требуется рецепт
-                                    </div>
-                                    <UiIcon size={24} name={'exclamationMark'} color={COLORS.WHITE}/>
-                                </div>
-                            )}
-                        </div>
+                        <CCatalogProductBadges badges={store.catalogProduct.badges} className={'p-product__badges'}/>
                     </div>
                     <div className="p-product__properties">
                         {PROPERTIES.map(property => {
