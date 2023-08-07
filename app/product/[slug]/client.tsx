@@ -1,23 +1,24 @@
 'use client';
 
-import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
-
-import { useCity, useObservable } from "shared/hooks";
-import { UiButton, UiCard, UiIcon, UiLink, UiPage, UiPrice, UiQuantity } from "shared/ui";
-import { CatalogProductModel, CatalogProductModelInterface, CatalogProductOfferModel } from "shared/models";
-import { CartService, CatalogService } from "shared/services";
-import { COLORS, ROUTES } from "shared/contants";
+import React, { useEffect } from "react";
 import { CCatalogProductsSlider } from "shared/components/catalog";
+import { COLORS, ROUTES } from "shared/contants";
+
+import { useAsyncEffect, useCity, useObservable } from "shared/hooks";
+import { CatalogProductModel, CatalogProductModelInterface } from "shared/models";
+import { catalogProductsGetQuery } from "shared/queries/main";
+import { CatalogService } from "shared/services";
+import { UiButton, UiIcon, UiLink, UiPage } from "shared/ui";
 import { html } from "shared/utilities";
 
 import { PProductStore } from "./components/PProductStore";
-
-import { TABS } from "./constants/tabs";
+import { PProductCommerce } from "./components/PProductCommerce";
 import { PROPERTIES } from "./constants/properties";
 
+import { TABS } from "./constants/tabs";
+
 import './page.scss';
-import { catalogProductViewSaveQuery } from "shared/queries/main/catalogProductViewSave.query";
 
 type PropsType = {
     catalogProduct: CatalogProductModelInterface
@@ -27,7 +28,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
     const store = useObservable({
         tab: 'description',
         catalogProduct: new CatalogProductModel(catalogProduct),
-        catalogProductOffers: [] as CatalogProductOfferModel[]
+        isLoading: true,
     });
     const city = useCity();
 
@@ -35,8 +36,20 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
         CatalogService.view(store.catalogProduct.id, city.id);
     }, [store, city])
 
+    useAsyncEffect(async () => {
+        store.set("isLoading", true);
+        const { data, isSuccess } = await catalogProductsGetQuery({
+            cityId: city.id,
+            slug: store.catalogProduct.slug,
+            isHydrate: true
+        });
+        if (isSuccess && data) {
+            store.catalogProduct.update(data.item);
+        }
+        store.set("isLoading", false);
+    }, [city]);
+
     const tab = TABS.find(tab => tab.id === store.tab);
-    const cartItem = CartService.cartItems.find(cartItem => cartItem.catalogProductId === catalogProduct.id);
 
     return (
         <UiPage className={'p-product'}>
@@ -105,68 +118,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                             )
                         })}
                     </div>
-                    <div className="p-product-commerce">
-                        <UiCard>
-                            {store.catalogProduct.catalogProductOffers.length > 0 && (
-                                <>
-                                    <div className="p-product-commerce__price">
-                                        <UiPrice
-                                            price={store.catalogProduct.price}
-                                        />
-                                    </div>
-
-                                    <div className="p-product-commerce__action">
-                                        {!cartItem && (
-                                            <>
-                                                <UiButton onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    e.preventDefault();
-                                                    CartService.save({
-                                                        catalogProductId: store.catalogProduct.id,
-                                                        quantity: 1
-                                                    });
-                                                }}>
-                                                    <span>В корзину</span>
-                                                    <UiIcon size={24} name={"cart"}/>
-                                                </UiButton>
-                                            </>
-                                        )}
-                                        {cartItem && (
-                                            <>
-                                                <UiQuantity value={cartItem.quantity} onChange={(data) => {
-                                                    if (!cartItem || !data.value) {
-                                                        return;
-                                                    }
-                                                    cartItem.update({
-                                                        quantity: data.value
-                                                    })
-                                                    CartService.save({
-                                                        catalogProductId: store.catalogProduct.id,
-                                                        quantity: data.value
-                                                    })
-                                                }}/>
-                                                <UiButton
-                                                    colors={{
-                                                        button: [COLORS.TRANSPARENT, COLORS.LIGHT_BLUE],
-                                                        label: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
-                                                        border: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
-                                                    }}
-                                                    href={ROUTES.CART().url}
-                                                    label={'В корзине'}
-                                                />
-                                            </>
-                                        )}
-                                    </div>
-                                    <div className="p-product-commerce__hint">
-                                        Цена актуальна на момент заказа
-                                    </div>
-                                </>
-                            )}
-                            <div className="p-product-commerce__availability">
-                                В наличии в <span>{store.catalogProduct.catalogProductOffers.length} аптеках</span>
-                            </div>
-                        </UiCard>
-                    </div>
+                    <PProductCommerce isLoading={store.isLoading} catalogProduct={store.catalogProduct}/>
                 </div>
                 <div className="p-product__info">
                     <div className="p-product__tabs">
@@ -211,7 +163,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                     </UiPage.Section>
                 )}
                 {store.catalogProduct.catalogProductOffers.length > 0 && (
-                    <UiPage.Section title={'Доступность в аптеках'}>
+                    <UiPage.Section id={'stores'} title={'Доступность в аптеках'}>
                         {store.catalogProduct.catalogProductOffers.map(offer => (
                             <PProductStore key={offer.id} catalogProductOffer={offer}/>
                         ))}

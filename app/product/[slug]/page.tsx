@@ -15,12 +15,10 @@ type PropsType = {
 }
 
 export async function generateMetadata({ params }: PropsType): Promise<Metadata> {
-    const city = await getCity();
     const { isSuccess, data } = await Cache.remember(
         `catalogProductsGetQuery:${params.slug}`,
         async () => await catalogProductsGetQuery({
             slug: params.slug,
-            cityId: city.id
         })
     );
     if (isSuccess && data) {
@@ -34,13 +32,10 @@ export async function generateMetadata({ params }: PropsType): Promise<Metadata>
 }
 
 export default async function Page({ params }: PropsType) {
-    const city = await getCity();
-
     const { isSuccess, data } = await Cache.remember(
         `catalogProductsGetQuery:${params.slug}`,
         async () => await catalogProductsGetQuery({
             slug: params.slug,
-            cityId: city.id
         })
     );
 

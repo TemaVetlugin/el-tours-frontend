@@ -10,6 +10,9 @@ export function useSearchParams<T extends Record<string, any>>(defaultValue: T |
     const [searchParamsString, setSearchParamsString] = useState<string>(searchParams.toString());
 
     useEffect(() => {
+        if (searchParams.toString() === searchParamsString) {
+            return;
+        }
         setSearchParamsString(searchParams.toString());
     }, [searchParams]);
 

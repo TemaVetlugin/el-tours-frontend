@@ -119,49 +119,6 @@
         }
     }
 
-    &-commerce {
-        width: 320px;
-        min-width: 320px;
-
-        &__price {
-            margin-bottom: 24px;
-        }
-
-        &__action {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-            gap: 16px;
-
-            .ui-quantity {
-                min-width: 86px;
-            }
-
-            .ui-button {
-                width: 100%;
-            }
-        }
-
-        &__hint {
-            margin-bottom: 24px;
-            color: $cGrayPrimary;
-            font-size: 12px;
-            font-weight: 400;
-            line-height: 16px;
-        }
-
-        &__availability {
-            color: $cGrayPrimary;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 18px;
-
-            span {
-                color: $cGreenPrimary;
-            }
-        }
-    }
-
     &__tabs {
         display: flex;
         flex-wrap: wrap;

@@ -1,15 +1,16 @@
 'use client';
 
-import React from "react";
 import { observer } from "mobx-react-lite";
+import React from "react";
 
-import { lodash } from "shared/utilities";
+import { currency, lodash } from "shared/utilities";
 
 import './index.scss';
 
 type PropsType = {
     price?: number[] | null,
     priceOffer?: number[] | null,
+    packageAmount?: number | string | null,
     quantity?: number,
 }
 
@@ -41,6 +42,7 @@ export const UiPrice = observer((
         price,
         priceOffer,
         quantity = 1,
+        packageAmount
     }: PropsType
 ) => {
     if (!price || price.length === 0) {
@@ -50,6 +52,8 @@ export const UiPrice = observer((
     const current = parsePrice(price);
 
     const isEqual = lodash.isEqual(offer, current);
+
+    let amount = `${packageAmount}`.replace(/[^0-9]/g, '');
 
     return (
         <div className={'ui-price'}>
@@ -79,6 +83,11 @@ export const UiPrice = observer((
                     </>
                 )}
             </div>
+            {amount.length > 0 && (
+                <div className="ui-price__per-package-amount">
+                    от {currency(current[0] / +amount)} за единицу
+                </div>
+            )}
         </div>
     )
 });

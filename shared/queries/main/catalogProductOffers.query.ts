@@ -1,20 +1,19 @@
-import { CatalogFilterModelInterface, PaginationModel } from "shared/models";
+import { CatalogProductOfferModelInterface } from "shared/models";
 import { makeQuery } from "shared/queries/utilities";
 
 export type ParamsType = {
-    id?: number[],
-    catalogCategoryId?: number,
-    cityId: number
+    catalogProductId?: number,
+    cityId: number,
+    isHydrate?: boolean
 }
 
 type ResponseType = {
-    items: CatalogFilterModelInterface[],
-    pagination: PaginationModel
+    items: CatalogProductOfferModelInterface[],
 }
 
-export const catalogProductsQuery = async (params: ParamsType) => {
+export const catalogProductOffersQuery = async (params: ParamsType) => {
     return await makeQuery<ResponseType>("GET", {
-        endpoint: '/main/catalog-products',
+        endpoint: '/main/catalog-product-offers',
         params,
     });
 }

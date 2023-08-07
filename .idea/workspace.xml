@@ -5,9 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/product/[slug]/components/PProductCommerce/index.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/product/[slug]/components/PProductCommerce/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProductFavorite/index.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProductFavorite/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProductRemind/index.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProductRemind/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProductSubscribe/index.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProductSubscribe/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalog/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalog/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogProductsViewed/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProductsViewed/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/[slug]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/[slug]/page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/CCatalogProduct/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/components/catalog/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/catalog/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/hooks/useSearchParams.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/hooks/useSearchParams.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/main/catalogProductOffers.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/catalogProductOffers.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/main/catalogProductsGet.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/catalogProductsGet.query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/services/User.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/services/User.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiPage/components/Section/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiPage/components/Section/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiPrice/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiPrice/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiPrice/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiPrice/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,10 +82,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/shared/components/catalog" />
+      <recent name="$PROJECT_DIR$/app/product/[slug]/components/PProductCommerce" />
+      <recent name="$PROJECT_DIR$/shared/queries/main" />
       <recent name="$PROJECT_DIR$/shared/ui/UiWrap" />
       <recent name="$PROJECT_DIR$/shared/ui" />
-      <recent name="$PROJECT_DIR$/shared/icons" />
-      <recent name="$PROJECT_DIR$/shared/layout" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/favorites/assets" />
@@ -132,6 +152,7 @@
       <workItem from="1691288384632" duration="427000" />
       <workItem from="1691313134054" duration="10210000" />
       <workItem from="1691332346280" duration="8195000" />
+      <workItem from="1691374917845" duration="4263000" />
     </task>
     <servers />
   </component>

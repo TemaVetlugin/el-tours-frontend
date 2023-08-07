@@ -7,14 +7,15 @@ import './index.scss';
 
 type PropsType = {
     title?: string,
+    id?:string
     style?: CSSProperties,
     children?: React.ReactNode,
     link?: React.ReactNode,
 }
 
-export const Section = observer(({ title, children, style, link }: PropsType) => {
+export const Section = observer(({ title, children, style, link, id }: PropsType) => {
     return (
-        <div className="ui-page-section" style={style}>
+        <div id={id} className="ui-page-section" style={style}>
             <div className="ui-page-section__header">
                 <div className="ui-page-section__title">
                     {title}

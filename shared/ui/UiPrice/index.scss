@@ -39,10 +39,20 @@
             font-family: $fontPrimary;
         }
     }
+
     &__offer &-value {
         text-decoration: line-through;
     }
+
     &__offer &-value__sub {
         line-height: 16px;
+    }
+
+    &__per-package-amount {
+        margin-top: 8px;
+        color: $cTypo;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
     }
 }

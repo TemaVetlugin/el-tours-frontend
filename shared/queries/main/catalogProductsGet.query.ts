@@ -3,7 +3,8 @@ import { makeQuery } from "shared/queries/utilities";
 
 export type ParamsType = {
     slug?: string,
-    cityId?: number | string | null
+    cityId?: number,
+    isHydrate?: boolean
 }
 
 type ResponseType = {
