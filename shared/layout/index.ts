@@ -1,3 +1,5 @@
 export { LayoutCatalogAlphabet } from './LayoutCatalogAlphabet';
-export { LayoutHeader } from './LayoutHeader';
+export { LayoutCookie } from './LayoutCookie';
 export { LayoutFooter } from './LayoutFooter';
+export { LayoutFooterBanner } from './LayoutFooterBanner';
+export { LayoutHeader } from './LayoutHeader';

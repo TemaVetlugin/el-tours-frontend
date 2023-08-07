@@ -2,11 +2,11 @@ import Script from "next/script";
 import React from "react";
 import { configure } from "mobx";
 import { Metadata } from "next";
-import { LayoutFooterBanner } from "shared/layout/LayoutFooterBanner";
+
 
 import { bootQuery } from "shared/queries/frontend";
 import { Cache } from "shared/utilities/server";
-import { LayoutCatalogAlphabet, LayoutFooter, LayoutHeader } from "shared/layout";
+import { LayoutCatalogAlphabet, LayoutFooter, LayoutHeader, LayoutCookie, LayoutFooterBanner } from "shared/layout";
 import { getCity } from "shared/server";
 
 import { Boot } from "./boot";
@@ -72,6 +72,7 @@ export default async function Layout({ children }: PropsType) {
                     <LayoutFooterBanner/>
                     <LayoutCatalogAlphabet/>
                     <LayoutFooter/>
+                    <LayoutCookie/>
                 </body>
             </StylesRegistry>
         </html>
