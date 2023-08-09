@@ -13,7 +13,7 @@ import './index.scss';
 
 type PropsType = UiControlPropsType<string, {
     type?: 'text' | 'password' | 'email',
-    placeholder?: string,
+    placeholder?: string | React.ReactNode,
     mask?: string,
     onFocus?: () => void,
     onBlur?: () => void,
@@ -93,7 +93,9 @@ export const UiInput = observer((
         <div className="ui-input">
             {input()}
             {placeholder && (
-                <div className="ui-input__placeholder">{placeholder}</div>
+                <div className="ui-input__placeholder">
+                    {placeholder}
+                </div>
             )}
         </div>
     )

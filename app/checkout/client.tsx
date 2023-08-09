@@ -10,7 +10,6 @@ import {
     UiDataBoundary,
     UiDatepicker,
     UiForm,
-    UiFormControl,
     UiGrid,
     UiInput,
     UiLink,
@@ -160,7 +159,7 @@ export const Client = observer(({ deliveryTypeId }: PropsType) => {
                                         </div>
                                         <div className="p-checkout-section__inner" style={{ maxWidth: 720 }}>
                                             <UiGrid columns={1} gap={16}>
-                                                <UiFormControl
+                                                <UiForm.Control
                                                     errorMessage={validationUserAddress.address.errorMessage}>
                                                     <UiInput
                                                         placeholder={'Укажите адрес доставки'}
@@ -168,9 +167,9 @@ export const Client = observer(({ deliveryTypeId }: PropsType) => {
                                                         name={'address'}
                                                         onChange={form.userAddress.handleChange}
                                                     />
-                                                </UiFormControl>
+                                                </UiForm.Control>
                                                 <UiGrid columns={4} gap={16}>
-                                                    <UiFormControl
+                                                    <UiForm.Control
                                                         errorMessage={validationUserAddress.apartment.errorMessage}>
                                                         <UiInput
                                                             placeholder={'Квартира/офис'}
@@ -178,7 +177,7 @@ export const Client = observer(({ deliveryTypeId }: PropsType) => {
                                                             name={'apartment'}
                                                             onChange={form.userAddress.handleChange}
                                                         />
-                                                    </UiFormControl>
+                                                    </UiForm.Control>
                                                     <UiInput
                                                         placeholder={'Этаж'}
                                                         value={form.userAddress.floor}
@@ -215,22 +214,22 @@ export const Client = observer(({ deliveryTypeId }: PropsType) => {
                                             <div className="p-checkout-section__title">Дата и время доставки</div>
                                         </div>
                                         <div className="p-checkout-section__inner p-checkout-section__inner--row">
-                                            <UiFormControl label={'Дата доставки'} style={{ width: 170 }}>
+                                            <UiForm.Control label={'Дата доставки'} style={{ width: 170 }}>
                                                 <UiDatepicker
                                                     min={date().plus({ day: 1 }).toISO() as string}
                                                     value={form.deliveryDate}
                                                     name={'deliveryDate'}
                                                     onChange={form.handleChange}
                                                 />
-                                            </UiFormControl>
-                                            <UiFormControl label={'Время доставки'} style={{ width: 170 }}>
+                                            </UiForm.Control>
+                                            <UiForm.Control label={'Время доставки'} style={{ width: 170 }}>
                                                 <UiSelect
                                                     items={DELIVERY_TIMES}
                                                     value={form.deliveryTime}
                                                     name={'deliveryTime'}
                                                     onChange={form.handleChange}
                                                 />
-                                            </UiFormControl>
+                                            </UiForm.Control>
                                         </div>
                                     </div>
                                 )}
@@ -257,7 +256,7 @@ export const Client = observer(({ deliveryTypeId }: PropsType) => {
                                         </div>
                                     </div>
                                     <div className="p-checkout-section__inner" style={{ maxWidth: 340 }}>
-                                        <UiFormControl
+                                        <UiForm.Control
                                             label={'Номер телефона'}
                                             errorMessage={validation.userPhone.errorMessage}
                                         >
@@ -267,7 +266,7 @@ export const Client = observer(({ deliveryTypeId }: PropsType) => {
                                                 name={'userPhone'}
                                                 onChange={form.handleChange}
                                             />
-                                        </UiFormControl>
+                                        </UiForm.Control>
                                     </div>
                                 </div>
                                 {checkoutItem && (

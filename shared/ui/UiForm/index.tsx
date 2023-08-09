@@ -4,6 +4,8 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 import classnames from "classnames";
 
+import { Control } from "./components/Control";
+
 import './index.scss';
 
 type PropsType = {
@@ -14,7 +16,7 @@ type PropsType = {
     children?: React.ReactNode
 }
 
-export const UiForm = observer((
+const Form = observer((
     {
         className = '',
         onSubmit,
@@ -40,3 +42,6 @@ export const UiForm = observer((
     )
 })
 
+export const UiForm = Object.assign(Form, {
+    Control,
+})

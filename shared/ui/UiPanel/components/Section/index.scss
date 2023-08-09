@@ -1,0 +1,22 @@
+.ui-panel-section {
+    max-width: 616px;
+
+    &:not(&:last-child) {
+        margin-bottom: 50px;
+    }
+
+    &__title {
+        font-family: $fontSecondary;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 26px;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        span {
+            font-family: $fontSecondary;
+        }
+    }
+}

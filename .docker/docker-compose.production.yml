@@ -1,0 +1,35 @@
+version: '3'
+services:
+    nextjs:
+        build:
+            context: ../
+            dockerfile: ./.docker/nextjs/Dockerfile
+        restart: 'no'
+        environment:
+            - CYPRESS_INSTALL_BINARY=0
+        ports:
+            - '3000:3000'
+    nginx:
+        image: 'lscr.io/linuxserver/swag:latest'
+        restart: 'always'
+        cap_add:
+            - NET_ADMIN
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=Europe/London
+            - URL=${DOMAIN}
+            - SUBDOMAINS=
+            - VALIDATION=http
+            - EXTRA_DOMAINS=aptekavita.ru,www.aptekavita.ru
+        volumes:
+            - './nginx/production.conf:/config/nginx/site-confs/default.conf'
+        ports:
+            - '80:80'
+            - '443:443'
+        links:
+            - nextjs
+        depends_on:
+            - nextjs
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'

@@ -5,9 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.docker/docker-compose.production.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.docker/nginx/production.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/profile/assets/location.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/queries/main/userAddressesSearch.query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/ui/UiAddressInput/index.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/ui/UiAddressInput/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/ui/UiTextarea/index.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/ui/UiTextarea/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutFooterBanner/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutFooterBanner/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/FooterBanner.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/FooterBanner.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/checkout/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/profile/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/profile/client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderLogin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderLogin/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/queries/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiDropdown/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiDropdown/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiDropdown/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiDropdown/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiForm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiForm/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiFormControl/index.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiFormControl/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiInput/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiInput/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiInput/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiInput/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/UiPanel/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiPanel/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/ui/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +79,7 @@
     "RunOnceActivity.laravel-idea.search-composer-json": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "dev",
-    "last_opened_file_path": "/home/izica/git/yaplus-frontend/shared/layout/LayoutCookie",
+    "last_opened_file_path": "/home/izica/git/yaplus-frontend/shared/ui/UiForm/components",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -82,11 +101,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/shared/layout/LayoutCookie" />
-      <recent name="$PROJECT_DIR$/shared/utilities" />
-      <recent name="$PROJECT_DIR$/shared/models" />
+      <recent name="$PROJECT_DIR$/shared/ui/UiForm/components" />
+      <recent name="$PROJECT_DIR$/shared/ui" />
       <recent name="$PROJECT_DIR$/shared/queries/main" />
-      <recent name="$PROJECT_DIR$/app/licenses" />
+      <recent name="$PROJECT_DIR$/app/profile/assets" />
+      <recent name="$PROJECT_DIR$/shared/ui/UiPanel/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/contacts/assets" />
@@ -155,7 +174,10 @@
       <workItem from="1691332346280" duration="8195000" />
       <workItem from="1691374917845" duration="15352000" />
       <workItem from="1691398181742" duration="1313000" />
-      <workItem from="1691399502777" duration="3498000" />
+      <workItem from="1691399502777" duration="4459000" />
+      <workItem from="1691483199680" duration="2448000" />
+      <workItem from="1691522156820" duration="277000" />
+      <workItem from="1691583239488" duration="7525000" />
     </task>
     <servers />
   </component>

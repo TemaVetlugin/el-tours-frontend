@@ -15,7 +15,7 @@ type PropsType = {
     children?: React.ReactNode
 }
 
-export const UiFormControl = observer((
+export const Control = observer((
     {
         label,
         style,

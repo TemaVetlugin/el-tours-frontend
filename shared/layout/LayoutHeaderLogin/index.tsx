@@ -5,12 +5,12 @@ import { observer } from "mobx-react-lite";
 import Link from "next/link";
 import React from "react";
 import { COLORS, MASKS, ROUTES } from "shared/contants";
-import { useMask, useStore, useRouter, useUser } from "shared/hooks";
+import { useMask, useRouter, useStore, useUser } from "shared/hooks";
 import { useValidation } from "shared/hooks/useValidation";
 import { usersConfirmQuery, usersLoginQuery } from "shared/queries/main";
 import { LayoutService, UserService } from "shared/services";
 
-import { UiButton, UiCheckbox, UiForm, UiFormControl, UiIcon, UiInput, UiModal } from "shared/ui";
+import { UiButton, UiCheckbox, UiForm, UiIcon, UiInput, UiModal } from "shared/ui";
 import { isMobilePhone, isRequired } from "shared/validations";
 
 import './index.scss';
@@ -121,7 +121,7 @@ export const LayoutHeaderLogin = observer(() => {
                         <UiModal.Title>Вход в личный кабинет</UiModal.Title>
                         <UiModal.Description>Пожалуйста авторизуйтесь, чтобы оформить заказ</UiModal.Description>
                         <UiForm onSubmit={handleLogin}>
-                            <UiFormControl
+                            <UiForm.Control
                                 label={'Введите номер телефона'}
                                 errorMessage={validationLogin.phone.errorMessage}
                             >
@@ -133,8 +133,8 @@ export const LayoutHeaderLogin = observer(() => {
                                     onChange={store.handleChange}
                                     autoFocus
                                 />
-                            </UiFormControl>
-                            <UiFormControl
+                            </UiForm.Control>
+                            <UiForm.Control
                                 errorMessage={store.errorMessage}
                             >
                                 <UiButton
@@ -142,7 +142,7 @@ export const LayoutHeaderLogin = observer(() => {
                                     type={'submit'}
                                     label={'Продолжить'}
                                 />
-                            </UiFormControl>
+                            </UiForm.Control>
                             <UiCheckbox
                                 isRequired
                                 name={'isAccepted'}
@@ -202,7 +202,7 @@ export const LayoutHeaderLogin = observer(() => {
                                     </div>
                                 </div>
                             </label>
-                            <UiFormControl
+                            <UiForm.Control
                                 errorMessage={store.errorMessage}
                             >
                                 <UiButton
@@ -211,7 +211,7 @@ export const LayoutHeaderLogin = observer(() => {
                                     type={'submit'}
                                     label={'Продолжить'}
                                 />
-                            </UiFormControl>
+                            </UiForm.Control>
                             <div
                                 className="layout-header-login-confirm__again"
                                 onClick={() => {
