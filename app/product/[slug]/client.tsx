@@ -197,7 +197,7 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                             return (
                                 <UiButton
                                     key={tab.id}
-                                    size={'small'}
+                                    template={'small'}
                                     label={tab.name}
                                     onClick={() => store.set("tab", tab.id)}
                                     colors={isActive ? {

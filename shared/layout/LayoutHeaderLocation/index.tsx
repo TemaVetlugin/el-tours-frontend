@@ -91,12 +91,12 @@ export const LayoutHeaderLocation = observer(() => {
                     <div className="layout-header-location-guess__actions">
                         <UiButton
                             label={'Да'}
-                            size={"small"}
+                            template={"small"}
                             onClick={handleGuessAccept}
                         />
                         <UiButton
                             label={'Нет'}
-                            size={"small"}
+                            template={"small"}
                             onClick={handleGuessCancel}
                             colors={{
                                 button: [COLORS.TRANSPARENT, COLORS.GREEN_SECONDARY],

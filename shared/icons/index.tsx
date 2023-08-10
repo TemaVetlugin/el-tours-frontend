@@ -12,6 +12,7 @@ export { chevronLeft } from "./chevronLeft";
 export { chevronRight } from "./chevronRight";
 export { chevronUp } from "./chevronUp";
 export { close } from "./close";
+export { closeLight } from "./closeLight";
 export { deliveryCourier } from "./deliveryCourier";
 export { deliverySelfpickup } from "./deliverySelfpickup";
 export { exclamationCircle } from "./exclamationCircle";

@@ -54,7 +54,7 @@ export const Client = observer(() => {
                                 onClick={() => {
                                     CartService.clear()
                                 }}
-                                size={"small"}
+                                template={"small"}
                                 colors={{
                                     button: [COLORS.TRANSPARENT, COLORS.TRANSPARENT],
                                     label: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],

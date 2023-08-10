@@ -63,7 +63,7 @@ export const LayoutHeader = observer(() => {
                                     router.push(ROUTES.FAVORITES())
                                 }}
                                 notification={UserService.user.userFavorites.length}
-                                size={'icon'}
+                                template={'icon'}
                                 colors={{
                                     button: [COLORS.LIGHT_BLUE, COLORS.GREEN_PRIMARY],
                                     icon: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
@@ -73,7 +73,7 @@ export const LayoutHeader = observer(() => {
                             </UiButton>
                             <UiLink href={ROUTES.CART().url}>
                                 <UiButton
-                                    size={'icon'}
+                                    template={'icon'}
                                     notification={CartService.cartItems.length}
                                     colors={{
                                         button: [COLORS.LIGHT_BLUE, COLORS.GREEN_PRIMARY],

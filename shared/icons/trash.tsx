@@ -3,10 +3,36 @@ import React from "react";
 import { IconType } from "./index";
 
 export const trash: IconType = (size, colors) => (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2 4H3.33333H14" stroke={colors[0]} strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M5.33203 4.00065V2.66732C5.33203 2.3137 5.47251 1.97456 5.72256 1.72451C5.9726 1.47446 6.31174 1.33398 6.66536 1.33398H9.33203C9.68565 1.33398 10.0248 1.47446 10.2748 1.72451C10.5249 1.97456 10.6654 2.3137 10.6654 2.66732V4.00065M12.6654 4.00065V13.334C12.6654 13.6876 12.5249 14.0267 12.2748 14.2768C12.0248 14.5268 11.6857 14.6673 11.332 14.6673H4.66536C4.31174 14.6673 3.9726 14.5268 3.72256 14.2768C3.47251 14.0267 3.33203 13.6876 3.33203 13.334V4.00065H12.6654Z" stroke={colors[0]} strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M6.66797 7.33398V11.334" stroke={colors[0]} strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M9.33203 7.33398V11.334" stroke={colors[0]} strokeLinecap="round" strokeLinejoin="round"/>
+    <svg
+        width={size[0]}
+        height={size[0]}
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M3 6H5H21"
+            stroke={colors[0]}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M8 6.00098V4.00098C8 3.47054 8.21071 2.96184 8.58579 2.58676C8.96086 2.21169 9.46957 2.00098 10 2.00098H14C14.5304 2.00098 15.0391 2.21169 15.4142 2.58676C15.7893 2.96184 16 3.47054 16 4.00098V6.00098M19 6.00098V20.001C19 20.5314 18.7893 21.0401 18.4142 21.4152C18.0391 21.7903 17.5304 22.001 17 22.001H7C6.46957 22.001 5.96086 21.7903 5.58579 21.4152C5.21071 21.0401 5 20.5314 5 20.001V6.00098H19Z"
+            stroke={colors[0]}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M10 11.001V17.001"
+            stroke={colors[0]}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M14 11.001V17.001"
+            stroke={colors[0]}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
     </svg>
 );

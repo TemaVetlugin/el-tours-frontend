@@ -34,7 +34,7 @@ export const Client = observer(() => {
     }, [isGranted, city, store]);
 
     const handleDelete = async (id: number) => {
-        if (!await Notifier.prompt('Подтвердите удаление напоминания')) {
+        if (!await Notifier.confirm('Подтвердите удаление напоминания')) {
             return;
         }
         store.set('userReminders', store.userReminders.filter(userReminder => userReminder.id !== id));

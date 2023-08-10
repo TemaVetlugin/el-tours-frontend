@@ -89,7 +89,7 @@ export const LayoutHeaderSearch = observer(() => {
                     onFocus={() => store.set("hints", true)}
                     onBlur={() => store.set("hints", false)}
                 />
-                <UiButton size={'icon'} type={'submit'}>
+                <UiButton template={'icon'} type={'submit'}>
                     <UiIcon size={24} name={'search'}/>
                 </UiButton>
                 {store.hints && (

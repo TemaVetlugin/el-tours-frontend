@@ -52,7 +52,7 @@ export const UiBadge = observer((
             {!isLoading && isError && (
                 <>
                     <div className='ui-data-boundary__error'>{errorMessage}</div>
-                    {onAction && <UiButton size='small' label={actionText} onClick={onAction}/>}
+                    {onAction && <UiButton template='small' label={actionText} onClick={onAction}/>}
                 </>
             )}
         </div>

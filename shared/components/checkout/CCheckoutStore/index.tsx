@@ -28,7 +28,7 @@ export const CCheckoutStore = observer(({ checkoutItem, value, name, onChange }:
                 <div className="c-checkout-store__name">{store.name}</div>
                 <UiButton
                     label={store.id === value ? 'Выбрана' : 'Выбрать'}
-                    size={"small"}
+                    template={"small"}
                     colors={store.id === value
                         ? {
                             button: [COLORS.TRANSPARENT, COLORS.LIGHT_BLUE],

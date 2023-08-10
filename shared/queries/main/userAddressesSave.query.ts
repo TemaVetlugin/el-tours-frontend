@@ -2,7 +2,8 @@ import { UserAddressModelInterface } from "shared/models";
 import { makeQuery } from "../utilities";
 
 type ResponseType = {
-    items: any[]
+    item: UserAddressModelInterface,
+    items: UserAddressModelInterface[]
 }
 
 export const userAddressesSaveQuery = async (body: UserAddressModelInterface) => {

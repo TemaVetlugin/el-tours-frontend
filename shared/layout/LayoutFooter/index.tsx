@@ -85,15 +85,15 @@ export const LayoutFooter = observer(() => {
                     <UiButton label={'Понятно'} onClick={() => Notifier.data.alert.resolve(true)}/>
                 </UiModal.Actions>
             </UiModal>
-            <UiModal isOpened={Notifier.data.prompt.isOpened} onClose={() => Notifier.data.prompt.resolve(false)} width={380}>
+            <UiModal isOpened={Notifier.data.confirm.isOpened} onClose={() => Notifier.data.confirm.resolve(false)} width={380}>
                 <UiModal.Description>
-                    {Notifier.data.prompt.message}
+                    {Notifier.data.confirm.message}
                 </UiModal.Description>
                 <UiModal.Actions>
-                    <UiButton label={'Принять'} onClick={() => Notifier.data.prompt.resolve(true)}/>
+                    <UiButton label={'Принять'} onClick={() => Notifier.data.confirm.resolve(true)}/>
                     <UiButton
                         label={'Отменить'}
-                        onClick={() => Notifier.data.prompt.resolve(false)}
+                        onClick={() => Notifier.data.confirm.resolve(false)}
                         colors={{
                             button: [COLORS.TRANSPARENT, COLORS.GREEN_PRIMARY],
                             border: [COLORS.GREEN_PRIMARY, COLORS.GREEN_PRIMARY],

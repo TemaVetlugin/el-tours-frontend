@@ -8,7 +8,7 @@ export const Notifier = new class {
             message: '',
             isOpened: false,
         },
-        prompt: {
+        confirm: {
             resolve: (() => {
             }) as ((value: boolean) => void),
             message: '',
@@ -37,14 +37,14 @@ export const Notifier = new class {
         });
     }
 
-    prompt = async (message: string) => {
+    confirm = async (message: string) => {
         return new Promise(resolve => {
             runInAction(() => {
-                this.data.prompt.message = message;
-                this.data.prompt.isOpened = true;
-                this.data.prompt.resolve = (value: boolean) => {
+                this.data.confirm.message = message;
+                this.data.confirm.isOpened = true;
+                this.data.confirm.resolve = (value: boolean) => {
                     runInAction(() => {
-                        this.data.prompt.isOpened = false;
+                        this.data.confirm.isOpened = false;
                     })
                     resolve(value);
                 };

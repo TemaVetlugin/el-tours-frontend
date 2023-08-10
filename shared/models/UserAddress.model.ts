@@ -1,4 +1,4 @@
-import { makeObservable, observable } from "mobx";
+import { computed, makeObservable, observable } from "mobx";
 
 import { Model } from "./Model";
 
@@ -42,8 +42,17 @@ export class UserAddressModel extends Model<UserAddressModelInterface> implement
             entrance: observable,
             intercom: observable,
             comment: observable,
+            value: computed
         });
 
         this.update(payload);
+    }
+
+    get value() {
+        return [
+            this.address,
+            this.apartment ? `кв/офис ${this.apartment}` : null,
+            this.floor ? `этаж ${this.floor}` : null,
+        ].filter(item => !!item).join(', ');
     }
 }

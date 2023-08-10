@@ -54,7 +54,7 @@ export const Client = observer(({ slug }: PropsType) => {
                             />
                             <div>
                                 <UiPage.Actions>
-                                    <UiButton href={ROUTES.PROMO_ACTIONS()} size={"small"} colors={{
+                                    <UiButton href={ROUTES.PROMO_ACTIONS()} template={"small"} colors={{
                                         icon: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
                                         label: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
                                         button: [COLORS.TRANSPARENT, COLORS.TRANSPARENT],

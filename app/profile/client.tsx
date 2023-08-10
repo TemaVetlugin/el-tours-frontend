@@ -1,5 +1,6 @@
 'use client';
 
+import classnames from "classnames";
 import { observer } from "mobx-react-lite";
 import React from "react";
 
@@ -7,10 +8,10 @@ import { CProfileMenu } from "shared/components/profile";
 import { COLORS, MASKS, ROUTES } from "shared/contants";
 import { useAsyncEffect, usePrivatePage, useStore, useUser, useValidation } from "shared/hooks";
 import { UserAddressModel } from "shared/models";
-import { userAddressesQuery, userAddressesSaveQuery } from "shared/queries/main";
+import { userAddressesQuery, userAddressesSaveQuery, usersUpdateQuery } from "shared/queries/main";
 import { UiButton, UiCheckbox, UiDataBoundary, UiForm, UiGrid, UiIcon, UiInput, UiPage, UiPanel, UiTextarea, UiWrap } from "shared/ui";
 import { UiAddressInput } from "shared/ui/UiAddressInput";
-import { mask } from "shared/utilities";
+import { mask, Notifier } from "shared/utilities";
 import { isRequired } from "shared/validations";
 
 import './page.scss';
@@ -19,7 +20,7 @@ export const Client = observer(() => {
     const isGranted = usePrivatePage();
     const user = useUser();
     const store = useStore({
-        isLoading: false,
+        isLoading: true,
         isSubmitting: false,
         userAddresses: [] as UserAddressModel[],
         userAddress: new UserAddressModel(),
@@ -45,7 +46,7 @@ export const Client = observer(() => {
 
     const handleSubmit = async () => {
         validation.submit();
-        if (!validation.isValid) {
+        if (!validation.isValid || store.isSubmitting) {
             return;
         }
         store.set("isSubmitting", true);
@@ -53,9 +54,35 @@ export const Client = observer(() => {
 
         if (isSuccess && data) {
             store.set("userAddresses", data.items.map(item => new UserAddressModel(item)));
+            if (store.setAsDefault && data.item.id) {
+                store.set("setAsDefault", 0);
+                handleSelectUserAddress(data.item.id)
+            }
         }
         store.set("isSubmitting", false);
+        store.set("isVisibleSaveForm", false);
         store.set("userAddress", new UserAddressModel());
+    }
+
+    const handleSelectUserAddress = (userAddressId: number) => {
+        usersUpdateQuery({ userAddressId });
+        user.update({ userAddressId })
+    }
+
+    const handleCreate = () => {
+        store.set("userAddress", new UserAddressModel());
+        store.set("isVisibleSaveForm", true);
+    }
+
+    const handleEdit = (userAddress: UserAddressModel) => {
+        store.userAddress.update(userAddress);
+        store.set("isVisibleSaveForm", true);
+    }
+
+    const handleDelete = async (userAddress: UserAddressModel) => {
+        const isConfirmed = await Notifier.confirm('Подтвердите удаление адреса');
+        store.userAddress.update(userAddress);
+        store.set("isVisibleSaveForm", true);
     }
 
     return (
@@ -76,24 +103,54 @@ export const Client = observer(() => {
                                 <UiPanel.Section title={'Адреса доставки'}>
                                     <UiDataBoundary isLoading={store.isLoading}>
                                         {store.userAddresses.map(userAddress => (
-                                            <div key={userAddress.id}>
-                                                {userAddress.address}
-                                                <button
-                                                    onClick={() => {
-                                                        store.userAddress.update(userAddress);
-                                                        store.set("isVisibleSaveForm", true);
-                                                    }}
-                                                >
-                                                    edit
-                                                </button>
+                                            <div
+                                                key={userAddress.id}
+                                                className={classnames('p-profile-user-address', {
+                                                    'p-profile-user-address--selected': userAddress.id === user.userAddressId
+                                                })}
+                                            >
+                                                <div className="p-profile-user-address__default">Основной адрес</div>
+                                                <div className="p-profile-user-address__radio" onClick={() => handleSelectUserAddress(userAddress.id)}/>
+                                                <div className="p-profile-user-address__name" onClick={() => handleSelectUserAddress(userAddress.id)}>
+                                                    {userAddress.address}
+                                                </div>
+                                                <div className="p-profile-user-address__actions">
+                                                    <UiButton
+                                                        onClick={() => handleEdit(userAddress)}
+                                                        template={'icon'}
+                                                        colors={{
+                                                            button: [COLORS.TRANSPARENT, COLORS.TRANSPARENT],
+                                                            icon: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                                                        }}
+                                                    >
+                                                        <UiIcon size={24} name={'pencil'}/>
+                                                    </UiButton>
+                                                    <UiButton
+                                                        onClick={() => handleDelete(userAddress)}
+                                                        template={'icon'}
+                                                        colors={{
+                                                            button: [COLORS.TRANSPARENT, COLORS.TRANSPARENT],
+                                                            icon: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                                                        }}
+                                                    >
+                                                        <UiIcon size={24} name={'trash'}/>
+                                                    </UiButton>
+                                                </div>
                                             </div>
                                         ))}
-                                        <button onClick={() => {
-                                            store.set("userAddress", new UserAddressModel());
-                                            store.set("isVisibleSaveForm", true);
-                                        }}>
-                                            add new
-                                        </button>
+                                        {!store.isVisibleSaveForm && (
+                                            <UiButton
+                                                onClick={handleCreate}
+                                                colors={{
+                                                    button: [COLORS.TRANSPARENT, COLORS.TRANSPARENT],
+                                                    icon: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                                                    label: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                                                }}
+                                            >
+                                                <span>Добавить адрес</span>
+                                                <UiIcon size={24} name={'plus'}/>
+                                            </UiButton>
+                                        )}
                                     </UiDataBoundary>
                                 </UiPanel.Section>
                                 {store.isVisibleSaveForm && (
@@ -162,9 +219,17 @@ export const Client = observer(() => {
                                                     type={'submit'}
                                                     label={'Сохранить адрес'}
                                                 />
-                                                <button onClick={() => store.set("isVisibleSaveForm", false)}>
-                                                    hide
-                                                </button>
+                                                <UiButton
+                                                    onClick={() => store.set("isVisibleSaveForm", false)}
+                                                    colors={{
+                                                        button: [COLORS.TRANSPARENT, COLORS.TRANSPARENT],
+                                                        icon: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                                                        label: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                                                    }}
+                                                >
+                                                    <span>Отменить</span>
+                                                    <UiIcon size={24} name={'closeLight'}/>
+                                                </UiButton>
                                             </UiForm.Control>
                                         </UiForm>
                                     </UiPanel.Section>

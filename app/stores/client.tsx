@@ -96,7 +96,7 @@ export const Client = observer(() => {
                                             </div>
                                             <div className="p-stores-item__footer">
                                                 <UiButton
-                                                    size={'small'}
+                                                    template={'small'}
                                                     label={'Выбрать эту аптеку'}
                                                 />
                                             </div>

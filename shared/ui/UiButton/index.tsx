@@ -22,7 +22,7 @@ type PropsType = {
     isLoading?: boolean,
     style?: React.CSSProperties,
     className?: string,
-    size?: 'small' | 'normal' | 'large' | 'icon';
+    template?: 'small' | 'normal' | 'large' | 'icon';
     colors?: {
         button?: [string, string] | string,
         label?: [string, string] | string,
@@ -43,14 +43,14 @@ export const UiButton = observer((
         isLoading = false,
         style,
         className,
-        size = 'normal',
+        template = 'normal',
         colors: _colors,
         isDisabled = false,
         notification,
     }: PropsType
 ) => {
     const [isHovered, setIsHovered] = useState(false);
-    const classNames = classnames('ui-button', `ui-button--${size}`, className, {
+    const classNames = classnames('ui-button', `ui-button--${template}`, className, {
         'ui-button--disabled': isDisabled,
     });
 

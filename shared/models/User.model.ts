@@ -19,6 +19,7 @@ export interface UserModelInterface {
     email?: string;
     cityConfirmed?: boolean;
     isInitialized?: boolean;
+    userAddressId?: number;
     userFavorites?: UserFavoriteModelInterface[]
     userStores?: UserStoreModelInterface[],
 }
@@ -33,6 +34,7 @@ export class UserModel extends Model<UserModelInterface> implements UserModelInt
         "id",
         "typeId",
         "cityId",
+        "userAddressId",
         "phone",
         "cityConfirmed",
         "firstname",
@@ -47,6 +49,7 @@ export class UserModel extends Model<UserModelInterface> implements UserModelInt
 
     id = 0;
     cityId = 0;
+    userAddressId = 0;
     typeId = UserTypeEnum.Anonymous.id;
     phone = '';
     firstname = '';
@@ -66,6 +69,7 @@ export class UserModel extends Model<UserModelInterface> implements UserModelInt
             id: observable,
             typeId: observable,
             cityId: observable,
+            userAddressId: observable,
             phone: observable,
             cityConfirmed: observable,
             firstname: observable,

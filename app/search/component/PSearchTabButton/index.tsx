@@ -24,7 +24,7 @@ export const PSearchTabButton = observer(({ label, name, count }: PropsType) => 
     }
     return (
         <UiButton
-            size={"small"}
+            template={"small"}
             label={`${label}: ${count}`}
             onClick={() => router.replace(null, {
                 ...searchParams,
