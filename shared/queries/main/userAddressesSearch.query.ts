@@ -5,7 +5,7 @@ type RequestType = {
 };
 
 type ResponseType = {
-    items: any[]
+    items: string[]
 }
 
 export const userAddressesSearchQuery = async (params: RequestType) => {

@@ -60,7 +60,6 @@ export const Client = observer(({ slug }: PropsType) => {
                         title={catalogCategory.name}
                         params={{
                             catalogCategoryId: catalogCategory.id,
-                            apply: ["catalog_category"]
                         }}
                     />
                 )}

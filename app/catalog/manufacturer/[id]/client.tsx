@@ -30,7 +30,6 @@ export const Client = observer(({ manufacturer }: PropsType) => {
                     params={{
                         manufacturerId: [store.manufacturer.id],
                         except: ['manufacturer'],
-                        apply: ['manufacturer'],
                     }}
                 />
             </UiWrap>

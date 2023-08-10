@@ -30,7 +30,6 @@ export const Client = observer(({ substance }: PropsType) => {
                     params={{
                         substanceId: [store.substance.id],
                         except: ['substance'],
-                        apply: ['substance']
                     }}
                 />
             </UiWrap>

@@ -27,7 +27,6 @@ export const Client = observer(({ id }: PropsType) => {
                     params={{
                         markId: [id],
                         except: ['mark'],
-                        apply: ['mark']
                     }}
                 />
             </UiWrap>

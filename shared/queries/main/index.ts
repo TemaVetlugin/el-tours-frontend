@@ -39,3 +39,5 @@ export { usersLoginQuery } from './usersLogin.query';
 export { usersUpdateQuery } from './usersUpdate.query';
 export { licenseSectionsQuery } from './licenseSections.query';
 export { userAddressesSearchQuery } from './userAddressesSearch.query';
+export { userAddressesSaveQuery } from './userAddressesSave.query';
+export { userAddressesQuery } from './userAddresses.query';

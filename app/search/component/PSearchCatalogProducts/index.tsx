@@ -20,7 +20,6 @@ export const PSearchCatalogProducts = observer(() => {
         <CCatalog
             params={{
                 query: searchParams.query,
-                apply: ['query']
             }}
         />
     )

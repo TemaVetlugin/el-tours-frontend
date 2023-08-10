@@ -21,9 +21,30 @@
         gap: 32px;
     }
 
-    &__filters {
+    &-filters {
+        position: relative;
         width: 280px;
         min-width: 280px;
+
+        &__syncer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: $cWhite;
+            opacity: 0;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+
+        &--syncing &__syncer {
+            opacity: 0.5;
+            pointer-events: auto;
+        }
     }
 
     &__items {

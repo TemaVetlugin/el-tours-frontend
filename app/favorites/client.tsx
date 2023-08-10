@@ -54,7 +54,6 @@ export const Client = observer(() => {
                             title={'Избранное'}
                             params={{
                                 id,
-                                apply: ['id']
                             }}
                         />
                     )}
