@@ -78,9 +78,9 @@ export const LayoutHeaderLogin = observer(() => {
                         router.push(ROUTES.PROFILE());
                     }}
                     colors={{
-                        button: [COLORS.LIGHT_BLUE, COLORS.GREEN_SECONDARY],
-                        label: [COLORS.TYPO, COLORS.WHITE],
-                        icon: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
+                        button: [COLORS.WHITE, COLORS.GREEN_PRIMARY],
+                        border: [COLORS.GRAY_SECONDARY, COLORS.GREEN_PRIMARY],
+                        icon: [COLORS.BLACK, COLORS.WHITE],
                     }}
                 >
                     <UiIcon size={24} name={'user'}/>
@@ -91,19 +91,18 @@ export const LayoutHeaderLogin = observer(() => {
             )}
             {!user.isAuthorized && (
                 <UiButton
-                    style={{ minWidth: 116 }}
+                    style={{ width: 50 }}
                     isLoading={UserService.isLoading}
                     onClick={() => {
                         UserService.isAuthorized();
                     }}
                     colors={{
-                        button: [COLORS.LIGHT_BLUE, COLORS.GREEN_SECONDARY],
-                        label: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
-                        icon: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
+                        button: [COLORS.WHITE, COLORS.GREEN_PRIMARY],
+                        border: [COLORS.DARK_SECONDARY, COLORS.WHITE],
+                        icon: [COLORS.BLACK, COLORS.WHITE],
                     }}
                 >
                     <UiIcon size={24} name={'user'}/>
-                    <span>Войти</span>
                 </UiButton>
             )}
 

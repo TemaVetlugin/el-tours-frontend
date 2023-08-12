@@ -9,7 +9,7 @@ import { useRouter } from "shared/hooks";
 import { CartService, LayoutService, UserService } from "shared/services";
 import { UiButton, UiIcon, UiLink, UiWrap } from "shared/ui";
 
-import { LayoutHeaderCatalog } from "../LayoutHeaderCatalog";
+import { LayoutHeaderCatalog } from "../LayoutHeaderPhone";
 import { LayoutHeaderLocation } from "../LayoutHeaderLocation";
 import { LayoutHeaderLogin } from "../LayoutHeaderLogin";
 import { LayoutHeaderMenuPrimary } from "../LayoutHeaderMenuPrimary";
@@ -40,21 +40,13 @@ export const LayoutHeader = observer(() => {
                 'layout-header--minified': LayoutService.headerIsMinified
             })}>
                 <UiWrap>
-                    <div className="layout-header__top">
-                        <LayoutHeaderLocation/>
-                        <LayoutHeaderMenuPrimary/>
-                        <LayoutHeaderMenuSecondary/>
-                    </div>
-                </UiWrap>
-                <UiWrap>
                     <div className="layout-header__main">
                         <UiLink href={ROUTES.HOME()} className="layout-header__logo"/>
-                        <div className="layout-header__catalog">
-                            <LayoutHeaderCatalog/>
-                        </div>
+                        {/*<div className="layout-header__catalog">*/}
+                        {/*    <LayoutHeaderCatalog/>*/}
+                        {/*</div>*/}
                         <LayoutHeaderSearch/>
                         <div className="layout-header__actions">
-                            <LayoutHeaderLogin/>
                             <UiButton
                                 onClick={() => {
                                     if (!UserService.isAuthorized()) {
@@ -65,24 +57,14 @@ export const LayoutHeader = observer(() => {
                                 notification={UserService.user.userFavorites.length}
                                 template={'icon'}
                                 colors={{
-                                    button: [COLORS.LIGHT_BLUE, COLORS.GREEN_PRIMARY],
-                                    icon: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
+                                    button: [COLORS.WHITE, COLORS.GREEN_PRIMARY],
+                                    border: [COLORS.DARK_SECONDARY, COLORS.WHITE],
+                                    icon: [COLORS.BLACK, COLORS.WHITE],
                                 }}
                             >
                                 <UiIcon size={24} name={'heart'} color={COLORS.GREEN_PRIMARY}/>
                             </UiButton>
-                            <UiLink href={ROUTES.CART().url}>
-                                <UiButton
-                                    template={'icon'}
-                                    notification={CartService.cartItems.length}
-                                    colors={{
-                                        button: [COLORS.LIGHT_BLUE, COLORS.GREEN_PRIMARY],
-                                        icon: [COLORS.GREEN_PRIMARY, COLORS.WHITE],
-                                    }}
-                                >
-                                    <UiIcon size={24} name={'cart'} color={COLORS.GREEN_PRIMARY}/>
-                                </UiButton>
-                            </UiLink>
+                            <LayoutHeaderLogin/>
                         </div>
                     </div>
                 </UiWrap>

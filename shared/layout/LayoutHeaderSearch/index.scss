@@ -1,7 +1,6 @@
 .layout-header-search {
     flex: 1;
     margin-right: 22px;
-
     &__control {
         position: relative;
         flex: 1;
@@ -88,9 +87,17 @@
         }
     }
 
+    .ui-input__placeholder{
+        text-indent: 35px;
+    }
+
+    .ui-input__control{
+        text-indent: 35px;
+    }
+
     .ui-button {
         position: absolute;
         top: 0;
-        right: 0;
+        left: 0;
     }
 }

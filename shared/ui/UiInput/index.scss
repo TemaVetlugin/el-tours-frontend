@@ -3,10 +3,10 @@
 
     &__control {
         width: 100%;
-        height: 48px;
+        height: 50px;
         padding-left: 15px;
-        border: 1px solid $cBorder;
-        border-radius: 24px;
+        border: 0.5px solid $cBorder;
+        border-radius: 5px;
         color: $cTypo;
         font-size: 14px;
         font-weight: 400;
@@ -14,7 +14,7 @@
         transition: border-color $transition;
 
         &:focus {
-            border-color: $cGreenPrimary;
+            border-color: $cDarkPrimary;
         }
     }
 
@@ -32,7 +32,7 @@
         left: 16px;
         opacity: 0;
         color: $cGrayPrimary;
-        font-size: 14px;
+        font-size: 18px;
         font-weight: 400;
         line-height: 18px;
         pointer-events: none;
@@ -42,3 +42,6 @@
         }
     }
 }
+
+
+

@@ -2,7 +2,7 @@
 
 import { observer } from "mobx-react-lite";
 import React, { useEffect } from "react";
-import { ROUTES } from "shared/contants";
+import {COLORS, ROUTES} from "shared/contants";
 import { useCity, useDebouncedCallback, useStore, useRouter, useSearchParams } from "shared/hooks";
 import { searchHintsQuery } from "shared/queries/main";
 import { LayoutService } from "shared/services";
@@ -81,17 +81,21 @@ export const LayoutHeaderSearch = observer(() => {
     return (
         <div className="layout-header-search">
             <UiForm onSubmit={handleSubmit} className="layout-header-search__control">
+                <UiButton template={'search'} type={'submit'} colors={{
+                    button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
+                    icon: [COLORS.GRAY_PRIMARY, COLORS.GREEN_SECONDARY],
+                }}>
+                    <UiIcon size={24} name={'search'}/>
+                </UiButton>
                 <UiInput
-                    placeholder='Поиск по наименованию, МНН, штрих-коду'
+                    placeholder='Страна, город или отель'
                     name={'query'}
                     onChange={(data) => handleChange(data.value)}
                     value={store.query}
                     onFocus={() => store.set("hints", true)}
                     onBlur={() => store.set("hints", false)}
                 />
-                <UiButton template={'icon'} type={'submit'}>
-                    <UiIcon size={24} name={'search'}/>
-                </UiButton>
+
                 {store.hints && (
                     <div className="layout-header-search-hints">
                         {store.query.length < 3 && (
