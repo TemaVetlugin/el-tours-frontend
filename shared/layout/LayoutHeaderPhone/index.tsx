@@ -4,7 +4,7 @@ import classnames from "classnames";
 import { observer } from "mobx-react-lite";
 import Link from "next/link";
 import React, { useEffect } from "react";
-import { ROUTES } from "shared/contants";
+import {COLORS, ROUTES} from "shared/contants";
 import { useStore } from "shared/hooks";
 import { CatalogService } from "shared/services";
 
@@ -36,13 +36,20 @@ export const LayoutHeaderCatalog = observer(() => {
 
     return (
         <>
-            <UiButton onClick={() => store.set("isOpened", !store.isOpened)}>
+            <div className="layout-header-phone">
+            <UiButton onClick={() => store.set("isOpened", !store.isOpened)} colors={{
+                button: [COLORS.WHITE, COLORS.WHITE],
+                border: [COLORS.GRAY_PRIMARY, COLORS.GRAY_PRIMARY],
+                label: [COLORS.DARK_PRIMARY, COLORS.DARK_PRIMARY],
+                icon: [COLORS.DARK_PRIMARY, COLORS.DARK_PRIMARY],
+            }}>
                 <UiIcon
                     size={24}
-                    name={store.isOpened ? "close" : "catalogMenu"}
+                    name={store.isOpened ? "close" : "phone"}
                 />
-                <span>Каталог</span>
+                <span>+7 (923) 443-13-00</span>
             </UiButton>
+                </div>
             {store.isOpened && (
                 <div className="layout-header-catalog">
                     <UiWrap className={'layout-header-catalog__inner'}>

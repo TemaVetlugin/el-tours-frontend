@@ -82,10 +82,16 @@ export const LayoutHeaderSearch = observer(() => {
         <div className="layout-header-search">
             <UiForm onSubmit={handleSubmit} className="layout-header-search__control">
                 <UiButton template={'search'} type={'submit'} colors={{
-                    button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
-                    icon: [COLORS.GRAY_PRIMARY, COLORS.GREEN_SECONDARY],
+                    button: [COLORS.WHITE, COLORS.WHITE],
+                    icon: [COLORS.GRAY_PRIMARY, COLORS.DARK_SECONDARY],
                 }}>
                     <UiIcon size={24} name={'search'}/>
+                </UiButton>
+                <UiButton template={'arrow'} type={'submit'} colors={{
+                    button: [COLORS.WHITE, COLORS.WHITE],
+                    icon: [COLORS.DARK_SECONDARY, COLORS.DARK_SECONDARY],
+                }}>
+                    <UiIcon size={12} name={'arrow_down'}/>
                 </UiButton>
                 <UiInput
                     placeholder='Страна, город или отель'
@@ -95,6 +101,7 @@ export const LayoutHeaderSearch = observer(() => {
                     onFocus={() => store.set("hints", true)}
                     onBlur={() => store.set("hints", false)}
                 />
+
 
                 {store.hints && (
                     <div className="layout-header-search-hints">

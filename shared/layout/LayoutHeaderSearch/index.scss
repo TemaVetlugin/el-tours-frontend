@@ -1,6 +1,7 @@
 .layout-header-search {
     flex: 1;
-    margin-right: 22px;
+    margin-right: 30px;
+    max-width: 610px;
     &__control {
         position: relative;
         flex: 1;
@@ -13,7 +14,7 @@
         gap: 4px;
 
         span {
-            color: $cGrayPrimary;
+            color: $cGraySecondary;
             font-size: 12px;
             font-weight: 400;
             line-height: 16px;
@@ -95,9 +96,5 @@
         text-indent: 35px;
     }
 
-    .ui-button {
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+
 }

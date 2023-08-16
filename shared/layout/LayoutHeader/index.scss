@@ -1,5 +1,4 @@
 .layout-header {
-    height: 87px;
 
     &--fixed {
         position: fixed;
@@ -23,13 +22,14 @@
     &__main {
         display: flex;
         align-items: flex-start;
-        padding: 24px 0;
+        padding: 18px 0;
+        height: 87px;
     }
 
     &__logo {
         width: 145px;
         height: 50px;
-        margin-right: 56px;
+        margin-right: 97px;
         background-image: url("/assets/images/logo.svg");
         background-position: center;
         background-repeat: no-repeat;
@@ -44,7 +44,9 @@
     &__actions {
         display: flex;
         align-items: center;
-        gap: 16px;
+        .ui-button {
+            margin-right: 20px;
+        }
     }
 
     &--minified {
@@ -72,5 +74,25 @@
         &-catalog {
             top: 96px;
         }
+    }
+
+    &__info{
+        color: $cDarkPrimary;
+        font-size: 18px;
+        margin-right: 40px;
+
+        .ui-icon{
+            margin-left: 12px;
+        }
+    }
+    &__currency{
+        color: $cDarkPrimary;
+        margin-right: 48px;
+        img {
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+        }
+
     }
 }

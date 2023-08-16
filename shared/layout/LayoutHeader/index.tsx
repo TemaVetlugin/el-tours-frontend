@@ -46,7 +46,21 @@ export const LayoutHeader = observer(() => {
                         {/*    <LayoutHeaderCatalog/>*/}
                         {/*</div>*/}
                         <LayoutHeaderSearch/>
+                        <LayoutHeaderCatalog/>
+
                         <div className="layout-header__actions">
+                            <UiLink href={ROUTES.HOME()} className="layout-header__info">
+                                <span>Услуги</span>
+                                <UiIcon size={12} name={'arrow_down'}/>
+                            </UiLink>
+                            <UiLink href={ROUTES.HOME()} className="layout-header__info">
+                                <span>Информация</span>
+                                <UiIcon size={12} name={'arrow_down'}/>
+                            </UiLink>
+                            <UiLink href={ROUTES.HOME()} className="layout-header__currency">
+                                <img src="assets/images/rubl.png" className="layout-header__currency" alt=""/>
+                                <span>Ru,   ₽</span>
+                            </UiLink>
                             <UiButton
                                 onClick={() => {
                                     if (!UserService.isAuthorized()) {
@@ -59,12 +73,30 @@ export const LayoutHeader = observer(() => {
                                 colors={{
                                     button: [COLORS.WHITE, COLORS.GREEN_PRIMARY],
                                     border: [COLORS.DARK_SECONDARY, COLORS.WHITE],
-                                    icon: [COLORS.BLACK, COLORS.WHITE],
+                                    icon: [COLORS.DARK_PRIMARY, COLORS.WHITE],
                                 }}
                             >
                                 <UiIcon size={24} name={'heart'} color={COLORS.GREEN_PRIMARY}/>
                             </UiButton>
                             <LayoutHeaderLogin/>
+                            <UiButton
+                                onClick={() => {
+                                    if (!UserService.isAuthorized()) {
+                                        return;
+                                    }
+                                    router.push(ROUTES.FAVORITES())
+                                }}
+                                notification={UserService.user.userFavorites.length}
+                                template={'icon'}
+                                colors={{
+                                    button: [COLORS.WHITE, COLORS.WHITE],
+                                    border: [COLORS.WHITE, COLORS.WHITE],
+                                    icon: [COLORS.DARK_PRIMARY, COLORS.DARK_PRIMARY],
+
+                                }}
+                            >
+                                <UiIcon size={24} name={'burger'} color={COLORS.GREEN_PRIMARY}/>
+                            </UiButton>
                         </div>
                     </div>
                 </UiWrap>

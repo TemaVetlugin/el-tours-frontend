@@ -22,7 +22,7 @@ type PropsType = {
     isLoading?: boolean,
     style?: React.CSSProperties,
     className?: string,
-    template?: 'search' | 'small' | 'normal' | 'large' | 'icon';
+    template?: 'search' | 'small' | 'normal' | 'large' | 'icon' | 'arrow';
     colors?: {
         button?: [string, string] | string,
         label?: [string, string] | string,

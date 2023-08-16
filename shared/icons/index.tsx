@@ -2,7 +2,9 @@ import React from "react";
 export type IconType = (size: [number, number], colors: string[], id?: string | number) => React.ReactNode;
 
 export { alarm } from "./alarm";
+export { arrow_down } from "./arrow_down";
 export { arrowUpRight } from "./arrowUpRight";
+export { burger } from "./burger";
 export { calendar } from "./calendar";
 export { cart } from "./cart";
 export { catalogMenu } from "./catalogMenu";
