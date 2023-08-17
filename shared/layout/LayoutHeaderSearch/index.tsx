@@ -81,13 +81,13 @@ export const LayoutHeaderSearch = observer(() => {
     return (
         <div className="layout-header-search">
             <UiForm onSubmit={handleSubmit} className="layout-header-search__control">
-                <UiButton template={'search'} type={'submit'} colors={{
+                <UiButton template={'search_left'} type={'submit'} colors={{
                     button: [COLORS.WHITE, COLORS.WHITE],
                     icon: [COLORS.GRAY_PRIMARY, COLORS.DARK_SECONDARY],
                 }}>
                     <UiIcon size={24} name={'search'}/>
                 </UiButton>
-                <UiButton template={'arrow'} type={'submit'} colors={{
+                <UiButton template={'search_right'} type={'submit'} colors={{
                     button: [COLORS.WHITE, COLORS.WHITE],
                     icon: [COLORS.DARK_SECONDARY, COLORS.DARK_SECONDARY],
                 }}>

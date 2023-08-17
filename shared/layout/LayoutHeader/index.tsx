@@ -58,7 +58,7 @@ export const LayoutHeader = observer(() => {
                                 <UiIcon size={12} name={'arrow_down'}/>
                             </UiLink>
                             <UiLink href={ROUTES.HOME()} className="layout-header__currency">
-                                <img src="assets/images/rubl.png" className="layout-header__currency" alt=""/>
+                                <img src={require('../../../public/assets/images/rubl.png').default.src} className="layout-header__currency" alt=""/>
                                 <span>Ru,   ₽</span>
                             </UiLink>
                             <UiButton
@@ -100,7 +100,6 @@ export const LayoutHeader = observer(() => {
                         </div>
                     </div>
                 </UiWrap>
-                <LayoutHeaderPromo/>
             </div>
         </>
     );

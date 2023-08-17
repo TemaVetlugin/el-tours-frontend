@@ -1,143 +1,120 @@
 .layout-footer {
-    padding: 40px 70px 24px;
-    margin-top: 60px;
-    background: #292929;
-    border-radius: 24px 24px 0 0;
+    padding: 0;
+    background: $cDarkPrimary;
+    border-top: 1px solid rgba($cDarkSecondary, 0.2);
+    font-size: 12px;
+    color: white;
 
-    &__menus {
-        display: flex;
-        align-items: flex-start;
-        width: 100%;
-        padding-bottom: 40px;
+    &__title {
+        font-size: 18px;
+        margin-bottom: 10px;
     }
 
-    &__aside {
-        width: 325px;
-    }
-
-    &__catalog {
-
-    }
-
-    &-menu {
-        height: 100%;
-        color: $cWhite;
-
-        &__title {
-            margin-bottom: 16px;
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 120%;
-        }
-
-        &__columns {
-            column-count: 3;
-            column-gap: 90px;
-            column-width: 190px;
-        }
-
-        &__item {
-            display: block;
-            color: $cWhite;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 18px;
-
-            &:not(&:last-child) {
-                margin-bottom: 8px;
-            }
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-
-        &__contact {
-            font-size: 16px;
-            font-weight: 500;
-            line-height: 120%;
-
-            &:not(&:last-child) {
-                margin-bottom: 16px;
-            }
-        }
-
-        &__contacts {
-            margin-top: 32px;
-        }
-    }
-
-    &__contraindications {
-        height: 86px;
-        padding: 28px 0;
-        border-top: 1px solid rgba($cWhite, 0.2);
-        color: rgba($cWhite, 0.2);
-        text-align: justify;
-        font-size: 27px;
-        font-weight: 700;
-        line-height: 120%;
-
-        &::after {
-            /* used to stretch word */
-            display: inline-block;
-            width: 100%;
-            content: '';
-        }
-    }
-
-    &__copyright {
-        display: flex;
-        align-items: flex-start;
-        padding-top: 24px;
-        border-top: 1px solid rgba($cWhite, 0.2);
-        color: $cWhite;
-    }
-
-    &-menu-secondary {
-        width: 300px;
-        margin-right: 24px;
-
-        &__item {
-            display: block;
-            color: $cWhite;
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 120%;
-            white-space: nowrap;
-
-            &:not(&:last-child) {
-                margin-bottom: 16px;
-            }
-
-            &:hover:not(div) {
-                text-decoration: underline;
-            }
-        }
-    }
-
-    &__offer {
-        width: 580px;
-        margin-right: 66px;
-        color: rgba($cLightBlue, 0.5);
+    &__subtitle {
         font-size: 14px;
-        font-weight: 500;
-        line-height: 18px;
+        margin-bottom: 5px;
     }
 
-    &__powered {
+    &__topic {
+        font-size: 16px;
+        margin-bottom: 15px;
+
+    }
+
+    &-contacts {
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 0;
+
+        &__item {
+            display: flex;
+        }
+
+        .ui-button {
+            margin-top: 10px;
+            margin-right: 20px;
+        }
+    }
+
+    &-body {
+        padding-top: 60px;
+        border-top: 1px solid rgba($cDarkSecondary, 0.2);
+        padding-bottom:  85px;
+    }
+
+    &-topics {
+        display: flex;
+        justify-content: space-between;
+        &__logo {
+            max-width: 290px;
+            img {
+                margin-bottom: 20px;
+            }
+        }
+
+        &__mailing {
+            margin-top: 30px;
+            .ui-button {
+                border-radius: 0 5px 5px 0;
+            }
+            .ui-input__placeholder{
+                color: $cDarkPrimary;
+                font-size: 14px;
+            }
+        }
+
+        &__item{
+            margin-bottom: 20px;
+            &__header{
+                height: 20px;
+                margin-top: 40px;
+                margin-bottom: 30px;
+            }
+            &__row{
+                margin-bottom: 15px;
+            }
+
+        }
+
+        .ui-link{
+            color: white;
+            font-size: 12px;
+        }
+
+    }
+
+    &__round{
+        width: 8px;
+        height: 8px;
+        border: 1px solid rgba($cDarkSecondary, 0.2);
+        border-radius: 4px;
+        margin-right: 12px;
+        display: inline-block;
+    }
+
+    &-end{
+        height: 50px;
+        font-size: 12px;
+        background-color: rgba($cDarkSecondary, 0.2);
+        color: $cDarkSecondary;
         display: flex;
         align-items: center;
-        color: $cWhite;
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 16px;
-        white-space: nowrap;
-        gap: 10px;
+        justify-content: center;
+    }
 
-        img {
-            width: 24px;
-            height: 24px;
-        }
+    p {
+        margin-top: 0;
+        line-height: 1.4;
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        color: white;
+        margin-right: 20px;
     }
 }
+
+
+
+
