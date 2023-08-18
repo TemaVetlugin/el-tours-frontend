@@ -6,7 +6,7 @@ import { Metadata } from "next";
 
 import { bootQuery } from "shared/queries/frontend";
 import { Cache } from "shared/utilities/server";
-import { LayoutCatalogAlphabet, LayoutFooter, LayoutHeader, LayoutCookie, LayoutFooterBanner } from "shared/layout";
+import { LayoutFooter, LayoutHeader, LayoutCookie, LayoutFooterForm } from "shared/layout";
 import { getCity } from "shared/server";
 
 import { Boot } from "./boot";
@@ -69,8 +69,7 @@ export default async function Layout({ children }: PropsType) {
                     />
                     <LayoutHeader/>
                     {children}
-                    <LayoutFooterBanner/>
-                    <LayoutCatalogAlphabet/>
+                    <LayoutFooterForm/>
                     <LayoutFooter/>
                     <LayoutCookie/>
                 </body>

@@ -1,0 +1,15 @@
+.blog-article-page{
+    height: 100%;
+    width: 100%;
+    background-color: $cGraySecondary;
+
+    .ui-page-wrap{
+        display: flex;
+    }
+
+    &-body{
+        width: 800px;
+    }
+}
+
+

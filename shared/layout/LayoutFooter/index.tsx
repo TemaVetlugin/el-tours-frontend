@@ -15,7 +15,6 @@ import {LayoutFooterForm} from "shared/layout/LayoutFooterForm";
 export const LayoutFooter = observer(() => {
     return (
         <div>
-        <LayoutFooterForm/>
         <div className="layout-footer">
             <UiPage.Wrap>
                 <div className="layout-footer-contacts">

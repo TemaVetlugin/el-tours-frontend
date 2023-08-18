@@ -17,6 +17,7 @@
         display: flex;
         justify-content: center;
         font-size: 48px;
+        font-weight: 800;
     }
 
     &__text{
@@ -25,6 +26,7 @@
         line-height: 28px;
         text-align: center;
         margin: 0 auto 60px auto;
+        font-weight: 300;
     }
 
     &-row{
@@ -32,6 +34,7 @@
         justify-content: center;
         gap: 40px;
         margin-bottom: 40px;
+        font-weight: 300;
         &__input{
             position: relative;
         }

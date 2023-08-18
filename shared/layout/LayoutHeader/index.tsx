@@ -9,7 +9,7 @@ import { useRouter } from "shared/hooks";
 import { CartService, LayoutService, UserService } from "shared/services";
 import { UiButton, UiIcon, UiLink, UiWrap } from "shared/ui";
 
-import { LayoutHeaderCatalog } from "../LayoutHeaderPhone";
+import { LayoutHeaderPhone} from "../LayoutHeaderPhone";
 import { LayoutHeaderLocation } from "../LayoutHeaderLocation";
 import { LayoutHeaderLogin } from "../LayoutHeaderLogin";
 import { LayoutHeaderMenuPrimary } from "../LayoutHeaderMenuPrimary";
@@ -46,7 +46,7 @@ export const LayoutHeader = observer(() => {
                         {/*    <LayoutHeaderCatalog/>*/}
                         {/*</div>*/}
                         <LayoutHeaderSearch/>
-                        <LayoutHeaderCatalog/>
+                        <LayoutHeaderPhone/>
 
                         <div className="layout-header__actions">
                             <UiLink href={ROUTES.HOME()} className="layout-header__info">

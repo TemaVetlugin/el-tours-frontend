@@ -4,10 +4,12 @@
     border-top: 1px solid rgba($cDarkSecondary, 0.2);
     font-size: 12px;
     color: white;
+    font-weight: 300;
 
     &__title {
         font-size: 18px;
         margin-bottom: 10px;
+        font-weight: 500;
     }
 
     &__subtitle {
@@ -18,7 +20,7 @@
     &__topic {
         font-size: 16px;
         margin-bottom: 15px;
-
+        font-weight: 500;
     }
 
     &-contacts {
@@ -39,7 +41,7 @@
     &-body {
         padding-top: 60px;
         border-top: 1px solid rgba($cDarkSecondary, 0.2);
-        padding-bottom:  85px;
+        padding-bottom:  65px;
     }
 
     &-topics {

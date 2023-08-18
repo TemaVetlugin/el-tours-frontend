@@ -1,21 +1,18 @@
 'use client';
 
 import React from "react";
-import { UiPage } from "shared/ui";
-import { observer } from "mobx-react-lite";
+import {UiPage} from "shared/ui";
+import {observer} from "mobx-react-lite";
 
-import { homeQuery } from "shared/queries/frontend";
-import { ReturnType } from "shared/types";
-import { useAsyncEffect, useCity, useDidUpdateEffect, useStore } from "shared/hooks";
-import { ArticleModel, BrandModel, CatalogProductModel, HomeBannerModel, ManufacturerModel, NewsModel, PromoActionModel } from "shared/models";
-import { ROUTES } from "shared/contants";
+import {homeQuery} from "shared/queries/frontend";
+import {ReturnType} from "shared/types";
+import {useAsyncEffect, useCity, useDidUpdateEffect, useStore} from "shared/hooks";
+import {ArticleModel, BrandModel, CatalogProductModel, HomeBannerModel, ManufacturerModel, NewsModel, PromoActionModel} from "shared/models";
+import {ROUTES} from "shared/contants";
 
-import { PHomeBanners } from "./components/PHomeBanners";
-import { PHomeBrandsAndManufacturers } from "./components/PHomeBrandsAndManufacturers";
-import { PHomePromoActions } from "./components/PHomePromoActions";
-import { PHomeArticles } from "./components/PHomeArticles";
-import { PHomeNews } from "./components/PHomeNews";
-import { PHomeCatalogProducts } from "./components/PHomeCatalogProducts";
+import {PBlogMediasAside} from "./components/PBlogMediasAside";
+import {PBlogFormAside} from "./components/PBlogFormAside";
+
 
 type PropsType = NonNullable<ReturnType<typeof homeQuery>['data']>;
 export const Client = observer((
@@ -47,7 +44,7 @@ export const Client = observer((
 
     useDidUpdateEffect(() => {
         (async () => {
-            const { isSuccess, data } = await homeQuery({
+            const {isSuccess, data} = await homeQuery({
                 cityId: city.id
             });
             if (data && isSuccess) {
@@ -67,7 +64,7 @@ export const Client = observer((
 
     // rehydrate offers
     useAsyncEffect(async () => {
-        const { data, isSuccess } = await homeQuery({
+        const {data, isSuccess} = await homeQuery({
             cityId: city.id,
             onlyCatalogProducts: true
         });
@@ -80,31 +77,13 @@ export const Client = observer((
     }, []);
 
     return (
-        <UiPage>
+        <UiPage className="blog-article-page">
             <UiPage.Wrap>
-                <PHomeBanners homeBanners={store.homeBanners}/>
-                <PHomePromoActions promoActions={store.promoActions}/>
-                <PHomeBrandsAndManufacturers manufacturers={store.manufacturers} brands={store.brands}/>
-                <PHomeCatalogProducts
-                    title={'Выгодно'}
-                    href={ROUTES.CATALOG_MARK('discount')}
-                    contentResourceCode={'home.catalog-products-profit'}
-                    catalogProducts={store.catalogProductsProfit}
-                />
-                <PHomeArticles articles={store.articles}/>
-                <PHomeCatalogProducts
-                    title={'Новинки'}
-                    href={ROUTES.CATALOG_MARK('new')}
-                    contentResourceCode={'home.catalog-products-new'}
-                    catalogProducts={store.catalogProductsNew}
-                />
-                <PHomeNews news={store.news}/>
-                <PHomeCatalogProducts
-                    title={'Популярное'}
-                    href={ROUTES.CATALOG_MARK('popular')}
-                    contentResourceCode={'home.catalog-products-popular'}
-                    catalogProducts={store.catalogProductsPopular}
-                />
+                <PBlogMediasAside></PBlogMediasAside>
+                <div className="blog-article-page-body">
+
+                </div>
+                <PBlogFormAside></PBlogFormAside>
             </UiPage.Wrap>
         </UiPage>
     );
