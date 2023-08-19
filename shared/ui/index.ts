@@ -31,3 +31,4 @@ export { UiShare } from './UiShare';
 export { UiLightbox } from './UiLightbox';
 export { UiAddressInput } from './UiAddressInput';
 export { UiTextarea } from './UiTextarea';
+export { UiQuote } from './UiQuote';

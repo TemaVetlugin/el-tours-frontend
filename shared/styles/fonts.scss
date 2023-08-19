@@ -48,6 +48,13 @@
     src: url("../../public/assets/fonts/FiraSans/400.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: FiraSans;
+    font-style: italic;
+    font-weight: 400;
+    src: url("../../public/assets/fonts/FiraSans/Italic.ttf") format("truetype");
+}
+
 
 @font-face {
     font-family: FiraSans;
@@ -56,7 +63,7 @@
 }
 
 @font-face {
-    font-family: Fira Sans;
+    font-family: FiraSans;
     font-weight: 800;
     src: url("../../public/assets/fonts/FiraSans/800.ttf") format("truetype");
 }

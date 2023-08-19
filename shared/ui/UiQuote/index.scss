@@ -1,0 +1,18 @@
+.ui-quote {
+    display: flex;
+    gap: 57px;
+
+    &__img{
+        background-image: url("../../../public/assets/images/typical/quote.svg");
+        min-width: 188px;
+        max-height: 154px;
+        background-size: cover;
+    }
+
+    p {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 1.8;
+        margin: 0;
+    }
+}

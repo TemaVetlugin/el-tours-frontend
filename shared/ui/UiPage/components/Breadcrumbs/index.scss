@@ -1,7 +1,8 @@
 .ui-page-breadcrumbs {
     margin-bottom: 24px;
-    font-size: 12px;
-    font-weight: 500;
+    padding-top: 36px;
+    font-size: 14px;
+    font-weight: 400;
     line-height: 16px;
 
     @include isMobileOrTablet {
@@ -14,7 +15,7 @@
 
     &__item {
         display: inline;
-        color: $cGreenPrimary;
+        color: $cWhite;
         text-decoration: none;
 
         &:hover {
@@ -24,12 +25,12 @@
 
     &__current {
         display: inline;
-        color: $cGrayPrimary;
+        color: $cDarkPrimary;
     }
 
-    &__dot {
+    &__arrow {
         display: inline-block;
-        margin: 0 8px;
+        margin: 0 4px;
         color: $cGrayPrimary;
         font-size: 14px;
         line-height: 0;

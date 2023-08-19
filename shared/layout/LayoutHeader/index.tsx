@@ -49,7 +49,7 @@ export const LayoutHeader = observer(() => {
                         <LayoutHeaderPhone/>
 
                         <div className="layout-header__actions">
-                            <UiLink href={ROUTES.HOME()} className="layout-header__info">
+                            <UiLink href={ROUTES.BLOG()} className="layout-header__info">
                                 <span>Услуги</span>
                                 <UiIcon size={12} name={'arrow_down'}/>
                             </UiLink>

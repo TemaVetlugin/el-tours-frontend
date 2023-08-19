@@ -2,7 +2,7 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 import { ROUTES } from "shared/contants";
-import { UiLink } from "shared/ui";
+import {UiIcon, UiLink} from "shared/ui";
 
 
 import './index.scss';
@@ -20,14 +20,16 @@ export const Breadcrumbs = observer(({ items = [] }: PropsType) => {
         <div className='ui-page-breadcrumbs'>
             {_items.map((item, index) => {
                 if (_items.length - 1 <= index || !item.url) {
-                    return <div key={item.id} className='ui-page-breadcrumbs__current'>{item.name}</div>;
+                    return ;
                 }
                 return (
                     <React.Fragment key={item.name}>
+                        <div className="ui-page-breadcrumbs__arrow">
+                            <UiIcon size={[32,10]} name={"arrowLeft"}/>
+                        </div>
                         <UiLink href={item.url} className='ui-page-breadcrumbs__item'>
                             {item.name}
                         </UiLink>
-                        <div className="ui-page-breadcrumbs__dot">•</div>
                     </React.Fragment>
                 )
             })}

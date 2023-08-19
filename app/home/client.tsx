@@ -78,6 +78,11 @@ export const Client = observer((
 
     return (
         <UiPage className="blog-article-page">
+            <div className="blog-article-page-headedr">
+                <UiPage.Wrap>
+                    <UiPage.Breadcrumbs/>
+                </UiPage.Wrap>
+            </div>
             <UiPage.Wrap>
                 <PBlogMediasAside></PBlogMediasAside>
                 <div className="blog-article-page-body">

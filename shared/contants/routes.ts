@@ -79,6 +79,11 @@ export const ROUTES = {
         name: 'Главная',
         url: '/',
     }),
+    BLOG: (): RouteType => ({
+        id: 'blog',
+        name: 'Блог',
+        url: '/blog',
+    }),
     NEWS: (slug: string = '', name = 'Новости'): RouteType => ({
         id: 'news' + slug,
         name,
