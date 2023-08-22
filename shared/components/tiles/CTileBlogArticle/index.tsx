@@ -3,18 +3,18 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import {BlogArticleModel, NewsModel} from "shared/models";
+import { BlogArticleModel } from "shared/models";
 import { UiLink, UiPage } from "shared/ui";
 import { ROUTES } from "shared/contants";
 
 import './index.scss';
 
 type PropsType = {
-    item: NewsModel,
+    item: BlogArticleModel,
     template?: 'base' | 'light'
 }
 
-export const CTileNews = observer(({ item, template = 'base' }: PropsType) => {
+export const CTileBlogArticle = observer(({ item, template = 'base' }: PropsType) => {
     return (
         <div className="c-tile-news">
             <UiLink

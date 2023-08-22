@@ -18,6 +18,7 @@ export { contentPageGet } from './contentPageGet.query';
 export { manufacturersGetQuery } from './manufacturersGet.query';
 export { newsGetQuery } from './newsGet.query';
 export { newsQuery } from './news.query';
+export { blogArticlesQuery } from './blogArticles.query';
 export { ordersCreateQuery } from './ordersCreate.query';
 export { ordersGetQuery } from './ordersGet.query';
 export { ordersQuery } from './orders.query';
