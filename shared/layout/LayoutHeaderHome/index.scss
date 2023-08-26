@@ -1,0 +1,106 @@
+.layout-header-home {
+    font-weight: 300;
+
+    &--fixed {
+        color: white;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 10;
+    }
+
+    &--dummy {
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 40px;
+    }
+
+    &__main {
+        display: flex;
+        align-items: flex-start;
+        padding: 18px 0;
+        height: 87px;
+    }
+
+    &__logo {
+        width: 160px;
+        height: 55px;
+        margin-right: 80px;
+        background-image: url("/assets/images/logo_light.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
+    }
+
+    &__city{
+        font-size: 18px;
+        font-weight: 300;
+        width: 255px;
+        margin-right: 265px;
+    }
+
+
+    &__actions {
+        display: flex;
+        color: white;
+        align-items: center;
+        font-weight: 500;
+        .ui-button {
+            margin-left: 20px;
+        }
+    }
+
+    &--minified {
+        height: 96px;
+        box-shadow: 0 0 20px 0 rgba(74, 74, 74, 0.10);
+    }
+
+    &--minified & {
+        &__top {
+            display: none;
+        }
+
+        &-search__prompts {
+            display: none;
+        }
+
+        &-promo {
+            display: none;
+        }
+
+        &__main {
+            align-items: center;
+        }
+
+        &-catalog {
+            top: 96px;
+        }
+    }
+
+    &__info{
+        color: white;
+        font-size: 18px;
+        margin-right: 40px;
+
+        .ui-icon{
+            color: white;
+            margin-left: 12px;
+        }
+    }
+    &__currency{
+        color: white;
+        margin-right: 28px;
+        img {
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+        }
+
+    }
+}

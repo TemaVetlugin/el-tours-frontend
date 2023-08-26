@@ -1,17 +1,20 @@
 'use client';
 
 import React from "react";
-import {UiPage} from "shared/ui";
+import {UiButton, UiIcon, UiPage, UiSelect} from "shared/ui";
 import {observer} from "mobx-react-lite";
 
 import {homeQuery} from "shared/queries/frontend";
 import {ReturnType} from "shared/types";
 import {useAsyncEffect, useCity, useDidUpdateEffect, useStore} from "shared/hooks";
 import {ArticleModel, BrandModel, CatalogProductModel, HomeBannerModel, ManufacturerModel, NewsModel, PromoActionModel} from "shared/models";
-import {ROUTES} from "shared/contants";
+import {COLORS, ROUTES} from "shared/contants";
 
 import {PBlogMediasAside} from "./components/PBlogMediasAside";
 import {PBlogFormAside} from "./components/PBlogFormAside";
+import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
+import {LayoutHeader} from "shared/layout";
+import {UserService} from "shared/services";
 
 
 type PropsType = NonNullable<ReturnType<typeof homeQuery>['data']>;
@@ -77,19 +80,87 @@ export const Client = observer((
     }, []);
 
     return (
-        <UiPage className="blog-article-page">
-            <div className="blog-article-page-headedr">
-                <UiPage.Wrap>
-                    <UiPage.Breadcrumbs/>
-                </UiPage.Wrap>
-            </div>
-            <UiPage.Wrap>
-                <PBlogMediasAside></PBlogMediasAside>
-                <div className="blog-article-page-body">
+        <>
+            <LayoutHeader template={"home"}/>
+            <div className="home-page">
+                <div className="home-page-main">
+
+                    <UiPage.Wrap>
+                        <div className="home-page-main-search">
+                            <div className="home-page-main-search-headers">
+                                <div className="home-page-main-search-headers__button_active">
+                                    <h5>Туры</h5>
+                                </div>
+                                <div className="home-page-main-search-headers__button">
+                                    <h5>Авиабилеты</h5>
+                                </div>
+                                <div className="home-page-main-search-headers__button">
+                                    <h5>Отели</h5>
+                                </div>
+                                <div className="home-page-main-search-headers__button">
+                                    <h5>Перелет+отель</h5>
+                                </div>
+                                <div className="home-page-main-search-headers__button">
+                                    <h5>Круизы</h5>
+                                </div>
+                                <div className="home-page-main-search-headers__button">
+                                    <h5>Аренда авто</h5>
+                                </div>
+                                <div className="home-page-main-search-headers__button">
+                                    <h5>Недвижимость</h5>
+                                </div>
+                            </div>
+                            <div className="home-page-main-search-content">
+                                <div className="home-page-main-search-content-city">
+                                    <h5>Город вылета</h5>
+                                    <div className="home-page-main-search-content__wrap">
+                                        <p>Нижний Новгород</p>
+                                        <UiIcon size={16} name={"close"} color={COLORS.GRAY_PRIMARY}/>
+                                    </div>
+                                </div>
+                                <div className="home-page-main-search-content-country">
+                                    <h5>Страна, курорт или отель</h5>
+                                    <div className="home-page-main-search-content__wrap">
+                                        <p>Греция</p>
+                                        <UiIcon size={16} name={"close"} color={COLORS.GRAY_PRIMARY}/>
+                                    </div>
+                                </div>
+                                <div className="home-page-main-search-content-date">
+                                    <h5>Дата вылета</h5>
+                                    <div className="home-page-main-search-content__wrap">
+                                        <p>с 9 авг</p>
+                                        <UiIcon size={16} name={"calendar"} color={COLORS.GRAY_PRIMARY}/>
+                                    </div>
+                                </div>
+                                <div className="home-page-main-search-content-nights">
+                                    <h5>Ночей</h5>
+                                    <div className="home-page-main-search-content__wrap">
+                                        <p>на 7-8 ночей</p>
+                                        <UiIcon size={12} name={"arrow_down"} color={COLORS.GRAY_PRIMARY}/>
+                                    </div>
+                                </div>
+                                <div className="home-page-main-search-content-tourists">
+                                    <h5>Туристов</h5>
+                                    <div className="home-page-main-search-content__wrap">
+                                        <p>2 взрослых</p>
+                                        <UiIcon size={12} name={"arrow_down"} color={COLORS.GRAY_PRIMARY}/>
+                                    </div>
+                                </div>
+                                <UiButton
+                                    notification={UserService.user.userFavorites.length}
+
+                                >
+                                    <UiIcon size={24} name={'search'}/>
+                                </UiButton>
+
+                            </div>
+                        </div>
+
+                    </UiPage.Wrap>
+                    <div className="home-page-main__blackout"></div>
 
                 </div>
-                <PBlogFormAside></PBlogFormAside>
-            </UiPage.Wrap>
-        </UiPage>
+            </div>
+        </>
     );
 });

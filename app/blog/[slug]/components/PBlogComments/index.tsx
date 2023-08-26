@@ -19,7 +19,7 @@ export const PBlogComments = observer(() => {
             <h5 className="blog-comments__title">Комментарии (4):</h5>
             <div className="blog-comments__item">
                 <div className="blog-comments__item__profile">
-                    <img src={require('../../assets/authorPicture.png').default.src} alt="" className="blog-comments__item__profile__picture"/>
+                    <img src={require('../PBlogAuthor/assets/authorPicture.png').default.src} alt="" className="blog-comments__item__profile__picture"/>
                     <div className="blog-comments__item__profile__descr">
                         <h5>Irishka Traveler</h5> <span>г. Москва</span>
                         <p>21 декабря 2018 в 22:57</p>

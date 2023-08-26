@@ -4,7 +4,7 @@ import React from "react";
 import {observer} from "mobx-react-lite";
 
 import {HomeBannerModel} from "shared/models";
-import {UiButton, UiContentResource, UiForm, UiGrid, UiIcon, UiInput, UiSlider} from "shared/ui";
+import {UiButton, UiContentResource, UiForm, UiGrid, UiIcon, UiInput, UiSlider, UiTextarea} from "shared/ui";
 import {COLORS, ROUTES} from "shared/contants";
 
 import actionImage from './assets/action.svg';
@@ -24,9 +24,16 @@ export const PBlogCommentForm = observer(() => {
             <div className="blog-form-aside-body">
 
             <UiInput
-                placeholder=''
+                placeholder='Как вас зовут имя'
                 name={'query'}
             />
+            <UiInput
+                placeholder='Ваш город'
+                name={'query'}
+            />
+                <UiTextarea
+                    placeholder='Как вас зовут имя'
+                    name={'query'}></UiTextarea>
             </div>
             <UiButton className="blog-form-aside__confirm" template={'large'} type={'submit'} colors={{
                 button: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],

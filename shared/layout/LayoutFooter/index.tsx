@@ -129,7 +129,7 @@ export const LayoutFooter = observer(() => {
                         </div>
                             <div className="layout-footer-topics__mailing">
                             <p className="layout-footer__topic">Подписаться на рассылку:</p>
-                            <UiForm  className="layout-header-search__control">
+                            <UiForm>
                                 <UiInput
                                     placeholder='Ваш E-mail'
                                     name={'query'}

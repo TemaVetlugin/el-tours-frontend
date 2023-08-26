@@ -16,18 +16,18 @@ type PropsType = {
 
 export const CTileBlogArticle = observer(({ item, template = 'base' }: PropsType) => {
     return (
-        <div className="c-tile-news">
+        <div className="c-tile-blog">
             <UiLink
-                className="c-tile-news__image"
+                className="c-tile-blog__image__2"
                 style={{ backgroundImage: `url(${item.previewImage})` }}
-                href={ROUTES.NEWS(item.slug)}
+                href={ROUTES.BLOG(item.slug)}
             />
-            <div className="c-tile-news__inner">
-                <UiLink href={ROUTES.NEWS(item.slug)} className="c-tile-news__name">{item.name}</UiLink>
+            <div className="c-tile-blog__inner">
+                <UiLink href={ROUTES.BLOG(item.slug)} className="c-tile-blog__name">{item.name}</UiLink>
                 {template === 'base' && (
                     <>
-                        <div className="c-tile-news__preview">{item.preview}</div>
-                        <UiPage.Link href={ROUTES.NEWS(item.slug)}>Читать</UiPage.Link>
+                        <div className="c-tile-blog__preview">{item.preview}</div>
+                        <UiPage.Link href={ROUTES.BLOG(item.slug)}>Читать</UiPage.Link>
                     </>
                 )}
             </div>

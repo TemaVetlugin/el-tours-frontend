@@ -1,5 +1,5 @@
 .ui-typography {
-    color: $cTypo;
+    color: $cDarkPrimary;
     font-weight: 400;
     font-size: 16px;
     line-height: 18px;
@@ -20,11 +20,13 @@
     }
 
     h1 {
-        font-family: $fontSecondary;
-        font-weight: 700;
-        font-size: 40px;
-        line-height: 120%;
-        margin: 0 0 40px;
+        margin: 0 0 25px 0;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 36px;
+        line-height: 43px;
+        letter-spacing: 0.02em;
+        margin-bottom: 20px;
 
         @include isMobile {
             margin-bottom: 16px;
@@ -43,11 +45,13 @@
     }
 
     h2 {
-        font-weight: 700;
-        font-size: 30px;
-        line-height: 120%;
-        margin: 64px 0 24px;
-        font-family: $fontSecondary;
+        margin: 0 0 25px 0;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 32px;
+        line-height: 43px;
+        letter-spacing: 0.02em;
+        margin-bottom: 20px;
 
         @include isMobile {
             margin: 40px 0 16px;
@@ -60,11 +64,13 @@
     }
 
     h3 {
-        font-family: $fontSecondary;
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 110%;
-        margin: 64px 0 24px;
+        margin: 0 0 25px 0;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 28px;
+        line-height: 43px;
+        letter-spacing: 0.02em;
+        margin-bottom: 20px;
 
         @include isMobile {
             margin: 40px 0 16px;
@@ -72,8 +78,13 @@
     }
 
     h4 {
-        font-family: $fontSecondary;
-        margin: 24px 0 16px;
+        margin: 0 0 25px 0;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 43px;
+        letter-spacing: 0.02em;
+        margin-bottom: 20px;
 
         @include isMobile {
             margin: 16px 0;
@@ -88,10 +99,13 @@
     }
 
     p {
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 18px;
-        margin: 0 0 24px;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 180%;
+        color: $cDarkPrimary;
+        text-align: left;
+        margin-bottom: 20px;
 
         @include isMobile {
             margin: 20px 0;
@@ -117,11 +131,11 @@
     }
 
     img:not([class]) {
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        margin: 24px 0;
-        border-radius: 20px;
+        display: inline-block;
+        width: 385px;
+        height: 260px;
+        border-radius: 5px;
+        margin-right: 10px;
 
         @include isMobile {
             margin: 16px 0;
@@ -129,12 +143,19 @@
     }
 
     blockquote {
-        position: relative;
-        padding: 40px 40px 40px 42px;
-        margin: 24px 0;
-        background: $cLightBlue;
-        border-radius: 0 20px 20px 0;
-        border-left: 2px solid $cRedPrimary;
+        display: flex;
+        gap: 57px;
+        background: url("../../../public/assets/images/typical/quote.svg") no-repeat left center;
+        background-size: 188px 154px;
+        padding-left: 240px;
+        margin: 20px 0;
+        p {
+            padding: 0;
+            margin: 0;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 1.8;
+        }
 
         @include isMobile {
             padding: 16px 26px 16px 16px;
@@ -199,7 +220,7 @@
                 top: 0;
                 left: 0;
                 color: $cRedPrimary;
-                content: counter(section)'.';
+                content: counter(section) '.';
                 counter-increment: section;
             }
         }

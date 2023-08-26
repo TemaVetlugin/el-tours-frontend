@@ -52,7 +52,6 @@ export const Client = observer(() => {
         store.set("isShallowLoading", true);
         const { isSuccess, data } = await blogArticlesQuery({
             page: searchParams.page,
-            cityId: city.id
         });
         if (isSuccess && data) {
             store.pagination.update(data.pagination);

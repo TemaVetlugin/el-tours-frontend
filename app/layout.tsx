@@ -67,7 +67,6 @@ export default async function Layout({ children }: PropsType) {
                         compilations={data?.compilations || []}
                         catalogCategories={data?.catalogCategories || []}
                     />
-                    <LayoutHeader/>
                     {children}
                     <LayoutFooterForm/>
                     <LayoutFooter/>

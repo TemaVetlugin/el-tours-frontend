@@ -3,38 +3,36 @@ import { Metadata } from "next";
 
 import { Client } from "./client";
 import { Cache } from "shared/utilities/server";
-import { homeQuery } from "shared/queries/frontend";
-import { getCity } from "shared/server";
 
 import './page.scss';
+import {blogArticlesGetQuery} from "shared/queries/main";
 
-export default async function Page() {
-    const city = await getCity();
-
-    const { data, description } = await Cache.remember(
-        `homeQuery:${city.id}`,
-        async () => await homeQuery({
-            cityId: city.id
-        }),
-    );
-
-    return (
-        <Client
-            homeBanners={data?.homeBanners || []}
-            promoActions={data?.promoActions || []}
-            brands={data?.brands || []}
-            manufacturers={data?.manufacturers || []}
-            articles={data?.articles || []}
-            news={data?.news || []}
-            catalogProductsNew={data?.catalogProductsNew || []}
-            catalogProductsProfit={data?.catalogProductsProfit || []}
-            catalogProductsPopular={data?.catalogProductsPopular || []}
-        />
-    );
+type PropsType = {
+    params: {
+        slug: string
+    }
 }
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: PropsType): Promise<Metadata> {
+    const { isSuccess, data } = await Cache.remember(
+        `blogArticlesGetQuery:${params.slug}`,
+        async () => await blogArticlesGetQuery(params)
+    );
+    if (isSuccess && data) {
+        return {
+            title: data.item.name
+        }
+    }
+
     return {
         title: 'Блог',
-    };
+    }
 }
+
+export default async function Page({params}: PropsType) {
+
+    return (
+        <Client slug={params.slug}/>
+    );
+}
+

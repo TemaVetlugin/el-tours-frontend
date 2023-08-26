@@ -10,6 +10,9 @@ export interface BlogArticleModelInterface {
     slug?: string;
     previewImage?: string;
     preview?: string;
+    createdDate?: string;
+    readingTime?: string;
+    views?: number;
     content?: string;
 }
 
@@ -22,6 +25,10 @@ export class BlogArticleModel extends Model<BlogArticleModelInterface> implement
         "previewImage",
         "preview",
         "content",
+        "createdDate",
+        "readingTime",
+        "views",
+        "content",
     ];
 
     id = 0;
@@ -29,6 +36,9 @@ export class BlogArticleModel extends Model<BlogArticleModelInterface> implement
     slug = '';
     previewImage = '';
     preview = '';
+    createdDate = '';
+    readingTime = '';
+    views = 0;
     content = '';
 
     constructor(payload?: BlogArticleModelInterface) {
@@ -40,6 +50,9 @@ export class BlogArticleModel extends Model<BlogArticleModelInterface> implement
             slug: observable,
             previewImage: observable,
             preview: observable,
+            createdDate: observable,
+            readingTime: observable,
+            views: observable,
             content: observable,
         });
 
