@@ -18,8 +18,6 @@ import {UserService} from "shared/services";
 import {blogArticlesGetQuery} from "shared/queries/main";
 import {PBlogAuthor} from "./components/PBlogAuthor";
 import {PBlogContent} from "./components/PBlogContent";
-import {LayoutHeader} from "shared/layout";
-import {LayoutHeaderSearch} from "../components/PBlogHeaderSearch";
 
 type PropsType = {
     slug: string
@@ -49,10 +47,6 @@ export const Client = observer(({slug}: PropsType
 
     return (
         <UiPage className="blog-article-page">
-
-            <LayoutHeader>
-                <LayoutHeaderSearch/>
-            </LayoutHeader>
             <UiPage.Header
                 title={store.item.name}
                 subtitle={store.item.createdDate + " - Чтение " + store.item.readingTime}

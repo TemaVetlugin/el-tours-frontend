@@ -84,6 +84,11 @@ export const ROUTES = {
         name,
         url: slug ? `/blog/${slug}` : '/blog',
     }),
+    VACANCY: (slug: string = '', name = 'Вакансии'): RouteType => ({
+        id: 'vacancy' + slug,
+        name,
+        url: slug ? `/vacancy/${slug}` : '/vacancy',
+    }),
     NEWS: (slug: string = '', name = 'Новости'): RouteType => ({
         id: 'news' + slug,
         name,

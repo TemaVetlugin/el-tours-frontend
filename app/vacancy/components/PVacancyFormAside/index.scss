@@ -1,0 +1,40 @@
+.form-aside{
+    min-width: 320px;
+    height: 409px;
+    padding: 32px 20px 40px 20px;
+    background-color: white;
+    font-weight: 300;
+    font-size: 16px;
+    color: $cDarkSecondary;
+    border-radius: 5px;
+    margin-left: 80px;
+    p{
+        margin: 0;
+    }
+
+    &__header {
+        text-align: center;
+        border-bottom: 1px solid $cGrayPrimary;
+        h2{
+            font-weight: 800;
+            font-size: 24px;
+            margin: 0 0 10px 0;
+            letter-spacing: 0.02em;
+            color: $cDarkPrimary;
+        }
+        p{
+            font-size: 14px;
+            font-weight: 300;
+            margin: 0 0 20px 0;
+            color: $cDarkPrimary;
+            line-height: 22px;
+            width: 250px;
+        }
+
+    }
+
+
+    &__confirm{
+        width: 100%;
+    }
+}

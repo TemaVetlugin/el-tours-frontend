@@ -1,0 +1,15 @@
+.vacancy-page{
+    color: $cDarkPrimary;
+    background-color: $cGraySecondary;
+    padding-top:36px;
+    &--flex{
+        display: flex;
+
+    }
+
+    p{
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 25px;
+    }
+}
