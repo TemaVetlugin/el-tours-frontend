@@ -145,6 +145,7 @@
     blockquote {
         display: flex;
         gap: 57px;
+        min-height: 154px;
         background: url("../../../public/assets/images/typical/quote.svg") no-repeat left center;
         background-size: 188px 154px;
         padding-left: 240px;

@@ -11,6 +11,7 @@ import {UiDataBoundary, UiGrid, UiPage} from "shared/ui";
 import './page.scss';
 import {LayoutHeader} from "shared/layout";
 import {LayoutHeaderSearch} from "./components/PBlogHeaderSearch";
+import {ROUTES} from "shared/contants";
 
 export const Client = observer(() => {
     const city = useCity();
@@ -43,6 +44,7 @@ export const Client = observer(() => {
                 <LayoutHeaderSearch/>
             </LayoutHeader>
             <UiPage.Header
+                items={[ ROUTES.ARTICLES()]}
                 title={'Блог'}
                 subtitle={'Здесь собраны самые впечатляющие статьи путешественников.'}
 

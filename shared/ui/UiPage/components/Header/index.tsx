@@ -11,6 +11,7 @@ type RoutesType = typeof ROUTES;
 type RouteType = ReturnType<RoutesType[keyof RoutesType]>;
 
 type PropsType = {
+    titleComplex?: () => React.ReactNode,
     title?: string,
     subtitle?: string,
     views?: number,
@@ -19,7 +20,7 @@ type PropsType = {
     aside?: () => React.ReactNode
 }
 
-export const Header = observer(({title, subtitle, views, comments, aside, items}: PropsType) => {
+export const Header = observer(({title, titleComplex, subtitle, views, comments, aside, items}: PropsType) => {
     return (
 
         <div className="ui-page-header">
@@ -27,9 +28,16 @@ export const Header = observer(({title, subtitle, views, comments, aside, items}
 
                 <UiPage.Breadcrumbs
                     items={items}/>
-                <h1>
-                    {title}
-                </h1>
+                {!!titleComplex && (
+                    <div className="ui-page-header__title">
+                        {titleComplex()}
+                    </div>
+                )}
+                {!!title && (
+                    <div className="ui-page-header__title">
+                        <h1>{title}</h1>
+                    </div>
+                )}
                 <div className="ui-page-header__properties">
                     {!!subtitle && (
                         <span className="ui-page-header__properties__text">{subtitle}</span>

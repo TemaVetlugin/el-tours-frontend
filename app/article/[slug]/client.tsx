@@ -50,6 +50,10 @@ export const Client = observer(({slug}: PropsType
                 <LayoutHeaderSearch/>
             </LayoutHeader>
             <UiPage.Header
+                items={[
+                    ROUTES.ARTICLES(),
+                    ROUTES.ARTICLES(store.item.slug, store.item.name)
+                ]}
                 title={store.item.name}
                 subtitle={store.item.createdDate + " - Чтение " + store.item.readingTime}
                 views={store.item.views}

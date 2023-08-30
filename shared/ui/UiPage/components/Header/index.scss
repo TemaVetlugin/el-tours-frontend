@@ -8,12 +8,17 @@
     padding-bottom: 40px;
     font-weight: 300;
 
-    h1 {
-        font-style: normal;
-        font-weight: 800;
-        font-size: 48px;
-        line-height: 58px;
-        margin: 0 0 20px 0;
+    &__title {
+        h1 {
+            font-style: normal;
+            font-weight: 800;
+            font-size: 48px;
+            line-height: 58px;
+            margin: 0 0 20px 0;
+        }
+        &--green{
+            color: $cGreenPrimary;
+        }
     }
 
     &__properties {

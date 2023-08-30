@@ -39,14 +39,22 @@ export const Client = observer(({slug}: PropsType
     }, [slug, router]);
 
     return (
-        <UiPage className="vacancy-page">
+
+        <UiPage>
             <LayoutHeader>
                 <LayoutHeaderSearch/>
             </LayoutHeader>
             <UiPage.Header
+                items={[
+                    ROUTES.VACANCY(),
+                    ROUTES.VACANCY(store.item.slug, store.item.name)
+                ]}
+                titleComplex={() =>
+                    <React.Fragment>
+                        <h1>{store.item.name} <span className="ui-page-header__title--green">{store.item.salary}</span></h1>
+                    </React.Fragment>
 
-                items={[ROUTES.VACANCY(), ROUTES.VACANCY()]}
-                title={store.item.name}
+                    }
                 subtitle={store.item.subtitle}
             />
             <div className="vacancy-page">
@@ -58,8 +66,8 @@ export const Client = observer(({slug}: PropsType
                     </div>
                     <PVacancyFormAside/>
                 </UiPage.Wrap>
-                <PVacancyForm/>
             </div>
+            <PVacancyForm/>
         </UiPage>
     );
 });
