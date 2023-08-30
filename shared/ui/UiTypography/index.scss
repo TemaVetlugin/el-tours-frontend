@@ -165,15 +165,18 @@
 
     ul {
         padding: 0;
-        margin: 16px 0;
+        margin: 24px 0;
         list-style: none;
 
         li {
             position: relative;
-            padding-left: 17px;
+            padding-left: 30px;
+            margin-top: 16px;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 25px;
 
             &:not(:last-child) {
-                margin-bottom: 16px;
 
                 @include isMobile {
                     margin-bottom: 12px;
@@ -182,11 +185,11 @@
 
             &::before {
                 position: absolute;
-                top: 10px;
+                top: 7px;
                 left: 1px;
-                width: 5px;
-                height: 5px;
-                background: $cRedPrimary;
+                width: 8px;
+                height: 8px;
+                border: 1px solid $cGrayPrimary;
                 border-radius: 100%;
                 content: '';
 
@@ -219,7 +222,7 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                color: $cRedPrimary;
+                color: $cGrayPrimary;
                 content: counter(section) '.';
                 counter-increment: section;
             }

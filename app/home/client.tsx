@@ -136,14 +136,14 @@ export const Client = observer((
                                     <h5>Ночей</h5>
                                     <div className="home-page-main-search-content__wrap">
                                         <p>на 7-8 ночей</p>
-                                        <UiIcon size={12} name={"arrow_down"} color={COLORS.GRAY_PRIMARY}/>
+                                        <UiIcon size={12} name={"arrowDown"} color={COLORS.GRAY_PRIMARY}/>
                                     </div>
                                 </div>
                                 <div className="home-page-main-search-content-tourists">
                                     <h5>Туристов</h5>
                                     <div className="home-page-main-search-content__wrap">
                                         <p>2 взрослых</p>
-                                        <UiIcon size={12} name={"arrow_down"} color={COLORS.GRAY_PRIMARY}/>
+                                        <UiIcon size={12} name={"arrowDown"} color={COLORS.GRAY_PRIMARY}/>
                                     </div>
                                 </div>
                                 <UiButton

@@ -3,7 +3,7 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import {BlogArticleModel, NewsModel} from "shared/models";
+import {ArticleModel, NewsModel} from "shared/models";
 import { UiLink, UiPage } from "shared/ui";
 import { ROUTES } from "shared/contants";
 

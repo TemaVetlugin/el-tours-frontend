@@ -2,7 +2,7 @@ import React from "react";
 export type IconType = (size: [number, number], colors: string[], id?: string | number) => React.ReactNode;
 
 export { alarm } from "./alarm";
-export { arrow_down } from "./arrow_down";
+export { arrowDown } from "./arrowDown";
 export { arrowLeft } from "./arrowLeft";
 export { burger } from "./burger";
 export { calendar } from "./calendar";
@@ -50,3 +50,7 @@ export { trash } from "./trash";
 export { user } from "./user";
 export { wallet } from "./wallet";
 export { warning } from "./warning";
+export { book } from "./book";
+export { joystick } from "./joystick";
+export { star } from "./star";
+export { folder } from "./folder";

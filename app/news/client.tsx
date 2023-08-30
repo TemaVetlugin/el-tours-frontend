@@ -1,17 +1,16 @@
 'use client';
 
-import React, { useEffect } from "react";
-import { observer } from "mobx-react-lite";
+import React from "react";
+import {observer} from "mobx-react-lite";
 
-import { ROUTES } from "shared/contants";
-import { useAsyncEffect, useCity, useStore, useRouter, useSearchParams} from "shared/hooks";
-import { NewsModel, PaginationModel, TagModel, BlogArticleModel } from "shared/models";
-import { newsQuery, blogArticlesQuery, tagsQuery } from "shared/queries/main";
-import { CTileNews } from "shared/components/tiles";
-import { UiDataBoundary, UiGrid, UiPage, UiSelect, UiWrap } from "shared/ui";
+import {ROUTES} from "shared/contants";
+import {useAsyncEffect, useCity, useRouter, useSearchParams, useStore} from "shared/hooks";
+import {NewsModel, PaginationModel, TagModel} from "shared/models";
+import {newsQuery, tagsQuery} from "shared/queries/main";
+import {CTileNews} from "shared/components/tiles";
+import {UiDataBoundary, UiGrid, UiPage, UiSelect, UiWrap} from "shared/ui";
 
 import './page.scss';
-import {} from "shared/models/BlogArticle.model";
 
 export const Client = observer(() => {
     const city = useCity();
@@ -19,7 +18,6 @@ export const Client = observer(() => {
     const store = useStore({
         tags: [] as TagModel[],
         news: [] as NewsModel[],
-        blogArticles: [] as BlogArticleModel[],
         pagination: new PaginationModel(),
         isLoading: true,
         isShallowLoading: true,
@@ -43,19 +41,6 @@ export const Client = observer(() => {
         if (isSuccess && data) {
             store.pagination.update(data.pagination);
             store.set("news", data.items.map(item => new NewsModel(item)));
-        }
-        store.set("isLoading", false);
-        store.set("isShallowLoading", false);
-    }, [searchParams.page, city, searchParams.tagId]);
-
-    useAsyncEffect(async () => {
-        store.set("isShallowLoading", true);
-        const { isSuccess, data } = await blogArticlesQuery({
-            page: searchParams.page,
-        });
-        if (isSuccess && data) {
-            store.pagination.update(data.pagination);
-            store.set("blogArticles", data.items.map(item => new BlogArticleModel(item)));
         }
         store.set("isLoading", false);
         store.set("isShallowLoading", false);
@@ -88,7 +73,7 @@ export const Client = observer(() => {
                         />
                     )}
                 />
-                <UiDataBoundary isLoading={store.isLoading} withShallowLoading isShallowLoading={store.isShallowLoading}>
+                <UiDataBoundary isLoading={store.isLoading} withShallow >
                     <UiGrid columns={4} gap={[20, 50]}>
                         {store.news.map(news => <CTileNews key={news.id} template={'light'} item={news}/>)}
                     </UiGrid>

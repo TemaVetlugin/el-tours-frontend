@@ -91,7 +91,7 @@ export const LayoutHeaderSearch = observer(() => {
                     button: [COLORS.WHITE, COLORS.WHITE],
                     icon: [COLORS.DARK_SECONDARY, COLORS.DARK_SECONDARY],
                 }}>
-                    <UiIcon size={12} name={'arrow_down'}/>
+                    <UiIcon size={12} name={'arrowDown'}/>
                 </UiButton>
                 <UiInput
                     placeholder='Страна, город или отель'

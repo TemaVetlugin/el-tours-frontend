@@ -1,10 +1,9 @@
-import { ArticleModelInterface } from "shared/models";
+import {ArticleModelInterface} from "shared/models";
 
-import { makeQuery } from "../utilities";
+import {makeQuery} from "../utilities";
 
 type RequestType = {
     slug?: string,
-    cityId?: number,
 }
 
 type ResponseType = {

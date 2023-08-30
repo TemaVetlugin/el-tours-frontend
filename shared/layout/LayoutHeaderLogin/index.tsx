@@ -72,14 +72,14 @@ export const LayoutHeaderLogin = observer(() => {
         <div className='layout-header-login'>
             {user.isAuthorized && (
                 <UiButton
-                    style={{ minWidth: 116 }}
                     isLoading={UserService.isLoading}
                     onClick={() => {
                         router.push(ROUTES.PROFILE());
                     }}
+                    template={"icon"}
                     colors={{
                         button: [COLORS.WHITE, COLORS.GREEN_PRIMARY],
-                        border: [COLORS.GRAY_SECONDARY, COLORS.GREEN_PRIMARY],
+                        border: [COLORS.DARK_SECONDARY_BORDER, COLORS.GREEN_PRIMARY],
                         icon: [COLORS.BLACK, COLORS.WHITE],
                     }}
                 >
@@ -96,13 +96,14 @@ export const LayoutHeaderLogin = observer(() => {
                     onClick={() => {
                         UserService.isAuthorized();
                     }}
+                    template={"icon"}
                     colors={{
                         button: [COLORS.WHITE, COLORS.GREEN_PRIMARY],
-                        border: [COLORS.DARK_SECONDARY, COLORS.WHITE],
+                        border: [COLORS.DARK_SECONDARY_BORDER, COLORS.WHITE],
                         icon: [COLORS.BLACK, COLORS.WHITE],
                     }}
                 >
-                    <UiIcon size={24} name={'user'}/>
+                    <UiIcon size={[20,24]} name={'user'}/>
                 </UiButton>
             )}
 

@@ -1,0 +1,33 @@
+.vm-vacancy {
+
+    background-color: white;
+    border-radius: 10px;
+    padding: 32px 60px;
+    margin-top: 28px;
+    display: flex;
+    justify-content: space-between;
+
+    &__title {
+        font-weight: 800;
+        font-size: 24px;
+        margin: 0 0 12px 0;
+        color: $cDarkPrimary;
+    }
+
+    &__text {
+        font-weight: 300;
+        font-size: 14px;
+        width: 514px;
+        line-height: 1.5;
+        color: $cDarkPrimary;
+    }
+
+    &__salary {
+        font-weight: 800;
+        font-size: 24px;
+        color: $cGreenSecondary;
+        display: flex;
+        align-items: center;
+    }
+
+}

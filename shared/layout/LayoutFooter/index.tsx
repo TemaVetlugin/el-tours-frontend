@@ -14,7 +14,6 @@ import {LayoutFooterForm} from "shared/layout/LayoutFooterForm";
 
 export const LayoutFooter = observer(() => {
     return (
-        <div>
         <div className="layout-footer">
             <UiPage.Wrap>
                 <div className="layout-footer-contacts">
@@ -444,7 +443,6 @@ export const LayoutFooter = observer(() => {
             <div className="layout-footer-end">
                 <span>© 2018, «Эль-Тур»</span>
             </div>
-        </div>
         </div>
     );
 });

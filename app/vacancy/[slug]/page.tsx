@@ -5,7 +5,7 @@ import { Client } from "./client";
 import { Cache } from "shared/utilities/server";
 
 import './page.scss';
-import {blogArticlesGetQuery} from "shared/queries/main";
+import {vacancyGetQuery} from "shared/queries/main";
 
 type PropsType = {
     params: {
@@ -15,8 +15,8 @@ type PropsType = {
 
 export async function generateMetadata({ params }: PropsType): Promise<Metadata> {
     const { isSuccess, data } = await Cache.remember(
-        `blogArticlesGetQuery:${params.slug}`,
-        async () => await blogArticlesGetQuery(params)
+        `vacancyGetQuery:${params.slug}`,
+        async () => await vacancyGetQuery(params)
     );
     if (isSuccess && data) {
         return {
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PropsType): Promise<Metadata>
     }
 
     return {
-        title: 'Блог',
+        title: 'Вакансии',
     }
 }
 

@@ -1,11 +1,16 @@
-.blog-article-page {
+.vacancy-page {
     height: 100%;
     width: 100%;
     background-color: $cGraySecondary;
+    padding: 36px 0 60px 0;
 
-    &-body {
+    &--flex {
         display: flex;
-        padding-top: 36px;
+    }
+
+    &-body{
+        width: 880px;
+
     }
 
     &-content {

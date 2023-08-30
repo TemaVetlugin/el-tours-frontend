@@ -9,32 +9,37 @@ export interface ArticleModelInterface {
     name?: string;
     slug?: string;
     previewImage?: string;
-    contentImage?: string;
+    preview?: string;
+    createdDate?: string;
+    readingTime?: string;
+    views?: number;
     content?: string;
-    catalogProducts?: CatalogProductModelInterface[]
 }
 
 export class ArticleModel extends Model<ArticleModelInterface> implements ArticleModelInterface {
-    casts = {
-        catalogProducts: new ModelArrayCast(CatalogProductModel)
-    }
+
     fillable: Array<keyof ArticleModelInterface> = [
         "id",
         "name",
         "slug",
         "previewImage",
-        "contentImage",
+        "preview",
         "content",
-        "catalogProducts",
+        "createdDate",
+        "readingTime",
+        "views",
+        "content",
     ];
 
     id = 0;
     name = '';
     slug = '';
     previewImage = '';
-    contentImage = '';
+    preview = '';
+    createdDate = '';
+    readingTime = '';
+    views = 0;
     content = '';
-    catalogProducts: CatalogProductModel[] = [];
 
     constructor(payload?: ArticleModelInterface) {
         super();
@@ -44,9 +49,11 @@ export class ArticleModel extends Model<ArticleModelInterface> implements Articl
             name: observable,
             slug: observable,
             previewImage: observable,
-            contentImage: observable,
+            preview: observable,
+            createdDate: observable,
+            readingTime: observable,
+            views: observable,
             content: observable,
-            catalogProducts: observable,
         });
 
         this.update(payload);

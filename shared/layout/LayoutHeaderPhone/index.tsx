@@ -18,7 +18,6 @@ export const LayoutHeaderPhone = observer(() => {
 
 
     return (
-        <>
             <div className="layout-header-phone">
             <UiButton  colors={{
                 button: [COLORS.WHITE, COLORS.WHITE],
@@ -33,7 +32,5 @@ export const LayoutHeaderPhone = observer(() => {
                 <span>+7 (383) 202-57-00</span>
             </UiButton>
                 </div>
-
-        </>
     );
 });

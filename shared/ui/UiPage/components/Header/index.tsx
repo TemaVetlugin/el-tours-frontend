@@ -7,25 +7,26 @@ import './index.scss';
 import {UiIcon, UiPage} from "shared/ui";
 import {ROUTES} from "shared/contants";
 
+type RoutesType = typeof ROUTES;
+type RouteType = ReturnType<RoutesType[keyof RoutesType]>;
+
 type PropsType = {
     title?: string,
     subtitle?: string,
     views?: number,
     comments?: number,
+    items?: RouteType[],
     aside?: () => React.ReactNode
 }
 
-export const Header = observer(({title, subtitle, views, comments, aside}: PropsType) => {
+export const Header = observer(({title, subtitle, views, comments, aside, items}: PropsType) => {
     return (
 
         <div className="ui-page-header">
             <UiPage.Wrap>
 
                 <UiPage.Breadcrumbs
-                    items={[
-                        ROUTES.BLOG(),
-                        ROUTES.BLOG(),
-                    ]}/>
+                    items={items}/>
                 <h1>
                     {title}
                 </h1>

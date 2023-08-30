@@ -1,7 +1,7 @@
 .form-aside{
     min-width: 320px;
     height: 409px;
-    padding: 32px 20px 40px 20px;
+    padding: 30px 32px;
     background-color: white;
     font-weight: 300;
     font-size: 16px;
@@ -14,7 +14,7 @@
 
     &__header {
         text-align: center;
-        border-bottom: 1px solid $cGrayPrimary;
+        border-bottom: 1px solid rgba($cGrayPrimary, 0.5);
         h2{
             font-weight: 800;
             font-size: 24px;
@@ -32,9 +32,35 @@
         }
 
     }
+    &-body{
+        padding-top: 20px;
+        border-bottom: 1px solid rgba($cGrayPrimary, 0.5);
+
+        &__contact{
+            margin-bottom: 15px;
+            font-size: 12px;
+            font-weight: 400;
+            display: flex;
+           justify-content: start;
+            .ui-icon{
+                margin-right: 10px;
+            }
+        }
 
 
-    &__confirm{
-        width: 100%;
+        &__confirm{
+            height: 50px;
+            width: 100%;
+            margin-top: 8px;
+            margin-bottom: 28px;
+        }
+
+        &__medias{
+            display: flex;
+            gap:16px;
+            padding-top: 16px;
+
+        }
     }
+
 }

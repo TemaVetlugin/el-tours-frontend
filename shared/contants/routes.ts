@@ -79,10 +79,10 @@ export const ROUTES = {
         name: 'Главная',
         url: '/',
     }),
-    BLOG: (slug: string = '', name = 'Блог'): RouteType => ({
-        id: 'blog' + slug,
+    ARTICLES: (slug: string = '', name = 'Блог'): RouteType => ({
+        id: 'article' + slug,
         name,
-        url: slug ? `/blog/${slug}` : '/blog',
+        url: slug ? `/article/${slug}` : '/article',
     }),
     VACANCY: (slug: string = '', name = 'Вакансии'): RouteType => ({
         id: 'vacancy' + slug,
@@ -98,11 +98,6 @@ export const ROUTES = {
         id: 'promo_actions' + slug,
         name,
         url: slug ? `/promo-actions/${slug}` : '/promo-actions',
-    }),
-    ARTICLES: (slug: string = '', name = 'Интересно'): RouteType => ({
-        id: 'articles' + slug,
-        name,
-        url: slug ? `/articles/${slug}` : '/articles',
     }),
     PRODUCT: ({ slug, name, externalId }: { slug?: string | null, name?: string, externalId?: string | null }): RouteType => ({
         id: 'product' + slug,

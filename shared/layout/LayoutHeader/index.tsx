@@ -1,22 +1,13 @@
 'use client';
 
-import classnames from "classnames";
-import { observer } from "mobx-react-lite";
-import React, { useEffect } from "react";
-
-import { COLORS, ROUTES } from "shared/contants";
-import { useRouter } from "shared/hooks";
-import { LayoutService, UserService } from "shared/services";
-import { UiButton, UiIcon, UiLink, UiWrap } from "shared/ui";
-
-import { LayoutHeaderPhone} from "../LayoutHeaderPhone";
-import { LayoutHeaderLogin } from "../LayoutHeaderLogin";
-import { LayoutHeaderSearch } from "../LayoutHeaderSearch";
-import { LayoutHeaderDefault } from "../LayoutHeaderDefault";
-import { LayoutHeaderHome } from "../LayoutHeaderHome";
+import {observer} from "mobx-react-lite";
+import React, {useEffect} from "react";
+import {useRouter} from "shared/hooks";
+import {LayoutService} from "shared/services";
+import {LayoutHeaderDefault} from "./templates/LayoutHeaderDefault";
+import {LayoutHeaderHome} from "./templates/LayoutHeaderHome";
 
 import './index.scss';
-import {MediaPropType} from "shared/types";
 
 type PropsType = {
     children?: React.ReactNode,

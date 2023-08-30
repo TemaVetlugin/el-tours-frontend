@@ -6,6 +6,7 @@ export const COLORS = {
 
     DARK_PRIMARY: '#20333B',
     DARK_SECONDARY: '#7B8A91',
+    DARK_SECONDARY_BORDER: 'rgba(123, 138, 145, 0.5)',
 
     TYPO: '#444449',
     BORDER: '#A9B9DE',

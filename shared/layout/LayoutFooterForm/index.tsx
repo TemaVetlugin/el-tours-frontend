@@ -1,11 +1,8 @@
 'use client';
 
 import {observer} from "mobx-react-lite";
-import {usePathname} from "next/navigation";
 import React from "react";
-
-import {LayoutService} from "shared/services";
-import {UiButton, UiForm, UiIcon, UiInput, UiLink, UiPage} from "shared/ui";
+import {UiButton, UiForm, UiIcon, UiInput, UiPage} from "shared/ui";
 
 import './index.scss';
 import {COLORS} from "shared/contants";
@@ -42,7 +39,7 @@ export const LayoutFooterForm = observer(() => {
                                 button: [COLORS.WHITE, COLORS.WHITE],
                                 icon: [COLORS.DARK_SECONDARY, COLORS.GRAY_PRIMARY],
                             }}>
-                                <UiIcon size={12} name={'arrow_down'}/>
+                                <UiIcon size={12} name={'arrowDown'}/>
                             </UiButton>
                             <UiInput
                                 placeholder=''
@@ -89,7 +86,7 @@ export const LayoutFooterForm = observer(() => {
                                     button: [COLORS.WHITE, COLORS.WHITE],
                                     icon: [COLORS.DARK_SECONDARY, COLORS.GRAY_PRIMARY],
                                 }}>
-                                    <UiIcon size={12} name={'arrow_down'}/>
+                                    <UiIcon size={12} name={'arrowDown'}/>
                                 </UiButton>
                                 <UiInput
                                     placeholder=''

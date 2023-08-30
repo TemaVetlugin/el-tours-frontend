@@ -1,0 +1,27 @@
+.vacancy-description{
+    background-color: white;
+    padding: 60px 80px 20px 60px;
+    border-radius: 10px;
+    margin-top: 25px;
+    &__row{
+        display: flex;
+        width: 740px;
+        gap: 60px;
+        margin-bottom: 40px;
+        &_item{
+            width: 340px;
+            h5{
+                margin-top: 32px;
+                margin-bottom: 12px;
+                font-size: 18px;
+                font-weight: 800;
+            }
+            p{
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 22px;
+                margin: 0;
+            }
+        }
+    }
+}

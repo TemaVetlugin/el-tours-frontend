@@ -1,20 +1,24 @@
 'use client';
 
-import React from 'react';
-import { observer } from 'mobx-react-lite';
+'use client';
 
-import { UiLoading } from '../UiLoading';
+import classnames from "classnames";
+import { observer } from 'mobx-react-lite';
+import React, { useEffect, useState } from 'react';
+
+import { useStore } from "shared/hooks";
+
 import { UiButton } from '../UiButton';
+import { UiLoading } from '../UiLoading';
 
 import './index.scss';
-import classnames from "classnames";
 
 type PropsType = {
     isError?: boolean;
     isLoading?: boolean;
     className?: string,
-    withShallowLoading?: boolean;
-    isShallowLoading?: boolean;
+    withShallow?: boolean;
+    withoutSSR?: boolean;
     errorMessage?: string;
     actionText?: string;
     onAction?: () => void;
@@ -27,8 +31,8 @@ export const UiDataBoundary = observer((
     {
         isError = false,
         isLoading = false,
-        withShallowLoading = false,
-        isShallowLoading = false,
+        withShallow,
+        withoutSSR,
         className,
         actionText = 'Обновить',
         errorMessage = 'Что-то пошло не так. \nНе удалось загрузить данные.',
@@ -38,23 +42,43 @@ export const UiDataBoundary = observer((
         children
     }: PropsType
 ) => {
+    const store = useStore({
+        isInitializing: true,
+        isFirstLoaded: false
+    });
+
     const styles = {
         ...style
     };
 
-    if (isLoading) {
+    useEffect(() => {
+        setTimeout(() => {
+            store.set('isInitializing', false);
+        }, 250);
+    }, [store]);
+
+    useEffect(() => {
+        if (!isLoading) {
+            store.set('isInitializing', true);
+        }
+    }, [store, isLoading]);
+
+    const isShallow = withShallow && store.isFirstLoaded;
+    const isLoadingVisible = isLoading || (withoutSSR && store.isInitializing);
+
+    if (!isShallow && (isLoadingVisible || isError)) {
         return (
             <div
                 className={'ui-data-boundary ui-data-boundary--loading'}
                 style={styles}
             >
-                {isLoading && (
+                {isLoadingVisible && (
                     <div className='ui-data-boundary__loading'>
                         <img src="/assets/images/logo.svg" alt=""/>
                         <UiLoading size={40}/>
                     </div>
                 )}
-                {!isLoading && isError && (
+                {!isLoadingVisible && isError && (
                     <>
                         <div className='ui-data-boundary__error'>{errorMessage}</div>
                         {onAction && <UiButton template='small' label={actionText} onClick={onAction}/>}
@@ -64,10 +88,10 @@ export const UiDataBoundary = observer((
         );
     }
 
-    if (withShallowLoading) {
+    if (isShallow) {
         return (
             <div className={classnames('ui-data-boundary', className, {
-                'ui-data-boundary--shallow': isShallowLoading,
+                'ui-data-boundary--shallow': isLoading,
             })}>
                 {!!render && render()}
                 {children}
