@@ -1,13 +1,49 @@
 .ui-slider {
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
     max-width: 100%;
     overflow: hidden;
 
     &__inner {
         width: 100%;
+        padding-left: 20px;
         max-width: 100%;
-        overflow: hidden;
+        position: relative;
+        &::after{
+            content: '';
+            width: 38px;
+            display: block;
+            position: absolute;
+            height: 64px;
+            z-index: 2;
+            pointer-events: none;
+            top: 0;
+            right: 0;
+            left: auto;
+            opacity: 0.5;
+            background: linear-gradient(89.51deg, rgba(0, 0, 0, 0) 0.45%, #000000 102.91%);
+        }
+    }
+
+    &__line {
+        position: relative;
+        padding-right:20px;
+        margin: 8px 0 8px 0;
+        &--gray{
+            border-radius: 2px;
+            background-color: $cGraySecondary;
+            width: 100%;
+            display: flex;
+        }
+        .swiper-slide{
+            overflow: hidden;
+            border-radius: 2px;
+            flex-grow: 1;
+            width: auto;
+            display: inline-block;
+        }
     }
 
     .swiper-wrapper {

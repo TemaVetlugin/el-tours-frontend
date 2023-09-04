@@ -1,19 +1,11 @@
 import React from "react";
-import { IconType } from "./index";
+import {IconType} from "./index";
 
 export const closeLight: IconType = (size, colors) => (
-    <svg width={size[0]} height={size[1]} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-            d="M16.9492 7.05029L7.04972 16.9498"
-            stroke={colors[0]}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        />
-        <path
-            d="M7.05078 7.05029L16.9503 16.9498"
-            stroke={colors[0]}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        />
+    <svg width={size[0]} height={size[1]} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M0.395957 17.7816C-0.0650218 18.2334 -0.133426 19.0245 0.243172 19.5487C0.61977 20.0729 1.29876 20.1316 1.75974 19.6798L9.99473 11.6094L18.2301 19.6802C18.6911 20.132 19.3701 20.0732 19.7467 19.5491C20.1233 19.0249 20.0549 18.2337 19.5939 17.782L11.6451 9.99204L19.5939 2.20211C20.0549 1.75034 20.1233 0.959182 19.7467 0.434999C19.3701 -0.0891846 18.6911 -0.14789 18.2301 0.303876L9.99473 8.37466L1.75973 0.304239C1.29875 -0.147527 0.619757 -0.0888211 0.24316 0.435362C-0.133438 0.959545 -0.0650335 1.75071 0.395946 2.20247L8.34437 9.99204L0.395957 17.7816Z"
+              fill="#20333B"/>
     </svg>
+
 );

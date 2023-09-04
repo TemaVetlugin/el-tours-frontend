@@ -1,0 +1,112 @@
+.visa-services{
+    min-width: 320px;
+    padding: 32px 32px 28px 32px;
+    background-color: white;
+    font-weight: 300;
+    font-size: 16px;
+    color: $cDarkSecondary;
+    border-radius: 5px;
+    p{
+        margin: 0;
+    }
+
+    &__header {
+        text-align: start;
+        border-bottom: 1px solid rgba($cGrayPrimary, 0.5);
+        h2{
+            font-weight: 800;
+            font-size: 24px;
+            margin: 0 0 20px 0;
+            letter-spacing: 0.02em;
+            color: $cDarkPrimary;
+        }
+        p{
+            font-size: 14px;
+            font-weight: 300;
+            margin: 0 0 20px 0;
+            color: $cDarkPrimary;
+            line-height: 22px;
+            width: 250px;
+        }
+
+    }
+    &-body{
+        padding-top: 24px;
+        padding-bottom: 8px;
+        &__list{
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: 300;
+            display: flex;
+           justify-content: start;
+            .ui-icon{
+                margin-right: 10px;
+            }
+            &--image{
+                width: 30px;
+                height: 20px;
+                margin-right: 20px;
+                border-radius: 2px;
+                background-image: url('/assets/images/typical/image 118.png');
+            }
+        }
+
+        &__confirm{
+            height: 50px;
+            width: 100%;
+            margin-top: 8px;
+            margin-bottom: 28px;
+        }
+
+        &__medias{
+            display: flex;
+            gap:16px;
+            padding-top: 16px;
+
+        }
+    }
+    .ui-link{
+        text-decoration: underline;
+        font-size: 18px;
+        font-weight: 400;
+    }
+    ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    &__text{
+        font-weight: 300;
+        font-size: 18px;
+        padding-left: 20px !important;
+        position: relative;
+        line-height: 25px;
+
+
+
+        &:not(:last-child) {
+
+            margin-bottom: 16px;
+            @include isMobile {
+                margin-bottom: 12px;
+            }
+        }
+
+        &::before {
+            position: absolute;
+            top: 7px;
+            left: 1px;
+            width: 6px;
+            height: 6px;
+            border: 1px solid $cGrayPrimary;
+            border-radius: 100%;
+            content: '';
+
+            @include isMobile {
+                top: 7px;
+            }
+        }
+
+    }
+
+}

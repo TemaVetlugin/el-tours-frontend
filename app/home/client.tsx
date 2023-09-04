@@ -1,18 +1,22 @@
 'use client';
 
 import React from "react";
-import {UiButton, UiIcon, UiPage, UiSelect} from "shared/ui";
+import {UiButton, UiIcon, UiPage} from "shared/ui";
 import {observer} from "mobx-react-lite";
 
 import {homeQuery} from "shared/queries/frontend";
 import {ReturnType} from "shared/types";
 import {useAsyncEffect, useCity, useDidUpdateEffect, useStore} from "shared/hooks";
-import {ArticleModel, BrandModel, CatalogProductModel, HomeBannerModel, ManufacturerModel, NewsModel, PromoActionModel} from "shared/models";
-import {COLORS, ROUTES} from "shared/contants";
-
-import {PBlogMediasAside} from "./components/PBlogMediasAside";
-import {PBlogFormAside} from "./components/PBlogFormAside";
-import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
+import {
+    ArticleModel,
+    BrandModel,
+    CatalogProductModel,
+    HomeBannerModel,
+    ManufacturerModel,
+    NewsModel,
+    PromoActionModel
+} from "shared/models";
+import {COLORS} from "shared/contants";
 import {LayoutHeader} from "shared/layout";
 import {UserService} from "shared/services";
 

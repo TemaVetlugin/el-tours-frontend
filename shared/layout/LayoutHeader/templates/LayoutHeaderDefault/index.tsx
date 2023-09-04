@@ -13,6 +13,7 @@ import {LayoutHeaderPhone} from "../../../LayoutHeaderPhone";
 import {LayoutHeaderLogin} from "../../../LayoutHeaderLogin";
 
 import './index.scss';
+import {LayoutMenu} from "shared/layout/LayoutMenu";
 
 type PropsType = {
     children?: React.ReactNode,
@@ -77,24 +78,8 @@ export const LayoutHeaderDefault = observer(({children} : PropsType) => {
                                 <UiIcon size={[22,24]} name={'heart'} color={COLORS.GREEN_PRIMARY}/>
                             </UiButton>
                             <LayoutHeaderLogin/>
-                            <UiButton
-                                onClick={() => {
-                                    if (!UserService.isAuthorized()) {
-                                        return;
-                                    }
-                                    router.push(ROUTES.FAVORITES())
-                                }}
-                                notification={UserService.user.userFavorites.length}
-                                template={'icon'}
-                                colors={{
-                                    button: [COLORS.WHITE, COLORS.WHITE],
-                                    border: [COLORS.WHITE, COLORS.WHITE],
-                                    icon: [COLORS.DARK_PRIMARY, COLORS.DARK_PRIMARY],
 
-                                }}
-                            >
-                                <UiIcon size={[22, 20]} name={'burger'}/>
-                            </UiButton>
+                            <LayoutMenu/>
                         </div>
                     </div>
                 </UiWrap>

@@ -26,6 +26,7 @@ export const LayoutService = makeService(class {
 
     headerIsMinified = false;
     loginIsOpened = false;
+    menuIsOpened = false;
 
     constructor() {
         makeAutoObservable(this);

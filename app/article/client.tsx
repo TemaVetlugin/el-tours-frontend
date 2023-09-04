@@ -51,7 +51,7 @@ export const Client = observer(() => {
             />
             <UiPage.Wrap>
                 <UiDataBoundary isLoading={store.isLoading} withShallow>
-                    <UiGrid columns={2} gap={[8, 8]}>
+                    <UiGrid columns={3} gap={[8, 8]}>
                         {store.articles.map(articles => <VmArticle key={articles.id} template={'light'} item={articles}/>)}
                     </UiGrid>
                 </UiDataBoundary>

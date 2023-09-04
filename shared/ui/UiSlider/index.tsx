@@ -1,14 +1,14 @@
 'use client';
 
 import classnames from "classnames";
-import { Observer, observer } from "mobx-react-lite";
-import React, { ReactElement, useEffect } from "react";
-import { Autoplay, EffectFade } from "swiper/modules";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Swiper as SwiperInstance } from 'swiper/types';
+import {Observer, observer} from "mobx-react-lite";
+import React, {ReactElement, useEffect} from "react";
+import {Autoplay, EffectFade} from "swiper/modules";
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {Swiper as SwiperInstance} from 'swiper/types';
 
-import { useStore } from "shared/hooks";
-import { OnChangeType } from "shared/types";
+import {useStore} from "shared/hooks";
+import {OnChangeType} from "shared/types";
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -35,6 +35,7 @@ type PropsType<T> = {
     perGroup?: number,
     gap?: number,
     renderItem: (item: T, isActive: boolean, index: number) => ReactElement,
+    renderLine: (item: T, isActive: boolean, index: number) => ReactElement,
     renderNavigation?: (navigation: NavigationType) => React.ReactNode;
     className?: string,
     slideClassName?: string,
@@ -46,6 +47,7 @@ export const UiSlider = observer(<T, >(
     {
         items,
         renderItem,
+        renderLine,
         renderNavigation,
         effect = 'slide',
         loop = false,
@@ -129,8 +131,9 @@ export const UiSlider = observer(<T, >(
             [`${className}--initialized`]: store.isInitialized,
         })}>
             <div className="ui-slider__inner">
+
                 <Swiper
-                    autoplay={autoPlay ? { delay: autoPlay } : {}}
+                    autoplay={autoPlay ? {delay: autoPlay} : {}}
                     autoHeight={autoHeight}
                     slidesPerView={perPage}
                     slidesPerGroup={perPage === 'auto' ? 1 : (perGroup || perPage)}
@@ -151,10 +154,20 @@ export const UiSlider = observer(<T, >(
                 >
                     {items.map((item, index) => (
                         <SwiperSlide key={index} className={slideClassName}>
-                            {({ isActive }) => <Observer render={() => renderItem(item, isActive, index)}/>}
+                            {({isActive}) => <Observer render={() => renderItem(item, isActive, index)}/>}
                         </SwiperSlide>
                     ))}
                 </Swiper>
+
+                <div className="ui-slider__line">
+                    <div className="ui-slider__line--gray">
+                        {items.map((item, index) => (
+                            <SwiperSlide key={index}>
+                                {({isActive}) => <Observer render={() => renderLine(item, isActive, index)}/>}
+                            </SwiperSlide>
+                        ))}
+                    </div>
+                </div>
             </div>
             {renderNavigation && renderNavigation(navigation)}
         </div>

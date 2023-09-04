@@ -89,69 +89,6 @@ export const Client = observer(({ catalogProduct }: PropsType) => {
                             className="p-product-media__image"
                             style={{ backgroundImage: `url(${media[store.activeSlide]?.src ?? store.catalogProduct.image})` }}
                         />
-                        {media.length > 0 && (
-                            <UiSlider
-                                className={'p-product-media-slider'}
-                                slideClassName={'p-product-media-slide'}
-                                perGroup={1}
-                                perPage={'auto'}
-                                gap={6}
-                                items={media}
-                                renderItem={(item, _, index) => (
-                                    <div
-                                        className={classnames('p-product-media-slide__inner', {
-                                            'p-product-media-slide__inner--active': index === store.activeSlide
-                                        })}
-                                    >
-                                        {item.type === 'image' && (
-                                            <div
-                                                className={'p-product-media-slide__image'}
-                                                onClick={() => {
-                                                    store.set("activeSlide", index);
-                                                    store.set("lightboxIndex", index);
-                                                }}
-                                                style={{
-                                                    backgroundImage: `url(${item.src})`
-                                                }}
-                                            />
-                                        )}
-                                        {item.type === 'video' && (
-                                            <div className={'p-product-media-slide__video'}
-                                                onClick={() => {
-                                                    store.set("lightboxIndex", index);
-                                                    store.set("isLightbox", true);
-                                                }}
-                                            >
-                                                <video src={item.src}/>
-                                                <div className="p-product-media-slide__overlay">
-                                                    <img src={playImage.src} alt=""/>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                )}
-                                renderNavigation={(navigation) => {
-                                    if (navigation.pages() < 6) {
-                                        return null;
-                                    }
-                                    return (
-                                        <>
-                                            <div className='p-product-media-slider__control'>
-                                                <div className="p-product-media-slider__arrow" onClick={navigation.prev}>
-                                                    <UiIcon size={16} name={'chevronLeft'}/>
-                                                </div>
-                                            </div>
-                                            <div
-                                                className='p-product-media-slider__control p-product-media-slider__control--next'>
-                                                <div className="p-product-media-slider__arrow" onClick={navigation.next}>
-                                                    <UiIcon size={16} name={'chevronRight'}/>
-                                                </div>
-                                            </div>
-                                        </>
-                                    );
-                                }}
-                            />
-                        )}
                     </div>
                     <div className="p-product__properties">
                         {PROPERTIES.map(property => {

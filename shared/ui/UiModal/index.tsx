@@ -26,7 +26,7 @@ const Modal = observer((
     {
         title,
         children,
-        width = 400,
+        width,
         isOpened = true,
         onClose,
         onOpen,
