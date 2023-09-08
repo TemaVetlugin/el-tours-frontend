@@ -1,0 +1,96 @@
+.signup{
+    padding: 185px 0;
+    width: 320px;
+    position: relative;
+    &__header{
+        margin: 0 0 20px 0;
+        font-weight: 800;
+        font-size: 26px;
+        color: $cDarkPrimary;
+        h2{
+            margin: 0;
+        }
+    }
+    &__subtitle{
+        font-weight: 300;
+        font-size: 16px;
+        margin-bottom: 40px;
+        display: block;
+        color: $cDarkPrimary;
+
+    }
+    &-label{
+        font-weight: 300;
+        font-size: 16px;
+        color: $cDarkSecondary;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        &--small{
+            font-size: 10px;
+            width: 189px;
+            text-align: end;
+        }
+        &--unsafe{
+            font-size: 12px;
+            font-weight: 300;
+            margin-top: 8px;
+            color: $cOrangePrimary;
+        }
+    }
+    &__input{
+        margin-bottom: 19px;
+        position: relative;
+        &--unsafe{
+            border-radius: 2px;
+            position: absolute;
+            top: 47px;
+            left: 0;
+            border-top: 3px solid $cOrangePrimary;
+            width: 118px;
+        }
+    }
+    &__submit{
+        .ui-button {
+            margin-top: 31px;
+            width: 100%;
+            height: 50px;
+            border-radius: 5px;
+            &__inner{
+                font-weight: 500;
+                font-size: 18px;
+            }
+        }
+    }
+    &-medias{
+        padding-top: 40px;
+        font-weight: 300;
+        font-size: 16px;
+        &--wrap{
+            display: flex;
+            justify-content: space-between;
+            padding-top: 18px;
+        }
+    }
+    &-signin{
+        padding-top: 31px;
+        font-weight: 300;
+        font-size: 18px;
+        .ui-link{
+            color: $cGreenPrimary;
+        }
+    }
+    &-line{
+        padding-top: 61px;
+        display: flex;
+        justify-content: space-between;
+        &__step{
+            height: 3px;
+            width: 100px;
+            background-color: $cGraySecondary;
+            &--active{
+                background-color: $cGreenPrimary;
+            }
+        }
+    }
+}

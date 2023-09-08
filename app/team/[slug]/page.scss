@@ -1,0 +1,22 @@
+.article-page {
+    height: 100%;
+    width: 100%;
+    background-color: $cGraySecondary;
+
+    &-body {
+        display: flex;
+        padding-top: 36px;
+    }
+
+    &-content {
+        width: 800px;
+    }
+
+
+    &__offset{
+        width: 80px;
+    }
+
+}
+
+
