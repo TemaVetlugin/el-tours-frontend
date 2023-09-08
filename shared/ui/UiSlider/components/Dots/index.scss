@@ -1,0 +1,31 @@
+.ui-slider-dots {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+
+    &__inner {
+        display: flex;
+        z-index: 1;
+        align-items: center;
+        padding: 8px 12px;
+        background: rgba(0, 0, 0, 0.20);
+        border-radius: 16px;
+        gap: 4px;
+        backdrop-filter: blur(2px);
+    }
+
+    &__item {
+        width: 6px;
+        height: 6px;
+        background: $cWhite;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &--active {
+            width: 18px;
+            background: $cGreenPrimary;
+        }
+    }
+}

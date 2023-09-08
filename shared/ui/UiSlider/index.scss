@@ -1,36 +1,20 @@
 .ui-slider {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     max-width: 100%;
     overflow: hidden;
 
-    &__inner {
-        width: 100%;
-        padding-left: 20px;
-        max-width: 100%;
+    &-container {
         position: relative;
-
+        width: 100%;
+        max-width: 100%;
+        display: grid; //не удалять, хз, без этого слайдер бесоёбит
     }
 
-    &__line {
-        position: relative;
-        padding-right:20px;
-        margin: 8px 0 8px 0;
-        &--gray{
-            border-radius: 2px;
-            background-color: $cGraySecondary;
-            width: 100%;
-            display: flex;
-        }
-        .swiper-slide{
-            overflow: hidden;
-            border-radius: 2px;
-            flex-grow: 1;
-            width: auto;
-            display: inline-block;
-        }
+    &__inner {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .swiper-wrapper {
@@ -42,4 +26,9 @@
             height: 100%;
         }
     }
+
+    &--per-view-auto &-slide {
+        width: auto;
+    }
 }
+
