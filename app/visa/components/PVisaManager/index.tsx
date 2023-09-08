@@ -15,11 +15,11 @@ import {UserService} from "shared/services";
 
 export const PVisaManager = observer(() => {
     return (
-        <UiForm className="visa-manager">
-            <div className="visa-manager__header_image"></div>
-            <div className="visa-manager__header">
-                <h2>Виктория Гончарова</h2>
-                <p>Ваш менеджер визового отдела</p>
+        <div className="visa-manager">
+            <div className="visa-manager-header__image"></div>
+            <div className="visa-manager-header">
+                <h2 className="visa-manager-header__title">Виктория Гончарова</h2>
+                <span className="visa-manager-header__subtitle">Ваш менеджер визового отдела</span>
             </div>
 
             <div className="visa-manager-body">
@@ -36,7 +36,7 @@ export const PVisaManager = observer(() => {
                     <span>г. Новосибирск, ул. Вокзальная магистраль, дом 10</span>
                 </div>
             </div>
-            <div className="visa-manager-body__medias">
+            <div className="visa-manager__medias">
                     <UiButton
                         onClick={() => {
                         }}
@@ -90,6 +90,6 @@ export const PVisaManager = observer(() => {
                         <UiIcon size={18} name={'instagram'} color={COLORS.GREEN_PRIMARY}/>
                     </UiButton>
             </div>
-        </UiForm>
+        </div>
     )
 })

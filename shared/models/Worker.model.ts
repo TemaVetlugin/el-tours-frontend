@@ -4,56 +4,57 @@ import { Model } from "./Model";
 import { CatalogProductModel, CatalogProductModelInterface } from "shared/models/CatalogProduct.model";
 import { ModelArrayCast } from "shared/casts";
 
-export interface ArticleModelInterface {
+export interface WorkerModelInterface {
     id?: number;
     name?: string;
-    slug?: string;
-    previewImage?: string;
-    preview?: string;
-    createdDate?: string;
-    readingTime?: string;
-    views?: number;
-    content?: string;
+    sort?: number;
+    job?: string;
+    phone?: string;
+    photo?: string;
+    email?: string;
+    address?: string;
+    category?: number;
 }
 
-export class ArticleModel extends Model<ArticleModelInterface> implements ArticleModelInterface {
+export class WorkerModel extends Model<WorkerModelInterface> implements WorkerModelInterface {
 
-    fillable: Array<keyof ArticleModelInterface> = [
+    fillable: Array<keyof WorkerModelInterface> = [
         "id",
         "name",
-        "slug",
-        "previewImage",
-        "preview",
-        "content",
-        "createdDate",
-        "readingTime",
-        "views",
-        "content",
+        "sort",
+        "job",
+        "phone",
+        "photo",
+        "email",
+        "address",
+        "category",
     ];
 
-    id = 0;
-    name = '';
-    slug = '';
-    previewImage = '';
-    preview = '';
-    createdDate = '';
-    readingTime = '';
-    views = 0;
-    content = '';
 
-    constructor(payload?: ArticleModelInterface) {
+
+    id= 0;
+    name= '';
+    sort= 0;
+    job= '';
+    phone= '';
+    photo= '';
+    email= '';
+    address= '';
+    category= 0;
+
+    constructor(payload?: WorkerModelInterface) {
         super();
 
         makeObservable(this, {
             id: observable,
             name: observable,
-            slug: observable,
-            previewImage: observable,
-            preview: observable,
-            createdDate: observable,
-            readingTime: observable,
-            views: observable,
-            content: observable,
+            sort: observable,
+            job: observable,
+            phone: observable,
+            photo: observable,
+            email: observable,
+            address: observable,
+            category: observable,
         });
 
         this.update(payload);

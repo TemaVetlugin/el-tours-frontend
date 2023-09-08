@@ -1,79 +1,55 @@
-.visa-countries{
-    min-width: 320px;
-    padding: 32px 32px 28px 32px;
-    background-color: white;
-    font-weight: 300;
-    font-size: 16px;
-    color: $cDarkSecondary;
-    border-radius: 5px;
-    margin-bottom: 40px;
-    p{
-        margin: 0;
+.signin{
+    padding: 199px 0;
+    width: 320px;
+    position: relative;
+    &__header{
+        margin: 0 0 40px 0;
+        font-weight: 800;
+        font-size: 26px;
+        color: $cDarkPrimary;
     }
-
-    &__header {
-        text-align: start;
-        border-bottom: 1px solid rgba($cGrayPrimary, 0.5);
-        h2{
-            font-weight: 800;
-            font-size: 24px;
-            margin: 0 0 20px 0;
-            letter-spacing: 0.02em;
-            color: $cDarkPrimary;
+    &-label{
+        font-weight: 300;
+        font-size: 16px;
+        color: $cDarkSecondary;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        .ui-link{
+            text-decoration: underline;
         }
-        p{
-            font-size: 14px;
-            font-weight: 300;
-            margin: 0 0 20px 0;
-            color: $cDarkPrimary;
-            line-height: 22px;
-            width: 250px;
-        }
-
     }
-    &-body{
-        padding-top: 20px;
-        padding-bottom: 8px;
-        &__list{
-            margin-bottom: 15px;
-            font-size: 18px;
-            font-weight: 300;
-            display: flex;
-           justify-content: start;
-            .ui-icon{
-                margin-right: 10px;
-            }
-            &--image{
-                width: 30px;
-                height: 20px;
-                margin-right: 20px;
-                border-radius: 2px;
-                background-image: url('/assets/images/typical/image 118.png');
-            }
-        }
-
-        &__confirm{
-            height: 50px;
+    &__input{
+        margin-bottom: 36px;
+        position: relative;
+    }
+    &__submit{
+        .ui-button {
             width: 100%;
-            margin-top: 8px;
-            margin-bottom: 28px;
+            height: 50px;
+            border-radius: 5px;
+            &__inner{
+                font-weight: 500;
+                font-size: 18px;
+            }
         }
-
-        &__medias{
+    }
+    &-medias{
+        padding-top: 40px;
+        font-weight: 300;
+        font-size: 16px;
+        &--wrap{
             display: flex;
-            gap:16px;
-            padding-top: 16px;
-
+            justify-content: space-between;
+            padding-top: 18px;
         }
     }
-    .ui-link{
-        text-decoration: underline;
+    &-registration{
+        padding-top: 55px;
+        font-weight: 300;
         font-size: 18px;
-        font-weight: 400;
+        .ui-link{
+            color: $cGreenPrimary;
+        }
     }
-
-
-
-
-
 }

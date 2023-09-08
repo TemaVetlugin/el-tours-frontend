@@ -11,6 +11,6 @@ export default function Page() {
 
 export async function generateMetadata(): Promise<Metadata> {
     return {
-        title: 'Визы',
+        title: 'Войти',
     };
 }

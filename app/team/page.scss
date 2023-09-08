@@ -1,0 +1,92 @@
+.team{
+    color: $cDarkPrimary;
+    background-color: $cGraySecondary;
+    .ui-page-header{
+        margin-bottom: 36px;
+    }
+    &__title{
+        font-weight: 800;
+        font-size: 36px;
+        margin: 0 0 8px 0;
+    }
+    &__subtitle{
+        font-weight: 300;
+        font-size: 14px;
+        margin-bottom: 40px;
+        display: block;
+    }
+    &-group{
+        margin-bottom: 60px;
+        overflow: visible;
+        &--large{
+
+            margin-bottom: 60px;
+            overflow: visible;
+        }
+    }
+    .ui-page-wrap{
+        overflow: visible;
+    }
+
+    &-media {
+        height: 540px;
+        margin: auto;
+        position: relative;
+        overflow: visible;
+
+        &-slider{
+            position: absolute;
+            left: -320px;
+            min-width: 1920px;
+            overflow: scroll;
+            scroll-behavior: auto;
+            .ui-slider__inner{
+                padding: 0;
+                position: relative;
+            }
+            &::before{
+                content: '';
+                z-index: 10;
+                position: absolute;
+                width: 387px;
+                height: 540px;
+                left: 0px;
+                background: linear-gradient(90deg, #F0F1F2 0%, rgba(240, 241, 242, 0.6) 73.75%, rgba(240, 241, 242, 0) 100%);
+            }
+            &::after{
+                content: '';
+                z-index: 10;
+                position: absolute;
+                width: 387px;
+                height: 540px;
+                right: 0px;
+                top: 0;
+                background: linear-gradient(270deg, #F0F1F2 0%, rgba(240, 241, 242, 0.6) 73.75%, rgba(240, 241, 242, 0) 100%);
+            }
+
+        }
+
+        &-slide {
+            position: relative;
+            width: 315px !important;
+            height: 540px !important;
+
+            &__inner {
+                width: 100%;
+                height: 100%;
+                border: 1px solid transparent;
+                border-radius: 5px;
+                cursor: pointer;
+                overflow: hidden;
+
+                &:hover {
+                    border: 1px solid $cBorder;
+                }
+
+            }
+
+
+        }
+
+    }
+}

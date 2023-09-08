@@ -74,26 +74,7 @@ export const ROUTES = {
         name: 'Избранное',
         url: '/favorites',
     }),
-    HOME: (): RouteType => ({
-        id: 'home',
-        name: 'Главная',
-        url: '/',
-    }),
-    ARTICLES: (slug: string = '', name = 'Блог'): RouteType => ({
-        id: 'article' + slug,
-        name,
-        url: slug ? `/article/${slug}` : '/article',
-    }),
-    VACANCY: (slug: string = '', name = 'Вакансии'): RouteType => ({
-        id: 'vacancy' + slug,
-        name,
-        url: slug ? `/vacancy/${slug}` : '/vacancy',
-    }),
-    VISA: (slug: string = '', name = 'Визы'): RouteType => ({
-        id: 'visa' + slug,
-        name,
-        url: slug ? `/visa/${slug}` : '/visa',
-    }),
+
     NEWS: (slug: string = '', name = 'Новости'): RouteType => ({
         id: 'news' + slug,
         name,
@@ -143,5 +124,36 @@ export const ROUTES = {
         id: 'stores',
         name,
         url: `/page/${slug}`,
+    }),
+
+    HOME: (): RouteType => ({
+        id: 'home',
+        name: 'Главная',
+        url: '/',
+    }),
+    ARTICLES: (slug: string = '', name = 'Блог'): RouteType => ({
+        id: 'article' + slug,
+        name,
+        url: slug ? `/article/${slug}` : '/article',
+    }),
+    VACANCY: (slug: string = '', name = 'Вакансии'): RouteType => ({
+        id: 'vacancy' + slug,
+        name,
+        url: slug ? `/vacancy/${slug}` : '/vacancy',
+    }),
+    VISA: (slug: string = '', name = 'Визы'): RouteType => ({
+        id: 'visa' + slug,
+        name,
+        url: slug ? `/visa/${slug}` : '/visa',
+    }),
+    LOGIN: (): RouteType => ({
+        id: 'LOGIN',
+        name: 'Вход',
+        url: '/login',
+    }),
+    TEAM: (): RouteType => ({
+        id: 'TEAM',
+        name: 'Наша Команда',
+        url: '/team',
     }),
 };

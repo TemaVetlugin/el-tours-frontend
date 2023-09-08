@@ -1,4 +1,4 @@
-.signup{
+.signup-email{
     padding: 185px 0;
     width: 320px;
     position: relative;
@@ -12,6 +12,7 @@
         }
     }
     &__subtitle{
+        line-height: 1.4;
         font-weight: 300;
         font-size: 16px;
         margin-bottom: 40px;
@@ -25,11 +26,13 @@
         color: $cDarkSecondary;
         display: flex;
         justify-content: space-between;
+        align-items: end;
         margin-bottom: 10px;
         &--small{
             font-size: 10px;
             width: 189px;
             text-align: end;
+            margin-bottom: 8px;
         }
         &--unsafe{
             font-size: 12px;
@@ -81,6 +84,7 @@
         }
     }
     &-line{
+        width: 320px;
         padding-top: 61px;
         display: flex;
         justify-content: space-between;

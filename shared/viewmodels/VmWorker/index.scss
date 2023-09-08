@@ -1,50 +1,69 @@
-.vm-news {
-    display: block;
-    width: 100%;
-    text-decoration: none;
+.vm-worker{
+    min-width: 316px;
+    padding: 32px 32px 28px 32px;
+    background-color: white;
+    font-weight: 300;
+    font-size: 16px;
+    color: $cDarkPrimary;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    p{
+        margin: 0;
+    }
 
-    &__image {
-        display: block;
-        width: 100%;
-        height: 381px;
-        margin-bottom: 16px;
-        background-position: center;
-        background-size: cover;
-        border-radius: 24px;
+    &-header {
+        text-align: center;
+        border-bottom: 1px solid rgba($cGrayPrimary, 0.5);
+        padding-bottom: 20px;
+        &__title{
+            font-weight: 800;
+            font-size: 24px;
+            margin: 0 0 8px 0;
+            letter-spacing: 0.02em;
+        }
+        &__subtitle{
+            font-size: 14px;
+            font-weight: 300;
+            width: 250px;
+        }
+        &__image{
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 28px auto;
+            border-radius: 75px;
+        }
+    }
+    &-body{
+        padding-top: 20px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba($cGrayPrimary, 0.5);
 
-        @include is768() {
-            height: 270px;
+        &__contact{
+            margin-bottom: 18px;
+            font-size: 12px;
+            font-weight: 400;
+            display: flex;
+            justify-content: start;
+
+            .ui-icon{
+                margin-right: 10px;
+            }
         }
 
 
-    }
-
-    &__inner {
-        padding: 0 8px;
-    }
-
-    &__name {
-        margin-bottom: 8px;
-        color: $cTypo;
-        font-family: $fontSecondary;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 20px;
-        transition: 0.2s;
-
-
-        &:hover {
-            color: $cGreenPrimary;
+        &__confirm{
+            height: 50px;
+            width: 100%;
+            margin-top: 8px;
+            margin-bottom: 28px;
         }
+
+    }
+    &__medias{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+
     }
 
-    &__preview {
-        margin-bottom: 8px;
-        color: $cGrayPrimary;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 18px;
-    }
 }

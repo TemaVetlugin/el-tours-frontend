@@ -1,4 +1,4 @@
-.signup{
+.signup-confirm{
     padding: 185px 0;
     width: 320px;
     position: relative;
@@ -25,17 +25,19 @@
         color: $cDarkSecondary;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin-bottom: 10px;
         &--small{
-            font-size: 10px;
-            width: 189px;
+            text-decoration: underline;
+            font-size: 12px;
             text-align: end;
         }
-        &--unsafe{
-            font-size: 12px;
+        &--ufter{
             font-weight: 300;
+            font-size: 12px;
+            text-align: start;
+            color: $cDarkPrimary;
             margin-top: 8px;
-            color: $cOrangePrimary;
         }
     }
     &__input{
@@ -81,7 +83,7 @@
         }
     }
     &-line{
-        padding-top: 61px;
+        padding-top: 107px;
         display: flex;
         justify-content: space-between;
         &__step{

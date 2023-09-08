@@ -35,7 +35,7 @@ type PropsType<T> = {
     perGroup?: number,
     gap?: number,
     renderItem: (item: T, isActive: boolean, index: number) => ReactElement,
-    renderLine: (item: T, isActive: boolean, index: number) => ReactElement,
+    renderLine?: (item: T, isActive: boolean, index: number) => ReactElement,
     renderNavigation?: (navigation: NavigationType) => React.ReactNode;
     className?: string,
     slideClassName?: string,
@@ -142,7 +142,9 @@ export const UiSlider = observer(<T, >(
                         store.set("swiper", swiper);
                     }}
                     effect={"fade"}
-                    loop={loop}
+                    loop={true}
+                    loopedSlides={1}
+                    direction={"horizontal"}
                     modules={modules}
                     onSlideChange={(swiper) => {
                         if (perPage !== 'auto' && perPage > 1) {
@@ -158,7 +160,7 @@ export const UiSlider = observer(<T, >(
                         </SwiperSlide>
                     ))}
                 </Swiper>
-
+                {renderLine&&
                 <div className="ui-slider__line">
                     <div className="ui-slider__line--gray">
                         {items.map((item, index) => (
@@ -168,6 +170,7 @@ export const UiSlider = observer(<T, >(
                         ))}
                     </div>
                 </div>
+                }
             </div>
             {renderNavigation && renderNavigation(navigation)}
         </div>

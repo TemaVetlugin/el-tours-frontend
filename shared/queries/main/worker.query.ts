@@ -13,7 +13,7 @@ type ResponseType = {
     pagination: PaginationModelInterface
 }
 
-export const workersQuery = async (params: RequestType) => {
+export const workerQuery = async (params: RequestType) => {
     return await makeQuery<ResponseType>("GET", {
         endpoint: '/main/workers',
         params

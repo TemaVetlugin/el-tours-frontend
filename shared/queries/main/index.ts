@@ -43,3 +43,4 @@ export { articlesQuery } from './articles.query';
 export { articlesGetQuery } from './articlesGet.query';
 export { vacancyQuery } from './vacancy.query';
 export { vacancyGetQuery } from './vacancyGet.query';
+export { workerQuery } from './worker.query';

@@ -1,16 +1,13 @@
 'use client';
 
-import { observer } from "mobx-react-lite";
+import {observer} from "mobx-react-lite";
 import React from "react";
-import { COLORS, ROUTES } from "shared/contants";
-import { FooterMenuItemTypeEnum } from "shared/enums";
+import {COLORS} from "shared/contants";
 
-import {CatalogService, LayoutService, UserService} from "shared/services";
-import {UiButton, UiForm, UiIcon, UiInput, UiLink, UiModal, UiPage, UiWrap} from "shared/ui";
-import { Notifier } from "shared/utilities";
+import {UserService} from "shared/services";
+import {UiButton, UiForm, UiIcon, UiInput, UiLink, UiPage} from "shared/ui";
 
 import './index.scss';
-import {LayoutFooterForm} from "shared/layout/LayoutFooterForm";
 
 export const LayoutFooter = observer(() => {
     return (

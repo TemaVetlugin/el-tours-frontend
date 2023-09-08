@@ -4,31 +4,29 @@
     background-color: white;
     font-weight: 300;
     font-size: 16px;
-    color: $cDarkSecondary;
+    color: $cDarkPrimary;
     border-radius: 5px;
     margin-bottom: 40px;
     p{
         margin: 0;
     }
 
-    &__header {
+    &-header {
         text-align: center;
-        h2{
+        border-bottom: 1px solid rgba($cGrayPrimary, 0.5);
+        padding-bottom: 20px;
+        &__title{
             font-weight: 800;
             font-size: 24px;
-            margin: 0 0 10px 0;
+            margin: 0 0 8px 0;
             letter-spacing: 0.02em;
-            color: $cDarkPrimary;
         }
-        p{
+        &__subtitle{
             font-size: 14px;
             font-weight: 300;
-            margin: 0 0 20px 0;
-            color: $cDarkPrimary;
-            line-height: 22px;
             width: 250px;
         }
-        &_image{
+        &__image{
             width: 150px;
             height: 150px;
             margin: 0 auto 28px auto;
@@ -38,14 +36,16 @@
     }
     &-body{
         padding-top: 20px;
+        padding-bottom: 8px;
         border-bottom: 1px solid rgba($cGrayPrimary, 0.5);
 
         &__contact{
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             font-size: 12px;
             font-weight: 400;
             display: flex;
-           justify-content: start;
+            justify-content: start;
+
             .ui-icon{
                 margin-right: 10px;
             }
@@ -59,12 +59,12 @@
             margin-bottom: 28px;
         }
 
-        &__medias{
-            display: flex;
-            gap:16px;
-            padding-top: 16px;
+    }
+    &__medias{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
 
-        }
     }
 
 }
