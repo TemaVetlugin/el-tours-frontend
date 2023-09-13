@@ -27,11 +27,11 @@ export const Client = observer(() => {
 
 
     return (
-        <UiPage className="login">
-            <UiPage.Wrap className="login--wrap">
-                <div className="login-banner">
-                    <div className="login-banner__logo"></div>
-                    <h3 className="login-banner__title">В личном кабинете вы сможете:</h3>
+        <UiPage className="p-login">
+            <UiPage.Wrap className="p-login--wrap">
+                <div className="p-login-banner">
+                    <div className="p-login-banner__logo"></div>
+                    <h3 className="p-login-banner__title">В личном кабинете вы сможете:</h3>
                     <UiTypography>
                         <ul>
                             <li>следить за изменением цен на интересные Вам отели и направления</li>

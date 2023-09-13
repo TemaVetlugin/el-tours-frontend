@@ -15,7 +15,7 @@ import {articlesGetQuery} from "shared/queries/main";
 import {PBlogAuthor} from "./components/PBlogAuthor";
 import {PBlogContent} from "./components/PBlogContent";
 import {LayoutHeader} from "shared/layout";
-import {LayoutHeaderSearch} from "../components/PBlogHeaderSearch";
+import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
 
 type PropsType = {
     slug: string
@@ -44,7 +44,7 @@ export const Client = observer(({slug}: PropsType
     }, [slug, router]);
 
     return (
-        <UiPage className="article-page">
+        <UiPage className="p-article">
 
             <LayoutHeader>
                 <LayoutHeaderSearch/>
@@ -60,9 +60,9 @@ export const Client = observer(({slug}: PropsType
                 comments={21}
             />
             <UiPage.Wrap>
-                <div className="article-page-body">
+                <div className="p-article-body">
                 <PBlogMediasAside/>
-                <div className="article-page-content">
+                <div className="p-article-content">
                     <PBlogAuthor/>
                     <PBlogContent content={store.item.content}/>
                 </div>
@@ -70,9 +70,9 @@ export const Client = observer(({slug}: PropsType
                 </div>
             </UiPage.Wrap>
             <UiPage.Wrap>
-                <div className="article-page-body">
-                <div className="article-page__offset"></div>
-                <div className="article-page-content">
+                <div className="p-article-body">
+                <div className="p-article__offset"></div>
+                <div className="p-article-content">
                     <PBlogComments/>
                 </div>
                 <PBlogCommentForm/>

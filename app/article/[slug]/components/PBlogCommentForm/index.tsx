@@ -16,15 +16,15 @@ import {UserService} from "shared/services";
 export const PBlogCommentForm = observer(() => {
     return (
 
-        <UiForm className="blog-form-aside">
-            <div className="blog-form-aside__header">
+        <UiForm className="p-blog-form-comments-aside">
+            <div className="p-blog-form-comments-aside__header">
                 <h2>Оставьте свой комментарий!</h2>
                 <span>Это не требует регистрации</span>
             </div>
-            <div className="blog-form-aside-body">
+            <div className="p-blog-form-comments-aside-body">
 
             <UiInput
-                placeholder='Как вас зовут имя'
+                placeholder='Как вас зовут'
                 name={'query'}
             />
             <UiInput
@@ -32,14 +32,15 @@ export const PBlogCommentForm = observer(() => {
                 name={'query'}
             />
                 <UiTextarea
-                    placeholder='Как вас зовут имя'
+                    placeholder='Комментарий'
                     name={'query'}></UiTextarea>
             </div>
-            <UiButton className="blog-form-aside__confirm" template={'large'} type={'submit'} colors={{
-                button: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
-                label: [COLORS.WHITE, COLORS.WHITE],
+            <UiButton className="p-blog-form-comments-aside__confirm" template={'large'} type={'submit'} colors={{
+                button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
+                border: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                label: [COLORS.DARK_PRIMARY, COLORS.WHITE],
             }}>
-                <span>Подписаться</span>
+                <span>Отправить</span>
             </UiButton>
         </UiForm>
     )

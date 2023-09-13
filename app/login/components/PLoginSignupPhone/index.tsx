@@ -15,22 +15,22 @@ import {UserService} from "shared/services";
 
 export const PLoginSignUpPhone = observer(() => {
     return (
-        <UiForm className="signup-phone">
-            <div className="signup-phone__header">
+        <UiForm className="p-signup-phone">
+            <div className="p-signup-phone__header">
                 <h2>Регистрация</h2>
             </div>
-            <span className="signup-phone__subtitle">Напишите свой номер телефона, и мы будем вам напоминать о ближайших поездках</span>
-            <div className="signup-phone-label">
+            <span className="p-signup-phone__subtitle">Напишите свой номер телефона, и мы будем вам напоминать о ближайших поездках</span>
+            <div className="p-signup-phone-label">
                 <span>Телефон</span>
             </div>
-            <div className="signup-phone__input">
+            <div className="p-signup-phone__input">
                 <UiInput
                     placeholder='+7 --- --- -- --'
                     name={'query'}
                 />
             </div>
-            <div className="signup-phone__submit">
-                <UiButton className="signup-phone__submit" template={'normal'} type={'submit'} colors={{
+            <div className="p-signup-phone__submit">
+                <UiButton className="p-signup-phone__submit" template={'normal'} type={'submit'} colors={{
                     button: [COLORS.WHITE, COLORS.WHITE],
                     border: [COLORS.DARK_SECONDARY_BORDER, COLORS.DARK_SECONDARY_BORDER],
                     label: [COLORS.DARK_SECONDARY_BORDER, COLORS.DARK_SECONDARY_BORDER],
@@ -38,10 +38,10 @@ export const PLoginSignUpPhone = observer(() => {
                     <span>Выслать код подтверждения</span>
                 </UiButton>
             </div>
-            <div className="signup-phone-line">
-                <div className="signup-phone-line__step"></div>
-                <div className="signup-phone-line__step"></div>
-                <div className="signup-phone-line__step signup-phone-line__step--active"></div>
+            <div className="p-signup-phone-line">
+                <div className="p-signup-phone-line__step"></div>
+                <div className="p-signup-phone-line__step"></div>
+                <div className="p-signup-phone-line__step p-signup-phone-line__step--active"></div>
             </div>
         </UiForm>
     )

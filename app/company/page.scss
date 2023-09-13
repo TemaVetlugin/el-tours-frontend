@@ -1,20 +1,20 @@
-.p-vacancy {
+.p-company {
     color: $cDarkPrimary;
     background-color: $cGraySecondary;
 
     &--flex {
-        display: flex;
         padding-top: 36px;
-
+        display: flex;
     }
 
     &-body {
-        &__text {
-            margin: 0 0 16px 0;
-            font-weight: 300;
-            font-size: 16px;
-            line-height: 25px;
-
+        .ui-typography {
+            p {
+                margin: 0 0 16px 0;
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 25px;
+            }
         }
 
         &-list {

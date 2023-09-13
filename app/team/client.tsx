@@ -10,11 +10,11 @@ import {UiDataBoundary, UiGrid, UiIcon, UiPage, UiSlider} from "shared/ui";
 
 import './page.scss';
 import {LayoutHeader} from "shared/layout";
-import {LayoutHeaderSearch} from "./components/PBlogHeaderSearch";
 import {ROUTES} from "shared/contants";
 import classnames from "classnames";
 import {toJS} from "mobx";
 import {auto} from "@popperjs/core";
+import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
 
 
 export const Client = observer(() => {
@@ -61,7 +61,7 @@ export const Client = observer(() => {
     const duplicatedWorkers4 = [...store.renderWorkers4, ...store.renderWorkers4, ...store.renderWorkers4];
 
     return (
-        <UiPage className="team">
+        <UiPage className="p-team">
             <LayoutHeader>
                 <LayoutHeaderSearch/>
             </LayoutHeader>
@@ -73,9 +73,9 @@ export const Client = observer(() => {
             />
 
             {store.renderWorkers1.length>0&&
-                <UiPage.Wrap className="team-group">
-                    <h2 className="team__title">Руководство</h2>
-                    <span className="team__subtitle">Основатели проекта el-tours.ru, которые верят в него и вкладывают душу</span>
+                <UiPage.Wrap className="p-team-group">
+                    <h2 className="p-team__title">Руководство</h2>
+                    <span className="p-team__subtitle">Основатели проекта el-tours.ru, которые верят в него и вкладывают душу</span>
 
                     <UiDataBoundary isLoading={store.isLoading} withShallow>
                         {store.renderWorkers1.length<=4 &&
@@ -84,13 +84,13 @@ export const Client = observer(() => {
                             </UiGrid>
                         }
                         {store.renderWorkers1.length>4&&
-                            <div className="team-media">
+                            <div className="p-team-media">
                                 {
                                 }
 
                                     <UiSlider
-                                        className={'team-media-slider'}
-                                        slideClassName={'team-media-slide'}
+                                        className={'p-team-media-slider'}
+                                        slideClassName={'p-team-media-slide'}
                                         perGroup={1}
                                         perPage={'auto'}
                                         loop={true}
@@ -100,8 +100,8 @@ export const Client = observer(() => {
                                             <UiSlider.Slide
                                                 render={() => (
                                                     <div
-                                                        className={classnames('team-media-slide__inner', {
-                                                            'team-media-slide__inner--active': index === store.activeSlide
+                                                        className={classnames('p-team-media-slide__inner', {
+                                                            'p-team-media-slide__inner--active': index === store.activeSlide
                                                         })}
                                                     >
                                                         <div><VmWorker item={item}/></div>
@@ -116,14 +116,14 @@ export const Client = observer(() => {
                                             }
                                             return (
                                                 <>
-                                                    <div className='team-media-slider__control'>
-                                                        <div className="team-media-slider__arrow" onClick={navigation.prev}>
+                                                    <div className='p-team-media-slider__control'>
+                                                        <div className="p-team-media-slider__arrow" onClick={navigation.prev}>
                                                             <UiIcon size={16} name={'chevronLeft'}/>
                                                         </div>
                                                     </div>
                                                     <div
-                                                        className='team-media-slider__control team-media-slider__control--next'>
-                                                        <div className="team-media-slider__arrow" onClick={navigation.next}>
+                                                        className='p-team-media-slider__control p-team-media-slider__control--next'>
+                                                        <div className="p-team-media-slider__arrow" onClick={navigation.next}>
                                                             <UiIcon size={16} name={'chevronRight'}/>
                                                         </div>
                                                     </div>
@@ -139,9 +139,9 @@ export const Client = observer(() => {
             }
 
             {store.renderWorkers2.length>0&&
-                <UiPage.Wrap className="team-group">
-                    <h2 className="team__title">Руководители офисов</h2>
-                    <span className="team__subtitle">Основатели проекта el-tours.ru, которые верят в него и вкладывают душу</span>
+                <UiPage.Wrap className="p-team-group">
+                    <h2 className="p-team__title">Руководители офисов</h2>
+                    <span className="p-team__subtitle">Основатели проекта el-tours.ru, которые верят в него и вкладывают душу</span>
 
                     <UiDataBoundary isLoading={store.isLoading} withShallow>
                         {store.renderWorkers2.length<=4 &&
@@ -150,22 +150,22 @@ export const Client = observer(() => {
                             </UiGrid>
                         }
                         {store.renderWorkers2.length>4&&
-                            <div className="team-media">
+                            <div className="p-team-media">
                                 {store.renderWorkers2.length > 0 && (
                                     <UiSlider
-                                        className={'team-media-slider'}
-                                        slideClassName={'team-media-slide'}
+                                        className={'p-team-media-slider'}
+                                        slideClassName={'p-team-media-slide'}
                                         perGroup={1}
                                         perPage={'auto'}
                                         loop={true}
-                                        gap={6}
+                                        gap={5}
                                         items={duplicatedWorkers2}
                                         slide={(item, index) => (
                                             <UiSlider.Slide
                                                 render={() => (
                                                     <div
-                                                        className={classnames('team-media-slide__inner', {
-                                                            'team-media-slide__inner--active': index === store.activeSlide
+                                                        className={classnames('p-team-media-slide__inner', {
+                                                            'p-team-media-slide__inner--active': index === store.activeSlide
                                                         })}
                                                     >
                                                         <div><VmWorker item={item}/></div>
@@ -174,39 +174,24 @@ export const Client = observer(() => {
                                                 )}
                                             />
                                         )}
-                                        navigation={(navigation) => {
-                                            if (navigation.pages() < 6) {
-                                                return null;
-                                            }
-                                            return (
-                                                <>
-                                                    <div className='team-media-slider__control'>
-                                                        <div className="team-media-slider__arrow" onClick={navigation.prev}>
-                                                            <UiIcon size={16} name={'chevronLeft'}/>
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        className='team-media-slider__control team-media-slider__control--next'>
-                                                        <div className="team-media-slider__arrow" onClick={navigation.next}>
-                                                            <UiIcon size={16} name={'chevronRight'}/>
-                                                        </div>
-                                                    </div>
-                                                </>
-                                            );
-                                        }}
+
+
+
                                     />
                                 )}
                             </div>
                         }
+
+
                     </UiDataBoundary>
                     <UiPage.Pagination pagination={store.pagination}/>
                 </UiPage.Wrap>
             }
 
             {store.renderWorkers3.length>0&&
-                <UiPage.Wrap className="team-group">
-                    <h2 className="team__title">Руководители офисов</h2>
-                    <span className="team__subtitle">Основатели проекта el-tours.ru, которые верят в него и вкладывают душу</span>
+                <UiPage.Wrap className="p-team-group">
+                    <h2 className="p-team__title">Руководители офисов</h2>
+                    <span className="p-team__subtitle">Основатели проекта el-tours.ru, которые верят в него и вкладывают душу</span>
 
                     <UiDataBoundary isLoading={store.isLoading} withShallow>
                         {store.renderWorkers3.length<=4 &&
@@ -215,11 +200,11 @@ export const Client = observer(() => {
                             </UiGrid>
                         }
                         {store.renderWorkers3.length>4&&
-                            <div className="team-media">
+                            <div className="p-team-media">
                                 {store.renderWorkers3.length > 0 && (
                                     <UiSlider
-                                        className={'team-media-slider'}
-                                        slideClassName={'team-media-slide'}
+                                        className={'p-team-media-slider'}
+                                        slideClassName={'p-team-media-slide'}
                                         perGroup={1}
                                         perPage={'auto'}
                                         loop={true}
@@ -229,8 +214,8 @@ export const Client = observer(() => {
                                             <UiSlider.Slide
                                                 render={() => (
                                                     <div
-                                                        className={classnames('team-media-slide__inner', {
-                                                            'team-media-slide__inner--active': index === store.activeSlide
+                                                        className={classnames('p-team-media-slide__inner', {
+                                                            'p-team-media-slide__inner--active': index === store.activeSlide
                                                         })}
                                                     >
                                                         <div><VmWorker item={item}/></div>
@@ -245,14 +230,14 @@ export const Client = observer(() => {
                                             }
                                             return (
                                                 <>
-                                                    <div className='team-media-slider__control'>
-                                                        <div className="team-media-slider__arrow" onClick={navigation.prev}>
+                                                    <div className='p-team-media-slider__control'>
+                                                        <div className="p-team-media-slider__arrow" onClick={navigation.prev}>
                                                             <UiIcon size={16} name={'chevronLeft'}/>
                                                         </div>
                                                     </div>
                                                     <div
-                                                        className='team-media-slider__control team-media-slider__control--next'>
-                                                        <div className="team-media-slider__arrow" onClick={navigation.next}>
+                                                        className='p-team-media-slider__control p-team-media-slider__control--next'>
+                                                        <div className="p-team-media-slider__arrow" onClick={navigation.next}>
                                                             <UiIcon size={16} name={'chevronRight'}/>
                                                         </div>
                                                     </div>
@@ -269,9 +254,9 @@ export const Client = observer(() => {
             }
 
             {store.renderWorkers4.length>0&&
-                <UiPage.Wrap className="team-group">
-                    <h2 className="team__title">Руководители офисов</h2>
-                    <span className="team__subtitle">Основатели проекта el-tours.ru, которые верят в него и вкладывают душу</span>
+                <UiPage.Wrap className="p-team-group">
+                    <h2 className="p-team__title">Руководители офисов</h2>
+                    <span className="p-team__subtitle">Основатели проекта el-tours.ru, которые верят в него и вкладывают душу</span>
 
                     <UiDataBoundary isLoading={store.isLoading} withShallow>
                         {store.renderWorkers4.length<=4 &&
@@ -280,11 +265,11 @@ export const Client = observer(() => {
                             </UiGrid>
                         }
                         {store.renderWorkers4.length>4&&
-                            <div className="team-media">
+                            <div className="p-team-media">
                                 {store.renderWorkers4.length > 0 && (
                                     <UiSlider
-                                        className={'team-media-slider'}
-                                        slideClassName={'team-media-slide'}
+                                        className={'p-team-media-slider'}
+                                        slideClassName={'p-team-media-slide'}
                                         perGroup={1}
                                         perPage={'auto'}
                                         loop={true}
@@ -294,8 +279,8 @@ export const Client = observer(() => {
                                             <UiSlider.Slide
                                                 render={() => (
                                                     <div
-                                                        className={classnames('team-media-slide__inner', {
-                                                            'team-media-slide__inner--active': index === store.activeSlide
+                                                        className={classnames('p-team-media-slide__inner', {
+                                                            'p-team-media-slide__inner--active': index === store.activeSlide
                                                         })}
                                                     >
                                                         <div><VmWorker item={item}/></div>
@@ -310,14 +295,14 @@ export const Client = observer(() => {
                                             }
                                             return (
                                                 <>
-                                                    <div className='team-media-slider__control'>
-                                                        <div className="team-media-slider__arrow" onClick={navigation.prev}>
+                                                    <div className='p-team-media-slider__control'>
+                                                        <div className="p-team-media-slider__arrow" onClick={navigation.prev}>
                                                             <UiIcon size={16} name={'chevronLeft'}/>
                                                         </div>
                                                     </div>
                                                     <div
-                                                        className='team-media-slider__control team-media-slider__control--next'>
-                                                        <div className="team-media-slider__arrow" onClick={navigation.next}>
+                                                        className='p-team-media-slider__control p-team-media-slider__control--next'>
+                                                        <div className="p-team-media-slider__arrow" onClick={navigation.next}>
                                                             <UiIcon size={16} name={'chevronRight'}/>
                                                         </div>
                                                     </div>

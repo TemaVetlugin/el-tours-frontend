@@ -1,7 +1,6 @@
-.p-vacancy-form-aside{
+.p-company-form-aside{
     min-width: 320px;
-    height: 409px;
-    padding: 30px 32px;
+    padding: 30px 32px 0 32px;
     background-color: white;
     font-weight: 300;
     font-size: 16px;
@@ -25,7 +24,7 @@
         p{
             font-size: 14px;
             font-weight: 300;
-            margin: 0 0 20px 0;
+            margin: 0 0 16px 0;
             color: $cDarkPrimary;
             line-height: 22px;
             width: 250px;
@@ -34,32 +33,24 @@
     }
     &-body{
         padding-top: 20px;
-        border-bottom: 1px solid rgba($cGrayPrimary, 0.5);
-
-        &__contact{
-            margin-bottom: 15px;
-            font-size: 12px;
+        padding-bottom: 4px;
+        &__row{
+            display: flex;
             font-weight: 400;
-            display: flex;
-           justify-content: start;
-            .ui-icon{
-                margin-right: 10px;
-            }
+            font-size: 14px;
+            margin-bottom: 16px;
         }
-
-
-        &__confirm{
-            height: 50px;
-            width: 100%;
-            margin-top: 8px;
-            margin-bottom: 28px;
+        &__title{
+            width: 100px;
+            padding-right: 8px;
         }
-
-        &__medias{
-            display: flex;
-            gap:16px;
-            padding-top: 16px;
-
+        &__text{
+            width: 160px;
+            line-height: 21px;
+            color: $cDarkPrimary;
+        }
+        p{
+            margin: 0;
         }
     }
 

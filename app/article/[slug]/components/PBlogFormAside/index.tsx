@@ -15,18 +15,17 @@ import {UserService} from "shared/services";
 
 export const PBlogFormAside = observer(() => {
     return (
-        <UiForm className="blog-form-aside">
-            <div className="blog-form-aside__header">
+        <UiForm className="p-blog-form-aside">
+            <div className="p-blog-form-aside__header">
                 <h2>Хотите получать
                     самые интересные публикации?</h2>
                 <p>Подпишитесь на нашу рассылку и раз в неделю мы будем присылать вам свежие статьи</p>
             </div>
-            <p>Электронный адрес</p>
             <UiInput
-                placeholder=''
+                placeholder='Электронный адрес'
                 name={'query'}
             />
-            <UiButton className="blog-form-aside__confirm" template={'large'} type={'submit'} colors={{
+            <UiButton className="p-blog-form-aside__confirm" template={'large'} type={'submit'} colors={{
                 button: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
                 label: [COLORS.WHITE, COLORS.WHITE],
             }}>

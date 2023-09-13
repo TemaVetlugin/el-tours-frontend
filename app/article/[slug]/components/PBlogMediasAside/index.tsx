@@ -16,7 +16,7 @@ import {UserService} from "shared/services";
 export const PBlogMediasAside = observer(() => {
     return (
         <div>
-            <div className="blog-medias-aside">
+            <div className="p-blog-medias-aside">
                 <div>
                     <UiButton
                         notification={UserService.user.userFavorites.length}

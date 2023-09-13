@@ -15,23 +15,23 @@ import {UserService} from "shared/services";
 
 export const PVacancyFormAside = observer(() => {
     return (
-        <UiForm className="form-aside">
-            <div className="form-aside__header">
+        <UiForm className="p-vacancy-form-aside">
+            <div className="p-vacancy-form-aside__header">
                 <h2>Мы ждем вас!</h2>
                 <p>Напишите нам, позвоните или
                     оставьте резюме в форме ниже</p>
             </div>
 
-            <div className="form-aside-body">
-                <div className="form-aside-body__contact">
+            <div className="p-vacancy-form-aside-body">
+                <div className="p-vacancy-form-aside-body__contact">
                     <UiIcon size={20} name={"phone"} color={COLORS.GRAY_PRIMARY}/>
                     <span>+7 (383) 207-57-01, доб. 103</span>
                 </div>
-                <div className="form-aside-body__contact">
+                <div className="p-vacancy-form-aside-body__contact">
                     <UiIcon size={[18, 20]} name={"email"} color={COLORS.GRAY_PRIMARY}/>
                     <span>visa@el-tours.ru</span>
                 </div>
-                <UiButton className="form-aside-body__confirm" template={'large'} type={'submit'} colors={{
+                <UiButton className="p-vacancy-form-aside-body__confirm" template={'large'} type={'submit'} colors={{
                     button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
                     border: [COLORS.GREEN_PRIMARY, COLORS.GREEN_PRIMARY],
                     label: [COLORS.DARK_PRIMARY, COLORS.WHITE],
@@ -39,7 +39,7 @@ export const PVacancyFormAside = observer(() => {
                     <span>Отправить резюме</span>
                 </UiButton>
             </div>
-            <div className="form-aside-body__medias">
+            <div className="p-vacancy-form-aside-body__medias">
                     <UiButton
                         onClick={() => {
                         }}

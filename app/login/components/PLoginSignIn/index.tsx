@@ -15,24 +15,24 @@ import {UserService} from "shared/services";
 
 export const PLoginSignIn = observer(() => {
     return (
-        <UiForm className="signin">
-            <div className="signin__header">
+        <UiForm className="p-signin">
+            <div className="p-signin__header">
                 <h2>Вход</h2>
             </div>
-            <div className="signin-label">
+            <div className="p-signin-label">
                 <span>Телефон / E-mail</span>
             </div>
-            <div className="signin__input">
+            <div className="p-signin__input">
             <UiInput
                 placeholder='+7 --- --- -- --'
                 name={'query'}
             />
             </div>
-            <div className="signin-label">
+            <div className="p-signin-label">
                 <span>Пароль</span>
                 <UiLink>Забыли пароль?</UiLink>
             </div>
-            <div className="signin__input">
+            <div className="p-signin__input">
             <UiInput
                 placeholder='Пароль'
                 type="password"
@@ -45,17 +45,17 @@ export const PLoginSignIn = observer(() => {
                 <UiIcon size={[20,20]} name={'views'}/>
             </UiButton>
             </div>
-            <div className="signin__submit">
-                <UiButton className="signin__submit" template={'normal'} type={'submit'} colors={{
+            <div className="p-signin__submit">
+                <UiButton className="p-signin__submit" template={'normal'} type={'submit'} colors={{
                     button: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
                     label: [COLORS.WHITE, COLORS.WHITE],
                 }}>
                     <span>Войти</span>
                 </UiButton>
             </div>
-            <div className="signin-medias">
+            <div className="p-signin-medias">
                 <span>Или авторизуйтесь через социальные сети</span>
-                <div className="signin-medias--wrap">
+                <div className="p-signin-medias--wrap">
                     <UiButton
                         onClick={() => {
                         }}
@@ -122,7 +122,7 @@ export const PLoginSignIn = observer(() => {
                         <UiIcon size={18} name={'instagram'} color={COLORS.GREEN_PRIMARY}/>
                     </UiButton>
                 </div>
-                <div className="signin-registration">
+                <div className="p-signin-registration">
                     <span>Нет аккаунта? <UiLink> Зарегистрироваться</UiLink></span>
                 </div>
             </div>

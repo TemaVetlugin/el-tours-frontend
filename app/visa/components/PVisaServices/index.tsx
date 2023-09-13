@@ -15,22 +15,22 @@ import {UserService} from "shared/services";
 
 export const PVisaServices = observer(() => {
     return (
-        <UiForm className="visa-services">
-            <div className="visa-services__header_image"></div>
-            <div className="visa-services__header">
+        <UiForm className="p-visa-services">
+            <div className="p-visa-services__header_image"></div>
+            <div className="p-visa-services__header">
                 <h2>Услуги</h2>
             </div>
 
-            <div className="visa-services-body">
+            <div className="p-visa-services-body">
                     <ul>
-                        <li className="visa-services__text">
+                        <li className="p-visa-services__text">
                             Оформление визы
                         </li>
-                        <li className="visa-services__text">Рассрочка и кредит</li>
-                        <li className="visa-services__text">Страхование</li>
-                        <li className="visa-services__text">Выбрать попутчика</li>
-                        <li className="visa-services__text">Сим-карты</li>
-                        <li className="visa-services__text">Подарочный сертификат</li>
+                        <li className="p-visa-services__text">Рассрочка и кредит</li>
+                        <li className="p-visa-services__text">Страхование</li>
+                        <li className="p-visa-services__text">Выбрать попутчика</li>
+                        <li className="p-visa-services__text">Сим-карты</li>
+                        <li className="p-visa-services__text">Подарочный сертификат</li>
                     </ul>
             </div>
         </UiForm>

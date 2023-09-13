@@ -1,19 +1,21 @@
-.blog-form-aside{
+.p-blog-form-comments-aside{
     width: 320px;
-    height: 418px;
-    padding: 32px 20px 40px 20px;
+    height: 592px;
+    padding: 32px 28px 40px 28px;
     background-color: white;
     font-weight: 300;
     font-size: 16px;
     color: $cDarkSecondary;
     border-radius: 5px;
     margin-left: 80px;
+    margin-bottom: 20px;
+    box-shadow: 0px 1px 10px 0px #00000014;
     p{
         margin: 0;
     }
 
     &__header {
-        text-align: center;
+        text-align: start;
         padding-bottom: 20px;
         font-size: 14px;
         font-weight: 300;
@@ -23,14 +25,18 @@
         h2{
             font-weight: 800;
             font-size: 24px;
-            margin: 0 0 10px 0;
-            letter-spacing: 0.02em;
+            margin: 0 0 6px 0;
             color: $cDarkPrimary;
+            line-height: 29px;
+            letter-spacing: 0.02em;
+            text-align: start;
+
         }
         p{
             margin: 0 0 20px 0;
         }
         span{
+            line-height: 1;
             margin: 0 0 0 0;
         }
     }
@@ -41,14 +47,26 @@
     }
 
     .ui-input{
-        margin: 10px 0 12px 0;
+        margin: 0 0 16px 0;
         border-color: rgba($cGrayPrimary, 0.4);
         line-height: 1;
     }
 
     &__confirm{
         width: 100%;
+        margin-top: 40px;
+        font-weight: 500;
+        font-size: 18px;
+        height: 50px;
+
     }
 
-
+    .ui-textarea__control{
+        padding: 20px;
+        height: 169px;
+    }
+    .ui-textarea__placeholder{
+        top: 20px;
+        left: 20px;
+    }
 }

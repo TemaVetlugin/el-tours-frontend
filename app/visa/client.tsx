@@ -67,7 +67,7 @@ export const Client = observer(() => {
     }, [searchParams.page, city, searchParams.tagId]);
 
     return (
-        <UiPage className="visa">
+        <UiPage className="p-visa">
             <LayoutHeader>
                 <LayoutHeaderSearch/>
             </LayoutHeader>
@@ -79,9 +79,9 @@ export const Client = observer(() => {
             />
 
 
-            <UiPage.Wrap className="visa--wrap">
-                <div className="visa-body">
-                    <div className="visa-body-media">
+            <UiPage.Wrap className="p-visa--wrap">
+                <div className="p-visa-body">
+                    <div className="p-visa-body-media">
                         <UiLightbox
                             items={media}
                             isOpened={store.isLightbox}
@@ -92,25 +92,27 @@ export const Client = observer(() => {
                             onClick={() => {
                                 store.set("isLightbox", true);
                             }}
-                            className="visa-body-media__image"
+                            className="p-visa-body-media__image"
                             style={{backgroundImage: `url(${media[store.activeSlide]?.src})`}}
                         />
                         <UiSlider
-                            className={'visa-body-media-slider'}
-                            slideClassName={'visa-body-media-slide'}
+                            className={'p-visa-body-media-slider'}
+                            slideClassName={'p-visa-body-media-slide'}
                             perGroup={1}
                             perPage={'auto'}
                             gap={8}
                             items={media}
-                            renderItem={(item, _, index) => (
+                            slide={(item, index) => (
+                                <UiSlider.Slide
+                                    render={() => (
                                 <div
-                                    className={classnames('visa-body-media-slide__inner', {
-                                        'visa-body-media-slide__inner--active': index === store.activeSlide
+                                    className={classnames('p-visa-body-media-slide__inner', {
+                                        'p-visa-body-media-slide__inner--active': index === store.activeSlide
                                     })}
                                 >
                                     {item.type === 'image' && (
                                         <div
-                                            className={'visa-body-media-slide__image'}
+                                            className={'p-visa-body-media-slide__image'}
                                             onClick={() => {
                                                 store.set("activeSlide", index);
                                                 store.set("lightboxIndex", index);
@@ -121,99 +123,99 @@ export const Client = observer(() => {
                                         />
                                     )}
                                     {item.type === 'video' && (
-                                        <div className={'visa-body-media-slide__video'}
+                                        <div className={'p-visa-body-media-slide__video'}
                                              onClick={() => {
                                                  store.set("lightboxIndex", index);
                                                  store.set("isLightbox", true);
                                              }}
                                         >
                                             <video src={item.src}/>
-                                            <div className="visa-body-media-slide__overlay">
+                                            <div className="p-visa-body-media-slide__overlay">
                                                 <img src={playImage.src} alt=""/>
                                             </div>
                                         </div>
                                     )}
                                 </div>
+                                    )}/>
                             )}
                             renderLine={(item, _, index) => (
                                 <div
-                                    className={classnames('visa-body-media-line__step', {
-                                        'visa-body-media-line__step--active': index === store.activeSlide
+                                    className={classnames('p-visa-body-media-line__step', {
+                                        'p-visa-body-media-line__step--active': index === store.activeSlide
                                     })}
                                     onClick={() => {
                                         store.set("activeSlide", index);
                                         store.set("lightboxIndex", index);
                                     }}
                                 >
-                                    <div
-
-                                    />
-
                                 </div>
                             )}
 
+
+
+
                         />
                     </div>
-                    <div className="visa-body-offer">
-                        <h5 className="visa-body-offer__title">Для вас мы предлагаем:</h5>
-                        <div className="visa-body-offer__wrap">
-                            <div className="visa-body-offer-item">
+                    <div className="p-visa-body-offer">
+                        <h5 className="p-visa-body-offer__title">Для вас мы предлагаем:</h5>
+                        <div className="p-visa-body-offer__wrap">
+                            <div className="p-visa-body-offer-item">
                                 <UiIcon
                                     size={48}
                                     name={"phone"} color={COLORS.DARK_SECONDARY_BORDER}/>
-                                <div className="visa-body-offer-item__text">Оформление за 2 недели</div>
+                                <div className="p-visa-body-offer-item__text">Оформление за 2 недели</div>
                             </div>
-                            <div className="visa-body-offer-item">
+                            <div className="p-visa-body-offer-item">
                                 <UiIcon
                                     size={48}
                                     name={"phone"} color={COLORS.DARK_SECONDARY_BORDER}/>
-                                <div className="visa-body-offer-item__text">Стоимость <br/> от 1 900 ₽</div>
+                                <div className="p-visa-body-offer-item__text">Стоимость <br/> от 1 900 ₽</div>
                             </div>
-                            <div className="visa-body-offer-item">
+                            <div className="p-visa-body-offer-item">
                                 <UiIcon
                                     size={48}
                                     name={"phone"} color={COLORS.DARK_SECONDARY_BORDER}/>
-                                <div className="visa-body-offer-item__text">Полное сопровождение</div>
+                                <div className="p-visa-body-offer-item__text">Полное сопровождение</div>
                             </div>
                         </div>
                     </div>
-                    <div className="visa-body-tab">
-                        <div className="visa-body-tab-headers">
-                            <div className="visa-body-tab-headers__blackout"/>
-                            <div className="visa-body-tab-headers__arrows">
+                    <div className="p-visa-body-tab">
+                        <div className="p-visa-body-tab-headers">
+                            <div className="p-visa-body-tab-headers__blackout"/>
+                            <div className="p-visa-body-tab-headers__arrows">
                                 <UiIcon size={12} name={"arrowBack"}/>
                                 <UiIcon size={12} name={"arrowForward"}/>
                             </div>
-                            <div className="visa-body-tab-headers__button_active">
+                            <div className="p-visa-body-tab-headers__button_active">
                                 <h5>Туристическая</h5>
                             </div>
-                            <div className="visa-body-tab-headers__button">
+                            <div className="p-visa-body-tab-headers__button">
                                 <h5>Бизнес</h5>
                             </div>
-                            <div className="visa-body-tab-headers__button">
+                            <div className="p-visa-body-tab-headers__button">
                                 <h5>Гостевая</h5>
                             </div>
-                            <div className="visa-body-tab-headers__button">
+                            <div className="p-visa-body-tab-headers__button">
                                 <h5>Для владельцев недвижимости</h5>
                             </div>
 
                         </div>
-                        <div className="visa-body-tab-content">
-                            <div className="visa-body-tab-content-item">
+                        <div className="p-visa-body-tab-content">
+                            <div className="p-visa-body-tab-content-item">
                                 <h5>Нахождение в Испании</h5>
-                                <div className="visa-body-tab-content__wrap">
+                                <div className="p-visa-body-tab-content__wrap">
                                     <p>До 90 дней</p>
                                 </div>
                             </div>
-                            <div className="visa-body-tab-content-item">
+                            <div className="p-visa-body-tab-content-item">
                                 <h5>Оформление</h5>
-                                <div className="visa-body-tab-content__wrap">
+                                <div className="p-visa-body-tab-content__wrap">
                                     <p>7-8 рабочих дней</p>
                                 </div>
                             </div>
-                            <div className="visa-body-tab-content-item">
+                            <div className="p-visa-body-tab-content-item">
                                 <h5>Стоимость</h5>
-                                <div className="visa-body-tab-content__wrap">
+                                <div className="p-visa-body-tab-content__wrap">
                                     <p>11 700 ₽</p>
                                 </div>
                             </div>
@@ -225,7 +227,7 @@ export const Client = observer(() => {
 
                         </div>
                     </div>
-                    <UiTypography className="visa-body-text">
+                    <UiTypography className="p-visa-body-text">
                         <p>Испания входит в шенгенскую зону, поэтому для туристов выгодно оформлять шенгенскую визу.
                             Шенгенская виза открывает путь в другие европейские государства, входящие в список стран
                             Шенгенского соглашения. Однако требования для получения такой визы очень жесткие и строгие.
@@ -265,7 +267,7 @@ export const Client = observer(() => {
                         </ul>
 
                     </UiTypography>
-                    <UiButton className="visa-body-text__download"
+                    <UiButton className="p-visa-body-text__download"
                               onClick={() => {
                               }}
                               notification={UserService.user.userFavorites.length}
@@ -280,138 +282,138 @@ export const Client = observer(() => {
                         <UiIcon size={32} name={'download'} color={COLORS.GREEN_PRIMARY}/>
                         <span>Скачать документы</span>
                     </UiButton>
-                    <div className="visa-body-price">
-                        <h2 className="visa-body-price__title">В оформление входит:</h2>
-                        <div className="visa-body-price__wrap">
-                            <div className="visa-body-price-item">
-                                <div className="visa-body-price-item__number">
+                    <div className="p-visa-body-price">
+                        <h2 className="p-visa-body-price__title">В оформление входит:</h2>
+                        <div className="p-visa-body-price__wrap">
+                            <div className="p-visa-body-price-item">
+                                <div className="p-visa-body-price-item__number">
                                     <span>900 ₽</span>
-                                    <div className="visa-body-price-item__icon">
+                                    <div className="p-visa-body-price-item__icon">
                                         <UiIcon size={16} name={'add'}/>
                                     </div>
                                 </div>
-                                <div className="visa-body-price-item__description">
+                                <div className="p-visa-body-price-item__description">
                                     <span>Проверка, подготовка документов + заполнение анкеты</span>
                                 </div>
                             </div>
-                            <div className="visa-body-price-item">
-                                <div className="visa-body-price-item__number">
+                            <div className="p-visa-body-price-item">
+                                <div className="p-visa-body-price-item__number">
                                     <span>290 ₽</span>
-                                    <div className="visa-body-price-item__icon">
+                                    <div className="p-visa-body-price-item__icon">
                                         <UiIcon size={16} name={'add'}/>
                                     </div>
                                 </div>
-                                <div className="visa-body-price-item__description">
+                                <div className="p-visa-body-price-item__description">
                                     <span>Бронь авиабилета</span>
                                 </div>
                             </div>
-                            <div className="visa-body-price-item">
-                                <div className="visa-body-price-item__number">
+                            <div className="p-visa-body-price-item">
+                                <div className="p-visa-body-price-item__number">
                                     <span>710 ₽</span>
-                                    <div className=" visa-body-price-item__icon visa-body-price-item__icon--last">
+                                    <div className=" p-visa-body-price-item__icon p-visa-body-price-item__icon--last">
                                         <UiIcon size={16} name={'add'}/>
                                     </div>
                                 </div>
-                                <div className="visa-body-price-item__description">
+                                <div className="p-visa-body-price-item__description">
                                     <span>Бронь гостиницы</span>
                                 </div>
                             </div>
-                            <div className="visa-body-price-item">
-                                <div className="visa-body-price-item__number visa-body-price-item__number--last">
+                            <div className="p-visa-body-price-item">
+                                <div className="p-visa-body-price-item__number p-visa-body-price-item__number--last">
                                     <span>9 800 ₽</span>
                                 </div>
-                                <div className="visa-body-price-item__description visa-body-price-item__description--last">
+                                <div className="p-visa-body-price-item__description p-visa-body-price-item__description--last">
                                     <span>Туристическая виза на 360 дней</span>
                                 </div>
                             </div>
-                            <div className="visa-body-price-sum">
-                                <span className="visa-body-price-sum__title">Итого:</span>
-                                <span className="visa-body-price-sum__number">11 700 ₽</span>
+                            <div className="p-visa-body-price-sum">
+                                <span className="p-visa-body-price-sum__title">Итого:</span>
+                                <span className="p-visa-body-price-sum__number">11 700 ₽</span>
                             </div>
 
                         </div>
 
                     </div>
 
-                    <div className="visa-body-instruction">
-                        <h2 className="visa-body-instruction__title">Как получить визу:</h2>
-                        <div className="visa-body-instruction__wrap">
-                            <div className="visa-body-instruction-item">
-                                <div className="visa-body-instruction-item-header">
-                                    <div className="visa-body-instruction-item-header__number">
+                    <div className="p-visa-body-instruction">
+                        <h2 className="p-visa-body-instruction__title">Как получить визу:</h2>
+                        <div className="p-visa-body-instruction__wrap">
+                            <div className="p-visa-body-instruction-item">
+                                <div className="p-visa-body-instruction-item-header">
+                                    <div className="p-visa-body-instruction-item-header__number">
                                         1
                                     </div>
-                                    <div className="visa-body-instruction-item-header__text">
+                                    <div className="p-visa-body-instruction-item-header__text">
                                         <span>Оставляете заявку</span>
                                     </div>
                                 </div>
-                                <div className="visa-body-instruction-item__content">
+                                <div className="p-visa-body-instruction-item__content">
                                     Вы заполняете форму на этой странице, и мы приступаем к работе
                                 </div>
                             </div>
 
-                            <div className="visa-body-instruction__arrow">
+                            <div className="p-visa-body-instruction__arrow">
                                 <UiIcon size={[40, 12]} name={"arrowRight"}/>
                             </div>
 
-                            <div className="visa-body-instruction-item">
-                                <div className="visa-body-instruction-item-header">
-                                    <div className="visa-body-instruction-item-header__number">
+                            <div className="p-visa-body-instruction-item">
+                                <div className="p-visa-body-instruction-item-header">
+                                    <div className="p-visa-body-instruction-item-header__number">
                                         2
                                     </div>
-                                    <div className="visa-body-instruction-item-header__text">
+                                    <div className="p-visa-body-instruction-item-header__text">
                                         <span>Выясняем детали</span>
                                     </div>
                                 </div>
-                                <div className="visa-body-instruction-item__content">
+                                <div className="p-visa-body-instruction-item__content">
                                     Наш менеджер свяжется с вами, чтобы выяснить детали поездки
                                 </div>
                             </div>
 
-                            <div className="visa-body-instruction__arrow">
+                            <div className="p-visa-body-instruction__arrow">
                                 <UiIcon size={[40, 12]} name={"arrowRight"}/>
                             </div>
 
-                            <div className="visa-body-instruction-item">
-                                <div className="visa-body-instruction-item-header">
-                                    <div className="visa-body-instruction-item-header__number">
+                            <div className="p-visa-body-instruction-item">
+                                <div className="p-visa-body-instruction-item-header">
+                                    <div className="p-visa-body-instruction-item-header__number">
                                         3
                                     </div>
-                                    <div className="visa-body-instruction-item-header__text">
+                                    <div className="p-visa-body-instruction-item-header__text">
                                         <span>Готовим документы</span>
                                     </div>
                                 </div>
-                                <div className="visa-body-instruction-item__content">
+                                <div className="p-visa-body-instruction-item__content">
                                     Вместе с вами формируем пакет из всех необходимых документов
                                 </div>
                             </div>
 
-                            <div className="visa-body-instruction__arrow">
+                            <div className="p-visa-body-instruction__arrow">
                                 <UiIcon size={[40, 12]} name={"arrowRight"}/>
                             </div>
 
 
-                            <div className="visa-body-instruction-item">
-                                <div className="visa-body-instruction-item-header">
-                                    <div className="visa-body-instruction-item-header__number">
+                            <div className="p-visa-body-instruction-item">
+                                <div className="p-visa-body-instruction-item-header">
+                                    <div className="p-visa-body-instruction-item-header__number">
                                         4
                                     </div>
-                                    <div className="visa-body-instruction-item-header__text">
+                                    <div className="p-visa-body-instruction-item-header__text">
                                         <span>Получаете визу</span>
                                     </div>
                                 </div>
-                                <div className="visa-body-instruction-item__content">
+                                <div className="p-visa-body-instruction-item__content">
                                     Полное сопровождение — с подачи заявления и до оформления визы
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <UiForm className="visa-body-request">
-                        <h2 className="visa-body-request__title">Оставить заявку на оформление визы</h2>
-                        <div className="visa-body-request-form">
+                    <UiForm className="p-visa-body-request">
+                        <h2 className="p-visa-body-request__title">Оставить заявку на оформление визы</h2>
+                        <div className="p-visa-body-request-form">
                             <span>Введите номер телефона для связи с Вами</span>
-                            <div className="visa-body-request-form__input">
+                            <div className="p-visa-body-request-form__input">
                                 <UiInput
                                     placeholder='+7 --- --- -- --'
                                     name={'query'}
@@ -427,7 +429,7 @@ export const Client = observer(() => {
                     </UiForm>
 
                 </div>
-                <div className="visa--aside">
+                <div className="p-visa--aside">
                     <PVisaManager/>
                     <PVisaCountries/>
                     <PVisaServices/>

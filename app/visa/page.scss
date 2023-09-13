@@ -1,4 +1,4 @@
-.visa {
+.p-visa {
     background-color: $cGraySecondary;
 
     &--wrap {
@@ -31,6 +31,11 @@
             }
 
             &-slider {
+                position: absolute;
+                width: 860px;
+                left: 20px;
+                bottom: 0;
+                overflow: hidden;
 
                 &__arrow {
                     display: flex;
@@ -72,12 +77,13 @@
                 position: relative;
                 width: 84px !important;
                 height: 64px !important;
+                display: flex;
 
                 &__inner {
-                    width: 100%;
-                    height: 100%;
+                    height: 64px;
                     border: 1px solid transparent;
                     border-radius: 5px;
+                    display: inline-block;
                     cursor: pointer;
                     overflow: hidden;
 
@@ -91,8 +97,8 @@
                 }
 
                 &__image {
-                    width: 100%;
-                    height: 100%;
+                    width: 84px !important;
+                    height: 64px !important;
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: cover;
@@ -127,7 +133,10 @@
 
             }
 
+
+
             &-line {
+                z-index: 10;
                 &__step {
                     width: 100%;
                     height: 3px !important;

@@ -15,39 +15,39 @@ import {UserService} from "shared/services";
 
 export const PVisaCountries = observer(() => {
     return (
-        <UiForm className="visa-countries">
-            <div className="visa-countries__header_image"></div>
-            <div className="visa-countries__header">
+        <UiForm className="p-visa-countries">
+            <div className="p-visa-countries__header_image"></div>
+            <div className="p-visa-countries__header">
                 <h2>Страны</h2>
             </div>
 
-            <div className="visa-countries-body">
-                <div className="visa-countries-body__list">
-                    <div className="visa-countries-body__list--image"></div>
+            <div className="p-visa-countries-body">
+                <div className="p-visa-countries-body__list">
+                    <div className="p-visa-countries-body__list--image"></div>
                     <span>Австралия</span>
                 </div>
-                <div className="visa-countries-body__list">
-                    <div className="visa-countries-body__list--image"></div>
+                <div className="p-visa-countries-body__list">
+                    <div className="p-visa-countries-body__list--image"></div>
                     <span>Австралия</span>
                 </div>
-                <div className="visa-countries-body__list">
-                    <div className="visa-countries-body__list--image"></div>
+                <div className="p-visa-countries-body__list">
+                    <div className="p-visa-countries-body__list--image"></div>
                     <span>Австралия</span>
                 </div>
-                <div className="visa-countries-body__list">
-                    <div className="visa-countries-body__list--image"></div>
+                <div className="p-visa-countries-body__list">
+                    <div className="p-visa-countries-body__list--image"></div>
                     <span>Австралия</span>
                 </div>
-                <div className="visa-countries-body__list">
-                    <div className="visa-countries-body__list--image"></div>
+                <div className="p-visa-countries-body__list">
+                    <div className="p-visa-countries-body__list--image"></div>
                     <span>Австралия</span>
                 </div>
-                <div className="visa-countries-body__list">
-                    <div className="visa-countries-body__list--image"></div>
+                <div className="p-visa-countries-body__list">
+                    <div className="p-visa-countries-body__list--image"></div>
                     <span>Австралия</span>
                 </div>
-                <div className="visa-countries-body__list">
-                    <div className="visa-countries-body__list--image"></div>
+                <div className="p-visa-countries-body__list">
+                    <div className="p-visa-countries-body__list--image"></div>
                     <span>Австралия</span>
                 </div>
             </div>

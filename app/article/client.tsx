@@ -10,8 +10,8 @@ import {UiDataBoundary, UiGrid, UiPage} from "shared/ui";
 
 import './page.scss';
 import {LayoutHeader} from "shared/layout";
-import {LayoutHeaderSearch} from "./components/PBlogHeaderSearch";
 import {ROUTES} from "shared/contants";
+import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
 
 export const Client = observer(() => {
     const city = useCity();
@@ -39,7 +39,7 @@ export const Client = observer(() => {
     }, [searchParams.page, city, searchParams.tagId]);
 
     return (
-        <UiPage>
+        <UiPage className={"p-article"}>
             <LayoutHeader>
                 <LayoutHeaderSearch/>
             </LayoutHeader>

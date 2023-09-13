@@ -9,9 +9,9 @@ import {vacancyGetQuery} from "shared/queries/main";
 import {PVacancyFormAside} from "../components/PVacancyFormAside";
 import {PVacancyForm} from "../components/PVacancyForm";
 import {LayoutHeader} from "shared/layout";
-import {LayoutHeaderSearch} from "../components/PVacancyHeaderSearch";
 import {html} from "shared/utilities";
 import {ROUTES} from "shared/contants";
+import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
 
 
 type PropsType = {
@@ -40,7 +40,7 @@ export const Client = observer(({slug}: PropsType
 
     return (
 
-        <UiPage>
+        <UiPage className={"p-vacancy"}>
             <LayoutHeader>
                 <LayoutHeaderSearch/>
             </LayoutHeader>
@@ -57,16 +57,14 @@ export const Client = observer(({slug}: PropsType
                     }
                 subtitle={store.item.subtitle}
             />
-            <div className="vacancy-page">
-                <UiPage.Wrap className="vacancy-page--flex">
-                    <div className="vacancy-page-body">
+                <UiPage.Wrap className="p-vacancy--flex">
+                    <div className="p-vacancy-body">
                         <UiTypography>
                             {html(store.item.content)}
                         </UiTypography>
                     </div>
                     <PVacancyFormAside/>
                 </UiPage.Wrap>
-            </div>
             <PVacancyForm/>
         </UiPage>
     );

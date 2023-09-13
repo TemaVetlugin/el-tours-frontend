@@ -15,15 +15,15 @@ import {UserService} from "shared/services";
 
 export const PBlogAuthor = observer(() => {
     return (
-        <div className="blog-author">
-            <div className="blog-author__profile">
-                <img src={require('./assets/authorPicture.png').default.src} alt="" className="blog-author__profile__picture"/>
-                <div className="blog-author__profile__descr">
+        <div className="p-blog-author">
+            <div className="p-blog-author__profile">
+                <img src={require('./assets/authorPicture.png').default.src} alt="" className="p-blog-author__profile__picture"/>
+                <div className="p-blog-author__profile__descr">
                     <h5>Irishka Traveler</h5>
                     <p>г. Минск</p>
                 </div>
             </div>
-            <div className="blog-author__publications">
+            <div className="p-blog-author__publications">
                 <h5>28 публикаций</h5>
                 <UiLink>Все публикации</UiLink>
             </div>

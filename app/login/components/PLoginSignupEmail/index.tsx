@@ -15,25 +15,25 @@ import {UserService} from "shared/services";
 
 export const PLoginSignUpEmail = observer(() => {
     return (
-        <UiForm className="signup-email">
-            <div className="signup-email__header">
+        <UiForm className="p-signup-email">
+            <div className="p-signup-email__header">
                 <h2>Регистрация</h2>
             </div>
-            <span className="signup-email__subtitle">Укажите адрес электронной почты, на него мы будем присылать вам документы по купленным турам и авиабилетам</span>
-            <div className="signup-email-label">
+            <span className="p-signup-email__subtitle">Укажите адрес электронной почты, на него мы будем присылать вам документы по купленным турам и авиабилетам</span>
+            <div className="p-signup-email-label">
                 <span>E-mail</span>
             </div>
-            <div className="signup-email__input">
+            <div className="p-signup-email__input">
                 <UiInput
                     placeholder='info@el-tours.ru'
                     name={'query'}
                 />
             </div>
-            <div className="signup-email-label">
+            <div className="p-signup-email-label">
                 <span>Пароль</span>
-                <span className="signup-email-label--small">не менее 8 символов, прописные цифры и строчные буквы</span>
+                <span className="p-signup-email-label--small">не менее 8 символов, прописные цифры и строчные буквы</span>
             </div>
-            <div className="signup-email__input">
+            <div className="p-signup-email__input">
                 <UiInput
                     placeholder='Пароль'
                     type="password"
@@ -46,13 +46,13 @@ export const PLoginSignUpEmail = observer(() => {
                 }}>
                     <UiIcon size={[20, 20]} name={'views'}/>
                 </UiButton>
-                <div className="signup-email__input--unsafe"></div>
-                <div className="signup-email-label--unsafe">
+                <div className="p-signup-email__input--unsafe"></div>
+                <div className="p-signup-email-label--unsafe">
                     <span>Ненадёжный пароль</span>
                 </div>
             </div>
-            <div className="signup-email__submit">
-                <UiButton className="signup-email__submit" template={'normal'} type={'submit'} colors={{
+            <div className="p-signup-email__submit">
+                <UiButton className="p-signup-email__submit" template={'normal'} type={'submit'} colors={{
                     button: [COLORS.WHITE, COLORS.WHITE],
                     border: [COLORS.DARK_SECONDARY_BORDER, COLORS.DARK_SECONDARY_BORDER],
                     label: [COLORS.DARK_SECONDARY_BORDER, COLORS.DARK_SECONDARY_BORDER],
@@ -60,13 +60,13 @@ export const PLoginSignUpEmail = observer(() => {
                     <span>Следующий шаг</span>
                 </UiButton>
             </div>
-            <div className="signup-email-signin">
+            <div className="p-signup-email-signin">
                 <span>Есть аккаунт? <UiLink> Войти</UiLink></span>
             </div>
-            <div className="signup-email-line">
-                <div className="signup-email-line__step"></div>
-                <div className="signup-email-line__step"></div>
-                <div className="signup-email-line__step signup-email-line__step--active"></div>
+            <div className="p-signup-email-line">
+                <div className="p-signup-email-line__step"></div>
+                <div className="p-signup-email-line__step"></div>
+                <div className="p-signup-email-line__step p-signup-email-line__step--active"></div>
             </div>
         </UiForm>
     )

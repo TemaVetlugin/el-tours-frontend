@@ -15,9 +15,9 @@ import {UserService} from "shared/services";
 
 export const PVacancyDescription = observer(() => {
     return (
-        <div className="vacancy-description">
-            <div className="vacancy-description__row">
-                <div className="vacancy-description__row_item">
+        <div className="p-vacancy-description">
+            <div className="p-vacancy-description__row">
+                <div className="p-vacancy-description__row_item">
                     <UiButton
                         onClick={() => {
                         }}
@@ -33,7 +33,7 @@ export const PVacancyDescription = observer(() => {
                     <h5>Интересная работа</h5>
                     <p>Интересные задачи, гибкий график работы, профессиональный рост, высокий уровень зарплаты + бонусы за результат</p>
                 </div>
-                <div className="vacancy-description__row_item">
+                <div className="p-vacancy-description__row_item">
                     <UiButton
                         onClick={() => {
                         }}
@@ -50,8 +50,8 @@ export const PVacancyDescription = observer(() => {
                     <p>Посещение профильных мероприятий, обмен опытом с интересными людьми, библиотека с хорошими книгами, а также необычные тимбилдинги</p>
                 </div>
             </div>
-            <div className="vacancy-description__row">
-                <div className="vacancy-description__row_item">
+            <div className="p-vacancy-description__row">
+                <div className="p-vacancy-description__row_item">
                     <UiButton
                         onClick={() => {
                         }}
@@ -67,7 +67,7 @@ export const PVacancyDescription = observer(() => {
                     <h5>Общение и отдых</h5>
                     <p>Вкусный бесплатный кофе, утренние фрукты, игровая приставка, настольные игры, пятничные вечеринки и многое другое</p>
                 </div>
-                <div className="vacancy-description__row_item">
+                <div className="p-vacancy-description__row_item">
                     <UiButton
                         onClick={() => {
                         }}

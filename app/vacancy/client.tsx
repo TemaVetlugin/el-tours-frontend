@@ -9,12 +9,12 @@ import {UiDataBoundary, UiGrid, UiPage} from "shared/ui";
 
 import './page.scss';
 import {LayoutHeader} from "shared/layout";
-import {LayoutHeaderSearch} from "./components/PVacancyHeaderSearch";
 import {PVacancyFormAside} from "./components/PVacancyFormAside";
 import {PVacancyForm} from "./components/PVacancyForm";
 import {PVacancyDescription} from "./components/PVacancyDescription";
 import {VmVacancy} from "shared/viewmodels";
 import {ROUTES} from "shared/contants";
+import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
 
 export const Client = observer(() => {
     const city = useCity();
@@ -42,7 +42,7 @@ export const Client = observer(() => {
     }, [searchParams.page, city, searchParams.tagId]);
 
     return (
-        <UiPage>
+        <UiPage className="p-vacancy">
             <LayoutHeader>
                 <LayoutHeaderSearch/>
             </LayoutHeader>
@@ -52,17 +52,17 @@ export const Client = observer(() => {
                 subtitle={'Возможно, нам не хватает именно тебя!'}
             />
 
-            <div className="vacancy-page">
-                <UiPage.Wrap className="vacancy-page--flex">
-                    <div className="vacancy-page-body">
-                        <p className="vacancy-page-body__text">Каждый день с нашей помощью более 10 000 человек планируют свои поездки: находят дешевые отели, билеты на самолет и бронируют круизы. В нашу дружную
+            <div >
+                <UiPage.Wrap className="p-vacancy--flex">
+                    <div className="p-vacancy-body">
+                        <p className="p-vacancy-body__text">Каждый день с нашей помощью более 10 000 человек планируют свои поездки: находят дешевые отели, билеты на самолет и бронируют круизы. В нашу дружную
                             команду
                             мы
                             ищем профессионалов, готовых участвовать в создании и поддержке продуктов для миллионов пользователей.</p>
-                        <p className="vacancy-page-body__text">Мы ценим инициативу, не вставляем палки в колеса и даем возможность влиять на сервис. И каждое успешное решение мы отмечаем веселыми вечеринками!</p>
+                        <p className="p-vacancy-body__text">Мы ценим инициативу, не вставляем палки в колеса и даем возможность влиять на сервис. И каждое успешное решение мы отмечаем веселыми вечеринками!</p>
                         <PVacancyDescription/>
 
-                        <div className="vacancy-page-body-list">
+                        <div className="p-vacancy-body-list">
                             <UiDataBoundary isLoading={store.isLoading} withShallow>
                                 {store.vacancy.map(vacancy => <VmVacancy key={vacancy.id} template={'light'} item={vacancy}/>)}
 

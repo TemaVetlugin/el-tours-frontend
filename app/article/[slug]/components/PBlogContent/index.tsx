@@ -13,14 +13,14 @@ type PropsType = {
 }
 export const PBlogContent = observer(({content}: PropsType) => {
     return (
-        <div className="blog-content">
+        <div className="p-blog-content">
             <UiTypography>
             {html(content)}
             </UiTypography>
 
-            <div className="blog-content__like">
+            <div className="p-blog-content__like">
                 <span>Лайкнуть - это модно!</span>
-                <div className="blog-content__like__count">
+                <div className="p-blog-content__like__count">
                     <p>Понравилось: 283</p>
                     <UiButton
                         notification={UserService.user.userFavorites.length}

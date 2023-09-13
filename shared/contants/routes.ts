@@ -126,6 +126,7 @@ export const ROUTES = {
         url: `/page/${slug}`,
     }),
 
+
     HOME: (): RouteType => ({
         id: 'home',
         name: 'Главная',
@@ -155,5 +156,10 @@ export const ROUTES = {
         id: 'TEAM',
         name: 'Наша Команда',
         url: '/team',
+    }),
+    COMPANY: (): RouteType => ({
+        id: 'COMPANY',
+        name: 'О компании',
+        url: '/company',
     }),
 };
