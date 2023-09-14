@@ -5,13 +5,15 @@ import {observer} from "mobx-react-lite";
 import {useAsyncEffect, useCity, useRouter, useSearchParams, useStore} from "shared/hooks";
 import {ArticleModel, PaginationModel} from "shared/models";
 import {articlesQuery} from "shared/queries/main";
-import {VmArticle} from "shared/viewmodels";
-import {UiDataBoundary, UiGrid, UiPage} from "shared/ui";
+import {VmArticle, VmWorker} from "shared/viewmodels";
+import {UiDataBoundary, UiGrid, UiIcon, UiPage} from "shared/ui";
 
 import './page.scss';
 import {LayoutHeader} from "shared/layout";
 import {ROUTES} from "shared/contants";
 import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
+import {UiCardWrap} from "shared/ui/UiCardsWrap";
+import {VmCard} from "shared/viewmodels/VmCard";
 
 export const Client = observer(() => {
     const city = useCity();
@@ -44,16 +46,47 @@ export const Client = observer(() => {
                 <LayoutHeaderSearch/>
             </LayoutHeader>
             <UiPage.Header
-                items={[ ROUTES.ARTICLES()]}
+                items={[ROUTES.ARTICLES()]}
                 title={'Блог'}
                 subtitle={'Здесь собраны самые впечатляющие статьи путешественников.'}
 
             />
             <UiPage.Wrap>
                 <UiDataBoundary isLoading={store.isLoading} withShallow>
-                    <UiGrid columns={3} gap={[8, 8]}>
-                        {store.articles.map(articles => <VmArticle key={articles.id} template={'light'} item={articles}/>)}
-                    </UiGrid>
+                    <UiCardWrap>
+                        {store.articles.map((article) =>
+                            <VmCard key={article.id}
+                                    className={"p-article-card"}
+                                    template={article.width === 2 ? 'large' : 'small'}
+                                    background={article.previewImage}
+                                    slug={article.slug}
+                                    header={<>
+                                        <div className="p-article-card-header__item">
+                                            <UiIcon size={[24, 24]} name={"views"}/>
+                                            <span>{article.views}</span>
+                                        </div>
+                                        <div className="p-article-card-header__item">
+                                            <UiIcon size={20} name={"comments"}/>
+                                            <span>21</span>
+                                        </div>
+                                    </>}
+                                    body={
+                                        <div>
+                                            <span className="p-article-card__country">
+                                                 {article.country}
+                                            </span>
+                                            <h3 className="p-article-card__title">
+                                                {article.name}
+                                            </h3>
+                                            <span className="p-article-card__description">
+                                                {article.createdDate + " - Чтение " + article.readingTime}
+                                            </span>
+                                        </div>
+                                    }
+
+                            />)}
+
+                    </UiCardWrap>
                 </UiDataBoundary>
                 <UiPage.Pagination pagination={store.pagination}/>
             </UiPage.Wrap>

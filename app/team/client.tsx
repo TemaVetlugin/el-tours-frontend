@@ -55,6 +55,7 @@ export const Client = observer(() => {
         store.set("isLoading", false);
         store.set("isShallowLoading", false);
     }, [searchParams.page, city, searchParams.tagId]);
+
     const duplicatedWorkers1 = [...store.renderWorkers1, ...store.renderWorkers1, ...store.renderWorkers1];
     const duplicatedWorkers2 = [...store.renderWorkers2, ...store.renderWorkers2, ...store.renderWorkers2];
     const duplicatedWorkers3 = [...store.renderWorkers3, ...store.renderWorkers3, ...store.renderWorkers3];
@@ -72,12 +73,13 @@ export const Client = observer(() => {
 
             />
 
+            <UiDataBoundary isLoading={store.isLoading} withShallow>
             {store.renderWorkers1.length>0&&
                 <UiPage.Wrap className="p-team-group">
                     <h2 className="p-team__title">Руководство</h2>
                     <span className="p-team__subtitle">Основатели проекта el-tours.ru, которые верят в него и вкладывают душу</span>
 
-                    <UiDataBoundary isLoading={store.isLoading} withShallow>
+
                         {store.renderWorkers1.length<=4 &&
                             <UiGrid columns={4} gap={5}>
                                 {store.renderWorkers1.map((group1) => <VmWorker key={group1.id} item={group1}/>)}
@@ -133,10 +135,10 @@ export const Client = observer(() => {
                                     />
                             </div>
                         }
-                    </UiDataBoundary>
                     <UiPage.Pagination pagination={store.pagination}/>
                 </UiPage.Wrap>
             }
+            </UiDataBoundary>
 
             {store.renderWorkers2.length>0&&
                 <UiPage.Wrap className="p-team-group">

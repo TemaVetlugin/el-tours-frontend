@@ -6,7 +6,9 @@ import { ModelArrayCast } from "shared/casts";
 
 export interface ArticleModelInterface {
     id?: number;
+    width?: number;
     name?: string;
+    country?: string;
     slug?: string;
     previewImage?: string;
     preview?: string;
@@ -21,6 +23,8 @@ export class ArticleModel extends Model<ArticleModelInterface> implements Articl
     fillable: Array<keyof ArticleModelInterface> = [
         "id",
         "name",
+        "width",
+        "country",
         "slug",
         "previewImage",
         "preview",
@@ -32,7 +36,9 @@ export class ArticleModel extends Model<ArticleModelInterface> implements Articl
     ];
 
     id = 0;
+    width = 0;
     name = '';
+    country = '';
     slug = '';
     previewImage = '';
     preview = '';
@@ -47,6 +53,8 @@ export class ArticleModel extends Model<ArticleModelInterface> implements Articl
         makeObservable(this, {
             id: observable,
             name: observable,
+            width: observable,
+            country: observable,
             slug: observable,
             previewImage: observable,
             preview: observable,

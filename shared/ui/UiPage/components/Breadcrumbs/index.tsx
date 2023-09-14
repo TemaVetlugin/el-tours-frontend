@@ -18,13 +18,14 @@ export const Breadcrumbs = observer(({ items = [] }: PropsType) => {
     const _items: RouteType[] = [ROUTES.HOME(), ...items];
     return (
         <div className='ui-page-breadcrumbs'>
-
+            {_items[_items.length-2]&&
                 <UiLink href={_items[_items.length-2].url} className='ui-page-breadcrumbs__item'>
                     <div className="ui-page-breadcrumbs__arrow">
                         <UiIcon size={[32,10]} name={"arrowLeft"}/>
                     </div>
-                    {_items[_items.length-2].name}
+                    {_items[_items.length-2]&&_items[_items.length-2].name}
                 </UiLink>
+            }
 
 
         </div>

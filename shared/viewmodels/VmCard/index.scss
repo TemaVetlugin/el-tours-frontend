@@ -1,0 +1,39 @@
+.vm-card{
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    padding: 30px 32px ;
+    color: white !important;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    justify-content: space-between;
+    position: relative;
+    &__header{
+        z-index: 1;
+        display: flex;
+        gap: 32px;
+    }
+    &__body{
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+    }
+    &--small{
+        width: 330px;
+    }
+    &--large{
+        width: 605px;
+    }
+    &:after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 256px;
+        z-index: 0;
+        background: linear-gradient(180deg, rgba(4, 55, 77, 0) 34.97%, rgba(4, 55, 77, 0.52) 62.73%, #04374D 100%);
+    }
+
+}
