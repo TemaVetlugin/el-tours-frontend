@@ -1,8 +1,10 @@
 import { makeAutoObservable } from "mobx";
 
 import { ContentResourceModel, ContentResourceModelInterface } from "shared/models";
+import { bootQuery } from "shared/queries/frontend";
+import { ReturnType } from "shared/types";
 
-import { makeService } from "shared/services/utilities/makeService";
+import { makeService } from "./utilities/makeService";
 
 type BootType = {
     contentResources: ContentResourceModelInterface[],
@@ -14,8 +16,10 @@ export const ContentResourceService = makeService(class {
         makeAutoObservable(this);
     }
 
-    boot = ({ contentResources }: BootType) => {
-        this.contentResources = contentResources.map(item => new ContentResourceModel(item));
+    boot = (data: ReturnType<typeof bootQuery>['data']) => {
+        if(data?.contentResources) {
+            this.contentResources = data.contentResources.map(item => new ContentResourceModel(item));
+        }
     }
 
     get = (code: string, cityId: number) => {
@@ -27,3 +31,4 @@ export const ContentResourceService = makeService(class {
         }) || null
     }
 });
+

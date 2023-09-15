@@ -6,7 +6,7 @@ import { userFavoriteToggleQuery, usersBootQuery } from "shared/queries/main";
 import { retryQuery } from "shared/queries/utilities";
 
 import { LocationService } from "./Location.service";
-import { LayoutService } from "./Layout.service";
+import { AppService } from "./App.service";
 import { CartService } from "./Cart.service";
 
 import { makeService } from "./utilities/makeService";
@@ -65,7 +65,7 @@ export const UserService = makeService(class {
             return true;
         }
         if (require) {
-            LayoutService.loginIsOpened = true;
+            AppService.loginIsOpened = true;
         }
         return false;
     }

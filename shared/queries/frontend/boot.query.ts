@@ -2,10 +2,12 @@ import {
     CatalogCategoryModelInterface,
     CityModelInterface,
     CompilationModelInterface,
-    ContentResourceModelInterface, FooterBannerModel, FooterBannerModelInterface, FooterMenuItemModelInterface,
+    ContentResourceModelInterface,
+    FooterBannerModelInterface,
+    FooterMenuItemModelInterface,
     HeaderMenuItemModelInterface,
     RegionModelInterface,
-    SearchPromptModelInterface
+    SearchPromptModelInterface,
 } from "shared/models"
 
 import { makeQuery } from "../utilities";
@@ -16,15 +18,20 @@ type RequestType = {
 }
 
 type ResponseType = {
-    regions: RegionModelInterface[],
-    cities: CityModelInterface[],
-    headerMenuItems: HeaderMenuItemModelInterface[],
-    footerMenuItems: FooterMenuItemModelInterface[],
-    footerBanners: FooterBannerModelInterface[],
-    searchPrompts: SearchPromptModelInterface[],
-    compilations: CompilationModelInterface[],
-    contentResources: ContentResourceModelInterface[],
-    catalogCategories: CatalogCategoryModelInterface[]
+    regions?: RegionModelInterface[],
+    cities?: CityModelInterface[],
+    headerMenuItems?: HeaderMenuItemModelInterface[],
+    footerMenuItems?: FooterMenuItemModelInterface[],
+    footerBanners?: FooterBannerModelInterface[],
+    searchPrompts?: SearchPromptModelInterface[],
+    compilations?: CompilationModelInterface[],
+    contentResources?: ContentResourceModelInterface[],
+    catalogCategories?: CatalogCategoryModelInterface[],
+    subheader?: {
+        new: boolean,
+        discount: boolean,
+        promoActions: boolean,
+    }
 }
 
 export const bootQuery = async (params: RequestType) => {
@@ -33,3 +40,5 @@ export const bootQuery = async (params: RequestType) => {
         params
     });
 }
+
+

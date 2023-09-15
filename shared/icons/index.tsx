@@ -8,6 +8,7 @@ export { arrowForward } from "./arrowForward";
 export { arrowDown } from "./arrowDown";
 export { arrowLeft } from "./arrowLeft";
 export { arrowRight } from "./arrowRight";
+export { arrowUp } from "./arrowUp";
 export { burger } from "./burger";
 export { calendar } from "./calendar";
 export { cart } from "./cart";

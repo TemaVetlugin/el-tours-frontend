@@ -1,33 +1,30 @@
 import { makeAutoObservable } from "mobx";
 
-import { CatalogCategoryModel, CatalogCategoryModelInterface, CompilationModel, CompilationModelInterface } from "shared/models";
-import { catalogProductViewSaveQuery } from "shared/queries/main/catalogProductViewSave.query";
-import { lodash } from "shared/utilities";
-
-import { makeService } from "./utilities/makeService";
 import { ROUTES } from "shared/contants";
+import { CatalogCategoryModel, CompilationModel } from "shared/models";
+import { bootQuery } from "shared/queries/frontend";
+import { catalogProductViewSaveQuery } from "shared/queries/main/catalogProductViewSave.query";
 import { ReturnType } from "shared/types";
+import { lodash } from "shared/utilities";
 import { Cache } from "shared/utilities/client";
 
-type BootType = {
-    catalogCategories?: CatalogCategoryModelInterface[],
-    compilations?: CompilationModelInterface[]
-}
+import { makeService } from "./utilities/makeService";
 
 export const CatalogService = makeService(class {
     catalogCategories: CatalogCategoryModel[] = [];
     compilations: CompilationModel[] = [];
+    filterIsOpened = false;
 
     constructor() {
         makeAutoObservable(this);
     }
 
-    boot = ({ catalogCategories, compilations }: BootType) => {
-        if (catalogCategories) {
-            this.catalogCategories = catalogCategories.map(item => new CatalogCategoryModel(item));
+    boot = (data: ReturnType<typeof bootQuery>['data']) => {
+        if (data?.catalogCategories) {
+            this.catalogCategories = data.catalogCategories.map(item => new CatalogCategoryModel(item));
         }
-        if (compilations) {
-            this.compilations = compilations.map(item => new CompilationModel(item));
+        if (data?.compilations) {
+            this.compilations = data.compilations.map(item => new CompilationModel(item));
         }
     }
 

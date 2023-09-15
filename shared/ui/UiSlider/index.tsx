@@ -9,7 +9,7 @@ import { OnChangeType } from "shared/types";
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';
-import { Autoplay, EffectFade, FreeMode, Pagination as SwiperPagination } from 'swiper/modules';
+import {Autoplay, EffectFade, FreeMode, Pagination as SwiperPagination, Scrollbar} from 'swiper/modules';
 import { Swiper, SwiperSlide} from 'swiper/react';
 import { Swiper as SwiperInstance, SwiperModule } from 'swiper/types';
 
@@ -25,6 +25,7 @@ type PropsType<T> = {
     items: T[],
     effect?: 'slide' | 'fade',
     loop?: boolean,
+    scrollbar?: boolean,
     freeMode?: boolean,
     perPage?: number | 'auto',
     perGroup?: number,
@@ -51,7 +52,7 @@ const Slider = observer(<T, >(
         perGroup,
         freeMode = false,
         gap = 0,
-
+        scrollbar=false,
         slideClassName,
         className,
         autoPlay,
@@ -131,6 +132,9 @@ const Slider = observer(<T, >(
             result.push(FreeMode);
         }
         if (1) {
+            result.push(Scrollbar);
+        }
+        if (1) {
             result.push(SwiperPagination);
         }
 
@@ -164,9 +168,10 @@ const Slider = observer(<T, >(
                             store.set("swiper", swiper);
                         }}
                         scrollbar={{
-                            el: '.swiper-scrollbar',
                             draggable: true,
+
                         }}
+                        initialSlide={0}
                         effect={"fade"}
                         freeMode={freeMode}
                         loop={loop}

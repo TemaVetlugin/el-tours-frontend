@@ -2,7 +2,7 @@
     height: 350px;
     background-size: cover;
     background-position: center;
-    padding: 30px 32px ;
+    padding: 20px 32px 30px 30px ;
     color: white !important;
     display: flex;
     flex-direction: column;
@@ -12,18 +12,30 @@
     &__header{
         z-index: 1;
         display: flex;
-        gap: 32px;
+        gap: 10px;
     }
     &__body{
         z-index: 1;
-        display: flex;
-        justify-content: space-between;
     }
     &--small{
         width: 330px;
+        .vm-card__header{
+            flex-direction: column;
+            .ui-button{
+                width: fit-content;
+            }
+        }
+        .vm-card__body{
+            flex-direction: column;
+        }
     }
     &--large{
         width: 605px;
+        .vm-card__body{
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+        }
     }
     &:after{
         content: '';

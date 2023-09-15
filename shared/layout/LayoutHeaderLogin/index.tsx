@@ -8,7 +8,7 @@ import { COLORS, MASKS, ROUTES } from "shared/contants";
 import { useMask, useRouter, useStore, useUser } from "shared/hooks";
 import { useValidation } from "shared/hooks/useValidation";
 import { usersConfirmQuery, usersLoginQuery } from "shared/queries/main";
-import { LayoutService, UserService } from "shared/services";
+import { AppService, UserService } from "shared/services";
 
 import { UiButton, UiCheckbox, UiForm, UiIcon, UiInput, UiModal } from "shared/ui";
 import { isMobilePhone, isRequired } from "shared/validations";
@@ -57,7 +57,7 @@ export const LayoutHeaderLogin = observer(() => {
         if (isSuccess && data) {
             await UserService.boot(data.accessToken);
             store.set("isLoading", false);
-            LayoutService.set('loginIsOpened', false)
+            AppService.set('loginIsOpened', false)
             store.set("step", 'login');
         }
 
@@ -109,12 +109,12 @@ export const LayoutHeaderLogin = observer(() => {
 
             <UiModal
                 width={435}
-                isOpened={LayoutService.loginIsOpened}
+                isOpened={AppService.loginIsOpened}
                 onOpen={() => {
                     store.set("errorMessage", '');
                     store.set('step', 'login');
                 }}
-                onClose={() => LayoutService.set("loginIsOpened", false)}
+                onClose={() => AppService.set("loginIsOpened", false)}
             >
                 {store.step === 'login' && (
                     <>

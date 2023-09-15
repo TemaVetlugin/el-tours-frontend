@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 import {COLORS, ROUTES} from "shared/contants";
 import { useCity, useDebouncedCallback, useStore, useRouter, useSearchParams } from "shared/hooks";
 import { searchHintsQuery } from "shared/queries/main";
-import { LayoutService } from "shared/services";
+import { AppService } from "shared/services";
 import { ReturnType, UrlType } from "shared/types";
 
 import { UiButton, UiDataBoundary, UiForm, UiIcon, UiInput, UiLink } from "shared/ui";
@@ -148,7 +148,7 @@ export const LayoutHeaderSearch = observer(() => {
                 )}
             </UiForm>
             <div className="layout-header-search__prompts">
-                {LayoutService.searchPrompts.map(searchPrompt => (
+                {AppService.searchPrompts.map(searchPrompt => (
                     <UiLink
                         key={searchPrompt.id}
                         href={ROUTES.SEARCH().url + '?query=' + searchPrompt.name}

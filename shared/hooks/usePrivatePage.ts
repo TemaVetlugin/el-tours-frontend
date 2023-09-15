@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { LayoutService } from "shared/services";
+import { AppService } from "shared/services";
 import { useUser } from "./useUser";
 import { useRouter } from "./useRouter";
 
@@ -13,7 +13,7 @@ export function usePrivatePage(redirectUrl = '/') {
         }
         if (!user.isAuthorized) {
             router.push(redirectUrl);
-            LayoutService.set("loginIsOpened", true);
+            AppService.set("loginIsOpened", true);
             return;
         }
         setIsGranted(true);

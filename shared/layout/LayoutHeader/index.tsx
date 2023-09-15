@@ -3,7 +3,7 @@
 import {observer} from "mobx-react-lite";
 import React, {useEffect} from "react";
 import {useRouter} from "shared/hooks";
-import {LayoutService} from "shared/services";
+import {AppService} from "shared/services";
 import {LayoutHeaderDefault} from "./templates/LayoutHeaderDefault";
 import {LayoutHeaderHome} from "./templates/LayoutHeaderHome";
 
@@ -20,8 +20,8 @@ export const LayoutHeader = observer(({template, children} : PropsType) => {
     useEffect(() => {
         const handleMinified = () => {
             const isMinified = window.scrollY > 20;
-            if (LayoutService.headerIsMinified !== isMinified) {
-                LayoutService.set("headerIsMinified", isMinified);
+            if (AppService.headerIsMinified !== isMinified) {
+                AppService.set("headerIsMinified", isMinified);
             }
         }
         handleMinified();

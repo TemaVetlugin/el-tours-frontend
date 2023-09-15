@@ -27,6 +27,25 @@
         }
     }
 
+    .swiper-scrollbar{
+        height: 4px;
+        width: 480px;
+        z-index: 0;
+        margin: auto;
+        border-radius: 2px;
+        background-color: $cDarkSecondary;
+        position: relative;
+        opacity: 20%;
+        &-drag{
+            background-color: white;
+            height: 4px;
+            position: relative;
+            z-index: 4;
+            opacity: 1;
+        }
+
+    }
+
     &--per-view-auto &-slide {
         width: auto;
     }

@@ -6,7 +6,7 @@ import React, {useEffect} from "react";
 
 import {COLORS, ROUTES} from "shared/contants";
 import {useRouter} from "shared/hooks";
-import {LayoutService, UserService} from "shared/services";
+import {AppService, UserService} from "shared/services";
 import {UiButton, UiIcon, UiLink, UiWrap} from "shared/ui";
 
 import {LayoutHeaderPhone} from "../../../LayoutHeaderPhone";
@@ -23,8 +23,8 @@ export const LayoutHeaderDefault = observer(({children} : PropsType) => {
     useEffect(() => {
         const handleMinified = () => {
             const isMinified = window.scrollY > 20;
-            if (LayoutService.headerIsMinified !== isMinified) {
-                LayoutService.set("headerIsMinified", isMinified);
+            if (AppService.headerIsMinified !== isMinified) {
+                AppService.set("headerIsMinified", isMinified);
             }
         }
         handleMinified();
@@ -36,7 +36,7 @@ export const LayoutHeaderDefault = observer(({children} : PropsType) => {
         <>
             <div className={classnames('layout-header-default layout-header-default--dummy')}/>
             <div className={classnames('layout-header-default layout-header-default--fixed', {
-                'layout-header-default--minified': LayoutService.headerIsMinified
+                'layout-header-default--minified': AppService.headerIsMinified
             })}>
                 <UiWrap>
                     <div className="layout-header-default__main">

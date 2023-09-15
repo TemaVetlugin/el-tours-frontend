@@ -1,6 +1,5 @@
 'use client';
 
-'use client';
 
 import classnames from "classnames";
 import { observer } from 'mobx-react-lite';

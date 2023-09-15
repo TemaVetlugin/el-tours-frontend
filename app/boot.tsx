@@ -1,11 +1,11 @@
 'use client';
 
 import { enableStaticRendering } from "mobx-react-lite";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useCity, useDidUpdateEffect } from "shared/hooks";
 import { bootQuery } from "shared/queries/frontend/boot.query";
 
-import { CatalogService, ContentResourceService, LayoutService, LocationService } from "shared/services";
+import { CatalogService, ContentResourceService,  CityService } from "shared/services";
 import { UserService } from "shared/services/User.service";
 import { ReturnType } from "shared/types";
 
@@ -13,26 +13,24 @@ enableStaticRendering(typeof window === "undefined");
 
 type PropsType = {
     cityId: number,
-} & NonNullable<ReturnType<typeof bootQuery>['data']>;
+    data:  ReturnType<typeof bootQuery>['data']
+}
 
-export const Boot = (
-    {
-        cities,
-        regions,
-        cityId,
-        searchPrompts,
-        catalogCategories,
-        compilations,
-        headerMenuItems,
-        footerBanners,
-        footerMenuItems,
-        contentResources
-    }: PropsType
-) => {
-    ContentResourceService.boot({ contentResources });
-    LocationService.boot({ cities, cityId, regions });
-    CatalogService.boot({ catalogCategories, compilations });
-    LayoutService.boot({ searchPrompts, headerMenuItems, footerMenuItems, footerBanners });
+const useConstructor = (callBack = () => {}): void => {
+    const [hasBeenCalled, setHasBeenCalled] = useState(false);
+    if (hasBeenCalled) {
+        return;
+    }
+    callBack();
+    setHasBeenCalled(true);
+}
+
+export const Boot = ({ cityId, data }: PropsType) => {
+    useConstructor(() => {
+        ContentResourceService.boot(data);
+        CityService.boot({cityId, ...data});
+        CatalogService.boot(data);
+    });
 
     useEffect(() => {
         UserService.boot();
@@ -65,3 +63,4 @@ const BootHydrate = () => {
         <div className='boot-hydrate'/>
     );
 };
+

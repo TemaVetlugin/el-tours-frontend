@@ -3,7 +3,7 @@
 import {observer} from "mobx-react-lite";
 import React, {useEffect} from "react";
 import {useMask, useRouter, useStore, useUser, useValidation} from "shared/hooks";
-import {LayoutService, UserService} from "shared/services";
+import {AppService, UserService} from "shared/services";
 
 import './index.scss';
 import {isMobilePhone, isRequired} from "shared/validations";
@@ -32,7 +32,7 @@ export const LayoutMenu = observer(({template, children}: PropsType) => {
 
             <UiButton
                 onClick={() => {
-                    LayoutService.menuIsOpened = true;
+                    AppService.menuIsOpened = true;
                 }}
                 notification={UserService.user.userFavorites.length}
                 template={'icon'}
@@ -47,12 +47,12 @@ export const LayoutMenu = observer(({template, children}: PropsType) => {
             </UiButton>
 
             <UiModal
-                isOpened={LayoutService.menuIsOpened}
+                isOpened={AppService.menuIsOpened}
             >
                 <UiWrap className='layout-header-menu-header'>
                     <UiButton
                         onClick={() => {
-                            LayoutService.menuIsOpened = false;
+                            AppService.menuIsOpened = false;
                         }}
                         notification={UserService.user.userFavorites.length}
                         template={'icon'}

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useRef } from "react";
+import React, {ReactElement, useMemo, useRef} from "react";
 import { observer } from "mobx-react-lite";
 import classnames from "classnames";
 
@@ -16,7 +16,7 @@ type PropsType = UiControlPropsType<number | string, {
     placeholder?: string,
     items: {
         id: number | string | null,
-        name: number | string
+        name: number | string | ReactElement
     }[]
 }>
 
@@ -68,7 +68,7 @@ export const UiSelect = observer((
                     <UiIcon
                         name={store.isOpened ? 'chevronUp' : 'chevronDown'}
                         size={24}
-                        color={COLORS.GRAY_PRIMARY}
+                        color={COLORS.DARK_SECONDARY_BORDER}
                     />
                 </div>
             </div>
