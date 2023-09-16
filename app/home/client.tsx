@@ -1,7 +1,7 @@
 'use client';
 
 import React from "react";
-import {UiButton, UiIcon, UiPage, UiSelect, UiSlider} from "shared/ui";
+import {UiButton, UiIcon, UiLink, UiPage, UiSelect, UiSlider} from "shared/ui";
 import {observer} from "mobx-react-lite";
 
 import {homeQuery} from "shared/queries/frontend";
@@ -23,7 +23,7 @@ export const Client = observer((
 ) => {
     const city = useCity();
 
-    const media: {id:number, type: 'small' | 'large', src: string, weather: string, text: string }[] = [
+    const media: { id: number, type: 'small' | 'large', src: string, weather: string, text: string }[] = [
         {id: 1, type: 'large', src: '/assets/images/typical/image69.png', weather: '+33 °C, море +25 °C', text: 'text'},
         {id: 2, type: 'small', src: '/assets/images/typical/image70.png', weather: '+33 °C, море +25 °C', text: 'text'},
         {id: 3, type: 'small', src: '/assets/images/typical/image71.png', weather: '+33 °C, море +25 °C', text: 'text'},
@@ -39,7 +39,7 @@ export const Client = observer((
         // и т.д.
     ];
 
-    const duplicatedMedia=[...media, ...media]
+    const duplicatedMedia = [...media, ...media]
 
 
     return (
@@ -198,9 +198,9 @@ export const Client = observer((
                                             <span className="p-home-tours__country">{media.text}</span>
                                         </div>
                                         <div>
-                                            <h3 className={classNames(`p-home-tours__price`, media.type==='large'&&'p-home-tours__price--end')}>{media.text}</h3>
+                                            <h3 className={classNames(`p-home-tours__price`, media.type === 'large' && 'p-home-tours__price--end')}>{media.text}</h3>
                                             <div className="p-home-tours__details">
-                                                {media.type==='small'&&<UiButton
+                                                {media.type === 'small' && <UiButton
                                                     template={'normal'}
                                                     className={'p-home-tours__button--small'}
                                                     colors={{
@@ -211,7 +211,7 @@ export const Client = observer((
                                                     <span>{media.text}</span>
                                                 </UiButton>}
                                                 <span>{media.text}{media.text}{media.text}{media.text}{media.text}</span>
-                                                {media.type==='large'&&<UiButton
+                                                {media.type === 'large' && <UiButton
                                                     template={'normal'}
                                                     className={'p-home-tours__button--small'}
                                                     colors={{
@@ -242,31 +242,33 @@ export const Client = observer((
                     <span>Показать больше вариантов</span>
                 </UiButton>
             </div>
+
             <div className="p-home-offer">
                 <h2 className="p-home-offer__title">Для Вас мы предлагаем:</h2>
                 <UiPage.Wrap className="p-home-offer__wrap">
                     <div className="p-home-offer__item">
-                        <UiIcon size={ 48} name={'book'} color={'white'}/>
+                        <UiIcon size={48} name={'book'} color={'white'}/>
                         <span className="p-home-offer__text">Страхование путешествия</span>
                     </div>
                     <div className="p-home-offer__item">
-                        <UiIcon size={ 48} name={'book'} color={'white'}/>
+                        <UiIcon size={48} name={'book'} color={'white'}/>
                         <span className="p-home-offer__text">Страхование путешествия</span>
                     </div>
                     <div className="p-home-offer__item">
-                        <UiIcon size={ 48} name={'book'} color={'white'}/>
+                        <UiIcon size={48} name={'book'} color={'white'}/>
                         <span className="p-home-offer__text">Страхование путешествия</span>
                     </div>
                     <div className="p-home-offer__item">
-                        <UiIcon size={ 48} name={'book'} color={'white'}/>
+                        <UiIcon size={48} name={'book'} color={'white'}/>
                         <span className="p-home-offer__text">Страхование путешествия</span>
                     </div>
                     <div className="p-home-offer__item">
-                        <UiIcon size={ 48} name={'book'} color={'white'}/>
+                        <UiIcon size={48} name={'book'} color={'white'}/>
                         <span className="p-home-offer__text">Страхование путешествия</span>
                     </div>
                 </UiPage.Wrap>
             </div>
+
             <div className="p-home-feedback">
                 <UiPage.Wrap className="p-home-feedback-header">
                     <div>
@@ -274,10 +276,12 @@ export const Client = observer((
                         <span className="p-home-feedback-header__description">Съездили с нами в отпуск? Поделитесь Вашими впечатлениями!</span>
                     </div>
                     <div className={"p-home-feedback-header--flex"}>
-                        <UiSelect items={[{id: 1, name:<div className="p-home-feedback-header__filter">
-                            <span >Последние</span>
+                        <UiSelect items={[{
+                            id: 1, name: <div className="p-home-feedback-header__filter">
+                                <span>Последние</span>
                                 <UiIcon size={[15, 10]} name={'arrowUp'}/>
-                            </div>}]}/>
+                            </div>
+                        }]}/>
                         <UiButton
                             template={'normal'}
                             className={'p-home-tours__button--small'}
@@ -290,6 +294,67 @@ export const Client = observer((
                         </UiButton>
                     </div>
                 </UiPage.Wrap>
+                <div className="p-home-feedback-list">
+                    <UiSlider
+                        className={'p-home-feedback-list-slider'}
+                        slideClassName={'p-home-feedback-list-slide'}
+                        perGroup={1}
+                        perPage={3}
+                        loop={true}
+                        gap={100}
+                        items={duplicatedMedia}
+                        slide={(item, index) => (
+                            <UiSlider.Slide
+                                render={() => (
+                                    <div
+                                        className={classnames('p-home-feedback-list-slide__inner', {
+                                            'p-home-feedback-list-slide__inner--active': index === item.id
+                                        })}
+                                    >
+                                        <>
+                                            <div className="p-home-feedback-list-slide-header">
+                                                <div className="p-home-feedback-list-slide-header__image" style={{backgroundImage: `url(${item.src})`}}></div>
+                                                <div>
+                                                    <h3 className="p-home-feedback-list-slide-header__name">Мария</h3>
+                                                    <span className="p-home-feedback-list-slide-header__text">Доминиканская республика, Пунта-Кана, Grand palladium punta cana resort & spa 5*</span>
+                                                    <span className="p-home-feedback-list-slide-header__date">12 сентября, 2018</span>
+                                                </div>
+                                            </div>
+                                            <div className="p-home-feedback-list-slide-content">
+                                                <span className="p-home-feedback-list-slide-content__text">Хочу начать с благодарности нашему менеджеру Наташе. У нас получилась достаточно сложная ситуация: туроператор Тез-тур долго присылали варианты (причем имея копии документов), которые нам не подходили (варианты были в отелях, принимающих старше 18 лет, а у меня сыну 17), т.е. Тез-тур НЕ проверял подходят отели или нет. Наташа по всем вариантам перезапрашивала опять оператора: «Запросите отель – примут ли ребенка 17 лет» ...</span>
+                                                <UiLink className={"p-home-feedback-list-slide-content__link"}>Подробнее</UiLink>
+                                            </div>
+                                        </>
+
+                                    </div>
+                                )}
+
+                            />
+                        )}
+
+                        navigation={(navigation) => {
+                            if (navigation.pages() < 6) {
+                                return null;
+                            }
+                            return (
+                                <>
+                                    <div className='p-home-feedback-list-slider__control'>
+                                        <div className="p-home-feedback-list-slider__arrow" onClick={navigation.prev}>
+                                            <UiIcon size={16} name={'chevronLeft'} color={COLORS.DARK_SECONDARY}/>
+                                        </div>
+                                    </div>
+                                    <div
+                                        className='p-home-feedback-list-slider__control p-home-feedback-list-slider__control--next'>
+                                        <div className="p-home-feedback-list-slider__arrow" onClick={navigation.next}>
+                                            <UiIcon size={18} name={'chevronRight'} color={COLORS.DARK_SECONDARY}/>
+                                        </div>
+                                    </div>
+                                </>
+                            );
+                        }}
+
+                    />
+                </div>
             </div>
         </UiPage>
     );

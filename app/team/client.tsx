@@ -93,10 +93,10 @@ export const Client = observer(() => {
                                     <UiSlider
                                         className={'p-team-media-slider'}
                                         slideClassName={'p-team-media-slide'}
-                                        perGroup={1}
+                                        perGroup={3}
                                         perPage={'auto'}
                                         loop={true}
-                                        gap={6}
+                                        gap={100}
                                         items={duplicatedWorkers1}
                                         slide={(item, index) => (
                                             <UiSlider.Slide

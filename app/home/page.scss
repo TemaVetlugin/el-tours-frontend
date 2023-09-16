@@ -348,6 +348,52 @@ display: flex;
             }
 
         }
+
+        &-list{
+            margin-top: 70px;
+            .ui-slider-container{
+
+                position: relative;
+            }
+            &-slider{
+                width: 2080px;
+                margin: auto;
+                overflow: hidden;
+                &__control{
+                    position: absolute;
+                    top: 100px;
+                    left: 675px;
+                    &--next{
+                        left: auto !important;
+                        right: 675px;
+                    }
+                }
+                .swiper-slide-active{
+                }
+                &__arrow{
+
+                }
+            }
+            &-slide__inner{
+                border: 1px solid $cGrayPrimary;
+                padding: 40px 20px 20px 40px;
+                border-radius: 5px;
+                height: 380px !important;
+                width: 620px !important;
+                &-header{
+                    &__image{
+
+                    }
+                    &__name{}
+                    &__text{}
+                    &__date{}
+                }
+                &-content{
+                    &__text{}
+                    &__link{}
+                }
+            }
+        }
     }
 }
 
