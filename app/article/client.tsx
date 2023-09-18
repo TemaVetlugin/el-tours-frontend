@@ -53,13 +53,13 @@ export const Client = observer(() => {
             />
             <UiPage.Wrap>
                 <UiDataBoundary isLoading={store.isLoading} withShallow>
-                    <UiCardWrap>
+                    <UiCardWrap className={"p-article-card__wrap"}>
                         {store.articles.map((article) =>
                             <VmCard key={article.id}
                                     className={"p-article-card"}
                                     template={article.width === 2 ? 'large' : 'small'}
                                     background={article.previewImage}
-                                    slug={article.slug}
+                                    href={ROUTES.ARTICLES(article.slug).url}
                                     header={<>
                                         <div className="p-article-card-header__item">
                                             <UiIcon size={[24, 24]} name={"views"}/>

@@ -68,7 +68,7 @@ export const UiSelect = observer((
                     <UiIcon
                         name={store.isOpened ? 'chevronUp' : 'chevronDown'}
                         size={24}
-                        color={COLORS.DARK_SECONDARY_BORDER}
+                        color={COLORS.DARK_SECONDARY}
                     />
                 </div>
             </div>

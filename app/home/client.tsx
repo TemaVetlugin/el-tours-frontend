@@ -1,7 +1,7 @@
 'use client';
 
 import React from "react";
-import {UiButton, UiIcon, UiLink, UiPage, UiSelect, UiSlider} from "shared/ui";
+import {UiButton, UiForm, UiIcon, UiInput, UiLink, UiPage, UiSelect, UiSlider} from "shared/ui";
 import {observer} from "mobx-react-lite";
 
 import {homeQuery} from "shared/queries/frontend";
@@ -313,8 +313,9 @@ export const Client = observer((
                                     >
                                         <>
                                             <div className="p-home-feedback-list-slide-header">
-                                                <div className="p-home-feedback-list-slide-header__image" style={{backgroundImage: `url(${item.src})`}}></div>
-                                                <div>
+                                                <div className="p-home-feedback-list-slide-header__image"
+                                                     style={{backgroundImage: `url(${item.src})`}}></div>
+                                                <div className="p-home-feedback-list-slide-header__content">
                                                     <h3 className="p-home-feedback-list-slide-header__name">Мария</h3>
                                                     <span className="p-home-feedback-list-slide-header__text">Доминиканская республика, Пунта-Кана, Grand palladium punta cana resort & spa 5*</span>
                                                     <span className="p-home-feedback-list-slide-header__date">12 сентября, 2018</span>
@@ -322,7 +323,8 @@ export const Client = observer((
                                             </div>
                                             <div className="p-home-feedback-list-slide-content">
                                                 <span className="p-home-feedback-list-slide-content__text">Хочу начать с благодарности нашему менеджеру Наташе. У нас получилась достаточно сложная ситуация: туроператор Тез-тур долго присылали варианты (причем имея копии документов), которые нам не подходили (варианты были в отелях, принимающих старше 18 лет, а у меня сыну 17), т.е. Тез-тур НЕ проверял подходят отели или нет. Наташа по всем вариантам перезапрашивала опять оператора: «Запросите отель – примут ли ребенка 17 лет» ...</span>
-                                                <UiLink className={"p-home-feedback-list-slide-content__link"}>Подробнее</UiLink>
+                                                <UiLink
+                                                    className={"p-home-feedback-list-slide-content__link"}>Подробнее</UiLink>
                                             </div>
                                         </>
 
@@ -340,13 +342,13 @@ export const Client = observer((
                                 <>
                                     <div className='p-home-feedback-list-slider__control'>
                                         <div className="p-home-feedback-list-slider__arrow" onClick={navigation.prev}>
-                                            <UiIcon size={16} name={'chevronLeft'} color={COLORS.DARK_SECONDARY}/>
+                                            <UiIcon size={20} name={'chevronLeft'} color={COLORS.DARK_SECONDARY}/>
                                         </div>
                                     </div>
                                     <div
                                         className='p-home-feedback-list-slider__control p-home-feedback-list-slider__control--next'>
                                         <div className="p-home-feedback-list-slider__arrow" onClick={navigation.next}>
-                                            <UiIcon size={18} name={'chevronRight'} color={COLORS.DARK_SECONDARY}/>
+                                            <UiIcon size={20} name={'chevronRight'} color={COLORS.DARK_SECONDARY}/>
                                         </div>
                                     </div>
                                 </>
@@ -356,6 +358,76 @@ export const Client = observer((
                     />
                 </div>
             </div>
+
+            <div className="p-home-subscribe">
+                <UiPage.Wrap className="p-home-subscribe__wrap">
+                    <div className="p-home-subscribe-header">
+                        <h3 className="p-home-subscribe-header__title">Подписаться на путешествия:</h3>
+                        <span
+                            className="p-home-subscribe-header__text">Раз в неделю вы будете получать лучшие предложения, эксклюзивные цены, полезные советы и многое другое.</span>
+                        <div className="p-home-subscribe__sticker"></div>
+                    </div>
+                    <UiForm className="p-home-subscribe-form">
+                        <UiInput
+                            className={"p-home-subscribe-form__input"}
+                            placeholder='Ваш E-mail'
+                            name={'query'}
+                        />
+                        <UiButton template={'search_right'} className={"p-home-subscribe-form__button"} type={'submit'} colors={{
+                            button: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
+                            icon: [COLORS.WHITE, COLORS.WHITE],
+                        }}>
+                            <span>Подписаться</span>
+                        </UiButton>
+                    </UiForm>
+                </UiPage.Wrap>
+            </div>
+
+            <UiPage.Wrap className="p-home-blog">
+                <div className="p-home-blog-header">
+                    <h2 className="p-home-blog-header__title">Впечатления туриста</h2>
+                    <span
+                        className="p-home-blog-header__text">Самые ценные советы: куда поехать отдыхать, где провести отпуск с детьми, что взять с собой в поездку и многое другое</span>
+                </div>
+                <UiCardWrap className={"p-home-blog__wrap"}>
+                    {media.map((media) =>
+                        <div key={media.id} className={`p-home-blog-card p-home-blog-card--${media.type}`}>
+                            <div className="p-home-blog-card__image" style={{backgroundImage: `url(${media.src})`}}></div>
+                            <div className="p-home-blog-card-content">
+                                <div className="p-home-blog-card-content__time">
+                                    <UiIcon size={16} name={'notebook'}/>
+                                    Время прочтения 15 минут
+                                </div>
+                                <div className="p-home-blog-card-content__wrap">
+                                    <h3 className="p-home-blog-card-content__title">{media.text}</h3>
+                                    <span className="p-home-blog-card-content__text">Известно, что османы взяли Константинополь в 1453 году, после чего турецкое иго за десяток лет...</span>
+                                </div>
+                                <span className="p-home-blog-card-content__date">12 сентября, 2018</span>
+                                <div className="p-home-blog-card-content-author">
+                                    <div className="p-home-blog-card-content-author__image" style={{backgroundImage: `url(${media.src})`}}></div>
+                                    <div className="p-home-blog-card-content-author__wrap">
+                                        <span className="p-home-blog-card-content-author__name">Алеся Феоктистова</span>
+                                        <span className="p-home-blog-card-content-author__nickname">Alesja_Popkova</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    )}
+                </UiCardWrap>
+                <UiButton
+                    template={'normal'}
+                    className={'p-home-blog__confirm'}
+                    colors={{
+                        button: [COLORS.GRAY_SECONDARY, COLORS.GREEN_SECONDARY],
+                        border: [COLORS.GRAY_PRIMARY, COLORS.GREEN_SECONDARY],
+                        label: [COLORS.DARK_PRIMARY, COLORS.WHITE],
+
+                    }}
+                >
+                    <span>Читать больше</span>
+                </UiButton>
+            </UiPage.Wrap>
         </UiPage>
-    );
+    )
 });

@@ -142,10 +142,20 @@ export const ROUTES = {
         name,
         url: slug ? `/vacancy/${slug}` : '/vacancy',
     }),
+    TOUR: (slug: string = '', name = 'Туры'): RouteType => ({
+        id: 'tour' + slug,
+        name,
+        url: slug ? `/tour/${slug}` : '/tour',
+    }),
     VISA: (slug: string = '', name = 'Визы'): RouteType => ({
         id: 'visa' + slug,
         name,
         url: slug ? `/visa/${slug}` : '/visa',
+    }),
+    COUNTRY: (slug: string = '', name = 'Страны'): RouteType => ({
+        id: 'country' + slug,
+        name,
+        url: slug ? `/country/${slug}` : '/country',
     }),
     LOGIN: (): RouteType => ({
         id: 'LOGIN',

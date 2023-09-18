@@ -1,6 +1,10 @@
 .p-article {
     &-card {
         position: relative;
+        &__wrap{
+            margin-top: 36px !important;
+            margin-bottom: 60px !important;
+        }
         &__country {
             font-size: 14px;
             font-weight: 400;

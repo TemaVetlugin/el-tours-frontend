@@ -16,18 +16,18 @@ type PropsType = {
     header?: React.ReactNode,
     body?: React.ReactNode,
     background?: string,
-    link?: RouteType,
+    href?: string,
     template?: 'small' | 'large'
     className?: string,
 }
 
 
-export const VmCard = observer(({ header, className, link, template = 'small', body, background}: PropsType) => {
+export const VmCard = observer(({ header, className, href, template = 'small', body, background}: PropsType) => {
 
     const classNames = classnames('vm-card', `vm-card--${template}`,className);
 
     return (
-        <UiLink href={link} className={classNames} style={{ backgroundImage: `url(${background})`}}>
+        <UiLink href={href} className={classNames} style={{ backgroundImage: `url(${background})`}}>
             <div className="vm-card__header">{header}</div>
             <div className="vm-card__body">{body}</div>
 

@@ -1,7 +1,7 @@
 'use client';
 
 import React from "react";
-import {UiPage} from "shared/ui";
+import {UiDataBoundary, UiPage} from "shared/ui";
 import {observer} from "mobx-react-lite";
 import {useAsyncEffect, useRouter, useStore} from "shared/hooks";
 import {ArticleModel} from "shared/models";
@@ -64,7 +64,9 @@ export const Client = observer(({slug}: PropsType
                 <PBlogMediasAside/>
                 <div className="p-article-content">
                     <PBlogAuthor/>
+                    <UiDataBoundary isLoading={store.isLoading} withShallow>
                     <PBlogContent content={store.item.content}/>
+                    </UiDataBoundary>
                 </div>
                 <PBlogFormAside/>
                 </div>

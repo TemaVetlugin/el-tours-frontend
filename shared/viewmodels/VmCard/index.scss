@@ -9,6 +9,7 @@
     border-radius: 4px;
     justify-content: space-between;
     position: relative;
+    overflow: hidden;
     &__header{
         z-index: 1;
         display: flex;
