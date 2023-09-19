@@ -229,7 +229,7 @@
     }
 
     &-list{
-        &__row{
+        &__wrap{
             display: flex;
             width: 100%;
             margin-bottom: 72px;
@@ -240,7 +240,6 @@
         &__letter{
             font-size: 36px;
             font-weight: 800;
-            line-height: 43px;
             letter-spacing: 0.02em;
             text-align: left;
             color: $cGrayPrimary;
@@ -248,16 +247,32 @@
             margin-right: 46px;
 
         }
+        &__row{
+            padding-top: 5px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px 40px;
+        }
         &-item{
-            width: 25%;
+            display: inline-flex;
+            align-items: center;
+            height: 20px;
+            gap: 20px;
+            width: 270px;
             text-align: left;
+            vertical-align: middle;
             &__flag{
                 background-size: cover;
+                display: inline-block;
                 width: 40px;
                 height: 20px;
             }
             &__name{
                 font-size: 16px;
+                height: 20px;
+                display: inline-block;
+                margin: auto 0;
                 font-weight: 400;
                 line-height: 20px;
                 letter-spacing: 0em;

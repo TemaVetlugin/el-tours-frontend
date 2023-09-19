@@ -83,7 +83,7 @@ export const Client = observer(() => {
         // и т.д.
     ];
 
-    const countries: {name: string, flag?: string}[] = [{name: 'Россия', flag: '/assets/images/typical/flag.png',},
+    const countries: { name: string, flag?: string }[] = [{name: 'Россия', flag: '/assets/images/typical/flag.png',},
         {name: 'Абхазия', flag: '/assets/images/typical/flag.png',},
         {name: 'Австралия', flag: '/assets/images/typical/flag.png',},
         {name: 'Азербайджан', flag: '/assets/images/typical/flag.png',},
@@ -93,13 +93,14 @@ export const Client = observer(() => {
         {name: 'Зимбабве', flag: '/assets/images/typical/flag.png',},
         {name: 'Алжир', flag: '/assets/images/typical/flag.png',},
         {name: 'Италия', flag: '/assets/images/typical/flag.png',},
-    {name: 'Албания', flag: '/assets/images/typical/flag.png',},]
+        {name: 'Анцузская Полинезия', flag: '/assets/images/typical/flag.png',},
+        {name: 'Анцузская Полинезия', flag: '/assets/images/typical/flag.png',},
+        {name: 'Анцузская Полинезия', flag: '/assets/images/typical/flag.png',},
+        {name: 'Анцузская Полинезия', flag: '/assets/images/typical/flag.png',},
+        {name: 'Албания', flag: '/assets/images/typical/flag.png',},]
 
 
-    const firstLetters =  countries.map(str => str.name.charAt(0)).filter((letter, index, arr) => arr.indexOf(letter) === index).sort();
-
-
-
+    const firstLetters = countries.map(str => str.name.charAt(0)).filter((letter, index, arr) => arr.indexOf(letter) === index).sort();
 
 
     const searchParams = useSearchParams({page: 1, tagId: null as null | number})
@@ -228,7 +229,7 @@ export const Client = observer(() => {
                 </UiCardWrap>
 
                 <div className="p-country-alphabet">
-                    {firstLetters.map(firstLetters=>
+                    {firstLetters.map(firstLetters =>
                         <UiLink className={"p-country-alphabet__item"} key={firstLetters}>
                             {firstLetters}
                         </UiLink>
@@ -236,19 +237,21 @@ export const Client = observer(() => {
                 </div>
 
                 <div className="p-country-list">
-                    {firstLetters.map(firstLetters=>
-                        <div className="p-country-list__row" key={firstLetters}>
-                        <div className={"p-country-list__letter"}>
-                            {firstLetters}
-                        </div>
-                            {countries.filter(country=>country.name.charAt(0)===firstLetters).map(country=>
+                    {firstLetters.map(firstLetters =>
+                        <div className="p-country-list__wrap" key={firstLetters}>
+                            <div className={"p-country-list__letter"}>
+                                {firstLetters}
+                            </div>
+                            <div className="p-country-list__row">
+                            {countries.filter(country => country.name.charAt(0) === firstLetters).map(country =>
 
-                                    <div className={"p-country-list-item"} key={country.name}>
-                                    <div className="p-country-list-item__flag"></div>
+                                <div className={"p-country-list-item"} key={country.name}>
+                                    <div className="p-country-list-item__flag" style={{backgroundImage: `url(${country.flag})`}}></div>
                                     <div className="p-country-list-item__name">{country.name}</div>
 
-                            </div>
+                                </div>
                             )}
+                            </div>
                         </div>
                     )}
                 </div>
