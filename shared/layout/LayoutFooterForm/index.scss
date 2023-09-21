@@ -27,13 +27,17 @@
         text-align: center;
         margin: 0 auto 60px auto;
         font-weight: 300;
+        display: block;
     }
 
-    &-row{
+    &-list{
         display: flex;
+        width: 800px;
+
         justify-content: center;
+        flex-wrap: wrap;
         gap: 40px;
-        margin-bottom: 40px;
+        margin:0 auto 40px auto;
         font-weight: 300;
         &__input{
             position: relative;
@@ -43,6 +47,10 @@
             text-align: start;
             width: 240px;
             display: inline-block;
+            span{
+                display: block;
+                margin-bottom: 15px;
+            }
         }
     }
 
@@ -50,10 +58,6 @@
         width: 220px;
         margin: 60px auto 0 auto;
         display: block;
-    }
-
-    p{
-        margin-top: 0;
     }
 
     img {

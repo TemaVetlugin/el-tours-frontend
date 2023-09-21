@@ -1,40 +1,28 @@
 'use client';
 
 import {observer} from "mobx-react-lite";
-import React, {useEffect} from "react";
-import {useMask, useRouter, useStore, useUser, useValidation} from "shared/hooks";
+import React from "react";
+
 import {AppService, UserService} from "shared/services";
+import {UiButton, UiIcon, UiLink, UiModal, UiPage, UiWrap} from "shared/ui";
+import {COLORS} from "shared/contants";
 
 import './index.scss';
-import {isMobilePhone, isRequired} from "shared/validations";
-import {usersConfirmQuery, usersLoginQuery} from "shared/queries/main";
-import {UiButton, UiCheckbox, UiForm, UiIcon, UiInput, UiLink, UiModal, UiPage, UiWrap} from "shared/ui";
-import {COLORS, MASKS, ROUTES} from "shared/contants";
-import Link from "next/link";
-import classnames from "classnames";
 
 type PropsType = {
-    children?: React.ReactNode,
-    template?: 'home'
-
+    template?: 'home'|'default'
 }
 
-export const LayoutMenu = observer(({template, children}: PropsType) => {
-    const router = useRouter();
-    const store = useStore({
-        errorMessage: '',
-        isAccepted: 1,
-        isLoading: false,
-    });
+export const LayoutMenu = observer(({template='default'}: PropsType) => {
+
 
     return (
         <div className='layout-header-menu'>
-
+            {template==='default'&&
             <UiButton
                 onClick={() => {
                     AppService.menuIsOpened = true;
                 }}
-                notification={UserService.user.userFavorites.length}
                 template={'icon'}
                 colors={{
                     button: [COLORS.WHITE, COLORS.WHITE],
@@ -45,6 +33,23 @@ export const LayoutMenu = observer(({template, children}: PropsType) => {
             >
                 <UiIcon size={[22, 20]} name={'burger'}/>
             </UiButton>
+            }
+            {template==='home'&&
+            <UiButton
+                onClick={() => {
+                    AppService.menuIsOpened = true;
+                }}
+                template={'icon'}
+                colors={{
+                    button: [COLORS.TRANSPARENT, COLORS.WHITE],
+                    border: [COLORS.WHITE, COLORS.WHITE],
+                    icon: [COLORS.WHITE, COLORS.BLACK],
+
+                }}
+            >
+                <UiIcon size={[22, 20]} name={'burger'}/>
+            </UiButton>
+            }
 
             <UiModal
                 isOpened={AppService.menuIsOpened}
@@ -54,7 +59,6 @@ export const LayoutMenu = observer(({template, children}: PropsType) => {
                         onClick={() => {
                             AppService.menuIsOpened = false;
                         }}
-                        notification={UserService.user.userFavorites.length}
                         template={'icon'}
                         colors={{
                             button: [COLORS.WHITE, COLORS.WHITE],
@@ -67,299 +71,115 @@ export const LayoutMenu = observer(({template, children}: PropsType) => {
                     </UiButton>
                 </UiWrap>
                 <UiPage.Wrap className="layout-header-menu-links">
-                    <div className="layout-header-menu-links__row">
                         <div className="layout-header-menu-links-column">
                             <div className="layout-header-menu-links-column__header">
                                 <span >Продукты</span>
                             </div>
-                            <div className="layout-header-menu-links-column_content">
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Авиабилеты</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Туры</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Отели</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Отель + Перелет</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Аренда авто</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Круизы</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Аренда недвижимости</UiLink></span>
-                                </div>
-                            </div>
+                            <ul className="layout-header-menu-links-column__content">
+                                <li><UiLink>Авиабилеты</UiLink></li>
+                                <li><UiLink>Туры</UiLink></li>
+                                <li><UiLink>Отели</UiLink></li>
+                                <li><UiLink>Отель + Перелет</UiLink></li>
+                                <li><UiLink>Аренда авто</UiLink></li>
+                                <li><UiLink>Круизы</UiLink></li>
+                                <li><UiLink>Аренда недвижимости</UiLink></li>
+                            </ul>
                         </div>
                         <div className="layout-header-menu-links-column">
                             <div className="layout-header-menu-links-column__header">
                                 <span >Туры</span>
                             </div>
-                            <div className="layout-header-menu-links-column_content">
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Туры с споровождением</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Горящие туры</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Свадебные туры</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Детские лагеря</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Корпоративные туры</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Автобусные туры</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Классические туры</UiLink></span>
-                                </div>
-                            </div>
+                            <ul className="layout-header-menu-links-column__content">
+                                <li><UiLink>Туры с споровождением</UiLink></li>
+                                <li><UiLink>Горящие туры</UiLink></li>
+                                <li><UiLink>Свадебные туры</UiLink></li>
+                                <li><UiLink>Детские лагеря</UiLink></li>
+                                <li><UiLink>Корпоративные туры</UiLink></li>
+                                <li><UiLink>Автобусные туры</UiLink></li>
+                                <li><UiLink>Классические туры</UiLink></li>
+                            </ul>
                         </div>
                         <div className="layout-header-menu-links-column">
                             <div className="layout-header-menu-links-column__header">
                                 <span >Туристам</span>
                             </div>
-                            <div className="layout-header-menu-links-column_content">
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Оплата</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Оформление визы</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Поиск пары в тур</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Рассрочка и кредит</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Страхование</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Сим-карты</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Подарочный сертификат</UiLink></span>
-                                </div>
-                            </div>
+                            <ul className="layout-header-menu-links-column__content">
+                                <li><UiLink>Оплата</UiLink></li>
+                                <li><UiLink>Оформление визы</UiLink></li>
+                                <li><UiLink>Поиск пары в тур</UiLink></li>
+                                <li><UiLink>Рассрочка и кредит</UiLink></li>
+                                <li><UiLink>Страхование</UiLink></li>
+                                <li><UiLink>Сим-карты</UiLink></li>
+                                <li><UiLink>Подарочный сертификат</UiLink></li>
+                            </ul>
                         </div>
                         <div className="layout-header-menu-links-column">
                             <div className="layout-header-menu-links-column__header">
                                 <span >О компании</span>
                             </div>
-                            <div className="layout-header-menu-links-column_content">
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Сотрудники</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Достижения</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Вакансии</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Отзывы туристов</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Блог</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Контакты</UiLink></span>
-                                </div>
-                            </div>
+                            <ul className="layout-header-menu-links-column__content">
+                                <li><UiLink>Сотрудники</UiLink></li>
+                                <li><UiLink>Достижения</UiLink></li>
+                                <li><UiLink>Вакансии</UiLink></li>
+                                <li><UiLink>Отзывы туристов</UiLink></li>
+                                <li><UiLink>Блог</UiLink></li>
+                                <li><UiLink>Контакты</UiLink></li>
+                            </ul>
                         </div>
-                    </div>
-                    <div className="layout-header-menu-links__row">
-                        <div className="layout-header-menu-links-column layout-header-menu-links-column--wise">
+                        <div className="layout-header-menu-links-column">
                             <div className="layout-header-menu-links-column__header">
                                 <span >Страны</span>
                             </div>
-                            <div className="layout-header-menu-links-column_content">
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Россия</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Туры</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Египет</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Турция</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Вьетнам</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Израиль</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Индия</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Индонезия</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Иордания</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Доминикана</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Кипр</UiLink></span>
-                                </div>
-                            </div>
+                            <ul className="layout-header-menu-links-column__content">
+                                <li><UiLink>Россия</UiLink></li>
+                                <li><UiLink>Туры</UiLink></li>
+                                <li><UiLink>Египет</UiLink></li>
+                                <li><UiLink>Турция</UiLink></li>
+                                <li><UiLink>Вьетнам</UiLink></li>
+                                <li><UiLink>Израиль</UiLink></li>
+                                <li><UiLink>Индия</UiLink></li>
+                                <li><UiLink>Индонезия</UiLink></li>
+                                <li><UiLink>Иордания</UiLink></li>
+                                <li><UiLink>Доминикана</UiLink></li>
+                                <li><UiLink>Кипр</UiLink></li>
+                            </ul>
                         </div>
-                        <div className="layout-header-menu-links-column layout-header-menu-links-column--wise">
+                        <div className="layout-header-menu-links-column">
                             <div className="layout-header-menu-links-column__header">
 
                             </div>
-                            <div className="layout-header-menu-links-column_content">
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Россия</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Туры</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Египет</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Турция</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Вьетнам</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Тринидад и Тобаго</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Индия</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Индонезия</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Иордания</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Доминикана</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Кипр</UiLink></span>
-                                </div>
-                            </div>
+                            <ul className="layout-header-menu-links-column__content">
+                                <li><UiLink>Россия</UiLink></li>
+                                <li><UiLink>Туры</UiLink></li>
+                                <li><UiLink>Египет</UiLink></li>
+                                <li><UiLink>Турция</UiLink></li>
+                                <li><UiLink>Вьетнам</UiLink></li>
+                                <li><UiLink>Тринидад и Тобаго</UiLink></li>
+                                <li><UiLink>Индия</UiLink></li>
+                                <li><UiLink>Индонезия</UiLink></li>
+                                <li><UiLink>Иордания</UiLink></li>
+                                <li><UiLink>Доминикана</UiLink></li>
+                                <li><UiLink>Кипр</UiLink></li>
+                            </ul>
                         </div>
-                        <div className="layout-header-menu-links-column layout-header-menu-links-column--wise">
+                        <div className="layout-header-menu-links-column">
                             <div className="layout-header-menu-links-column__header">
 
                             </div>
-                            <div className="layout-header-menu-links-column_content">
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Россия</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Туры</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Египет</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Турция</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Вьетнам</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Израиль</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Индия</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Индонезия</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Иордания</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Доминикана</UiLink></span>
-                                </div>
-                                <div className="layout-header-menu-links-column__item">
-                                    <div className="layout-header-menu__round"></div>
-                                    <span><UiLink>Кипр</UiLink></span>
-                                </div>
-                            </div>
+                            <ul className="layout-header-menu-links-column__content">
+                                <li><UiLink>Россия</UiLink></li>
+                                <li><UiLink>Туры</UiLink></li>
+                                <li><UiLink>Египет</UiLink></li>
+                                <li><UiLink>Турция</UiLink></li>
+                                <li><UiLink>Вьетнам</UiLink></li>
+                                <li><UiLink>Израиль</UiLink></li>
+                                <li><UiLink>Индия</UiLink></li>
+                                <li><UiLink>Индонезия</UiLink></li>
+                                <li><UiLink>Иордания</UiLink></li>
+                                <li><UiLink>Доминикана</UiLink></li>
+                                <li><UiLink>Кипр</UiLink></li>
+                            </ul>
                         </div>
-
                         <div className="layout-header-menu-links-contacts">
                             <div className="layout-header-menu-links-column__header">
                             </div>
@@ -372,9 +192,9 @@ export const LayoutMenu = observer(({template, children}: PropsType) => {
                                     />
                                 </div>
                                 <div>
-                                    <p className="layout-header-menu-links-contacts__subtitle">Горячая линия</p>
-                                    <p className="layout-header-menu-links-contacts__title">+7 (383) 207-57-00</p>
-                                    <p>Когда хотите обсудить вопрос по телефону</p>
+                                    <span className="layout-header-menu-links-contacts__subtitle">Горячая линия</span>
+                                    <span className="layout-header-menu-links-contacts__title">+7 (383) 207-57-00</span>
+                                    <span>Когда хотите обсудить вопрос по телефону</span>
                                 </div>
                             </div>
                             <div className="layout-header-menu-links-contacts__item">
@@ -391,9 +211,9 @@ export const LayoutMenu = observer(({template, children}: PropsType) => {
                                     <p>Когда удобнее отправить письмо</p>
                                 </div>
                             </div>
-                            <div className="layout-header-menu-links-contacts__medias">
+                            <div>
                                 <p className="layout-header-menu-links-contacts__subtitle">Чат в мессенджерах</p>
-                                <div>
+                                <div className="layout-header-menu-links-contacts__medias">
                                     <UiButton
                                         onClick={() => {
                                         }}
@@ -444,25 +264,11 @@ export const LayoutMenu = observer(({template, children}: PropsType) => {
                                             icon: [COLORS.DARK_PRIMARY, COLORS.WHITE],
                                         }}
                                     >
-                                        <UiIcon size={18} name={'instagram'} color={COLORS.GREEN_PRIMARY}/>
-                                    </UiButton>
-                                    <UiButton
-                                        onClick={() => {
-                                        }}
-                                        notification={UserService.user.userFavorites.length}
-                                        template={'icon'}
-                                        colors={{
-                                            button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
-                                            border: [COLORS.DARK_SECONDARY_BORDER, COLORS.GREEN_SECONDARY],
-                                            icon: [COLORS.DARK_PRIMARY, COLORS.WHITE],
-                                        }}
-                                    >
                                         <UiIcon size={18} name={'viber'} color={COLORS.GREEN_PRIMARY}/>
                                     </UiButton>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </UiPage.Wrap>
             </UiModal>
         </div>

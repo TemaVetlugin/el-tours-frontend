@@ -1,22 +1,16 @@
 .layout-header-default {
     font-weight: 300;
-
-    &--fixed {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 10;
-        background: $cWhite;
-    }
-
-    &__main {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        padding: 18px 0;
-        height: 87px;
-    }
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-block: 18px;
+    height: 87px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    background: $cWhite;
 
     &__logo {
         width: 145px;
@@ -29,60 +23,33 @@
         cursor: pointer;
     }
 
+    &__phone {
+        margin-right: 40px;
+        font-weight: 400;
+        width: 240px;
+            font-size: 18px;
+    }
 
-    &__actions {
+
+    &-actions {
         display: flex;
         align-items: center;
         font-weight: 500;
         .ui-button {
             margin-left: 20px;
         }
-    }
+        &__info{
+            color: $cDarkPrimary;
+            font-size: 18px;
+            margin-right: 40px;
 
-    &--minified {
-        height: 96px;
-        box-shadow: 0 0 20px 0 rgba(74, 74, 74, 0.10);
-    }
-
-    &--minified & {
-        &__top {
-            display: none;
-        }
-
-        &-search__prompts {
-            display: none;
-        }
-
-        &-promo {
-            display: none;
-        }
-
-        &__main {
-            align-items: center;
-        }
-
-        &-catalog {
-            top: 96px;
+            .ui-icon{
+                margin-left: 12px;
+            }
         }
     }
 
-    &__info{
-        color: $cDarkPrimary;
-        font-size: 18px;
-        margin-right: 40px;
 
-        .ui-icon{
-            margin-left: 12px;
-        }
-    }
-    &__currency{
-        color: $cDarkPrimary;
-        margin-right: 28px;
-        img {
-            width: 16px;
-            height: 16px;
-            margin-right: 10px;
-        }
 
-    }
+
 }

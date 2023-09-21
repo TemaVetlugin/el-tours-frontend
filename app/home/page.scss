@@ -1,7 +1,7 @@
 .p-home {
     height: 100%;
     width: 100%;
-    padding-top: 0;
+    padding-top: 0 !important;
     background-color: $cGraySecondary;
 
     &-main {
@@ -12,6 +12,7 @@
         background-size: 100% 100%;
         padding-top: 528px;
         position: relative;
+        z-index: 1;
 
         .ui-page-wrap {
             position: relative;

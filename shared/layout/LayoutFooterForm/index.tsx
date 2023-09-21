@@ -2,6 +2,7 @@
 
 import {observer} from "mobx-react-lite";
 import React from "react";
+
 import {UiButton, UiForm, UiIcon, UiInput, UiPage} from "shared/ui";
 
 import './index.scss';
@@ -14,27 +15,27 @@ export const LayoutFooterForm = observer(() => {
                 <h2 className="layout-footer-form__header">
                     Подберем тур за вас
                 </h2>
-                <p className="layout-footer-form__text">Составим для вас подборку туров, поможет с бронированием и ответим на вопросы.
-                    Вы можете позвонить, написать на почту или отправить сообщение в мессенджере.</p>
-                <UiForm className="layout-header-search__control">
-                    <div className="layout-footer-form-row">
-                        <div className="layout-footer-form-row__item">
-                            <p>Ваше имя</p>
+                <span className="layout-footer-form__text">Составим для вас подборку туров, поможет с бронированием и ответим на вопросы.
+                    Вы можете позвонить, написать на почту или отправить сообщение в мессенджере.</span>
+                <UiForm >
+                    <div className="layout-footer-form-list">
+                        <div className="layout-footer-form-list__item">
+                            <span>Ваше имя</span>
                             <UiInput
                                 placeholder=''
                                 name={'query'}
                             />
                         </div>
-                        <div className="layout-footer-form-row__item">
-                            <p>Номер телефона *</p>
+                        <div className="layout-footer-form-list__item">
+                            <span>Номер телефона *</span>
                             <UiInput
                                 placeholder=''
                                 name={'query'}
                             />
                         </div>
-                        <div className="layout-footer-form-row__item">
-                            <p>Город вылета</p>
-                            <div className="layout-footer-form-row__input">
+                        <div className="layout-footer-form-list__item">
+                            <span>Город вылета</span>
+                            <div className="layout-footer-form-list__input">
                             <UiButton template={'search_right'} type={'submit'} colors={{
                                 button: [COLORS.WHITE, COLORS.WHITE],
                                 icon: [COLORS.DARK_SECONDARY, COLORS.GRAY_PRIMARY],
@@ -47,11 +48,9 @@ export const LayoutFooterForm = observer(() => {
                             />
                             </div>
                         </div>
-                    </div>
-                    <div className="layout-footer-form-row">
-                        <div className="layout-footer-form-row__item">
-                            <p>Страна, курорт или отель</p>
-                            <div className="layout-footer-form-row__input">
+                        <div className="layout-footer-form-list__item">
+                            <span>Страна, курорт или отель</span>
+                            <div className="layout-footer-form-list__input">
                                 <UiButton template={'search_right'} type={'submit'} colors={{
                                     button: [COLORS.WHITE, COLORS.WHITE],
                                     icon: [COLORS.GRAY_PRIMARY, COLORS.GRAY_PRIMARY],
@@ -64,9 +63,9 @@ export const LayoutFooterForm = observer(() => {
                             />
                             </div>
                         </div>
-                        <div className="layout-footer-form-row__item">
-                            <p>Дата вылета</p>
-                            <div className="layout-footer-form-row__input">
+                        <div className="layout-footer-form-list__item">
+                            <span>Дата вылета</span>
+                            <div className="layout-footer-form-list__input">
                                 <UiButton template={'search_right'} type={'submit'} colors={{
                                     button: [COLORS.WHITE, COLORS.WHITE],
                                     icon: [COLORS.GRAY_PRIMARY, COLORS.GRAY_PRIMARY],
@@ -79,9 +78,9 @@ export const LayoutFooterForm = observer(() => {
                             />
                             </div>
                         </div>
-                        <div className="layout-footer-form-row__item">
-                            <p>Ночей</p>
-                            <div className="layout-footer-form-row__input">
+                        <div className="layout-footer-form-list__item">
+                            <span>Ночей</span>
+                            <div className="layout-footer-form-list__input">
                                 <UiButton template={'search_right'} type={'submit'} colors={{
                                     button: [COLORS.WHITE, COLORS.WHITE],
                                     icon: [COLORS.DARK_SECONDARY, COLORS.GRAY_PRIMARY],

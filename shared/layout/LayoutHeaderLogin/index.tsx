@@ -15,6 +15,11 @@ import { isMobilePhone, isRequired } from "shared/validations";
 
 import './index.scss';
 
+
+type PropsType = {
+    template?: 'home'|'default'
+}
+
 export const LayoutHeaderLogin = observer(() => {
     const user = useUser();
     const router = useRouter();
@@ -96,14 +101,15 @@ export const LayoutHeaderLogin = observer(() => {
                     onClick={() => {
                         UserService.isAuthorized();
                     }}
+                    className={'layout-header-login__button'}
                     template={"icon"}
                     colors={{
                         button: [COLORS.WHITE, COLORS.GREEN_PRIMARY],
                         border: [COLORS.DARK_SECONDARY_BORDER, COLORS.WHITE],
-                        icon: [COLORS.BLACK, COLORS.WHITE],
+                        label: [COLORS.DARK_PRIMARY, COLORS.WHITE],
                     }}
                 >
-                    <UiIcon size={[20,24]} name={'user'}/>
+                    <span>Войти</span>
                 </UiButton>
             )}
 

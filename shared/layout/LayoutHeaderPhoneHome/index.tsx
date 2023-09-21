@@ -1,16 +1,10 @@
 'use client';
 
-import classnames from "classnames";
-import { observer } from "mobx-react-lite";
-import Link from "next/link";
-import React, { useEffect } from "react";
-import {COLORS, ROUTES} from "shared/contants";
-import { useStore } from "shared/hooks";
-import { CatalogService } from "shared/services";
+import {observer} from "mobx-react-lite";
+import React from "react";
+import {COLORS} from "shared/contants";
 
-import { UiButton, UiIcon, UiLink, UiScroll, UiWrap } from "shared/ui";
-
-import icon from './assets/icon.svg';
+import {UiButton, UiIcon} from "shared/ui";
 
 import './index.scss';
 

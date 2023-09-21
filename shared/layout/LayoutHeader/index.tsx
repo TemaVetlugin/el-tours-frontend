@@ -2,10 +2,11 @@
 
 import {observer} from "mobx-react-lite";
 import React, {useEffect} from "react";
+
 import {useRouter} from "shared/hooks";
 import {AppService} from "shared/services";
-import {LayoutHeaderDefault} from "./templates/LayoutHeaderDefault";
-import {LayoutHeaderHome} from "./templates/LayoutHeaderHome";
+import {LayoutHeaderDefault} from "shared/layout";
+import {LayoutHeaderHome} from "shared/layout";
 
 import './index.scss';
 
