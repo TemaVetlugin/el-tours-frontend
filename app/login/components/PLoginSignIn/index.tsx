@@ -19,7 +19,7 @@ export const PLoginSignIn = observer(() => {
             <div className="p-signin__header">
                 <h2>Вход</h2>
             </div>
-            <div className="p-signin-label">
+            <div className="p-signin__label">
                 <span>Телефон / E-mail</span>
             </div>
             <div className="p-signin__input">
@@ -28,7 +28,7 @@ export const PLoginSignIn = observer(() => {
                 name={'query'}
             />
             </div>
-            <div className="p-signin-label">
+            <div className="p-signin__label">
                 <span>Пароль</span>
                 <UiLink>Забыли пароль?</UiLink>
             </div>
@@ -57,9 +57,6 @@ export const PLoginSignIn = observer(() => {
                 <span>Или авторизуйтесь через социальные сети</span>
                 <div className="p-signin-medias--wrap">
                     <UiButton
-                        onClick={() => {
-                        }}
-                        notification={UserService.user.userFavorites.length}
                         template={'icon'}
                         colors={{
                             button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
@@ -70,9 +67,6 @@ export const PLoginSignIn = observer(() => {
                         <UiIcon size={18} name={'vk'} color={COLORS.GREEN_PRIMARY}/>
                     </UiButton>
                     <UiButton
-                        onClick={() => {
-                        }}
-                        notification={UserService.user.userFavorites.length}
                         template={'icon'}
                         colors={{
                             button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
@@ -83,9 +77,6 @@ export const PLoginSignIn = observer(() => {
                         <UiIcon size={18} name={'instagram'} color={COLORS.GREEN_PRIMARY}/>
                     </UiButton>
                     <UiButton
-                        onClick={() => {
-                        }}
-                        notification={UserService.user.userFavorites.length}
                         template={'icon'}
                         colors={{
                             button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
@@ -96,9 +87,6 @@ export const PLoginSignIn = observer(() => {
                         <UiIcon size={18} name={'telegram'} color={COLORS.GREEN_PRIMARY}/>
                     </UiButton>
                     <UiButton
-                        onClick={() => {
-                        }}
-                        notification={UserService.user.userFavorites.length}
                         template={'icon'}
                         colors={{
                             button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
@@ -109,9 +97,6 @@ export const PLoginSignIn = observer(() => {
                         <UiIcon size={18} name={'whatsapp'} color={COLORS.GREEN_PRIMARY}/>
                     </UiButton>
                     <UiButton
-                        onClick={() => {
-                        }}
-                        notification={UserService.user.userFavorites.length}
                         template={'icon'}
                         colors={{
                             button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],

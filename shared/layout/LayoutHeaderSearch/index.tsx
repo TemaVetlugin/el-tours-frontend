@@ -72,9 +72,9 @@ export const LayoutHeaderSearch = observer(() => {
         if (!store.query) {
             return;
         }
-        router.push(ROUTES.SEARCH(), {
-            query: store.query,
-        });
+        // router.push(ROUTES.SEARCH(), {
+        //     query: store.query,
+        // });
         store.set("hints", false);
     }
 
@@ -116,26 +116,6 @@ export const LayoutHeaderSearch = observer(() => {
                                 {hints.total > 0 && (
                                     <div className="layout-header-search-hints__sections">
                                         <LayoutHeaderSearchHintsSection
-                                            title={"Товары"}
-                                            items={hints.catalogProducts}
-                                            href={(catalogProduct) => ROUTES.PRODUCT(catalogProduct)}
-                                        />
-                                        <LayoutHeaderSearchHintsSection
-                                            title={"Бренды"}
-                                            items={hints.brands}
-                                            href={(brand) => ROUTES.CATALOG_BRAND(brand.id)}
-                                        />
-                                        <LayoutHeaderSearchHintsSection
-                                            title={"Подборки"}
-                                            items={hints.compilations}
-                                            href={(compilation) => ROUTES.COMPILATIONS(compilation.slug)}
-                                        />
-                                        <LayoutHeaderSearchHintsSection
-                                            title={"Новости"}
-                                            items={hints.news}
-                                            href={(news) => ROUTES.NEWS(news.slug)}
-                                        />
-                                        <LayoutHeaderSearchHintsSection
                                             title={"Интересно"}
                                             items={hints.articles}
                                             href={(article) => ROUTES.ARTICLES(article.slug)}
@@ -151,7 +131,6 @@ export const LayoutHeaderSearch = observer(() => {
                 {AppService.searchPrompts.map(searchPrompt => (
                     <UiLink
                         key={searchPrompt.id}
-                        href={ROUTES.SEARCH().url + '?query=' + searchPrompt.name}
                         className={'layout-header-search__prompt'}
                     >
                         {searchPrompt.name}

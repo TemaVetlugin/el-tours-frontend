@@ -34,8 +34,8 @@ export const LayoutHeaderDefault = observer(({children}: PropsType) => {
         return () => window.removeEventListener('scroll', handleMinified)
     }, []);
     return (
-        <>
-            <UiWrap className={classnames('layout-header-default', {
+        <div className={'layout-header-default'}>
+            <UiWrap className={classnames('layout-header-default--wrap', {
                 'layout-header-default--minified': AppService.headerIsMinified
             })}>
                 <UiLink href={ROUTES.HOME()} className="layout-header-default__logo"/>
@@ -120,6 +120,6 @@ export const LayoutHeaderDefault = observer(({children}: PropsType) => {
                     <LayoutMenu/>
                 </div>
             </UiWrap>
-        </>
+        </div>
     );
 });

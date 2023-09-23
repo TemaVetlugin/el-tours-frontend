@@ -5,12 +5,28 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
     text-align: start;
-    padding-bottom: 40px;
+    padding-bottom: 23px;
     font-weight: 300;
+    padding-top: 36px;
 
     &__wrap{
         display: flex;
         justify-content: space-between;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+
+    &__back{
+        color: $cWhite;
+        margin-bottom: 24px;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0em;
+        text-align: left;
+        display: flex;
+        gap: 8px;
+        align-items: center;
     }
 
     &__title {
@@ -22,34 +38,17 @@
             line-height: 58px;
             margin: 0 20px 20px 0;
         }
-        &--green{
-            color: $cGreenPrimary;
-        }
+    }
+
+    &__subtitle{
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+        margin-bottom: 20px;
     }
 
 
-    &__properties {
-        font-size: 12px;
-        font-weight: 400;
-        display: flex;
-        align-items: center;
-
-        &__text {
-            margin-right: 68px;
-            font-size: 14px;
-            font-weight: 300;
-        }
-
-        &__item {
-            display: flex;
-            align-items: center;
-        }
-
-        .ui-icon {
-            bottom: -50%;
-            margin-right: 8px;
-            margin-left: 32px;
-        }
-    }
 }
 

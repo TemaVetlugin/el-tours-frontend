@@ -1,57 +1,57 @@
-.p-vacancy {
+.p-vacancies {
     color: $cDarkPrimary;
     background-color: $cGraySecondary;
 
     &--flex {
         display: flex;
         padding-top: 36px;
+    }
+
+
+
+    &__text {
+        margin: 0 0 16px 0;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 25px;
 
     }
 
-    &-body {
-        &__text {
-            margin: 0 0 16px 0;
-            font-weight: 300;
-            font-size: 16px;
-            line-height: 25px;
+    &-list {
+        margin-top: 40px;
+        margin-bottom: 60px;
 
-        }
+        &-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 32px 60px;
+            margin-top: 28px;
+            display: flex;
+            justify-content: space-between;
 
-        &-list {
-            margin-top: 40px;
-            margin-bottom: 60px;
-
-            &-item {
-                background-color: white;
-                border-radius: 10px;
-                padding: 32px 60px;
-                margin-top: 28px;
-                display: flex;
-                justify-content: space-between;
-
-                &__title {
-                    font-weight: 800;
-                    font-size: 24px;
-                    margin: 0 0 12px 0;
-                }
-
-                &__text {
-                    font-weight: 300;
-                    font-size: 14px;
-                    width: 514px;
-                    line-height: 1.5;
-                }
-
-                &__salary {
-                    font-weight: 800;
-                    font-size: 24px;
-                    color: $cGreenSecondary;
-                    display: flex;
-                    align-items: center;
-                }
+            &__title {
+                font-weight: 800;
+                font-size: 24px;
+                margin: 0 0 12px 0;
             }
 
+            &__text {
+                font-weight: 300;
+                font-size: 14px;
+                width: 514px;
+                line-height: 1.5;
+            }
+
+            &__salary {
+                font-weight: 800;
+                font-size: 24px;
+                color: $cGreenSecondary;
+                display: flex;
+                align-items: center;
+            }
         }
+
+
     }
 
 

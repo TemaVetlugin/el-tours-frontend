@@ -20,7 +20,7 @@ export const PLoginSignUpPhone = observer(() => {
                 <h2>Регистрация</h2>
             </div>
             <span className="p-signup-phone__subtitle">Напишите свой номер телефона, и мы будем вам напоминать о ближайших поездках</span>
-            <div className="p-signup-phone-label">
+            <div className="p-signup-phone__label">
                 <span>Телефон</span>
             </div>
             <div className="p-signup-phone__input">

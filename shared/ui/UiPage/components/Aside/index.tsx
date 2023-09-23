@@ -13,13 +13,7 @@ type PropsType = {
 export const Aside = observer(({ title, children }: PropsType) => {
     return (
         <div className="ui-page-aside">
-            <div className="ui-page-aside__title">
-                {title}
-            </div>
-
-            <div className="ui-page-aside__inner">
                 {children}
-            </div>
         </div>
     )
 })

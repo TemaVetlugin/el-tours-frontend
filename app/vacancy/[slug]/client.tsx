@@ -1,8 +1,9 @@
 'use client';
 
 import React from "react";
-import {UiPage, UiTypography} from "shared/ui";
 import {observer} from "mobx-react-lite";
+
+import {UiPage, UiTypography} from "shared/ui";
 import {useAsyncEffect, useRouter, useStore} from "shared/hooks";
 import {VacancyModel} from "shared/models";
 import {vacancyGetQuery} from "shared/queries/main";
@@ -45,26 +46,22 @@ export const Client = observer(({slug}: PropsType
                 <LayoutHeaderSearch/>
             </LayoutHeader>
             <UiPage.Header
-                items={[
-                    ROUTES.VACANCY(),
-                    ROUTES.VACANCY(store.item.slug, store.item.name)
-                ]}
-                titleComplex={() =>
-                    <React.Fragment>
-                        <h1>{store.item.name} <span className="ui-page-header__title--green">{store.item.salary}</span></h1>
-                    </React.Fragment>
-
-                    }
+                backTo={ROUTES.VACANCY()}
+                title={
+                    <h1 className="p-vacancy__title">{store.item.name} <span className="p-vacancy__title--green">{store.item.salary}</span></h1>
+                }
                 subtitle={store.item.subtitle}
             />
-                <UiPage.Wrap className="p-vacancy--flex">
-                    <div className="p-vacancy-body">
-                        <UiTypography>
-                            {html(store.item.content)}
-                        </UiTypography>
-                    </div>
+            <UiPage.Wrap className="p-vacancy--flex">
+                <UiPage.Main>
+                    <UiTypography>
+                        {html(store.item.content)}
+                    </UiTypography>
+                </UiPage.Main>
+                <UiPage.Aside>
                     <PVacancyFormAside/>
-                </UiPage.Wrap>
+                </UiPage.Aside>
+            </UiPage.Wrap>
             <PVacancyForm/>
         </UiPage>
     );

@@ -2,28 +2,13 @@
 
 import React from "react";
 import {observer} from "mobx-react-lite";
-import {useCity, useRouter, useStore} from "shared/hooks";
-import {ArticleModel, PaginationModel} from "shared/models";
+
 import {UiPage, UiTypography} from "shared/ui";
+import {PLoginSignUpConfirm} from "./components/PLoginSignupConfirm";
 
 import './page.scss';
-import {PLoginSignUpEmail} from "./components/PLoginSignupEmail";
-import {PLoginSignUpConfirm} from "./components/PLoginSignupConfirm";
-import {PLoginSignUpPhone} from "./components/PLoginSignupPhone";
 
 export const Client = observer(() => {
-    const city = useCity();
-    const router = useRouter()
-    const store = useStore({
-        articles: [] as ArticleModel[],
-        pagination: new PaginationModel(),
-        isLoading: true,
-        isLightbox: false,
-        lightboxIndex: 0,
-        activeSlide: 0,
-        isShallowLoading: true,
-
-    });
 
 
     return (

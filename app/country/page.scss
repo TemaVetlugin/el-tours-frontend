@@ -95,13 +95,6 @@
         margin-bottom: 48px;
         position: relative;
 
-        &__header {
-            font-weight: 800;
-            font-size: 48px;
-            margin: 80px 0 0 0;
-            text-align: center;
-            color: $cDarkPrimary;
-        }
 
         &__icon{
             display: flex;
@@ -114,10 +107,6 @@
             .ui-icon {
                 margin-right: 8px;
             }
-        }
-
-        &__wrap {
-            padding-top: 60px;
         }
 
         &__place {

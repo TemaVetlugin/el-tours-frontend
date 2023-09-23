@@ -18,46 +18,46 @@ export const PCompanyFormAside = observer(() => {
         <UiForm className="p-company-form-aside">
             <div className="p-company-form-aside__header">
                 <h2>Реквизиты компании</h2>
-                <p>ООО «Эль-Тур»</p>
+                <span>ООО «Эль-Тур»</span>
             </div>
 
             <div className="p-company-form-aside-body">
                 <div className="p-company-form-aside-body__row">
-                    <p className="p-company-form-aside-body__title">ИНН:</p>
-                    <p className="p-company-form-aside-body__text">5406436252</p>
+                    <span className="p-company-form-aside-body__title">ИНН:</span>
+                    <span className="p-company-form-aside-body__text">5406436252</span>
                 </div>
                 <div className="p-company-form-aside-body__row">
-                    <p className="p-company-form-aside-body__title">ИПП:</p>
-                    <p className="p-company-form-aside-body__text">540601001</p>
+                    <span className="p-company-form-aside-body__title">ИПП:</span>
+                    <span className="p-company-form-aside-body__text">540601001</span>
                 </div>
                 <div className="p-company-form-aside-body__row">
-                    <p className="p-company-form-aside-body__title">ОГРН:</p>
-                    <p className="p-company-form-aside-body__text">1085406012922</p>
+                    <span className="p-company-form-aside-body__title">ОГРН:</span>
+                    <span className="p-company-form-aside-body__text">1085406012922</span>
                 </div>
                 <div className="p-company-form-aside-body__row">
-                    <p className="p-company-form-aside-body__title">Юридический
-                        адрес:</p>
-                    <p className="p-company-form-aside-body__text">630099, г. Новосибирск, ул.Фрунзе, 84</p>
+                    <span className="p-company-form-aside-body__title">Юридический
+                        адрес:</span>
+                    <span className="p-company-form-aside-body__text">630099, г. Новосибирск, ул.Фрунзе, 84</span>
                 </div>
                 <div className="p-company-form-aside-body__row">
-                    <p className="p-company-form-aside-body__title">Фактический адрес:</p>
-                    <p className="p-company-form-aside-body__text">г.Новосибирск, ул.Вокзальная магистраль, 10</p>
+                    <span className="p-company-form-aside-body__title">Фактический адрес:</span>
+                    <span className="p-company-form-aside-body__text">г.Новосибирск, ул.Вокзальная магистраль, 10</span>
                 </div>
                 <div className="p-company-form-aside-body__row">
-                    <p className="p-company-form-aside-body__title">р/с:</p>
-                    <p className="p-company-form-aside-body__text">40702810023220001293</p>
+                    <span className="p-company-form-aside-body__title">р/с:</span>
+                    <span className="p-company-form-aside-body__text">40702810023220001293</span>
                 </div>
                 <div className="p-company-form-aside-body__row">
-                    <p className="p-company-form-aside-body__title">Банк:</p>
-                    <p className="p-company-form-aside-body__text">Филиал "Новосибирский" АО "Альфа-Банк" г. Новосибирск</p>
+                    <span className="p-company-form-aside-body__title">Банк:</span>
+                    <span className="p-company-form-aside-body__text">Филиал "Новосибирский" АО "Альфа-Банк" г. Новосибирск</span>
                 </div>
                 <div className="p-company-form-aside-body__row">
-                    <p className="p-company-form-aside-body__title">к/с:</p>
-                    <p className="p-company-form-aside-body__text">30101810600000000774</p>
+                    <span className="p-company-form-aside-body__title">к/с:</span>
+                    <span className="p-company-form-aside-body__text">30101810600000000774</span>
                 </div>
                 <div className="p-company-form-aside-body__row">
-                    <p className="p-company-form-aside-body__title">БИК:</p>
-                    <p className="p-company-form-aside-body__text">045004774</p>
+                    <span className="p-company-form-aside-body__title">БИК:</span>
+                    <span className="p-company-form-aside-body__text">045004774</span>
 
                 </div>
             </div>

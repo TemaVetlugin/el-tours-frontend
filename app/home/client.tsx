@@ -2,20 +2,17 @@
 
 import React from "react";
 import {UiButton, UiForm, UiIcon, UiInput, UiLink, UiPage, UiSelect, UiSlider} from "shared/ui";
+import classnames from "classnames";
 import {observer} from "mobx-react-lite";
 
 import {homeQuery} from "shared/queries/frontend";
 import {ReturnType} from "shared/types";
 import {useCity} from "shared/hooks";
-import {COLORS, ROUTES} from "shared/contants";
+import {COLORS} from "shared/contants";
 import {LayoutHeader} from "shared/layout";
 import {UserService} from "shared/services";
 import {UiCardWrap} from "shared/ui/UiCardsWrap";
-import {VmCard} from "shared/viewmodels/VmCard";
-import classNames from "classnames";
-import classnames from "classnames";
-import {VmWorker} from "shared/viewmodels";
-
+import {VmTour} from "shared/viewmodels/VmTour";
 
 type PropsType = NonNullable<ReturnType<typeof homeQuery>['data']>;
 export const Client = observer((
@@ -50,61 +47,61 @@ export const Client = observer((
                 <UiPage.Wrap>
                     <div className="p-home-main-search">
                         <div className="p-home-main-search-headers">
-                            <div className="p-home-main-search-headers__button_active">
-                                <h5>Туры</h5>
+                            <div className="p-home-main-search-headers__button p-home-main-search-headers__button--active">
+                                <span>Туры</span>
                             </div>
                             <div className="p-home-main-search-headers__button">
-                                <h5>Авиабилеты</h5>
+                                <span>Авиабилеты</span>
                             </div>
                             <div className="p-home-main-search-headers__button">
-                                <h5>Отели</h5>
+                                <span>Отели</span>
                             </div>
                             <div className="p-home-main-search-headers__button">
-                                <h5>Перелет+отель</h5>
+                                <span>Перелет+отель</span>
                             </div>
                             <div className="p-home-main-search-headers__button">
-                                <h5>Круизы</h5>
+                                <span>Круизы</span>
                             </div>
                             <div className="p-home-main-search-headers__button">
-                                <h5>Аренда авто</h5>
+                                <span>Аренда авто</span>
                             </div>
                             <div className="p-home-main-search-headers__button">
-                                <h5>Недвижимость</h5>
+                                <span>Недвижимость</span>
                             </div>
                         </div>
                         <div className="p-home-main-search-content">
-                            <div className="p-home-main-search-content-city">
-                                <h5>Город вылета</h5>
-                                <div className="p-home-main-search-content__wrap">
-                                    <p>Нижний Новгород</p>
+                            <div className="p-home-main-search-content-item">
+                                <span className="p-home-main-search-content-item__title">Город вылета</span>
+                                <div className="p-home-main-search-content-item__wrap">
+                                    <span>Нижний Новгород</span>
                                     <UiIcon size={16} name={"close"} color={COLORS.GRAY_PRIMARY}/>
                                 </div>
                             </div>
-                            <div className="p-home-main-search-content-country">
-                                <h5>Страна, курорт или отель</h5>
-                                <div className="p-home-main-search-content__wrap">
-                                    <p>Греция</p>
+                            <div className="p-home-main-search-content-item">
+                                <span className="p-home-main-search-content-item__title">Страна, курорт или отель</span>
+                                <div className="p-home-main-search-content-item__wrap">
+                                    <span>Греция</span>
                                     <UiIcon size={16} name={"close"} color={COLORS.GRAY_PRIMARY}/>
                                 </div>
                             </div>
-                            <div className="p-home-main-search-content-date">
-                                <h5>Дата вылета</h5>
-                                <div className="p-home-main-search-content__wrap">
-                                    <p>с 9 авг</p>
+                            <div className="p-home-main-search-content-item">
+                                <span className="p-home-main-search-content-item__title">Дата вылета</span>
+                                <div className="p-home-main-search-content-item__wrap">
+                                    <span>с 9 авг</span>
                                     <UiIcon size={16} name={"calendar"} color={COLORS.GRAY_PRIMARY}/>
                                 </div>
                             </div>
-                            <div className="p-home-main-search-content-nights">
-                                <h5>Ночей</h5>
-                                <div className="p-home-main-search-content__wrap">
-                                    <p>на 7-8 ночей</p>
+                            <div className="p-home-main-search-content-item">
+                                <span className="p-home-main-search-content-item__title">Ночей</span>
+                                <div className="p-home-main-search-content-item__wrap">
+                                    <span>на 7-8 ночей</span>
                                     <UiIcon size={12} name={"arrowDown"} color={COLORS.GRAY_PRIMARY}/>
                                 </div>
                             </div>
-                            <div className="p-home-main-search-content-tourists">
-                                <h5>Туристов</h5>
-                                <div className="p-home-main-search-content__wrap">
-                                    <p>2 взрослых</p>
+                            <div className="p-home-main-search-content-item p-home-main-search-content-item--last">
+                                <span className="p-home-main-search-content-item__title">Туристов</span>
+                                <div className="p-home-main-search-content-item__wrap">
+                                    <span>2 взрослых</span>
                                     <UiIcon size={12} name={"arrowDown"} color={COLORS.GRAY_PRIMARY}/>
                                 </div>
                             </div>
@@ -156,9 +153,7 @@ export const Client = observer((
 
                     />
                 </div>
-
                 <div className="p-home-main__blackout"></div>
-
             </div>
             <div className="p-home-tours">
                 <h2 className="p-home-tours__header">
@@ -166,67 +161,9 @@ export const Client = observer((
                 </h2>
                 <UiCardWrap className={"p-home-tours__wrap"}>
                     {media.map((media) =>
-                        <VmCard key={media.id}
-                                template={media.type}
-                                background={media.src}
-                                header={<>
-                                    <UiButton
-                                        template={'normal'}
-                                        className={'p-home-tours__button'}
-                                        colors={{
-                                            button: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
-                                            label: [COLORS.WHITE, COLORS.WHITE],
-                                        }}
-                                    >
-                                        <span>{media.weather}</span>
-                                    </UiButton>
-                                    <UiButton
-                                        template={'normal'}
-                                        className={'p-home-tours__button p-home-tours__button--gray'}
-                                        colors={{
-                                            button: [COLORS.DARK_PRIMARY, COLORS.GREEN_SECONDARY],
-                                            label: [COLORS.WHITE, COLORS.WHITE],
-                                        }}
-                                    >
-                                        <span>{media.weather}</span>
-                                    </UiButton>
-                                </>}
-                                body={
-                                    <>
-                                        <div>
-                                            <h3 className="p-home-tours__place">{media.text}</h3>
-                                            <span className="p-home-tours__country">{media.text}</span>
-                                        </div>
-                                        <div>
-                                            <h3 className={classNames(`p-home-tours__price`, media.type === 'large' && 'p-home-tours__price--end')}>{media.text}</h3>
-                                            <div className="p-home-tours__details">
-                                                {media.type === 'small' && <UiButton
-                                                    template={'normal'}
-                                                    className={'p-home-tours__button--small'}
-                                                    colors={{
-                                                        button: [COLORS.DARK_SECONDARY, COLORS.GREEN_SECONDARY],
-                                                        label: [COLORS.WHITE, COLORS.WHITE],
-                                                    }}
-                                                >
-                                                    <span>{media.text}</span>
-                                                </UiButton>}
-                                                <span>{media.text}{media.text}{media.text}{media.text}{media.text}</span>
-                                                {media.type === 'large' && <UiButton
-                                                    template={'normal'}
-                                                    className={'p-home-tours__button--small'}
-                                                    colors={{
-                                                        button: [COLORS.DARK_SECONDARY, COLORS.GREEN_SECONDARY],
-                                                        label: [COLORS.WHITE, COLORS.WHITE],
-                                                    }}
-                                                >
-                                                    <span>{media.text}</span>
-                                                </UiButton>}
-                                            </div>
-                                        </div>
-
-                                    </>
-                                }
-
+                        <VmTour
+                            key={media.id}
+                            tour={media}
                         />)}
                 </UiCardWrap>
                 <UiButton
@@ -236,7 +173,6 @@ export const Client = observer((
                         button: [COLORS.GRAY_SECONDARY, COLORS.GREEN_SECONDARY],
                         border: [COLORS.DARK_SECONDARY_BORDER, COLORS.GREEN_SECONDARY],
                         label: [COLORS.DARK_PRIMARY, COLORS.WHITE],
-
                     }}
                 >
                     <span>Показать больше вариантов</span>

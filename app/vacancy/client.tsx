@@ -2,12 +2,11 @@
 
 import React from "react";
 import {observer} from "mobx-react-lite";
-import {useAsyncEffect, useCity, useRouter, useSearchParams, useStore} from "shared/hooks";
+
+import {useAsyncEffect, useCity, useSearchParams, useStore} from "shared/hooks";
 import {PaginationModel, VacancyModel} from "shared/models";
 import {vacancyQuery} from "shared/queries/main";
-import {UiDataBoundary, UiGrid, UiPage} from "shared/ui";
-
-import './page.scss';
+import {UiDataBoundary, UiPage} from "shared/ui";
 import {LayoutHeader} from "shared/layout";
 import {PVacancyFormAside} from "./components/PVacancyFormAside";
 import {PVacancyForm} from "./components/PVacancyForm";
@@ -18,7 +17,6 @@ import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
 
 export const Client = observer(() => {
     const city = useCity();
-    const router = useRouter()
     const store = useStore({
         vacancy: [] as VacancyModel[],
         pagination: new PaginationModel(),
@@ -42,35 +40,40 @@ export const Client = observer(() => {
     }, [searchParams.page, city, searchParams.tagId]);
 
     return (
-        <UiPage className="p-vacancy">
+        <UiPage className="p-vacancies">
             <LayoutHeader>
                 <LayoutHeaderSearch/>
             </LayoutHeader>
             <UiPage.Header
-                items={[ROUTES.VACANCY()]}
+                backTo={ROUTES.VACANCY()}
                 title={'Вакансии'}
                 subtitle={'Возможно, нам не хватает именно тебя!'}
             />
 
-            <div >
-                <UiPage.Wrap className="p-vacancy--flex">
-                    <div className="p-vacancy-body">
-                        <p className="p-vacancy-body__text">Каждый день с нашей помощью более 10 000 человек планируют свои поездки: находят дешевые отели, билеты на самолет и бронируют круизы. В нашу дружную
+            <div>
+                <UiPage.Wrap className="p-vacancies--flex" template={'aside'}>
+                    <UiPage.Main>
+                        <p className="p-vacancies__text">Каждый день с нашей помощью более 10 000 человек планируют свои поездки: находят дешевые отели, билеты на самолет и бронируют
+                            круизы. В нашу дружную
                             команду
                             мы
                             ищем профессионалов, готовых участвовать в создании и поддержке продуктов для миллионов пользователей.</p>
-                        <p className="p-vacancy-body__text">Мы ценим инициативу, не вставляем палки в колеса и даем возможность влиять на сервис. И каждое успешное решение мы отмечаем веселыми вечеринками!</p>
+                        <p className="p-vacancies__text">Мы ценим инициативу, не вставляем палки в колеса и даем возможность влиять на сервис. И каждое успешное решение мы отмечаем
+                            веселыми вечеринками!</p>
                         <PVacancyDescription/>
 
-                        <div className="p-vacancy-body-list">
+                        <div className="p-vacancies-list">
                             <UiDataBoundary isLoading={store.isLoading} withShallow>
                                 {store.vacancy.map(vacancy => <VmVacancy key={vacancy.id} template={'light'} item={vacancy}/>)}
 
                             </UiDataBoundary>
 
                         </div>
-                    </div>
-                    <PVacancyFormAside/>
+                    </UiPage.Main>
+                    <UiPage.Aside>
+                        <PVacancyFormAside/>
+                    </UiPage.Aside>
+
                 </UiPage.Wrap>
                 <PVacancyForm/>
             </div>

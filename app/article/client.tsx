@@ -2,29 +2,27 @@
 
 import React from "react";
 import {observer} from "mobx-react-lite";
-import {useAsyncEffect, useCity, useRouter, useSearchParams, useStore} from "shared/hooks";
+
+import {useAsyncEffect, useSearchParams, useStore} from "shared/hooks";
 import {ArticleModel, PaginationModel} from "shared/models";
 import {articlesQuery} from "shared/queries/main";
-import {VmArticle, VmWorker} from "shared/viewmodels";
-import {UiDataBoundary, UiGrid, UiIcon, UiPage} from "shared/ui";
-
-import './page.scss';
+import {VmArticle} from "shared/viewmodels";
+import {UiDataBoundary, UiPage} from "shared/ui";
 import {LayoutHeader} from "shared/layout";
 import {ROUTES} from "shared/contants";
 import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
 import {UiCardWrap} from "shared/ui/UiCardsWrap";
-import {VmCard} from "shared/viewmodels/VmCard";
+
+import './page.scss';
 
 export const Client = observer(() => {
-    const city = useCity();
-    const router = useRouter()
     const store = useStore({
         articles: [] as ArticleModel[],
         pagination: new PaginationModel(),
         isLoading: true,
         isShallowLoading: true,
     });
-    const searchParams = useSearchParams({page: 1, tagId: null as null | number})
+    const searchParams = useSearchParams({page: 1})
 
 
     useAsyncEffect(async () => {
@@ -38,54 +36,26 @@ export const Client = observer(() => {
         }
         store.set("isLoading", false);
         store.set("isShallowLoading", false);
-    }, [searchParams.page, city, searchParams.tagId]);
+    }, [searchParams.page]);
 
     return (
-        <UiPage className={"p-article"}>
+        <UiPage className={"p-articles"}>
             <LayoutHeader>
                 <LayoutHeaderSearch/>
             </LayoutHeader>
             <UiPage.Header
-                items={[ROUTES.ARTICLES()]}
+                backTo={ROUTES.HOME()}
                 title={'Блог'}
                 subtitle={'Здесь собраны самые впечатляющие статьи путешественников.'}
 
             />
             <UiPage.Wrap>
                 <UiDataBoundary isLoading={store.isLoading} withShallow>
-                    <UiCardWrap className={"p-article-card__wrap"}>
+                    <UiCardWrap className={"p-articles-card__wrap"}>
                         {store.articles.map((article) =>
-                            <VmCard key={article.id}
-                                    className={"p-article-card"}
-                                    template={article.width === 2 ? 'large' : 'small'}
-                                    background={article.previewImage}
-                                    href={ROUTES.ARTICLES(article.slug).url}
-                                    header={<>
-                                        <div className="p-article-card-header__item">
-                                            <UiIcon size={[24, 24]} name={"views"}/>
-                                            <span>{article.views}</span>
-                                        </div>
-                                        <div className="p-article-card-header__item">
-                                            <UiIcon size={20} name={"comments"}/>
-                                            <span>21</span>
-                                        </div>
-                                    </>}
-                                    body={
-                                        <div>
-                                            <span className="p-article-card__country">
-                                                 {article.country}
-                                            </span>
-                                            <h3 className="p-article-card__title">
-                                                {article.name}
-                                            </h3>
-                                            <span className="p-article-card__description">
-                                                {article.createdDate + " - Чтение " + article.readingTime}
-                                            </span>
-                                        </div>
-                                    }
-
+                            <VmArticle key={article.id}
+                                    article={article}
                             />)}
-
                     </UiCardWrap>
                 </UiDataBoundary>
                 <UiPage.Pagination pagination={store.pagination}/>

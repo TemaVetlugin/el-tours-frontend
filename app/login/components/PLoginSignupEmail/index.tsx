@@ -20,7 +20,7 @@ export const PLoginSignUpEmail = observer(() => {
                 <h2>Регистрация</h2>
             </div>
             <span className="p-signup-email__subtitle">Укажите адрес электронной почты, на него мы будем присылать вам документы по купленным турам и авиабилетам</span>
-            <div className="p-signup-email-label">
+            <div className="p-signup-email__label">
                 <span>E-mail</span>
             </div>
             <div className="p-signup-email__input">
@@ -29,9 +29,9 @@ export const PLoginSignUpEmail = observer(() => {
                     name={'query'}
                 />
             </div>
-            <div className="p-signup-email-label">
+            <div className="p-signup-email__label">
                 <span>Пароль</span>
-                <span className="p-signup-email-label--small">не менее 8 символов, прописные цифры и строчные буквы</span>
+                <span className="p-signup-email__label--small">не менее 8 символов, прописные цифры и строчные буквы</span>
             </div>
             <div className="p-signup-email__input">
                 <UiInput
@@ -47,7 +47,7 @@ export const PLoginSignUpEmail = observer(() => {
                     <UiIcon size={[20, 20]} name={'views'}/>
                 </UiButton>
                 <div className="p-signup-email__input--unsafe"></div>
-                <div className="p-signup-email-label--unsafe">
+                <div className="p-signup-email__label--unsafe">
                     <span>Ненадёжный пароль</span>
                 </div>
             </div>

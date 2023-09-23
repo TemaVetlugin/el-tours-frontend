@@ -2,10 +2,9 @@
 
 import React from "react";
 import {observer} from "mobx-react-lite";
+
 import {useAsyncEffect, useCity, useRouter, useSearchParams, useStore} from "shared/hooks";
 import {UiPage, UiTypography} from "shared/ui";
-
-import './page.scss';
 import {LayoutHeader} from "shared/layout";
 import {PCompanyFormAside} from "./components/PCompanyFormAside";
 import {PVacancyForm} from "./components/PVacancyForm";
@@ -14,8 +13,9 @@ import {ROUTES} from "shared/contants";
 import {PCompanyServices} from "./components/PCompanyServices";
 import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
 import {pageQuery} from "shared/queries/main";
-import {NewsModel, PageModel} from "shared/models";
+import {PageModel} from "shared/models";
 import {html} from "shared/utilities";
+
 
 export const Client = observer(() => {
     const city = useCity();
@@ -46,23 +46,25 @@ export const Client = observer(() => {
                 <LayoutHeaderSearch/>
             </LayoutHeader>
             <UiPage.Header
-                items={[ROUTES.VACANCY()]}
+                backTo={ROUTES.VACANCY()}
                 title={store.item.title}
                 subtitle={store.item.subtitle}
             />
 
-            <UiPage.Wrap className="p-company--flex">
-                <div className="p-company-body">
-                        <UiTypography>
-                            {html(store.item.description)}
-                        </UiTypography>
+            <UiPage.Wrap className="p-company--flex" template={'aside'}>
+                <UiPage.Main>
+                    <UiTypography>
+                        {html(store.item.description)}
+                    </UiTypography>
 
                     <PCompanyDescription/>
-                </div>
-                <div className="p-company-aside">
-                    <PCompanyFormAside/>
-                    <PCompanyServices/>
-                </div>
+                </UiPage.Main>
+                <UiPage.Aside>
+                    <div className="p-company-aside">
+                        <PCompanyFormAside/>
+                        <PCompanyServices/>
+                    </div>
+                </UiPage.Aside>
             </UiPage.Wrap>
             <PVacancyForm/>
 

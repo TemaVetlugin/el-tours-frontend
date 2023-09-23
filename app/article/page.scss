@@ -1,54 +1,9 @@
-.p-article {
+.p-articles {
     &-card {
         position: relative;
         &__wrap{
             margin-top: 36px !important;
             margin-bottom: 60px !important;
-        }
-        &__country {
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 17px;
-            display: block;
-            margin-bottom: 10px;
-            text-align: left;
-
-        }
-
-        &__title {
-            margin: 0 0 10px 0;
-            font-size: 24px;
-            font-weight: 800;
-            text-align: left;
-
-        }
-
-        &__description {
-            font-size: 12px;
-            font-weight: 400;
-            line-height: 14px;
-            text-align: left;
-        }
-
-        &-header {
-            &__item {
-                display: flex;
-                align-items: center;
-
-                .ui-icon {
-                    margin-right: 8px;
-                }
-            }
-        }
-        &:before{
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 184px;
-            top: 0;
-            left: 0;
-            background: linear-gradient(0deg, rgba(4, 55, 77, 0) 34.97%, rgba(4, 55, 77, 0.52) 62.73%, #04374D 100%);
-
         }
     }
 }

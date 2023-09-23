@@ -3,14 +3,10 @@
 import React from "react";
 import {observer} from "mobx-react-lite";
 
-import {HomeBannerModel} from "shared/models";
-import {UiButton, UiContentResource, UiGrid, UiIcon, UiSlider} from "shared/ui";
-import {COLORS, ROUTES} from "shared/contants";
+import {UiButton, UiIcon} from "shared/ui";
+import {COLORS} from "shared/contants";
 
-import actionImage from './assets/action.svg';
-import arrowImage from './assets/arrow.svg';
 import './index.scss';
-import {UserService} from "shared/services";
 
 
 export const PBlogMediasAside = observer(() => {
@@ -19,7 +15,6 @@ export const PBlogMediasAside = observer(() => {
             <div className="p-blog-medias-aside">
                 <div>
                     <UiButton
-                        notification={UserService.user.userFavorites.length}
                         template={'icon'}
                         colors={{
                             button: [COLORS.GRAY_SECONDARY, COLORS.GREEN_PRIMARY],
@@ -32,7 +27,6 @@ export const PBlogMediasAside = observer(() => {
                 </div>
                 <div>
                     <UiButton
-                        notification={UserService.user.userFavorites.length}
                         template={'icon'}
                         colors={{
                             button: [COLORS.GRAY_SECONDARY, COLORS.GREEN_PRIMARY],
@@ -45,7 +39,6 @@ export const PBlogMediasAside = observer(() => {
                 </div>
                 <div>
                     <UiButton
-                        notification={UserService.user.userFavorites.length}
                         template={'icon'}
                         colors={{
                             button: [COLORS.GRAY_SECONDARY, COLORS.GREEN_PRIMARY],
@@ -58,7 +51,6 @@ export const PBlogMediasAside = observer(() => {
                 </div>
                 <div>
                     <UiButton
-                        notification={UserService.user.userFavorites.length}
                         template={'icon'}
                         colors={{
                             button: [COLORS.GRAY_SECONDARY, COLORS.GREEN_PRIMARY],
@@ -71,7 +63,6 @@ export const PBlogMediasAside = observer(() => {
                 </div>
                 <div>
                     <UiButton
-                        notification={UserService.user.userFavorites.length}
                         template={'icon'}
                         colors={{
                             button: [COLORS.GRAY_SECONDARY, COLORS.GREEN_PRIMARY],

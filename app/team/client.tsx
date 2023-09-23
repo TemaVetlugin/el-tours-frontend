@@ -2,19 +2,18 @@
 
 import React from "react";
 import {observer} from "mobx-react-lite";
+import classnames from "classnames";
+
 import {useAsyncEffect, useCity, useRouter, useSearchParams, useStore} from "shared/hooks";
 import {PaginationModel, WorkerModel} from "shared/models";
 import {workerQuery} from "shared/queries/main";
 import {VmWorker} from "shared/viewmodels";
 import {UiDataBoundary, UiGrid, UiIcon, UiPage, UiSlider} from "shared/ui";
-
-import './page.scss';
 import {LayoutHeader} from "shared/layout";
 import {ROUTES} from "shared/contants";
-import classnames from "classnames";
-import {toJS} from "mobx";
-import {auto} from "@popperjs/core";
 import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
+
+import './page.scss';
 
 
 export const Client = observer(() => {
@@ -67,7 +66,7 @@ export const Client = observer(() => {
                 <LayoutHeaderSearch/>
             </LayoutHeader>
             <UiPage.Header
-                items={[ROUTES.ARTICLES()]}
+                backTo={ROUTES.ARTICLES()}
                 title={'Наша команда'}
                 subtitle={'Мы создаем лучший в мире сервис для путешествий!'}
 
@@ -259,7 +258,6 @@ export const Client = observer(() => {
                 <UiPage.Wrap className="p-team-group">
                     <h2 className="p-team__title">Руководители офисов</h2>
                     <span className="p-team__subtitle">Основатели проекта el-tours.ru, которые верят в него и вкладывают душу</span>
-
                     <UiDataBoundary isLoading={store.isLoading} withShallow>
                         {store.renderWorkers4.length<=4 &&
                             <UiGrid columns={4} gap={5}>

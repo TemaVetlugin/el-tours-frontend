@@ -1,21 +1,4 @@
 .ui-page-aside {
-    width: 100%;
-
-    &__title {
-        margin-bottom: 24px;
-        color: $cTypo;
-        text-align: left;
-        font-family: $fontSecondary;
-        font-size: 24px;
-        font-weight: 700;
-        line-height: 26px;
-    }
-
-    &__inner {
-        width: 100%;
-
-        & > div, & > a {
-            margin-bottom: 24px;
-        }
-    }
+    width: 320px;
+    margin-left: 80px;
 }

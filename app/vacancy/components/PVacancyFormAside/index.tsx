@@ -3,14 +3,10 @@
 import React from "react";
 import {observer} from "mobx-react-lite";
 
-import {HomeBannerModel} from "shared/models";
-import {UiButton, UiContentResource, UiForm, UiGrid, UiIcon, UiInput, UiSlider} from "shared/ui";
-import {COLORS, ROUTES} from "shared/contants";
+import {UiButton, UiForm, UiIcon} from "shared/ui";
+import {COLORS} from "shared/contants";
 
-import actionImage from './assets/action.svg';
-import arrowImage from './assets/arrow.svg';
 import './index.scss';
-import {UserService} from "shared/services";
 
 
 export const PVacancyFormAside = observer(() => {
@@ -41,9 +37,6 @@ export const PVacancyFormAside = observer(() => {
             </div>
             <div className="p-vacancy-form-aside-body__medias">
                     <UiButton
-                        onClick={() => {
-                        }}
-                        notification={UserService.user.userFavorites.length}
                         template={'icon'}
                         colors={{
                             button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
@@ -54,9 +47,6 @@ export const PVacancyFormAside = observer(() => {
                         <UiIcon size={18} name={'vk'} color={COLORS.GREEN_PRIMARY}/>
                     </UiButton>
                     <UiButton
-                        onClick={() => {
-                        }}
-                        notification={UserService.user.userFavorites.length}
                         template={'icon'}
                         colors={{
                             button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
@@ -67,9 +57,6 @@ export const PVacancyFormAside = observer(() => {
                         <UiIcon size={18} name={'telegram'} color={COLORS.GREEN_PRIMARY}/>
                     </UiButton>
                     <UiButton
-                        onClick={() => {
-                        }}
-                        notification={UserService.user.userFavorites.length}
                         template={'icon'}
                         colors={{
                             button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
@@ -80,9 +67,6 @@ export const PVacancyFormAside = observer(() => {
                         <UiIcon size={18} name={'whatsapp'} color={COLORS.GREEN_PRIMARY}/>
                     </UiButton>
                     <UiButton
-                        onClick={() => {
-                        }}
-                        notification={UserService.user.userFavorites.length}
                         template={'icon'}
                         colors={{
                             button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],

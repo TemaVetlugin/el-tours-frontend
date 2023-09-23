@@ -3,20 +3,187 @@
     width: 100%;
     background-color: $cGraySecondary;
 
+    &-subtitle {
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: $cGrayPrimary;
+        display: flex;
+
+        &-properties {
+            margin-left: 100px;
+            display: flex;
+            gap: 32px;
+
+            &__item {
+                display: flex;
+                align-items: center;
+                z-index: 1;
+                position: relative;
+                color: $cWhite;
+
+                .ui-icon {
+                    margin-right: 8px;
+                }
+            }
+        }
+
+    }
+
     &-body {
         display: flex;
-        padding-top: 36px;
+        padding-left: 150px !important;
+        position: relative;
+        padding-top: 36px !important;
     }
 
-    &-content {
-        width: 800px;
+    &-author {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        &-profile {
+            display: flex;
+            &__picture {
+                width: 120px;
+                height: 120px;
+                border-radius: 60px;
+            }
+            &__descr {
+                margin-left: 20px;
+                h5{
+                    margin: 28px 0 10px 0;
+                    font-size: 24px;
+                    font-weight: 800;
+                    color: $cDarkPrimary
+                }
+                p{
+                    margin: 0;
+                    color: $cDarkSecondary;
+                    font-weight: 400;
+                    font-size: 16px;
+                }
+            }
+        }
+        &__publications{
+            text-align: end;
+            h5{
+                margin: 28px 0 10px 0;
+                font-size: 24px;
+                font-weight: 800;
+                color: $cGreenPrimary
+            }
+            .ui-link{
+                text-decoration: underline;
+            }
+        }
     }
 
+    &-content{
+        &-like{
+            font-style: italic;
+            font-weight: 400;
+            font-size: 12px;
+            color:$cDarkSecondary;
+            display: flex;
+            padding: 20px 0;
+            border-top: 1px solid $cGrayPrimary;
+            border-bottom: 1px solid $cGrayPrimary;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 25px;
+            margin-bottom: 40px;
+            margin-top: 40px;
 
-    &__offset{
-        width: 80px;
+            &__count{
+                width: 190px;
+                height: 40px;
+                display: flex;
+                background-color: white;
+                border-radius: 20px;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+                font-weight: 400;
+                font-style: normal;
+                position: relative;
+                line-height: 1;
+
+                .ui-button{
+                    position: absolute;
+                    top: -5px;
+                    right: -25px;
+                }
+            }
+        }
     }
 
+    &-comments{
+        &-item {
+            border-bottom: 0.5px solid $cGrayPrimary;
+            padding-bottom: 24px;
+            &-profile {
+                display: flex;
+                margin-bottom: 20px;
+
+                &__picture {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 60px;
+                }
+
+                &__description {
+                    margin-left: 20px;
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: $cDarkSecondary;
+                    h5 {
+                        margin: 0 0 10px 0;
+                        display: inline-block;
+                        font-size: 18px;
+                        font-weight: 800;
+                        color: $cDarkPrimary
+                    }
+
+                    p {
+                        margin: 0;
+                        color: $cDarkSecondary;
+                        font-weight: 300;
+                        font-size: 12px;
+                        line-height: 1;
+
+                    }
+                }
+            }
+
+            &__text{
+                font-size: 14px;
+                font-weight: 300;
+                color: black;
+                margin-bottom: 20px;
+                p{
+                    margin: 0;
+                }
+            }
+
+            .ui-link{
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 1;
+            }
+
+        }
+
+        &__title {
+            margin: 0 0 25px 0;
+            font-style: normal;
+            font-weight: 800;
+            font-size: 36px;
+            line-height: 43px;
+            letter-spacing: 0.02em;
+        }
+    }
 
 }
 

@@ -16,7 +16,6 @@ import {UserService} from "shared/services";
 export const PCompanyServices = observer(() => {
     return (
         <UiForm className="p-company-services">
-            <div className="p-company-services__header_image"></div>
             <div className="p-company-services__header">
                 <h2>Компания</h2>
             </div>

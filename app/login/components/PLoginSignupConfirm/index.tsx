@@ -20,7 +20,7 @@ export const PLoginSignUpConfirm = observer(() => {
                 <h2>Регистрация</h2>
             </div>
             <span className="p-signup-confirm__subtitle">Напишите свой номер телефона, и мы будем вам напоминать о ближайших поездках</span>
-            <div className="p-signup-confirm-label">
+            <div className="p-signup-confirm__label">
                 <span>Телефон</span>
             </div>
             <div className="p-signup-confirm__input">
@@ -29,16 +29,16 @@ export const PLoginSignUpConfirm = observer(() => {
                     name={'query'}
                 />
             </div>
-            <div className="p-signup-confirm-label">
+            <div className="p-signup-confirm__label">
                 <span>Код подтверждения</span>
-                <span className="p-signup-confirm-label--small">Выслать повторно</span>
+                <span className="p-signup-confirm__label--small">Выслать повторно</span>
             </div>
             <div className="p-signup-confirm__input">
                 <UiInput
                     placeholder='12345'
                     name={'query'}
                 />
-                <div className="p-signup-confirm-label--ufter">
+                <div className="p-signup-confirm__label--ufter">
                     <span>В течение 0:59 секунд придет сообщение на телефон с кодом подтверждения</span>
                 </div>
             </div>

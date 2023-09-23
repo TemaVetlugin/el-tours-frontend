@@ -1,0 +1,19 @@
+.p-credit {
+    color: $cDarkPrimary;
+    background-color: $cGraySecondary;
+
+    &--flex {
+        padding-top: 36px !important;
+        padding-bottom: 100px !important;
+    }
+
+    .ui-typography {
+        p {
+            margin: 0 0 16px 0;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 25px;
+        }
+
+    }
+}
