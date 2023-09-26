@@ -1,10 +1,10 @@
 'use client'
 
 import React from "react";
-import {observer} from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
 
-import {UiButton, UiIcon} from "shared/ui";
-import {COLORS} from "shared/contants";
+import { UiButton, UiIcon } from "shared/ui";
+import { COLORS } from "shared/contants";
 
 import './index.scss';
 

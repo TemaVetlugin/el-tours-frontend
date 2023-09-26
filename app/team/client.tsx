@@ -1,17 +1,17 @@
 'use client';
 
 import React from "react";
-import {observer} from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
 import classnames from "classnames";
 
-import {useAsyncEffect, useCity, useRouter, useSearchParams, useStore} from "shared/hooks";
-import {PaginationModel, WorkerModel} from "shared/models";
-import {workerQuery} from "shared/queries/main";
-import {VmWorker} from "shared/viewmodels";
-import {UiDataBoundary, UiGrid, UiIcon, UiPage, UiSlider} from "shared/ui";
-import {LayoutHeader} from "shared/layout";
-import {ROUTES} from "shared/contants";
-import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
+import { useAsyncEffect, useCity, useRouter, useSearchParams, useStore } from "shared/hooks";
+import { PaginationModel, WorkerModel } from "shared/models";
+import { workerQuery } from "shared/queries/main";
+import { VmWorker } from "shared/viewmodels";
+import { UiDataBoundary, UiGrid, UiIcon, UiPage, UiSlider } from "shared/ui";
+import { LayoutHeader } from "shared/layout";
+import { ROUTES } from "shared/contants";
+import { LayoutHeaderSearch } from "shared/layout/LayoutHeaderSearch";
 
 import './page.scss';
 

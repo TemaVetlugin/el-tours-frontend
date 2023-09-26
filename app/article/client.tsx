@@ -1,17 +1,17 @@
 'use client';
 
 import React from "react";
-import {observer} from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
 
-import {useAsyncEffect, useSearchParams, useStore} from "shared/hooks";
-import {ArticleModel, PaginationModel} from "shared/models";
-import {articlesQuery} from "shared/queries/main";
-import {VmArticle} from "shared/viewmodels";
-import {UiDataBoundary, UiPage} from "shared/ui";
-import {LayoutHeader} from "shared/layout";
-import {ROUTES} from "shared/contants";
-import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
-import {UiCardWrap} from "shared/ui/UiCardsWrap";
+import { useAsyncEffect, useSearchParams, useStore } from "shared/hooks";
+import { ArticleModel, PaginationModel } from "shared/models";
+import { articlesQuery } from "shared/queries/main";
+import { VmArticle } from "shared/viewmodels";
+import { UiDataBoundary, UiPage } from "shared/ui";
+import { LayoutHeader } from "shared/layout";
+import { ROUTES } from "shared/contants";
+import { LayoutHeaderSearch } from "shared/layout/LayoutHeaderSearch";
+import { UiCardWrap } from "shared/ui/UiCardsWrap";
 
 import './page.scss';
 
@@ -54,7 +54,7 @@ export const Client = observer(() => {
                     <UiCardWrap className={"p-articles-card__wrap"}>
                         {store.articles.map((article) =>
                             <VmArticle key={article.id}
-                                    article={article}
+                                       article={article}
                             />)}
                     </UiCardWrap>
                 </UiDataBoundary>

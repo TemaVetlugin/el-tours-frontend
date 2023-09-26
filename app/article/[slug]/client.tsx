@@ -1,20 +1,20 @@
 'use client';
 
 import React from "react";
-import {UiButton, UiDataBoundary, UiIcon, UiLink, UiPage, UiTypography} from "shared/ui";
-import {observer} from "mobx-react-lite";
+import { UiButton, UiDataBoundary, UiIcon, UiLink, UiPage, UiTypography } from "shared/ui";
+import { observer } from "mobx-react-lite";
 
-import {useAsyncEffect, useRouter, useStore} from "shared/hooks";
-import {ArticleModel} from "shared/models";
-import {COLORS, ROUTES} from "shared/contants";
-import {PBlogMediasAside} from "./components/PBlogMediasAside";
-import {PBlogFormAside} from "./components/PBlogFormAside";
-import {PBlogCommentForm} from "./components/PBlogCommentForm";
-import {articlesGetQuery} from "shared/queries/main";
-import {LayoutHeader} from "shared/layout";
-import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
-import {html} from "shared/utilities";
-import {UserService} from "shared/services";
+import { useAsyncEffect, useRouter, useStore } from "shared/hooks";
+import { ArticleModel } from "shared/models";
+import { COLORS, ROUTES } from "shared/contants";
+import { PBlogMediasAside } from "./components/PBlogMediasAside";
+import { PBlogFormAside } from "./components/PBlogFormAside";
+import { PBlogCommentForm } from "./components/PBlogCommentForm";
+import { articlesGetQuery } from "shared/queries/main";
+import { LayoutHeader } from "shared/layout";
+import { LayoutHeaderSearch } from "shared/layout/LayoutHeaderSearch";
+import { html } from "shared/utilities";
+import { UserService } from "shared/services";
 
 type PropsType = {
     slug: string
@@ -110,10 +110,10 @@ export const Client = observer(({slug}: PropsType
                     </UiDataBoundary>
                 </UiPage.Main>
                 <UiPage.Aside>
-                <PBlogFormAside/>
+                    <PBlogFormAside/>
                 </UiPage.Aside>
             </UiPage.Wrap>
-            <UiPage.Wrap template={'aside'} className="p-article-body" >
+            <UiPage.Wrap template={'aside'} className="p-article-body">
 
                 <UiPage.Main>
                     <div className="p-article-comments">
@@ -128,7 +128,8 @@ export const Client = observer(({slug}: PropsType
                                 </div>
                             </div>
                             <div className="p-article-comments-item__text">
-                                <p>Irishka Traveler, а как туда добраться на машине? От границы Беларуси ехать около часа на машине. Построить маршрут можете через наш сервис "Маршруты" и заодно
+                                <p>Irishka Traveler, а как туда добраться на машине? От границы Беларуси ехать около часа на машине. Построить маршрут можете через наш сервис
+                                    "Маршруты" и заодно
                                     достопримечательности на маршруте подобрать. http://traveljay.ru/marshruti</p>
                             </div>
                             <UiLink>Ответить</UiLink>

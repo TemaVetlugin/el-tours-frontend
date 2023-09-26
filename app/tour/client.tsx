@@ -1,23 +1,16 @@
 'use client';
 
 import React from "react";
-import {observer} from "mobx-react-lite";
-import {useAsyncEffect, useCity, useRouter, useSearchParams, useStore} from "shared/hooks";
-import {ArticleModel, CatalogProductModel, PaginationModel} from "shared/models";
-import {articlesQuery} from "shared/queries/main";
-import {VmArticle} from "shared/viewmodels";
-import {UiButton, UiDataBoundary, UiForm, UiGrid, UiIcon, UiInput, UiLightbox, UiLink, UiPage, UiSlider, UiTypography} from "shared/ui";
+import { observer } from "mobx-react-lite";
+import { useAsyncEffect, useCity, useRouter, useSearchParams, useStore } from "shared/hooks";
+import { ArticleModel, PaginationModel } from "shared/models";
+import { articlesQuery } from "shared/queries/main";
+import { UiPage } from "shared/ui";
 
 import './page.scss';
-import {LayoutHeader} from "shared/layout";
-import {COLORS, ROUTES} from "shared/contants";
-import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
-import classnames from "classnames";
-import playImage from "../product/[slug]/assets/play.svg";
-import {UserService} from "shared/services";
-import {PVisaManager} from "./components/PVisaManager";
-import {PVisaCountries} from "./components/PVisaCountries";
-import {PVisaServices} from "./components/PVisaServices";
+import { LayoutHeader } from "shared/layout";
+import { ROUTES } from "shared/contants";
+import { LayoutHeaderSearch } from "shared/layout/LayoutHeaderSearch";
 
 export const Client = observer(() => {
     const city = useCity();
@@ -70,17 +63,10 @@ export const Client = observer(() => {
                 <LayoutHeaderSearch/>
             </LayoutHeader>
             <UiPage.Header
-                items={[ROUTES.VISA()]}
+                backTo={ROUTES.VISA()}
                 title={'Выберите тур в Грецию'}
-                price={'от 12 330 ₽'}
                 subtitle={'Шенгенские визы, мультивизы, приглашение для иностранцев'}
-
             />
-
-
-
-
-
         </UiPage>
     )
 });
