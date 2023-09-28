@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useCity, useDidUpdateEffect } from "shared/hooks";
 import { bootQuery } from "shared/queries/frontend/boot.query";
 
-import { CatalogService, ContentResourceService,  CityService } from "shared/services";
+import { ContentResourceService,  CityService } from "shared/services";
 import { UserService } from "shared/services/User.service";
 import { ReturnType } from "shared/types";
 
@@ -29,7 +29,6 @@ export const Boot = ({ cityId, data }: PropsType) => {
     useConstructor(() => {
         ContentResourceService.boot(data);
         CityService.boot({cityId, ...data});
-        CatalogService.boot(data);
     });
 
     useEffect(() => {
@@ -54,7 +53,6 @@ const BootHydrate = () => {
             });
             if (data && isSuccess) {
                 ContentResourceService.boot(data);
-                CatalogService.boot(data);
             }
         })();
     }, [city]);

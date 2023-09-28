@@ -2,12 +2,11 @@ import { makeAutoObservable, runInAction } from "mobx";
 
 import { UserModel } from "shared/models";
 import { Cache } from "shared/utilities/client";
-import { userFavoriteToggleQuery, usersBootQuery } from "shared/queries/main";
+import { usersBootQuery } from "shared/queries/main";
 import { retryQuery } from "shared/queries/utilities";
 
 import { LocationService } from "./Location.service";
 import { AppService } from "./App.service";
-import { CartService } from "./Cart.service";
 
 import { makeService } from "./utilities/makeService";
 
@@ -41,9 +40,6 @@ export const UserService = makeService(class {
                 if (data.item.cityId) {
                     LocationService.setCity(data.item.cityId)
                 }
-                CartService.boot({
-                    cityId: LocationService.city.id
-                });
             });
         }
         runInAction(() => {
@@ -91,14 +87,5 @@ export const UserService = makeService(class {
                     }
                 ]
         });
-
-        const { isSuccess, data } = await userFavoriteToggleQuery({
-            catalogProductId
-        });
-        if (isSuccess && data) {
-            this.user.update({
-                userFavorites: data.items
-            });
-        }
     }
 });
