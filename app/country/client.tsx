@@ -1,16 +1,16 @@
 'use client';
 
 import React from "react";
-import {observer} from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
 
-import {useSearchParams, useStore} from "shared/hooks";
-import {ArticleModel, PaginationModel} from "shared/models";
-import {UiButton, UiForm, UiIcon, UiInput, UiLink, UiPage, UiSelect} from "shared/ui";
-import {LayoutHeader} from "shared/layout";
-import {COLORS, ROUTES} from "shared/contants";
-import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
-import {UiCardWrap} from "shared/ui/UiCardsWrap";
-import {VmCountry} from "shared/viewmodels/VmCountry";
+import { useSearchParams, useStore } from "shared/hooks";
+import { ArticleModel, PaginationModel } from "shared/models";
+import { UiButton, UiForm, UiIcon, UiInput, UiLink, UiPage, UiSelect } from "shared/ui";
+import { LayoutHeader } from "shared/layout";
+import { COLORS, ROUTES } from "shared/contants";
+import { LayoutHeaderSearch } from "shared/layout/LayoutHeaderSearch";
+import { UiCardWrap } from "shared/ui/UiCardsWrap";
+import { VmCountry } from "shared/viewmodels/VmCountry";
 
 export const Client = observer(() => {
     const store = useStore({

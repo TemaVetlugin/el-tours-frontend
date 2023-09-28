@@ -1,16 +1,16 @@
 'use client';
 
 import React from "react";
-import {observer} from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
 
-import {useSearchParams, useStore} from "shared/hooks";
-import {UiPage, UiTypography} from "shared/ui";
-import {LayoutHeader} from "shared/layout";
-import {ROUTES} from "shared/contants";
-import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
-import {PageModel} from "shared/models";
-import {PCreditServices} from "./components/PCreditServices";
-import {PCreditCalculator} from "./components/PCreditCalculator";
+import { useSearchParams, useStore } from "shared/hooks";
+import { UiPage, UiTypography } from "shared/ui";
+import { LayoutHeader } from "shared/layout";
+import { ROUTES } from "shared/contants";
+import { LayoutHeaderSearch } from "shared/layout/LayoutHeaderSearch";
+import { PageModel } from "shared/models";
+import { PCreditServices } from "./components/PCreditServices";
+import { PCreditCalculator } from "./components/PCreditCalculator";
 
 
 export const Client = observer(() => {

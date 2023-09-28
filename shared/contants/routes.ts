@@ -59,4 +59,9 @@ export const ROUTES = {
         name: 'Рассрочка и кредит',
         url: '/credit',
     }),
+    NOT_FOUND: (): RouteType => ({
+        id: 'NOT_FOUND',
+        name: 'Не найдено',
+        url: '/not-found',
+    }),
 };

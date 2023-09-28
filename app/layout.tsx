@@ -1,20 +1,20 @@
 import Script from "next/script";
 import React from "react";
-import { configure } from "mobx";
-import { Metadata } from "next";
+import {configure} from "mobx";
+import {Metadata} from "next";
 
 
-import { bootQuery } from "shared/queries/frontend";
-import { Cache } from "shared/utilities/server";
-import { LayoutFooter, LayoutHeader, LayoutCookie, LayoutFooterForm } from "shared/layout";
-import { getCity } from "shared/server";
+import {bootQuery} from "shared/queries/frontend";
+import {Cache} from "shared/utilities/server";
+import {LayoutFooter, LayoutHeader, LayoutCookie, LayoutFooterForm} from "shared/layout";
+import {getCity} from "shared/server";
 
-import { Boot } from "./boot";
-import { StylesRegistry } from "./styles-registry";
+import {Boot} from "./boot";
+import {StylesRegistry} from "./styles-registry";
 
 import 'shared/styles/index.scss';
 
-configure({ enforceActions: "always" })
+configure({enforceActions: "always"})
 
 type PropsType = {
     children: React.ReactNode
@@ -26,9 +26,9 @@ export async function generateMetadata(): Promise<Metadata> {
     };
 }
 
-export default async function Layout({ children }: PropsType) {
+export default async function Layout({children}: PropsType) {
     const city = await getCity();
-    const { data, description } = await Cache.remember(
+    const {data, description} = await Cache.remember(
         `bootQuery:${city.id}`,
         async () => await bootQuery({
             cityId: city.id
@@ -36,11 +36,11 @@ export default async function Layout({ children }: PropsType) {
     );
     return (
         <html lang='ru'>
-            <StylesRegistry>
-                <head>
-                    <link rel="shortcut icon" type="image/png" href="/assets/favicon.ico"/>
-                    <Script id={'talkme'}>
-                        {`
+        <StylesRegistry>
+            <head>
+                <link rel="shortcut icon" type="image/png" href="/assets/favicon.ico"/>
+                <Script id={'talkme'}>
+                    {`
                             (function(){(function c(d,w,m,i) {
                                 window.supportAPIMethod = m;
                                 var s = d.createElement('script');
@@ -52,27 +52,18 @@ export default async function Layout({ children }: PropsType) {
                                 (d.head ? d.head : d.body).appendChild(s);
                             })(document,window,'TalkMe')})();
                         `}
-                    </Script>
-                </head>
-                <body>
-                    <Boot
-                        cityId={city.id}
-                        contentResources={data?.contentResources || []}
-                        cities={data?.cities || []}
-                        regions={data?.regions || []}
-                        headerMenuItems={data?.headerMenuItems || []}
-                        footerMenuItems={data?.footerMenuItems || []}
-                        footerBanners={data?.footerBanners || []}
-                        searchPrompts={data?.searchPrompts || []}
-                        compilations={data?.compilations || []}
-                        catalogCategories={data?.catalogCategories || []}
-                    />
-                    {children}
-                    <LayoutFooterForm/>
-                    <LayoutFooter/>
-                    <LayoutCookie/>
-                </body>
-            </StylesRegistry>
+                </Script>
+            </head>
+            <body>
+            <Boot
+                cityId={city.id}
+            />
+            {children}
+            <LayoutFooterForm/>
+            <LayoutFooter/>
+            <LayoutCookie/>
+            </body>
+        </StylesRegistry>
         </html>
     )
 }

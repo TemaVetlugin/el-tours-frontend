@@ -13,7 +13,7 @@ enableStaticRendering(typeof window === "undefined");
 
 type PropsType = {
     cityId: number,
-    data:  ReturnType<typeof bootQuery>['data']
+    data?:  ReturnType<typeof bootQuery>['data']
 }
 
 const useConstructor = (callBack = () => {}): void => {

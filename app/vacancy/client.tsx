@@ -1,19 +1,19 @@
 'use client';
 
 import React from "react";
-import {observer} from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
 
-import {useAsyncEffect, useCity, useSearchParams, useStore} from "shared/hooks";
-import {PaginationModel, VacancyModel} from "shared/models";
-import {vacancyQuery} from "shared/queries/main";
-import {UiDataBoundary, UiPage} from "shared/ui";
-import {LayoutHeader} from "shared/layout";
-import {PVacancyFormAside} from "./components/PVacancyFormAside";
-import {PVacancyForm} from "./components/PVacancyForm";
-import {PVacancyDescription} from "./components/PVacancyDescription";
-import {VmVacancy} from "shared/viewmodels";
-import {ROUTES} from "shared/contants";
-import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
+import { useAsyncEffect, useCity, useSearchParams, useStore } from "shared/hooks";
+import { PaginationModel, VacancyModel } from "shared/models";
+import { vacancyQuery } from "shared/queries/main";
+import { UiDataBoundary, UiPage } from "shared/ui";
+import { LayoutHeader } from "shared/layout";
+import { PVacancyFormAside } from "./components/PVacancyFormAside";
+import { PVacancyForm } from "./components/PVacancyForm";
+import { PVacancyDescription } from "./components/PVacancyDescription";
+import { VmVacancy } from "shared/viewmodels";
+import { ROUTES } from "shared/contants";
+import { LayoutHeaderSearch } from "shared/layout/LayoutHeaderSearch";
 
 export const Client = observer(() => {
     const city = useCity();

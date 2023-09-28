@@ -2,8 +2,8 @@
 
 import { observer } from "mobx-react-lite";
 import React, { useEffect } from "react";
-import {COLORS, ROUTES} from "shared/contants";
-import { useCity, useDebouncedCallback, useStore, useRouter, useSearchParams } from "shared/hooks";
+import { COLORS, ROUTES } from "shared/contants";
+import { useCity, useDebouncedCallback, useRouter, useSearchParams, useStore } from "shared/hooks";
 import { searchHintsQuery } from "shared/queries/main";
 import { AppService } from "shared/services";
 import { ReturnType, UrlType } from "shared/types";

@@ -1,18 +1,18 @@
 'use client';
 
 import React from "react";
-import {observer} from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
 
-import {UiPage, UiTypography} from "shared/ui";
-import {useAsyncEffect, useRouter, useStore} from "shared/hooks";
-import {VacancyModel} from "shared/models";
-import {vacancyGetQuery} from "shared/queries/main";
-import {PVacancyFormAside} from "../components/PVacancyFormAside";
-import {PVacancyForm} from "../components/PVacancyForm";
-import {LayoutHeader} from "shared/layout";
-import {html} from "shared/utilities";
-import {ROUTES} from "shared/contants";
-import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
+import { UiPage, UiTypography } from "shared/ui";
+import { useAsyncEffect, useRouter, useStore } from "shared/hooks";
+import { VacancyModel } from "shared/models";
+import { vacancyGetQuery } from "shared/queries/main";
+import { PVacancyFormAside } from "../components/PVacancyFormAside";
+import { PVacancyForm } from "../components/PVacancyForm";
+import { LayoutHeader } from "shared/layout";
+import { html } from "shared/utilities";
+import { ROUTES } from "shared/contants";
+import { LayoutHeaderSearch } from "shared/layout/LayoutHeaderSearch";
 
 
 type PropsType = {

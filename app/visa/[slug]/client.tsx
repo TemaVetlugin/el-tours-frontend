@@ -1,20 +1,20 @@
 'use client';
 
 import React from "react";
-import {observer} from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
 
-import {useAsyncEffect, useCity, useRouter, useSearchParams, useStore} from "shared/hooks";
-import {ArticleModel, PaginationModel} from "shared/models";
-import {articlesQuery} from "shared/queries/main";
-import {UiButton, UiForm, UiIcon, UiInput, UiLightbox, UiPage, UiSlider, UiTypography} from "shared/ui";
-import {LayoutHeader} from "shared/layout";
-import {COLORS, ROUTES} from "shared/contants";
-import {LayoutHeaderSearch} from "shared/layout/LayoutHeaderSearch";
+import { useAsyncEffect, useCity, useRouter, useSearchParams, useStore } from "shared/hooks";
+import { ArticleModel, PaginationModel } from "shared/models";
+import { articlesQuery } from "shared/queries/main";
+import { UiButton, UiForm, UiIcon, UiInput, UiLightbox, UiPage, UiSlider, UiTypography } from "shared/ui";
+import { LayoutHeader } from "shared/layout";
+import { COLORS, ROUTES } from "shared/contants";
+import { LayoutHeaderSearch } from "shared/layout/LayoutHeaderSearch";
 import classnames from "classnames";
-import {UserService} from "shared/services";
-import {PVisaManager} from "./components/PVisaManager";
-import {PVisaCountries} from "./components/PVisaCountries";
-import {PVisaServices} from "./components/PVisaServices";
+import { UserService } from "shared/services";
+import { PVisaManager } from "./components/PVisaManager";
+import { PVisaCountries } from "./components/PVisaCountries";
+import { PVisaServices } from "./components/PVisaServices";
 
 import './page.scss';
 

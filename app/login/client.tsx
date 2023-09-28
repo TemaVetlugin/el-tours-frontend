@@ -1,10 +1,10 @@
 'use client';
 
 import React from "react";
-import {observer} from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
 
-import {UiPage, UiTypography} from "shared/ui";
-import {PLoginSignUpConfirm} from "./components/PLoginSignupConfirm";
+import { UiPage, UiTypography } from "shared/ui";
+import { PLoginSignUpConfirm } from "./components/PLoginSignupConfirm";
 
 import './page.scss';
 

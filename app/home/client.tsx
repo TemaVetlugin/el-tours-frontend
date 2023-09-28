@@ -1,18 +1,18 @@
 'use client';
 
 import React from "react";
-import {UiButton, UiForm, UiIcon, UiInput, UiLink, UiPage, UiSelect, UiSlider} from "shared/ui";
+import { UiButton, UiForm, UiIcon, UiInput, UiLink, UiPage, UiSelect, UiSlider } from "shared/ui";
 import classnames from "classnames";
-import {observer} from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
 
-import {homeQuery} from "shared/queries/frontend";
-import {ReturnType} from "shared/types";
-import {useCity} from "shared/hooks";
-import {COLORS} from "shared/contants";
-import {LayoutHeader} from "shared/layout";
-import {UserService} from "shared/services";
-import {UiCardWrap} from "shared/ui/UiCardsWrap";
-import {VmTour} from "shared/viewmodels/VmTour";
+import { homeQuery } from "shared/queries/frontend";
+import { ReturnType } from "shared/types";
+import { useCity } from "shared/hooks";
+import { COLORS } from "shared/contants";
+import { LayoutHeader } from "shared/layout";
+import { UserService } from "shared/services";
+import { UiCardWrap } from "shared/ui/UiCardsWrap";
+import { VmTour } from "shared/viewmodels/VmTour";
 
 type PropsType = NonNullable<ReturnType<typeof homeQuery>['data']>;
 export const Client = observer((
