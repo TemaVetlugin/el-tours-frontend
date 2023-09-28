@@ -191,8 +191,8 @@ export const Client = observer(() => {
 
             {store.renderWorkers3.length>0&&
                 <UiPage.Wrap className="p-team-group">
-                    <h2 className="p-team__title">Руководители офисов</h2>
-                    <span className="p-team__subtitle">Основатели проекта el-tours.ru, которые верят в него и вкладывают душу</span>
+                    <h2 className="p-team__title">Эксперты по туризму</h2>
+                    <span className="p-team__subtitle">Наши консультанты по туризму, которые исколесили весь мир и которые помогут Вам отправиться в путешествие!</span>
 
                     <UiDataBoundary isLoading={store.isLoading} withShallow>
                         {store.renderWorkers3.length<=4 &&
@@ -256,8 +256,8 @@ export const Client = observer(() => {
 
             {store.renderWorkers4.length>0&&
                 <UiPage.Wrap className="p-team-group">
-                    <h2 className="p-team__title">Руководители офисов</h2>
-                    <span className="p-team__subtitle">Основатели проекта el-tours.ru, которые верят в него и вкладывают душу</span>
+                    <h2 className="p-team__title">Другие сотрудники</h2>
+                    <span className="p-team__subtitle">Помогут вам отправиться в путешествие!</span>
                     <UiDataBoundary isLoading={store.isLoading} withShallow>
                         {store.renderWorkers4.length<=4 &&
                             <UiGrid columns={4} gap={5}>
