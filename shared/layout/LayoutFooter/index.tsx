@@ -7,8 +7,10 @@ import {COLORS} from "shared/contants";
 import {UiButton, UiForm, UiIcon, UiInput, UiLink, UiPage} from "shared/ui";
 
 import './index.scss';
+import { AppService } from "shared/services";
 
 export const LayoutFooter = observer(() => {
+    console.log(AppService.footerMenuItems);
     return (
         <div className="layout-footer">
             <UiPage.Wrap>
@@ -98,9 +100,7 @@ export const LayoutFooter = observer(() => {
                     </div>
                 </div>
             </UiPage.Wrap>
-                <div className="layout-footer__wrap">
-
-                <UiPage.Wrap>
+                <UiPage.Wrap className="layout-footer__wrap">
                     <div className="layout-footer-topics">
                         <div className="layout-footer-topics-logo">
                             <div className="layout-footer-topics-logo__image"></div>
@@ -126,242 +126,21 @@ export const LayoutFooter = observer(() => {
                             </div>
                         </div>
 
-                        <div className="layout-footer-topics-column">
-                            <div className="layout-footer-topics-column__header">
-                                <span className="layout-footer__text">Продукты</span>
-                            </div>
-                            <div className="layout-footer-topics-column__list">
-                                <li>
-                                    <UiLink>Авиабилеты</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Туры</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Отели</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Отель + Перелет</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Аренда авто</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Круизы</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Аренда недвижимости</UiLink>
-                                </li>
-                            </div>
-                        </div>
-                        <div className="layout-footer-topics-column">
-                            <div className="layout-footer-topics-column__header">
-                                <span className="layout-footer__text">Туры</span>
-                            </div>
-                            <div className="layout-footer-topics-column__list">
-                                <li>
-                                    <UiLink>Туры с споровождением</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Горящие туры</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Свадебные туры</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Детские лагеря</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Корпоративные туры</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Автобусные туры</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Классические туры</UiLink>
-                                </li>
-                            </div>
-                        </div>
-                        <div className="layout-footer-topics-column">
-                            <div className="layout-footer-topics-column__header">
-                                <span className="layout-footer__text">Туристам</span>
-                            </div>
-                            <div className="layout-footer-topics-column__list">
-                                <li>
-                                    <UiLink>Оплата</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Оформление визы</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Поиск пары в тур</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Рассрочка и кредит</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Страхование</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Сим-карты</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Подарочный сертификат</UiLink>
-                                </li>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="layout-footer-topics">
-                        <div className="layout-footer-topics-column">
-                            <div className="layout-footer-topics-column__header">
-                                <span className="layout-footer__text">О компании</span>
-                            </div>
-                            <div className="layout-footer-topics-column__list">
-                                <li>
-                                    <UiLink>Сотрудники</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Достижения</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Вакансии</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Отзывы туристов</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Блог</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Контакты</UiLink>
-                                </li>
-                            </div>
-                        </div>
-                        <div className="layout-footer-topics-column">
-                            <div className="layout-footer-topics-column__header">
-                                <span className="layout-footer__text">Страны</span>
-                            </div>
-                            <div className="layout-footer-topics-column__list">
-                                <li>
-                                    <UiLink>Россия</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Египет</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Турция</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Вьетнам</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Израиль</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Индия</UiLink>
-                                </li>
-                            </div>
-                        </div>
-                        <div className="layout-footer-topics-column">
-                            <div className="layout-footer-topics-column__header">
-                            </div>
-                            <div className="layout-footer-topics-column__list">
-                                <li>
-                                    <UiLink>Россия</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Египет</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Турция</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Вьетнам</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Израиль</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Индия</UiLink>
-                                </li>
-                            </div>
-                        </div>
-                        <div className="layout-footer-topics-column">
-                            <div className="layout-footer-topics-column__header">
-                            </div>
-                            <div className="layout-footer-topics-column__list">
-                                <li>
-                                    <UiLink>Россия</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Египет</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Турция</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Вьетнам</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Израиль</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Индия</UiLink>
-                                </li>
-                            </div>
-                        </div>
-                        <div className="layout-footer-topics-column">
-                            <div className="layout-footer-topics-column__header">
 
-                            </div>
-                            <ul className="layout-footer-topics-column__list">
-                                <li><UiLink>Россия</UiLink></li>
-                                <li>
-                                    <UiLink>Египет</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Турция</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Вьетнам</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Израиль</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Индия</UiLink>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="layout-footer-topics-column">
+                        {AppService.footerMenuSections.map(title=>
+                        <div key={title.id} className="layout-footer-topics-column">
                             <div className="layout-footer-topics-column__header">
-
+                                <span className="layout-footer__text">{title.name}</span>
                             </div>
                             <div className="layout-footer-topics-column__list">
-                                <li>
-                                    <UiLink>Россия</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Египет</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Турция</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Вьетнам</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Израиль</UiLink>
-                                </li>
-                                <li>
-                                    <UiLink>Индия</UiLink>
-                                </li>
+                            {AppService.footerMenuItems.filter(item=>item.footerMenuSectionId===title.id).map(link=>
+                                    <UiLink key={link.id} >{link.name}</UiLink>
+                            )}
                             </div>
-                        </div>
+                        </div>)}
                     </div>
                 </UiPage.Wrap>
 
-                </div>
             <div className="layout-footer-end">
                 <span>© 2023, «Эль-Тур»</span>
             </div>

@@ -42,9 +42,6 @@ export const VmWorker = observer(({item, name, template = 'base'}: PropsType) =>
             </div>
             <div className="vm-worker__medias">
                 <UiButton
-                    onClick={() => {
-                    }}
-                    notification={UserService.user.userFavorites.length}
                     template={'icon'}
                     colors={{
                         button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
@@ -55,9 +52,6 @@ export const VmWorker = observer(({item, name, template = 'base'}: PropsType) =>
                     <UiIcon size={18} name={'vk'} color={COLORS.GREEN_PRIMARY}/>
                 </UiButton>
                 <UiButton
-                    onClick={() => {
-                    }}
-                    notification={UserService.user.userFavorites.length}
                     template={'icon'}
                     colors={{
                         button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
@@ -68,9 +62,6 @@ export const VmWorker = observer(({item, name, template = 'base'}: PropsType) =>
                     <UiIcon size={18} name={'telegram'} color={COLORS.GREEN_PRIMARY}/>
                 </UiButton>
                 <UiButton
-                    onClick={() => {
-                    }}
-                    notification={UserService.user.userFavorites.length}
                     template={'icon'}
                     colors={{
                         button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
@@ -81,9 +72,6 @@ export const VmWorker = observer(({item, name, template = 'base'}: PropsType) =>
                     <UiIcon size={18} name={'whatsapp'} color={COLORS.GREEN_PRIMARY}/>
                 </UiButton>
                 <UiButton
-                    onClick={() => {
-                    }}
-                    notification={UserService.user.userFavorites.length}
                     template={'icon'}
                     colors={{
                         button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],

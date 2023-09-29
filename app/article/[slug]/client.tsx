@@ -94,7 +94,6 @@ export const Client = observer(({slug}: PropsType
                                 <div className="p-article-content-like__count">
                                     <p>Понравилось: 283</p>
                                     <UiButton
-                                        notification={UserService.user.userFavorites.length}
                                         template={'icon'}
                                         colors={{
                                             button: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],

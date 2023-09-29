@@ -28,10 +28,9 @@
         padding: 0 30px;
         display: flex;
         flex-wrap: wrap;
-        row-gap: 80px;
+        gap: 80px 160px;
 
         &-column {
-            margin-right: 159px;
             min-width: 180px;
             max-width: 185px;
 
@@ -47,7 +46,8 @@
                 list-style: none;
                 padding: 0;
 
-                li {
+                .ui-link {
+                    display: block;
                     padding-left: 20px;
                     position: relative;
                     margin-bottom: 17px;

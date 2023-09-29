@@ -48,6 +48,11 @@
         transition: 0.2s;
         overflow: hidden;
 
+        .ui-link{
+            width: 100%;
+            display: block;
+        }
+
         &:hover {
             background: $cLightBlue;
             color: $cGreenPrimary;

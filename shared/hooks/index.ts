@@ -1,7 +1,6 @@
 export { useAction } from './useAction';
 export { useAsyncEffect } from './useAsyncEffect';
 export { useCity } from './useCity';
-export { useContentResource } from './useContentResource';
 export { useDebouncedCallback } from './useDebouncedCallback';
 export { useDebouncedValue } from './useDebouncedValue';
 export { useDidUpdateEffect } from './useDidUpdateEffect';

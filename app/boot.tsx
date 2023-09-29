@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useCity, useDidUpdateEffect } from "shared/hooks";
 import { bootQuery } from "shared/queries/frontend/boot.query";
 
-import { ContentResourceService,  CityService } from "shared/services";
+import { AppService, CityService } from "shared/services";
 import { UserService } from "shared/services/User.service";
 import { ReturnType } from "shared/types";
 
@@ -27,11 +27,12 @@ const useConstructor = (callBack = () => {}): void => {
 
 export const Boot = ({ cityId, data }: PropsType) => {
     useConstructor(() => {
-        ContentResourceService.boot(data);
+        AppService.boot(data);
         CityService.boot({cityId, ...data});
     });
 
     useEffect(() => {
+        AppService.boot(data);
         UserService.boot();
     }, []);
 
@@ -47,12 +48,10 @@ const BootHydrate = () => {
     const city = useCity();
     useDidUpdateEffect(() => {
         (async () => {
-            const { data, isSuccess } = await bootQuery({
-                cityId: city.id,
-                isHydrate: true
-            });
+            const { data, isSuccess } = await bootQuery();
             if (data && isSuccess) {
-                ContentResourceService.boot(data);
+                AppService.boot(data);
+                console.log(AppService);
             }
         })();
     }, [city]);

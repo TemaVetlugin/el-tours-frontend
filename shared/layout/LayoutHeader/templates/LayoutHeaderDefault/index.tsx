@@ -7,7 +7,7 @@ import React, {useEffect} from "react";
 import {COLORS, ROUTES} from "shared/contants";
 import {useRouter, useUser} from "shared/hooks";
 import {AppService, UserService} from "shared/services";
-import {UiButton, UiIcon, UiLink, UiWrap} from "shared/ui";
+import { UiButton, UiDropdown, UiIcon, UiLink, UiWrap } from "shared/ui";
 import {LayoutHeaderPhone} from "../../../LayoutHeaderPhone";
 import {LayoutHeaderLogin} from "../../../LayoutHeaderLogin";
 import {LayoutMenu} from "shared/layout/LayoutMenu";
@@ -30,7 +30,6 @@ export const LayoutHeaderDefault = observer(({children}: PropsType) => {
         }
         handleMinified();
         window.addEventListener('scroll', handleMinified);
-
         return () => window.removeEventListener('scroll', handleMinified)
     }, []);
     return (
@@ -56,14 +55,16 @@ export const LayoutHeaderDefault = observer(({children}: PropsType) => {
                 </UiButton>
 
                 <div className="layout-header-default-actions">
-                    <UiLink href={ROUTES.ARTICLES()} className="layout-header-default-actions__info">
-                        <span>Услуги</span>
-                        <UiIcon size={12} name={'arrowDown'}/>
-                    </UiLink>
-                    <UiLink href={ROUTES.HOME()} className="layout-header-default-actions__info">
-                        <span>Информация</span>
-                        <UiIcon size={12} name={'arrowDown'}/>
-                    </UiLink>
+                    {AppService.headerMenuSections.map((headerMenuSections) => (
+
+                        <UiDropdown  key={headerMenuSections.id} className="layout-header-default-actions__info"
+                        items={AppService.headerMenuItems.filter(item=>item.headerMenuSectionId===headerMenuSections.id)}
+                        itemLabel={(item)=><UiLink href={item.href}>{item.name}</UiLink>}>
+                            <span>{headerMenuSections.name}</span>
+                            <UiIcon size={12} name={'arrowDown'}/>
+                        </UiDropdown>
+
+                    ))}
 
                     {!user.isAuthorized && (
                         <LayoutHeaderLogin/>

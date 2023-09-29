@@ -1,43 +1,30 @@
 import {
-    CatalogCategoryModelInterface,
-    CityModelInterface,
-    CompilationModelInterface,
-    ContentResourceModelInterface,
-    FooterBannerModelInterface,
     FooterMenuItemModelInterface,
     HeaderMenuItemModelInterface,
-    RegionModelInterface,
+    HeaderMenuSectionModelInterface,
     SearchPromptModelInterface,
 } from "shared/models"
 
 import { makeQuery } from "../utilities";
 
-type RequestType = {
-    cityId: number,
-    isHydrate?: boolean
-}
+// type RequestType = {
+//     cityId: number,
+//     isHydrate?: boolean
+// }
 
 type ResponseType = {
-    regions?: RegionModelInterface[],
-    cities?: CityModelInterface[],
+    // regions?: RegionModelInterface[],
+    // cities?: CityModelInterface[],
     headerMenuItems?: HeaderMenuItemModelInterface[],
+    headerMenuSections?: HeaderMenuSectionModelInterface[],
     footerMenuItems?: FooterMenuItemModelInterface[],
-    footerBanners?: FooterBannerModelInterface[],
+    footerMenuSections?: HeaderMenuSectionModelInterface[],
     searchPrompts?: SearchPromptModelInterface[],
-    compilations?: CompilationModelInterface[],
-    contentResources?: ContentResourceModelInterface[],
-    catalogCategories?: CatalogCategoryModelInterface[],
-    subheader?: {
-        new: boolean,
-        discount: boolean,
-        promoActions: boolean,
-    }
 }
 
-export const bootQuery = async (params: RequestType) => {
+export const bootQuery = async () => {
     return await makeQuery<ResponseType>("GET", {
         endpoint: '/frontend/boot',
-        params
     });
 }
 

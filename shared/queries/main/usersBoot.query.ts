@@ -1,4 +1,4 @@
-import { CartItemModelInterface, UserModelInterface } from "shared/models";
+import { UserModelInterface } from "shared/models";
 
 import { makeQuery } from "../utilities";
 
@@ -9,7 +9,6 @@ type RequestType = {
 export type ResponseType = {
     accessToken: string,
     item: UserModelInterface,
-    cartItems: CartItemModelInterface[],
 }
 
 export const usersBootQuery = async ({ accessToken }: RequestType) => {

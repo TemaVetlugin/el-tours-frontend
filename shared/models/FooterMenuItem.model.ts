@@ -1,43 +1,42 @@
 import { computed, makeObservable, observable } from "mobx";
-import { FooterMenuItemTypeEnum } from "shared/enums";
 
 import { Model } from "./Model";
 
 export interface FooterMenuItemModelInterface {
     id?: number;
-    typeId?: string,
+    footerMenuSectionId?: number;
+    sort?: number,
     name?: string;
-    url?: string;
+    href?: string;
 }
 
 export class FooterMenuItemModel extends Model<FooterMenuItemModelInterface> implements FooterMenuItemModelInterface {
     fillable: Array<keyof FooterMenuItemModelInterface> = [
         "id",
-        "typeId",
+        "footerMenuSectionId",
+        "sort",
         "name",
-        "url"
+        "href"
     ];
 
     id = 0;
+    footerMenuSectionId = 0;
     name = '';
-    typeId = '';
-    url = '';
+    sort = 0;
+    href = '';
 
     constructor(payload?: FooterMenuItemModelInterface) {
         super();
 
         makeObservable(this, {
             id: observable,
-            typeId: observable,
+            footerMenuSectionId: observable,
+            sort: observable,
             name: observable,
-            url: observable,
-            type: computed
+            href: observable,
         });
 
         this.update(payload);
     }
 
-    get type() {
-        return FooterMenuItemTypeEnum.from(this.typeId);
-    }
 }

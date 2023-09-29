@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 
-import { FooterBannerModel, FooterMenuItemModel, HeaderMenuItemModel, SearchPromptModel} from "shared/models";
+import { FooterMenuItemModel, FooterMenuSectionModel, HeaderMenuItemModel, HeaderMenuSectionModel, SearchPromptModel } from "shared/models";
 import { bootQuery } from "shared/queries/frontend";
 import { ReturnType } from "shared/types";
 
@@ -8,14 +8,10 @@ import { makeService } from "./utilities/makeService";
 
 export const AppService = makeService(class {
     headerMenuItems: HeaderMenuItemModel[] = [];
+    headerMenuSections: HeaderMenuSectionModel[] = [];
     footerMenuItems: FooterMenuItemModel[] = [];
+    footerMenuSections: FooterMenuSectionModel[] = [];
     searchPrompts: SearchPromptModel[] = [];
-    footerBanners: FooterBannerModel[] = [];
-    subheader = {
-        new: false,
-        discount: false,
-        promoActions: false,
-    }
 
     headerIsMinified = false;
     loginIsOpened = false;
@@ -29,17 +25,17 @@ export const AppService = makeService(class {
         if (data?.headerMenuItems) {
             this.headerMenuItems = data.headerMenuItems.map(item => new HeaderMenuItemModel(item));
         }
+        if (data?.headerMenuSections) {
+            this.headerMenuSections = data.headerMenuSections.map(item => new HeaderMenuSectionModel(item));
+        }
         if (data?.footerMenuItems) {
             this.footerMenuItems = data.footerMenuItems.map(item => new FooterMenuItemModel(item));
         }
-        if (data?.footerBanners) {
-            this.footerBanners = data.footerBanners.map(item => new FooterBannerModel(item));
+        if (data?.footerMenuSections) {
+            this.footerMenuSections = data.footerMenuSections.map(item => new FooterMenuSectionModel(item));
         }
         if (data?.searchPrompts) {
             this.searchPrompts = data.searchPrompts.map(item => new SearchPromptModel(item));
-        }
-        if (data?.subheader) {
-            this.subheader = data.subheader;
         }
     }
 });

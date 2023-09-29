@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 
-import { CityModel, CityModelInterface, RegionModel, RegionModelInterface } from "shared/models";
+import { CityModel, CityModelInterface } from "shared/models";
 
 import { makeService } from "./utilities/makeService";
 import { lodash } from "shared/utilities";
@@ -8,14 +8,14 @@ import { Cookie } from "shared/utilities/client";
 
 type BootType = {
     cities: CityModelInterface[],
-    regions: RegionModelInterface[],
+    // regions: RegionModelInterface[],
     cityId: number | string | null
 }
 
 export const LocationService = makeService(class {
     cityId: number | null = null;
     cities: CityModel[] = [];
-    regions: RegionModel[] = [];
+    // regions: RegionModel[] = [];
 
     constructor() {
         makeAutoObservable(this);
@@ -32,9 +32,9 @@ export const LocationService = makeService(class {
         return city || this.cities[0];
     }
 
-    boot = ({ cities, cityId, regions }: BootType) => {
+    boot = ({ cities, cityId}: BootType) => {
         this.cities = cities.map(city => new CityModel(city));
-        this.regions = regions.map(region => new RegionModel(region));
+        // this.regions = regions.map(region => new RegionModel(region));
         if (cityId !== null) {
             this.cityId = +cityId;
         }

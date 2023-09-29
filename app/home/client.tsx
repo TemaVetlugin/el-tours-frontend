@@ -105,10 +105,7 @@ export const Client = observer((
                                     <UiIcon size={12} name={"arrowDown"} color={COLORS.GRAY_PRIMARY}/>
                                 </div>
                             </div>
-                            <UiButton
-                                notification={UserService.user.userFavorites.length}
-
-                            >
+                            <UiButton>
                                 <UiIcon size={24} name={'search'}/>
                             </UiButton>
 

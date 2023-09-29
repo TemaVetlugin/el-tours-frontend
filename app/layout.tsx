@@ -1,16 +1,15 @@
 import Script from "next/script";
 import React from "react";
-import {configure} from "mobx";
-import {Metadata} from "next";
+import { configure } from "mobx";
+import { Metadata } from "next";
 
+import { bootQuery } from "shared/queries/frontend";
+import { Cache } from "shared/utilities/server";
+import { LayoutCookie, LayoutFooter, LayoutFooterForm } from "shared/layout";
+import { getCity } from "shared/server";
 
-import {bootQuery} from "shared/queries/frontend";
-import {Cache} from "shared/utilities/server";
-import {LayoutFooter, LayoutHeader, LayoutCookie, LayoutFooterForm} from "shared/layout";
-import {getCity} from "shared/server";
-
-import {Boot} from "./boot";
-import {StylesRegistry} from "./styles-registry";
+import { Boot } from "./boot";
+import { StylesRegistry } from "./styles-registry";
 
 import 'shared/styles/index.scss';
 
@@ -30,9 +29,7 @@ export default async function Layout({children}: PropsType) {
     const city = await getCity();
     const {data, description} = await Cache.remember(
         `bootQuery:${city.id}`,
-        async () => await bootQuery({
-            cityId: city.id
-        }),
+        async () => await bootQuery(),
     );
     return (
         <html lang='ru'>

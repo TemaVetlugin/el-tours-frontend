@@ -205,9 +205,7 @@ export const Client = observer(() => {
                                     <span>11 700 ₽</span>
                                 </div>
                             </div>
-                            <UiButton
-                                notification={UserService.user.userFavorites.length}
-                            >
+                            <UiButton>
                                 <span>Заказать визу</span>
                             </UiButton>
 

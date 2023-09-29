@@ -3,8 +3,6 @@ import { computed, makeObservable, observable } from "mobx";
 import { UserTypeEnum } from "shared/enums";
 import { ModelArrayCast } from "shared/casts";
 
-import { UserStoreModel, UserStoreModelInterface } from "./UserStore.model";
-import { UserFavoriteModel, UserFavoriteModelInterface } from "./UserFavorite.model";
 import { Model } from "./Model";
 
 export interface UserModelInterface {
@@ -20,15 +18,9 @@ export interface UserModelInterface {
     cityConfirmed?: boolean;
     isInitialized?: boolean;
     userAddressId?: number;
-    userFavorites?: UserFavoriteModelInterface[]
-    userStores?: UserStoreModelInterface[],
 }
 
 export class UserModel extends Model<UserModelInterface> implements UserModelInterface {
-    casts = {
-        userFavorites: new ModelArrayCast(UserFavoriteModel),
-        userStores: new ModelArrayCast(UserStoreModel),
-    }
 
     fillable: Array<keyof UserModelInterface> = [
         "id",
@@ -43,8 +35,6 @@ export class UserModel extends Model<UserModelInterface> implements UserModelInt
         "birthdate",
         "email",
         "isInitialized",
-        "userFavorites",
-        "userStores"
     ];
 
     id = 0;
@@ -59,8 +49,6 @@ export class UserModel extends Model<UserModelInterface> implements UserModelInt
     email = '';
     cityConfirmed = false;
     isInitialized: boolean = false;
-    userFavorites: UserFavoriteModel[] = [];
-    userStores: UserStoreModel[] = [];
 
     constructor(payload: UserModelInterface = {}) {
         super();
@@ -78,8 +66,6 @@ export class UserModel extends Model<UserModelInterface> implements UserModelInt
             email: observable,
             birthdate: observable,
             isInitialized: observable,
-            userStores: observable,
-            userFavorites: observable,
             type: computed,
         });
 

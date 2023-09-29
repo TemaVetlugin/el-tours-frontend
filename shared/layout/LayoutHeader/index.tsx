@@ -5,8 +5,8 @@ import React, {useEffect} from "react";
 
 import {useRouter} from "shared/hooks";
 import {AppService} from "shared/services";
-import {LayoutHeaderDefault} from "shared/layout";
-import {LayoutHeaderHome} from "shared/layout";
+import {LayoutHeaderDefault} from "./templates/LayoutHeaderDefault";
+import {LayoutHeaderHome} from "./templates/LayoutHeaderHome";
 
 import './index.scss';
 

@@ -71,6 +71,20 @@ export const LayoutMenu = observer(({template='default'}: PropsType) => {
                     </UiButton>
                 </UiWrap>
                 <UiPage.Wrap className="layout-header-menu-links">
+
+                    {AppService.footerMenuSections.map(title=>
+                        <div key={title.id} className="layout-header-menu-links-column">
+                            <div className="layout-header-menu-links-column__header">
+                                <span>{title.name}</span>
+                            </div>
+                            <div className="layout-header-menu-links-column__content">
+                                {AppService.footerMenuItems.filter(item=>item.footerMenuSectionId===title.id).map(link=>
+                                    <UiLink key={link.id} >{link.name}</UiLink>
+                                )}
+                            </div>
+                        </div>)}
+
+
                         <div className="layout-header-menu-links-column">
                             <div className="layout-header-menu-links-column__header">
                                 <span >Продукты</span>
@@ -83,101 +97,6 @@ export const LayoutMenu = observer(({template='default'}: PropsType) => {
                                 <li><UiLink>Аренда авто</UiLink></li>
                                 <li><UiLink>Круизы</UiLink></li>
                                 <li><UiLink>Аренда недвижимости</UiLink></li>
-                            </ul>
-                        </div>
-                        <div className="layout-header-menu-links-column">
-                            <div className="layout-header-menu-links-column__header">
-                                <span >Туры</span>
-                            </div>
-                            <ul className="layout-header-menu-links-column__content">
-                                <li><UiLink>Туры с споровождением</UiLink></li>
-                                <li><UiLink>Горящие туры</UiLink></li>
-                                <li><UiLink>Свадебные туры</UiLink></li>
-                                <li><UiLink>Детские лагеря</UiLink></li>
-                                <li><UiLink>Корпоративные туры</UiLink></li>
-                                <li><UiLink>Автобусные туры</UiLink></li>
-                                <li><UiLink>Классические туры</UiLink></li>
-                            </ul>
-                        </div>
-                        <div className="layout-header-menu-links-column">
-                            <div className="layout-header-menu-links-column__header">
-                                <span >Туристам</span>
-                            </div>
-                            <ul className="layout-header-menu-links-column__content">
-                                <li><UiLink>Оплата</UiLink></li>
-                                <li><UiLink>Оформление визы</UiLink></li>
-                                <li><UiLink>Поиск пары в тур</UiLink></li>
-                                <li><UiLink>Рассрочка и кредит</UiLink></li>
-                                <li><UiLink>Страхование</UiLink></li>
-                                <li><UiLink>Сим-карты</UiLink></li>
-                                <li><UiLink>Подарочный сертификат</UiLink></li>
-                            </ul>
-                        </div>
-                        <div className="layout-header-menu-links-column">
-                            <div className="layout-header-menu-links-column__header">
-                                <span >О компании</span>
-                            </div>
-                            <ul className="layout-header-menu-links-column__content">
-                                <li><UiLink>Сотрудники</UiLink></li>
-                                <li><UiLink>Достижения</UiLink></li>
-                                <li><UiLink>Вакансии</UiLink></li>
-                                <li><UiLink>Отзывы туристов</UiLink></li>
-                                <li><UiLink>Блог</UiLink></li>
-                                <li><UiLink>Контакты</UiLink></li>
-                            </ul>
-                        </div>
-                        <div className="layout-header-menu-links-column">
-                            <div className="layout-header-menu-links-column__header">
-                                <span >Страны</span>
-                            </div>
-                            <ul className="layout-header-menu-links-column__content">
-                                <li><UiLink>Россия</UiLink></li>
-                                <li><UiLink>Туры</UiLink></li>
-                                <li><UiLink>Египет</UiLink></li>
-                                <li><UiLink>Турция</UiLink></li>
-                                <li><UiLink>Вьетнам</UiLink></li>
-                                <li><UiLink>Израиль</UiLink></li>
-                                <li><UiLink>Индия</UiLink></li>
-                                <li><UiLink>Индонезия</UiLink></li>
-                                <li><UiLink>Иордания</UiLink></li>
-                                <li><UiLink>Доминикана</UiLink></li>
-                                <li><UiLink>Кипр</UiLink></li>
-                            </ul>
-                        </div>
-                        <div className="layout-header-menu-links-column">
-                            <div className="layout-header-menu-links-column__header">
-
-                            </div>
-                            <ul className="layout-header-menu-links-column__content">
-                                <li><UiLink>Россия</UiLink></li>
-                                <li><UiLink>Туры</UiLink></li>
-                                <li><UiLink>Египет</UiLink></li>
-                                <li><UiLink>Турция</UiLink></li>
-                                <li><UiLink>Вьетнам</UiLink></li>
-                                <li><UiLink>Тринидад и Тобаго</UiLink></li>
-                                <li><UiLink>Индия</UiLink></li>
-                                <li><UiLink>Индонезия</UiLink></li>
-                                <li><UiLink>Иордания</UiLink></li>
-                                <li><UiLink>Доминикана</UiLink></li>
-                                <li><UiLink>Кипр</UiLink></li>
-                            </ul>
-                        </div>
-                        <div className="layout-header-menu-links-column">
-                            <div className="layout-header-menu-links-column__header">
-
-                            </div>
-                            <ul className="layout-header-menu-links-column__content">
-                                <li><UiLink>Россия</UiLink></li>
-                                <li><UiLink>Туры</UiLink></li>
-                                <li><UiLink>Египет</UiLink></li>
-                                <li><UiLink>Турция</UiLink></li>
-                                <li><UiLink>Вьетнам</UiLink></li>
-                                <li><UiLink>Израиль</UiLink></li>
-                                <li><UiLink>Индия</UiLink></li>
-                                <li><UiLink>Индонезия</UiLink></li>
-                                <li><UiLink>Иордания</UiLink></li>
-                                <li><UiLink>Доминикана</UiLink></li>
-                                <li><UiLink>Кипр</UiLink></li>
                             </ul>
                         </div>
                         <div className="layout-header-menu-links-contacts">
@@ -215,9 +134,6 @@ export const LayoutMenu = observer(({template='default'}: PropsType) => {
                                 <p className="layout-header-menu-links-contacts__subtitle">Чат в мессенджерах</p>
                                 <div className="layout-header-menu-links-contacts__medias">
                                     <UiButton
-                                        onClick={() => {
-                                        }}
-                                        notification={UserService.user.userFavorites.length}
                                         template={'icon'}
                                         colors={{
                                             button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
@@ -228,9 +144,6 @@ export const LayoutMenu = observer(({template='default'}: PropsType) => {
                                         <UiIcon size={18} name={'vk'} color={COLORS.GREEN_PRIMARY}/>
                                     </UiButton>
                                     <UiButton
-                                        onClick={() => {
-                                        }}
-                                        notification={UserService.user.userFavorites.length}
                                         template={'icon'}
                                         colors={{
                                             button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
@@ -241,9 +154,6 @@ export const LayoutMenu = observer(({template='default'}: PropsType) => {
                                         <UiIcon size={18} name={'telegram'} color={COLORS.GREEN_PRIMARY}/>
                                     </UiButton>
                                     <UiButton
-                                        onClick={() => {
-                                        }}
-                                        notification={UserService.user.userFavorites.length}
                                         template={'icon'}
                                         colors={{
                                             button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
@@ -254,9 +164,6 @@ export const LayoutMenu = observer(({template='default'}: PropsType) => {
                                         <UiIcon size={18} name={'whatsapp'} color={COLORS.GREEN_PRIMARY}/>
                                     </UiButton>
                                     <UiButton
-                                        onClick={() => {
-                                        }}
-                                        notification={UserService.user.userFavorites.length}
                                         template={'icon'}
                                         colors={{
                                             button: [COLORS.WHITE, COLORS.GREEN_SECONDARY],
