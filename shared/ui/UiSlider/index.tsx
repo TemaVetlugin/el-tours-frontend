@@ -36,6 +36,7 @@ type PropsType<T> = {
     navigation?: (navigation: NavigationType, index?: number) => React.ReactNode;
     className?: string,
     slideClassName?: string,
+    lineClassName?: string,
     autoHeight?: boolean,
     autoPlay?: number
 }
@@ -54,6 +55,7 @@ const Slider = observer(<T, >(
         gap = 0,
         scrollbar=false,
         slideClassName,
+        lineClassName,
         className,
         autoPlay,
         autoHeight = true
@@ -167,9 +169,8 @@ const Slider = observer(<T, >(
                         onSwiper={swiper => {
                             store.set("swiper", swiper);
                         }}
-                        scrollbar={{
+                        scrollbar={scrollbar&&{
                             draggable: true,
-
                         }}
                         initialSlide={0}
                         effect={"fade"}
@@ -189,14 +190,12 @@ const Slider = observer(<T, >(
                         {items.map(slide)}
                     </Swiper>
                     {renderLine&&
-                    <div className="ui-slider__line">
-                        <div className="ui-slider__line--gray">
+                    <div className={`ui-slider__line ${lineClassName}`}>
                             {items.map((item, index) => (
                                 <SwiperSlide key={index}>
                                     {({isActive}) => <Observer render={() => renderLine(item, isActive, index)}/>}
                                 </SwiperSlide>
                             ))}
-                        </div>
                     </div>
                     }
 

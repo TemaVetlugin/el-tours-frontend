@@ -51,15 +51,9 @@
     }
 
     &__line {
-        position: relative;
-        padding-right:20px;
-        margin: 8px 0 8px 0;
-        &--gray{
-            border-radius: 2px;
-            background-color: $cGraySecondary;
-            width: 100%;
-            display: flex;
-        }
+        width: 100%;
+        display: flex;
+        gap: 2px;
         .swiper-slide{
             overflow: hidden;
             border-radius: 2px;

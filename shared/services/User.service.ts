@@ -66,26 +66,13 @@ export const UserService = makeService(class {
         return false;
     }
 
-    hasFavorite = (catalogProductId: number) => {
-        return this.user.userFavorites.some(userFavorite => userFavorite.catalogProductId === catalogProductId);
-    }
+
 
     toggleFavorite = async (catalogProductId: number) => {
         if (!this.isAuthorized()) {
             return;
         }
 
-        // optimistic update
-        UserService.user.update({
-            userFavorites: this.hasFavorite(catalogProductId)
-                ? UserService.user.userFavorites.filter(userFavorite => userFavorite.catalogProductId !== catalogProductId)
-                : [
-                    ...UserService.user.userFavorites,
-                    {
-                        id: Date.now(),
-                        catalogProductId
-                    }
-                ]
-        });
+
     }
 });
