@@ -11,7 +11,7 @@ import './page.scss';
 import { LayoutHeader } from "shared/layout";
 import { ROUTES } from "shared/contants";
 import { LayoutHeaderSearch } from "shared/layout/LayoutHeaderSearch";
-import {VmHotel} from "shared/viewmodels";
+import { VmCatalogHotel, VmCatalogTour } from "shared/viewmodels";
 
 export const Client = observer(() => {
     const city = useCity();
@@ -69,7 +69,8 @@ export const Client = observer(() => {
                 subtitle={'Шенгенские визы, мультивизы, приглашение для иностранцев'}
             />
 
-            <VmHotel/>
+            <VmCatalogHotel/>
+            <VmCatalogTour/>
 
         </UiPage>
     )

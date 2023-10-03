@@ -4,8 +4,8 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 import { useAsyncEffect, useCity, useSearchParams, useStore } from "shared/hooks";
-import { PaginationModel, VacancyModel } from "shared/models";
-import { vacancyQuery } from "shared/queries/main";
+import { PageModel, PaginationModel, VacancyModel } from "shared/models";
+import { pageQuery, vacancyQuery } from "shared/queries/main";
 import { UiDataBoundary, UiPage } from "shared/ui";
 import { LayoutHeader } from "shared/layout";
 import { PVacancyFormAside } from "./components/PVacancyFormAside";
@@ -22,6 +22,8 @@ export const Client = observer(() => {
         pagination: new PaginationModel(),
         isLoading: true,
         isShallowLoading: true,
+
+        page: new PageModel(),
     });
     const searchParams = useSearchParams({page: 1, tagId: null as null | number})
 
@@ -39,6 +41,19 @@ export const Client = observer(() => {
         store.set("isShallowLoading", false);
     }, [searchParams.page, city, searchParams.tagId]);
 
+    useAsyncEffect(async () => {
+        store.set("isShallowLoading", true);
+        const {isSuccess, data} = await pageQuery({
+            url: ROUTES.VACANCY().url,
+        });
+        if (isSuccess && data) {
+            store.set("page", new PageModel(data.item));
+        }
+        store.set("isLoading", false);
+        store.set("isShallowLoading", false);
+    }, [searchParams.page]);
+
+
     return (
         <UiPage className="p-vacancies">
             <LayoutHeader>
@@ -46,8 +61,8 @@ export const Client = observer(() => {
             </LayoutHeader>
             <UiPage.Header
                 backTo={ROUTES.VACANCY()}
-                title={'Вакансии'}
-                subtitle={'Возможно, нам не хватает именно тебя!'}
+                title={store.page.title}
+                subtitle={store.page.subtitle}
             />
 
             <div>

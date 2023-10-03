@@ -3,19 +3,21 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import { useStore } from "shared/hooks";
-import { ArticleModel, PaginationModel } from "shared/models";
+import { useAsyncEffect, useSearchParams, useStore } from "shared/hooks";
+import { ArticleModel, PageModel, PaginationModel } from "shared/models";
 import { UiPage } from "shared/ui";
 import { LayoutHeader } from "shared/layout";
 import { ROUTES } from "shared/contants";
 import { LayoutHeaderSearch } from "shared/layout/LayoutHeaderSearch";
 import { UiCardWrap } from "shared/ui/UiCardsWrap";
 import { VmService } from "shared/viewmodels/VmServices";
+import { pageQuery } from "shared/queries/main";
 
 export const Client = observer(() => {
     const store = useStore({
         articles: [] as ArticleModel[],
         pagination: new PaginationModel(),
+        page: new PageModel(),
         isLoading: true,
         isLightbox: false,
         lightboxIndex: 0,
@@ -68,6 +70,20 @@ export const Client = observer(() => {
         // и т.д.
     ];
 
+    const searchParams = useSearchParams({page: 1,})
+
+    useAsyncEffect(async () => {
+        store.set("isShallowLoading", true);
+        const {isSuccess, data} = await pageQuery({
+            url: ROUTES.SERVICES().url,
+        });
+        if (isSuccess && data) {
+            store.set("page", new PageModel(data.item));
+        }
+        store.set("isLoading", false);
+        store.set("isShallowLoading", false);
+    }, [searchParams.page]);
+
     return (
         <UiPage className="p-visas">
             <LayoutHeader>
@@ -75,18 +91,18 @@ export const Client = observer(() => {
             </LayoutHeader>
             <UiPage.Header
                 backTo={ROUTES.HOME()}
-                title={'Услуги'}
-                subtitle={'Найдите самые выгодные предложения на туры по всему миру и отправляйтесь в незабываемое путешествие'}
+                title={store.page.title}
+                subtitle={store.page.subtitle}
             />
             <UiPage.Wrap className={'p-visas__wrap'}>
                 {/*<UiDataBoundary isLoading={store.isLoading} withShallow>*/}
-                    <UiCardWrap className={"p-visas-cards"}>
-                        {media.map((media) =>
-                            <VmService
-                                key={media.id}
-                                country={media}
-                            />)}
-                    </UiCardWrap>
+                <UiCardWrap className={"p-visas-cards"}>
+                    {media.map((media) =>
+                        <VmService
+                            key={media.id}
+                            country={media}
+                        />)}
+                </UiCardWrap>
                 {/*</UiDataBoundary>*/}
             </UiPage.Wrap>
 

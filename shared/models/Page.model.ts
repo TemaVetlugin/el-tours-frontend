@@ -1,8 +1,6 @@
 import { makeObservable, observable } from "mobx";
 
 import { Model } from "./Model";
-import { CatalogProductModel, CatalogProductModelInterface } from "shared/models/CatalogProduct.model";
-import { ModelArrayCast } from "shared/casts";
 
 export interface PageModelInterface {
     id?: number;

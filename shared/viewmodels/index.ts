@@ -1,4 +1,5 @@
 export { VmArticle } from './VmArticle';
 export { VmVacancy } from './VmVacancy';
-export { VmHotel } from './VmHotel';
+export { VmCatalogHotel } from './VmCatalogHotel';
+export { VmCatalogTour } from './VmCatalogTour';
 export { VmWorker } from './VmWorker';

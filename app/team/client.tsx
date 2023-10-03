@@ -5,8 +5,8 @@ import { observer } from "mobx-react-lite";
 import classnames from "classnames";
 
 import { useAsyncEffect, useCity, useRouter, useSearchParams, useStore } from "shared/hooks";
-import { PaginationModel, WorkerModel } from "shared/models";
-import { workerQuery } from "shared/queries/main";
+import { PageModel, PaginationModel, WorkerModel } from "shared/models";
+import { pageQuery, workerQuery } from "shared/queries/main";
 import { VmWorker } from "shared/viewmodels";
 import { UiDataBoundary, UiGrid, UiIcon, UiPage, UiSlider } from "shared/ui";
 import { LayoutHeader } from "shared/layout";
@@ -26,6 +26,7 @@ export const Client = observer(() => {
         renderWorkers3: [] as WorkerModel[],
         renderWorkers4: [] as WorkerModel[],
         pagination: new PaginationModel(),
+        page: new PageModel(),
         isLoading: true,
         isShallowLoading: true,
         isLightbox: false,
@@ -55,6 +56,18 @@ export const Client = observer(() => {
         store.set("isShallowLoading", false);
     }, [searchParams.page, city, searchParams.tagId]);
 
+     useAsyncEffect(async () => {
+        store.set("isShallowLoading", true);
+        const {isSuccess, data} = await pageQuery({
+            url: ROUTES.TEAM().url,
+        });
+        if (isSuccess && data) {
+            store.set("page", new PageModel(data.item));
+        }
+        store.set("isLoading", false);
+        store.set("isShallowLoading", false);
+    }, [searchParams.page]);
+
     const duplicatedWorkers1 = [...store.renderWorkers1, ...store.renderWorkers1, ...store.renderWorkers1];
     const duplicatedWorkers2 = [...store.renderWorkers2, ...store.renderWorkers2, ...store.renderWorkers2];
     const duplicatedWorkers3 = [...store.renderWorkers3, ...store.renderWorkers3, ...store.renderWorkers3];
@@ -67,8 +80,8 @@ export const Client = observer(() => {
             </LayoutHeader>
             <UiPage.Header
                 backTo={ROUTES.ARTICLES()}
-                title={'Наша команда'}
-                subtitle={'Мы создаем лучший в мире сервис для путешествий!'}
+                title={store.page.title}
+                subtitle={store.page.subtitle}
 
             />
 

@@ -13,7 +13,7 @@ export type ResponseType = {
 
 export const cartQuery = async (params: RequestType) => {
     return await makeQuery<ResponseType>("GET", {
-        endpoint: '/frontend/cart',
+        endpoint: '/frontend/card',
         params
     });
 }

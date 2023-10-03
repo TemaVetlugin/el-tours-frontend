@@ -3,19 +3,21 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import { useSearchParams, useStore } from "shared/hooks";
-import { ArticleModel, PaginationModel } from "shared/models";
+import { useAsyncEffect, useSearchParams, useStore } from "shared/hooks";
+import { ArticleModel, PageModel, PaginationModel } from "shared/models";
 import { UiButton, UiForm, UiIcon, UiInput, UiLink, UiPage, UiSelect } from "shared/ui";
 import { LayoutHeader } from "shared/layout";
 import { COLORS, ROUTES } from "shared/contants";
 import { LayoutHeaderSearch } from "shared/layout/LayoutHeaderSearch";
 import { UiCardWrap } from "shared/ui/UiCardsWrap";
 import { VmCountry } from "shared/viewmodels/VmCountry";
+import { pageQuery } from "shared/queries/main";
 
 export const Client = observer(() => {
     const store = useStore({
         articles: [] as ArticleModel[],
         pagination: new PaginationModel(),
+        page: new PageModel(),
         isLoading: true,
         isLightbox: false,
         lightboxIndex: 0,
@@ -94,18 +96,18 @@ export const Client = observer(() => {
     const searchParams = useSearchParams({page: 1})
 
 
-    // useAsyncEffect(async () => {
-    //     store.set("isShallowLoading", true);
-    //     const {isSuccess, data} = await articlesQuery({
-    //         page: searchParams.page,
-    //     });
-    //     if (isSuccess && data) {
-    //         store.pagination.update(data.pagination);
-    //         store.set("articles", data.items.map(item => new ArticleModel(item)));
-    //     }
-    //     store.set("isLoading", false);
-    //     store.set("isShallowLoading", false);
-    // }, [searchParams.page, city, searchParams.tagId]);
+    useAsyncEffect(async () => {
+        store.set("isShallowLoading", true);
+        const {isSuccess, data} = await pageQuery({
+            url: ROUTES.COUNTRY().url,
+        });
+        if (isSuccess && data) {
+            store.set("page", new PageModel(data.item));
+        }
+        store.set("isLoading", false);
+        store.set("isShallowLoading", false);
+    }, [searchParams.page]);
+
 
     return (
         <UiPage className="p-country">
@@ -114,8 +116,8 @@ export const Client = observer(() => {
             </LayoutHeader>
             <UiPage.Header
                 backTo={ROUTES.VISA()}
-                title={'Страны мира'}
-                subtitle={'В нашем путеводителе вы найдете подробную информацию о 217 странах мира'}
+                title={store.page.title}
+                subtitle={store.page.subtitle}
                 aside={
                     <UiForm className={"p-country-header__form"}>
                         <UiInput placeholder={"Введите направление"}/>

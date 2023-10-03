@@ -4,8 +4,8 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 import { useAsyncEffect, useSearchParams, useStore } from "shared/hooks";
-import { ArticleModel, PaginationModel } from "shared/models";
-import { articlesQuery } from "shared/queries/main";
+import { ArticleModel, PageModel, PaginationModel } from "shared/models";
+import { articlesQuery, pageQuery } from "shared/queries/main";
 import { VmArticle } from "shared/viewmodels";
 import { UiDataBoundary, UiPage } from "shared/ui";
 import { LayoutHeader } from "shared/layout";
@@ -18,6 +18,7 @@ import './page.scss';
 export const Client = observer(() => {
     const store = useStore({
         articles: [] as ArticleModel[],
+        page: new PageModel(),
         pagination: new PaginationModel(),
         isLoading: true,
         isShallowLoading: true,
@@ -38,6 +39,18 @@ export const Client = observer(() => {
         store.set("isShallowLoading", false);
     }, [searchParams.page]);
 
+    useAsyncEffect(async () => {
+        store.set("isShallowLoading", true);
+        const {isSuccess, data} = await pageQuery({
+            url: ROUTES.ARTICLES().url,
+        });
+        if (isSuccess && data) {
+            store.set("page", new PageModel(data.item));
+        }
+        store.set("isLoading", false);
+        store.set("isShallowLoading", false);
+    }, [searchParams.page]);
+
     return (
         <UiPage className={"p-articles"}>
             <LayoutHeader>
@@ -45,8 +58,8 @@ export const Client = observer(() => {
             </LayoutHeader>
             <UiPage.Header
                 backTo={ROUTES.HOME()}
-                title={'Блог'}
-                subtitle={'Здесь собраны самые впечатляющие статьи путешественников.'}
+                title={store.page.title}
+                subtitle={store.page.subtitle}
 
             />
             <UiPage.Wrap>

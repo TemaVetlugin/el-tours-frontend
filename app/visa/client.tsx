@@ -3,8 +3,8 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import { useStore } from "shared/hooks";
-import { ArticleModel, PaginationModel } from "shared/models";
+import { useAsyncEffect, useSearchParams, useStore } from "shared/hooks";
+import { ArticleModel, PageModel, PaginationModel } from "shared/models";
 import { UiPage, UiTypography } from "shared/ui";
 import { LayoutHeader } from "shared/layout";
 import { ROUTES } from "shared/contants";
@@ -12,6 +12,7 @@ import { LayoutHeaderSearch } from "shared/layout/LayoutHeaderSearch";
 import { UiCardWrap } from "shared/ui/UiCardsWrap";
 import { PVisaSearch } from "./components/PVisaSearch";
 import { VmVisa } from "shared/viewmodels/VmVisa";
+import { pageQuery } from "shared/queries/main";
 
 export const Client = observer(() => {
     const store = useStore({
@@ -21,6 +22,7 @@ export const Client = observer(() => {
         isLightbox: false,
         lightboxIndex: 0,
         activeSlide: 0,
+        page: new PageModel(),
         isShallowLoading: true,
 
     });
@@ -69,6 +71,19 @@ export const Client = observer(() => {
         // и т.д.
     ];
 
+    const searchParams = useSearchParams({page: 1})
+
+    useAsyncEffect(async () => {
+        store.set("isShallowLoading", true);
+        const {isSuccess, data} = await pageQuery({
+            url: ROUTES.VISA().url,
+        });
+        if (isSuccess && data) {
+            store.set("page", new PageModel(data.item));
+        }
+        store.set("isLoading", false);
+        store.set("isShallowLoading", false);
+    }, [searchParams.page]);
     return (
         <UiPage className="p-visas">
             <LayoutHeader>
@@ -76,7 +91,7 @@ export const Client = observer(() => {
             </LayoutHeader>
             <UiPage.Header
                 backTo={ROUTES.VISA()}
-                title={'Визы в любую точку мира'}
+                title={store.page.title}
             />
             <UiPage.Wrap className={'p-visas__wrap'}>
                 <UiTypography>

@@ -119,7 +119,7 @@ export const LayoutFooter = observer(() => {
                                         button: [COLORS.GREEN_PRIMARY, COLORS.GREEN_SECONDARY],
                                         icon: [COLORS.WHITE, COLORS.WHITE],
                                     }}>
-                                        <UiIcon size={24} name={'plain'}/>
+                                        <UiIcon size={24} name={'plane'}/>
                                     </UiButton>
 
                                 </UiForm>
