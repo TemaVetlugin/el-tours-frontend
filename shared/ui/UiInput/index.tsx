@@ -15,6 +15,7 @@ type PropsType = UiControlPropsType<string, {
     type?: 'text' | 'password' | 'email',
     placeholder?: string | React.ReactNode,
     mask?: string,
+    className?: string,
     onFocus?: () => void,
     onBlur?: () => void,
     autoFocus?: boolean
@@ -27,6 +28,7 @@ export const UiInput = observer((
         type = 'text',
         value,
         mask,
+        className,
         onChange,
         placeholder,
         onBlur = () => {},
@@ -64,7 +66,7 @@ export const UiInput = observer((
 
             return (
                 <IMaskInput
-                    className={'ui-input__control'}
+                    className={`ui-input__control `}
                     onAccept={(value) => {
                         handleChange((value as string) || '')
                     }}
@@ -90,7 +92,7 @@ export const UiInput = observer((
     };
 
     return (
-        <div className="ui-input">
+        <div className={`ui-input ${className}`}>
             {input()}
             {placeholder && (
                 <div className="ui-input__placeholder">

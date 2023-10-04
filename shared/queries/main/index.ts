@@ -1,6 +1,7 @@
 
 export { citiesLocateQuery } from './citiesLocate.query';
 export { citiesQuery } from './cities.query';
+export { hotelsQuery } from './hotels.query';
 export { userStoresToggleQuery } from './userStoresToggle.query';
 export { usersBootQuery } from './usersBoot.query';
 export { usersConfirmQuery } from './usersConfirm.query';

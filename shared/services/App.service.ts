@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 
-import { FooterMenuItemModel, FooterMenuSectionModel, HeaderMenuItemModel, HeaderMenuSectionModel, SearchPromptModel } from "shared/models";
+import {FooterMenuItemModel, FooterMenuSectionModel, HeaderMenuItemModel, HeaderMenuSectionModel, MegaMenuItemModel, MegaMenuSectionModel, SearchPromptModel} from "shared/models";
 import { bootQuery } from "shared/queries/frontend";
 import { ReturnType } from "shared/types";
 
@@ -11,8 +11,9 @@ export const AppService = makeService(class {
     headerMenuSections: HeaderMenuSectionModel[] = [];
     footerMenuItems: FooterMenuItemModel[] = [];
     footerMenuSections: FooterMenuSectionModel[] = [];
+    megaMenuItems: MegaMenuItemModel[] = [];
+    megaMenuSections: MegaMenuSectionModel[] = [];
     searchPrompts: SearchPromptModel[] = [];
-
     headerIsMinified = false;
     loginIsOpened = false;
     menuIsOpened = false;
@@ -33,6 +34,14 @@ export const AppService = makeService(class {
         }
         if (data?.footerMenuSections) {
             this.footerMenuSections = data.footerMenuSections.map(item => new FooterMenuSectionModel(item));
+        }
+        if (data?.megaMenuItems) {
+            this.megaMenuItems = data.megaMenuItems.map(item => new MegaMenuItemModel(item));
+
+        }
+        if (data?.megaMenuSections) {
+            this.megaMenuSections = data.megaMenuSections.map(item => new MegaMenuSectionModel(item));
+
         }
         if (data?.searchPrompts) {
             this.searchPrompts = data.searchPrompts.map(item => new SearchPromptModel(item));

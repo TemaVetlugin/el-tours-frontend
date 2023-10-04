@@ -51,7 +51,6 @@ const BootHydrate = () => {
             const { data, isSuccess } = await bootQuery();
             if (data && isSuccess) {
                 AppService.boot(data);
-                console.log(AppService);
             }
         })();
     }, [city]);

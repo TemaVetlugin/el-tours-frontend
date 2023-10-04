@@ -13,6 +13,7 @@ import { LayoutHeader } from "shared/layout";
 import { UserService } from "shared/services";
 import { UiCardWrap } from "shared/ui/UiCardsWrap";
 import { VmTour } from "shared/viewmodels/VmTour";
+import {PHomeSearch} from "./components/PHomeSearch";
 
 type PropsType = NonNullable<ReturnType<typeof homeQuery>['data']>;
 export const Client = observer((
@@ -44,75 +45,7 @@ export const Client = observer((
             <LayoutHeader template={"home"}/>
             <div className="p-home-main">
 
-                <UiPage.Wrap>
-                    <div className="p-home-main-search">
-                        <div className="p-home-main-search-headers">
-                            <div className="p-home-main-search-headers__button p-home-main-search-headers__button--active">
-                                <span>Туры</span>
-                            </div>
-                            <div className="p-home-main-search-headers__button">
-                                <span>Авиабилеты</span>
-                            </div>
-                            <div className="p-home-main-search-headers__button">
-                                <span>Отели</span>
-                            </div>
-                            <div className="p-home-main-search-headers__button">
-                                <span>Перелет+отель</span>
-                            </div>
-                            <div className="p-home-main-search-headers__button">
-                                <span>Круизы</span>
-                            </div>
-                            <div className="p-home-main-search-headers__button">
-                                <span>Аренда авто</span>
-                            </div>
-                            <div className="p-home-main-search-headers__button">
-                                <span>Недвижимость</span>
-                            </div>
-                        </div>
-                        <div className="p-home-main-search-content">
-                            <div className="p-home-main-search-content-item">
-                                <span className="p-home-main-search-content-item__title">Город вылета</span>
-                                <div className="p-home-main-search-content-item__wrap">
-                                    <span>Нижний Новгород</span>
-                                    <UiIcon size={16} name={"close"} color={COLORS.GRAY_PRIMARY}/>
-                                </div>
-                            </div>
-                            <div className="p-home-main-search-content-item">
-                                <span className="p-home-main-search-content-item__title">Страна, курорт или отель</span>
-                                <div className="p-home-main-search-content-item__wrap">
-                                    <span>Греция</span>
-                                    <UiIcon size={16} name={"close"} color={COLORS.GRAY_PRIMARY}/>
-                                </div>
-                            </div>
-                            <div className="p-home-main-search-content-item">
-                                <span className="p-home-main-search-content-item__title">Дата вылета</span>
-                                <div className="p-home-main-search-content-item__wrap">
-                                    <span>с 9 авг</span>
-                                    <UiIcon size={16} name={"calendar"} color={COLORS.GRAY_PRIMARY}/>
-                                </div>
-                            </div>
-                            <div className="p-home-main-search-content-item">
-                                <span className="p-home-main-search-content-item__title">Ночей</span>
-                                <div className="p-home-main-search-content-item__wrap">
-                                    <span>на 7-8 ночей</span>
-                                    <UiIcon size={12} name={"arrowDown"} color={COLORS.GRAY_PRIMARY}/>
-                                </div>
-                            </div>
-                            <div className="p-home-main-search-content-item p-home-main-search-content-item--last">
-                                <span className="p-home-main-search-content-item__title">Туристов</span>
-                                <div className="p-home-main-search-content-item__wrap">
-                                    <span>2 взрослых</span>
-                                    <UiIcon size={12} name={"arrowDown"} color={COLORS.GRAY_PRIMARY}/>
-                                </div>
-                            </div>
-                            <UiButton>
-                                <UiIcon size={24} name={'search'}/>
-                            </UiButton>
-
-                        </div>
-                    </div>
-
-                </UiPage.Wrap>
+                <PHomeSearch/>
 
                 <div className="p-home-main-actions">
                     <UiSlider

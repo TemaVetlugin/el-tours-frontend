@@ -72,33 +72,17 @@ export const LayoutMenu = observer(({template='default'}: PropsType) => {
                 </UiWrap>
                 <UiPage.Wrap className="layout-header-menu-links">
 
-                    {AppService.footerMenuSections.map(title=>
+                    {AppService.megaMenuSections.map(title=>
                         <div key={title.id} className="layout-header-menu-links-column">
                             <div className="layout-header-menu-links-column__header">
                                 <span>{title.name}</span>
                             </div>
                             <div className="layout-header-menu-links-column__content">
-                                {AppService.footerMenuItems.filter(item=>item.footerMenuSectionId===title.id).map(link=>
+                                {AppService.megaMenuItems.filter(item=>item.megaMenuSectionId===title.id).map(link=>
                                     <UiLink key={link.id} >{link.name}</UiLink>
                                 )}
                             </div>
                         </div>)}
-
-
-                        <div className="layout-header-menu-links-column">
-                            <div className="layout-header-menu-links-column__header">
-                                <span >Продукты</span>
-                            </div>
-                            <ul className="layout-header-menu-links-column__content">
-                                <li><UiLink>Авиабилеты</UiLink></li>
-                                <li><UiLink>Туры</UiLink></li>
-                                <li><UiLink>Отели</UiLink></li>
-                                <li><UiLink>Отель + Перелет</UiLink></li>
-                                <li><UiLink>Аренда авто</UiLink></li>
-                                <li><UiLink>Круизы</UiLink></li>
-                                <li><UiLink>Аренда недвижимости</UiLink></li>
-                            </ul>
-                        </div>
                         <div className="layout-header-menu-links-contacts">
                             <div className="layout-header-menu-links-column__header">
                             </div>

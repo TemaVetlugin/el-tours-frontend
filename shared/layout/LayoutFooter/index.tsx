@@ -10,7 +10,6 @@ import './index.scss';
 import { AppService } from "shared/services";
 
 export const LayoutFooter = observer(() => {
-    console.log(AppService.footerMenuItems);
     return (
         <div className="layout-footer">
             <UiPage.Wrap>
