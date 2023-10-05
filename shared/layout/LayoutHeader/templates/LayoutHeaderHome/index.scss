@@ -1,6 +1,6 @@
 .layout-header-home {
     font-weight: 300;
-    color: white;
+    color: $cWhite;
     position: absolute;
     top: 0;
     right: 0;
@@ -41,7 +41,7 @@
 
     &-actions {
         display: flex;
-        color: white;
+        color: $cWhite;
         align-items: center;
         font-weight: 500;
 
@@ -50,12 +50,12 @@
         }
 
         &__info {
-            color: white;
+            color: $cWhite;
             font-size: 18px;
             margin-right: 40px;
 
             .ui-icon {
-                color: white;
+                color: $cWhite;
                 margin-left: 12px;
             }
         }

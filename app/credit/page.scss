@@ -1,6 +1,15 @@
 .p-credit {
-    color: $cDarkPrimary;
     background-color: $cGraySecondary;
+
+    &__title{
+        color: $cDarkPrimary;
+        font-size: 36px;
+        font-weight: 800;
+        line-height: 43px;
+        letter-spacing: 0.02em;
+        text-align: left;
+        margin: 48px 0 32px 0;
+    }
 
     &--flex {
         padding-top: 36px !important;

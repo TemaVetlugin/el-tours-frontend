@@ -1,18 +1,22 @@
 'use client'
 
 import React from "react";
-import {observer} from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
 
-import {UiButton, UiForm, UiIcon, UiInput} from "shared/ui";
+import { UiButton, UiForm, UiIcon, UiInput } from "shared/ui";
+import { COLORS, ROUTES } from "shared/contants";
+import { useRouter, useStore } from "shared/hooks";
+import { hotelsQuery } from "shared/queries/main";
+import { HotelService } from "shared/services";
+import { router } from "next/client";
+import { Notifier } from "shared/utilities";
+import { HotelModel } from "shared/models";
 
 import './index.scss';
-import {COLORS} from "shared/contants";
-import {useStore} from "shared/hooks";
-import {hotelsQuery} from "shared/queries/main";
-import {AppService, UserService} from "shared/services";
 
 
 export const PHomeSearch = observer(() => {
+    const router = useRouter()
     const store = useStore({
         isLoading: false,
         departureCity: '',
@@ -32,18 +36,27 @@ export const PHomeSearch = observer(() => {
         const {isSuccess, data, description} = await hotelsQuery({
             departureCity: store.departureCity,
             place: store.place,
+            placeType: 'Region',
             date: store.date,
             nights: store.nights,
             adults: store.adults,
+            children: '0',
+            currency: 'RUB',
         });
 
+
         if (isSuccess && data) {
-            console.log(data);
+            if (data.items.length === 0) {
+                console.log('К сожалению ни одного из товаров в данном заказе нет в наличии');
+                Notifier.alert('К сожалению ни одного из товаров в данном заказе нет в наличии');
+                return;
+            }
+            HotelService.set("hotels", data.items.map(cartItem => new HotelModel(cartItem)));
+            router.push(ROUTES.TOUR());
+        } else {
+            Notifier.alert(description);
         }
 
-        if (!isSuccess && description) {
-            console.log(description);
-        }
 
         store.set("isLoading", false);
     }

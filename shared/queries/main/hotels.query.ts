@@ -5,14 +5,16 @@ import { makeQuery } from "../utilities";
 type RequestType = {
     departureCity?: string;
     place?: string;
+    placeType?: string;
     date?: string;
     nights?: string;
     adults?: string;
+    children?: string;
+    currency?: string;
 }
 
 type ResponseType = {
     items: HotelModelInterface[],
-    pagination: PaginationModelInterface
 }
 
 export const hotelsQuery = async (params: RequestType) => {

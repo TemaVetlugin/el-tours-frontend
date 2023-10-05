@@ -4,13 +4,18 @@
     box-shadow: 0px 1px 10px 0px #00000014;
     border-radius: 4px;
     overflow: hidden;
+    margin-top: 30px;
+    background-color: $cWhite;
+
     &__wrap {
         display: flex;
-        &--center{
+
+        &--center {
             display: flex;
             align-items: center;
         }
-        &--absolute{
+
+        &--absolute {
             width: 330px;
             position: absolute;
             top: 20px;
@@ -20,7 +25,8 @@
             align-items: center;
             z-index: 4;
             color: $cWhite;
-            .ui-icon{
+
+            .ui-icon {
                 margin-left: 20px;
                 margin-right: 10px;
             }
@@ -31,17 +37,36 @@
         position: relative;
         min-width: 370px;
         max-width: 370px;
+        position: relative;
 
-        &__button{
+        &::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient(180deg, #04374D -21.66%, rgba(4, 55, 77, 0) 31.8%, rgba(4, 55, 77, 0) 74.94%, #04374D 125.45%);
+
+        }
+
+        &__image {
+            width: 370px;
+            height: 261px;
+            background-size: cover;
+        }
+
+        &__button {
             width: 30px;
             height: 30px;
             border-radius: 6px;
-            .ui-icon{
+
+            .ui-icon {
                 margin: 0;
             }
         }
 
-        &__rating{
+        &__rating {
             width: 40px;
             height: 40px;
             color: $cWhite;
@@ -152,8 +177,8 @@
 
             &__button {
                 width: 52px;
-                height: 19px;
-                font-size: 12px;
+                height: 19px !important;
+                font-size: 12px !important;
                 font-weight: 400;
                 line-height: 14px;
                 letter-spacing: 0em;

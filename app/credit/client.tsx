@@ -52,6 +52,9 @@ export const Client = observer(() => {
                     <UiTypography>
                         {html(store.page.description)}
                     </UiTypography>
+                    <h2 className="p-credit__title">
+                        Рассчитать тур в рассрочку
+                    </h2>
                     <PCreditCalculator/>
                 </UiPage.Main>
                 <UiPage.Aside>

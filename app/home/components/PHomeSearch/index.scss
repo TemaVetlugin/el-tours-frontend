@@ -20,7 +20,7 @@
             justify-content: center;
             align-items: center;
             width: 183px;
-            background-color: rgba(white, 0.9);
+            background-color: rgba($cWhite, 0.9);
             font-weight: 400;
             color: $cDarkSecondary;
             text-align: center;
@@ -29,7 +29,7 @@
             &--active {
                 height: 100%;
                 width: 182px;
-                background-color: white;
+                background-color: $cWhite;
                 font-weight: 500;
                 color: $cDarkPrimary;
 
@@ -40,7 +40,7 @@
     &-content {
         z-index: 1;
         height: 100px;
-        background-color: white;
+        background-color: $cWhite;
         width: 100%;
         display: flex;
         &__input{

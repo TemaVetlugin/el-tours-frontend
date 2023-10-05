@@ -33,7 +33,7 @@ const Page = observer((
 ) => {
 
     return (
-        <main className={classnames(`ui-page`, className)} style={style}>
+        <main className={classnames(`ui-page`, className&&className)} style={style}>
             {children}
         </main>
     )

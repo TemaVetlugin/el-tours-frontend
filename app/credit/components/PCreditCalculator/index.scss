@@ -1,113 +1,77 @@
 .p-credit-calculator{
-    min-width: 320px;
-    padding: 32px 32px 28px 32px;
-    background-color: white;
-    font-weight: 300;
-    font-size: 16px;
-    color: $cDarkSecondary;
+    height: fit-content;
+    background-color: $cWhite;
+    box-shadow: 0px 1px 10px 0px #00000014;
     border-radius: 5px;
-    margin-top: 48px;
-    p{
-        margin: 0;
-    }
-
-    &-header {
-        text-align: start;
-        border-bottom: 1px solid rgba($cGrayPrimary, 0.5);
-        h2{
-            font-weight: 800;
-            font-size: 24px;
-            margin: 0 0 20px 0;
-            letter-spacing: 0.02em;
-            color: $cDarkPrimary;
-        }
-        p{
-            font-size: 14px;
-            font-weight: 300;
-            margin: 0 0 20px 0;
-            color: $cDarkPrimary;
-            line-height: 22px;
-            width: 250px;
-        }
-
-    }
-    &-body{
-        padding-top: 24px;
-        padding-bottom: 8px;
-        &__list{
-            margin-bottom: 15px;
-            font-size: 18px;
-            font-weight: 300;
+    padding: 36px 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    &__wrap{
+        display: flex;
+        justify-content: space-between;
+        &--flex{
             display: flex;
-           justify-content: start;
-            .ui-icon{
-                margin-right: 10px;
-            }
-            &--image{
-                width: 30px;
-                height: 20px;
-                margin-right: 20px;
-                border-radius: 2px;
-                background-image: url('/assets/images/typical/image 118.png');
-            }
         }
+    }
 
-        &__confirm{
+    &__input{
+        width: 380px;
+        height: 50px;
+        &--small {
+            width: 190px;
             height: 50px;
-            width: 100%;
-            margin-top: 8px;
-            margin-bottom: 28px;
-        }
 
-        &__medias{
-            display: flex;
-            gap:16px;
-            padding-top: 16px;
-
+            .ui-input__control {
+                border-bottom-left-radius: 0 !important;
+                border-top-left-radius: 0 !important;
+            }
         }
     }
-    .ui-link{
-        text-decoration: underline;
-        font-size: 18px;
-        font-weight: 400;
+
+    &__select{
+        width: 380px;
+        height: 50px;
+        &--small{
+            width: 190px;
+            height: 50px;
+            .ui-select-view {
+                border-bottom-right-radius: 0 !important;
+                border-top-right-radius: 0 !important;
+                border-right: none;
+            }
+        }
     }
-    ul{
-        padding: 0;
-        margin: 0;
-        list-style: none;
-    }
-    &__text{
+
+    &__label{
+        font-size: 16px;
         font-weight: 300;
-        font-size: 18px;
-        padding-left: 20px !important;
-        position: relative;
-        line-height: 25px;
-
-
-
-        &:not(:last-child) {
-
-            margin-bottom: 16px;
-            @include isMobile {
-                margin-bottom: 12px;
-            }
-        }
-
-        &::before {
-            position: absolute;
-            top: 7px;
-            left: 1px;
-            width: 6px;
-            height: 6px;
-            border: 1px solid $cGrayPrimary;
-            border-radius: 100%;
-            content: '';
-
-            @include isMobile {
-                top: 7px;
-            }
-        }
-
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: $cDarkSecondary;
+        margin-bottom: 10px;
+        display: block;
     }
 
+    &-price{
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: 0em;
+        text-align: right;
+        color: $cDarkPrimary;
+        text-align: right;
+
+        &__numbers{
+            margin-top: 22px;
+            display: block;
+            color: $cGreenPrimary;
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 43px;
+            letter-spacing: 0em;
+            text-align: right;
+
+        }
+    }
 }

@@ -23,6 +23,7 @@ export const Notifier = new class {
     }
 
     alert = async (message: string) => {
+        console.log(message);
         return new Promise(resolve => {
             runInAction(() => {
                 this.data.alert.message = message;

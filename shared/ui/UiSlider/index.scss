@@ -37,7 +37,7 @@
         position: relative;
         opacity: 20%;
         &-drag{
-            background-color: white;
+            background-color: $cWhite;
             height: 4px;
             position: relative;
             z-index: 4;

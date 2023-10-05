@@ -7,10 +7,10 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        height: 48px;
+        height: 100%;
         padding: 0 12px;
         background: $cWhite;
-        border: 1px solid $cBorder;
+        border: 1px solid rgba($cGrayPrimary, 0.4);
         border-radius: 5px;
         cursor: pointer;
         color: $cDarkSecondaryBorder;

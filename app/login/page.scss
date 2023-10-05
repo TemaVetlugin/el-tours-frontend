@@ -10,7 +10,7 @@
         padding: 0 110px;
     }
     &-banner{
-        color: white;
+        color: $cWhite;
         &__logo{
             margin-top: 276px;
             margin-bottom: 80px;
@@ -28,7 +28,7 @@
         }
         .ui-typography{
             li{
-                color: white;
+                color: $cWhite;
                 margin-top: 24px;
             }
         }

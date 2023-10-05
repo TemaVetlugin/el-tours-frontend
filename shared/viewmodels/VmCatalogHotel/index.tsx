@@ -6,23 +6,19 @@ import classnames from "classnames";
 
 import { UiButton, UiIcon, UiLink, UiSlider } from "shared/ui";
 import { useStore } from "shared/hooks";
-import { ArticleModel, PaginationModel } from "shared/models";
+import { HotelModelInterface } from "shared/models";
 import { COLORS } from "shared/contants";
 
 import './index.scss';
 
 type PropsType = {
-    // article: HotelModelInterface,
+    hotel: HotelModelInterface,
 }
 
 
-export const VmCatalogHotel = observer(() => {
+export const VmCatalogHotel = observer(({hotel}:PropsType) => {
     const store = useStore({
-        articles: [] as ArticleModel[],
-        pagination: new PaginationModel(),
         isLoading: true,
-        isLightbox: false,
-        lightboxIndex: 0,
         activeSlide: 0,
         isShallowLoading: true,
 
@@ -40,53 +36,15 @@ export const VmCatalogHotel = observer(() => {
         <div className={classNames}>
             <div className="vm-catalog-hotel__wrap">
                 <div className="vm-catalog-hotel-media">
-                    <UiSlider
-                        className={'vm-catalog-hotel-media-slider'}
-                        slideClassName={'vm-catalog-hotel-media-slide'}
-                        lineClassName={'vm-catalog-hotel-media-line'}
-                        perGroup={1}
-                        perPage={1}
-                        gap={8}
-                        items={media}
-                        slide={(item, index) => (
-                            <UiSlider.Slide
-                                render={() => (
-                                    <div
-                                        className={classnames('vm-catalog-hotel-media-slide__inner', {
-                                            'vm-catalog-hotel-media-slide__inner--active': index === store.activeSlide
-                                        })}
-                                    >
-                                        {item.type === 'image' && (
-                                            <div
-                                                className={'vm-catalog-hotel-media-slide__image'}
-                                                onClick={() => {
-                                                    store.set("activeSlide", index);
-                                                    store.set("lightboxIndex", index);
-                                                }}
-                                                style={{
-                                                    backgroundImage: `url(${item.src})`
-                                                }}
-                                            />
-                                        )}
-                                    </div>
-                                )}/>
-                        )}
-                        renderLine={(item, _, index) => (
-                            <div
-                                className={classnames('vm-catalog-hotel-media-line__step', {
-                                    'vm-catalog-hotel-media-line__step--active': index === store.activeSlide
-                                })}
-                                onClick={() => {
-                                    store.set("activeSlide", index);
-                                }}
-                            >
-                            </div>
-                        )}
-                    />
+                    <div className="vm-catalog-hotel-media__image" style={{backgroundImage: `url(${hotel.photo})`}}></div>
+
                     <div className="vm-catalog-tour__wrap--absolute">
                         <div className="vm-catalog-tour__wrap--center">
-                            <div className="vm-catalog-tour-media__rating"><span>9.6</span></div>
+                            {hotel.rating&&hotel.rating!==0&&
+                                <>
+                            <div className="vm-catalog-tour-media__rating"><span>{hotel.rating/10}</span></div>
                             <span>превосходно</span>
+                                </>}
                             <UiIcon size={20} name={'comments'}/>
                             <span>126</span>
                         </div>
@@ -106,11 +64,11 @@ export const VmCatalogHotel = observer(() => {
                     <div className="vm-catalog-hotel-description-header">
                         <div className="vm-catalog-hotel-description-header__wrap">
                             <div className="vm-catalog-hotel-description-header__stars">
-                                <UiIcon size={12} name={'ratingStar'} color={COLORS.ORANGE_PRIMARY}/>
-                                <UiIcon size={12} name={'ratingStar'} color={COLORS.ORANGE_PRIMARY}/>
-                                <UiIcon size={12} name={'ratingStar'} color={COLORS.ORANGE_PRIMARY}/>
-                                <UiIcon size={12} name={'ratingStar'} color={COLORS.ORANGE_PRIMARY}/>
-                                <UiIcon size={12} name={'ratingStar'} color={COLORS.ORANGE_PRIMARY}/>
+                                {
+                                    Array(hotel.category).fill(hotel.category).map((_, i) =>
+                                        <UiIcon key={i} size={12} name={'ratingStar'} color={COLORS.ORANGE_PRIMARY}/>
+                                    )
+                                }
                             </div>
                             <UiButton
                                 template={'normal'}
@@ -127,7 +85,7 @@ export const VmCatalogHotel = observer(() => {
                         </div>
                         <UiIcon size={24} name={'heart'}/>
                     </div>
-                    <h3 className="vm-catalog-hotel-description__title">Makedonia Palace</h3>
+                    <h3 className="vm-catalog-hotel-description__title">{hotel.hotelName}</h3>
                     <div className="vm-catalog-hotel-description-info">
                         <div className="vm-catalog-hotel-description-info__country">Афины, Греция</div>
                         <div className="vm-catalog-hotel-description-info__link">
@@ -141,7 +99,7 @@ export const VmCatalogHotel = observer(() => {
                     </div>
                     <div className="vm-catalog-hotel-description-address">
                         <UiIcon size={16} name={'card'}/>
-                        <span>Komninon 11, Thessaloniki 546 24</span>
+                        <span>{hotel.address}</span>
                     </div>
                     <div className="vm-catalog-hotel-description-details">
                         <UiButton
@@ -219,7 +177,7 @@ export const VmCatalogHotel = observer(() => {
                 <div>
                     <div className="vm-catalog-hotel__wrap">
                         <UiIcon size={20} name={"bed"}></UiIcon>
-                        <span className={"vm-catalog-hotel-footer--bald"}>Номер «Премиум»</span>
+                        <span className={"vm-catalog-hotel-footer--bald"}>Номер «{hotel.roomType}»</span>
                     </div>
                     <span>2 отдельные кровати</span>
                 </div>

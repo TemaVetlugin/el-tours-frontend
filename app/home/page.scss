@@ -38,7 +38,7 @@
                     justify-content: center;
                     align-items: center;
                     width: 183px;
-                    background-color: rgba(white, 0.9);
+                    background-color: rgba($cWhite, 0.9);
                     font-weight: 400;
                     color: $cDarkSecondary;
                     text-align: center;
@@ -47,7 +47,7 @@
                     &--active {
                         height: 100%;
                         width: 182px;
-                        background-color: white;
+                        background-color: $cWhite;
                         font-weight: 500;
                         color: $cDarkPrimary;
 
@@ -58,7 +58,7 @@
             &-content {
                 z-index: 1;
                 height: 100px;
-                background-color: white;
+                background-color: $cWhite;
                 width: 100%;
                 display: flex;
                 &-item{
@@ -142,7 +142,7 @@
                     display: flex;
                     gap: 20px;
                     font-size: 14px;
-                    color: white;
+                    color: $cWhite;
 
                     &--small {
                         font-size: 12px;
@@ -273,7 +273,7 @@
 
         &__title {
             margin: 0 0 60px 0;
-            color: white;
+            color: $cWhite;
             text-align: center;
             font-weight: 800;
             font-size: 36px;
@@ -294,14 +294,14 @@
 
         &__text {
             width: 160px;
-            color: white;
+            color: $cWhite;
             line-height: 21.6px;
         }
 
     }
 
     &-feedback {
-        background-color: white;
+        background-color: $cWhite;
         padding-top: 80px;
 
         &-header {
@@ -456,7 +456,7 @@
     &-subscribe {
         background-color: $cDarkPrimary;
         padding: 80px 0;
-        color: white;
+        color: $cWhite;
 
         &__wrap {
             display: flex;
@@ -557,7 +557,7 @@
         &-card {
             color: $cDarkPrimary;
             height: 517px;
-            background-color: white;
+            background-color: $cWhite;
             border-radius: 10px;
             overflow: hidden;
             &--small {
