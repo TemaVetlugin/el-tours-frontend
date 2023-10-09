@@ -6,34 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ba8853a9-5661-4a2f-b3d3-acf3e6c65591" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/yaplus-frontend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/yaplus-frontend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/articles/[slug]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/articles/[slug]/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/cart/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/news/[slug]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/news/[slug]/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product/[slug]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[slug]/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/profile/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/profile/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/profile/page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/profile/page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/profile/reminders/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/profile/reminders/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/promo-actions/[slug]/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/promo-actions/[slug]/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/search/component/PSearchTabButton/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/search/component/PSearchTabButton/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/stores/client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/stores/client.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/components/checkout/CCheckoutStore/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/components/checkout/CCheckoutStore/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/icons/close.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/icons/close.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/icons/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/icons/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/icons/plus.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/icons/plus.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/icons/trash.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/icons/trash.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutFooter/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutFooter/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeader/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeader/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderLocation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderLocation/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/layout/LayoutHeaderSearch/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/layout/LayoutHeaderSearch/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/User.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/User.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/models/UserAddress.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/models/UserAddress.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/queries/main/userAddressesSave.query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/queries/main/userAddressesSave.query.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/ui/UiBadge/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiBadge/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/ui/UiButton/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiButton/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/ui/UiDataBoundary/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiDataBoundary/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/ui/UiPanel/components/Section/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shared/ui/UiPanel/components/Section/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/utilities/Notifier.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared/utilities/Notifier.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,11 +42,15 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2S6uxdTsl1j95gn7HQCz8EQt9fG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -86,7 +62,7 @@
     "RunOnceActivity.laravel-idea.search-composer-json": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "dev",
-    "last_opened_file_path": "/home/izica/git/yaplus-frontend/shared/icons",
+    "last_opened_file_path": "/home/artem/Desktop/work/el-tours-frontend/shared/viewmodels",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -94,7 +70,7 @@
     "nodejs_package_manager_path": "yarn",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "settings.editor.splitter.proportion": "0.27373737",
-    "ts.external.directory.path": "/home/izica/git/yaplus-frontend/node_modules/typescript/lib",
+    "ts.external.directory.path": "/home/artem/Desktop/work/el-tours-frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -108,18 +84,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/shared/icons" />
+      <recent name="$PROJECT_DIR$/shared/viewmodels" />
       <recent name="$PROJECT_DIR$/shared/queries/main" />
-      <recent name="$PROJECT_DIR$/shared/ui/UiForm/components" />
-      <recent name="$PROJECT_DIR$/shared/ui" />
-      <recent name="$PROJECT_DIR$/app/profile/assets" />
+      <recent name="$PROJECT_DIR$/app/credit/components" />
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/visa/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/contacts/assets" />
-      <recent name="$PROJECT_DIR$/app/favorites/assets" />
-      <recent name="$PROJECT_DIR$/app/favorites" />
-      <recent name="$PROJECT_DIR$/app/search" />
-      <recent name="$PROJECT_DIR$/app/search/[model]" />
+      <recent name="$PROJECT_DIR$/app/visa/[slug]" />
+      <recent name="$PROJECT_DIR$/app/article/[slug]/assets" />
+      <recent name="$PROJECT_DIR$/app/article/[slug]" />
+      <recent name="$PROJECT_DIR$/public/assets/images/typical" />
+      <recent name="$PROJECT_DIR$/shared/layout/LayoutHeader/templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -186,6 +162,43 @@
       <workItem from="1691522156820" duration="277000" />
       <workItem from="1691583239488" duration="10684000" />
       <workItem from="1691646739902" duration="9492000" />
+      <workItem from="1692163226267" duration="1124000" />
+      <workItem from="1692175617424" duration="9392000" />
+      <workItem from="1692242749733" duration="27071000" />
+      <workItem from="1692340186573" duration="1035000" />
+      <workItem from="1692354535503" duration="9516000" />
+      <workItem from="1692423110583" duration="27985000" />
+      <workItem from="1692590244586" duration="2093000" />
+      <workItem from="1692677835920" duration="5815000" />
+      <workItem from="1692693252390" duration="52000" />
+      <workItem from="1692695366224" duration="1867000" />
+      <workItem from="1692778604301" duration="23651000" />
+      <workItem from="1692936132573" duration="897000" />
+      <workItem from="1692946938976" duration="481000" />
+      <workItem from="1693191092749" duration="21954000" />
+      <workItem from="1693281662588" duration="9643000" />
+      <workItem from="1693366439696" duration="3982000" />
+      <workItem from="1693371787996" duration="16700000" />
+      <workItem from="1693466402945" duration="3552000" />
+      <workItem from="1693479447939" duration="2316000" />
+      <workItem from="1693541849357" duration="11056000" />
+      <workItem from="1693555461553" duration="11965000" />
+      <workItem from="1693793734985" duration="10870000" />
+      <workItem from="1693804612891" duration="17032000" />
+      <workItem from="1693897644677" duration="29916000" />
+      <workItem from="1693993113945" duration="79000" />
+      <workItem from="1693994289374" duration="4000" />
+      <workItem from="1693996684140" duration="4043000" />
+      <workItem from="1694006712816" duration="12000" />
+      <workItem from="1694058610335" duration="2630000" />
+      <workItem from="1694061246259" duration="28454000" />
+      <workItem from="1694253280062" duration="7438000" />
+      <workItem from="1694577522147" duration="21884000" />
+      <workItem from="1695088432026" duration="4935000" />
+      <workItem from="1695271644997" duration="72797000" />
+      <workItem from="1695779493161" duration="1812000" />
+      <workItem from="1695786067192" duration="4790000" />
+      <workItem from="1696053836043" duration="5618000" />
     </task>
     <servers />
   </component>
@@ -213,6 +226,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/shared/ui/UiWrap/index.tsx</url>
+          <line>2</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

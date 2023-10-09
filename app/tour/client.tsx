@@ -22,6 +22,7 @@ export const Client = observer(() => {
         isLightbox: false,
         isShallowLoading: true,
     });
+    console.log(HotelService);
 
     const searchParams = useSearchParams({page: 1, tagId: null as null | number})
 

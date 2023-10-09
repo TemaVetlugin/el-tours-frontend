@@ -208,9 +208,8 @@
             margin-bottom: 20px;
 
             &__country {
-                width: fit-content;
+                max-width: 250px;
                 padding-right: 20px;
-                height: 16px;
                 border-right: 1px solid $cGrayPrimary;
             }
 
@@ -241,10 +240,22 @@
         }
 
         &-details {
-            display: flex;
-            gap: 20px;
+            display: block;
+            width: 380px;
+            height: 49px;
+            overflow: hidden;
+
+            &__icon{
+                width: 24px;
+                height: 24px;
+                opacity: 0.5;
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
 
             &__item {
+                margin-right: 20px;
                 width: 45px;
                 height: 45px;
                 font-size: 12px;
@@ -281,10 +292,11 @@
         }
 
         &--bald {
+            margin-top: 4px;
             font-weight: 500;
             color: $cDarkPrimary;
             margin-left: 10px;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
         }
 
         &__price {
@@ -294,6 +306,7 @@
             letter-spacing: 0em;
             text-align: left;
             color: $cDarkPrimary;
+            margin-bottom: 4px;
 
             &--old {
                 font-size: 18px;

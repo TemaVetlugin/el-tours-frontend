@@ -31,6 +31,7 @@ export const PHomeSearch = observer(() => {
         hintsAdults: false,
     });
 
+
     const handleConfirm = async () => {
         store.set("isLoading", true);
         const {isSuccess, data, description} = await hotelsQuery({
@@ -47,7 +48,6 @@ export const PHomeSearch = observer(() => {
 
         if (isSuccess && data) {
             if (data.items.length === 0) {
-                console.log('К сожалению ни одного из товаров в данном заказе нет в наличии');
                 Notifier.alert('К сожалению ни одного из товаров в данном заказе нет в наличии');
                 return;
             }

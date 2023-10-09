@@ -25,4 +25,88 @@
         }
 
     }
+    &-tabs{
+        width: 100%;
+        margin-top: 60px;
+        box-shadow: 0px 2px 8px 0px #00000014;
+border-radius: 10px;
+        &-headers{
+            height: 60px;
+            width: 100%;
+            display: flex;
+            &__item{
+                width: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+                background-color: $cGrayLight;
+                color: $cDarkSecondary;
+                &--active{
+                    background-color: $cWhite;
+                    color: $cDarkPrimary;
+                }
+            }
+        }
+        &-body{
+            background-color: $cWhite;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            &__title{
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 22px;
+                letter-spacing: 0em;
+                text-align: left;
+                color: $cDarkPrimary;
+                padding-left: 45px;
+                margin-bottom: 20px;
+                display: block;
+                position: relative;
+                &::before{
+                    position: absolute;
+                    top: 1px;
+                    left: 1px;
+                    width: 25px;
+                    height: 20px;
+                    content: '';
+                    background-size: cover;
+                    background-image: url("/assets/images/typical/sign.png");
+                }
+            }
+            &__list{
+                padding-left: 20px;
+                margin-left: 45px;
+                display: block;
+                font-size: 16px;
+                font-weight: 300;
+                margin-bottom: 16px;
+                letter-spacing: 0em;
+                text-align: left;
+                position: relative;
+                &--end{
+                    font-size: 16px;
+                    font-weight: 300;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    margin-left: 45px;
+                    margin-bottom: 10px;
+                    line-height: 30px;
+                    display: block;
+                }
+                &::before{
+                    position: absolute;
+                    top: 7px;
+                    left: 1px;
+                    width: 6px;
+                    height: 6px;
+                    border: 1px solid $cGrayPrimary;
+                    border-radius: 100%;
+                    content: '';
+                }
+            }
+        }
+    }
 }

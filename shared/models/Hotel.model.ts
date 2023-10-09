@@ -10,6 +10,12 @@ export interface HotelModelInterface {
     roomType?: string;
     address?: string;
     hotelName?: string;
+    city?: string;
+    nights?: string;
+    date?: string;
+    minPrice?: string;
+    tourists?: string;
+    facts?: { id: number, slug: string, name: string, iconUrl: string, value: number}[];
 }
 
 export class HotelModel extends Model<HotelModelInterface> implements HotelModelInterface {
@@ -22,6 +28,12 @@ export class HotelModel extends Model<HotelModelInterface> implements HotelModel
         "roomType",
         "address",
         "hotelName",
+        "city",
+        "nights",
+        "date",
+        "minPrice",
+        "tourists",
+        "facts",
     ];
 
     id= 0;
@@ -31,6 +43,12 @@ export class HotelModel extends Model<HotelModelInterface> implements HotelModel
     roomType= '';
     address= '';
     hotelName= '';
+    city= '';
+    nights= '';
+    date= '';
+    minPrice= '';
+    tourists= '';
+    facts= [];
 
     constructor(payload?: HotelModelInterface) {
         super();
@@ -43,6 +61,12 @@ export class HotelModel extends Model<HotelModelInterface> implements HotelModel
             roomType: observable,
             address: observable,
             hotelName: observable,
+            city: observable,
+            nights: observable,
+            date: observable,
+            minPrice: observable,
+            tourists: observable,
+            facts: observable,
         });
 
         this.update(payload);
